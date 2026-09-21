@@ -1,0 +1,926 @@
+@import url('https://fonts.googleapis.com/css2?family=Forum&family=PT+Sans:wght@400;700&family=IBM+Plex+Mono:wght@400;600&family=Press+Start+2P&display=swap');
+
+/* DM Cockpit — базовый слой. Загружается после tokens.css.
+   Всё, что рисует система: ноль скруглений, сетка 4px, фаска вместо рамок.
+   Свет падает сверху-слева: светлая грань hi сверху и слева, тёмная lo снизу и справа. */
+
+.dm-root,
+.dm-root * {
+  box-sizing: border-box;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.dm-root {
+  font-family: var(--font-text);
+  font-size: 15px;
+  line-height: 21px;
+  color: var(--tx);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+
+  /* рецепты поверхностей — чтобы не повторять литералы в каждом блоке */
+  --grad-plate: linear-gradient(var(--pl), var(--cd));
+  --grad-gold: linear-gradient(#5a4326, #2f2214);
+  --bevel-gold: inset 1px 1px 0 #a8834a, inset -1px -1px 0 var(--lo);
+  --bevel-sim: inset 1px 1px 0 #4e8880, inset -1px -1px 0 var(--lo);
+}
+
+.dm-root svg { image-rendering: pixelated; }
+
+/* Заголовки — антиква. Пиксельный шрифт остался только на обложке. */
+.dm-h   { font-family: var(--font-display); font-size: 17px; line-height: 21px; letter-spacing: .03em; }
+.dm-h-lg { font-family: var(--font-display); font-size: 20px; line-height: 26px; letter-spacing: .04em; }
+.dm-h-xl { font-family: var(--font-display); font-size: 28px; line-height: 34px; letter-spacing: .03em; }
+.dm-cap { font-family: var(--font-display); font-size: 15px; line-height: 19px; letter-spacing: .12em; text-transform: uppercase; }
+/* Числа — моноширинный, всегда табличные. */
+.dm-n    { font-family: var(--font-mono); font-weight: 600; font-variant-numeric: tabular-nums; }
+.dm-n-lg { font-family: var(--font-mono); font-weight: 600; font-size: 24px; line-height: 28px; font-variant-numeric: tabular-nums; }
+.dm-n-xl { font-family: var(--font-mono); font-weight: 600; font-size: 32px; line-height: 36px; font-variant-numeric: tabular-nums; }
+.dm-code { font-family: var(--font-mono); font-weight: 600; font-size: 12px; line-height: 16px; letter-spacing: .06em; text-transform: uppercase; }
+/* Совместимость со старыми именами: кегль подменён, семейство — новое. */
+.dm-px { font-family: var(--font-display); letter-spacing: .03em; }
+.dm-px-8  { font-family: var(--font-mono); font-weight: 600; font-size: 12px; line-height: 16px; letter-spacing: .06em; }
+.dm-px-16 { font-family: var(--font-display); font-size: 17px; line-height: 21px; }
+.dm-px-24 { font-family: var(--font-mono); font-weight: 600; font-size: 24px; line-height: 28px; }
+.dm-px-32 { font-family: var(--font-mono); font-weight: 600; font-size: 32px; line-height: 36px; }
+.dm-t   { font-size: 15px; line-height: 21px; }
+.dm-t-sm { font-size: 14px; line-height: 19px; }
+.dm-t-xs { font-size: 13px; line-height: 17px; }
+.dm-t-lg { font-size: 17px; line-height: 24px; }
+.dm-t2 { color: var(--t2); }
+.dm-t3 { color: var(--t3); }
+.dm-gd { color: var(--gd); }
+.dm-ellipsis { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+/* Бирка горячей клавиши — утопленная. */
+.dm-key {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--t3);
+  padding: 0 4px;
+  background: var(--bg);
+  box-shadow: var(--bevel-in);
+}
+
+/* --- Панель --------------------------------------------------------- */
+.dm-panel {
+  background: var(--pn);
+  box-shadow: var(--bevel);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.dm-panel__head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 28px;
+  padding: 0 8px;
+  background: var(--grad-plate);
+  box-shadow: var(--plate);
+  color: var(--t2);
+  font-family: var(--font-display);
+  font-size: 15px;
+  line-height: 19px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex: none;
+}
+.dm-panel__head--active { color: var(--gd); box-shadow: var(--plate), inset 0 -2px 0 var(--gd); }
+.dm-panel__key {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--t3);
+  padding: 0 4px;
+  background: var(--bg);
+  box-shadow: var(--bevel-in);
+}
+.dm-panel__body { padding: 8px; overflow: auto; min-height: 0; }
+
+/* --- Рамка карточки -------------------------------------------------- */
+.dm-card {
+  background: var(--cd);
+  box-shadow: var(--bevel);
+  width: var(--card-single);
+  display: flex;
+  flex-direction: column;
+}
+/* Бронзовая рамка — только первый ярус: оверлей 720px и обложка. */
+.dm-card--overlay { width: var(--card-overlay); box-shadow: var(--bevel), var(--frame); }
+.dm-card--selected { box-shadow: var(--bevel), var(--glow-gold); }
+.dm-card--pending { box-shadow: var(--bevel), var(--glow-sim); animation: dm-pulse 1.6s steps(2, end) infinite; }
+@keyframes dm-pulse { 0%, 49% { filter: none; } 50%, 100% { filter: brightness(1.35); } }
+
+.dm-spine {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: var(--spine-h);
+  padding: 0 8px;
+  background: var(--grad-plate);
+  box-shadow: var(--plate);
+  flex: none;
+}
+.dm-spine__name {
+  font-family: var(--font-display);
+  font-size: 17px;
+  line-height: 21px;
+  letter-spacing: .03em;
+  color: var(--tx);
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.dm-badge {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: .06em;
+  padding: 1px 5px;
+  background: var(--cd);
+  box-shadow: var(--bevel);
+  color: var(--t2);
+  flex: none;
+}
+.dm-badge--gd { color: var(--gd); background: var(--grad-gold); box-shadow: var(--bevel-gold); }
+
+/* --- Боевая полоса карточки ------------------------------------------ */
+.dm-stats {
+  display: flex;
+  gap: 1px;
+  background: var(--lo);
+  padding: 1px 0;
+  flex: none;
+}
+.dm-stat {
+  flex: 1;
+  background: var(--grad-plate);
+  box-shadow: var(--bevel);
+  padding: 5px 4px;
+  text-align: center;
+}
+.dm-stat__label {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--t2);
+}
+.dm-stat__value {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  font-variant-numeric: tabular-nums;
+  color: var(--tx);
+  text-shadow: 0 1px 0 var(--lo);
+}
+
+/* --- Плитка характеристики / навыка ---------------------------------- */
+.dm-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  padding: 5px 4px;
+  background: var(--grad-plate);
+  box-shadow: var(--bevel), inset 0 3px 0 var(--lo);
+  border: none;
+  cursor: pointer;
+  min-width: 52px;
+}
+.dm-tile:hover { background: linear-gradient(#453a2e, var(--pl)); }
+.dm-tile:focus-visible { outline: none; box-shadow: var(--bevel), var(--glow-gold); }
+.dm-tile--owned { box-shadow: var(--bevel), inset 0 3px 0 var(--gd); }
+.dm-tile__label {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--t2);
+  text-align: center;
+}
+.dm-tile__mod {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  font-variant-numeric: tabular-nums;
+  color: var(--tx);
+  text-shadow: 0 1px 0 var(--lo);
+}
+.dm-tile__score {
+  font-size: 13px;
+  line-height: 16px;
+  color: var(--t2);
+}
+.dm-tile__owned-mark { width: 8px; height: 8px; background: var(--gd); flex: none; }
+
+/* --- Полоса HP -------------------------------------------------------- */
+.dm-hp { display: flex; align-items: center; gap: 8px; }
+.dm-hp__track {
+  position: relative;
+  flex: 1;
+  height: 16px;
+  background: var(--hp-track);
+  box-shadow: var(--bevel-in);
+  overflow: hidden;
+}
+.dm-hp__fill { height: 100%; transition: width 160ms steps(8, end); box-shadow: inset 0 1px 0 #ffffff40, inset 0 -3px 5px #00000055; }
+.dm-hp__fill--high { background: linear-gradient(#8fc271, var(--hp-high) 55%, #4a7a33); }
+.dm-hp__fill--mid  { background: linear-gradient(#d9b45e, var(--hp-mid) 55%, #8a6520); }
+.dm-hp__fill--low  { background: linear-gradient(#d4695b, var(--hp-low) 55%, #8a3229); }
+.dm-hp__temp {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: repeating-linear-gradient(135deg, var(--fx-temp) 0 3px, #2f5a78 3px 6px);
+  box-shadow: inset 0 1px 0 #ffffff55;
+}
+.dm-hp__value {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 20px;
+  font-variant-numeric: tabular-nums;
+  color: var(--tx);
+  flex: none;
+}
+.dm-hp--flash-damage .dm-hp__track { box-shadow: var(--flash-damage); }
+.dm-hp--flash-heal .dm-hp__track { box-shadow: var(--flash-heal); }
+
+.dm-death { display: flex; gap: 4px; align-items: center; }
+.dm-death__pip {
+  width: 10px; height: 10px;
+  background: var(--wl);
+  box-shadow: var(--bevel-in);
+}
+.dm-death__pip--save { background: var(--fx-heal); box-shadow: var(--bevel); }
+.dm-death__pip--fail { background: var(--fx-damage); box-shadow: var(--bevel); }
+
+/* --- Кнопки и поля ---------------------------------------------------- */
+.dm-btn {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: .04em;
+  color: var(--tx);
+  background: var(--grad-plate);
+  box-shadow: var(--bevel);
+  border: none;
+  padding: 4px 9px;
+  cursor: pointer;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.dm-btn:hover { background: linear-gradient(#453a2e, var(--pl)); color: var(--gd-hi); }
+.dm-btn:active { box-shadow: var(--bevel-in); }
+.dm-btn:focus-visible { outline: none; box-shadow: var(--bevel), var(--glow-gold); }
+.dm-btn[disabled] { opacity: var(--op-disabled); cursor: default; }
+.dm-btn--damage { color: var(--fx-damage-hi); box-shadow: var(--bevel), inset 0 -2px 0 var(--fx-damage); }
+.dm-btn--heal { color: var(--fx-heal-hi); box-shadow: var(--bevel), inset 0 -2px 0 var(--fx-heal); }
+.dm-btn--gd { color: var(--gd-hi); background: var(--grad-gold); box-shadow: var(--bevel-gold); }
+.dm-btn--ghost { background: var(--cd); color: var(--t2); box-shadow: var(--bevel); }
+
+.dm-input {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  font-variant-numeric: tabular-nums;
+  color: var(--tx);
+  background: var(--wl);
+  box-shadow: var(--bevel-in);
+  border: none;
+  padding: 4px 8px;
+  width: 64px;
+  text-align: center;
+}
+.dm-input:focus-visible { outline: none; box-shadow: var(--bevel-in), var(--glow-gold); }
+
+/* --- Чип состояния ---------------------------------------------------- */
+.dm-chip {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  max-width: 100%;
+  gap: 4px;
+  padding: 1px 6px 2px;
+  color: var(--fx-debuff-hi);
+  background: var(--grad-plate);
+  box-shadow: var(--bevel), inset 0 -2px 0 var(--fx-debuff);
+  font-size: 14px;
+  line-height: 18px;
+  cursor: help;
+}
+.dm-chip--buff { color: var(--fx-buff-hi); box-shadow: var(--bevel), inset 0 -2px 0 var(--fx-buff); }
+.dm-chip--conc { color: #9fdcd2; background: linear-gradient(#21403c, #162926); box-shadow: var(--bevel-sim); }
+.dm-chip > span:first-of-type { overflow: hidden; text-overflow: ellipsis; }
+.dm-chip__timer { font-family: var(--font-mono); font-size: 12px; color: var(--t2); flex: none; }
+
+/* --- Токен инициативы -------------------------------------------------- */
+.dm-token {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  background: var(--grad-plate);
+  box-shadow: var(--bevel);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex: none;
+}
+.dm-token--active { transform: scale(1.25); background: var(--grad-gold); box-shadow: var(--bevel-gold), var(--token-active); z-index: 1; }
+.dm-token--down { opacity: var(--op-disabled); }
+.dm-token__init {
+  position: absolute;
+  top: 0; left: 0;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 0 3px;
+  background: var(--bg);
+  box-shadow: var(--bevel-in);
+  color: var(--t2);
+}
+.dm-token__hp {
+  position: absolute;
+  bottom: 1px; left: 1px; right: 1px;
+  height: 5px;
+  background: var(--hp-track);
+  box-shadow: var(--bevel-in);
+}
+.dm-token__hp-fill { height: 100%; }
+.dm-token__legendary { display: flex; gap: 2px; position: absolute; top: -6px; right: 0; }
+.dm-token__legendary span { width: 4px; height: 4px; background: var(--gd); }
+
+/* --- Лестница масштабов ------------------------------------------------ */
+.dm-ladder {
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  height: var(--bar-scale);
+  background: var(--lo);
+  padding: 1px;
+  gap: 1px;
+}
+.dm-ladder__step {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  flex: none;
+  gap: 6px;
+  padding: 0 9px;
+  border: none;
+  color: var(--t2);
+  cursor: pointer;
+  background: var(--grad-plate);
+  box-shadow: var(--bevel);
+  font-family: var(--font-display);
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.dm-ladder__step:hover { color: var(--tx); background: linear-gradient(#453a2e, var(--pl)); }
+.dm-ladder__step--current { color: var(--gd-hi); background: var(--grad-gold); box-shadow: var(--bevel-gold); }
+.dm-ladder__sep { color: var(--t4); display: flex; align-items: center; padding: 0 2px; }
+
+/* --- Темп времени ------------------------------------------------------ */
+.dm-tempo { display: flex; align-items: center; gap: 1px; padding: 1px; background: var(--lo); }
+.dm-tempo__opt {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  padding: 3px 7px;
+  border: none;
+  background: var(--grad-plate);
+  box-shadow: var(--bevel);
+  color: var(--t2);
+  cursor: pointer;
+}
+.dm-tempo__opt:hover { color: var(--tx); }
+.dm-tempo__opt--on { background: var(--grad-gold); color: var(--gd-hi); box-shadow: var(--bevel-gold); }
+.dm-tempo__go { margin-left: 8px; }
+
+/* --- Дельта симуляции --------------------------------------------------- */
+.dm-delta {
+  background: var(--cd);
+  box-shadow: var(--bevel), inset 3px 0 0 var(--src-sim);
+  padding: 7px 8px 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.dm-delta__head { display: flex; align-items: center; gap: 6px; }
+.dm-delta__scale { color: var(--t2); display: flex; align-items: center; gap: 4px; }
+.dm-delta__change { display: flex; align-items: baseline; gap: 6px; font-size: 14px; }
+.dm-delta__was { color: var(--t3); text-decoration: line-through; }
+.dm-delta__now { color: var(--gd-hi); font-family: var(--font-mono); font-weight: 600; font-variant-numeric: tabular-nums; }
+.dm-delta__why { color: var(--t2); font-size: 14px; line-height: 19px; }
+.dm-delta__acts { display: flex; gap: 4px; flex-wrap: wrap; }
+
+/* --- Журнал -------------------------------------------------------------- */
+.dm-entry {
+  display: grid;
+  grid-template-columns: 72px 16px 1fr;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--bd);
+  align-items: start;
+}
+.dm-entry__time {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--t3);
+  white-space: pre-line;
+}
+.dm-entry__text { font-size: 15px; line-height: 21px; color: var(--tx); }
+.dm-entry__marks { display: inline-flex; gap: 4px; vertical-align: middle; margin-left: 4px; }
+.dm-entry--secret .dm-entry__text { opacity: var(--op-hidden-from-players); }
+.dm-mention {
+  box-shadow: inset 0 -1px 0 var(--t4);
+  cursor: pointer;
+  color: var(--tx);
+  font-weight: 700;
+}
+.dm-mention:hover { box-shadow: inset 0 -1px 0 var(--gd); color: var(--gd-hi); }
+.dm-tag { color: var(--src-canon); cursor: pointer; }
+
+/* --- Пин карты ------------------------------------------------------------ */
+.dm-pin {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 7px 3px 4px;
+  background: var(--grad-plate);
+  box-shadow: var(--float);
+  color: var(--tx);
+  font-size: 13px;
+  line-height: 17px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.dm-pin--secret { color: var(--t2); background: linear-gradient(#2a2430, #191320); box-shadow: inset 1px 1px 0 #5a4a6b, inset -1px -1px 0 var(--lo), 0 2px 6px rgba(0,0,0,0.67); }
+.dm-pin__count {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 0 3px;
+  color: #1b1308;
+  background: var(--gd);
+}
+
+/* --- Небесная полоса -------------------------------------------------------- */
+.dm-celestial { display: flex; align-items: center; gap: 12px; color: var(--t2); font-size: 14px; white-space: nowrap; }
+.dm-celestial > span { flex: none; }
+.dm-celestial__count { color: var(--tx); }
+
+/* --- Тултип ------------------------------------------------------------------ */
+.dm-tip {
+  position: absolute;
+  z-index: 20;
+  background: var(--pl);
+  box-shadow: var(--float);
+  padding: 4px 7px;
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--tx);
+  white-space: nowrap;
+  pointer-events: none;
+}
+.dm-tip__key { color: var(--t2); }
+
+/* --- Вкладки ------------------------------------------------------------------- */
+.dm-tabs { display: flex; gap: 1px; background: var(--lo); padding: 1px 1px 0; flex: none; }
+.dm-tab {
+  font-family: var(--font-display);
+  font-size: 15px;
+  line-height: 19px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--t2);
+  background: var(--cd);
+  box-shadow: inset 1px 1px 0 var(--hi), inset -1px 0 0 var(--lo);
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.dm-tab:hover { color: var(--tx); }
+.dm-tab--on { color: var(--gd-hi); background: var(--grad-gold); box-shadow: inset 1px 1px 0 #a8834a, inset -1px 0 0 var(--lo), inset 0 -3px 0 var(--gd); }
+
+/* --- Сетка состояний ---------------------------------------------------------- */
+.dm-cgrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 4px;
+}
+.dm-cgrid__cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 7px 4px;
+  background: var(--grad-plate);
+  box-shadow: var(--bevel);
+  border: none;
+  color: var(--t2);
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 17px;
+  text-align: center;
+  cursor: pointer;
+}
+.dm-cgrid__cell:hover { color: var(--tx); background: linear-gradient(#453a2e, var(--pl)); }
+.dm-cgrid__cell:focus-visible { outline: none; box-shadow: var(--bevel), var(--glow-gold); }
+.dm-cgrid__cell--on {
+  color: var(--fx-debuff-hi);
+  background: linear-gradient(#4a3520, #2b1e12);
+  box-shadow: inset 1px 1px 0 #8a6a3a, inset -1px -1px 0 var(--lo), inset 0 -3px 0 var(--fx-debuff);
+}
+
+/* --- Кукла экипировки ---------------------------------------------------------- */
+.dm-doll { display: flex; gap: 16px; align-items: flex-start; }
+.dm-doll__grid { display: grid; grid-template-columns: repeat(3, 72px); gap: 4px; flex: none; }
+.dm-doll__slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  height: 66px;
+  padding: 6px 4px;
+  background: var(--cd);
+  box-shadow: var(--bevel-in);
+  border: none;
+  color: var(--t3);
+  font-family: inherit;
+  cursor: pointer;
+}
+.dm-doll__slot--filled { color: var(--t2); background: var(--grad-plate); box-shadow: var(--bevel); }
+.dm-doll__slot:hover { box-shadow: var(--bevel), inset 0 -2px 0 var(--br); }
+.dm-doll__slot:focus-visible { outline: none; box-shadow: var(--bevel), var(--glow-gold); }
+.dm-doll__label { font-size: 13px; line-height: 16px; max-width: 100%; }
+.dm-doll__side { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.dm-doll__head {
+  font-family: var(--font-display);
+  font-size: 15px;
+  line-height: 19px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--t2);
+  box-shadow: inset 0 -1px 0 var(--lo);
+  padding-bottom: 4px;
+}
+.dm-doll__weapon {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 7px;
+  background: var(--grad-plate);
+  box-shadow: var(--bevel);
+  border: none;
+  color: var(--tx);
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 19px;
+  cursor: pointer;
+}
+.dm-doll__weapon:hover { background: linear-gradient(#453a2e, var(--pl)); }
+.dm-doll__inv { display: grid; grid-template-columns: repeat(8, 24px); gap: 2px; }
+.dm-doll__cell {
+  width: 26px; height: 26px;
+  background: var(--wl);
+  box-shadow: var(--bevel-in);
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* --- Боевая сетка 5 ft ---------------------------------------------------------- */
+.dm-battle { position: relative; background: var(--wl); box-shadow: var(--bevel-in); }
+.dm-battle__token {
+  position: absolute;
+  background: var(--grad-plate);
+  box-shadow: var(--bevel);
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+.dm-battle__token--active { background: var(--grad-gold); box-shadow: var(--bevel-gold), var(--token-active); z-index: 2; }
+.dm-battle__token--down { opacity: var(--op-disabled); }
+.dm-battle__token--hit { box-shadow: var(--bevel), inset 0 0 0 2px var(--fx-buff-hi); }
+.dm-battle__hp {
+  position: absolute; left: 1px; right: 1px; bottom: 1px; height: 5px;
+  background: var(--hp-track);
+  box-shadow: var(--bevel-in);
+}
+.dm-battle__cond { position: absolute; top: -8px; right: -4px; display: flex; gap: 1px; }
+
+/* --- Стопка корешков ------------------------------------------------------------ */
+.dm-stack { display: flex; flex-direction: column; box-shadow: var(--bevel); background: var(--pn); }
+.dm-stack__head {
+  display: flex; align-items: center; gap: 6px;
+  padding: 5px 8px;
+  background: var(--grad-plate);
+  box-shadow: var(--plate);
+  font-family: var(--font-display);
+  font-size: 15px;
+  line-height: 19px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--t2);
+}
+.dm-stack__spine {
+  display: flex; align-items: center; gap: 7px;
+  height: var(--spine-h);
+  padding: 0 8px;
+  background: var(--pn);
+  border: none;
+  box-shadow: inset 3px 0 0 var(--t4), inset 0 -1px 0 var(--lo), inset 0 1px 0 #6b584355;
+  color: var(--tx);
+  font-family: var(--font-display);
+  font-size: 17px;
+  line-height: 21px;
+  letter-spacing: .03em;
+  cursor: pointer;
+}
+.dm-stack__spine:hover { background: var(--cd); }
+.dm-stack__spine:focus-visible { outline: none; box-shadow: var(--glow-gold); }
+
+/* --- Узлы графов ----------------------------------------------------------------- */
+.dm-node {
+  width: 172px;
+  background: var(--grad-plate);
+  box-shadow: var(--bevel);
+  border: none;
+  padding: 6px 7px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+.dm-node--on { box-shadow: var(--bevel), var(--glow-gold); }
+.dm-node__head { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.dm-node__head > span { flex: 1; min-width: 0; }
+.dm-node__bar { height: 9px; background: var(--hp-track); box-shadow: var(--bevel-in); }
+.dm-node__fill { display: block; height: 100%; }
+.dm-node__rank { display: flex; gap: 2px; }
+.dm-node__rank span { width: 6px; height: 6px; background: var(--gd); }
+
+/* --- Слои карты ------------------------------------------------------------------- */
+.dm-layers { display: flex; gap: 4px; flex-wrap: wrap; }
+
+/* --- Великое Колесо ---------------------------------------------------------------- */
+.dm-wheel { position: relative; }
+.dm-wheel__node {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 112px;
+  height: 28px;
+  padding: 0 5px;
+  background: var(--grad-plate);
+  box-shadow: var(--bevel);
+  border: none;
+  color: var(--tx);
+  font-family: var(--font-display);
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: .02em;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.dm-wheel__node:hover { background: linear-gradient(#453a2e, var(--pl)); }
+.dm-wheel__node:focus-visible { outline: none; box-shadow: var(--bevel), var(--glow-gold); }
+.dm-wheel__node--on { box-shadow: var(--bevel), var(--glow-gold); }
+.dm-wheel__node--material { width: 120px; height: 32px; color: var(--gd-hi); background: var(--grad-gold); box-shadow: var(--bevel-gold); }
+
+/* --- Планетарий -------------------------------------------------------------------- */
+.dm-orrery { display: inline-flex; flex-direction: column; gap: 8px; align-items: center; }
+.dm-orrery svg { background: var(--wl); box-shadow: var(--bevel-in); display: block; }
+.dm-orrery__slider { display: flex; align-items: center; gap: 8px; width: 100%; }
+.dm-orrery__slider input { flex: 1; accent-color: var(--gd); }
+
+/* --- Глобус ------------------------------------------------------------------------ */
+.dm-globe { position: relative; display: inline-block; }
+.dm-globe svg { cursor: crosshair; }
+.dm-globe__marker { position: absolute; transform: translate(-50%, -50%); }
+
+/* --- Гекс-карта -------------------------------------------------------------------- */
+.dm-hexmap { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--wl); }
+
+/* --- Сводка «Что изменилось» -------------------------------------------------------- */
+.dm-summary { display: flex; flex-direction: column; gap: 8px; }
+.dm-summary__group { box-shadow: var(--bevel); background: var(--cd); }
+.dm-summary__head {
+  display: flex; align-items: center; gap: 6px;
+  padding: 5px 8px;
+  background: var(--grad-plate);
+  box-shadow: var(--plate);
+  font-family: var(--font-display);
+  font-size: 15px;
+  line-height: 19px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--t2);
+}
+.dm-summary__items { display: flex; flex-direction: column; }
+.dm-summary__row {
+  display: flex; align-items: baseline; gap: 6px;
+  padding: 4px 8px;
+  font-size: 14px;
+  line-height: 19px;
+  color: var(--t2);
+  box-shadow: inset 0 -1px 0 var(--lo);
+}
+.dm-summary__row:last-child { box-shadow: none; }
+
+/* --- Лента календаря ---------------------------------------------------------------- */
+.dm-cal { position: relative; padding-top: 60px; }
+.dm-cal__events { position: absolute; left: 0; right: 0; top: 0; height: 56px; }
+.dm-cal__event {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  max-width: 200px;
+  padding: 2px 6px 3px;
+  background: var(--grad-plate);
+  box-shadow: var(--bevel);
+  font-family: var(--font-text);
+  font-size: 13px;
+  line-height: 18px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.dm-cal__event:hover { background: linear-gradient(#453a2e, var(--pl)); }
+.dm-cal__track { position: relative; height: 28px; box-shadow: inset 0 1px 0 var(--br), inset 0 2px 0 var(--lo); }
+.dm-cal__tick { position: absolute; top: 2px; width: 1px; height: 6px; background: var(--t4); }
+.dm-cal__tick--ten { height: 12px; background: var(--t3); }
+.dm-cal__day {
+  position: absolute; top: 14px; transform: translateX(-50%);
+  font-family: var(--font-mono); font-size: 12px; line-height: 16px; color: var(--t3);
+}
+.dm-cal__today { position: absolute; top: -56px; width: 2px; height: 84px; background: var(--gd); }
+.dm-cal__todayl {
+  position: absolute; top: 14px; transform: translateX(-50%);
+  font-family: var(--font-mono); font-weight: 600; font-size: 12px; line-height: 16px; color: var(--gd-hi);
+  background: var(--grad-gold); box-shadow: var(--bevel-gold); padding: 0 4px;
+}
+
+/* --- Индексы цен --------------------------------------------------------------------- */
+.dm-price { border-collapse: collapse; width: 100%; font-size: 14px; }
+.dm-price th {
+  font-family: var(--font-display); font-size: 15px; line-height: 19px; font-weight: 400;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--t2); text-align: right; padding: 5px 8px;
+  background: var(--grad-plate); box-shadow: var(--plate);
+}
+.dm-price th:first-child, .dm-price td:first-child { text-align: left; }
+.dm-price td { padding: 4px 8px; text-align: right; box-shadow: inset 0 -1px 0 var(--lo); color: var(--tx); font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.dm-price__name { font-family: var(--font-text); font-size: 14px; line-height: 19px; color: var(--tx); }
+.dm-price__arrow { margin-left: 4px; font-size: 14px; }
+.dm-price__route { display: inline-flex; align-items: center; gap: 4px; }
+
+/* --- Веса встреч ---------------------------------------------------------------------- */
+.dm-enc { display: flex; flex-direction: column; gap: 12px; }
+.dm-enc__head {
+  display: flex; align-items: center; gap: 6px;
+  font-family: var(--font-display); font-size: 15px; line-height: 19px; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--t2);
+  box-shadow: inset 0 -1px 0 var(--lo); padding-bottom: 4px; margin-bottom: 4px;
+}
+.dm-enc__row { display: flex; align-items: center; gap: 6px; padding: 2px 0; font-size: 14px; color: var(--t2); }
+.dm-enc__row--pending { color: var(--src-sim); }
+.dm-enc__label { width: 140px; flex: none; }
+.dm-enc__bar { flex: 1; height: 9px; background: var(--hp-track); box-shadow: var(--bevel-in); }
+.dm-enc__bar > span { display: block; height: 100%; }
+.dm-enc__w { width: 48px; text-align: right; font-family: var(--font-mono); font-weight: 600; font-size: 13px; color: var(--tx); }
+
+/* --- Фильтр журнала -------------------------------------------------------------------- */
+.dm-filter { display: flex; flex-direction: column; gap: 4px; }
+.dm-filter__row { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.dm-filter__label {
+  font-family: var(--font-mono); font-weight: 600; font-size: 12px; line-height: 16px;
+  letter-spacing: .06em; text-transform: uppercase; color: var(--t3);
+  width: 72px; flex: none;
+}
+.dm-filter__chip {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 2px 7px 3px;
+  background: var(--grad-plate);
+  box-shadow: var(--bevel);
+  border: none;
+  color: var(--t2);
+  font-family: var(--font-text);
+  font-size: 14px;
+  line-height: 18px;
+  cursor: pointer;
+}
+.dm-filter__chip:hover { color: var(--tx); background: linear-gradient(#453a2e, var(--pl)); }
+.dm-filter__chip--on { color: var(--gd-hi); background: var(--grad-gold); box-shadow: var(--bevel-gold), inset 0 -3px 0 currentColor; }
+
+/* --- Режим «глазами игроков» ------------------------------------------------------------ */
+.dm-playerview { position: relative; }
+/* Кольцо рисуется поверх содержимого: inset-тень уходит под фоны панелей. */
+.dm-playerview::after {
+  content: '';
+  position: absolute; inset: 0;
+  box-shadow: inset 0 0 0 4px var(--src-players);
+  pointer-events: none;
+  z-index: 45;
+}
+.dm-playerview__badge {
+  position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
+  display: flex; align-items: center; gap: 6px;
+  padding: 2px 8px;
+  background: var(--pl);
+  box-shadow: inset 1px 1px 0 var(--src-players), inset -1px 0 0 var(--src-players);
+  color: var(--src-players);
+  font-family: var(--font-display);
+  font-size: 15px;
+  line-height: 19px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  z-index: 50;
+}
+
+/* --- Свёрнутая полоса панелей ------------------------------------------------------------ */
+.dm-rail {
+  width: var(--rail-collapsed);
+  flex: none;
+  background: var(--pn);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 0;
+}
+.dm-rail__btn {
+  position: relative;
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.dm-rail__btn:hover { background: var(--cd); box-shadow: var(--bevel); }
+.dm-rail__btn--on { background: var(--grad-gold); box-shadow: var(--bevel-gold); }
+.dm-rail__badge {
+  position: absolute; top: -2px; right: -2px;
+  min-width: 12px;
+  padding: 0 2px;
+  background: var(--src-sim);
+  color: var(--wl);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+}
+
+/* --- Тост отмены ------------------------------------------------------------------ */
+.dm-toast {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 9px;
+  background: var(--grad-gold);
+  box-shadow: var(--bevel-gold), 0 2px 6px rgba(0,0,0,0.67);
+  color: var(--gd-hi);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dm-root *, .dm-card--pending { animation: none !important; transition: none !important; }
+}

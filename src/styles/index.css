@@ -1,0 +1,29 @@
+/* Точка входа стилей. Тема — только из токенов: design/tokens.json → theme.generated.css. */
+@import "tailwindcss";
+@import "./theme.generated.css";
+
+@layer base {
+  /* Радиус в системе один — ноль. Везде, во всём, всегда (CLAUDE.md). */
+  *, ::before, ::after { border-radius: 0; }
+
+  html, body, #root { height: 100%; }
+  body {
+    background: var(--bg);
+    color: var(--tx);
+    font-family: var(--font-text);
+    font-size: 15px;
+    line-height: 21px;
+    -webkit-font-smoothing: antialiased;
+  }
+  /* Пиксельные иконки — клетка сетки остаётся клеткой. */
+  svg[data-pixel], img[data-pixel] { image-rendering: pixelated; }
+  /* Поле поиска — как любое поле: без нативного скруглённого крестика браузера (регистр свой, очистка — Esc или Backspace). */
+  input[type="search"] { appearance: none; }
+  input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration { appearance: none; display: none; }
+  /* Кольцо фокуса всегда золото, внутренним кольцом поверх фаски. */
+  :focus-visible { outline: none; box-shadow: var(--glow-gold); }
+  /* Движение только в ответ на действие и не дольше 200 мс; prefers-reduced-motion гасит и его. */
+  @media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after { animation: none !important; transition: none !important; }
+  }
+}

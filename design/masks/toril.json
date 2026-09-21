@@ -1,0 +1,214 @@
+{
+  "id": "toril",
+  "label": "Toril",
+  "note": "Abeir-Toril по карте HandsomeRob: Faerûn, Kara-Tur, Zakhara, Maztica, Katashaka; серые Anchorome, Osse и земля к востоку от Osse не нанесены. Карта покрывает долготы 27–327° и широты +88…−61° (совмещено со схемой с сеткой ±60°, IoU 0.54), остальное дорисовано со схемы классами океан/лёд/не нанесено. Долгота 0° — условная: западный край схемы.",
+  "w": 160,
+  "h": 80,
+  "projection": "equirectangular",
+  "longitude": [
+    0,
+    360
+  ],
+  "latitude": [
+    90,
+    -90
+  ],
+  "legend": {
+    "o": "океан",
+    "i": "лёд",
+    "u": "не нанесено на карту",
+    "d": "пустыня и степь",
+    "g": "равнина",
+    "f": "лес",
+    "m": "горы"
+  },
+  "regions": [
+    {
+      "id": "zakhara",
+      "label": "Zakhara",
+      "lon": [
+        153,
+        196
+      ],
+      "lat": [
+        -50,
+        6
+      ]
+    },
+    {
+      "id": "karatur",
+      "label": "Kara-Tur",
+      "lon": [
+        196,
+        256
+      ],
+      "lat": [
+        -30,
+        72
+      ]
+    },
+    {
+      "id": "faerun",
+      "label": "Faerûn",
+      "lon": [
+        100,
+        205
+      ],
+      "lat": [
+        -15,
+        76
+      ]
+    },
+    {
+      "id": "katashaka",
+      "label": "Katashaka",
+      "lon": [
+        55,
+        95
+      ],
+      "lat": [
+        -56,
+        -1
+      ]
+    },
+    {
+      "id": "anchorome",
+      "label": "Anchorome",
+      "lon": [
+        30,
+        100
+      ],
+      "lat": [
+        68,
+        90
+      ]
+    },
+    {
+      "id": "maztica",
+      "label": "Maztica",
+      "lon": [
+        46,
+        100
+      ],
+      "lat": [
+        0,
+        68
+      ]
+    },
+    {
+      "id": "osse",
+      "label": "Osse",
+      "lon": [
+        258,
+        324
+      ],
+      "lat": [
+        -38,
+        27
+      ]
+    }
+  ],
+  "source": {
+    "file": "b46056fb3606b755896faf0328a1be0c.jpg",
+    "file_note": "копия 1:10 HandsomeRobs_map_of_Toril-TorilMap.tif (30600×13400)",
+    "palette": "biome",
+    "extent": [
+      27.0,
+      327.0,
+      88.0,
+      -61.0
+    ],
+    "base": "/tmp/toril_schematic.json",
+    "base_note": "схема с сеткой ±60° 61f918a70fe330f28467e698b97c4632.jpg, палитра schematic",
+    "blank": [],
+    "date": "2026-09-18",
+    "commands": [
+      ".venv/bin/python design/mask-from-map.py \"maps/abeir toril/61f918a70fe330f28467e698b97c4632.jpg\" 160 80 --palette schematic --json /tmp/toril_schematic.json --id toril-schematic --label \"Toril (схема)\"",
+      ".venv/bin/python design/mask-from-map.py \"maps/abeir toril/b46056fb3606b755896faf0328a1be0c.jpg\" 160 80 --extent 27 327 88 -61 --base /tmp/toril_schematic.json --json design/masks/toril.json --id toril --label Toril",
+      "после сборки note и regions переносятся руками; команды запускать из корня пакета после setup-pillow.command"
+    ]
+  },
+  "rle": "i172o12u1o7u1o112i27o7u7o5u2o73i2o4i2o31i27o7u8o1u6o71i10o2i5o23i27o6u10o1u2o1u1o64i1o2i1o1i22o21i27o4u7o2u3o66i2o3i26o20i27o3u8o70i16u1i1u3i9u2o20i1o3i11o1i11o3u7o43u1o4i1o22i15u1i6o1i6u2i1o29i1o12i5o4u5o29i3o8i2u8i2o20i14u1i1u1i1o10i3o54u1o30i2u1i1u5i2u1i1u9i1u2o20u3i9u4o77i2u1o1u1o17u5g1u3i2u1i1u10i2o14u3o5i2u1i3u1i2u1i1u3d1o76u6o5i1o8u4g1u1g2m1u2i1u4i2u6i1u2o11i1u6o3g1u6d5o3d1o73u1m1u2m1u1g1d1u2i3o11u1g1d1g1u1d4u1i1u7o1u4i1u1i1o10i1u3m1d1m1f8m1g2d4o77u5m1g2d1g1d1g1u1o13g1d1g4d2u1d5u12o10u1d1f5g3f2o1g1f1g1m1g2d2o77d1u1d2u1g2d2g2o15g1d1g2f1g1m1d8u7m3d1o8u2g1f1g9o4f1u1m2g1o31u1o46g2f3g2d1g2o17d1g3u1d7g1m1u2d10g1o3u2f1g2f2g9o5g1d1m1o78g1m1g1f2g1d1g1d2g1o18d1g2d6f2o2u1d2g1d3g1d5o2u1g3d2g3f1g7o6g1o79g2f1g1f2g1d1g3o18g5d4f3g1d3g2d1o1u1d5o2u1g1d3g1f1m1g1f2d3g2o7g2o78g1f1g2d1g3f4o17g4d4f3g3d1g2f1d2u1d5g1o1m1g1d1g1d2g1d1m1d4u1m2o8g1o78d3g3d3f3o4g1o13g9f2o1g2o1g1f1d2g2d2g2d2g2d1g1d10o89d1o1g3d3g1f3o4g1o12f7o1g1f2o6g2d2g1d19o90u1o1g1d5f1g2o14g1o4f5g4o7f1d4m1g1d18o6g1o2g2o81d7g1o14u1o4f1g1f2m1d2g3m1o4g1o1g1f3d1g1d1g1d1m1d14o6g3o83g1d7o19f5g1d1f1g1m1f1g1o8d1g1d1m1f3g1d12o6m1g1o78u1o7d1g2d4o19f6g1d1g1m1g1o1g1f2o1f1g1o2g2f6d12o6g1o77u6o4g1d6o17g3f5m1g3o1f2g1f3g1o1d4f1o2f2d6g2d4g1o82u7o5d5g1o19u1g1f7g1f8o1g1d4g1o1f2d3u1d8g1o81u7o7d4o14g1o6f13d1f1m1d1g3d5g1f1d2u3d5f2g1o81u7o8d2g1o20d1g1f1g1f1o3f1o1g1f3d4g2d9u1g1u2d4g1d3o1f2g1o77u7o8d2g2f1g1o13g1f1o2d2f2g3f3d4g1d2g1d11m1f6d4g1f2d2f1o29u2o1g1o44u1o14d1g1d1g2o12f2o9g1f1d4g1d1g1d5g1d1g1m1d4g1d1m3f4d3g1f1d2f2o30u1o1u6o39u1o14d3g1f1o11f3o10g1d2g1d10f2g1d3g1d2u1m1u2m3f1d3g1d2f4o30u8o52d3f2o11g1f3g1o7g2f1d1g1d1g1d7f3d1f1o3d3u3f2d5g1d3g2u1o16u1o1u2o12u6o51g1d2o2f1o13f4o1m1f1g1f3d8f1d2f2o3f2o2f1d3m3f2d1g1d8g2d1o15u4o4g1u1o7u6o50d3o2f1o14g1f2g1f6d1f3d1g4d1f2g1o7g1f2d2u1m3d1f1g1d5g5o15u11o6u5o51d2g1o2f2o14m1o2g1f9m1g2d2g1f1g1o8f3m1d1m1f4g1d5g2d2g1d1f2o1g1o11u12o2u9o50f2o3f1o21f2m1f1g2f3g3o12f3u2f4g1d6g2d1g1d2f3o12u22o6u1o4u1o39f2o25m1o3g1m1f2g1o13g1f2u3d1g1m3f2d4f3d2f4o11u23o6u1o4u1o38u1m2f1o9f1o36d1f1m1u1f1m1d2g2m1f2d4g1f6m1f2o10u24o5u1o4u1o41m1f1o7g2o29g1o4d4m1f2m1d1g3m1g2d2f2d2g1f3m1f1o12u24o5u1o88d7m1f6g1m1g1m1d1f4g2f4o13u24o5u1o43f1o44d8f2o3f2d1m1f1d2f8o14u3o1u21o4u2o4u1o36f3o2f1o39d9f1g1o4f1m2d3f8o18u21o4u2o4u1o35f3g1o1g1f2o37d9f2o5f15o18u21o3u3o20u1o18f7g2o35g1d10f1o7f1m1f11o15u2o2u20o3u4o38f2m1f3d1g1f1g1f1o32d4o1d7f1o7f1m2f6m1f3o1g1o12u26o2u4o37f3m2f3d1g1f2g1o30d11f3g1o7f1m1f5m1f2o17u25o2u4o37f4m2f1g1f7o28d6g1d4f3o8f1m2f6o19u24o2u5o36f3m2f1m2f4g1f1o29d4o2g1d2f4g1o10f6g1o19u5o1u17o3u5o36f9g2f3o5u1o23d4o4d2f1o14f5o20u22o4u6o31d2o2f10g1f1g1o5u2o24d4o2d3f1o2f1o11f1o1f2o21u21o5u6o30u1o4f11g1f1o2u6o23d1g1o1d1o3u1f2o2f1g1o37u19o5u5o35f14o2u6o6u4o13u1g1o6g1o45u16o5u4o36g1f12o3u4o8u1o16d1u1o8g1o44u12o1u1o6u3o37d1g1f11o3u2o79u1o3u1o3u6o9u3o38d2m1f9o2u2o28g1o6g2o3g1o37u4o7u4o10u2o2u1o35d3m2f1m1g1f5o39g2o2f2o39u2o21u2o1u1o36d8m1f4o41g1o1g1o104d7m2f3o33g1o3g1o109d5u1o2d1f4o148d3o6f2o13u2o134d2o8f1o9u3o1u3o133d2o17u10o131d2o18u8o152g1u7o155u5o313i14o143i19o128i3o3i3o2i27o119i44o46i4o18i3o17i5o3i9o6i65o2i17o2i5o2i7o15i6o3i2o4i1287",
+  "grid": [
+    "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii",
+    "iiiiiiiiiiiioooooooooooouooooooouooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooiiiiiiiiiiiiiii",
+    "iiiiiiiiiiiiooooooouuuuuuuooooouuoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooiiooooiioooooooooooooooooooooooooooooooiiiiiiiiiiiiiii",
+    "iiiiiiiiiiiiooooooouuuuuuuuouuuuuuoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooiiiiiiiiiiooiiiiioooooooooooooooooooooooiiiiiiiiiiiiiii",
+    "iiiiiiiiiiiioooooouuuuuuuuuuouuouooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooiooioiiiiiiiiiiiiiiiiiiiiiioooooooooooooooooooooiiiiiiiiiiiiiii",
+    "iiiiiiiiiiiioooouuuuuuuoouuuooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooiioooiiiiiiiiiiiiiiiiiiiiiiiiiiooooooooooooooooooooiiiiiiiiiiiiiii",
+    "iiiiiiiiiiiiooouuuuuuuuooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooiiiiiiiiiiiiiiiiuiuuuiiiiiiiiiuuooooooooooooooooooooioooiiiiiiiiiii",
+    "oiiiiiiiiiiiooouuuuuuuooooooooooooooooooooooooooooooooooooooooooouooooiooooooooooooooooooooooiiiiiiiiiiiiiiiuiiiiiioiiiiiiuuioooooooooooooooooooooooooooooiooooo",
+    "oooooooiiiiioooouuuuuoooooooooooooooooooooooooooooiiiooooooooiiuuuuuuuuiiooooooooooooooooooooiiiiiiiiiiiiiiuiuiooooooooooiiioooooooooooooooooooooooooooooooooooo",
+    "oooooooooooooooooouooooooooooooooooooooooooooooooiiuiuuuuuiiuiuuuuuuuuuiuuoooooooooooooooooooouuuiiiiiiiiiuuuuoooooooooooooooooooooooooooooooooooooooooooooooooo",
+    "oooooooooooooooooooooooooooiiuouooooooooooooooooouuuuuguuuiiuiuuuuuuuuuuiioooooooooooooouuuoooooiiuiiiuiiuiuuudooooooooooooooooooooooooooooooooooooooooooooooooo",
+    "ooooooooooooooooooooooooooouuuuuuoooooioooooooouuuuguggmuuiuuuuiiuuuuuuiuuoooooooooooiuuuuuuoooguuuuuudddddooodooooooooooooooooooooooooooooooooooooooooooooooooo",
+    "ooooooooooooooooooooooooumuumugduuiiiooooooooooougdgudddduiuuuuuuuouuuuiuiooooooooooiuuumdmffffffffmggddddoooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+    "ooooooooooooooooooooooouuuuumggdgdguooooooooooooogdggggdduddddduuuuuuuuuuuuooooooooooudfffffgggffogfgmggddoooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+    "ooooooooooooooooooooooodudduggddggooooooooooooooogdggfgmdddddddduuuuuuummmdoooooooouugfgggggggggoooofummgooooooooooooooooooooooooooooooouooooooooooooooooooooooo",
+    "oooooooooooooooooooooooggfffggdggooooooooooooooooodgggudddddddgmuuddddddddddgooouufggffgggggggggooooogdmoooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+    "oooooooooooooooooooooogmgffgdgddgoooooooooooooooooodggddddddffoouddgdddgdddddoougggddgggfgggggggoooooogooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+    "ooooooooooooooooooooooggfgffgdgggoooooooooooooooooogggggddddfffgdddggdoudddddoougdddgfmgffdddggoooooooggoooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+    "oooooooooooooooooooooogfggdgggffffoooooooooooooooooggggddddfffgggdggfddudddddgomgdgddgdmddddummoooooooogoooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+    "oooooooooooooooooooooodddgggdddfffoooogooooooooooooogggggggggffoggogfddggddggddggdgddddddddddooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+    "oooooooooooooooooooooodogggdddgfffoooogoooooooooooofffffffogffooooooggddgdddddddddddddddddddoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+    "oooooooooooooooooooooouogdddddfggoooooooooooooogoooofffffggggooooooofddddmgddddddddddddddddddoooooogooggoooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+    "ooooooooooooooooooooooooodddddddgoooooooooooooouoooofgffmddgggmoooogogfffdgdgdmddddddddddddddoooooogggoooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+    "ooooooooooooooooooooooooogdddddddooooooooooooooooooofffffgdfgmfgoooooooodgdmfffgddddddddddddoooooomgoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+    "oooooooooooooooooouooooooodggddddoooooooooooooooooooffffffgdgmgogffofgooggffffffddddddddddddoooooogooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+    "oooooooooooooooouuuuuuoooogddddddooooooooooooooooogggfffffmgggoffgfffgoddddfooffddddddggddddgooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+    "ooooooooooooooouuuuuuuooooodddddgooooooooooooooooooougfffffffgffffffffogddddgoffddduddddddddgooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+    "oooooooooooooouuuuuuuoooooooddddoooooooooooooogoooooofffffffffffffdfmdgggdddddgfdduuudddddffgooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+    "oooooooooooooouuuuuuuooooooooddgoooooooooooooooooooodgfgfooofogfffddddggddddddddduguuddddgdddoffgooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+    "oooooooooooooouuuuuuuooooooooddggfgooooooooooooogfooddffgggfffddddgddgdddddddddddmffffffddddgffddfooooooooooooooooooooooooooooouuogooooooooooooooooooooooooooooo",
+    "ooooooooooooooouoooooooooooooodgdggooooooooooooffooooooooogfddddgdgdddddgdgmddddgdmmmffffdddgfddffoooooooooooooooooooooooooooooououuuuuuoooooooooooooooooooooooo",
+    "ooooooooooooooouoooooooooooooodddgfooooooooooofffoooooooooogddgddddddddddffgdddgddumuummmfdddgddffffoooooooooooooooooooooooooooooouuuuuuuuoooooooooooooooooooooo",
+    "oooooooooooooooooooooooooooooodddffooooooooooogfffgoooooooggfdgdgdddddddfffdfoooddduuuffdddddgdddgguoooooooooooooooououuoooooooooooouuuuuuoooooooooooooooooooooo",
+    "ooooooooooooooooooooooooooooogddoofoooooooooooooffffomfgfffddddddddfddffoooffoofdddmmmffdgddddddddggdooooooooooooooouuuuooooguooooooouuuuuuooooooooooooooooooooo",
+    "ooooooooooooooooooooooooooooodddoofoooooooooooooogffgffffffdfffdggggdffgooooooogffddummmdfgdddddgggggooooooooooooooouuuuuuuuuuuoooooouuuuuoooooooooooooooooooooo",
+    "oooooooooooooooooooooooooooooddgooffoooooooooooooomoogfffffffffmggddgfgoooooooofffmdmffffgdddddggddgdffogooooooooooouuuuuuuuuuuuoouuuuuuuuuooooooooooooooooooooo",
+    "oooooooooooooooooooooooooooooffooofoooooooooooooooooooooffmfggfffgggoooooooooooofffuuffffgddddddggdgddfffoooooooooooouuuuuuuuuuuuuuuuuuuuuuoooooouoooouooooooooo",
+    "ooooooooooooooooooooooooooooooffooooooooooooooooooooooooomooogmffgooooooooooooogffuuudgmmmffddddfffddffffooooooooooouuuuuuuuuuuuuuuuuuuuuuuoooooouoooouooooooooo",
+    "oooooooooooooooooooooooooooooummfooooooooofoooooooooooooooooooooooooooooooooooodfmufmddggmffddddgffffffmffoooooooooouuuuuuuuuuuuuuuuuuuuuuuuooooouoooouooooooooo",
+    "oooooooooooooooooooooooooooooooomfoooooooggooooooooooooooooooooooooooooogooooddddmffmdgggmggddffddgfffmfoooooooooooouuuuuuuuuuuuuuuuuuuuuuuuooooouoooooooooooooo",
+    "oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooodddddddmffffffgmgmdffffggffffooooooooooooouuuuuuuuuuuuuuuuuuuuuuuuooooouoooooooooooooo",
+    "ooooooooooooooooooooooooooooofooooooooooooooooooooooooooooooooooooooooooooddddddddffoooffdmfddffffffffoooooooooooooouuuouuuuuuuuuuuuuuuuuuuuuoooouuoooouoooooooo",
+    "oooooooooooooooooooooooooooofffoofooooooooooooooooooooooooooooooooooooooodddddddddfgoooofmmdddffffffffoooooooooooooooooouuuuuuuuuuuuuuuuuuuuuoooouuoooouoooooooo",
+    "ooooooooooooooooooooooooooofffgogffooooooooooooooooooooooooooooooooooooodddddddddffooooofffffffffffffffoooooooooooooooooouuuuuuuuuuuuuuuuuuuuuooouuuoooooooooooo",
+    "oooooooouoooooooooooooooooofffffffggooooooooooooooooooooooooooooooooooogddddddddddfooooooofmfffffffffffooooooooooooooouuoouuuuuuuuuuuuuuuuuuuuooouuuuooooooooooo",
+    "oooooooooooooooooooooooooooffmfffdgfgfooooooooooooooooooooooooooooooooddddodddddddfooooooofmmffffffmfffogoooooooooooouuuuuuuuuuuuuuuuuuuuuuuuuuoouuuuooooooooooo",
+    "oooooooooooooooooooooooooofffmmfffdgffgoooooooooooooooooooooooooooooodddddddddddfffgooooooofmfffffmffooooooooooooooooouuuuuuuuuuuuuuuuuuuuuuuuuoouuuuooooooooooo",
+    "ooooooooooooooooooooooooooffffmmfgfffffffooooooooooooooooooooooooooooddddddgddddfffoooooooofmmffffffooooooooooooooooooouuuuuuuuuuuuuuuuuuuuuuuuoouuuuuoooooooooo",
+    "oooooooooooooooooooooooooofffmmfmmffffgfoooooooooooooooooooooooooooooddddoogddffffgooooooooooffffffgooooooooooooooooooouuuuuouuuuuuuuuuuuuuuuuooouuuuuoooooooooo",
+    "oooooooooooooooooooooooooofffffffffggfffooooouoooooooooooooooooooooooddddooooddfoooooooooooooofffffoooooooooooooooooooouuuuuuuuuuuuuuuuuuuuuuoooouuuuuuooooooooo",
+    "ooooooooooooooooooooooddooffffffffffgfgooooouuooooooooooooooooooooooooddddoodddfoofooooooooooofoffooooooooooooooooooooouuuuuuuuuuuuuuuuuuuuuooooouuuuuuooooooooo",
+    "ooooooooooooooooooooouoooofffffffffffgfoouuuuuuooooooooooooooooooooooodgodooouffoofgooooooooooooooooooooooooooooooooooooouuuuuuuuuuuuuuuuuuuooooouuuuuoooooooooo",
+    "oooooooooooooooooooooooooffffffffffffffoouuuuuuoooooouuuuooooooooooooougoooooogooooooooooooooooooooooooooooooooooooooooooooouuuuuuuuuuuuuuuuooooouuuuooooooooooo",
+    "ooooooooooooooooooooooooogffffffffffffooouuuuoooooooouooooooooooooooooduoooooooogoooooooooooooooooooooooooooooooooooooooooooouuuuuuuuuuuuouoooooouuuoooooooooooo",
+    "ooooooooooooooooooooooooodgfffffffffffooouuooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooouooouooouuuuuuooooooooouuuoooooooooooo",
+    "ooooooooooooooooooooooooooddmfffffffffoouuoooooooooooooooooooooooooooogooooooggooogooooooooooooooooooooooooooooooooooooouuuuooooooouuuuoooooooooouuoouoooooooooo",
+    "ooooooooooooooooooooooooodddmmfmgfffffoooooooooooooooooooooooooooooooooooooooggooffooooooooooooooooooooooooooooooooooooooouuooooooooooooooooooooouuouooooooooooo",
+    "oooooooooooooooooooooooooddddddddmffffooooooooooooooooooooooooooooooooooooooooogogoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+    "oooooooooooooooooooooooooodddddddmmfffooooooooooooooooooooooooooooooooogooogoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+    "oooooooooooooooooooooooooddddduoodffffoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+    "oooooooooooooooooooooooooodddooooooffooooooooooooouuoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+    "ooooooooooooooooooooooooooddoooooooofooooooooouuuouuuooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+    "ooooooooooooooooooooooooooddooooooooooooooooouuuuuuuuuuooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+    "ooooooooooooooooooooooooooddoooooooooooooooooouuuuuuuuoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+    "ooooooooooooooooooooooooooooooooooooooooooooooguuuuuuuoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+    "ooooooooooooooooooooooooooooooooooooooooooooooooouuuuuoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+    "oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+    "oooooooooooooooooooooooooooooooooooooooooooooooiiiiiiiiiiiiiiooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+    "ooooooooooooooooooooooooooooooooooooooooooooiiiiiiiiiiiiiiiiiiiooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+    "oooooooooooooooooooooooooooooooiiioooiiiooiiiiiiiiiiiiiiiiiiiiiiiiiiiooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo",
+    "ooooooooooooooooooooooooooooiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiooooooooooooooooooooooooooooooooooooooooooooooiiiiooooooooooooooooooiiiooooooooooooooooo",
+    "iiiiioooiiiiiiiiiooooooiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiooiiiiiiiiiiiiiiiiiooiiiiiooiiiiiiioooooooooooooooiiiiiioooiiooooiiiiiii",
+    "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii",
+    "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii",
+    "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii",
+    "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii",
+    "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii",
+    "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii",
+    "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii",
+    "iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii"
+  ]
+}

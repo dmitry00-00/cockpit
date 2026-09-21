@@ -1,0 +1,8 @@
+/* Пульс «ждёт решения» (CLAUDE.md: затронутые карточка и пин пульсируют glow-sim). Ступенями, не плавно —
+   регистр пиксельный; prefers-reduced-motion гасит его в базовом слое index.css. Здесь, а не в теме:
+   theme.generated.css собирается из tokens.json, а анимация — не токен. */
+@keyframes card-pulse-sim {
+  0%, 49% { filter: none; }
+  50%, 100% { filter: brightness(1.35); }
+}
+.card-pending { animation: card-pulse-sim 1.6s steps(2, end) infinite; }

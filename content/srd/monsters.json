@@ -1,0 +1,3247 @@
+{
+  "source": "SRD 5.1 (CC-BY-4.0) via https://www.dnd5eapi.co/api/2014/monsters",
+  "fetchedAt": "2026-09-21",
+  "monsters": {
+    "commoner": {
+      "id": "commoner",
+      "name": "Commoner",
+      "size": "Medium",
+      "type": "humanoid (any race)",
+      "alignment": "any alignment",
+      "ac": {
+        "value": 10,
+        "source": "dex"
+      },
+      "hp": {
+        "average": 4,
+        "formula": "1d8"
+      },
+      "speed": 30,
+      "speedText": "30 ft.",
+      "abilities": {
+        "str": 10,
+        "dex": 10,
+        "con": 10,
+        "int": 10,
+        "wis": 10,
+        "cha": 10
+      },
+      "savingThrows": {},
+      "skills": {},
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [],
+      "conditionImmunities": [],
+      "senses": "passive Perception 10",
+      "languages": "any one language (usually Common)",
+      "cr": "0",
+      "xp": 10,
+      "proficiencyBonus": 2,
+      "traits": [],
+      "actions": [
+        {
+          "name": "Club",
+          "text": "Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 2 (1d4) bludgeoning damage.",
+          "attack": {
+            "toHit": 2,
+            "reach": 5,
+            "damage": "1d4",
+            "average": 2,
+            "damageType": "bludgeoning"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/commoner"
+    },
+    "acolyte": {
+      "id": "acolyte",
+      "name": "Acolyte",
+      "size": "Medium",
+      "type": "humanoid (any race)",
+      "alignment": "any alignment",
+      "ac": {
+        "value": 10,
+        "source": "dex"
+      },
+      "hp": {
+        "average": 9,
+        "formula": "2d8"
+      },
+      "speed": 30,
+      "speedText": "30 ft.",
+      "abilities": {
+        "str": 10,
+        "dex": 10,
+        "con": 10,
+        "int": 10,
+        "wis": 14,
+        "cha": 11
+      },
+      "savingThrows": {},
+      "skills": {
+        "medicine": 4,
+        "religion": 2
+      },
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [],
+      "conditionImmunities": [],
+      "senses": "passive Perception 12",
+      "languages": "any one language (usually Common)",
+      "cr": "1/4",
+      "xp": 50,
+      "proficiencyBonus": 2,
+      "traits": [
+        {
+          "name": "Spellcasting",
+          "text": "The acolyte is a 1st-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 12, +4 to hit with spell attacks). The acolyte has following cleric spells prepared:\n\n- Cantrips (at will): light, sacred flame, thaumaturgy\n- 1st level (3 slots): bless, cure wounds, sanctuary"
+        }
+      ],
+      "actions": [
+        {
+          "name": "Club",
+          "text": "Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 2 (1d4) bludgeoning damage.",
+          "attack": {
+            "toHit": 2,
+            "reach": 5,
+            "damage": "1d4",
+            "average": 2,
+            "damageType": "bludgeoning"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/acolyte"
+    },
+    "guard": {
+      "id": "guard",
+      "name": "Guard",
+      "size": "Medium",
+      "type": "humanoid (any race)",
+      "alignment": "any alignment",
+      "ac": {
+        "value": 16,
+        "source": "chain shirt, shield"
+      },
+      "hp": {
+        "average": 11,
+        "formula": "2d8 + 2"
+      },
+      "speed": 30,
+      "speedText": "30 ft.",
+      "abilities": {
+        "str": 13,
+        "dex": 12,
+        "con": 12,
+        "int": 10,
+        "wis": 11,
+        "cha": 10
+      },
+      "savingThrows": {},
+      "skills": {
+        "perception": 2
+      },
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [],
+      "conditionImmunities": [],
+      "senses": "passive Perception 12",
+      "languages": "any one language (usually Common)",
+      "cr": "1/8",
+      "xp": 25,
+      "proficiencyBonus": 2,
+      "traits": [],
+      "actions": [
+        {
+          "name": "Spear",
+          "text": "Melee or Ranged Weapon Attack: +3 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 4 (1d6 + 1) piercing damage or 5 (1d8 + 1) piercing damage if used with two hands to make a melee attack.",
+          "attack": {
+            "toHit": 3,
+            "reach": 5,
+            "range": [
+              20,
+              60
+            ],
+            "damage": "1d6 + 1",
+            "average": 4,
+            "damageType": "piercing"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/guard"
+    },
+    "noble": {
+      "id": "noble",
+      "name": "Noble",
+      "size": "Medium",
+      "type": "humanoid (any race)",
+      "alignment": "any alignment",
+      "ac": {
+        "value": 15,
+        "source": "breastplate"
+      },
+      "hp": {
+        "average": 9,
+        "formula": "2d8"
+      },
+      "speed": 30,
+      "speedText": "30 ft.",
+      "abilities": {
+        "str": 11,
+        "dex": 12,
+        "con": 11,
+        "int": 12,
+        "wis": 14,
+        "cha": 16
+      },
+      "savingThrows": {},
+      "skills": {
+        "deception": 5,
+        "insight": 4,
+        "persuasion": 5
+      },
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [],
+      "conditionImmunities": [],
+      "senses": "passive Perception 12",
+      "languages": "any two languages",
+      "cr": "1/8",
+      "xp": 25,
+      "proficiencyBonus": 2,
+      "traits": [],
+      "actions": [
+        {
+          "name": "Rapier",
+          "text": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 5 (1d8 + 1) piercing damage.",
+          "attack": {
+            "toHit": 3,
+            "reach": 5,
+            "damage": "1d8 + 1",
+            "average": 5,
+            "damageType": "piercing"
+          }
+        }
+      ],
+      "reactions": [
+        {
+          "name": "Parry",
+          "text": "The noble adds 2 to its AC against one melee attack that would hit it. To do so, the noble must see the attacker and be wielding a melee weapon."
+        }
+      ],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/noble"
+    },
+    "bandit": {
+      "id": "bandit",
+      "name": "Bandit",
+      "size": "Medium",
+      "type": "humanoid (any race)",
+      "alignment": "any non-lawful alignment",
+      "ac": {
+        "value": 12,
+        "source": "leather armor"
+      },
+      "hp": {
+        "average": 11,
+        "formula": "2d8 + 2"
+      },
+      "speed": 30,
+      "speedText": "30 ft.",
+      "abilities": {
+        "str": 11,
+        "dex": 12,
+        "con": 12,
+        "int": 10,
+        "wis": 10,
+        "cha": 10
+      },
+      "savingThrows": {},
+      "skills": {},
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [],
+      "conditionImmunities": [],
+      "senses": "passive Perception 10",
+      "languages": "any one language (usually Common)",
+      "cr": "1/8",
+      "xp": 25,
+      "proficiencyBonus": 2,
+      "traits": [],
+      "actions": [
+        {
+          "name": "Scimitar",
+          "text": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) slashing damage.",
+          "attack": {
+            "toHit": 3,
+            "reach": 5,
+            "damage": "1d6 + 1",
+            "average": 4,
+            "damageType": "slashing"
+          }
+        },
+        {
+          "name": "Light Crossbow",
+          "text": "Ranged Weapon Attack: +3 to hit, range 80/320 ft., one target. Hit: 5 (1d8 + 1) piercing damage.",
+          "attack": {
+            "toHit": 3,
+            "range": [
+              80,
+              320
+            ],
+            "damage": "1d8 + 1",
+            "average": 5,
+            "damageType": "piercing"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/bandit"
+    },
+    "bandit-captain": {
+      "id": "bandit-captain",
+      "name": "Bandit Captain",
+      "size": "Medium",
+      "type": "humanoid (any race)",
+      "alignment": "any non-lawful alignment",
+      "ac": {
+        "value": 15,
+        "source": "studded leather armor"
+      },
+      "hp": {
+        "average": 65,
+        "formula": "10d8 + 20"
+      },
+      "speed": 30,
+      "speedText": "30 ft.",
+      "abilities": {
+        "str": 15,
+        "dex": 16,
+        "con": 14,
+        "int": 14,
+        "wis": 11,
+        "cha": 14
+      },
+      "savingThrows": {
+        "str": 4,
+        "dex": 5,
+        "wis": 2
+      },
+      "skills": {
+        "athletics": 4,
+        "deception": 4
+      },
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [],
+      "conditionImmunities": [],
+      "senses": "passive Perception 10",
+      "languages": "any two languages",
+      "cr": "2",
+      "xp": 450,
+      "proficiencyBonus": 2,
+      "traits": [],
+      "actions": [
+        {
+          "name": "Multiattack",
+          "text": "The captain makes three melee attacks: two with its scimitar and one with its dagger. Or the captain makes two ranged attacks with its daggers."
+        },
+        {
+          "name": "Scimitar",
+          "text": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) slashing damage.",
+          "attack": {
+            "toHit": 5,
+            "reach": 5,
+            "damage": "1d6 + 3",
+            "average": 6,
+            "damageType": "slashing"
+          }
+        },
+        {
+          "name": "Dagger",
+          "text": "Melee or Ranged Weapon Attack: +5 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 5 (1d4 + 3) piercing damage.",
+          "attack": {
+            "toHit": 5,
+            "reach": 5,
+            "range": [
+              20,
+              60
+            ],
+            "damage": "1d4 + 3",
+            "average": 5,
+            "damageType": "piercing"
+          }
+        }
+      ],
+      "reactions": [
+        {
+          "name": "Parry",
+          "text": "The captain adds 2 to its AC against one melee attack that would hit it. To do so, the captain must see the attacker and be wielding a melee weapon."
+        }
+      ],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/bandit-captain"
+    },
+    "thug": {
+      "id": "thug",
+      "name": "Thug",
+      "size": "Medium",
+      "type": "humanoid (any race)",
+      "alignment": "any non-good alignment",
+      "ac": {
+        "value": 11,
+        "source": "leather armor"
+      },
+      "hp": {
+        "average": 32,
+        "formula": "5d8 + 10"
+      },
+      "speed": 30,
+      "speedText": "30 ft.",
+      "abilities": {
+        "str": 15,
+        "dex": 11,
+        "con": 14,
+        "int": 10,
+        "wis": 10,
+        "cha": 11
+      },
+      "savingThrows": {},
+      "skills": {
+        "intimidation": 2
+      },
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [],
+      "conditionImmunities": [],
+      "senses": "passive Perception 10",
+      "languages": "any one language (usually Common)",
+      "cr": "1/2",
+      "xp": 100,
+      "proficiencyBonus": 2,
+      "traits": [
+        {
+          "name": "Pack Tactics",
+          "text": "The thug has advantage on an attack roll against a creature if at least one of the thug's allies is within 5 ft. of the creature and the ally isn't incapacitated."
+        }
+      ],
+      "actions": [
+        {
+          "name": "Multiattack",
+          "text": "The thug makes two melee attacks."
+        },
+        {
+          "name": "Mace",
+          "text": "Melee Weapon Attack: +4 to hit, reach 5 ft., one creature. Hit: 5 (1d6 + 2) bludgeoning damage.",
+          "attack": {
+            "toHit": 4,
+            "reach": 5,
+            "damage": "1d6 + 2",
+            "average": 5,
+            "damageType": "bludgeoning"
+          }
+        },
+        {
+          "name": "Heavy Crossbow",
+          "text": "Ranged Weapon Attack: +2 to hit, range 100/400 ft., one target. Hit: 5 (1d10) piercing damage.",
+          "attack": {
+            "toHit": 2,
+            "range": [
+              100,
+              400
+            ],
+            "damage": "1d10",
+            "average": 5,
+            "damageType": "piercing"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/thug"
+    },
+    "cultist": {
+      "id": "cultist",
+      "name": "Cultist",
+      "size": "Medium",
+      "type": "humanoid (any race)",
+      "alignment": "any non-good alignment",
+      "ac": {
+        "value": 12,
+        "source": "leather armor"
+      },
+      "hp": {
+        "average": 9,
+        "formula": "2d8"
+      },
+      "speed": 30,
+      "speedText": "30 ft.",
+      "abilities": {
+        "str": 11,
+        "dex": 12,
+        "con": 10,
+        "int": 10,
+        "wis": 11,
+        "cha": 10
+      },
+      "savingThrows": {},
+      "skills": {
+        "deception": 2,
+        "religion": 2
+      },
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [],
+      "conditionImmunities": [],
+      "senses": "passive Perception 10",
+      "languages": "any one language (usually Common)",
+      "cr": "1/8",
+      "xp": 25,
+      "proficiencyBonus": 2,
+      "traits": [
+        {
+          "name": "Dark Devotion",
+          "text": "The cultist has advantage on saving throws against being charmed or frightened."
+        }
+      ],
+      "actions": [
+        {
+          "name": "Scimitar",
+          "text": "Melee Weapon Attack: +3 to hit, reach 5 ft., one creature. Hit: 4 (1d6 + 1) slashing damage.",
+          "attack": {
+            "toHit": 3,
+            "reach": 5,
+            "damage": "1d6 + 1",
+            "average": 4,
+            "damageType": "slashing"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/cultist"
+    },
+    "spy": {
+      "id": "spy",
+      "name": "Spy",
+      "size": "Medium",
+      "type": "humanoid (any race)",
+      "alignment": "any alignment",
+      "ac": {
+        "value": 12,
+        "source": "dex"
+      },
+      "hp": {
+        "average": 27,
+        "formula": "6d8"
+      },
+      "speed": 30,
+      "speedText": "30 ft.",
+      "abilities": {
+        "str": 10,
+        "dex": 15,
+        "con": 10,
+        "int": 12,
+        "wis": 14,
+        "cha": 16
+      },
+      "savingThrows": {},
+      "skills": {
+        "deception": 5,
+        "insight": 4,
+        "investigation": 5,
+        "perception": 6,
+        "persuasion": 5,
+        "stealth": 4
+      },
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [],
+      "conditionImmunities": [],
+      "senses": "passive Perception 16",
+      "languages": "any two languages",
+      "cr": "1",
+      "xp": 200,
+      "proficiencyBonus": 2,
+      "traits": [
+        {
+          "name": "Cunning Action",
+          "text": "On each of its turns, the spy can use a bonus action to take the Dash, Disengage, or Hide action."
+        },
+        {
+          "name": "Sneak Attack (1/Turn)",
+          "text": "The spy deals an extra 7 (2d6) damage when it hits a target with a weapon attack and has advantage on the attack roll, or when the target is within 5 ft. of an ally of the spy that isn't incapacitated and the spy doesn't have disadvantage on the attack roll."
+        }
+      ],
+      "actions": [
+        {
+          "name": "Multiattack",
+          "text": "The spy makes two melee attacks."
+        },
+        {
+          "name": "Shortsword",
+          "text": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) piercing damage.",
+          "attack": {
+            "toHit": 4,
+            "reach": 5,
+            "damage": "1d6 + 2",
+            "average": 5,
+            "damageType": "piercing"
+          }
+        },
+        {
+          "name": "Hand Crossbow",
+          "text": "Ranged Weapon Attack: +4 to hit, range 30/120 ft., one target. Hit: 5 (1d6 + 2) piercing damage.",
+          "attack": {
+            "toHit": 4,
+            "range": [
+              30,
+              120
+            ],
+            "damage": "1d6 + 2",
+            "average": 5,
+            "damageType": "piercing"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/spy"
+    },
+    "scout": {
+      "id": "scout",
+      "name": "Scout",
+      "size": "Medium",
+      "type": "humanoid (any race)",
+      "alignment": "any alignment",
+      "ac": {
+        "value": 13,
+        "source": "leather armor"
+      },
+      "hp": {
+        "average": 16,
+        "formula": "3d8 + 3"
+      },
+      "speed": 30,
+      "speedText": "30 ft.",
+      "abilities": {
+        "str": 11,
+        "dex": 14,
+        "con": 12,
+        "int": 11,
+        "wis": 13,
+        "cha": 11
+      },
+      "savingThrows": {},
+      "skills": {
+        "nature": 4,
+        "perception": 5,
+        "stealth": 6,
+        "survival": 5
+      },
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [],
+      "conditionImmunities": [],
+      "senses": "passive Perception 15",
+      "languages": "any one language (usually Common)",
+      "cr": "1/2",
+      "xp": 100,
+      "proficiencyBonus": 2,
+      "traits": [
+        {
+          "name": "Keen Hearing and Sight",
+          "text": "The scout has advantage on Wisdom (Perception) checks that rely on hearing or sight."
+        }
+      ],
+      "actions": [
+        {
+          "name": "Multiattack",
+          "text": "The scout makes two melee attacks or two ranged attacks."
+        },
+        {
+          "name": "Shortsword",
+          "text": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) piercing damage.",
+          "attack": {
+            "toHit": 4,
+            "reach": 5,
+            "damage": "1d6 + 2",
+            "average": 5,
+            "damageType": "piercing"
+          }
+        },
+        {
+          "name": "Longbow",
+          "text": "Ranged Weapon Attack: +4 to hit, range 150/600 ft., one target. Hit: 6 (1d8 + 2) piercing damage.",
+          "attack": {
+            "toHit": 4,
+            "range": [
+              150,
+              600
+            ],
+            "damage": "1d8 + 2",
+            "average": 6,
+            "damageType": "piercing"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/scout"
+    },
+    "priest": {
+      "id": "priest",
+      "name": "Priest",
+      "size": "Medium",
+      "type": "humanoid (any race)",
+      "alignment": "any alignment",
+      "ac": {
+        "value": 13,
+        "source": "chain shirt"
+      },
+      "hp": {
+        "average": 27,
+        "formula": "5d8 + 5"
+      },
+      "speed": 25,
+      "speedText": "25 ft.",
+      "abilities": {
+        "str": 10,
+        "dex": 10,
+        "con": 12,
+        "int": 13,
+        "wis": 16,
+        "cha": 13
+      },
+      "savingThrows": {},
+      "skills": {
+        "medicine": 7,
+        "persuasion": 3,
+        "religion": 4
+      },
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [],
+      "conditionImmunities": [],
+      "senses": "passive Perception 13",
+      "languages": "any two languages",
+      "cr": "2",
+      "xp": 450,
+      "proficiencyBonus": 2,
+      "traits": [
+        {
+          "name": "Divine Eminence",
+          "text": "As a bonus action, the priest can expend a spell slot to cause its melee weapon attacks to magically deal an extra 10 (3d6) radiant damage to a target on a hit. This benefit lasts until the end of the turn. If the priest expends a spell slot of 2nd level or higher, the extra damage increases by 1d6 for each level above 1st."
+        },
+        {
+          "name": "Spellcasting",
+          "text": "The priest is a 5th-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 13, +5 to hit with spell attacks). The priest has the following cleric spells prepared:\n\n- Cantrips (at will): light, sacred flame, thaumaturgy\n- 1st level (4 slots): cure wounds, guiding bolt, sanctuary\n- 2nd level (3 slots): lesser restoration, spiritual weapon\n- 3rd level (2 slots): dispel magic, spirit guardians"
+        }
+      ],
+      "actions": [
+        {
+          "name": "Mace",
+          "text": "Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 3 (1d6) bludgeoning damage.",
+          "attack": {
+            "toHit": 2,
+            "reach": 5,
+            "damage": "1d6",
+            "average": 3,
+            "damageType": "bludgeoning"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/priest"
+    },
+    "berserker": {
+      "id": "berserker",
+      "name": "Berserker",
+      "size": "Medium",
+      "type": "humanoid (any race)",
+      "alignment": "any chaotic alignment",
+      "ac": {
+        "value": 13,
+        "source": "hide armor"
+      },
+      "hp": {
+        "average": 67,
+        "formula": "9d8 + 27"
+      },
+      "speed": 30,
+      "speedText": "30 ft.",
+      "abilities": {
+        "str": 16,
+        "dex": 12,
+        "con": 17,
+        "int": 9,
+        "wis": 11,
+        "cha": 9
+      },
+      "savingThrows": {},
+      "skills": {},
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [],
+      "conditionImmunities": [],
+      "senses": "passive Perception 10",
+      "languages": "any one language (usually Common)",
+      "cr": "2",
+      "xp": 450,
+      "proficiencyBonus": 2,
+      "traits": [
+        {
+          "name": "Reckless",
+          "text": "At the start of its turn, the berserker can gain advantage on all melee weapon attack rolls during that turn, but attack rolls against it have advantage until the start of its next turn."
+        }
+      ],
+      "actions": [
+        {
+          "name": "Greataxe",
+          "text": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 9 (1d12 + 3) slashing damage.",
+          "attack": {
+            "toHit": 5,
+            "reach": 5,
+            "damage": "1d12 + 3",
+            "average": 9,
+            "damageType": "slashing"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/berserker"
+    },
+    "veteran": {
+      "id": "veteran",
+      "name": "Veteran",
+      "size": "Medium",
+      "type": "humanoid (any race)",
+      "alignment": "any alignment",
+      "ac": {
+        "value": 17,
+        "source": "splint armor"
+      },
+      "hp": {
+        "average": 58,
+        "formula": "9d8 + 18"
+      },
+      "speed": 30,
+      "speedText": "30 ft.",
+      "abilities": {
+        "str": 16,
+        "dex": 13,
+        "con": 14,
+        "int": 10,
+        "wis": 11,
+        "cha": 10
+      },
+      "savingThrows": {},
+      "skills": {
+        "athletics": 5,
+        "perception": 2
+      },
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [],
+      "conditionImmunities": [],
+      "senses": "passive Perception 12",
+      "languages": "any one language (usually Common)",
+      "cr": "3",
+      "xp": 700,
+      "proficiencyBonus": 2,
+      "traits": [],
+      "actions": [
+        {
+          "name": "Multiattack",
+          "text": "The veteran makes two longsword attacks. If it has a shortsword drawn, it can also make a shortsword attack."
+        },
+        {
+          "name": "Longsword",
+          "text": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 7 (1d8 + 3) slashing damage, or 8 (1d10 + 3) slashing damage if used with two hands.",
+          "attack": {
+            "toHit": 5,
+            "reach": 5,
+            "damage": "1d8 + 3",
+            "average": 7,
+            "damageType": "slashing"
+          }
+        },
+        {
+          "name": "Shortsword",
+          "text": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (1d6 + 3) piercing damage.",
+          "attack": {
+            "toHit": 5,
+            "reach": 5,
+            "damage": "1d6 + 3",
+            "average": 6,
+            "damageType": "piercing"
+          }
+        },
+        {
+          "name": "Heavy Crossbow",
+          "text": "Ranged Weapon Attack: +3 to hit, range 100/400 ft., one target. Hit: 6 (1d10 + 1) piercing damage.",
+          "attack": {
+            "toHit": 3,
+            "range": [
+              100,
+              400
+            ],
+            "damage": "1d10 + 1",
+            "average": 6,
+            "damageType": "piercing"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/veteran"
+    },
+    "knight": {
+      "id": "knight",
+      "name": "Knight",
+      "size": "Medium",
+      "type": "humanoid (any race)",
+      "alignment": "any alignment",
+      "ac": {
+        "value": 18,
+        "source": "plate armor"
+      },
+      "hp": {
+        "average": 52,
+        "formula": "8d8 + 16"
+      },
+      "speed": 30,
+      "speedText": "30 ft.",
+      "abilities": {
+        "str": 16,
+        "dex": 11,
+        "con": 14,
+        "int": 11,
+        "wis": 11,
+        "cha": 15
+      },
+      "savingThrows": {
+        "con": 4,
+        "wis": 2
+      },
+      "skills": {},
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [],
+      "conditionImmunities": [],
+      "senses": "passive Perception 10",
+      "languages": "any one language (usually Common)",
+      "cr": "3",
+      "xp": 700,
+      "proficiencyBonus": 2,
+      "traits": [
+        {
+          "name": "Brave",
+          "text": "The knight has advantage on saving throws against being frightened."
+        }
+      ],
+      "actions": [
+        {
+          "name": "Multiattack",
+          "text": "The knight makes two melee attacks."
+        },
+        {
+          "name": "Greatsword",
+          "text": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 10 (2d6 + 3) slashing damage.",
+          "attack": {
+            "toHit": 5,
+            "reach": 5,
+            "damage": "2d6 + 3",
+            "average": 10,
+            "damageType": "slashing"
+          }
+        },
+        {
+          "name": "Heavy Crossbow",
+          "text": "Ranged Weapon Attack: +2 to hit, range 100/400 ft., one target. Hit: 5 (1d10) piercing damage.",
+          "attack": {
+            "toHit": 2,
+            "range": [
+              100,
+              400
+            ],
+            "damage": "1d10",
+            "average": 5,
+            "damageType": "piercing"
+          }
+        },
+        {
+          "name": "Leadership (Recharges after a Short or Long Rest)",
+          "text": "For 1 minute, the knight can utter a special command or warning whenever a nonhostile creature that it can see within 30 ft. of it makes an attack roll or a saving throw. The creature can add a d4 to its roll provided it can hear and understand the knight. A creature can benefit from only one Leadership die at a time. This effect ends if the knight is incapacitated."
+        }
+      ],
+      "reactions": [
+        {
+          "name": "Parry",
+          "text": "The knight adds 2 to its AC against one melee attack that would hit it. To do so, the knight must see the attacker and be wielding a melee weapon."
+        }
+      ],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/knight"
+    },
+    "mage": {
+      "id": "mage",
+      "name": "Mage",
+      "size": "Medium",
+      "type": "humanoid (any race)",
+      "alignment": "any alignment",
+      "ac": {
+        "value": 12,
+        "source": "dex"
+      },
+      "hp": {
+        "average": 40,
+        "formula": "9d8"
+      },
+      "speed": 30,
+      "speedText": "30 ft.",
+      "abilities": {
+        "str": 9,
+        "dex": 14,
+        "con": 11,
+        "int": 17,
+        "wis": 12,
+        "cha": 11
+      },
+      "savingThrows": {
+        "int": 6,
+        "wis": 4
+      },
+      "skills": {
+        "arcana": 6,
+        "history": 6
+      },
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [],
+      "conditionImmunities": [],
+      "senses": "passive Perception 11",
+      "languages": "any four languages",
+      "cr": "6",
+      "xp": 2300,
+      "proficiencyBonus": 3,
+      "traits": [
+        {
+          "name": "Spellcasting",
+          "text": "The mage is a 9th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 14, +6 to hit with spell attacks). The mage has the following wizard spells prepared:\n\n- Cantrips (at will): fire bolt, light, mage hand, prestidigitation\n- 1st level (4 slots): detect magic, mage armor, magic missile, shield\n- 2nd level (3 slots): misty step, suggestion\n- 3rd level (3 slots): counterspell, fireball, fly\n- 4th level (3 slots): greater invisibility, ice storm\n- 5th level (1 slot): cone of cold"
+        }
+      ],
+      "actions": [
+        {
+          "name": "Dagger",
+          "text": "Melee or Ranged Weapon Attack: +5 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 4 (1d4 + 2) piercing damage.",
+          "attack": {
+            "toHit": 5,
+            "reach": 5,
+            "range": [
+              20,
+              60
+            ],
+            "damage": "1d4 + 2",
+            "average": 4,
+            "damageType": "piercing"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/mage"
+    },
+    "druid": {
+      "id": "druid",
+      "name": "Druid",
+      "size": "Medium",
+      "type": "humanoid (any race)",
+      "alignment": "any alignment",
+      "ac": {
+        "value": 11,
+        "source": "dex"
+      },
+      "hp": {
+        "average": 27,
+        "formula": "5d8 + 5"
+      },
+      "speed": 30,
+      "speedText": "30 ft.",
+      "abilities": {
+        "str": 10,
+        "dex": 12,
+        "con": 13,
+        "int": 12,
+        "wis": 15,
+        "cha": 11
+      },
+      "savingThrows": {},
+      "skills": {
+        "medicine": 4,
+        "nature": 3,
+        "perception": 4
+      },
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [],
+      "conditionImmunities": [],
+      "senses": "passive Perception 14",
+      "languages": "Druidic plus any two languages",
+      "cr": "2",
+      "xp": 450,
+      "proficiencyBonus": 2,
+      "traits": [
+        {
+          "name": "Spellcasting",
+          "text": "The druid is a 4th-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 12, +4 to hit with spell attacks). It has the following druid spells prepared:\n\n- Cantrips (at will): druidcraft, produce flame, shillelagh\n- 1st level (4 slots): entangle, longstrider, speak with animals, thunderwave\n- 2nd level (3 slots): animal messenger, barkskin"
+        }
+      ],
+      "actions": [
+        {
+          "name": "Quarterstaff",
+          "text": " Melee Weapon Attack: +2 to hit (+4 to hit with shillelagh), reach 5 ft., one target. Hit: 3 (1d6) bludgeoning damage, 4 (1d8) bludgeoning damage if wielded with two hands, or 6 (1d8 + 2) bludgeoning damage with shillelagh.",
+          "attack": {
+            "toHit": 2,
+            "reach": 5,
+            "damage": "1d6",
+            "average": 3,
+            "damageType": "bludgeoning"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/druid"
+    },
+    "kobold": {
+      "id": "kobold",
+      "name": "Kobold",
+      "size": "Small",
+      "type": "humanoid (kobold)",
+      "alignment": "lawful evil",
+      "ac": {
+        "value": 12,
+        "source": "dex"
+      },
+      "hp": {
+        "average": 5,
+        "formula": "2d6 - 2"
+      },
+      "speed": 30,
+      "speedText": "30 ft.",
+      "abilities": {
+        "str": 7,
+        "dex": 15,
+        "con": 9,
+        "int": 8,
+        "wis": 7,
+        "cha": 8
+      },
+      "savingThrows": {},
+      "skills": {},
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [],
+      "conditionImmunities": [],
+      "senses": "darkvision 60 ft., passive Perception 8",
+      "languages": "Common, Draconic",
+      "cr": "1/8",
+      "xp": 25,
+      "proficiencyBonus": 2,
+      "traits": [
+        {
+          "name": "Sunlight Sensitivity",
+          "text": "While in sunlight, the kobold has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
+        },
+        {
+          "name": "Pack Tactics",
+          "text": "The kobold has advantage on an attack roll against a creature if at least one of the kobold's allies is within 5 ft. of the creature and the ally isn't incapacitated."
+        }
+      ],
+      "actions": [
+        {
+          "name": "Dagger",
+          "text": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) piercing damage.",
+          "attack": {
+            "toHit": 4,
+            "reach": 5,
+            "damage": "1d4 + 2",
+            "average": 4,
+            "damageType": "piercing"
+          }
+        },
+        {
+          "name": "Sling",
+          "text": "Ranged Weapon Attack: +4 to hit, range 30/120 ft., one target. Hit: 4 (1d4 + 2) bludgeoning damage.",
+          "attack": {
+            "toHit": 4,
+            "range": [
+              30,
+              120
+            ],
+            "damage": "1d4 + 2",
+            "average": 4,
+            "damageType": "bludgeoning"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/kobold"
+    },
+    "goblin": {
+      "id": "goblin",
+      "name": "Goblin",
+      "size": "Small",
+      "type": "humanoid (goblinoid)",
+      "alignment": "neutral evil",
+      "ac": {
+        "value": 15,
+        "source": "leather armor, shield"
+      },
+      "hp": {
+        "average": 7,
+        "formula": "2d6"
+      },
+      "speed": 30,
+      "speedText": "30 ft.",
+      "abilities": {
+        "str": 8,
+        "dex": 14,
+        "con": 10,
+        "int": 10,
+        "wis": 8,
+        "cha": 8
+      },
+      "savingThrows": {},
+      "skills": {
+        "stealth": 6
+      },
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [],
+      "conditionImmunities": [],
+      "senses": "darkvision 60 ft., passive Perception 9",
+      "languages": "Common, Goblin",
+      "cr": "1/4",
+      "xp": 50,
+      "proficiencyBonus": 2,
+      "traits": [
+        {
+          "name": "Nimble Escape",
+          "text": "The goblin can take the Disengage or Hide action as a bonus action on each of its turns."
+        }
+      ],
+      "actions": [
+        {
+          "name": "Scimitar",
+          "text": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) slashing damage.",
+          "attack": {
+            "toHit": 4,
+            "reach": 5,
+            "damage": "1d6 + 2",
+            "average": 5,
+            "damageType": "slashing"
+          }
+        },
+        {
+          "name": "Shortbow",
+          "text": "Ranged Weapon Attack: +4 to hit, range 80/320 ft., one target. Hit: 5 (1d6 + 2) piercing damage.",
+          "attack": {
+            "toHit": 4,
+            "range": [
+              80,
+              320
+            ],
+            "damage": "1d6 + 2",
+            "average": 5,
+            "damageType": "piercing"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/goblin"
+    },
+    "hobgoblin": {
+      "id": "hobgoblin",
+      "name": "Hobgoblin",
+      "size": "Medium",
+      "type": "humanoid (goblinoid)",
+      "alignment": "lawful evil",
+      "ac": {
+        "value": 18,
+        "source": "chain mail, shield"
+      },
+      "hp": {
+        "average": 11,
+        "formula": "2d8 + 2"
+      },
+      "speed": 30,
+      "speedText": "30 ft.",
+      "abilities": {
+        "str": 13,
+        "dex": 12,
+        "con": 12,
+        "int": 10,
+        "wis": 10,
+        "cha": 9
+      },
+      "savingThrows": {},
+      "skills": {},
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [],
+      "conditionImmunities": [],
+      "senses": "darkvision 60 ft., passive Perception 10",
+      "languages": "Common, Goblin",
+      "cr": "1/2",
+      "xp": 100,
+      "proficiencyBonus": 2,
+      "traits": [
+        {
+          "name": "Martial Advantage",
+          "text": "Once per turn, the hobgoblin can deal an extra 7 (2d6) damage to a creature it hits with a weapon attack if that creature is within 5 ft. of an ally of the hobgoblin that isn't incapacitated."
+        }
+      ],
+      "actions": [
+        {
+          "name": "Longsword",
+          "text": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 5 (1d8 + 1) slashing damage, or 6 (1d10 + 1) slashing damage if used with two hands.",
+          "attack": {
+            "toHit": 3,
+            "reach": 5,
+            "damage": "1d8 + 1",
+            "average": 5,
+            "damageType": "slashing"
+          }
+        },
+        {
+          "name": "Longbow",
+          "text": "Ranged Weapon Attack: +3 to hit, range 150/600 ft., one target. Hit: 5 (1d8 + 1) piercing damage.",
+          "attack": {
+            "toHit": 3,
+            "range": [
+              150,
+              600
+            ],
+            "damage": "1d8 + 1",
+            "average": 5,
+            "damageType": "piercing"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/hobgoblin"
+    },
+    "bugbear": {
+      "id": "bugbear",
+      "name": "Bugbear",
+      "size": "Medium",
+      "type": "humanoid (goblinoid)",
+      "alignment": "chaotic evil",
+      "ac": {
+        "value": 16,
+        "source": "shield, hide armor"
+      },
+      "hp": {
+        "average": 27,
+        "formula": "5d8 + 5"
+      },
+      "speed": 30,
+      "speedText": "30 ft.",
+      "abilities": {
+        "str": 15,
+        "dex": 14,
+        "con": 13,
+        "int": 8,
+        "wis": 11,
+        "cha": 9
+      },
+      "savingThrows": {},
+      "skills": {
+        "stealth": 6,
+        "survival": 2
+      },
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [],
+      "conditionImmunities": [],
+      "senses": "darkvision 60 ft., passive Perception 10",
+      "languages": "Common, Goblin",
+      "cr": "1",
+      "xp": 200,
+      "proficiencyBonus": 2,
+      "traits": [
+        {
+          "name": "Brute",
+          "text": "A melee weapon deals one extra die of its damage when the bugbear hits with it (included in the attack)."
+        },
+        {
+          "name": "Surprise Attack",
+          "text": "If the bugbear surprises a creature and hits it with an attack during the first round of combat, the target takes an extra 7 (2d6) damage from the attack."
+        }
+      ],
+      "actions": [
+        {
+          "name": "Morningstar",
+          "text": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 11 (2d8 + 2) piercing damage.",
+          "attack": {
+            "toHit": 4,
+            "reach": 5,
+            "damage": "2d8 + 2",
+            "average": 11,
+            "damageType": "piercing"
+          }
+        },
+        {
+          "name": "Javelin",
+          "text": "Melee or Ranged Weapon Attack: +4 to hit, reach 5 ft. or range 30/120 ft., one target. Hit: 9 (2d6 + 2) piercing damage in melee or 5 (1d6 + 2) piercing damage at range.",
+          "attack": {
+            "toHit": 4,
+            "reach": 5,
+            "range": [
+              30,
+              120
+            ],
+            "damage": "2d6 + 2",
+            "average": 9,
+            "damageType": "piercing"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/bugbear"
+    },
+    "orc": {
+      "id": "orc",
+      "name": "Orc",
+      "size": "Medium",
+      "type": "humanoid (orc)",
+      "alignment": "chaotic evil",
+      "ac": {
+        "value": 13,
+        "source": "hide armor"
+      },
+      "hp": {
+        "average": 15,
+        "formula": "2d8 + 6"
+      },
+      "speed": 30,
+      "speedText": "30 ft.",
+      "abilities": {
+        "str": 16,
+        "dex": 12,
+        "con": 16,
+        "int": 7,
+        "wis": 11,
+        "cha": 10
+      },
+      "savingThrows": {},
+      "skills": {
+        "intimidation": 2
+      },
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [],
+      "conditionImmunities": [],
+      "senses": "darkvision 60 ft., passive Perception 10",
+      "languages": "Common, Orc",
+      "cr": "1/2",
+      "xp": 100,
+      "proficiencyBonus": 2,
+      "traits": [
+        {
+          "name": "Aggressive",
+          "text": "As a bonus action, the orc can move up to its speed toward a hostile creature that it can see."
+        }
+      ],
+      "actions": [
+        {
+          "name": "Greataxe",
+          "text": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 9 (1d12 + 3) slashing damage.",
+          "attack": {
+            "toHit": 5,
+            "reach": 5,
+            "damage": "1d12 + 3",
+            "average": 9,
+            "damageType": "slashing"
+          }
+        },
+        {
+          "name": "Javelin",
+          "text": "Melee or Ranged Weapon Attack: +5 to hit, reach 5 ft. or range 30/120 ft., one target. Hit: 6 (1d6 + 3) piercing damage.",
+          "attack": {
+            "toHit": 5,
+            "reach": 5,
+            "range": [
+              30,
+              120
+            ],
+            "damage": "1d6 + 3",
+            "average": 6,
+            "damageType": "piercing"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/orc"
+    },
+    "gnoll": {
+      "id": "gnoll",
+      "name": "Gnoll",
+      "size": "Medium",
+      "type": "humanoid (gnoll)",
+      "alignment": "chaotic evil",
+      "ac": {
+        "value": 15,
+        "source": "hide armor, shield"
+      },
+      "hp": {
+        "average": 22,
+        "formula": "5d8"
+      },
+      "speed": 30,
+      "speedText": "30 ft.",
+      "abilities": {
+        "str": 14,
+        "dex": 12,
+        "con": 11,
+        "int": 6,
+        "wis": 10,
+        "cha": 7
+      },
+      "savingThrows": {},
+      "skills": {},
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [],
+      "conditionImmunities": [],
+      "senses": "darkvision 60 ft., passive Perception 10",
+      "languages": "Gnoll",
+      "cr": "1/2",
+      "xp": 100,
+      "proficiencyBonus": 2,
+      "traits": [
+        {
+          "name": "Rampage",
+          "text": "When the gnoll reduces a creature to 0 hit points with a melee attack on its turn, the gnoll can take a bonus action to move up to half its speed and make a bite attack."
+        }
+      ],
+      "actions": [
+        {
+          "name": "Bite",
+          "text": "Melee Weapon Attack: +4 to hit, reach 5 ft., one creature. Hit: 4 (1d4 + 2) piercing damage.",
+          "attack": {
+            "toHit": 4,
+            "reach": 5,
+            "damage": "1d4 + 2",
+            "average": 4,
+            "damageType": "piercing"
+          }
+        },
+        {
+          "name": "Spear",
+          "text": "Melee or Ranged Weapon Attack: +4 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 5 (1d6 + 2) piercing damage, or 6 (1d8 + 2) piercing damage if used with two hands to make a melee attack.",
+          "attack": {
+            "toHit": 4,
+            "reach": 5,
+            "range": [
+              20,
+              60
+            ],
+            "damage": "1d6 + 2",
+            "average": 5,
+            "damageType": "piercing"
+          }
+        },
+        {
+          "name": "Longbow",
+          "text": "Ranged Weapon Attack: +3 to hit, range 150/600 ft., one target. Hit: 5 (1d8 + 1) piercing damage.",
+          "attack": {
+            "toHit": 3,
+            "range": [
+              150,
+              600
+            ],
+            "damage": "1d8 + 1",
+            "average": 5,
+            "damageType": "piercing"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/gnoll"
+    },
+    "giant-rat": {
+      "id": "giant-rat",
+      "name": "Giant Rat",
+      "size": "Small",
+      "type": "beast",
+      "alignment": "unaligned",
+      "ac": {
+        "value": 12,
+        "source": "dex"
+      },
+      "hp": {
+        "average": 7,
+        "formula": "2d6"
+      },
+      "speed": 30,
+      "speedText": "30 ft.",
+      "abilities": {
+        "str": 7,
+        "dex": 15,
+        "con": 11,
+        "int": 2,
+        "wis": 10,
+        "cha": 4
+      },
+      "savingThrows": {},
+      "skills": {},
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [],
+      "conditionImmunities": [],
+      "senses": "darkvision 60 ft., passive Perception 10",
+      "languages": "",
+      "cr": "1/8",
+      "xp": 25,
+      "proficiencyBonus": 2,
+      "traits": [
+        {
+          "name": "Keen Smell",
+          "text": "The rat has advantage on Wisdom (Perception) checks that rely on smell."
+        },
+        {
+          "name": "Pack Tactics",
+          "text": "The rat has advantage on an attack roll against a creature if at least one of the rat's allies is within 5 ft. of the creature and the ally isn't incapacitated."
+        }
+      ],
+      "actions": [
+        {
+          "name": "Bite",
+          "text": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) piercing damage.",
+          "attack": {
+            "toHit": 4,
+            "reach": 5,
+            "damage": "1d4 + 2",
+            "average": 4,
+            "damageType": "piercing"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/giant-rat"
+    },
+    "swarm-of-rats": {
+      "id": "swarm-of-rats",
+      "name": "Swarm of Rats",
+      "size": "Medium",
+      "type": "swarm of Tiny beasts",
+      "alignment": "unaligned",
+      "ac": {
+        "value": 10,
+        "source": "dex"
+      },
+      "hp": {
+        "average": 24,
+        "formula": "7d8 - 7"
+      },
+      "speed": 30,
+      "speedText": "30 ft.",
+      "abilities": {
+        "str": 9,
+        "dex": 11,
+        "con": 9,
+        "int": 2,
+        "wis": 10,
+        "cha": 3
+      },
+      "savingThrows": {},
+      "skills": {},
+      "damageVulnerabilities": [],
+      "damageResistances": [
+        "bludgeoning",
+        "piercing",
+        "slashing"
+      ],
+      "damageImmunities": [],
+      "conditionImmunities": [
+        "charmed",
+        "frightened",
+        "grappled",
+        "paralyzed",
+        "petrified",
+        "prone",
+        "restrained",
+        "stunned"
+      ],
+      "senses": "darkvision 30 ft., passive Perception 10",
+      "languages": "",
+      "cr": "1/4",
+      "xp": 50,
+      "proficiencyBonus": 2,
+      "traits": [
+        {
+          "name": "Keen Smell",
+          "text": "The swarm has advantage on Wisdom (Perception) checks that rely on smell."
+        },
+        {
+          "name": "Swarm",
+          "text": "The swarm can occupy another creature's space and vice versa, and the swarm can move through any opening large enough for a Tiny rat. The swarm can't regain hit points or gain temporary hit points."
+        }
+      ],
+      "actions": [
+        {
+          "name": "Bites",
+          "text": "Melee Weapon Attack: +2 to hit, reach 0 ft., one target in the swarm's space. Hit: 7 (2d6) piercing damage, or 3 (1d6) piercing damage if the swarm has half of its hit points or fewer.",
+          "attack": {
+            "toHit": 2,
+            "reach": 0,
+            "damage": "2d6",
+            "average": 7,
+            "damageType": "piercing"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/swarm-of-rats"
+    },
+    "wolf": {
+      "id": "wolf",
+      "name": "Wolf",
+      "size": "Medium",
+      "type": "beast",
+      "alignment": "unaligned",
+      "ac": {
+        "value": 13,
+        "source": "natural armor"
+      },
+      "hp": {
+        "average": 11,
+        "formula": "2d8 + 2"
+      },
+      "speed": 40,
+      "speedText": "40 ft.",
+      "abilities": {
+        "str": 12,
+        "dex": 15,
+        "con": 12,
+        "int": 3,
+        "wis": 12,
+        "cha": 6
+      },
+      "savingThrows": {},
+      "skills": {
+        "perception": 3,
+        "stealth": 4
+      },
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [],
+      "conditionImmunities": [],
+      "senses": "passive Perception 13",
+      "languages": "",
+      "cr": "1/4",
+      "xp": 50,
+      "proficiencyBonus": 2,
+      "traits": [
+        {
+          "name": "Keen Hearing and Smell",
+          "text": "The wolf has advantage on Wisdom (Perception) checks that rely on hearing or smell."
+        },
+        {
+          "name": "Pack Tactics",
+          "text": "The wolf has advantage on an attack roll against a creature if at least one of the wolf's allies is within 5 ft. of the creature and the ally isn't incapacitated."
+        }
+      ],
+      "actions": [
+        {
+          "name": "Bite",
+          "text": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 7 (2d4 + 2) piercing damage. If the target is a creature, it must succeed on a DC 11 Strength saving throw or be knocked prone.",
+          "attack": {
+            "toHit": 4,
+            "reach": 5,
+            "damage": "2d4 + 2",
+            "average": 7,
+            "damageType": "piercing"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/wolf"
+    },
+    "worg": {
+      "id": "worg",
+      "name": "Worg",
+      "size": "Large",
+      "type": "monstrosity",
+      "alignment": "neutral evil",
+      "ac": {
+        "value": 13,
+        "source": "natural armor"
+      },
+      "hp": {
+        "average": 26,
+        "formula": "4d10 + 4"
+      },
+      "speed": 50,
+      "speedText": "50 ft.",
+      "abilities": {
+        "str": 16,
+        "dex": 13,
+        "con": 13,
+        "int": 7,
+        "wis": 11,
+        "cha": 8
+      },
+      "savingThrows": {},
+      "skills": {
+        "perception": 4
+      },
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [],
+      "conditionImmunities": [],
+      "senses": "darkvision 60 ft., passive Perception 14",
+      "languages": "Goblin, Worg",
+      "cr": "1/2",
+      "xp": 100,
+      "proficiencyBonus": 2,
+      "traits": [
+        {
+          "name": "Keen Hearing and Smell",
+          "text": "The worg has advantage on Wisdom (Perception) checks that rely on hearing or smell."
+        }
+      ],
+      "actions": [
+        {
+          "name": "Bite",
+          "text": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 10 (2d6 + 3) piercing damage. If the target is a creature, it must succeed on a DC 13 Strength saving throw or be knocked prone.",
+          "attack": {
+            "toHit": 5,
+            "reach": 5,
+            "damage": "2d6 + 3",
+            "average": 10,
+            "damageType": "piercing"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/worg"
+    },
+    "dire-wolf": {
+      "id": "dire-wolf",
+      "name": "Dire Wolf",
+      "size": "Large",
+      "type": "beast",
+      "alignment": "unaligned",
+      "ac": {
+        "value": 14,
+        "source": "natural armor"
+      },
+      "hp": {
+        "average": 37,
+        "formula": "5d10 + 10"
+      },
+      "speed": 50,
+      "speedText": "50 ft.",
+      "abilities": {
+        "str": 17,
+        "dex": 15,
+        "con": 15,
+        "int": 3,
+        "wis": 12,
+        "cha": 7
+      },
+      "savingThrows": {},
+      "skills": {
+        "perception": 3,
+        "stealth": 4
+      },
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [],
+      "conditionImmunities": [],
+      "senses": "passive Perception 13",
+      "languages": "",
+      "cr": "1",
+      "xp": 200,
+      "proficiencyBonus": 2,
+      "traits": [
+        {
+          "name": "Keen Hearing and Smell",
+          "text": "The wolf has advantage on Wisdom (Perception) checks that rely on hearing or smell."
+        },
+        {
+          "name": "Pack Tactics",
+          "text": "The wolf has advantage on an attack roll against a creature if at least one of the wolf's allies is within 5 ft. of the creature and the ally isn't incapacitated."
+        }
+      ],
+      "actions": [
+        {
+          "name": "Bite",
+          "text": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 10 (2d6 + 3) piercing damage. If the target is a creature, it must succeed on a DC 13 Strength saving throw or be knocked prone.",
+          "attack": {
+            "toHit": 5,
+            "reach": 5,
+            "damage": "2d6 + 3",
+            "average": 10,
+            "damageType": "piercing"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/dire-wolf"
+    },
+    "black-bear": {
+      "id": "black-bear",
+      "name": "Black Bear",
+      "size": "Medium",
+      "type": "beast",
+      "alignment": "unaligned",
+      "ac": {
+        "value": 11,
+        "source": "natural armor"
+      },
+      "hp": {
+        "average": 19,
+        "formula": "3d8 + 6"
+      },
+      "speed": 40,
+      "speedText": "40 ft., climb 30 ft.",
+      "abilities": {
+        "str": 15,
+        "dex": 10,
+        "con": 14,
+        "int": 2,
+        "wis": 12,
+        "cha": 7
+      },
+      "savingThrows": {},
+      "skills": {
+        "perception": 3
+      },
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [],
+      "conditionImmunities": [],
+      "senses": "passive Perception 13",
+      "languages": "",
+      "cr": "1/2",
+      "xp": 100,
+      "proficiencyBonus": 2,
+      "traits": [
+        {
+          "name": "Keen Smell",
+          "text": "The bear has advantage on Wisdom (Perception) checks that rely on smell."
+        }
+      ],
+      "actions": [
+        {
+          "name": "Multiattack",
+          "text": "The bear makes two attacks: one with its bite and one with its claws."
+        },
+        {
+          "name": "Bite",
+          "text": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) piercing damage.",
+          "attack": {
+            "toHit": 3,
+            "reach": 5,
+            "damage": "1d6 + 2",
+            "average": 5,
+            "damageType": "piercing"
+          }
+        },
+        {
+          "name": "Claws",
+          "text": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 7 (2d4 + 2) slashing damage.",
+          "attack": {
+            "toHit": 3,
+            "reach": 5,
+            "damage": "2d4 + 2",
+            "average": 7,
+            "damageType": "slashing"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/black-bear"
+    },
+    "brown-bear": {
+      "id": "brown-bear",
+      "name": "Brown Bear",
+      "size": "Large",
+      "type": "beast",
+      "alignment": "unaligned",
+      "ac": {
+        "value": 11,
+        "source": "natural armor"
+      },
+      "hp": {
+        "average": 34,
+        "formula": "4d10 + 12"
+      },
+      "speed": 40,
+      "speedText": "40 ft., climb 30 ft.",
+      "abilities": {
+        "str": 19,
+        "dex": 10,
+        "con": 16,
+        "int": 2,
+        "wis": 13,
+        "cha": 7
+      },
+      "savingThrows": {},
+      "skills": {
+        "perception": 3
+      },
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [],
+      "conditionImmunities": [],
+      "senses": "passive Perception 13",
+      "languages": "",
+      "cr": "1",
+      "xp": 200,
+      "proficiencyBonus": 2,
+      "traits": [
+        {
+          "name": "Keen Smell",
+          "text": "The bear has advantage on Wisdom (Perception) checks that rely on smell."
+        }
+      ],
+      "actions": [
+        {
+          "name": "Multiattack",
+          "text": "The bear makes two attacks: one with its bite and one with its claws."
+        },
+        {
+          "name": "Bite",
+          "text": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 8 (1d8 + 4) piercing damage.",
+          "attack": {
+            "toHit": 5,
+            "reach": 5,
+            "damage": "1d8 + 4",
+            "average": 8,
+            "damageType": "piercing"
+          }
+        },
+        {
+          "name": "Claws",
+          "text": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 11 (2d6 + 4) slashing damage.",
+          "attack": {
+            "toHit": 5,
+            "reach": 5,
+            "damage": "2d6 + 4",
+            "average": 11,
+            "damageType": "slashing"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/brown-bear"
+    },
+    "giant-spider": {
+      "id": "giant-spider",
+      "name": "Giant Spider",
+      "size": "Large",
+      "type": "beast",
+      "alignment": "unaligned",
+      "ac": {
+        "value": 14,
+        "source": "natural armor"
+      },
+      "hp": {
+        "average": 26,
+        "formula": "4d10 + 4"
+      },
+      "speed": 30,
+      "speedText": "30 ft., climb 30 ft.",
+      "abilities": {
+        "str": 14,
+        "dex": 16,
+        "con": 12,
+        "int": 2,
+        "wis": 11,
+        "cha": 4
+      },
+      "savingThrows": {},
+      "skills": {
+        "stealth": 7
+      },
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [],
+      "conditionImmunities": [],
+      "senses": "blindsight 10 ft., darkvision 60 ft., passive Perception 10",
+      "languages": "",
+      "cr": "1",
+      "xp": 200,
+      "proficiencyBonus": 2,
+      "traits": [
+        {
+          "name": "Spider Climb",
+          "text": "The spider can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check."
+        },
+        {
+          "name": "Web Sense",
+          "text": "While in contact with a web, the spider knows the exact location of any other creature in contact with the same web."
+        },
+        {
+          "name": "Web Walker",
+          "text": "The spider ignores movement restrictions caused by webbing."
+        }
+      ],
+      "actions": [
+        {
+          "name": "Bite",
+          "text": "Melee Weapon Attack: +5 to hit, reach 5 ft., one creature. Hit: 7 (1d8 + 3) piercing damage, and the target must make a DC 11 Constitution saving throw, taking 9 (2d8) poison damage on a failed save, or half as much damage on a successful one. If the poison damage reduces the target to 0 hit points, the target is stable but poisoned for 1 hour, even after regaining hit points, and is paralyzed while poisoned in this way.",
+          "attack": {
+            "toHit": 5,
+            "reach": 5,
+            "damage": "1d8 + 3",
+            "average": 7,
+            "damageType": "piercing"
+          }
+        },
+        {
+          "name": "Web (Recharge 5–6)",
+          "text": "Ranged Weapon Attack: +5 to hit, range 30/60 ft., one creature. Hit: The target is restrained by webbing. As an action, the restrained target can make a DC 12 Strength check, bursting the webbing on a success. The webbing can also be attacked and destroyed (AC 10; hp 5; vulnerability to fire damage; immunity to bludgeoning, poison, and psychic damage).",
+          "attack": {
+            "toHit": 5,
+            "range": [
+              30,
+              60
+            ]
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/giant-spider"
+    },
+    "owlbear": {
+      "id": "owlbear",
+      "name": "Owlbear",
+      "size": "Large",
+      "type": "monstrosity",
+      "alignment": "unaligned",
+      "ac": {
+        "value": 13,
+        "source": "natural armor"
+      },
+      "hp": {
+        "average": 59,
+        "formula": "7d10 + 21"
+      },
+      "speed": 40,
+      "speedText": "40 ft.",
+      "abilities": {
+        "str": 20,
+        "dex": 12,
+        "con": 17,
+        "int": 3,
+        "wis": 12,
+        "cha": 7
+      },
+      "savingThrows": {},
+      "skills": {
+        "perception": 3
+      },
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [],
+      "conditionImmunities": [],
+      "senses": "darkvision 60 ft., passive Perception 13",
+      "languages": "",
+      "cr": "3",
+      "xp": 700,
+      "proficiencyBonus": 2,
+      "traits": [
+        {
+          "name": "Keen Sight and Smell",
+          "text": "The owlbear has advantage on Wisdom (Perception) checks that rely on sight or smell."
+        }
+      ],
+      "actions": [
+        {
+          "name": "Multiattack",
+          "text": "The owlbear makes two attacks: one with its beak and one with its claws."
+        },
+        {
+          "name": "Beak",
+          "text": "Melee Weapon Attack: +7 to hit, reach 5 ft., one creature. Hit: 10 (1d10 + 5) piercing damage.",
+          "attack": {
+            "toHit": 7,
+            "reach": 5,
+            "damage": "1d10 + 5",
+            "average": 10,
+            "damageType": "piercing"
+          }
+        },
+        {
+          "name": "Claws",
+          "text": "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 14 (2d8 + 5) slashing damage.",
+          "attack": {
+            "toHit": 7,
+            "reach": 5,
+            "damage": "2d8 + 5",
+            "average": 14,
+            "damageType": "slashing"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/owlbear"
+    },
+    "werewolf-human": {
+      "id": "werewolf-human",
+      "name": "Werewolf, Human Form",
+      "size": "Medium",
+      "type": "humanoid (human)",
+      "alignment": "chaotic evil",
+      "ac": {
+        "value": 11,
+        "source": "dex"
+      },
+      "hp": {
+        "average": 58,
+        "formula": "9d8 + 18"
+      },
+      "speed": 30,
+      "speedText": "30 ft.",
+      "abilities": {
+        "str": 15,
+        "dex": 13,
+        "con": 14,
+        "int": 10,
+        "wis": 11,
+        "cha": 10
+      },
+      "savingThrows": {},
+      "skills": {
+        "perception": 4
+      },
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [
+        "bludgeoning, piercing, and slashing from nonmagical weapons that aren't silvered"
+      ],
+      "conditionImmunities": [],
+      "senses": "passive Perception 14",
+      "languages": "Common",
+      "cr": "3",
+      "xp": 700,
+      "proficiencyBonus": 2,
+      "traits": [
+        {
+          "name": "Shapechanger",
+          "text": "The werewolf can use its action to polymorph into a wolf-humanoid hybrid or into a wolf, or back into its true form, which is humanoid. Its statistics, other than its AC, are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies."
+        },
+        {
+          "name": "Keen Hearing and Smell",
+          "text": "The werewolf has advantage on Wisdom (Perception) checks that rely on hearing or smell."
+        }
+      ],
+      "actions": [
+        {
+          "name": "Multiattack",
+          "text": "The werewolf makes two attacks: two with its spear (humanoid form) or one with its bite and one with its claws (hybrid form)."
+        },
+        {
+          "name": "Spear",
+          "text": "Melee or Ranged Weapon Attack: +4 to hit, reach 5 ft. or range 20/60 ft., one creature. Hit: 5 (1d6 + 2) piercing damage, or 6 (1d8 + 2) piercing damage if used with two hands to make a melee attack.",
+          "attack": {
+            "toHit": 4,
+            "reach": 5,
+            "range": [
+              20,
+              60
+            ],
+            "damage": "1d6 + 2",
+            "average": 5,
+            "damageType": "piercing"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/werewolf-human"
+    },
+    "werewolf-hybrid": {
+      "id": "werewolf-hybrid",
+      "name": "Werewolf, Hybrid Form",
+      "size": "Medium",
+      "type": "humanoid (human)",
+      "alignment": "chaotic evil",
+      "ac": {
+        "value": 12,
+        "source": "natural armor"
+      },
+      "hp": {
+        "average": 58,
+        "formula": "9d8 + 18"
+      },
+      "speed": 30,
+      "speedText": "30 ft.",
+      "abilities": {
+        "str": 15,
+        "dex": 13,
+        "con": 14,
+        "int": 10,
+        "wis": 11,
+        "cha": 10
+      },
+      "savingThrows": {},
+      "skills": {
+        "perception": 4
+      },
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [
+        "bludgeoning, piercing, and slashing from nonmagical weapons that aren't silvered"
+      ],
+      "conditionImmunities": [],
+      "senses": "passive Perception 14",
+      "languages": "Common",
+      "cr": "3",
+      "xp": 700,
+      "proficiencyBonus": 2,
+      "traits": [
+        {
+          "name": "Shapechanger",
+          "text": "The werewolf can use its action to polymorph into a wolf-humanoid hybrid or into a wolf, or back into its true form, which is humanoid. Its statistics, other than its AC, are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies."
+        },
+        {
+          "name": "Keen Hearing and Smell",
+          "text": "The werewolf has advantage on Wisdom (Perception) checks that rely on hearing or smell."
+        }
+      ],
+      "actions": [
+        {
+          "name": "Multiattack",
+          "text": "The werewolf makes two attacks: two with its spear (humanoid form) or one with its bite and one with its claws (hybrid form)."
+        },
+        {
+          "name": "Bite",
+          "text": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 6 (1d8 + 2) piercing damage. If the target is a humanoid, it must succeed on a DC 12 Constitution saving throw or be cursed with werewolf lycanthropy.",
+          "attack": {
+            "toHit": 4,
+            "reach": 5,
+            "damage": "1d8 + 2",
+            "average": 6,
+            "damageType": "piercing"
+          }
+        },
+        {
+          "name": "Claws",
+          "text": "Melee Weapon Attack: +4 to hit, reach 5 ft., one creature. Hit: 7 (2d4 + 2) slashing damage.",
+          "attack": {
+            "toHit": 4,
+            "reach": 5,
+            "damage": "2d4 + 2",
+            "average": 7,
+            "damageType": "slashing"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/werewolf-hybrid"
+    },
+    "werewolf-wolf": {
+      "id": "werewolf-wolf",
+      "name": "Werewolf, Wolf Form",
+      "size": "Medium",
+      "type": "humanoid (human)",
+      "alignment": "chaotic evil",
+      "ac": {
+        "value": 12,
+        "source": "natural armor"
+      },
+      "hp": {
+        "average": 58,
+        "formula": "9d8 + 18"
+      },
+      "speed": 40,
+      "speedText": "40 ft.",
+      "abilities": {
+        "str": 15,
+        "dex": 13,
+        "con": 14,
+        "int": 10,
+        "wis": 11,
+        "cha": 10
+      },
+      "savingThrows": {},
+      "skills": {
+        "perception": 4
+      },
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [
+        "bludgeoning, piercing, and slashing from nonmagical weapons that aren't silvered"
+      ],
+      "conditionImmunities": [],
+      "senses": "passive Perception 14",
+      "languages": "",
+      "cr": "3",
+      "xp": 700,
+      "proficiencyBonus": 2,
+      "traits": [
+        {
+          "name": "Shapechanger",
+          "text": "The werewolf can use its action to polymorph into a wolf-humanoid hybrid or into a wolf, or back into its true form, which is humanoid. Its statistics, other than its AC, are the same in each form. Any equipment it is wearing or carrying isn't transformed. It reverts to its true form if it dies."
+        },
+        {
+          "name": "Keen Hearing and Smell",
+          "text": "The werewolf has advantage on Wisdom (Perception) checks that rely on hearing or smell."
+        }
+      ],
+      "actions": [
+        {
+          "name": "Bite",
+          "text": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 6 (1d8 + 2) piercing damage. If the target is a humanoid, it must succeed on a DC 12 Constitution saving throw or be cursed with werewolf lycanthropy.",
+          "attack": {
+            "toHit": 4,
+            "reach": 5,
+            "damage": "1d8 + 2",
+            "average": 6,
+            "damageType": "piercing"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/werewolf-wolf"
+    },
+    "harpy": {
+      "id": "harpy",
+      "name": "Harpy",
+      "size": "Medium",
+      "type": "monstrosity",
+      "alignment": "chaotic evil",
+      "ac": {
+        "value": 11,
+        "source": "dex"
+      },
+      "hp": {
+        "average": 38,
+        "formula": "7d8 + 7"
+      },
+      "speed": 20,
+      "speedText": "20 ft., fly 40 ft.",
+      "abilities": {
+        "str": 12,
+        "dex": 13,
+        "con": 12,
+        "int": 7,
+        "wis": 10,
+        "cha": 13
+      },
+      "savingThrows": {},
+      "skills": {},
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [],
+      "conditionImmunities": [],
+      "senses": "passive Perception 10",
+      "languages": "Common",
+      "cr": "1",
+      "xp": 200,
+      "proficiencyBonus": 2,
+      "traits": [],
+      "actions": [
+        {
+          "name": "Multiattack",
+          "text": "The harpy makes two attacks: one with its claws and one with its club."
+        },
+        {
+          "name": "Claws",
+          "text": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 6 (2d4 + 1) slashing damage.",
+          "attack": {
+            "toHit": 3,
+            "reach": 5,
+            "damage": "2d4 + 1",
+            "average": 6,
+            "damageType": "slashing"
+          }
+        },
+        {
+          "name": "Club",
+          "text": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (1d4 + 1) bludgeoning damage.",
+          "attack": {
+            "toHit": 3,
+            "reach": 5,
+            "damage": "1d4 + 1",
+            "average": 3,
+            "damageType": "bludgeoning"
+          }
+        },
+        {
+          "name": "Luring Song",
+          "text": "The harpy sings a magical melody. Every humanoid and giant within 300 ft. of the harpy that can hear the song must succeed on a DC 11 Wisdom saving throw or be charmed until the song ends. The harpy must take a bonus action on its subsequent turns to continue singing. It can stop singing at any time. The song ends if the harpy is incapacitated.\nWhile charmed by the harpy, a target is incapacitated and ignores the songs of other harpies. If the charmed target is more than 5 ft. away from the harpy, the must move on its turn toward the harpy by the most direct route. It doesn't avoid opportunity attacks, but before moving into damaging terrain, such as lava or a pit, and whenever it takes damage from a source other than the harpy, a target can repeat the saving throw. A creature can also repeat the saving throw at the end of each of its turns. If a creature's saving throw is successful, the effect ends on it.\nA target that successfully saves is immune to this harpy's song for the next 24 hours."
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/harpy"
+    },
+    "skeleton": {
+      "id": "skeleton",
+      "name": "Skeleton",
+      "size": "Medium",
+      "type": "undead",
+      "alignment": "lawful evil",
+      "ac": {
+        "value": 13,
+        "source": ""
+      },
+      "hp": {
+        "average": 13,
+        "formula": "2d8 + 4"
+      },
+      "speed": 30,
+      "speedText": "30 ft.",
+      "abilities": {
+        "str": 10,
+        "dex": 14,
+        "con": 15,
+        "int": 6,
+        "wis": 8,
+        "cha": 5
+      },
+      "savingThrows": {},
+      "skills": {},
+      "damageVulnerabilities": [
+        "bludgeoning"
+      ],
+      "damageResistances": [],
+      "damageImmunities": [
+        "poison"
+      ],
+      "conditionImmunities": [
+        "poisoned",
+        "exhaustion"
+      ],
+      "senses": "darkvision 60 ft., passive Perception 9",
+      "languages": "understands all languages it spoke in life but can't speak",
+      "cr": "1/4",
+      "xp": 50,
+      "proficiencyBonus": 2,
+      "traits": [],
+      "actions": [
+        {
+          "name": "Shortsword",
+          "text": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (1d6 + 2) piercing damage.",
+          "attack": {
+            "toHit": 4,
+            "reach": 5,
+            "damage": "1d6 + 2",
+            "average": 5,
+            "damageType": "piercing"
+          }
+        },
+        {
+          "name": "Shortbow",
+          "text": "Ranged Weapon Attack: +4 to hit, range 80/320 ft., one target. Hit: 5 (1d6 + 2) piercing damage.",
+          "attack": {
+            "toHit": 4,
+            "range": [
+              80,
+              320
+            ],
+            "damage": "1d6 + 2",
+            "average": 5,
+            "damageType": "piercing"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/skeleton"
+    },
+    "zombie": {
+      "id": "zombie",
+      "name": "Zombie",
+      "size": "Medium",
+      "type": "undead",
+      "alignment": "neutral evil",
+      "ac": {
+        "value": 8,
+        "source": "dex"
+      },
+      "hp": {
+        "average": 22,
+        "formula": "3d8 + 9"
+      },
+      "speed": 20,
+      "speedText": "20 ft.",
+      "abilities": {
+        "str": 13,
+        "dex": 6,
+        "con": 16,
+        "int": 3,
+        "wis": 6,
+        "cha": 5
+      },
+      "savingThrows": {
+        "wis": 0
+      },
+      "skills": {},
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [
+        "poison"
+      ],
+      "conditionImmunities": [
+        "poisoned"
+      ],
+      "senses": "darkvision 60 ft., passive Perception 8",
+      "languages": "understands all languages it spoke in life but can't speak",
+      "cr": "1/4",
+      "xp": 50,
+      "proficiencyBonus": 2,
+      "traits": [
+        {
+          "name": "Undead Fortitude",
+          "text": "If damage reduces the zombie to 0 hit points, it must make a Constitution saving throw with a DC of 5+the damage taken, unless the damage is radiant or from a critical hit. On a success, the zombie drops to 1 hit point instead."
+        }
+      ],
+      "actions": [
+        {
+          "name": "Slam",
+          "text": "Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 4 (1d6 + 1) bludgeoning damage.",
+          "attack": {
+            "toHit": 3,
+            "reach": 5,
+            "damage": "1d6 + 1",
+            "average": 4,
+            "damageType": "bludgeoning"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/zombie"
+    },
+    "ghoul": {
+      "id": "ghoul",
+      "name": "Ghoul",
+      "size": "Medium",
+      "type": "undead",
+      "alignment": "chaotic evil",
+      "ac": {
+        "value": 12,
+        "source": "dex"
+      },
+      "hp": {
+        "average": 22,
+        "formula": "5d8"
+      },
+      "speed": 30,
+      "speedText": "30 ft.",
+      "abilities": {
+        "str": 13,
+        "dex": 15,
+        "con": 10,
+        "int": 7,
+        "wis": 10,
+        "cha": 6
+      },
+      "savingThrows": {},
+      "skills": {},
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [
+        "poison"
+      ],
+      "conditionImmunities": [
+        "poisoned",
+        "charmed",
+        "exhaustion"
+      ],
+      "senses": "darkvision 60 ft., passive Perception 10",
+      "languages": "Common",
+      "cr": "1",
+      "xp": 200,
+      "proficiencyBonus": 2,
+      "traits": [],
+      "actions": [
+        {
+          "name": "Bite",
+          "text": "Melee Weapon Attack: +2 to hit, reach 5 ft., one creature. Hit: 9 (2d6 + 2) piercing damage.",
+          "attack": {
+            "toHit": 2,
+            "reach": 5,
+            "damage": "2d6 + 2",
+            "average": 9,
+            "damageType": "piercing"
+          }
+        },
+        {
+          "name": "Claws",
+          "text": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 7 (2d4 + 2) slashing damage. If the target is a creature other than an elf or undead, it must succeed on a DC 10 Constitution saving throw or be paralyzed for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
+          "attack": {
+            "toHit": 4,
+            "reach": 5,
+            "damage": "2d4 + 2",
+            "average": 7,
+            "damageType": "slashing"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/ghoul"
+    },
+    "ghast": {
+      "id": "ghast",
+      "name": "Ghast",
+      "size": "Medium",
+      "type": "undead",
+      "alignment": "chaotic evil",
+      "ac": {
+        "value": 13,
+        "source": "dex"
+      },
+      "hp": {
+        "average": 36,
+        "formula": "8d8"
+      },
+      "speed": 30,
+      "speedText": "30 ft.",
+      "abilities": {
+        "str": 16,
+        "dex": 17,
+        "con": 10,
+        "int": 11,
+        "wis": 10,
+        "cha": 8
+      },
+      "savingThrows": {},
+      "skills": {},
+      "damageVulnerabilities": [],
+      "damageResistances": [
+        "necrotic"
+      ],
+      "damageImmunities": [
+        "poison"
+      ],
+      "conditionImmunities": [
+        "poisoned",
+        "charmed",
+        "exhaustion"
+      ],
+      "senses": "darkvision 60 ft., passive Perception 10",
+      "languages": "Common",
+      "cr": "2",
+      "xp": 450,
+      "proficiencyBonus": 2,
+      "traits": [
+        {
+          "name": "Stench",
+          "text": "Any creature that starts its turn within 5 ft. of the ghast must succeed on a DC 10 Constitution saving throw or be poisoned until the start of its next turn. On a successful saving throw, the creature is immune to the ghast's Stench for 24 hours."
+        },
+        {
+          "name": "Turn Defiance",
+          "text": "The ghast and any ghouls within 30 ft. of it have advantage on saving throws against effects that turn undead."
+        }
+      ],
+      "actions": [
+        {
+          "name": "Bite",
+          "text": "Melee Weapon Attack: +3 to hit, reach 5 ft., one creature. Hit: 12 (2d8 + 3) piercing damage.",
+          "attack": {
+            "toHit": 3,
+            "reach": 5,
+            "damage": "2d8 + 3",
+            "average": 12,
+            "damageType": "piercing"
+          }
+        },
+        {
+          "name": "Claws",
+          "text": "Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 10 (2d6 + 3) slashing damage. If the target is a creature other than an undead, it must succeed on a DC 10 Constitution saving throw or be paralyzed for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.",
+          "attack": {
+            "toHit": 5,
+            "reach": 5,
+            "damage": "2d6 + 3",
+            "average": 10,
+            "damageType": "slashing"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/ghast"
+    },
+    "shadow": {
+      "id": "shadow",
+      "name": "Shadow",
+      "size": "Medium",
+      "type": "undead",
+      "alignment": "chaotic evil",
+      "ac": {
+        "value": 12,
+        "source": "dex"
+      },
+      "hp": {
+        "average": 16,
+        "formula": "3d8 + 3"
+      },
+      "speed": 40,
+      "speedText": "40 ft.",
+      "abilities": {
+        "str": 6,
+        "dex": 14,
+        "con": 13,
+        "int": 6,
+        "wis": 10,
+        "cha": 8
+      },
+      "savingThrows": {},
+      "skills": {
+        "stealth": 4
+      },
+      "damageVulnerabilities": [
+        "radiant"
+      ],
+      "damageResistances": [
+        "acid",
+        "cold",
+        "fire",
+        "lightning",
+        "thunder",
+        "bludgeoning, piercing, and slashing from nonmagical weapons"
+      ],
+      "damageImmunities": [
+        "necrotic",
+        "poison"
+      ],
+      "conditionImmunities": [
+        "exhaustion",
+        "frightened",
+        "grappled",
+        "paralyzed",
+        "petrified",
+        "poisoned",
+        "prone",
+        "restrained"
+      ],
+      "senses": "darkvision 60 ft., passive Perception 10",
+      "languages": "",
+      "cr": "1/2",
+      "xp": 100,
+      "proficiencyBonus": 2,
+      "traits": [
+        {
+          "name": "Amorphous",
+          "text": "The shadow can move through a space as narrow as 1 inch wide without squeezing."
+        },
+        {
+          "name": "Shadow Stealth",
+          "text": "While in dim light or darkness, the shadow can take the Hide action as a bonus action. Its stealth bonus is also improved to +6."
+        },
+        {
+          "name": "Sunlight Weakness",
+          "text": "While in sunlight, the shadow has disadvantage on attack rolls, ability checks, and saving throws."
+        }
+      ],
+      "actions": [
+        {
+          "name": "Strength Drain",
+          "text": "Melee Weapon Attack: +4 to hit, reach 5 ft., one creature. Hit: 9 (2d6 + 2) necrotic damage, and the target's Strength score is reduced by 1d4. The target dies if this reduces its Strength to 0. Otherwise, the reduction lasts until the target finishes a short or long rest.\nIf a non-evil humanoid dies from this attack, a new shadow rises from the corpse 1d4 hours later.",
+          "attack": {
+            "toHit": 4,
+            "reach": 5,
+            "damage": "2d6 + 2",
+            "average": 9,
+            "damageType": "necrotic"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/shadow"
+    },
+    "specter": {
+      "id": "specter",
+      "name": "Specter",
+      "size": "Medium",
+      "type": "undead",
+      "alignment": "chaotic evil",
+      "ac": {
+        "value": 12,
+        "source": "dex"
+      },
+      "hp": {
+        "average": 22,
+        "formula": "5d8"
+      },
+      "speed": 0,
+      "speedText": "0 ft., fly 50 ft., hover true",
+      "abilities": {
+        "str": 1,
+        "dex": 14,
+        "con": 11,
+        "int": 10,
+        "wis": 10,
+        "cha": 11
+      },
+      "savingThrows": {},
+      "skills": {},
+      "damageVulnerabilities": [],
+      "damageResistances": [
+        "acid",
+        "cold",
+        "fire",
+        "lightning",
+        "thunder",
+        "bludgeoning, piercing, and slashing from nonmagical weapons"
+      ],
+      "damageImmunities": [
+        "necrotic",
+        "poison"
+      ],
+      "conditionImmunities": [
+        "charmed",
+        "exhaustion",
+        "grappled",
+        "paralyzed",
+        "petrified",
+        "poisoned",
+        "prone",
+        "restrained",
+        "unconscious"
+      ],
+      "senses": "darkvision 60 ft., passive Perception 10",
+      "languages": "understands all languages it knew in life but can't speak",
+      "cr": "1",
+      "xp": 200,
+      "proficiencyBonus": 2,
+      "traits": [
+        {
+          "name": "Incorporeal Movement",
+          "text": "The specter can move through other creatures and objects as if they were difficult terrain. It takes 5 (1d10) force damage if it ends its turn inside an object."
+        },
+        {
+          "name": "Sunlight Sensitivity",
+          "text": "While in sunlight, the specter has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
+        }
+      ],
+      "actions": [
+        {
+          "name": "Life Drain",
+          "text": "Melee Spell Attack: +4 to hit, reach 5 ft., one creature. Hit: 10 (3d6) necrotic damage. The target must succeed on a DC 10 Constitution saving throw or its hit point maximum is reduced by an amount equal to the damage taken. This reduction lasts until the creature finishes a long rest. The target dies if this effect reduces its hit point maximum to 0.",
+          "attack": {
+            "toHit": 4,
+            "reach": 5,
+            "damage": "3d6",
+            "average": 10,
+            "damageType": "necrotic"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/specter"
+    },
+    "wight": {
+      "id": "wight",
+      "name": "Wight",
+      "size": "Medium",
+      "type": "undead",
+      "alignment": "neutral evil",
+      "ac": {
+        "value": 14,
+        "source": "studded leather armor"
+      },
+      "hp": {
+        "average": 45,
+        "formula": "6d8 + 18"
+      },
+      "speed": 30,
+      "speedText": "30 ft.",
+      "abilities": {
+        "str": 15,
+        "dex": 14,
+        "con": 16,
+        "int": 10,
+        "wis": 13,
+        "cha": 15
+      },
+      "savingThrows": {},
+      "skills": {
+        "perception": 3,
+        "stealth": 4
+      },
+      "damageVulnerabilities": [],
+      "damageResistances": [
+        "necrotic",
+        "bludgeoning, piercing, and slashing from nonmagical weapons that aren't silvered"
+      ],
+      "damageImmunities": [
+        "poison"
+      ],
+      "conditionImmunities": [
+        "exhaustion",
+        "poisoned"
+      ],
+      "senses": "darkvision 60 ft., passive Perception 13",
+      "languages": "the languages it knew in life",
+      "cr": "3",
+      "xp": 700,
+      "proficiencyBonus": 2,
+      "traits": [
+        {
+          "name": "Sunlight Sensitivity",
+          "text": "While in sunlight, the wight has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight."
+        }
+      ],
+      "actions": [
+        {
+          "name": "Multiattack",
+          "text": "The wight makes two longsword attacks or two longbow attacks. It can use its Life Drain in place of one longsword attack."
+        },
+        {
+          "name": "Life Drain",
+          "text": "Melee Weapon Attack: +4 to hit, reach 5 ft., one creature. Hit: 5 (1d6 + 2) necrotic damage. The target must succeed on a DC 13 Constitution saving throw or its hit point maximum is reduced by an amount equal to the damage taken. This reduction lasts until the target finishes a long rest. The target dies if this effect reduces its hit point maximum to 0.\nA humanoid slain by this attack rises 24 hours later as a zombie under the wight's control, unless the humanoid is restored to life or its body is destroyed. The wight can have no more than twelve zombies under its control at one time.",
+          "attack": {
+            "toHit": 4,
+            "reach": 5,
+            "damage": "1d6 + 2",
+            "average": 5,
+            "damageType": "necrotic"
+          }
+        },
+        {
+          "name": "Longsword",
+          "text": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 6 (1d8 + 2) slashing damage, or 7 (1d10 + 2) slashing damage if used with two hands.",
+          "attack": {
+            "toHit": 4,
+            "reach": 5,
+            "damage": "1d8 + 2",
+            "average": 6,
+            "damageType": "slashing"
+          }
+        },
+        {
+          "name": "Longbow",
+          "text": "Ranged Weapon Attack: +4 to hit, range 150/600 ft., one target. Hit: 6 (1d8 + 2) piercing damage.",
+          "attack": {
+            "toHit": 4,
+            "range": [
+              150,
+              600
+            ],
+            "damage": "1d8 + 2",
+            "average": 6,
+            "damageType": "piercing"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/wight"
+    },
+    "ogre": {
+      "id": "ogre",
+      "name": "Ogre",
+      "size": "Large",
+      "type": "giant",
+      "alignment": "chaotic evil",
+      "ac": {
+        "value": 11,
+        "source": "hide armor"
+      },
+      "hp": {
+        "average": 59,
+        "formula": "7d10 + 21"
+      },
+      "speed": 40,
+      "speedText": "40 ft.",
+      "abilities": {
+        "str": 19,
+        "dex": 8,
+        "con": 16,
+        "int": 5,
+        "wis": 7,
+        "cha": 7
+      },
+      "savingThrows": {},
+      "skills": {},
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [],
+      "conditionImmunities": [],
+      "senses": "darkvision 60 ft., passive Perception 8",
+      "languages": "Common, Giant",
+      "cr": "2",
+      "xp": 450,
+      "proficiencyBonus": 2,
+      "traits": [],
+      "actions": [
+        {
+          "name": "Greatclub",
+          "text": "Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 13 (2d8 + 4) bludgeoning damage.",
+          "attack": {
+            "toHit": 6,
+            "reach": 5,
+            "damage": "2d8 + 4",
+            "average": 13,
+            "damageType": "bludgeoning"
+          }
+        },
+        {
+          "name": "Javelin",
+          "text": "Melee or Ranged Weapon Attack: +6 to hit, reach 5 ft. or range 30/120 ft., one target. Hit: 11 (2d6 + 4) piercing damage.",
+          "attack": {
+            "toHit": 6,
+            "reach": 5,
+            "range": [
+              30,
+              120
+            ],
+            "damage": "2d6 + 4",
+            "average": 11,
+            "damageType": "piercing"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/ogre"
+    },
+    "troll": {
+      "id": "troll",
+      "name": "Troll",
+      "size": "Large",
+      "type": "giant",
+      "alignment": "chaotic evil",
+      "ac": {
+        "value": 15,
+        "source": "natural armor"
+      },
+      "hp": {
+        "average": 84,
+        "formula": "8d10 + 40"
+      },
+      "speed": 30,
+      "speedText": "30 ft.",
+      "abilities": {
+        "str": 18,
+        "dex": 13,
+        "con": 20,
+        "int": 7,
+        "wis": 9,
+        "cha": 7
+      },
+      "savingThrows": {},
+      "skills": {
+        "perception": 2
+      },
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [],
+      "conditionImmunities": [],
+      "senses": "darkvision 60 ft., passive Perception 12",
+      "languages": "Giant",
+      "cr": "5",
+      "xp": 1800,
+      "proficiencyBonus": 3,
+      "traits": [
+        {
+          "name": "Keen Smell",
+          "text": "The troll has advantage on Wisdom (Perception) checks that rely on smell."
+        },
+        {
+          "name": "Regeneration",
+          "text": "The troll regains 10 hit points at the start of its turn. If the troll takes acid or fire damage, this trait doesn't function at the start of the troll's next turn. The troll dies only if it starts its turn with 0 hit points and doesn't regenerate."
+        }
+      ],
+      "actions": [
+        {
+          "name": "Multiattack",
+          "text": "The troll makes three attacks: one with its bite and two with its claws."
+        },
+        {
+          "name": "Bite",
+          "text": "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 7 (1d6 + 4) piercing damage.",
+          "attack": {
+            "toHit": 7,
+            "reach": 5,
+            "damage": "1d6 + 4",
+            "average": 7,
+            "damageType": "piercing"
+          }
+        },
+        {
+          "name": "Claw",
+          "text": "Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 11 (2d6 + 4) slashing damage.",
+          "attack": {
+            "toHit": 7,
+            "reach": 5,
+            "damage": "2d6 + 4",
+            "average": 11,
+            "damageType": "slashing"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/troll"
+    },
+    "hill-giant": {
+      "id": "hill-giant",
+      "name": "Hill Giant",
+      "size": "Huge",
+      "type": "giant",
+      "alignment": "chaotic evil",
+      "ac": {
+        "value": 13,
+        "source": "natural armor"
+      },
+      "hp": {
+        "average": 105,
+        "formula": "10d12 + 40"
+      },
+      "speed": 40,
+      "speedText": "40 ft.",
+      "abilities": {
+        "str": 21,
+        "dex": 8,
+        "con": 19,
+        "int": 5,
+        "wis": 9,
+        "cha": 6
+      },
+      "savingThrows": {},
+      "skills": {
+        "perception": 2
+      },
+      "damageVulnerabilities": [],
+      "damageResistances": [],
+      "damageImmunities": [],
+      "conditionImmunities": [],
+      "senses": "passive Perception 12",
+      "languages": "Giant",
+      "cr": "5",
+      "xp": 1800,
+      "proficiencyBonus": 3,
+      "traits": [],
+      "actions": [
+        {
+          "name": "Multiattack",
+          "text": "The giant makes two greatclub attacks."
+        },
+        {
+          "name": "Greatclub",
+          "text": "Melee Weapon Attack: +8 to hit, reach 10 ft., one target. Hit: 18 (3d8 + 5) bludgeoning damage.",
+          "attack": {
+            "toHit": 8,
+            "reach": 10,
+            "damage": "3d8 + 5",
+            "average": 18,
+            "damageType": "bludgeoning"
+          }
+        },
+        {
+          "name": "Rock",
+          "text": "Ranged Weapon Attack: +8 to hit, range 60/240 ft., one target. Hit: 21 (3d10 + 5) bludgeoning damage.",
+          "attack": {
+            "toHit": 8,
+            "range": [
+              60,
+              240
+            ],
+            "damage": "3d10 + 5",
+            "average": 21,
+            "damageType": "bludgeoning"
+          }
+        }
+      ],
+      "reactions": [],
+      "source": "SRD 5.1 (CC-BY-4.0) · https://www.dnd5eapi.co/api/2014/monsters/hill-giant"
+    }
+  }
+}

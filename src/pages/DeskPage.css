@@ -1,0 +1,8 @@
+/* Переход между уровнями лестницы — одна анимация приближения на 200 мс, сохраняющая точку фокуса (HANDOFF §3).
+   Ступенями, не плавно — регистр пиксельный; prefers-reduced-motion гасит её в базовом слое index.css.
+   Здесь, а не в теме: theme.generated.css собирается из tokens.json, а анимация — не токен. */
+@keyframes level-zoom {
+  from { transform: scale(0.96); opacity: 0.5; }
+  to { transform: none; opacity: 1; }
+}
+.level-zoom { animation: level-zoom 200ms steps(4, end) both; transform-origin: 50% 40%; }

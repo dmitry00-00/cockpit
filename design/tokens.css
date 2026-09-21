@@ -1,0 +1,127 @@
+/* DM Cockpit — токены. Скомпилировано из tokens.json.
+   Регистр: пиксель высокого разрешения. Свет сверху-слева, фаска вместо рамок, ноль скруглений. */
+
+:root, [data-theme="night"] {
+  --wl: #100c08; /* Провал: жёлоб полосы HP, поле карты под гексами, фон утопленных полей. Самая тёмная поверхность системы. */
+  --bg: #1b1713; /* Стол — поверхность под всеми панелями. На ней меряется контраст: tx даёт 13.1:1, t2 — 6.5:1, t3 — 5.6:1. */
+  --pn: #241e18; /* Панель: партия, инструменты, журнал, столбец входящих. Поднята над столом фаской, а не рамкой. */
+  --cd: #2e2620; /* Карточка, дельта, плитка навыка, токен инициативы — поверхность на панели. */
+  --pl: #3a3128; /* Плита: шапка панели, кнопка, активная плитка, чип. Верхняя ступень лестницы; текст на ней только tx, t2 и gd. */
+  --hi: #6b5843; /* Верхняя грань фаски — свет падает сверху-слева. Только грань, никогда текст и никогда заливка. */
+  --lo: #0e0b07; /* Нижняя грань фаски и все тонкие разделители. Заменил линейные рамки старого регистра. */
+  --bd: var(--lo); /* Совместимость: старое имя границы 1px. В регистре B граница — это нижняя грань фаски. */
+  --br: #8b6b3a; /* Бронзовая рамка первого яруса: оверлей карточки 720px и обложка. К bg 3.6:1, к pn 3.3:1 — порог значимой границы пройден. */
+  --bl: #c9a44a; /* Светлая грань бронзы: наведение, активная панель, верхний кант оверлея. К bg 7.6:1. */
+  --gd: #d8a94a; /* Золото: текущий ход, владение навыком, выбранное, кольцо фокуса. К bg 8.2:1, к pl 5.9:1 — годится как текст и как кольцо. */
+  --gd-hi: #f2d98d; /* Золото на золотой плите и в подсвеченной кнопке — 12.8:1 к bg, 9.1:1 к pl. */
+  --tx: #e6dccb; /* Основной текст на bg (13.1:1), pn (12.1:1), cd (10.9:1) и pl (9.4:1). */
+  --t2: #a89b86; /* Вторичный текст — подписи, единицы, метки — на bg (6.5:1), pn (6.0:1), cd (5.4:1). */
+  --t3: #9b8f7a; /* Третичный текст: горячие клавиши, цепочки причин, зачёркнутое «было». На bg 5.6:1, на pn 5.2:1, на cd 4.7:1. На плите pl даёт 4.0:1 — туда не ставится. */
+  --t4: #6b6153; /* Только декор и неактивное: фоновая сетка, выключенная иконка, разделитель внутри плиты. Никогда не текст. */
+  --ab-str: #b6483a; /* STR: заливки, полосы, грани. Как текст не использовать — 3.4:1 к bg. */
+  --ab-str-hi: #e6897a; /* STR как текст и светлый тон иконки — 7.0:1 к bg, 5.0:1 к pl. */
+  --ab-dex: #3c7f3c; /* DEX: заливки, полосы, грани. */
+  --ab-dex-hi: #6fbf62; /* DEX как текст и светлый тон иконки — 7.9:1 к bg. */
+  --ab-con: #b8732c; /* CON: заливки, полосы, грани. */
+  --ab-con-hi: #e0a05c; /* CON как текст и светлый тон иконки — 7.9:1 к bg. */
+  --ab-int: #2f6f9e; /* INT: заливки, полосы, грани. Как текст не использовать — 3.3:1 к bg. */
+  --ab-int-hi: #6fa3cc; /* INT как текст и светлый тон иконки — 6.6:1 к bg. */
+  --ab-wis: #7a4a9a; /* WIS: заливки, полосы, грани. Как текст не использовать — 2.8:1 к bg. */
+  --ab-wis-hi: #b98fd0; /* WIS как текст и светлый тон иконки — 6.7:1 к bg. */
+  --ab-cha: #a97c30; /* CHA: заливки, полосы, грани. Совпадает с базовым тоном золота — CHA единственная характеристика цвета золота. */
+  --ab-cha-hi: #dcbb63; /* CHA как текст и светлый тон иконки — 9.6:1 к bg. */
+  --ent-pc: var(--gd); /* Грань карточки и корешка PC. Дублируется иконкой типа — цвет никогда не единственный носитель. */
+  --ent-npc: #9aa3ae; /* Грань карточки NPC — серебро. 7.0:1 к bg. */
+  --ent-monster: var(--ab-str); /* Грань карточки монстра — красный, тот же, что STR и урон. */
+  --ent-item: #5f9a44; /* Грань карточки предмета — зелёный. 5.3:1 к bg. */
+  --ent-loc: #4a7fa8; /* Грань карточки локации (поселение, регион, здание) — синий. 4.2:1 к bg; как текст не использовать. */
+  --ent-faction: #8a5aa8; /* Грань карточки фракции — фиолетовый. 3.5:1 к bg. */
+  --ent-plane: #6f5ae0; /* Грань карточки плана и космологии — звёздный сине-фиолетовый. 3.6:1 к bg. */
+  --ent-deity: #f0e6c8; /* Грань карточки божества — белое золото. 14.3:1 к bg. */
+  --ent-event: #c07a32; /* Грань карточки события — медь. 5.2:1 к bg. От CON отличается иконкой события и холодной тенью. */
+  --fx-damage: var(--ab-str); /* Урон: вспышка полосы HP, всплывающее число, кнопка урона. */
+  --fx-damage-hi: var(--ab-str-hi); /* Урон как текст и число. */
+  --fx-heal: var(--ab-dex); /* Лечение: вспышка полосы HP, всплывающее число, кнопка лечения. Зелёный в системе всегда значит «в плюс». */
+  --fx-heal-hi: var(--ab-dex-hi); /* Лечение как текст и число. */
+  --fx-buff: var(--ab-int); /* Бафф: грань чипа состояния, полоса ресурса. */
+  --fx-buff-hi: var(--ab-int-hi); /* Бафф как текст и иконка. */
+  --fx-debuff: var(--ab-con); /* Дебафф: грань чипа состояния, отметка на токене. */
+  --fx-debuff-hi: var(--ab-con-hi); /* Дебафф как текст и иконка. */
+  --fx-temp: #6fa3cc; /* Временные HP: отдельный сегмент поверх полосы HP, всегда со штриховкой — форма, а не только цвет. */
+  --hp-high: #5f9a44; /* Заливка полосы HP выше 50%; полоса берёт её как средний тон градиента. */
+  --hp-mid: var(--ab-cha); /* Заливка полосы HP от 25% до 50%. Дублируется меткой значения — число HP видно всегда. */
+  --hp-low: var(--ab-str); /* Заливка полосы HP ниже 25%. */
+  --hp-track: var(--wl); /* Жёлоб полосы HP и любых полос ресурсов: провал с фаской внутрь. */
+  --src-canon: #c8b48a; /* Метка происхождения «канон» (книга) — 8.8:1 к bg. */
+  --src-dm: var(--gd); /* Метка происхождения «мастер» (перо). */
+  --src-sim: #57a89b; /* Метка происхождения «симуляция» (шестерня) и грань дельты, ждущей решения — 6.4:1 к bg, 4.5:1 к pl. Единственный бирюзовый в системе. */
+  --src-players: #9fb8c9; /* Метка «известно игрокам» (глаз) — 8.6:1 к bg. Перечёркнутый глаз того же цвета значит «скрыто». */
+  --st-conflict: var(--ab-str-hi); /* Конфликт с каноном: метка книги красным плюс выбор «оставить канон / принять изменение». */
+}
+
+:root {
+  --bevel: inset 1px 1px 0 #6b5843, inset -1px -1px 0 #0e0b07;
+  --bevel-in: inset 1px 1px 0 #0e0b07, inset -1px -1px 0 #4a3c2e;
+  --plate: inset 0 1px 0 #6b5843, inset 0 -1px 0 #0e0b07;
+  --float: inset 1px 1px 0 #6b5843, inset -1px -1px 0 #0e0b07, 0 2px 6px rgba(0,0,0,0.67);
+  --frame: 0 0 0 1px #0e0b07, 0 0 0 3px #8b6b3a, 0 0 0 4px #0e0b07;
+  --glow-gold: inset 0 0 0 2px #d8a94a;
+  --glow-sim: inset 0 0 0 2px #57a89b;
+  --flash-damage: inset 0 0 12px rgba(182, 72, 58, 0.62);
+  --flash-heal: inset 0 0 12px rgba(60, 127, 60, 0.62);
+  --token-active: 0 0 0 2px #d8a94a, 0 0 0 4px #0e0b07;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --radius-0: 0;
+  --icon-16: 16px;
+  --icon-24: 24px;
+  --icon-32: 32px;
+  --icon-48: 48px;
+  --bar-clock: 44px;
+  --bar-scale: 34px;
+  --bar-combat: 72px;
+  --rail-party: 240px;
+  --rail-tools: 324px;
+  --rail-collapsed: 40px;
+  --card-single: 400px;
+  --card-overlay: 720px;
+  --spine-h: 40px;
+  --spine-party-h: 88px;
+  --op-disabled: 0.4;
+  --op-hidden-from-players: 0.55;
+  --op-fog: 0.80;
+  --op-scrim: 0.6;
+  --font-display: "Forum", "Times New Roman", serif;
+  --font-text: "PT Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", "Consolas", ui-monospace, monospace;
+  --font-pixel: "Press Start 2P", "Courier New", monospace;
+}
+
+/* Стили типографики */
+
+/* Заголовки — Forum */
+.h-28 { font-family: var(--font-display); font-size: 28px; line-height: 34px; font-weight: 400; }
+.h-20 { font-family: var(--font-display); font-size: 20px; line-height: 26px; font-weight: 400; }
+.h-17 { font-family: var(--font-display); font-size: 17px; line-height: 21px; font-weight: 400; }
+.h-15 { font-family: var(--font-display); font-size: 15px; line-height: 19px; font-weight: 400; letter-spacing: 0.12em; }
+
+/* Текст — PT Sans */
+.body { font-family: var(--font-text); font-size: 15px; line-height: 21px; font-weight: 400; }
+.body-bold { font-family: var(--font-text); font-size: 15px; line-height: 21px; font-weight: 700; }
+.body-sm { font-family: var(--font-text); font-size: 14px; line-height: 19px; font-weight: 400; }
+.body-xs { font-family: var(--font-text); font-size: 13px; line-height: 17px; font-weight: 400; }
+.tooltip { font-family: var(--font-text); font-size: 14px; line-height: 18px; font-weight: 400; }
+
+/* Числа — IBM Plex Mono */
+.num-32 { font-family: var(--font-mono); font-size: 32px; line-height: 36px; font-weight: 600; }
+.num-24 { font-family: var(--font-mono); font-size: 24px; line-height: 28px; font-weight: 600; }
+.num-15 { font-family: var(--font-mono); font-size: 15px; line-height: 20px; font-weight: 600; }
+.num-12 { font-family: var(--font-mono); font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.06em; }
+.key { font-family: var(--font-mono); font-size: 12px; line-height: 16px; font-weight: 400; }
+
+/* Акцидентный — Press Start 2P */
+.px-16 { font-family: var(--font-pixel); font-size: 16px; line-height: 24px; font-weight: 400; }
