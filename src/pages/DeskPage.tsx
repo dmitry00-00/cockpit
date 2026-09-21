@@ -17,9 +17,9 @@ import './DeskPage.css';
 import { Fragment, useEffect, useRef, useState, type ReactNode, type RefObject } from 'react';
 import {
   NEAR_SCALES, abilityMod, conModOf, currentOrder, dayPhase, encounterCandidates, formatHarptos, hitDiceOf, inDays, initiativeMod, moonState, nextFestival, placeChain,
-  placedActors, poolLabel, resourcePoolsOf, restCandidates, restResourcesOf, seedBattlefield, seedEngine, seedState, sortInitiative, spawnMonsters, srdClassOf, stepTime,
+  pcActor, placedActors, poolLabel, resourcePoolsOf, restCandidates, restResourcesOf, seedBattlefield, seedEngine, seedState, sortInitiative, spawnMonsters, srdClassOf, stepTime,
   suggestMonsterName, takeRest, weatherLabel, weatherOf,
-  type Sky,
+  type PcSpec, type Sky,
 } from '../campaign';
 import {
   BattleGrid, CardStack, CelestialBar, ChangeSummary, ConcentrationForm, ConditionChip, ConditionGrid, DayPhaseStrip, EntityCard, HpControl, InitiativeBar,
@@ -28,6 +28,7 @@ import {
   CONCENTRATION_DURATIONS, DAY_PHASE_ICONS, DAY_PHASE_LABELS, MOON_ICONS, MOON_LABELS, SCALE_LABELS, SCALE_TEMPO_LABELS, TAB_OVERVIEW, TEMPO_LABELS,
   actorCardProps, battleTokenOf, chipsOf, exhaustionCommand, factionCardProps, initiativeFormula, initiativeTokenOf, lastDamageOf, lastRollOf, placeCardProps,
   placeEntityType, raceLabel, rollHistoryOf, signedMod, stackItemOf, summaryGroups, toggleCommand, toggleIn, worldDeltaProps,
+  SKILL_LABEL, SKILLS_BY_ABILITY,
   type CardStackItem, type IconRailItem, type InitiativeBarEntry, type InitiativeRow, type JournalEntryProps, type MoonPhase, type RestRow, type ScaleStep, type SlotId,
   type SlotItem, type SpawnOption, type ThreadCardRow,
 } from '../components';
@@ -42,8 +43,9 @@ import {
 import { useEngine, useHpFlashes, useUndoKeys } from '../engine/useEngine';
 import { Icon, type IconName } from '../icons/Icon';
 import { classById, raceById } from '../rules/compendium';
+import { CharacterEditor } from './editor/CharacterEditor';
 import {
-  ABILITIES, ABILITY_IDS, ARMOR, CONDITIONS, MONSTER_IDS, MONSTERS, SHIELD, SKILL_IDS, SKILLS, isArmorId,
+  ABILITIES, ABILITY_IDS, ARMOR, CONDITIONS, MONSTER_IDS, MONSTERS, SHIELD, SKILLS, isArmorId,
   type AbilityId, type ConditionId, type MonsterId, type SkillId,
 } from '../rules/srd';
 
@@ -158,31 +160,9 @@ export function threadCardRows(t: ThreadSummary, dmView = true): ThreadCardRow[]
   return rows;
 }
 
-/* ---------- Подписи слоя вида: русские имена навыков (в rules/srd их нет — там SRD по-английски) ---------- */
+/* ---------- Подписи слоя вида — в components/labels.ts; SKILL_LABEL реэкспортируется для тестов стола ---------- */
 
-export const SKILL_LABEL: Readonly<Record<SkillId, string>> = {
-  'acrobatics': 'Акробатика',
-  'animal-handling': 'Уход за животными',
-  'arcana': 'Магия',
-  'athletics': 'Атлетика',
-  'deception': 'Обман',
-  'history': 'История',
-  'insight': 'Проницательность',
-  'intimidation': 'Запугивание',
-  'investigation': 'Анализ',
-  'medicine': 'Медицина',
-  'nature': 'Природа',
-  'perception': 'Внимательность',
-  'performance': 'Выступление',
-  'persuasion': 'Убеждение',
-  'religion': 'Религия',
-  'sleight-of-hand': 'Ловкость рук',
-  'stealth': 'Скрытность',
-  'survival': 'Выживание',
-};
-
-/** Навыки в порядке характеристик SRD (STR, DEX, CON, INT, WIS, CHA): цветная грань плитки группирует их сама. */
-const SKILLS_BY_ABILITY: readonly SkillId[] = ABILITY_IDS.flatMap(ab => SKILL_IDS.filter(id => SKILLS[id].ability === ab));
+export { SKILL_LABEL };
 
 /** Формула броска d20 с модификатором: «1d20+3», «1d20-1», без модификатора — «1d20». */
 export function d20Formula(mod: number): string {
@@ -292,8 +272,13 @@ export function deskDollItems(sheet: Actor['sheet']): Partial<Record<SlotId, Slo
 }
 
 /** Текст умения класса по id из компендиума; у части умений он пуст — тогда имя без текста (ловушка импорта). */
-function featureText(classId: string, featureId: string): string {
-  return classById(classId)?.levels.flatMap(l => l.features).find(f => f.id === featureId)?.text ?? '';
+/** Текст умения: у класса, затем у выбранного подкласса — id умений повторяются между подклассами (заклинания доменов), поэтому чужие подклассы не смотрим. */
+function featureText(classId: string, featureId: string, subclassId?: string): string {
+  const cls = classById(classId);
+  if (!cls) return '';
+  const own = cls.levels.flatMap(l => l.features).find(f => f.id === featureId);
+  if (own) return own.text;
+  return cls.subclasses.find(sc => sc.id === subclassId)?.features.find(f => f.id === featureId)?.text ?? '';
 }
 
 function traitText(raceId: string, subraceId: string | undefined, traitId: string): string {
@@ -510,7 +495,7 @@ function PcOverview({ actor, worldSec, onRoll, onCommand, tools, dmView, skills 
         <Section title={`Умения класса${cls ? ` · ${cls.nameRu}` : ''}`}>
           <div className="flex flex-col gap-2">
             {sheet.features.map(f => (
-              <Entry key={f.id} name={f.name} meta={`${f.level} ур.`} text={featureText(sheet.classId, f.id)} />
+              <Entry key={`${f.level}:${f.id}`} name={f.name} meta={`${f.level} ур.`} text={featureText(sheet.classId, f.id, sheet.subclassId)} />
             ))}
           </div>
         </Section>
@@ -844,6 +829,8 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
   const [conditionDuration, setConditionDuration] = useState(0);
   // Оверлей карточки 720px (F3) — вид: та же карточка в две колонки с бронзовой рамкой поверх главной зоны.
   const [cardOverlay, setCardOverlay] = useState(false);
+  /** Редактор персонажа (шаг B) — оверлей в главной зоне; черновик — его собственное состояние, в лог идёт только ACTOR_SPAWNED. */
+  const [editorOpen, setEditorOpen] = useState(false);
   // Лестница масштабов (шаг 10) — навигация, не событие: уровень и путь (по месту на уровень) живут здесь.
   // Что в слоте карточки: актёр из корешка, место в фокусе лестницы или держава со стопки континента.
   const [ladderState, setLadderState] = useState<Ladder>(() => initialLadder(state));
@@ -1335,6 +1322,24 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
     </Dialog.Root>
   ) : null;
 
+  /** Новый персонаж из редактора: полным снимком в партию, карточка — на него. */
+  const onCreatePc = (spec: PcSpec) => {
+    api.spawn(pcActor(spec), true);
+    setEditorOpen(false);
+    open(spec.id);
+  };
+  const editorDialog = editorOpen && dmView ? (
+    <Dialog.Root open onOpenChange={o => { if (!o) setEditorOpen(false); }}>
+      <Dialog.Portal container={mainRef.current ?? undefined}>
+        <Dialog.Overlay className="absolute inset-0 z-20 bg-wl opacity-(--op-scrim)" />
+        <Dialog.Content aria-describedby={undefined} className="absolute top-6 left-1/2 -translate-x-1/2 z-30 max-h-[calc(100%-48px)] flex outline-none">
+          <Dialog.Title className="sr-only">Новый персонаж</Dialog.Title>
+          <CharacterEditor takenIds={new Set(Object.keys(state.actors))} onCreate={onCreatePc} onClose={() => setEditorOpen(false)} />
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>
+  ) : null;
+
   const hpPopover = actor && dmView ? (
     <Popover.Portal>
       <Popover.Content
@@ -1472,6 +1477,9 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
             <Icon name="ent-pc" size={16} color="var(--t2)" title="Партия" />
             <span>Партия</span>
             <span className="ml-auto type-key text-t2" title="Персонажей в партии">{party.length}</span>
+            {dmView ? (
+              <button type="button" title="Новый персонаж из компендиума: раса, класс, point buy, навыки — в партию одним событием" onClick={() => setEditorOpen(true)} className={BTN_HEAD}>Новый</button>
+            ) : null}
             {railParty ? (
               <button type="button" title="Закрепить панель на столе" onClick={() => { setRailParty(false); setOpenRail(null); }} className={BTN_HEAD}>Закрепить</button>
             ) : (
@@ -1686,6 +1694,7 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
                 </div>
               )}
               {cardOverlayDialog}
+              {editorDialog}
             </section>
           )}
           {hpPopover}

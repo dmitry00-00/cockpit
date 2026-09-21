@@ -36,6 +36,8 @@ export function pcActor(spec: PcSpec): Actor {
       raceId: spec.raceId,
       subraceId: spec.subraceId,
       classId: spec.classId,
+      subclassId: spec.subclassId,
+      backgroundId: spec.backgroundId,
       abilities: d.abilities,
       proficiencyBonus: d.proficiencyBonus,
       skills: d.skills,

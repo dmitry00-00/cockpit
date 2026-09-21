@@ -1506,6 +1506,51 @@ describe('оверлей карточки 720px (F3)', () => {
   });
 });
 
+describe('редактор персонажа (шаг B): «Новый» в шапке партии', () => {
+  it('«Новый» открывает диалог в главной зоне; воин-солдат 5-го уровня уходит в партию одним ACTOR_SPAWNED, карточка — на него, журнал «Появился … (в партии)», Ctrl+Z убирает; Esc закрывает без следа', () => {
+    const { store } = mount();
+    const before = store.getState().events.length;
+    fireEvent.click(screen.getByRole('button', { name: 'Новый' }));
+    const dialog = screen.getByRole('dialog', { name: 'Новый персонаж' });
+    expect(screen.getByLabelText('Мир', { selector: 'section' })).toContainElement(dialog);
+    const editor = within(dialog);
+    const group = (name: string) => editor.getByRole('group', { name });
+    fireEvent.change(editor.getByRole('textbox', { name: 'Имя' }), { target: { value: 'Sildar Hallwinter' } });
+    fireEvent.click(within(group('Предыстории')).getByRole('button', { name: /^Солдат/ }));
+    fireEvent.click(within(group('Навыки')).getByTitle(/^Внимательность/));
+    fireEvent.click(within(group('Навыки')).getByTitle(/^История/));
+    for (let i = 0; i < 4; i++) fireEvent.click(editor.getByRole('button', { name: 'Уровень выше' }));
+    fireEvent.click(editor.getByTitle('+1 Сила на 4-м уровне'));
+    fireEvent.click(editor.getByTitle('+1 Сила на 4-м уровне'));
+    fireEvent.click(within(group('Доспех')).getByRole('button', { name: 'Chain mail' }));
+    fireEvent.click(within(group('Доспех')).getByRole('button', { name: 'Щит' }));
+    fireEvent.click(editor.getByRole('button', { name: 'В партию' }));
+    expect(screen.queryByRole('dialog', { name: 'Новый персонаж' })).toBeNull();
+    expect(store.getState().events.length).toBe(before + 1);
+    expect(lastEvent(store)).toMatchObject({ type: 'ACTOR_SPAWNED', payload: { party: true, actor: { id: 'sildar-hallwinter', kind: 'pc', hp: { current: 44, max: 44 }, ac: 18 } } });
+    expect(store.getState().state.party).toContain('sildar-hallwinter');
+    // Корешок в партии, карточка открылась на новичка с ресурсами воина.
+    expect(within(rowOf('Sildar Hallwinter')).getByText('44/44')).toBeInTheDocument();
+    const card = cardOf('Sildar Hallwinter');
+    expect(within(card).getByRole('group', { name: 'Второе дыхание: 1 из 1' })).toBeInTheDocument();
+    expect(within(card).getByRole('region', { name: 'Умения класса · Воин' })).toHaveTextContent('Второе дыхание');
+    expect(screen.getByRole('list', { name: 'Записи журнала' })).toHaveTextContent('Появился: @Sildar Hallwinter (в партии)');
+    fireEvent.keyDown(window, { key: 'z', code: 'KeyZ', ctrlKey: true });
+    expect(store.getState().state.party).not.toContain('sildar-hallwinter');
+    expect(screen.queryByRole('article', { name: 'Sildar Hallwinter' })).toBeNull();
+    // Esc закрывает пустой редактор — событий не прибавилось.
+    fireEvent.click(screen.getByRole('button', { name: 'Новый' }));
+    fireEvent.keyDown(screen.getByRole('dialog', { name: 'Новый персонаж' }), { key: 'Escape', code: 'Escape' });
+    expect(screen.queryByRole('dialog', { name: 'Новый персонаж' })).toBeNull();
+    expect(store.getState().events.length).toBe(before + 2); // spawn + компенсирующее удаление
+  });
+
+  it('у игроков кнопки «Новый» нет', () => {
+    mount(undefined, false);
+    expect(screen.queryByRole('button', { name: 'Новый' })).toBeNull();
+  });
+});
+
 describe('проекции стола', () => {
   it('splitHarptos и wallTimeOf: дата без года, время; у сида реального времени нет', () => {
     expect(splitHarptos(seedState().time.sec)).toEqual({ date: '15 Mirtul', time: '08:00' });

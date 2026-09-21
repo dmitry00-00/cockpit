@@ -94,3 +94,5 @@ export { RestForm, REST_LABELS, parseDice, parseHealed, diceFormula, type RestFo
 export { IconRail, type IconRailProps, type IconRailItem } from './IconRail';
 // Ресурсы персонажа пипками (решение владельца 21.09.2026): максимум и потраченное пропсами, события пишет страница.
 export { ResourcePips, PIPS_MAX, parsePoolAmount, type ResourcePipsProps, type ResourcePipsKind } from './ResourcePips';
+// Русские подписи характеристик и навыков — слой вида, одна таблица на стол и редактор.
+export { ABILITY_LABEL, SKILL_LABEL, SKILLS_BY_ABILITY } from './labels';

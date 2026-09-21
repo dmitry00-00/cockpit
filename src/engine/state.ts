@@ -16,6 +16,10 @@ export interface CharacterSheet {
   raceId: string;
   subraceId?: string;
   classId: string;
+  /** Подкласс компендиума, когда выбран (с уровня gainedAt); его умения — в features с уровнем получения. */
+  subclassId?: string;
+  /** Предыстория (rules/compendium/backgrounds.ts): два навыка уже в skills. */
+  backgroundId?: string;
   /** Итоговые характеристики: база + расовые бонусы + увеличения по уровням. */
   abilities: Readonly<Record<AbilityId, number>>;
   proficiencyBonus: number;

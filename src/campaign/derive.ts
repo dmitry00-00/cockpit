@@ -5,7 +5,7 @@ import { ABILITY_IDS, SKILL_IDS, SKILLS, type AbilityId, type SkillId } from '..
 import { ARMOR, MAGE_ARMOR, MEDIUM_ARMOR_DEX_CAP, SHIELD, type ArmorCategory, type ArmorId } from '../rules/srd/armor';
 import { ABILITY_SCORE_CAP, SRD_CLASSES, isSrdClassId, type SrdClass } from '../rules/srd/classes';
 import { srdRaceSpeed } from '../rules/srd/races';
-import { classById, raceById, type Asi, type CharacterClass, type Race, type Subrace, type Trait } from '../rules/compendium';
+import { backgroundById, classById, raceById, type Asi, type CharacterClass, type Race, type Subrace, type Trait } from '../rules/compendium';
 
 export type AbilityScores = Readonly<Record<AbilityId, number>>;
 
@@ -75,6 +75,10 @@ export interface PcSpec {
   raceId: string;
   subraceId?: string;
   classId: string;
+  /** Подкласс — только если класс даёт его на этом уровне (gainedAt ≤ level). */
+  subclassId?: string;
+  /** Предыстория — два навыка сверх выбора класса; совпавший с выбором класса не удваивается. */
+  backgroundId?: string;
   level: number;
   /** Базовые характеристики до расовых бонусов. */
   base: AbilityScores;
@@ -209,6 +213,11 @@ export function deriveCharacter(spec: PcSpec): DerivedCharacter {
   const cls = classById(spec.classId);
   if (!cls) throw new DeriveError(`${spec.name}: нет класса ${spec.classId}`);
   const srdClass = srdClassOf(cls);
+  const subclass = spec.subclassId ? cls.subclasses.find(x => x.id === spec.subclassId) : undefined;
+  if (spec.subclassId && !subclass) throw new DeriveError(`${spec.name}: у класса ${cls.name} нет подкласса ${spec.subclassId}`);
+  if (subclass && subclass.gainedAt !== null && subclass.gainedAt > spec.level) throw new DeriveError(`${spec.name}: ${subclass.name} — с ${subclass.gainedAt}-го уровня, а уровень ${spec.level}`);
+  const background = spec.backgroundId ? backgroundById(spec.backgroundId) : undefined;
+  if (spec.backgroundId && !background) throw new DeriveError(`${spec.name}: нет предыстории ${spec.backgroundId}`);
 
   const abilities = abilityScores(spec, race, subrace, srdClass);
   const mods = Object.fromEntries(ABILITY_IDS.map(ab => [ab, abilityMod(abilities[ab])])) as Record<AbilityId, number>;
@@ -224,7 +233,7 @@ export function deriveCharacter(spec: PcSpec): DerivedCharacter {
     if (!SKILL_IDS.includes(s)) throw new DeriveError(`${spec.name}: нет навыка ${s}`);
     if (choices.options && !choices.options.includes(s)) throw new DeriveError(`${spec.name}: ${cls.name} не предлагает ${SKILLS[s].name}`);
   }
-  const skills = [...new Set([...spec.skills, ...effects.flatMap(e => e.skills ?? [])])];
+  const skills = [...new Set([...spec.skills, ...(background?.skills ?? []), ...effects.flatMap(e => e.skills ?? [])])];
 
   const armorProf = classArmorProficiency(cls);
   if (spec.armor && !armorProf.has(ARMOR[spec.armor].category)) throw new DeriveError(`${spec.name}: ${cls.name} не владеет доспехом ${ARMOR[spec.armor].name}`);
@@ -232,9 +241,10 @@ export function deriveCharacter(spec: PcSpec): DerivedCharacter {
   const strNeed = spec.armor ? ARMOR[spec.armor].strength : null;
   if (strNeed !== null && abilities.str < strNeed) throw new DeriveError(`${spec.name}: ${ARMOR[spec.armor!].name} требует STR ${strNeed}, есть ${abilities.str}`);
 
-  const features = cls.levels
-    .filter(l => l.level <= spec.level)
-    .flatMap(l => l.features.map(f => ({ id: f.id, name: f.name, level: l.level })));
+  const features = [
+    ...cls.levels.filter(l => l.level <= spec.level).flatMap(l => l.features.map(f => ({ id: f.id, name: f.name, level: l.level }))),
+    ...(subclass?.features ?? []).filter(f => f.level <= spec.level).map(f => ({ id: f.id, name: f.name, level: f.level })),
+  ].sort((a, b) => a.level - b.level);
 
   return {
     race, subrace, cls, srdClass, abilities, mods, proficiencyBonus,
