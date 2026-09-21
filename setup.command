@@ -66,7 +66,9 @@ if ! in_package "$HERE"; then
       fetch_zip "$DEST"
     fi
   fi
-  exec zsh "$DEST/setup.command" "$@"
+  in_package "$DEST" || fail "в $DEST нет пакета dm-cockpit — репозиторий пуст или изменился?"
+  [[ -z "${COCKPIT_BOOTSTRAPPED:-}" ]] || fail "пакет в $DEST на месте, но setup.command в нём себя не узнаёт"
+  COCKPIT_BOOTSTRAPPED=1 exec zsh "$DEST/setup.command" "$@"
 fi
 cd "$HERE" || exit 1
 
