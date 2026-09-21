@@ -43,6 +43,9 @@ export function pcActor(spec: PcSpec): Actor {
       traits: d.traits,
       armor: spec.armor ?? undefined,
       shield: spec.shield || undefined,
+      speed: d.speed,
+      alignment: spec.alignment,
+      bio: spec.bio,
     },
   };
 }

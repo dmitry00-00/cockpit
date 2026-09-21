@@ -3,7 +3,8 @@
 // своего effect — он заранее собран из следа исходного события (см. log.ts).
 import { castDraft, current, produce } from 'immer';
 import { EXHAUSTION_MAX_LEVEL, isConditionId } from '../rules/srd/conditions';
-import type { DomainEvent, Effect, EncounterSnapshot, HpSnapshot, InitiativeEntry, PayloadByType, RestSnapshot } from './events';
+import { RESOURCES, isResourceId } from '../rules/srd/resources';
+import type { ConditionSnapshot, DomainEvent, Effect, EncounterSnapshot, HpSnapshot, InitiativeEntry, PayloadByType, RestSnapshot } from './events';
 import type { Actor, State, WorldPatch } from './state';
 
 export class EngineError extends Error {
@@ -45,10 +46,11 @@ function putEncounter(draft: State, snap: EncounterSnapshot) {
   }
 }
 
-/** След отдыха у актёра: хиты, уровень истощения, потраченные кости хитов. */
+/** След отдыха у актёра: хиты, уровень истощения, потраченные кости хитов и ресурсы. */
 function restSnap(a: Actor): RestSnapshot {
   const snap: RestSnapshot = { hp: hpSnap(a.hp), hitDiceSpent: a.hitDiceSpent ?? 0 };
   if (a.conditions.exhaustion?.level !== undefined) snap.exhaustion = a.conditions.exhaustion.level;
+  if (a.resourcesSpent && Object.keys(a.resourcesSpent).length > 0) snap.resourcesSpent = { ...a.resourcesSpent };
   return snap;
 }
 
@@ -59,6 +61,20 @@ function putRest(a: Actor, snap: RestSnapshot) {
   else a.conditions.exhaustion = { ...a.conditions.exhaustion, level: snap.exhaustion };
   if (snap.hitDiceSpent === 0) delete a.hitDiceSpent;
   else a.hitDiceSpent = snap.hitDiceSpent;
+  if (snap.resourcesSpent) a.resourcesSpent = { ...snap.resourcesSpent };
+  else delete a.resourcesSpent;
+}
+
+/** Потраченное по ресурсу; без записи — ноль. */
+const spentOf = (a: Actor, id: string): number => (a.resourcesSpent as Record<string, number> | undefined)?.[id] ?? 0;
+
+/** Записать потраченное: ноль — убрать запись, пустая карта — убрать поле, чтобы состояние не копило нули. */
+function putSpent(a: Actor, id: string, n: number) {
+  const map = { ...(a.resourcesSpent ?? {}) } as Record<string, number>;
+  if (n === 0) delete map[id];
+  else map[id] = n;
+  if (Object.keys(map).length === 0) delete a.resourcesSpent;
+  else a.resourcesSpent = map;
 }
 
 /** Долгий отдых возвращает половину костей хитов, не меньше одной (SRD). */
@@ -114,6 +130,7 @@ export function validate(state: State, event: Pick<DomainEvent, 'type' | 'payloa
       const p = event.payload as PayloadByType['CONDITION_ADDED'];
       actorOf(state, p.targetId);
       if (!isConditionId(p.conditionId)) throw new EngineError(`нет такого состояния в SRD: ${p.conditionId}`);
+      if (p.untilSec !== undefined && p.untilSec <= state.time.sec) throw new EngineError('состояние: срок уже прошёл');
       if (p.level !== undefined) {
         if (p.conditionId !== 'exhaustion') throw new EngineError(`уровень есть только у истощения`);
         if (p.level < 1 || p.level > EXHAUSTION_MAX_LEVEL || Math.floor(p.level) !== p.level) throw new EngineError(`уровень истощения 1–${EXHAUSTION_MAX_LEVEL}, получен ${p.level}`);
@@ -201,7 +218,18 @@ export function validate(state: State, event: Pick<DomainEvent, 'type' | 'payloa
       }
       if (p.kind === 'long') {
         if (p.hitDice && p.hitDice.length > 0) throw new EngineError('кости хитов тратят на коротком отдыхе; долгий возвращает их сам');
+        if (p.resources && p.resources.length > 0) throw new EngineError('долгий отдых возвращает все ресурсы сам — список не нужен');
         return;
+      }
+      const restored = new Set<string>();
+      for (const r of p.resources ?? []) {
+        const a = actorOf(state, r.actorId);
+        if (!seen.has(r.actorId)) throw new EngineError(`${a.name} не отдыхает, а ресурс возвращает`);
+        if (!isResourceId(r.resourceId)) throw new EngineError(`нет такого ресурса в SRD: ${r.resourceId}`);
+        const key = `${r.actorId}:${r.resourceId}`;
+        if (restored.has(key)) throw new EngineError(`${a.name}: ${RESOURCES[r.resourceId].label} дважды в списке отдыха`);
+        restored.add(key);
+        if (spentOf(a, r.resourceId) === 0) throw new EngineError(`${a.name}: ${RESOURCES[r.resourceId].label} не тратились — возвращать нечего`);
       }
       const spent = new Set<string>();
       for (const h of p.hitDice ?? []) {
@@ -215,6 +243,20 @@ export function validate(state: State, event: Pick<DomainEvent, 'type' | 'payloa
         const available = a.sheet.level - (a.hitDiceSpent ?? 0);
         if (h.dice > available) throw new EngineError(`у ${a.name} осталось ${available} костей хитов, а тратится ${h.dice}`);
       }
+      return;
+    }
+    case 'RESOURCE_SPENT':
+    case 'RESOURCE_RESTORED': {
+      const p = event.payload as PayloadByType['RESOURCE_SPENT'];
+      const a = actorOf(state, p.actorId);
+      if (a.removed) throw new EngineError(`${a.name} выбыл`);
+      if (!isResourceId(p.resourceId)) throw new EngineError(`нет такого ресурса в SRD: ${p.resourceId}`);
+      const label = RESOURCES[p.resourceId].label;
+      positive(p.amount, `${label} у ${a.name}`);
+      if (!Number.isInteger(p.max) || p.max < 0) throw new EngineError(`${label} у ${a.name}: максимум — целое не меньше нуля, получено ${p.max}`);
+      const spent = spentOf(a, p.resourceId);
+      if (event.type === 'RESOURCE_SPENT' && spent + p.amount > p.max) throw new EngineError(`${label} у ${a.name}: осталось ${Math.max(0, p.max - spent)} из ${p.max}, а тратится ${p.amount}`);
+      if (event.type === 'RESOURCE_RESTORED' && p.amount > spent) throw new EngineError(`${label} у ${a.name}: потрачено ${spent}, а возвращается ${p.amount}`);
       return;
     }
     case 'TIME_ADVANCED': {
@@ -322,7 +364,10 @@ export function apply(state: State, event: DomainEvent): { state: State; effect:
           const level = p.level ?? Math.min(EXHAUSTION_MAX_LEVEL, (before?.level ?? 0) + 1);
           a.conditions.exhaustion = { level };
         } else {
-          a.conditions[p.conditionId] = p.until !== undefined ? { until: p.until } : {};
+          const snap: ConditionSnapshot = {};
+          if (p.until !== undefined) snap.until = p.until;
+          if (p.untilSec !== undefined) snap.untilSec = p.untilSec;
+          a.conditions[p.conditionId] = snap;
         }
         effect = { kind: 'condition', targetId: p.targetId, conditionId: p.conditionId, before, after: { ...a.conditions[p.conditionId] } };
         break;
@@ -499,16 +544,29 @@ export function apply(state: State, event: DomainEvent): { state: State; effect:
               if (left === 0) delete a.hitDiceSpent;
               else a.hitDiceSpent = left;
             }
+            // SRD: долгий отдых возвращает все ресурсы класса.
+            delete a.resourcesSpent;
           } else {
             const h = p.hitDice?.find(x => x.actorId === actorId);
             if (h) {
               a.hp.current = Math.min(a.hp.max, a.hp.current + h.healed);
               a.hitDiceSpent = (a.hitDiceSpent ?? 0) + h.dice;
             }
+            for (const r of p.resources ?? []) if (r.actorId === actorId) putSpent(a, r.resourceId, 0);
           }
           return { actorId, before, after: restSnap(current(a)) };
         });
         effect = { kind: 'rest', actors };
+        break;
+      }
+      case 'RESOURCE_SPENT':
+      case 'RESOURCE_RESTORED': {
+        const p = event.payload as PayloadByType['RESOURCE_SPENT'];
+        const a = draft.actors[p.actorId];
+        const before = spentOf(a, p.resourceId);
+        const after = event.type === 'RESOURCE_SPENT' ? before + p.amount : before - p.amount;
+        putSpent(a, p.resourceId, after);
+        effect = { kind: 'resource', actorId: p.actorId, resourceId: p.resourceId, before, after };
         break;
       }
     }
@@ -586,6 +644,12 @@ export function applyEffect(state: State, effect: Effect): State {
         }
         return;
       }
+      case 'resource': {
+        const a = draft.actors[effect.actorId];
+        if (!a) throw new EngineError(`нет актёра ${effect.actorId}`);
+        putSpent(a, effect.resourceId, effect.after);
+        return;
+      }
       case 'note':
       case 'none':
         return;
@@ -612,6 +676,7 @@ export function invert(effect: Effect): Effect {
       encounter: { before: effect.encounter.after, after: effect.encounter.before },
     };
     case 'rest': return { ...effect, actors: effect.actors.map(r => ({ actorId: r.actorId, before: r.after, after: r.before })) };
+    case 'resource': return { ...effect, before: effect.after, after: effect.before };
     case 'note':
     case 'none':
       return effect;

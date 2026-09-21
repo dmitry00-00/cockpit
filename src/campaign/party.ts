@@ -26,6 +26,9 @@ export const BO: PcSpec = {
   armor: 'scale-mail',
   shield: false,
   skills: ['stealth', 'survival', 'nature'],
+  // С референс-карточки владельца (лист Bo): Neutral, 3'2", 38 lbs, 26 лет.
+  alignment: 'Нейтральный',
+  bio: { height: '97 см', weight: '17 кг', age: 26 },
 };
 
 export const KORRIN: PcSpec = {

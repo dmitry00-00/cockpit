@@ -92,3 +92,5 @@ export { ConcentrationForm, CONCENTRATION_DURATIONS, type ConcentrationFormProps
 export { RestForm, REST_LABELS, parseDice, parseHealed, diceFormula, type RestFormProps, type RestRow } from './RestForm';
 // F9 — планшет: свёрнутая боковая панель — полоса иконок 40px; что свёрнуто и раскрыто — состояние страницы.
 export { IconRail, type IconRailProps, type IconRailItem } from './IconRail';
+// Ресурсы персонажа пипками (решение владельца 21.09.2026): максимум и потраченное пропсами, события пишет страница.
+export { ResourcePips, PIPS_MAX, parsePoolAmount, type ResourcePipsProps, type ResourcePipsKind } from './ResourcePips';

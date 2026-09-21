@@ -2,6 +2,7 @@
 import type { AbilityId } from '../rules/srd/abilities';
 import type { ConditionId } from '../rules/srd/conditions';
 import type { MonsterId } from '../rules/srd/monsters';
+import type { ResourceId } from '../rules/srd/resources';
 import type { ConditionSnapshot, ScaleLevel, Tempo } from './events';
 
 export type ActorKind = 'pc' | 'npc' | 'monster';
@@ -26,6 +27,12 @@ export interface CharacterSheet {
   traits: readonly { id: string; name: string }[];
   armor?: string;
   shield?: boolean;
+  /** Скорость ходьбы, футов — по расе SRD; лист показывает числом. */
+  speed?: number;
+  /** Мировоззрение словами игрока: «Нейтральный». */
+  alignment?: string;
+  /** Рост, вес, возраст — как на бумажном листе; заполняется, когда игрок сказал. */
+  bio?: { height?: string; weight?: string; age?: number };
 }
 
 /** Действующий эффект заклинания без концентрации (Mage Armor): состоянием SRD не является, событий для него нет. */
@@ -52,6 +59,8 @@ export interface Actor {
   initiative?: number;
   /** Потраченные кости хитов (REST_TAKEN): всего их — уровень листа, кость — по классу SRD; нет поля — ноль. */
   hitDiceSpent?: number;
+  /** Потраченное по ресурсам (RESOURCE_SPENT / RESTORED): id → сколько; максимум выводится из листа (campaign/resources.ts). Нет записи — не тратил. */
+  resourcesSpent?: Readonly<Partial<Record<ResourceId, number>>>;
   /** Выбыл (ACTOR_REMOVED): убит, сбежал, ушёл. Остаётся в состоянии, чтобы старые события по нему реплеились. */
   removed?: boolean;
   /** Где актёр, если отделился от партии. */

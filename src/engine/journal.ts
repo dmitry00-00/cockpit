@@ -3,6 +3,7 @@
 // упоминания и каскады (шаг 7) — тоже проекция: считаются из лога и состояния при каждом чтении, в записи
 // ничего не хранится. Фильтр журнала — состояние вида, поэтому filterJournal — чистая функция над записями.
 import { CONDITIONS } from '../rules/srd/conditions';
+import { RESOURCES } from '../rules/srd/resources';
 import { EVENT_META, SCALE_LEVELS, TEMPO_SECONDS, type DomainEvent, type PayloadByType, type ScaleLevel, type Tempo } from './events';
 import type { Fact, State, WorldDelta } from './state';
 
@@ -64,6 +65,20 @@ export function plural(n: number, forms: readonly [string, string, string]): str
   return forms[2];
 }
 
+/** Срок словами для журнала: «10 мин», «8 ч», «3 дн» — минуты вверх, часы и дни к ближайшему. */
+export function durationLabel(seconds: number): string {
+  if (seconds < 3600) return `${Math.max(1, Math.ceil(seconds / 60))} мин`;
+  if (seconds < 86_400) return `${Math.max(1, Math.round(seconds / 3600))} ч`;
+  return `${Math.max(1, Math.round(seconds / 86_400))} дн`;
+}
+
+/** Сколько потрачено после события ресурса — из его следа, чтобы «осталось N из M» не зависело от текущего состояния. */
+function spentAfter(event: DomainEvent, state: State): number | undefined {
+  if (event.effect?.kind === 'resource') return event.effect.after;
+  const p = event.payload as PayloadByType['RESOURCE_SPENT'];
+  return (state.actors[p.actorId]?.resourcesSpent as Record<string, number> | undefined)?.[p.resourceId] ?? 0;
+}
+
 /** Текст записи. Имена — латиницей как в мире, механика — как говорят за столом. */
 export function describe(event: DomainEvent, state: State): string {
   const name = (id: string) => state.actors[id]?.name ?? id;
@@ -83,7 +98,18 @@ export function describe(event: DomainEvent, state: State): string {
     case 'CONDITION_ADDED': {
       const p = event.payload as PayloadByType['CONDITION_ADDED'];
       const label = CONDITIONS[p.conditionId]?.label ?? p.conditionId;
-      return `${label}${p.level ? ` ${p.level}` : ''}: ${name(p.targetId)}${p.until ? ` до ${p.until}` : ''}`;
+      const span = p.untilSec !== undefined ? ` на ${durationLabel(p.untilSec - event.worldSec)}` : p.until ? ` до ${p.until}` : '';
+      return `${label}${p.level ? ` ${p.level}` : ''}: ${name(p.targetId)}${span}`;
+    }
+    case 'RESOURCE_SPENT': {
+      const p = event.payload as PayloadByType['RESOURCE_SPENT'];
+      const spent = spentAfter(event, state);
+      return `${RESOURCES[p.resourceId]?.label ?? p.resourceId} −${p.amount}: ${name(p.actorId)}${spent === undefined ? '' : ` (${Math.max(0, p.max - spent)} из ${p.max})`}`;
+    }
+    case 'RESOURCE_RESTORED': {
+      const p = event.payload as PayloadByType['RESOURCE_RESTORED'];
+      const spent = spentAfter(event, state);
+      return `${RESOURCES[p.resourceId]?.label ?? p.resourceId} +${p.amount}: ${name(p.actorId)}${spent === undefined ? '' : ` (${Math.max(0, p.max - spent)} из ${p.max})`}`;
     }
     case 'CONDITION_REMOVED': {
       const p = event.payload as PayloadByType['CONDITION_REMOVED'];
@@ -163,7 +189,9 @@ export function describe(event: DomainEvent, state: State): string {
       if (p.kind === 'long') return `Долгий отдых: ${p.actorIds.map(name).join(', ')}`;
       const who = p.actorIds.map(id => {
         const h = p.hitDice?.find(x => x.actorId === id);
-        return h ? `${name(id)} +${h.healed} (${h.dice} ${plural(h.dice, HIT_DICE)} хитов)` : name(id);
+        const res = (p.resources ?? []).filter(r => r.actorId === id).map(r => RESOURCES[r.resourceId]?.label ?? r.resourceId);
+        const parts = [h ? `+${h.healed} (${h.dice} ${plural(h.dice, HIT_DICE)} хитов)` : '', res.length > 0 ? res.join(', ') : ''].filter(Boolean);
+        return parts.length > 0 ? `${name(id)} ${parts.join(' · ')}` : name(id);
       });
       return `Короткий отдых: ${who.join(', ')}`;
     }

@@ -12,19 +12,20 @@
 // «Добавить» в шапке главной зоны — противник из блока SRD (ACTOR_SPAWNED, в бою сразу в порядок),
 // «Концентрация» в карточке — CONCENTRATION_STARTED со сроком SRD. Пустые входящие — «Мир спокоен» и ближайший
 // праздник (CLAUDE.md, единственное исключение из правила пустых секций).
-import { Dialog, Popover } from 'radix-ui';
+import { Dialog, Popover, ToggleGroup } from 'radix-ui';
 import './DeskPage.css';
-import { useEffect, useRef, useState, type ReactNode, type RefObject } from 'react';
+import { Fragment, useEffect, useRef, useState, type ReactNode, type RefObject } from 'react';
 import {
   NEAR_SCALES, abilityMod, conModOf, currentOrder, dayPhase, encounterCandidates, formatHarptos, hitDiceOf, inDays, initiativeMod, moonState, nextFestival, placeChain,
-  placedActors, restCandidates, seedBattlefield, seedEngine, seedState, sortInitiative, spawnMonsters, stepTime, suggestMonsterName, takeRest, weatherLabel, weatherOf,
+  placedActors, poolLabel, resourcePoolsOf, restCandidates, restResourcesOf, seedBattlefield, seedEngine, seedState, sortInitiative, spawnMonsters, srdClassOf, stepTime,
+  suggestMonsterName, takeRest, weatherLabel, weatherOf,
   type Sky,
 } from '../campaign';
 import {
   BattleGrid, CardStack, CelestialBar, ChangeSummary, ConcentrationForm, ConditionChip, ConditionGrid, DayPhaseStrip, EntityCard, HpControl, InitiativeBar,
-  IconRail, InitiativeEditor, JournalCascade, JournalEntry, JournalReminder, Paperdoll, PartySpine, PlayerFrame, RestForm, RollModal, ScaleLadder, SpawnForm, StatTile,
+  IconRail, InitiativeEditor, JournalCascade, JournalEntry, JournalReminder, Paperdoll, PartySpine, PlayerFrame, ResourcePips, RestForm, RollModal, ScaleLadder, SpawnForm, StatTile,
   ThreadCard, ThreadFilter, TimeTempo, WorldDelta,
-  DAY_PHASE_ICONS, DAY_PHASE_LABELS, MOON_ICONS, MOON_LABELS, SCALE_LABELS, SCALE_TEMPO_LABELS, TAB_OVERVIEW, TEMPO_LABELS,
+  CONCENTRATION_DURATIONS, DAY_PHASE_ICONS, DAY_PHASE_LABELS, MOON_ICONS, MOON_LABELS, SCALE_LABELS, SCALE_TEMPO_LABELS, TAB_OVERVIEW, TEMPO_LABELS,
   actorCardProps, battleTokenOf, chipsOf, exhaustionCommand, factionCardProps, initiativeFormula, initiativeTokenOf, lastDamageOf, lastRollOf, placeCardProps,
   placeEntityType, raceLabel, rollHistoryOf, signedMod, stackItemOf, summaryGroups, toggleCommand, toggleIn, worldDeltaProps,
   type CardStackItem, type IconRailItem, type InitiativeBarEntry, type InitiativeRow, type JournalEntryProps, type MoonPhase, type RestRow, type ScaleStep, type SlotId,
@@ -42,7 +43,7 @@ import { useEngine, useHpFlashes, useUndoKeys } from '../engine/useEngine';
 import { Icon, type IconName } from '../icons/Icon';
 import { classById, raceById } from '../rules/compendium';
 import {
-  ABILITIES, ABILITY_IDS, ARMOR, MONSTER_IDS, MONSTERS, SHIELD, SKILL_IDS, SKILLS, isArmorId,
+  ABILITIES, ABILITY_IDS, ARMOR, CONDITIONS, MONSTER_IDS, MONSTERS, SHIELD, SKILL_IDS, SKILLS, isArmorId,
   type AbilityId, type ConditionId, type MonsterId, type SkillId,
 } from '../rules/srd';
 
@@ -107,6 +108,8 @@ export const ENTRY_ICON: Readonly<Record<EventType, { icon: IconName; title: str
   ACTOR_REMOVED: { icon: 'cross', title: 'Выбыл' },
   WORLD_DELTA_PROPOSED: { icon: 'src-sim', title: 'Предложение' },
   REST_TAKEN: { icon: 'night', title: 'Отдых' },
+  RESOURCE_SPENT: { icon: 'spell', title: 'Ресурс потрачен' },
+  RESOURCE_RESTORED: { icon: 'spell', title: 'Ресурс возвращён' },
 };
 
 /** «15 Mirtul 1492 DR, 08:00» → дата «15 Mirtul» и время «08:00»: журналу год не нужен, он один на кампанию. */
@@ -218,6 +221,23 @@ export function concentrationRemindersOf(state: State): ConcentrationReminder[] 
   });
 }
 
+export interface ConditionReminder {
+  key: string;
+  actorId: string;
+  conditionId: ConditionId;
+  text: string;
+}
+
+/** Состояния со сроком в мировом времени, срок которых вышел: система предлагает снять, мастер решает (как с концентрацией). */
+export function conditionRemindersOf(state: State): ConditionReminder[] {
+  return Object.values(state.actors).flatMap((a): ConditionReminder[] => {
+    if (a.removed) return [];
+    return (Object.entries(a.conditions) as [ConditionId, { untilSec?: number } | undefined][])
+      .filter(([, snap]) => snap?.untilSec !== undefined && snap.untilSec <= state.time.sec)
+      .map(([id, snap]) => ({ key: `${a.id}:${id}:${snap!.untilSec}`, actorId: a.id, conditionId: id, text: `${a.name}: срок состояния «${CONDITIONS[id].label}» вышел` }));
+  });
+}
+
 /** Что известно игрокам о сущности — открытые факты с её subjectId; видны на обоих столах. */
 export function playerFactsAbout(subjectId: string, facts: State['facts']) {
   return Object.values(facts).filter(f => f.visibility === 'players' && f.subjectId === subjectId);
@@ -293,6 +313,12 @@ const MOON_PHASES: readonly MoonPhase[] = ['new', 'waxing', 'full', 'waning'];
 /** Иконка неба — из набора погоды генератора; у каждой title, подпись рядом словами. */
 const SKY_ICON: Readonly<Record<Sky, IconName>> = { clear: 'day', cloudy: 'cloudy', rain: 'rain', storm: 'storm' };
 const BTN = 'type-num-12 uppercase px-2 py-1 bg-cd shadow-bevel text-t2 cursor-pointer enabled:hover:text-tx enabled:active:shadow-bevel-in focus-visible:shadow-[var(--bevel),var(--glow-gold)] disabled:cursor-default disabled:opacity-(--op-disabled)';
+const OPT = 'type-num-12 uppercase whitespace-nowrap px-2 py-1 cursor-pointer bg-linear-to-b from-pl to-cd';
+const OPT_OFF = 'text-t2 shadow-bevel hover:text-tx focus-visible:shadow-[var(--bevel),var(--glow-gold)]';
+const OPT_ON = 'text-gd-hi shadow-[var(--bevel),inset_0_-3px_0_var(--gd)] focus-visible:shadow-[var(--bevel),inset_0_-3px_0_var(--gd),var(--glow-gold)]';
+
+/** Сроки состояний из сетки — те же ступени, что у концентрации, но по умолчанию «без срока». */
+const CONDITION_DURATIONS = [{ sec: 0, label: 'без срока' }, ...CONCENTRATION_DURATIONS.filter(d => d.sec > 0)] as const;
 /* Кнопка в шапке-плите: без своей плиты, подпись как у шапки; наведение — текст. */
 const BTN_HEAD = 'type-key uppercase px-1 text-t2 cursor-pointer hover:text-tx focus-visible:shadow-[var(--glow-gold)]';
 /* F9: панель, раскрытая из полосы иконок, — оверлей поверх главной зоны у своей полосы; float — единственная внешняя тень. */
@@ -385,30 +411,99 @@ function PcSkills({ actor, onRoll }: Pick<BodyProps, 'actor' | 'onRoll'>) {
   );
 }
 
+/** Владение спасбросками по классу SRD; класс вне SRD — никаких. */
+function saveProficiencies(classId: string): readonly AbilityId[] {
+  const cls = classById(classId);
+  if (!cls) return [];
+  try { return srdClassOf(cls).saves; } catch { return []; }
+}
+
+/**
+ * Шапка листа по бумажной карточке владельца: портрет (пока — иконка класса на плите), раса и класс, мировоззрение,
+ * скорость, рост · вес · возраст. Чего на листе нет — не показывается, пустых подписей не бывает.
+ */
+function PcHeader({ actor }: Pick<BodyProps, 'actor'>) {
+  const sheet = actor.sheet!;
+  const cls = classById(sheet.classId);
+  const bio = [sheet.bio?.height, sheet.bio?.weight, sheet.bio?.age !== undefined ? `${sheet.bio.age} ${plural(sheet.bio.age, ['год', 'года', 'лет'])}` : undefined].filter(Boolean);
+  const rows: { label: string; value: string }[] = [
+    { label: 'Раса', value: raceLabel(sheet) },
+    { label: 'Класс', value: `${cls?.nameRu ?? sheet.classId} · ${sheet.level} ур.` },
+  ];
+  if (sheet.alignment) rows.push({ label: 'Мировоззрение', value: sheet.alignment });
+  if (sheet.speed !== undefined) rows.push({ label: 'Скорость', value: `${sheet.speed} фт` });
+  if (bio.length > 0) rows.push({ label: 'Тело', value: bio.join(' · ') });
+  return (
+    <div className="flex items-start gap-3" data-part="pc-header">
+      <div className="size-12 flex-none flex items-center justify-center bg-linear-to-b from-pl to-cd shadow-plate" data-part="portrait" title="Портрет: пока иконка класса">
+        <Icon name="ent-pc" size={32} color="var(--gd)" title={actor.name} />
+      </div>
+      <dl className="flex-1 min-w-0 grid grid-cols-[auto_1fr] gap-x-3 gap-y-0.5">
+        {rows.map(r => (
+          <Fragment key={r.label}>
+            <dt className="type-key uppercase text-t2">{r.label}</dt>
+            <dd className="type-body-sm text-tx truncate" title={r.value}>{r.value}</dd>
+          </Fragment>
+        ))}
+      </dl>
+    </div>
+  );
+}
+
+/** Ресурсы листа (решение владельца 21.09.2026): ячейки, ярость, ци, применения умений — пипками; на столе игроков без кнопок. */
+function PcResources({ actor, onCommand, dmView }: Pick<BodyProps, 'actor' | 'onCommand' | 'dmView'>) {
+  const pools = resourcePoolsOf(actor);
+  if (pools.length === 0) return null;
+  return (
+    <Section title="Ресурсы">
+      <div className="flex flex-col gap-1" data-part="resources">
+        {pools.map(p => (
+          <ResourcePips
+            key={p.id}
+            id={p.id}
+            label={poolLabel(p)}
+            max={p.max}
+            spent={p.spent}
+            kind={p.kind}
+            restoresOn={p.restoresOn}
+            onSpend={dmView ? amount => onCommand({ type: 'RESOURCE_SPENT', payload: { actorId: actor.id, resourceId: p.id, amount, max: p.max } }) : undefined}
+            onRestore={dmView ? amount => onCommand({ type: 'RESOURCE_RESTORED', payload: { actorId: actor.id, resourceId: p.id, amount, max: p.max } }) : undefined}
+          />
+        ))}
+      </div>
+    </Section>
+  );
+}
+
 function PcOverview({ actor, worldSec, onRoll, onCommand, tools, dmView, skills = true }: BodyProps & { skills?: boolean }) {
   const sheet = actor.sheet!;
   const mods = Object.fromEntries(ABILITY_IDS.map(id => [id, abilityMod(sheet.abilities[id])])) as Record<AbilityId, number>;
   const cls = classById(sheet.classId);
+  const saves = saveProficiencies(sheet.classId);
   return (
     <>
-      <div className="flex items-baseline gap-2" data-part="origin-line">
-        <span className="type-key uppercase text-t2">Раса</span>
-        <span className="type-body-sm text-tx">{raceLabel(sheet)}</span>
-      </div>
+      <PcHeader actor={actor} />
       <Section title="Характеристики" right={tools}>
         <div className="grid grid-cols-6 gap-1">
-          {ABILITY_IDS.map(id => (
-            <StatTile
-              key={id}
-              label={ABILITIES[id].code}
-              mod={mods[id]}
-              score={sheet.abilities[id]}
-              ability={id}
-              onRoll={() => onRoll(d20Formula(mods[id]), `${ABILITIES[id].code} · ${actor.name}`)}
-            />
-          ))}
+          {ABILITY_IDS.map(id => {
+            const owned = saves.includes(id);
+            const save = mods[id] + (owned ? sheet.proficiencyBonus : 0);
+            return (
+              <StatTile
+                key={id}
+                label={ABILITIES[id].code}
+                mod={mods[id]}
+                score={sheet.abilities[id]}
+                ability={id}
+                owned={owned}
+                title={`${ABILITIES[id].name}: ${signedMod(mods[id])} · спасбросок ${signedMod(save)}${owned ? ' (владение)' : ''}`}
+                onRoll={() => onRoll(d20Formula(mods[id]), `${ABILITIES[id].code} · ${actor.name}`)}
+              />
+            );
+          })}
         </div>
       </Section>
+      <PcResources actor={actor} onCommand={onCommand} dmView={dmView} />
       {skills ? <PcSkills actor={actor} onRoll={onRoll} /> : null}
       <ChipsRow actor={actor} worldSec={worldSec} onCommand={onCommand} dmView={dmView} />
       {sheet.features.length > 0 ? (
@@ -745,6 +840,8 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
   const [spawnOpen, setSpawnOpen] = useState(false);
   const [concentrationOpen, setConcentrationOpen] = useState(false);
   const [restOpen, setRestOpen] = useState(false);
+  /** Срок следующего состояния из сетки, секунд мирового времени; 0 — пока мастер не снимет. */
+  const [conditionDuration, setConditionDuration] = useState(0);
   // Оверлей карточки 720px (F3) — вид: та же карточка в две колонки с бронзовой рамкой поверх главной зоны.
   const [cardOverlay, setCardOverlay] = useState(false);
   // Лестница масштабов (шаг 10) — навигация, не событие: уровень и путь (по месту на уровень) живут здесь.
@@ -803,6 +900,7 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
   const reminders = dmView ? Object.values(state.facts).filter(f => f.visibility === 'dm' && !laterFacts.includes(f.id)) : [];
   // Что система предлагает, но не делает сама (HANDOFF §7): концентрация на нуле хитов и по вышедшему сроку.
   const concentrationReminders = dmView ? concentrationRemindersOf(state).filter(r => !laterConcentration.includes(r.key)) : [];
+  const conditionReminders = dmView ? conditionRemindersOf(state).filter(r => !laterConcentration.includes(r.key)) : [];
   const { encounter } = state;
   const combat = encounter.active;
   const tempo: Tempo = combat ? 'round' : tempoChoice;
@@ -893,6 +991,15 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
   const moveRef = useRef<(dir: -1 | 1) => void>(() => {});
   const playersRef = useRef(playersView);
   playersRef.current = playersView;
+
+  // Ход перешёл — карточка следует за активным актёром: что у него осталось (ресурсы, состояния, концентрация) видно
+  // без клика; мастер, глядящий на другого, кликнет снова. Первый вопрос экрана — «чей ход и что с партией» (§1).
+  useEffect(() => {
+    if (activeId && state.actors[activeId]) {
+      setSelectedId(activeId);
+      setCardOf(c => (c.kind === 'actor' ? c : { kind: 'actor' }));
+    }
+  }, [activeId]);
 
   // Space — следующий ход, R — переброс последнего броска, J — журнал, T — шаг времени; только вне полей и кнопок (isDeskHotkey).
   useEffect(() => {
@@ -1016,6 +1123,8 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
       id: a.id, name: a.name, kind: a.kind, hp: a.hp, conMod: conModOf(a),
       hitDice: hd ? { die: hd.die, available: hd.available, total: hd.total } : undefined,
       exhaustion: a.conditions.exhaustion?.level,
+      shortRestores: restResourcesOf([a], 'short').map(r => poolLabel(resourcePoolsOf(a).find(p => p.id === r.resourceId)!)),
+      longRestores: resourcePoolsOf(a).filter(p => p.spent > 0).map(poolLabel),
     };
   });
   /**
@@ -1023,7 +1132,9 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
    * главная зона «Время» со сводкой, как после шага; нет — стол остаётся: хиты видны в корешке.
    */
   const onRest = (kind: RestKind, actorIds: string[], hitDice: RestHitDice[]) => {
-    const { time, proposals } = takeRest(store.getState(), kind, actorIds, hitDice);
+    // Короткий отдых возвращает ресурсы по правилу SRD (система предлагает — форма показала список); долгий — все сам.
+    const resting = actorIds.map(id => state.actors[id]).filter((a): a is Actor => a !== undefined);
+    const { time, proposals } = takeRest(store.getState(), kind, actorIds, hitDice, restResourcesOf(resting, kind));
     setRestOpen(false);
     if (proposals.length > 0) {
       setLastStep({ eventId: time.id, deltaIds: proposals.map(d => d.id) });
@@ -1104,11 +1215,31 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
         return <MonsterActions actor={actor} />;
       case 'conditions':
         return (
-          <ConditionGrid
-            active={actor.conditions}
-            onToggle={(id, on) => onCommand(toggleCommand(actor.id, id, on))}
-            onExhaustion={level => onCommand(exhaustionCommand(actor.id, level))}
-          />
+          <>
+            {dmView ? (
+              // Срок состояния (§7): выбирается до клика по сетке; чип считает остаток, по истечении система напоминает.
+              <ToggleGroup.Root
+                type="single"
+                value={String(conditionDuration)}
+                onValueChange={v => { if (v) setConditionDuration(Number(v)); }}
+                aria-label="Срок состояния"
+                className="flex items-center gap-px p-px bg-lo"
+              >
+                {CONDITION_DURATIONS.map(d => (
+                  <ToggleGroup.Item key={d.sec} value={String(d.sec)} title={d.sec === 0 ? 'Пока мастер не снимет' : `Следующее состояние — на ${d.label}`} className={`${OPT} flex-1 ${d.sec === conditionDuration ? OPT_ON : OPT_OFF}`}>
+                    {d.label}
+                  </ToggleGroup.Item>
+                ))}
+              </ToggleGroup.Root>
+            ) : null}
+            <ConditionGrid
+              active={actor.conditions}
+              onToggle={(id, on) => onCommand(on && conditionDuration > 0
+                ? { type: 'CONDITION_ADDED', payload: { targetId: actor.id, conditionId: id, untilSec: state.time.sec + conditionDuration } }
+                : toggleCommand(actor.id, id, on))}
+              onExhaustion={level => onCommand(exhaustionCommand(actor.id, level))}
+            />
+          </>
         );
       case 'gear':
         return <Paperdoll items={deskDollItems(actor.sheet)} />;
@@ -1681,9 +1812,21 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
             </>
           ) : (
             <>
-              {concentrationReminders.length > 0 ? (
+              {concentrationReminders.length > 0 || conditionReminders.length > 0 ? (
                 // Система предлагает, мастер решает: снять — событие, «Позже» — вид. Пустого списка нет вовсе.
                 <div aria-label="Напоминания" role="list" className="flex flex-col px-2 pt-1">
+                  {conditionReminders.map(r => (
+                    <div key={r.key} role="listitem">
+                      <JournalReminder
+                        inset={false}
+                        icon={{ name: `cond-${r.conditionId}` as IconName, color: 'var(--fx-damage-hi)', title: 'Срок вышел' }}
+                        action={{ label: 'Снять', title: `Снять состояние «${CONDITIONS[r.conditionId].label}»: срок вышел` }}
+                        text={r.text}
+                        onReveal={() => onCommand({ type: 'CONDITION_REMOVED', payload: { targetId: r.actorId, conditionId: r.conditionId } })}
+                        onLater={() => setLaterConcentration(l => [...l, r.key])}
+                      />
+                    </div>
+                  ))}
                   {concentrationReminders.map(r => (
                     <div key={r.key} role="listitem">
                       <JournalReminder

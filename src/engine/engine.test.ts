@@ -36,10 +36,12 @@ function seed(): State {
 }
 
 describe('список событий', () => {
-  it('13 из пакета плюс 8 по решению владельца 19.09.2026; у каждого — обратимость и журнал', () => {
-    expect(EVENT_TYPES).toHaveLength(22);
-    expect(EVENT_TYPES.slice(13)).toEqual(['ENCOUNTER_STARTED', 'ENCOUNTER_ENDED', 'INITIATIVE_SET', 'CONCENTRATION_STARTED', 'CONCENTRATION_ENDED', 'ACTOR_SPAWNED', 'ACTOR_REMOVED', 'WORLD_DELTA_PROPOSED', 'REST_TAKEN']);
+  it('13 из пакета плюс 8 по решению владельца 19.09.2026 плюс 3 от 21.09.2026; у каждого — обратимость и журнал', () => {
+    expect(EVENT_TYPES).toHaveLength(24);
+    expect(EVENT_TYPES.slice(13)).toEqual(['ENCOUNTER_STARTED', 'ENCOUNTER_ENDED', 'INITIATIVE_SET', 'CONCENTRATION_STARTED', 'CONCENTRATION_ENDED', 'ACTOR_SPAWNED', 'ACTOR_REMOVED', 'WORLD_DELTA_PROPOSED', 'REST_TAKEN', 'RESOURCE_SPENT', 'RESOURCE_RESTORED']);
     expect(EVENT_META.REST_TAKEN).toEqual({ reversible: true, journal: true });
+    expect(EVENT_META.RESOURCE_SPENT).toEqual({ reversible: true, journal: true });
+    expect(EVENT_META.RESOURCE_RESTORED).toEqual({ reversible: true, journal: true });
     for (const t of EVENT_TYPES) expect(EVENT_META[t]).toBeDefined();
     expect(EVENT_META.DICE_ROLLED.reversible).toBe(false);
     expect(EVENT_META.WORLD_DELTA_REROLLED.journal).toBe(false);
@@ -247,6 +249,80 @@ describe('отдых (решение владельца 21.09.2026)', () => {
   });
 });
 
+describe('ресурсы персонажа (решение владельца 21.09.2026)', () => {
+  let log: EventLog;
+  beforeEach(() => { log = new EventLog(seed(), [], fixed()); });
+  const spend = (resourceId: 'slot-1' | 'ki' | 'lay-on-hands', amount: number, max: number, actorId = 'bo') => log.dispatch({ type: 'RESOURCE_SPENT', payload: { actorId, resourceId, amount, max } });
+  const restore = (resourceId: 'slot-1' | 'ki', amount: number, max: number, actorId = 'bo') => log.dispatch({ type: 'RESOURCE_RESTORED', payload: { actorId, resourceId, amount, max } });
+
+  it('трата копится по id, восстановление снимает; ноль убирает запись, пустая карта — поле; отмена точна', () => {
+    spend('slot-1', 1, 4);
+    spend('slot-1', 2, 4);
+    spend('ki', 1, 5);
+    expect(log.state.actors.bo.resourcesSpent).toEqual({ 'slot-1': 3, ki: 1 });
+    restore('ki', 1, 5);
+    expect(log.state.actors.bo.resourcesSpent).toEqual({ 'slot-1': 3 });
+    restore('slot-1', 3, 4);
+    expect(log.state.actors.bo.resourcesSpent).toBeUndefined();
+    log.undo();
+    expect(log.state.actors.bo.resourcesSpent).toEqual({ 'slot-1': 3 });
+    log.undo(); log.undo();
+    expect(log.state.actors.bo.resourcesSpent).toEqual({ 'slot-1': 3 });
+    log.undo();
+    expect(log.state.actors.bo.resourcesSpent).toEqual({ 'slot-1': 1 });
+    log.redo();
+    expect(log.state.actors.bo.resourcesSpent).toEqual({ 'slot-1': 3 });
+  });
+
+  it('журнал: подпись из реестра SRD и «осталось из максимума» по следу события, не по текущему состоянию', () => {
+    spend('slot-1', 1, 4);
+    spend('lay-on-hands', 7, 25);
+    restore('slot-1', 1, 4);
+    const texts = journalEntries(log.entries, log.state).map(e => e.text);
+    expect(texts).toEqual(['Ячейки 1-го круга −1: Bo Tambernack (3 из 4)', 'Наложение рук −7: Bo Tambernack (18 из 25)', 'Ячейки 1-го круга +1: Bo Tambernack (4 из 4)']);
+  });
+
+  it('что не проходит: больше максимума, возврат сверх потраченного, ноль, неизвестный ресурс, выбывший', () => {
+    spend('slot-1', 3, 4);
+    expect(() => spend('slot-1', 2, 4)).toThrow(/осталось 1 из 4/);
+    expect(() => restore('slot-1', 4, 4)).toThrow(/потрачено 3/);
+    expect(() => spend('slot-1', 0, 4)).toThrow(/больше нуля/);
+    expect(() => log.dispatch({ type: 'RESOURCE_SPENT', payload: { actorId: 'bo', resourceId: 'mana' as never, amount: 1, max: 4 } })).toThrow(/нет такого ресурса/);
+    expect(() => log.dispatch({ type: 'RESOURCE_SPENT', payload: { actorId: 'bo', resourceId: 'ki', amount: 1, max: -1 } })).toThrow(/не меньше нуля/);
+    log.dispatch({ type: 'ACTOR_REMOVED', payload: { actorId: 'captain', reason: 'dead' } });
+    expect(() => spend('ki', 1, 2, 'captain')).toThrow(/выбыл/);
+    expect(log.state.actors.bo.resourcesSpent).toEqual({ 'slot-1': 3 });
+  });
+
+  it('отдых: короткий возвращает только перечисленное (система предлагает, мастер видит список), долгий — всё; отмена возвращает потраченное', () => {
+    const s = seed();
+    s.actors.bo.sheet = { level: 5, raceId: 'r', classId: 'c', abilities: { str: 10, dex: 16, con: 14, int: 10, wis: 12, cha: 8 }, proficiencyBonus: 3, skills: [], features: [], traits: [] };
+    log = new EventLog(s, [], fixed());
+    spend('slot-1', 2, 4);
+    spend('ki', 3, 5);
+    log.dispatch({ type: 'REST_TAKEN', payload: { kind: 'short', actorIds: ['bo'], resources: [{ actorId: 'bo', resourceId: 'ki' }] } });
+    expect(log.state.actors.bo.resourcesSpent).toEqual({ 'slot-1': 2 });
+    expect(journalEntries(log.entries, log.state).at(-1)?.text).toBe('Короткий отдых: Bo Tambernack Очки ци');
+    log.dispatch({ type: 'REST_TAKEN', payload: { kind: 'long', actorIds: ['bo'] } });
+    expect(log.state.actors.bo.resourcesSpent).toBeUndefined();
+    log.undo();
+    expect(log.state.actors.bo.resourcesSpent).toEqual({ 'slot-1': 2 });
+    log.undo();
+    expect(log.state.actors.bo.resourcesSpent).toEqual({ 'slot-1': 2, ki: 3 });
+    expect(() => log.dispatch({ type: 'REST_TAKEN', payload: { kind: 'short', actorIds: ['bo'], resources: [{ actorId: 'bo', resourceId: 'rage' }] } })).toThrow(/не тратились/);
+    expect(() => log.dispatch({ type: 'REST_TAKEN', payload: { kind: 'short', actorIds: ['bo'], resources: [{ actorId: 'korrin', resourceId: 'ki' }] } })).toThrow(/не отдыхает/);
+    expect(() => log.dispatch({ type: 'REST_TAKEN', payload: { kind: 'long', actorIds: ['bo'], resources: [{ actorId: 'bo', resourceId: 'ki' }] } })).toThrow(/список не нужен/);
+  });
+
+  it('состояние со сроком в мировом времени: срок в прошлом не проходит, срок хранится в снимке и откатывается', () => {
+    expect(() => log.dispatch({ type: 'CONDITION_ADDED', payload: { targetId: 'bo', conditionId: 'poisoned', untilSec: log.state.time.sec } })).toThrow(/срок уже прошёл/);
+    log.dispatch({ type: 'CONDITION_ADDED', payload: { targetId: 'bo', conditionId: 'poisoned', untilSec: log.state.time.sec + 600 } });
+    expect(log.state.actors.bo.conditions.poisoned).toEqual({ untilSec: log.state.time.sec + 600 });
+    log.undo();
+    expect(log.state.actors.bo.conditions.poisoned).toBeUndefined();
+  });
+});
+
 describe('предложения мира и факты', () => {
   let log: EventLog;
   beforeEach(() => { log = new EventLog(seed(), [], fixed()); });
@@ -382,6 +458,7 @@ describe('журнал — проекция', () => {
       ACTOR_SPAWNED: { actor: s.actors.captain, party: false }, ACTOR_REMOVED: { actorId: 'captain', reason: 'dead' },
       WORLD_DELTA_PROPOSED: { delta: s.deltas.d1 },
       REST_TAKEN: { kind: 'short', actorIds: ['bo', 'korrin'], hitDice: [{ actorId: 'bo', dice: 2, healed: 13 }] },
+      RESOURCE_SPENT: { actorId: 'bo', resourceId: 'slot-1', amount: 1, max: 4 }, RESOURCE_RESTORED: { actorId: 'bo', resourceId: 'ki', amount: 2, max: 5 },
     };
     for (const t of EVENT_TYPES) {
       const text = describeEvent({ id: 'x', seq: 0, at: 0, worldSec: 0, type: t, payload: samples[t] as never }, s);

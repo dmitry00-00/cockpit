@@ -4,6 +4,7 @@
 import { ABILITY_IDS, SKILL_IDS, SKILLS, type AbilityId, type SkillId } from '../rules/srd/abilities';
 import { ARMOR, MAGE_ARMOR, MEDIUM_ARMOR_DEX_CAP, SHIELD, type ArmorCategory, type ArmorId } from '../rules/srd/armor';
 import { ABILITY_SCORE_CAP, SRD_CLASSES, isSrdClassId, type SrdClass } from '../rules/srd/classes';
+import { srdRaceSpeed } from '../rules/srd/races';
 import { classById, raceById, type Asi, type CharacterClass, type Race, type Subrace, type Trait } from '../rules/compendium';
 
 export type AbilityScores = Readonly<Record<AbilityId, number>>;
@@ -83,6 +84,9 @@ export interface PcSpec {
   mageArmor?: boolean;
   /** Навыки, выбранные у класса; расовые добавляются сами (см. TRAIT_EFFECTS). */
   skills: readonly SkillId[];
+  /** Мировоззрение и биография — как игрок написал на листе; выводить их не из чего. */
+  alignment?: string;
+  bio?: { height?: string; weight?: string; age?: number };
 }
 
 export interface DerivedCharacter {
@@ -99,6 +103,8 @@ export interface DerivedCharacter {
   skills: readonly SkillId[];
   features: readonly { id: string; name: string; level: number }[];
   traits: readonly { id: string; name: string }[];
+  /** Скорость ходьбы по расе SRD; раса вне SRD — undefined. */
+  speed?: number;
 }
 
 /**
@@ -238,5 +244,6 @@ export function deriveCharacter(spec: PcSpec): DerivedCharacter {
     skills,
     features,
     traits: traits.map(t => ({ id: t.id, name: t.name })),
+    speed: srdRaceSpeed(race.name),
   };
 }

@@ -124,17 +124,21 @@ export function conditionTip(id: ConditionId, level?: number): string {
   return parts.join(' ');
 }
 
-/** Пропсы чипа для состояния из actor.conditions: подпись, иконка и вид берутся из SRD-модуля. */
-export function conditionChipProps(id: ConditionId, snapshot: ConditionSnapshot = {}): ChipSpec {
+/**
+ * Пропсы чипа для состояния из actor.conditions: подпись, иконка и вид берутся из SRD-модуля. Срок в мировом
+ * времени (untilSec) считается остатком от nowSec, как у концентрации; срок словами (until) печатается как есть.
+ */
+export function conditionChipProps(id: ConditionId, snapshot: ConditionSnapshot = {}, nowSec?: number): ChipSpec {
   const c = CONDITIONS[id];
   const level = id === 'exhaustion' ? (snapshot.level ?? 1) : undefined;
+  const timer = snapshot.untilSec !== undefined && nowSec !== undefined ? formatRemaining(snapshot.untilSec - nowSec) : snapshot.until;
   return {
     id,
     key: id,
     label: c.label,
     icon: `cond-${id}` as IconName,
     kind: c.kind,
-    timer: snapshot.until,
+    timer,
     level,
     tip: conditionTip(id, level),
   };
@@ -184,7 +188,7 @@ export function chipsOf(actor: Pick<Actor, 'conditions' | 'concentration' | 'eff
   const out: ChipSpec[] = [];
   for (const id of CONDITION_ORDER) {
     const snap = actor.conditions[id];
-    if (snap) out.push(conditionChipProps(id, snap));
+    if (snap) out.push(conditionChipProps(id, snap, nowSec));
   }
   for (const e of actor.effects ?? []) out.push(effectChipProps(e, nowSec));
   if (actor.concentration) out.push(concentrationChipProps(actor.concentration, nowSec));

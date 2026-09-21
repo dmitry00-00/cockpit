@@ -2,7 +2,8 @@
 import { create } from 'zustand';
 import { EventLog, type EventLogOptions } from './log';
 import { EngineError } from './reduce';
-import { TEMPO_SECONDS, type ActorRemoveReason, type Command, type ConcentrationEndReason, type DomainEvent, type EventType, type InitiativeEntry, type RestHitDice, type RestKind, type ScaleLevel, type Tempo } from './events';
+import { TEMPO_SECONDS, type ActorRemoveReason, type Command, type ConcentrationEndReason, type DomainEvent, type EventType, type InitiativeEntry, type RestHitDice, type RestKind, type RestResource, type ScaleLevel, type Tempo } from './events';
+import type { ResourceId } from '../rules/srd/resources';
 import { roll, type RollOptions } from './dice';
 import { undoToast, redoToast } from './journal';
 import { dayOf, type Actor, type State, type WorldDelta } from './state';
@@ -39,7 +40,10 @@ export interface EngineStore {
   spawn(actor: Actor, party?: boolean): void;
   remove(actorId: string, reason?: ActorRemoveReason): void;
   /** Отдых (REST_TAKEN): часы двигает отдельный advanceTime до него — см. campaign/rest.ts takeRest. */
-  rest(kind: RestKind, actorIds: readonly string[], hitDice?: readonly RestHitDice[]): DomainEvent<'REST_TAKEN'>;
+  rest(kind: RestKind, actorIds: readonly string[], hitDice?: readonly RestHitDice[], resources?: readonly RestResource[]): DomainEvent<'REST_TAKEN'>;
+  /** Ресурсы персонажа (RESOURCE_SPENT / RESTORED): max — сколько всего на сейчас, считает проекция листа. */
+  spendResource(actorId: string, resourceId: ResourceId, max: number, amount?: number): void;
+  restoreResource(actorId: string, resourceId: ResourceId, max: number, amount?: number): void;
   /** Предложение симуляции — в лог; необратимо, в журнал не идёт. */
   propose(delta: WorldDelta): void;
   /** Решение по предложению: принять (payload — снимок «было → стало» и causeId, чтобы запись журнала не зависела от состояния). */
@@ -134,7 +138,17 @@ export function createEngineStore(initial: State, opts: CreateEngineOptions = {}
       endConcentration: (actorId, reason) => { dispatch({ type: 'CONCENTRATION_ENDED', payload: { actorId, reason } }); },
       spawn: (actor, party) => { dispatch({ type: 'ACTOR_SPAWNED', payload: party ? { actor, party } : { actor } }); },
       remove: (actorId, reason) => { dispatch({ type: 'ACTOR_REMOVED', payload: reason ? { actorId, reason } : { actorId } }); },
-      rest: (kind, actorIds, hitDice) => dispatch({ type: 'REST_TAKEN', payload: hitDice && hitDice.length > 0 ? { kind, actorIds, hitDice } : { kind, actorIds } }),
+      rest: (kind, actorIds, hitDice, resources) => dispatch({
+        type: 'REST_TAKEN',
+        payload: {
+          kind,
+          actorIds,
+          ...(hitDice && hitDice.length > 0 ? { hitDice } : {}),
+          ...(resources && resources.length > 0 ? { resources } : {}),
+        },
+      }),
+      spendResource: (actorId, resourceId, max, amount = 1) => { dispatch({ type: 'RESOURCE_SPENT', payload: { actorId, resourceId, amount, max } }); },
+      restoreResource: (actorId, resourceId, max, amount = 1) => { dispatch({ type: 'RESOURCE_RESTORED', payload: { actorId, resourceId, amount, max } }); },
       propose: delta => { dispatch({ type: 'WORLD_DELTA_PROPOSED', payload: { delta } }); },
       accept(deltaId) {
         const d = get().state.deltas[deltaId];

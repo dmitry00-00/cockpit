@@ -717,6 +717,7 @@ const SECRET_TEXTS = [
   'Темп времени', 'Начать бой', 'Закончить бой', 'Отменить', 'Повторить', 'Заметка мастера', 'Записать', 'Снять:', 'Убрать из боя', '· Space', '· Enter',
   'Добавить противника', 'Начать концентрацию', 'вписать новичка', 'Мир спокоен', 'Отдых: короткий', 'Новая сессия',
   'срок концентрации', 'концентрация падает', 'Напоминания', 'Файл сессии', 'Сохранить журнал',
+  'Потратить:', 'Вернуть:', 'Срок состояния', 'срок состояния',
 ];
 
 /** Проверяется весь документ — порталы Radix (попап хитов, тултипы) живут вне контейнера. */
@@ -1181,6 +1182,110 @@ describe('отдых и новая сессия', () => {
     expect(within(screen.getByRole('list', { name: 'Записи журнала' })).getAllByRole('listitem')).toHaveLength(4);
     // Старый стор страница больше не слушает: его состояние осталось с уроном, стол — без.
     expect(store.getState().state.actors.bo.hp.current).toBe(33);
+  });
+});
+
+describe('лист персонажа: ресурсы, сроки состояний, ход (решение владельца 21.09.2026)', () => {
+  const resourcesOf = (card: HTMLElement) => within(card).getByRole('region', { name: 'Ресурсы' });
+  const reminders = () => screen.queryByRole('list', { name: 'Напоминания' });
+
+  it('шапка листа по карточке владельца: раса, класс, мировоззрение, скорость, тело; спасброски следопыта — STR и DEX с владением', () => {
+    mount();
+    const card = cardOf('Bo Tambernack');
+    const header = card.querySelector('[data-part="pc-header"]')!;
+    expect(header).toHaveTextContent('РасаПолурослик · ЛегконогийКлассСледопыт · 5 ур.МировоззрениеНейтральныйСкорость25 фтТело97 см · 17 кг · 26 лет');
+    expect(within(card).getByTitle('Strength: +1 · спасбросок +4 (владение)')).toBeInTheDocument();
+    expect(within(card).getByTitle('Dexterity: +3 · спасбросок +6 (владение)')).toBeInTheDocument();
+    expect(within(card).getByTitle('Wisdom: +2 · спасбросок +2')).toBeInTheDocument();
+    // У Korrin на листе нет мировоззрения и тела — строк нет, пустых подписей не бывает.
+    fireEvent.click(rowOf('Korrin Battlehammer'));
+    const k = cardOf('Korrin Battlehammer').querySelector('[data-part="pc-header"]')!;
+    expect(k).not.toHaveTextContent('Мировоззрение');
+    expect(k).toHaveTextContent('Скорость25 фт');
+  });
+
+  it('ресурсы из таблицы класса и умений SRD: у Bo ячейки 4 и 2, у Korrin второе дыхание и всплеск; пипка тратит и возвращает — события с max, журнал «3 из 4», Ctrl+Z', () => {
+    const { store } = mount();
+    const bo = resourcesOf(cardOf('Bo Tambernack'));
+    expect(within(bo).getByRole('group', { name: 'Ячейки 1-го круга: 4 из 4' })).toBeInTheDocument();
+    expect(within(bo).getByRole('group', { name: 'Ячейки 2-го круга: 2 из 2' })).toBeInTheDocument();
+    fireEvent.click(within(bo).getAllByRole('button', { name: 'Потратить: Ячейки 1-го круга' })[0]);
+    expect(lastEvent(store)).toMatchObject({ type: 'RESOURCE_SPENT', payload: { actorId: 'bo', resourceId: 'slot-1', amount: 1, max: 4 } });
+    expect(store.getState().state.actors.bo.resourcesSpent).toEqual({ 'slot-1': 1 });
+    expect(within(resourcesOf(cardOf('Bo Tambernack'))).getByRole('group', { name: 'Ячейки 1-го круга: 3 из 4' })).toBeInTheDocument();
+    expect(screen.getByRole('list', { name: 'Записи журнала' })).toHaveTextContent('Ячейки 1-го круга −1: @Bo Tambernack (3 из 4)');
+    fireEvent.click(within(resourcesOf(cardOf('Bo Tambernack'))).getByRole('button', { name: 'Вернуть: Ячейки 1-го круга' }));
+    expect(lastEvent(store)).toMatchObject({ type: 'RESOURCE_RESTORED', payload: { actorId: 'bo', resourceId: 'slot-1', amount: 1, max: 4 } });
+    expect(store.getState().state.actors.bo.resourcesSpent).toBeUndefined();
+    fireEvent.keyDown(window, { key: 'z', code: 'KeyZ', ctrlKey: true });
+    expect(store.getState().state.actors.bo.resourcesSpent).toEqual({ 'slot-1': 1 });
+    fireEvent.click(rowOf('Korrin Battlehammer'));
+    const korrin = resourcesOf(cardOf('Korrin Battlehammer'));
+    expect(within(korrin).getByRole('group', { name: 'Второе дыхание: 1 из 1' })).toHaveAttribute('title', 'Второе дыхание: 1 из 1 · вернёт короткий отдых');
+    expect(within(korrin).getByRole('group', { name: 'Всплеск действий: 1 из 1' })).toBeInTheDocument();
+  });
+
+  it('короткий отдых возвращает потраченное с правилом «короткий» (форма показывает), долгий — всё; у монстра секции «Ресурсы» нет', () => {
+    const { store } = mount();
+    fireEvent.click(rowOf('Korrin Battlehammer'));
+    fireEvent.click(within(resourcesOf(cardOf('Korrin Battlehammer'))).getByRole('button', { name: 'Потратить: Второе дыхание' }));
+    fireEvent.click(rowOf('Bo Tambernack'));
+    fireEvent.click(within(resourcesOf(cardOf('Bo Tambernack'))).getAllByRole('button', { name: 'Потратить: Ячейки 2-го круга' })[0]);
+    fireEvent.click(screen.getByRole('button', { name: 'Отдых' }));
+    const dlg = screen.getByRole('dialog', { name: 'Отдых' });
+    expect(dlg.querySelector('[data-actor="korrin"] [data-part="short-note"]')).toHaveTextContent('второе дыхание');
+    expect(dlg.querySelector('[data-actor="bo"] [data-part="short-note"]')).toBeNull(); // ячейки — только долгий
+    fireEvent.click(within(dlg).getByRole('button', { name: 'Отдохнуть' }));
+    expect(lastEvent(store)).toMatchObject({ type: 'REST_TAKEN', payload: { kind: 'short', resources: [{ actorId: 'korrin', resourceId: 'second-wind' }] } });
+    expect(store.getState().state.actors.korrin.resourcesSpent).toBeUndefined();
+    expect(store.getState().state.actors.bo.resourcesSpent).toEqual({ 'slot-2': 1 });
+    fireEvent.click(screen.getByRole('button', { name: 'Отдых' }));
+    const dlg2 = screen.getByRole('dialog', { name: 'Отдых' });
+    fireEvent.click(within(dlg2).getByRole('radio', { name: 'Долгий · 8 ч' }));
+    expect(dlg2.querySelector('[data-actor="bo"] [data-part="long-note"]')).toHaveTextContent('ячейки 2-го круга');
+    fireEvent.click(within(dlg2).getByRole('button', { name: 'Отдохнуть' }));
+    expect(store.getState().state.actors.bo.resourcesSpent).toBeUndefined();
+    fireEvent.click(within(screen.getByRole('group', { name: 'Противники' })).getAllByRole('button')[0]);
+    expect(within(cardOf('Bandit Captain')).queryByRole('region', { name: 'Ресурсы' })).toBeNull();
+  });
+
+  it('срок состояния: «10 мин» перед кликом по сетке → CONDITION_ADDED с untilSec, чип «10 мин»; через два шага — «истекло» и напоминание «Снять / Позже»', () => {
+    const { store } = mount();
+    tab('Состояния');
+    fireEvent.click(within(screen.getByRole('radiogroup', { name: 'Срок состояния' })).getByRole('radio', { name: '10 мин' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Отравлен' }));
+    const sec = store.getState().state.time.sec;
+    expect(lastEvent(store)).toMatchObject({ type: 'CONDITION_ADDED', payload: { targetId: 'bo', conditionId: 'poisoned', untilSec: sec + 600 } });
+    expect(rowOf('Bo Tambernack')).toHaveTextContent('Отравлен10 мин');
+    expect(screen.getByRole('list', { name: 'Записи журнала' })).toHaveTextContent('Отравлен: @Bo Tambernack на 10 мин');
+    expect(reminders()).toBeNull();
+    // Темп 10 минут, два шага: срок вышел — система напоминает, не снимает.
+    fireEvent.click(within(screen.getByRole('radiogroup', { name: 'Темп' })).getByRole('radio', { name: '10 мин' }));
+    fireEvent.keyDown(window, { key: 't', code: 'KeyT' });
+    fireEvent.keyDown(window, { key: 'Escape', code: 'Escape' });
+    fireEvent.keyDown(window, { key: 't', code: 'KeyT' });
+    fireEvent.keyDown(window, { key: 'Escape', code: 'Escape' });
+    expect(store.getState().state.actors.bo.conditions.poisoned).toBeDefined();
+    expect(rowOf('Bo Tambernack')).toHaveTextContent('Отравленистекло');
+    const list = reminders()!;
+    expect(list).toHaveTextContent('Bo Tambernack: срок состояния «Отравлен» вышел');
+    fireEvent.click(within(list).getByRole('button', { name: 'Снять' }));
+    expect(lastEvent(store)).toMatchObject({ type: 'CONDITION_REMOVED', payload: { targetId: 'bo', conditionId: 'poisoned' } });
+    expect(reminders()).toBeNull();
+  });
+
+  it('в бою карточка следует за ходом: «Ход» → карточка Bo с ресурсами; на столе игроков пипки без кнопок', () => {
+    mount();
+    startCombat();
+    fireEvent.click(screen.getByRole('button', { name: 'Карточка' }));
+    expect(cardOf('Korrin Battlehammer')).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: /^Ход/ }));
+    expect(screen.queryByRole('region', { name: 'Korrin Battlehammer' })).toBeNull();
+    expect(within(resourcesOf(cardOf('Bo Tambernack'))).getByRole('group', { name: 'Ячейки 1-го круга: 4 из 4' })).toBeInTheDocument();
+    fireEvent.keyDown(window, { key: 'p', code: 'KeyP' });
+    const bo = resourcesOf(cardOf('Bo Tambernack'));
+    expect(within(bo).getByRole('group', { name: 'Ячейки 1-го круга: 4 из 4' })).toBeInTheDocument();
+    expect(within(bo).queryByRole('button')).toBeNull();
   });
 });
 

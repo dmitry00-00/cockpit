@@ -21,6 +21,10 @@ export interface RestRow {
   conMod: number;
   /** Уровень истощения — долгий отдых снимет один. */
   exhaustion?: number;
+  /** Подписи ресурсов, которые вернёт короткий отдых (правило SRD, считает страница) — форма показывает, мастер видит. */
+  shortRestores?: readonly string[];
+  /** Что вернёт долгий: всё потраченное. */
+  longRestores?: readonly string[];
 }
 
 export interface RestFormProps {
@@ -100,11 +104,12 @@ export function RestForm({ rows, onRoll, onRest, className = '' }: RestFormProps
     if (r.hp.current < r.hp.max || r.hp.temp > 0) parts.push('хиты полны');
     if (r.hitDice && r.hitDice.available < r.hitDice.total) parts.push(`+${Math.min(r.hitDice.total - r.hitDice.available, Math.max(1, Math.floor(r.hitDice.total / 2)))} костей хитов`);
     if (r.exhaustion) parts.push(`истощение ${r.exhaustion} → ${r.exhaustion - 1 || 'снято'}`);
+    if (r.longRestores && r.longRestores.length > 0) parts.push(...r.longRestores.map(x => x.toLowerCase()));
     return parts.join(', ') || 'без изменений';
   };
 
   return (
-    <div className={`flex w-120 flex-col gap-2 bg-pn p-3 shadow-float ${className}`}>
+    <div className={`flex w-140 flex-col gap-2 bg-pn p-3 shadow-float ${className}`}>
       <div className="flex items-center gap-2">
         <Icon name="night" size={16} color="var(--gd)" title="Отдых" />
         <span className="type-h-17 text-tx">Отдых</span>
@@ -171,6 +176,9 @@ export function RestForm({ rows, onRoll, onRest, className = '' }: RestFormProps
                     <Icon name="dice" size={16} color="currentColor" title="Бросить" />
                   </button>
                 </>
+              ) : null}
+              {kind === 'short' && r.shortRestores && r.shortRestores.length > 0 ? (
+                <span className="type-body-xs text-t2 flex-none" data-part="short-note" title="Вернёт короткий отдых (SRD)">{r.shortRestores.join(', ').toLowerCase()}</span>
               ) : kind === 'long' ? (
                 <span className="type-body-xs text-t2 flex-none" data-part="long-note">{longNote(r)}</span>
               ) : null}

@@ -1,8 +1,9 @@
 // Отдых за живым столом (решение владельца 21.09.2026): кость хитов — по классу листа через SRD, запас — уровень
 // минус потраченные (REST_TAKEN), кандидаты — партия и NPC. Сам отдых — два события: TIME_ADVANCED на час или
 // восемь (с предложениями симуляции за отрезок — мир живёт, пока партия спит) и REST_TAKEN за ним. Часы двигает
-// только TIME_ADVANCED; редьюсер отдыха времени не касается. Чистые функции плюс takeRest над стором.
-import type { DomainEvent, RestHitDice, RestKind } from '../engine/events';
+// только TIME_ADVANCED; редьюсер отдыха времени не касается. Ресурсы, которые вернёт короткий отдых, считает
+// resources.ts (restResourcesOf) — форма показывает, мастер решает. Чистые функции плюс takeRest над стором.
+import type { DomainEvent, RestHitDice, RestKind, RestResource } from '../engine/events';
 import type { Actor, State, WorldDelta } from '../engine/state';
 import type { EngineStore } from '../engine/store';
 import { classById } from '../rules/compendium';
@@ -69,8 +70,9 @@ export function takeRest(
   kind: RestKind,
   actorIds: readonly string[],
   hitDice: readonly RestHitDice[] = [],
+  resources: readonly RestResource[] = [],
 ): RestResult {
   const { event: time, proposals } = stepTime(api, 'hour', REST_HOURS[kind]);
-  const rest = api.rest(kind, actorIds, hitDice);
+  const rest = api.rest(kind, actorIds, hitDice, resources);
   return { time, proposals, rest };
 }

@@ -129,6 +129,7 @@ const DM_TOOLS = [
   'Добавить противника', 'Начать концентрацию',              // живой стол: появление противника и концентрация в карточке
   'вписать новичка',                                         // «Порядок» в бою (INITIATIVE_SET)
   'Отдых: короткий', 'Новая сессия',                         // отдых вне боя; сброс сессии в панели «Действия»
+  'Потратить: ', 'Вернуть: ', 'Срок состояния',              // ресурсы листа (пипки) и срок состояния из сетки — инструменты мастера
 ];
 
 /** Подсказки клавиш в title: «· Esc», «· J», «· Enter», «· Space», «· T», «· R», Ctrl+Z. «· P» — по референсу остаётся (P возвращает мастера). */
@@ -453,6 +454,16 @@ describe('стол мастера: те же строки присутствую
     const collect = () => { for (const s of found(DM_TOOLS)) seen.add(s); };
     collect();
     expect(keyHints().length).toBeGreaterThan(0);
+    // Пипка ресурса потрачена — появляется «Вернуть: »; вкладка «Состояния» — «Срок состояния».
+    fireEvent.click(screen.getAllByRole('button', { name: 'Потратить: Ячейки 1-го круга' })[0]);
+    collect();
+    const conditionsTab = screen.getByRole('tab', { name: 'Состояния' });
+    fireEvent.mouseDown(conditionsTab);
+    fireEvent.click(conditionsTab);
+    collect();
+    const overviewTab = screen.getByRole('tab', { name: 'Обзор' });
+    fireEvent.mouseDown(overviewTab);
+    fireEvent.click(overviewTab);
     J();
     collect();
     ESC();

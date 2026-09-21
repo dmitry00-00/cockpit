@@ -20,3 +20,5 @@ export { initiativeMod, encounterCandidates, sortInitiative, currentOrder, nextA
 export { REST_HOURS, hitDiceOf, conModOf, hitDiceFormula, restCandidates, takeRest, type HitDicePool, type RestResult } from './rest';
 // Погода — проекция календаря для полосы часов (§4): не состояние и не событие.
 export { weatherOf, weatherLabel, SKY_LABELS, WIND_LABELS, WEATHER_SEED, type Weather, type Sky, type Wind } from './weather';
+// Ресурсы персонажа (решение владельца 21.09.2026): максимум из таблицы класса и умений SRD, потраченное из состояния.
+export { resourcePoolsOf, tableResources, poolLabel, restResourcesOf, type ResourcePool } from './resources';

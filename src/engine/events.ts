@@ -1,8 +1,10 @@
 // Доменные события — единственный источник правды (HANDOFF §7). Тринадцать типов из пакета плюс восемь,
 // добавленных решением владельца 19.09.2026 (сборка боя, концентрация, появление и уход актёров, само
-// предложение симуляции — иначе они жили вне лога и ломали реплей), плюс отдых — решение владельца 21.09.2026.
-// Навигация, оверлеи, фильтры, слои и режим «глазами игроков» событиями не являются.
+// предложение симуляции — иначе они жили вне лога и ломали реплей), плюс отдых и ресурсы персонажа (трата и
+// восстановление) — решения владельца 21.09.2026. Навигация, оверлеи, фильтры, слои и режим «глазами игроков»
+// событиями не являются.
 import type { ConditionId } from '../rules/srd/conditions';
+import type { ResourceId } from '../rules/srd/resources';
 import type { Actor, WorldDelta, WorldPatch } from './state';
 
 export type ScaleLevel =
@@ -28,7 +30,8 @@ export const TEMPO_SECONDS: Readonly<Record<Tempo, number>> = {
 export interface DamageApplied { targetId: string; amount: number; type?: string; sourceId?: string }
 export interface HealingApplied { targetId: string; amount: number; sourceId?: string }
 export interface TempHpGranted { targetId: string; amount: number; sourceId?: string }
-export interface ConditionAdded { targetId: string; conditionId: ConditionId; level?: number; until?: string }
+/** Срок состояния: `until` — словами («конец следующего хода»), `untilSec` — мировым временем, тогда чип считает остаток и по истечении система напоминает. */
+export interface ConditionAdded { targetId: string; conditionId: ConditionId; level?: number; until?: string; untilSec?: number }
 export interface ConditionRemoved { targetId: string; conditionId: ConditionId }
 export interface DiceRolled { formula: string; dice: readonly number[]; mod: number; total: number; hidden: boolean; label: string }
 export interface TurnAdvanced { round: number; turnIndex: number; actorId: string }
@@ -65,7 +68,18 @@ export interface WorldDeltaProposed { delta: WorldDelta }
  */
 export type RestKind = 'short' | 'long';
 export interface RestHitDice { actorId: string; dice: number; healed: number }
-export interface RestTaken { kind: RestKind; actorIds: readonly string[]; hitDice?: readonly RestHitDice[] }
+/** Ресурс, который короткий отдых возвращает целиком: система предлагает по правилу SRD, мастер видит список в форме. Долгий возвращает все — без списка. */
+export interface RestResource { actorId: string; resourceId: ResourceId }
+export interface RestTaken { kind: RestKind; actorIds: readonly string[]; hitDice?: readonly RestHitDice[]; resources?: readonly RestResource[] }
+
+/**
+ * Ресурсы персонажа (решение владельца 21.09.2026): ячейки заклинаний, ярость, ци, применения умений. Лог хранит
+ * id ресурса и числа; подпись и правило отдыха — в реестре SRD (src/rules/srd/resources.ts). `max` — сколько
+ * ресурса всего на момент события (из таблицы класса или формулы умения): по нему редьюсер проверяет трату, а
+ * журнал пишет «2 из 4», не заглядывая в компендиум. Состояние держит только потраченное — максимум выводится.
+ */
+export interface ResourceSpent { actorId: string; resourceId: ResourceId; amount: number; max: number }
+export interface ResourceRestored { actorId: string; resourceId: ResourceId; amount: number; max: number }
 
 export interface PayloadByType {
   DAMAGE_APPLIED: DamageApplied;
@@ -90,6 +104,8 @@ export interface PayloadByType {
   ACTOR_REMOVED: ActorRemoved;
   WORLD_DELTA_PROPOSED: WorldDeltaProposed;
   REST_TAKEN: RestTaken;
+  RESOURCE_SPENT: ResourceSpent;
+  RESOURCE_RESTORED: ResourceRestored;
 }
 
 export type EventType = keyof PayloadByType;
@@ -102,7 +118,7 @@ export const EVENT_TYPES = Object.freeze([
   'ENCOUNTER_STARTED', 'ENCOUNTER_ENDED', 'INITIATIVE_SET', 'CONCENTRATION_STARTED', 'CONCENTRATION_ENDED',
   'ACTOR_SPAWNED', 'ACTOR_REMOVED', 'WORLD_DELTA_PROPOSED',
   // решение владельца 21.09.2026
-  'REST_TAKEN',
+  'REST_TAKEN', 'RESOURCE_SPENT', 'RESOURCE_RESTORED',
 ] as const satisfies readonly EventType[]);
 
 /** Обратимость и попадание в журнал — колонки таблицы HANDOFF §7. */
@@ -129,6 +145,8 @@ export const EVENT_META: Readonly<Record<EventType, { reversible: boolean; journ
   ACTOR_REMOVED: { reversible: true, journal: true },
   WORLD_DELTA_PROPOSED: { reversible: false, journal: false },
   REST_TAKEN: { reversible: true, journal: true },
+  RESOURCE_SPENT: { reversible: true, journal: true },
+  RESOURCE_RESTORED: { reversible: true, journal: true },
 };
 
 /** Команда — то, что просит интерфейс. Событие — то, что легло в лог. */
@@ -167,10 +185,11 @@ export type Effect =
   | { kind: 'concentration'; actorId: string; before?: ConcentrationSnapshot; after?: ConcentrationSnapshot }
   | { kind: 'actor'; actorId: string; before?: Actor; after?: Actor; party: { before: readonly string[]; after: readonly string[] }; encounter: { before: EncounterSnapshot; after: EncounterSnapshot } }
   | { kind: 'rest'; actors: readonly { actorId: string; before: RestSnapshot; after: RestSnapshot }[] }
+  | { kind: 'resource'; actorId: string; resourceId: ResourceId; before: number; after: number }
   | { kind: 'none' };
 
 export interface HpSnapshot { current: number; temp: number }
-export interface ConditionSnapshot { level?: number; until?: string }
+export interface ConditionSnapshot { level?: number; until?: string; untilSec?: number }
 export interface TurnSnapshot { round: number; turnIndex: number; actorId: string | null }
 /** Снимок предложения; `world` — значение поля мира, которое трогает патч (до и после), чтобы принятие откатывалось точно. */
 export interface DeltaSnapshot { status: 'pending' | 'accepted' | 'rejected'; now: string; cause?: string; variantId?: string; world?: WorldPatch }
@@ -178,4 +197,5 @@ export interface DeltaSnapshot { status: 'pending' | 'accepted' | 'rejected'; no
 export interface EncounterSnapshot { active: boolean; round: number; turnIndex: number; order: readonly string[]; initiative: Readonly<Record<string, number | undefined>> }
 export interface ConcentrationSnapshot { spell: string; untilSec?: number }
 /** Всё, что трогает отдых у одного актёра: хиты с временными, уровень истощения, потраченные кости хитов. */
-export interface RestSnapshot { hp: HpSnapshot; exhaustion?: number; hitDiceSpent: number }
+/** `resourcesSpent` — потраченное по ресурсам до отдыха; нет поля — нечего было возвращать. */
+export interface RestSnapshot { hp: HpSnapshot; exhaustion?: number; hitDiceSpent: number; resourcesSpent?: Readonly<Record<string, number>> }
