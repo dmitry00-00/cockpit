@@ -3,6 +3,7 @@
 // ссылки из листов сида резолвятся; битая ссылка — видимая заглушка.
 import { beforeAll, describe, expect, it } from 'vitest';
 import { seedEngine } from '../campaign';
+import { loadGazetteer } from '../map/gazetteer';
 import {
   REFERENCE_KINDS, STATE_KINDS, isReady, isStateKind, loadAll, missingView, parseRef, ref, refsOf, resolve, type EntityRef,
 } from './index';
@@ -109,7 +110,7 @@ describe('справочник после загрузки', () => {
     expect(elminster.facts.find(f => f.label === 'Годы')?.value).toBe('212 — DR · в 1492 DR жив');
     const khelben = resolve('person:khelben-arunsun', { year: 1372 })!;
     expect(khelben.facts.find(f => f.label === 'Годы')?.value).toBe('414–1374 DR · в 1372 DR жив');
-    const residents = (year: number) => resolve(waterdeep.ref, { year })!.groups![0];
+    const residents = (year: number) => resolve(waterdeep.ref, { year })!.groups!.find(g => g.title.startsWith('Жители'))!;
     expect(residents(1492).title).toBe('Жители в 1492 DR');
     expect(residents(1492).links.map(l => l.ref)).toContain('person:mirt');
     expect(residents(1492).links.map(l => l.ref)).not.toContain('person:khelben-arunsun');
@@ -136,6 +137,23 @@ describe('справочник после загрузки', () => {
     expect(members(1492).links.map(l => l.ref)).not.toContain('person:manshoon');
     expect(resolve('person:manshoon')!.links).toContainEqual({ label: 'Zhentarim', ref: 'organization:zhentarim' });
     expect(resolve('person:manshoon')!.facts.find(f => f.label === 'Состоял')?.value).toMatch(/^Zhentarim/);
+  });
+
+  it('место по вики (3.4): боги из поля religion, церкви — с базой здесь и церкви богов места, организации — в год кампании', async () => {
+    const id = (await loadGazetteer('toril')).find(p => p.name === 'Neverwinter')!.id;
+    const nw = resolve(ref('place', id))!;
+    const group = (title: string) => nw.groups!.find(g => g.title === title)!.links.map(l => l.label);
+    expect(nw.facts.find(f => f.label === 'Почитают')?.value).toBe('Asmodeus, Bahamut, Helm, Kelemvor, Oghma, Selûne, Torm, Tyr, Waukeen');
+    expect(nw.groups!.map(g => g.title)).toEqual(['Боги места', 'Церкви', 'Организации в 1492 DR', 'Жители в 1492 DR']);
+    expect(group('Боги места')).toEqual(['Asmodeus', 'Bahamut', 'Helm', 'Kelemvor', 'Oghma', 'Selûne', 'Torm', 'Tyr', 'Waukeen']);
+    expect(group('Церкви')).toEqual(expect.arrayContaining(['Church of Helm', 'Church of Torm', 'The Church of Selûne']));
+    expect(group('Организации в 1492 DR')).toContain('Neverwinter Guard');
+    // Cult of the Dragon служит девяти богам — церковью ни одного из них не считается.
+    expect(group('Церкви')).not.toContain('Cult of the Dragon');
+    // Neverwinter Nine распущены в 1451 DR — в 1372 DR они среди организаций, в 1492 — нет.
+    const orgs = (year: number) => resolve(ref('place', id), { year })!.groups!.find(g => g.title.startsWith('Организации'))!.links.map(l => l.label);
+    expect(orgs(1372)).toContain('Neverwinter Nine');
+    expect(orgs(1492)).not.toContain('Neverwinter Nine');
   });
 
   it('ссылки из состояния сида: актёры, места, фракции резолвятся, связи актёров ведут на справочник', () => {

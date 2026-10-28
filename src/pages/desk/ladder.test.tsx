@@ -222,18 +222,25 @@ describe('карта мира (27.10.2026)', () => {
     expect(within(cardOf('Neverwinter Wood')).getByRole('button', { name: 'Открыть игрокам на карте' })).toBeInTheDocument();
   });
 
-  it('жители места (E9): мастеру в карточке Neverwinter Wood — NPC вики, живые в 1492 DR; щелчок открывает NPC; событий нет', async () => {
+  it('место по вики (E9, 3.4): мастеру в карточке Neverwinter Wood — жители, живые в 1492 DR, и церковь с базой здесь; щелчок открывает церковь, в ней — бог; событий нет', async () => {
     const { store } = mount();
     const before = store.getState().events.length;
     fireEvent.click(within(here()!).getByRole('button', { name: /Neverwinter Wood/ }));
+    const wiki = await within(cardOf('Neverwinter Wood')).findByRole('region', { name: 'По вики' }, { timeout: 10000 });
     // Adriyana Voudsarr умерла в 292 DR — в 1492 её среди жителей нет.
-    fireEvent.click(await within(cardOf('Neverwinter Wood')).findByRole('button', { name: /^Жители в 1492 DR по вики 40$/ }, { timeout: 10000 }));
-    const list = within(cardOf('Neverwinter Wood')).getByRole('list', { name: 'Жители в 1492 DR по вики' });
+    fireEvent.click(within(wiki).getByRole('button', { name: /^Жители в 1492 DR 40$/ }));
+    const list = within(wiki).getByRole('list', { name: 'Жители в 1492 DR' });
+    expect(within(list).getByRole('button', { name: 'Malchor Harpell' })).toBeInTheDocument();
     expect(within(list).queryByRole('button', { name: 'Adriyana Voudsarr' })).toBeNull();
-    fireEvent.click(within(list).getByRole('button', { name: 'Malchor Harpell' }));
-    expect(await screen.findByRole('region', { name: 'Malchor Harpell' }, { timeout: 10000 })).toHaveTextContent('NPC');
+    // Anchorites of Talos — церковь Talos с базой в Neverwinter Wood: место ведёт к церкви, церковь — к богу.
+    fireEvent.click(within(wiki).getByRole('button', { name: /^Церкви 1$/ }));
+    fireEvent.click(within(within(wiki).getByRole('list', { name: 'Церкви' })).getByRole('button', { name: 'Anchorites of Talos' }));
+    const church = await screen.findByRole('region', { name: 'Anchorites of Talos' }, { timeout: 10000 });
+    expect(church).toHaveTextContent('церковь');
+    fireEvent.click(within(church).getByRole('button', { name: 'Talos' }));
+    expect(await screen.findByRole('region', { name: 'Talos' }, { timeout: 10000 })).toHaveTextContent('Божество');
     expect(store.getState().events.length).toBe(before);
-  // Справочник карты и индекс жителей — отдельные куски: под полным прогоном импорт дольше пяти секунд.
+  // Справочник карты, индекс жителей, организации и боги — отдельные куски: под полным прогоном импорт дольше пяти секунд.
   }, 20000);
 });
 

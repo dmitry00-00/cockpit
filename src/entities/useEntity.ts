@@ -5,8 +5,8 @@ import type { Era } from '../campaign/era';
 import type { State } from '../engine';
 import { isReady, isStateKind, loadKind, missingView, parseRef, resolve, type EntityRef, type EntityView } from './index';
 
-/** `era` — эпоха без состояния (лист знает только время мира); иначе её даёт время State. */
-export function useEntity(ref: EntityRef | null, state?: State, era?: Era): EntityView | 'loading' | null {
+/** `era` и `year` — эпоха и год без состояния (лист и карточка места знают только время мира); иначе их даёт время State. */
+export function useEntity(ref: EntityRef | null, state?: State, era?: Era, year?: number): EntityView | 'loading' | null {
   const [, bump] = useState(0);
   const p = ref ? parseRef(ref) : null;
   const ready = p ? isReady(p.kind) : true;
@@ -19,5 +19,5 @@ export function useEntity(ref: EntityRef | null, state?: State, era?: Era): Enti
   }, [p?.kind, ready]);
   if (!ref || !p) return null;
   if (!ready) return 'loading';
-  return resolve(ref, { state, era }) ?? missingView(ref);
+  return resolve(ref, { state, era, year }) ?? missingView(ref);
 }

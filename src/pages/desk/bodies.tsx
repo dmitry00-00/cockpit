@@ -10,7 +10,7 @@ import {
 import { plural, type Actor, type Command, type Faction, type Location, type State } from '../../engine';
 import { ref, type EntityRef } from '../../entities';
 import { useEntity } from '../../entities/useEntity';
-import { usePlaceResidents } from '../../world/usePlaceResidents';
+import { useWikiPlace } from '../../world/useWikiPlace';
 import { Icon } from '../../icons/Icon';
 import { classById, raceById } from '../../rules/compendium';
 import { ABILITIES, ABILITY_IDS, MONSTERS, type AbilityId, type ConditionId, type SkillId } from '../../rules/srd';
@@ -379,16 +379,17 @@ interface PlaceOverviewProps {
   facts: State['facts'];
   /** Открыть место игрокам на карте (PLACE_REVEALED) — только мастеру и только месту на карте. */
   onReveal?: () => void;
-  /** Год кампании для жителей из вики (E9) — только мастеру; нет — жителей нет. */
-  residentsYear?: number;
-  /** Открыть карточку жителя. */
+  /** Год кампании для мест по вики (E9, ROADMAP 3.4: жители, боги, церкви, организации) — только мастеру; нет — блока нет. */
+  wikiYear?: number;
+  /** Открыть карточку связи: бога, церкви, жителя. */
   onOpenEntity?: (ref: EntityRef) => void;
 }
 
 /** Обзор места: внутри чего лежит, что о нём известно игрокам, что ждёт решения. Уровень — бейдж, показатели — полоса карточки: здесь не повторяются. */
-export function PlaceOverview({ place, parent, onOpenParent, pending, facts, onReveal, residentsYear, onOpenEntity }: PlaceOverviewProps) {
+export function PlaceOverview({ place, parent, onOpenParent, pending, facts, onReveal, wikiYear, onOpenEntity }: PlaceOverviewProps) {
   const known = playerFactsAbout(place.id, facts);
-  const residents = usePlaceResidents(place.name, residentsYear);
+  const wikiRef = useWikiPlace(place.name, wikiYear !== undefined);
+  const wiki = useEntity(wikiRef, undefined, undefined, wikiYear);
   return (
     <>
       {/* Уровень — бейдж корешка, здесь не повторяется (факт живёт в одном месте). */}
@@ -423,11 +424,13 @@ export function PlaceOverview({ place, parent, onOpenParent, pending, facts, onR
         </Section>
       ) : null}
       <PendingRows deltas={pending} />
-      {residents && residents.residents.length > 0 ? (
-        <GroupList
-          group={{ title: `Жители в ${residentsYear} DR по вики`, links: residents.residents.map(([id, name]) => ({ label: name, ref: ref('person', id) })) }}
-          onOpen={onOpenEntity}
-        />
+      {/* Боги, церкви, организации и жители — группы карточки места справочника: факт живёт в одном месте. */}
+      {wiki && wiki !== 'loading' && wiki.groups?.length ? (
+        <Section title="По вики">
+          <div className="flex flex-col gap-1" data-part="wiki-place">
+            {wiki.groups.map(g => <GroupList key={g.title} group={g} onOpen={onOpenEntity} />)}
+          </div>
+        </Section>
       ) : null}
     </>
   );

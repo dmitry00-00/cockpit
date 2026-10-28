@@ -66,3 +66,13 @@ export function loadOrgMembers(): Promise<Readonly<Record<string, readonly Resid
   members ??= import('../../content/world/org-members.json').then(m => (m.default as unknown as { orgs: Record<string, Resident[]> }).orgs);
   return members;
 }
+
+/** Боги места по полю religion статьи вики (ROADMAP 3.4): id божеств и текст поля как есть; года нет. */
+export interface PlaceFaith { deities?: readonly string[]; text: string }
+
+let faiths: Promise<Readonly<Record<string, PlaceFaith>>> | null = null;
+/** Место справочника карты → боги места. */
+export function loadPlaceFaiths(): Promise<Readonly<Record<string, PlaceFaith>>> {
+  faiths ??= import('../../content/world/place-faiths.json').then(m => (m.default as unknown as { places: Record<string, PlaceFaith> }).places);
+  return faiths;
+}
