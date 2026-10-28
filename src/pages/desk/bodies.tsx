@@ -5,9 +5,9 @@ import { abilityMod, eraOf, harptos, poolLabel, resourcePoolsOf, sheetViewOf } f
 import {
   ConditionChip, ResourcePips, StatTile, SCALE_LABELS, chipsOf, exhaustionCommand, signedMod, toggleCommand, SKILL_LABEL, SheetAttacks, IconGrid,
   classIcon, featureIcon, raceIcon, traitIcon, AbilityScores, DataPassport, PcHeader, SkillList, type PassportData, type PcHeaderData, SheetChoices,
-  SheetFeats, SheetSpells, GroupList,
+  SheetFeats, SheetSpells, GroupList, GOODS_LABEL, RELATION_LABEL, signed,
 } from '../../components';
-import { plural, type Actor, type Command, type Faction, type Location, type State } from '../../engine';
+import { GOODS, plural, type Actor, type Command, type Faction, type Location, type State } from '../../engine';
 import { ref, type EntityRef } from '../../entities';
 import { useEntity } from '../../entities/useEntity';
 import { useWikiPlace } from '../../world/useWikiPlace';
@@ -383,12 +383,17 @@ interface PlaceOverviewProps {
   wikiYear?: number;
   /** Открыть карточку связи: бога, церкви, жителя. */
   onOpenEntity?: (ref: EntityRef) => void;
+  /** Мастер: веса встреч — его кухня, игрокам не показываются. */
+  dm?: boolean;
 }
 
 /** Обзор места: внутри чего лежит, что о нём известно игрокам, что ждёт решения. Уровень — бейдж, показатели — полоса карточки: здесь не повторяются. */
-export function PlaceOverview({ place, parent, onOpenParent, pending, facts, onReveal, wikiYear, onOpenEntity }: PlaceOverviewProps) {
+export function PlaceOverview({ place, parent, onOpenParent, pending, facts, onReveal, wikiYear, onOpenEntity, dm }: PlaceOverviewProps) {
   const known = playerFactsAbout(place.id, facts);
-  const wikiRef = useWikiPlace(place.name, wikiYear !== undefined);
+  const wikiRef = useWikiPlace(place, wikiYear !== undefined);
+  // Цены товаров (ROADMAP 3.3) — в порядке списка товаров; базовые не пишутся.
+  const prices = GOODS.flatMap(g => (place.prices?.[g] ? [`${GOODS_LABEL[g]} ${signed(place.prices[g]!, '%')}`] : []));
+  const encounters = Object.entries(place.encounters ?? {}).map(([key, w]) => `${key} ×${w}`);
   const wiki = useEntity(wikiRef, undefined, undefined, wikiYear);
   return (
     <>
@@ -423,6 +428,8 @@ export function PlaceOverview({ place, parent, onOpenParent, pending, facts, onR
           </ul>
         </Section>
       ) : null}
+      {prices.length > 0 ? <Pair label="Товары" value={prices.join('; ')} /> : null}
+      {dm && encounters.length > 0 ? <Pair label="Встречи" value={encounters.join('; ')} /> : null}
       <PendingRows deltas={pending} />
       {/* Боги, церкви, организации и жители — группы карточки места справочника: факт живёт в одном месте. */}
       {wiki && wiki !== 'loading' && wiki.groups?.length ? (
@@ -436,11 +443,44 @@ export function PlaceOverview({ place, parent, onOpenParent, pending, facts, onR
   );
 }
 
-/** Обзор фракции: цель словами и что ждёт решения; влияние, тренд и известность — в полосе карточки. */
-export function FactionOverview({ faction, pending }: { faction: Faction; pending: readonly State['deltas'][string][] }) {
+/**
+ * Обзор фракции: цель словами, организация вики ссылкой, отношения с другими фракциями (−3…+3, ROADMAP 3.3) и что
+ * ждёт решения; влияние, тренд и известность — в полосе карточки.
+ */
+export function FactionOverview({ faction, factions, pending, onOpenEntity }: {
+  faction: Faction;
+  /** Все фракции мира — имена другой стороны отношения. */
+  factions: State['world']['factions'];
+  pending: readonly State['deltas'][string][];
+  onOpenEntity?: (ref: EntityRef) => void;
+}) {
+  const relations = Object.entries(faction.relations ?? {})
+    .filter(([id]) => factions[id])
+    .sort(([, a], [, b]) => b - a);
   return (
     <>
       {faction.goal ? <Pair label="Цель" value={faction.goal} /> : null}
+      {faction.ref && onOpenEntity ? (
+        <div className="flex items-baseline gap-3">
+          <span className="type-num-12 uppercase text-t2 w-24 flex-none">По вики</span>
+          <TextLink title="Карточка организации: глава, база, боги, союзники и враги" onClick={() => onOpenEntity(faction.ref!)}>{faction.name}</TextLink>
+        </div>
+      ) : null}
+      {relations.length > 0 ? (
+        <Section title="Отношения">
+          <ul className="flex flex-col gap-1" data-part="relations">
+            {relations.map(([id, v]) => (
+              <li key={id} className="flex items-baseline gap-3 type-body-sm">
+                <span className="type-num-15 text-tx w-8 flex-none text-right">{signed(v)}</span>
+                {onOpenEntity
+                  ? <TextLink title={`Карточка фракции ${factions[id].name}`} onClick={() => onOpenEntity(ref('faction', id))}>{factions[id].name}</TextLink>
+                  : <span className="type-body text-tx">{factions[id].name}</span>}
+                <span className="text-t2">{RELATION_LABEL[v]}</span>
+              </li>
+            ))}
+          </ul>
+        </Section>
+      ) : null}
       <PendingRows deltas={pending} />
     </>
   );

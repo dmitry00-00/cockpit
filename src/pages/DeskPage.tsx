@@ -715,13 +715,14 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
           onReveal={dmView && focus.geo ? () => api.revealPlace(focus.id) : undefined}
           wikiYear={dmView ? harptos(state.time.sec).year : undefined}
           onOpenEntity={openEntity}
+          dm={dmView}
         />
       ) : current === 'dm' ? <DmTab subjectId={focus.id} facts={state.facts} /> : null}
     </EntityCard>
   ) : null;
   const factionCard = faction ? (
     <EntityCard key={faction.id} {...factionCardProps(faction, { pending: pendingIds.has(faction.id) })} activeTab={tab} onTab={setTab} dmView={dmView} className="max-h-full flex-none">
-      {(current: string) => (current === 'overview' ? <FactionOverview faction={faction} pending={dmView ? pendingFor(state, faction.id) : []} /> : null)}
+      {(current: string) => (current === 'overview' ? <FactionOverview faction={faction} factions={state.world.factions} pending={dmView ? pendingFor(state, faction.id) : []} onOpenEntity={openEntity} /> : null)}
     </EntityCard>
   ) : null;
   const entityCard = cardOf.kind === 'entity' && entityView ? (
@@ -759,7 +760,7 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
   ) : cardOf.kind === 'place' && focus ? (
     <EntityCard {...placeCardProps(focus, { pending: pendingIds.has(focus.id), dmFacts: dmView ? dmFactsAbout(focus.id, state.facts).length : 0 })} overlay activeTab={tab} onTab={setTab} dmView={dmView} className="max-h-full">
       {(current: string) => current === 'overview' ? (
-        <PlaceOverview place={focus} parent={focusParent} onOpenParent={focusParent ? () => { setCardOverlay(false); goLadder(selectPlace(state, ladder, focusParent.id)); } : undefined} pending={dmView ? pendingFor(state, focus.id) : []} facts={state.facts} wikiYear={dmView ? harptos(state.time.sec).year : undefined} onOpenEntity={r => { setCardOverlay(false); openEntity(r); }} />
+        <PlaceOverview place={focus} parent={focusParent} onOpenParent={focusParent ? () => { setCardOverlay(false); goLadder(selectPlace(state, ladder, focusParent.id)); } : undefined} pending={dmView ? pendingFor(state, focus.id) : []} facts={state.facts} wikiYear={dmView ? harptos(state.time.sec).year : undefined} onOpenEntity={r => { setCardOverlay(false); openEntity(r); }} dm={dmView} />
       ) : current === 'dm' ? <DmTab subjectId={focus.id} facts={state.facts} /> : null}
     </EntityCard>
   ) : cardOf.kind === 'entity' && entityView && entityView !== 'loading' ? (
@@ -776,7 +777,7 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
     </EntityCard>
   ) : faction ? (
     <EntityCard {...factionCardProps(faction, { pending: pendingIds.has(faction.id) })} overlay activeTab={tab} onTab={setTab} dmView={dmView} className="max-h-full">
-      {(current: string) => (current === 'overview' ? <FactionOverview faction={faction} pending={dmView ? pendingFor(state, faction.id) : []} /> : null)}
+      {(current: string) => (current === 'overview' ? <FactionOverview faction={faction} factions={state.world.factions} pending={dmView ? pendingFor(state, faction.id) : []} onOpenEntity={r => { setCardOverlay(false); openEntity(r); }} /> : null)}
     </EntityCard>
   ) : null;
   // Отметки — только живых членов партии: ушедший из партии актёр из выборки выпадает сам.

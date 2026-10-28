@@ -6,7 +6,7 @@ import { EXHAUSTION_MAX_LEVEL, isConditionId } from '../rules/srd/conditions';
 import { RESOURCES, isResourceId } from '../rules/srd/resources';
 import { TRAVEL_PACES } from '../rules/srd/travel';
 import type { ConditionSnapshot, DomainEvent, Effect, EncounterSnapshot, HpSnapshot, InitiativeEntry, PayloadByType, RestSnapshot } from './events';
-import type { Actor, State, WorldPatch } from './state';
+import { GOODS, type Actor, type State, type WorldPatch } from './state';
 
 export class EngineError extends Error {
   constructor(message: string) {
@@ -308,32 +308,97 @@ export function validate(state: State, event: Pick<DomainEvent, 'type' | 'payloa
   }
 }
 
-/** Патч предложения указывает на существующую запись мира — иначе принятие не применится и в лог не попадёт. */
+/**
+ * Патч предложения указывает на существующую запись мира и несёт допустимое число — иначе принятие не применится и в
+ * лог не попадёт.
+ */
 function checkPatch(state: State, patch: WorldPatch): void {
-  const table = patch.kind === 'faction' ? state.world.factions : patch.kind === 'location' ? state.world.locations : state.world.threads;
-  if (!table[patch.id]) throw new EngineError(`патч предложения указывает на несуществующее: ${patch.kind} ${patch.id}`);
+  const { factions, locations, threads } = state.world;
+  const missing = (what: string, id: string) => new EngineError(`патч предложения указывает на несуществующее: ${what} ${id}`);
+  switch (patch.kind) {
+    case 'faction': if (!factions[patch.id]) throw missing('faction', patch.id); return;
+    case 'thread': if (!threads[patch.id]) throw missing('thread', patch.id); return;
+    case 'location': if (!locations[patch.id]) throw missing('location', patch.id); return;
+    case 'relation':
+      if (!factions[patch.id]) throw missing('faction', patch.id);
+      if (!factions[patch.other]) throw missing('faction', patch.other);
+      if (patch.id === patch.other) throw new EngineError('отношение фракции к самой себе не ведётся');
+      if (!Number.isInteger(patch.value) || Math.abs(patch.value) > 3) throw new EngineError(`отношение фракций — целое от −3 до +3, получено ${patch.value}`);
+      return;
+    case 'price':
+      if (!locations[patch.id]) throw missing('location', patch.id);
+      if (!GOODS.includes(patch.goods)) throw new EngineError(`нет такого товара: ${String(patch.goods)}`);
+      if (!Number.isFinite(patch.value) || patch.value <= -100) throw new EngineError(`надбавка к цене больше −100%, получено ${patch.value}`);
+      return;
+    case 'encounter':
+      if (!locations[patch.id]) throw missing('location', patch.id);
+      if (!patch.key.trim()) throw new EngineError('вес встречи без того, кто встречается');
+      if (!Number.isFinite(patch.value) || patch.value < 0) throw new EngineError(`вес встречи — не меньше нуля, получено ${patch.value}`);
+      return;
+    case 'newLocation': {
+      const l = patch.location;
+      if (!l?.id || !l.name?.trim()) throw new EngineError('новое место без id или имени');
+      if (locations[l.id]) throw new EngineError(`место ${l.id} уже есть`);
+      if (l.parentId !== undefined && !locations[l.parentId]) throw missing('location', l.parentId);
+      return;
+    }
+    case 'removeLocation':
+      if (!locations[patch.id]) throw missing('location', patch.id);
+      if (Object.values(locations).some(l => l.parentId === patch.id)) throw new EngineError(`в месте ${patch.id} есть другие места — не убирается`);
+      return;
+  }
 }
 
 /** Текущее значение поля, которое патч перепишет, — в форме того же патча: это снимок «было». */
 function readPatch(state: State, patch: WorldPatch): WorldPatch {
+  const { factions, locations, threads } = state.world;
   switch (patch.kind) {
-    case 'faction': return { ...patch, value: state.world.factions[patch.id][patch.field] ?? 0 };
+    case 'faction': return { ...patch, value: factions[patch.id][patch.field] ?? 0 };
     case 'location':
       return patch.field === 'danger'
-        ? { ...patch, value: state.world.locations[patch.id].danger ?? 'low' }
-        : { ...patch, value: state.world.locations[patch.id].pricePercent ?? 0 };
-    case 'thread': return { ...patch, status: state.world.threads[patch.id].status };
+        ? { ...patch, value: locations[patch.id].danger ?? 'low' }
+        : { ...patch, value: locations[patch.id].pricePercent ?? 0 };
+    case 'thread': return { ...patch, status: threads[patch.id].status };
+    case 'relation': return { ...patch, value: factions[patch.id].relations?.[patch.other] ?? 0 };
+    case 'price': return { ...patch, value: locations[patch.id].prices?.[patch.goods] ?? 0 };
+    case 'encounter': return { ...patch, value: locations[patch.id].encounters?.[patch.key] ?? 1 };
+    // До нового места его не было — откат убирает его; убранное место возвращается целиком.
+    case 'newLocation': return { kind: 'removeLocation', id: patch.location.id };
+    case 'removeLocation': return { kind: 'newLocation', location: structuredClone(locations[patch.id]) };
   }
 }
 
 function writePatch(draft: State, patch: WorldPatch): void {
+  const { factions, locations, threads } = draft.world;
   switch (patch.kind) {
-    case 'faction': draft.world.factions[patch.id][patch.field] = patch.value; return;
+    case 'faction': factions[patch.id][patch.field] = patch.value; return;
     case 'location':
-      if (patch.field === 'danger') draft.world.locations[patch.id].danger = patch.value;
-      else draft.world.locations[patch.id].pricePercent = patch.value;
+      if (patch.field === 'danger') locations[patch.id].danger = patch.value;
+      else locations[patch.id].pricePercent = patch.value;
       return;
-    case 'thread': draft.world.threads[patch.id].status = patch.status; return;
+    case 'thread': threads[patch.id].status = patch.status; return;
+    case 'relation':
+      // Отношение симметрично: 0 — запись не хранится, как и у фракций без отношений.
+      for (const [a, b] of [[patch.id, patch.other], [patch.other, patch.id]] as const) {
+        const rel = { ...factions[a].relations };
+        if (patch.value === 0) delete rel[b]; else rel[b] = patch.value;
+        factions[a].relations = rel;
+      }
+      return;
+    case 'price': {
+      const prices = { ...locations[patch.id].prices };
+      if (patch.value === 0) delete prices[patch.goods]; else prices[patch.goods] = patch.value;
+      locations[patch.id].prices = prices;
+      return;
+    }
+    case 'encounter': {
+      const enc = { ...locations[patch.id].encounters };
+      if (patch.value === 1) delete enc[patch.key]; else enc[patch.key] = patch.value;
+      locations[patch.id].encounters = enc;
+      return;
+    }
+    case 'newLocation': locations[patch.location.id] = castDraft(structuredClone(patch.location)); return;
+    case 'removeLocation': delete locations[patch.id]; return;
   }
 }
 

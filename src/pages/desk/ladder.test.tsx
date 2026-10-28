@@ -71,7 +71,9 @@ describe('лестница масштабов', () => {
     expect(currentStep()).toBe('continent');
     expect(cardOf('Faerûn')).toBeInTheDocument();
     const powers = screen.getByRole('group', { name: 'Державы' });
-    expect(within(powers).getAllByRole('button').map(r => r.textContent)).toEqual(['ФракцияZhentarim45%Симуляция, ждёт решения', "ФракцияLords' Alliance", 'ФракцияHarpers']);
+    expect(within(powers).getAllByRole('button').map(r => r.textContent)).toEqual([
+      'ФракцияZhentarim45%Симуляция, ждёт решения', "ФракцияLords' Alliance", 'ФракцияHarpers', 'ФракцияChurch of Lathander', 'ФракцияChurch of Helm',
+    ]);
     fireEvent.click(within(powers).getByRole('button', { name: /Zhentarim/ }));
     const zh = cardOf('Zhentarim');
     expect(within(zh).getByText('45%')).toBeInTheDocument();
@@ -91,6 +93,25 @@ describe('лестница масштабов', () => {
     expect(levelHead()).toHaveTextContent('Регион · Triboar Trail');
     expect(cardOf('Triboar Trail')).toBeInTheDocument();
   });
+
+  it('модель мира (3.3): у Zhentarim — отношения со знаком и словом, имя другой стороны открывает её карточку, «По вики» — организацию; принятые цены на оружие — «Товары» в карточке Neverwinter, Ctrl+Z убирает', async () => {
+    const { store } = mount();
+    fireEvent.click(stepOf('continent'));
+    fireEvent.click(within(screen.getByRole('group', { name: 'Державы' })).getByRole('button', { name: /Zhentarim/ }));
+    const relations = within(cardOf('Zhentarim')).getByRole('region', { name: 'Отношения' });
+    expect([...relations.querySelectorAll('li')].map(li => li.textContent)).toEqual(["−1Lords' Allianceнастороженно", '−2Harpersвраги']);
+    fireEvent.click(within(relations).getByRole('button', { name: 'Harpers' }));
+    expect(within(cardOf('Harpers')).getByRole('region', { name: 'Отношения' })).toHaveTextContent("+2Lords' Allianceсоюзники");
+    fireEvent.click(within(cardOf('Harpers')).getByRole('button', { name: 'Harpers' }));
+    expect(await screen.findByRole('region', { name: 'The Harpers' }, { timeout: 10000 })).toHaveTextContent('Организация');
+
+    act(() => { store.getState().accept('d-iron-prices'); });
+    fireEvent.click(stepOf('settlement'));
+    expect(within(cardOf('Neverwinter')).getByText('оружие +10%')).toBeInTheDocument();
+    act(() => store.getState().undo());
+    expect(within(cardOf('Neverwinter')).queryByText('оружие +10%')).toBeNull();
+  // Карточка организации — кусок мира по требованию: под полным прогоном импорт дольше пяти секунд.
+  }, 20000);
 
   it('бой — ступень лестницы: «Начать бой» ведёт на неё (сетка), `[` поднимает к зданию при живой полосе, `]` возвращает сетку; конец боя уводит со ступени, отмена конца — обратно', () => {
     const { store } = mount();

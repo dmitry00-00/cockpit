@@ -100,7 +100,7 @@ export { HarptosDial, PHASE_HOURS, dialPoint, type HarptosDialProps } from './Ha
 // Ресурсы персонажа пипками (решение владельца 21.09.2026): максимум и потраченное пропсами, события пишет страница.
 export { ResourcePips, PIPS_MAX, parsePoolAmount, type ResourcePipsProps, type ResourcePipsKind } from './ResourcePips';
 // Русские подписи характеристик и навыков — слой вида, одна таблица на стол и редактор.
-export { ABILITY_LABEL, SKILL_LABEL, SKILLS_BY_ABILITY } from './labels';
+export { ABILITY_LABEL, SKILL_LABEL, SKILLS_BY_ABILITY, GOODS_LABEL, RELATION_LABEL, signed } from './labels';
 // Секции листа из редактора персонажа: выборы умений, атаки, заклинания, снаряжение — одни на карточке стола и в редакторе.
 export { IconGrid, type IconGridItem } from './IconGrid';
 export { abilityIcon, classIcon, raceIcon, schoolIcon, featIcon, featureIcon, traitIcon, TRAIT_ICON } from './sheetIcons';

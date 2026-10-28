@@ -7,7 +7,7 @@
 // уровень, что родитель: лестница показывает ближайшее к фокусу место уровня, а не родителя.
 import { SCALE_LEVELS, type ScaleLevel, type Tempo } from './events';
 import { journalParts, type JournalEntry } from './journal';
-import type { Fact, Location, State, WorldDelta } from './state';
+import type { Fact, Location, State, WorldDelta, WorldPatch } from './state';
 
 /** Точка фокуса на лестнице: текущий уровень и путь — по одному месту на уровень от Великого Колеса вниз. */
 export interface Ladder {
@@ -219,8 +219,17 @@ const namedOf = (state: State) => [...Object.values(state.world.locations), ...O
 /** Цели одного предложения: место, фракция или нить из патча, а также места и фракции, названные в теме. */
 export function deltaTargets(d: WorldDelta, state: State): string[] {
   const out = namedIn(d.subject, namedOf(state));
-  if (d.patch && !out.includes(d.patch.id)) out.unshift(d.patch.id);
+  for (const id of d.patch ? patchTargets(d.patch).reverse() : []) if (!out.includes(id)) out.unshift(id);
   return out;
+}
+
+/** Что патч трогает в мире: запись, обе фракции отношения; у нового места — место, куда оно встанет. */
+export function patchTargets(patch: WorldPatch): string[] {
+  switch (patch.kind) {
+    case 'relation': return [patch.id, patch.other];
+    case 'newLocation': return patch.location.parentId ? [patch.location.parentId] : [];
+    default: return [patch.id];
+  }
 }
 
 /**

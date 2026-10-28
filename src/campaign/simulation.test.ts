@@ -2,7 +2,7 @@
 // принятие с патчем меняет числа через редьюсер и откатывается точно. Календарь: фаза суток, сезон, Selûne.
 import { describe, expect, it } from 'vitest';
 import { createEngineStore, journalEntries, cascadeOf } from '../engine';
-import { SECONDS_PER_DAY } from '../engine/state';
+import { SECONDS_PER_DAY, type WorldPatch } from '../engine/state';
 import { TEMPO_SECONDS } from '../engine/events';
 import { dayPhase, fullMoonsBetween, inDays, moonState, seasonOf, secOf } from './calendar';
 import { NEAR_SCALES, THREAD_COLD_DAYS, placeChain, simulate, stepTime, tendaysCrossed } from './simulation';
@@ -135,6 +135,60 @@ describe('stepTime и патч мира', () => {
     store.getState().propose({ id: 'bad', scale: 'region', subject: 'Нет такого', was: 'a', now: 'b', cause: 'c', causeId: 't', status: 'pending', patch: { kind: 'faction', id: 'nope', field: 'renown', value: 1 } });
     expect(() => store.getState().accept('bad')).toThrow(/несуществующее/);
     expect(store.getState().state.deltas.bad.status).toBe('pending');
+
+    const replay = createEngineStore(seedState(), { persist: { load: () => JSON.parse(JSON.stringify(store.getState().events)), save: () => {}, clear: () => {} }, ...fixed() });
+    expect(replay.getState().state).toEqual(store.getState().state);
+  });
+
+  it('модель мира (3.3): отношение — обе стороны, цена товара, вес встречи, новое место; Ctrl+Z возвращает; плохие числа — ошибка до записи', () => {
+    const store = seedEngine(fixed());
+    const api = () => store.getState();
+    const world = () => api().state.world;
+    const base = { scale: 'region' as const, subject: 'x', was: 'a', now: 'b', cause: 'c', causeId: THREAD.missingCaravan, status: 'pending' as const };
+    const take = (id: string, patch: WorldPatch) => {
+      api().propose({ ...base, id, patch });
+      api().accept(id);
+    };
+
+    // Сид: Harpers и Zhentarim — враги (−2) с обеих сторон; принятие −3 меняет обе, откат возвращает обе.
+    expect(world().factions[FACTION.zhentarim].relations?.[FACTION.harpers]).toBe(-2);
+    take('rel', { kind: 'relation', id: FACTION.harpers, other: FACTION.zhentarim, value: -3 });
+    expect(world().factions[FACTION.zhentarim].relations?.[FACTION.harpers]).toBe(-3);
+    expect(world().factions[FACTION.harpers].relations?.[FACTION.zhentarim]).toBe(-3);
+    api().undo();
+    expect(world().factions[FACTION.harpers].relations?.[FACTION.zhentarim]).toBe(-2);
+    expect(world().factions[FACTION.zhentarim].relations?.[FACTION.harpers]).toBe(-2);
+
+    // Цены на оружие в Neverwinter — предложение сида: «базовые» → +10%.
+    expect(world().locations[LOCATION.neverwinter].prices?.weapons).toBeUndefined();
+    api().accept('d-iron-prices');
+    expect(world().locations[LOCATION.neverwinter].prices).toEqual({ weapons: 10 });
+    api().undo();
+    expect(world().locations[LOCATION.neverwinter].prices?.weapons).toBeUndefined();
+
+    // Ликантропы в Neverwinter Wood: ×1 → ×2.
+    api().accept('d-lycanthropes');
+    expect(world().locations[LOCATION.neverwinterWood].encounters).toEqual({ Werewolf: 2 });
+    api().undo();
+    expect(world().locations[LOCATION.neverwinterWood].encounters?.Werewolf).toBeUndefined();
+
+    // Новое место (M8): появляется после принятия, Ctrl+Z убирает.
+    take('new', { kind: 'newLocation', location: { id: 'loc-new', name: 'Helm\'s Hold', scale: 'settlement', parentId: LOCATION.swordCoastNorth, geo: { map: 'toril', x: 8600, y: 2560 } } });
+    expect(world().locations['loc-new']).toMatchObject({ name: 'Helm\'s Hold', parentId: LOCATION.swordCoastNorth });
+    api().undo();
+    expect(world().locations['loc-new']).toBeUndefined();
+
+    const bad = (id: string, patch: WorldPatch, msg: RegExp) => {
+      api().propose({ ...base, id, patch });
+      expect(() => api().accept(id)).toThrow(msg);
+      expect(api().state.deltas[id].status).toBe('pending');
+    };
+    bad('b1', { kind: 'relation', id: FACTION.harpers, other: FACTION.zhentarim, value: 4 }, /от −3 до \+3/);
+    bad('b2', { kind: 'relation', id: FACTION.harpers, other: FACTION.harpers, value: 1 }, /к самой себе/);
+    bad('b3', { kind: 'price', id: LOCATION.neverwinter, goods: 'spices' as never, value: 5 }, /нет такого товара/);
+    bad('b4', { kind: 'encounter', id: LOCATION.neverwinterWood, key: 'Werewolf', value: -1 }, /не меньше нуля/);
+    bad('b5', { kind: 'newLocation', location: { id: LOCATION.neverwinter, name: 'Neverwinter', scale: 'settlement' } }, /уже есть/);
+    bad('b6', { kind: 'removeLocation', id: LOCATION.swordCoastNorth }, /есть другие места/);
 
     const replay = createEngineStore(seedState(), { persist: { load: () => JSON.parse(JSON.stringify(store.getState().events)), save: () => {}, clear: () => {} }, ...fixed() });
     expect(replay.getState().state).toEqual(store.getState().state);

@@ -1,4 +1,5 @@
 // Состояние — проекция лога. Здесь только форма; менять его может лишь reduce.ts.
+import type { EntityRef } from '../entities/ref';
 import type { AbilityId } from '../rules/srd/abilities';
 import type { ConditionId } from '../rules/srd/conditions';
 import type { MonsterId } from '../rules/srd/monsters';
@@ -120,7 +121,16 @@ export type WorldPatch =
   | { kind: 'faction'; id: string; field: 'influencePercent' | 'renown' | 'trend'; value: number }
   | { kind: 'location'; id: string; field: 'pricePercent'; value: number }
   | { kind: 'location'; id: string; field: 'danger'; value: 'low' | 'medium' | 'high' }
-  | { kind: 'thread'; id: string; status: 'open' | 'closed' };
+  | { kind: 'thread'; id: string; status: 'open' | 'closed' }
+  // Модель мира (ROADMAP 3.3, Q6, решение владельца 28.10.2026): отношение двух фракций — оба конца сразу, −3…+3.
+  | { kind: 'relation'; id: string; other: string; value: number }
+  // Надбавка к цене товара в месте, в процентах; 0 — базовая.
+  | { kind: 'price'; id: string; goods: GoodsId; value: number }
+  // Вес встречи в месте: множитель к её доле в таблице, 1 — как в таблице, 0 — не встречается.
+  | { kind: 'encounter'; id: string; key: string; value: number }
+  // Новое место (M8, ROADMAP 3.5) и обратное ему — снимок «было» при откате принятия.
+  | { kind: 'newLocation'; location: Location }
+  | { kind: 'removeLocation'; id: string };
 
 /** Предложение симуляции: пока мастер не решил, в мире стоит `was`, а `now` живёт только здесь. */
 export interface WorldDelta {
@@ -160,6 +170,12 @@ export interface Location {
   danger?: 'low' | 'medium' | 'high';
   /** Надбавка к ценам в процентах: +10 → «цены +10%». */
   pricePercent?: number;
+  /** Надбавка к цене отдельных товаров, в процентах (ROADMAP 3.3); нет товара — базовая. */
+  prices?: Partial<Record<GoodsId, number>>;
+  /** Веса встреч: ключ — кто встречается, латиницей («Werewolf»), значение — множитель к доле в таблице; нет — ×1. */
+  encounters?: Record<string, number>;
+  /** Место справочника карты (`place:…`) — его карточка даёт богов, церкви, организации и жителей по вики. */
+  ref?: EntityRef;
   /** Где место на карте мира: пиксели исходного растра карты `map` (content/maps/<map>.json). */
   geo?: LocationGeo;
   /** Открыто игрокам (PLACE_REVEALED): туман знаний вокруг места снят и на их столе. */
@@ -184,7 +200,18 @@ export interface Faction {
   influencePercent?: number;
   trend?: number;
   goal?: string;
+  /** Организация справочника (`organization:…`): глава, база, боги, союзники и враги по вики (ROADMAP 3.3). */
+  ref?: EntityRef;
+  /** Отношения с другими фракциями −3…+3, симметрично: у обеих сторон одно число; нет — 0. */
+  relations?: Record<string, number>;
 }
+
+/**
+ * Товары для цен мест (ROADMAP 3.3): разделы таблиц снаряжения SRD 5.1 (Weapons, Armor, Adventuring Gear, Mounts and
+ * Vehicles, Food Drink and Lodging) и зелья. Короткий закрытый список: симуляция двигает цену раздела, а не вещи.
+ */
+export const GOODS = ['weapons', 'armor', 'gear', 'food', 'mounts', 'potions'] as const;
+export type GoodsId = (typeof GOODS)[number];
 
 /** Нить сюжета: открыта когда-то, последнее внимание — тогда-то; «без внимания N дней» считается от времени сида. */
 export interface Thread {
