@@ -42,7 +42,8 @@ export interface WorldDeltaAccepted { deltaId: string; subject: string; was: str
 export interface WorldDeltaRejected { deltaId: string; reason?: string }
 export interface WorldDeltaRerolled { deltaId: string; variantId: string }
 export interface FactRevealed { factId: string; audience: 'players' }
-export interface NoteAdded { text: string; threadIds: readonly string[]; scale: ScaleLevel }
+/** Заметка мастера. Секретна по умолчанию (решение Q1, 28.10.2026): игрокам видна только с visible: true. */
+export interface NoteAdded { text: string; threadIds: readonly string[]; scale: ScaleLevel; visible?: boolean }
 
 /** Строка порядка инициативы: кто и с каким броском. */
 export interface InitiativeEntry { actorId: string; initiative: number }

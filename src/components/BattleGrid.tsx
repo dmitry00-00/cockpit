@@ -13,7 +13,7 @@ import type { Actor } from '../engine';
 import { Icon, type IconName } from '../icons/Icon';
 import { CONDITIONS, type ConditionId } from '../rules/srd';
 import { ENTITY, type EntityType } from './EntityCard';
-import { hpText, type HpTriple } from './HpBar';
+import { hpText, hpWord, type HpTriple } from './HpBar';
 import { TokenHpStrip } from './InitiativeToken';
 
 export interface BattleToken {
@@ -22,7 +22,9 @@ export interface BattleToken {
   type: EntityType;
   x: number;
   y: number;
-  hp: HpTriple;
+  /** Нет у монстра на столе игроков (Q1): вместо чисел — status словами. */
+  hp?: HpTriple;
+  status?: string;
   conditions: readonly ConditionId[];
   down: boolean;
 }
@@ -105,16 +107,18 @@ export function battleTokenShadow(active: boolean, selected: boolean, affected: 
 }
 
 /** Тултип: «Bandit Captain · 45/65 HP», задетый — «· в шаблоне». */
-export function battleTokenTitle(t: Pick<BattleToken, 'name' | 'hp'>, affected: boolean): string {
-  return `${t.name} · ${hpText(t.hp)} HP${affected ? ' · в шаблоне' : ''}`;
+export function battleTokenTitle(t: Pick<BattleToken, 'name' | 'hp' | 'status'>, affected: boolean): string {
+  return `${t.name} · ${t.hp ? `${hpText(t.hp)} HP` : t.status ?? ''}${affected ? ' · в шаблоне' : ''}`;
 }
 
 /** Сводка для скринридера — имя кнопки: имя, клетка, хиты словами, «лежит», «в шаблоне», состояния. */
 export function battleTokenDescription(t: BattleToken, affected: boolean): string {
   const parts = [`${t.name}, клетка ${t.x}, ${t.y}`];
-  parts.push(t.hp.current === 0
-    ? `0 хитов из ${t.hp.max}`
-    : `хиты ${t.hp.current} из ${t.hp.max}${t.hp.temp > 0 ? `, временные ${t.hp.temp}` : ''}`);
+  if (t.hp) {
+    parts.push(t.hp.current === 0
+      ? `0 хитов из ${t.hp.max}`
+      : `хиты ${t.hp.current} из ${t.hp.max}${t.hp.temp > 0 ? `, временные ${t.hp.temp}` : ''}`);
+  } else if (t.status) parts.push(t.status);
   if (t.down) parts.push('лежит');
   if (affected) parts.push('в шаблоне');
   if (t.conditions.length > 0) parts.push(`состояния: ${t.conditions.map(id => CONDITIONS[id].label).join(', ')}`);
@@ -122,14 +126,15 @@ export function battleTokenDescription(t: BattleToken, affected: boolean): strin
 }
 
 /** Актёр на клетке → токен. Тип из kind; состояния — ключи actor.conditions; лежит — при 0 хитов. */
-export function battleTokenOf(actor: Actor, pos: { x: number; y: number }): BattleToken {
+export function battleTokenOf(actor: Actor, pos: { x: number; y: number }, opts: { players?: boolean } = {}): BattleToken {
+  const hidden = opts.players && actor.kind === 'monster';
   return {
     id: actor.id,
     name: actor.name,
     type: actor.kind,
     x: pos.x,
     y: pos.y,
-    hp: actor.hp,
+    ...(hidden ? { status: hpWord(actor.hp) } : { hp: actor.hp }),
     conditions: Object.keys(actor.conditions) as ConditionId[],
     down: actor.hp.current === 0,
   };
@@ -206,7 +211,7 @@ export function BattleGrid({
           >
             <span className="sr-only">{battleTokenDescription(t, inCone)}</span>
             <Icon name={ent.icon} size={24} color={t.down ? 'var(--t3)' : 'var(--tx)'} title={ent.label} />
-            <TokenHpStrip hp={t.hp} />
+            {t.hp ? <TokenHpStrip hp={t.hp} /> : null}
             {conds.length > 0 ? (
               <span data-part="conditions" className="absolute -top-2 -right-1 flex gap-px">
                 {conds.map(id => {

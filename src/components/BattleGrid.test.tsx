@@ -41,8 +41,12 @@ describe('проекции и геометрия', () => {
     store.getState().damage('bandit-3', 11);
     const dead = battleTokenOf(store.getState().state.actors['bandit-3'], { x: 9, y: 6 });
     expect(dead.down).toBe(true);
-    expect(dead.hp.current).toBe(0);
+    expect(dead.hp?.current).toBe(0);
     expect(dead.type).toBe('monster');
+    // Стол игроков (Q1): у монстра нет хитов числом — состояние словами.
+    const seen = battleTokenOf(store.getState().state.actors['bandit-3'], { x: 9, y: 6 }, { players: true });
+    expect(seen.hp).toBeUndefined();
+    expect(seen).toMatchObject({ status: 'повержен', down: true });
   });
 
   it('conePoints: вершина у грани клетки источника, дальний край на length клеток шириной length (SRD)', () => {

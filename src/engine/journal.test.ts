@@ -97,7 +97,8 @@ describe('journalEntries — нити, масштаб, секреты, прои�
     expect(byType['DAMAGE_APPLIED#2']).toMatchObject({ scale: 'battle', undone: true });
     expect(byType.ENCOUNTER_STARTED.scale).toBe('battle');
     expect(byType.DICE_ROLLED).toMatchObject({ scale: 'battle', hidden: true, secret: true, origin: 'dm' });
-    expect(byType.NOTE_ADDED).toMatchObject({ threadIds: ['caravan'], scale: 'settlement', secret: false, origin: 'dm' });
+    // Q1 (28.10.2026): заметка без «Игрокам» — секрет мастера.
+    expect(byType.NOTE_ADDED).toMatchObject({ threadIds: ['caravan'], scale: 'settlement', secret: true, origin: 'dm' });
     expect(byType.WORLD_DELTA_ACCEPTED).toMatchObject({ threadIds: ['caravan'], scale: 'region', origin: 'sim', deltaId: 'd1', causeId: 'caravan', secret: true });
     expect(byType.FACT_REVEALED).toMatchObject({ threadIds: ['caravan'], origin: 'players', secret: false });
   });

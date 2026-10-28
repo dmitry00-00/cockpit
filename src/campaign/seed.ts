@@ -118,7 +118,7 @@ export function seedLog(): DomainEvent[] {
   const n = proposals.length;
   return [
     ...proposals,
-    { id: 'seed-note', seq: n, at: 0, worldSec: SEED_SEC - 20 * 60, type: 'NOTE_ADDED', payload: { text: 'Партия прибыла в Neverwinter через Triboar Trail', threadIds: [THREAD.missingCaravan], scale: 'settlement' } },
+    { id: 'seed-note', seq: n, at: 0, worldSec: SEED_SEC - 20 * 60, type: 'NOTE_ADDED', payload: { text: 'Партия прибыла в Neverwinter через Triboar Trail', threadIds: [THREAD.missingCaravan], scale: 'settlement', visible: true } },
     { id: 'seed-conc', seq: n + 1, ...base, type: 'CONCENTRATION_STARTED', payload: { actorId: 'bo', spell: "Hunter's Mark", untilSec: SEED_SEC + 38 * 60 } },
     { id: 'seed-1', seq: n + 2, ...base, type: 'DAMAGE_APPLIED', payload: { targetId: 'bo', amount: 8, type: 'slashing', sourceId: 'captain' } },
     { id: 'seed-2', seq: n + 3, ...base, type: 'DAMAGE_APPLIED', payload: { targetId: 'captain', amount: 20, type: 'piercing', sourceId: 'bo' } },

@@ -45,6 +45,8 @@ function storeWithSecrets(): EngineStoreApi {
     ...fixed(),
   });
   const api = store.getState();
+  // Q1: заметка секретна по умолчанию; эта отмечена «Игрокам» и видна на их столе.
+  api.note('Партия решила идти к Triboar Trail', [], 'settlement', true);
   api.rollDice('1d20+9', { label: 'Скрытность · Bo Tambernack', hidden: true, rng: () => 0.5 });
   api.reject(DELTA.lycanthropes, 'не верю');
   api.accept(DELTA.owlWellRumor);
@@ -96,7 +98,17 @@ const THREAD_ROWS = [
   'каскад',                                           // threadCardRows: label строки каскада
   'Каскад',                                           // JournalCascade aria-label
 ];
-const SECRETS = [...HIDDEN_ROLL, ...DELTAS, ...FACTS, ...THREAD_ROWS];
+/** Решение Q1 (28.10.2026): заметка мастера секретна по умолчанию; у монстров на столе игроков нет чисел и блока. */
+const NOTES = [
+  'Korrin Battlehammer расспрашивает о Zhentarim',    // NOTE_ADDED без visible
+];
+const MONSTER_NUMBERS = [
+  'CR ',                                              // бейдж стопки, тултип корешка, шапка карточки монстра
+  '45/65',                                            // хиты Bandit Captain в стопке, на полосе и в карточке
+  '11/11',                                            // хиты бандитов
+  'Multiattack', 'Parry',                             // действия и реакция из блока Bandit Captain
+];
+const SECRETS = [...HIDDEN_ROLL, ...DELTAS, ...FACTS, ...THREAD_ROWS, ...NOTES, ...MONSTER_NUMBERS];
 
 /** Селекторы секретов — по атрибутам, а не по тексту. */
 const SECRET_SELECTORS = [
@@ -218,7 +230,9 @@ describe('глазами игроков: секретов нет в document.bod
     // Журнал стола — только несекретные записи: заметки, концентрация, удары.
     const journal = screen.getByRole('list', { name: 'Записи журнала' });
     expect(within(journal).getAllByRole('listitem')).toHaveLength(5);
-    expect(journal).toHaveTextContent('@Korrin Battlehammer расспрашивает о @Zhentarim');
+    // Q1: заметка мастера без «Игрокам» — секрет; отмеченная — на столе игроков.
+    expect(journal).not.toHaveTextContent('расспрашивает');
+    expect(journal).toHaveTextContent('Партия решила идти к @Triboar Trail');
   });
 
   it('карточка: вкладка DM открыта у мастера → после P ни вкладки, ни текста факта; карточка на «Обзор»', () => {
@@ -254,14 +268,16 @@ describe('глазами игроков: секретов нет в document.bod
     // #нить в записи → фильтр по нити.
     fireEvent.click(within(view).getAllByRole('button', { name: 'Нить: The Missing Caravan' })[0]);
     expectClean('журнал сессии с фильтром по нити');
-    expect(within(view).getByText('Записей: 2 из 5')).toBeInTheDocument();
+    // Q1: секретная заметка в нити каравана игрокам не видна — остаётся одна запись сида.
+    expect(within(view).getByText('Записей: 1 из 5')).toBeInTheDocument();
     // Фильтр по масштабу.
     fireEvent.click(within(view).getByRole('button', { name: /^Поселение/ }));
     expectClean('журнал сессии с фильтром по масштабу');
-    // @упоминание → карточка Korrin на столе (шаг 10: упоминание открывает карточку, главная зона — стол); J возвращает журнал.
-    fireEvent.click(within(view).getByRole('button', { name: 'Открыть карточку: Korrin Battlehammer' }));
+    // @упоминание → карточка места на столе (шаг 10: упоминание открывает карточку, главная зона — стол); J возвращает журнал.
+    // До Q1 здесь был Korrin из заметки мастера — теперь она секретна, упоминание берётся из заметки сида.
+    fireEvent.click(within(view).getAllByRole('button', { name: 'Открыть карточку: Neverwinter' })[0]);
     expectClean('стол после клика по упоминанию');
-    expect(screen.getByRole('region', { name: 'Korrin Battlehammer' })).toBeInTheDocument();
+    expect(screen.getByRole('region', { name: 'Neverwinter' })).toBeInTheDocument();
     J();
     expectClean('журнал после возврата');
     // Клик по карточке нити в правой колонке.
@@ -269,7 +285,7 @@ describe('глазами игроков: секретов нет в document.bod
     expectClean('журнал после клика по карточке нити');
     ESC();
     expectClean('стол после Esc из журнала');
-    expect(screen.getByRole('region', { name: 'Korrin Battlehammer' })).toBeInTheDocument();
+    expect(screen.getByRole('region', { name: 'Neverwinter' })).toBeInTheDocument();
   });
 
   it('бой: сетка, полоса инициативы, попап хитов с токена (портал в document.body), урон и «Убрать из боя» уже в логе', async () => {
@@ -334,6 +350,20 @@ describe('глазами игроков: секретов нет в document.bod
     await settle();
     expectClean('тултип чипа (портал)');
     fireEvent.blur(chip);
+  });
+
+  it('Q1: монстр на столе игроков — без чисел и блока, состояние словами; заметка «Игрокам» видна, секретная — нет', () => {
+    mount(storeWithSecrets());
+    P();
+    const captain = screen.getByTitle('Bandit Captain · ранен');
+    fireEvent.click(captain);
+    const card = screen.getByRole('region', { name: 'Bandit Captain' });
+    expect(within(card).getByTitle(/^Состояние словами/)).toHaveTextContent('ранен');
+    expect(within(card).queryByRole('tab', { name: 'Действия' })).toBeNull();
+    expectClean('карточка монстра на столе игроков');
+    J();
+    expect(within(journalView()).getByText(/Партия решила идти к/)).toBeInTheDocument();
+    expectClean('журнал игроков с заметками');
   });
 
   it('раскрытый и тут же отменённый факт: в состоянии он снова секрет — и в DOM игроков его текста быть не должно', () => {
@@ -445,6 +475,12 @@ describe('стол мастера: те же строки присутствую
     T();
     collect(); // вид «Время»: «Что изменилось»
     ESC();
+    fireEvent.click(screen.getByTitle('Bandit Captain · CR 2'));
+    collect(); // карточка монстра: CR, хиты, блок
+    clickTab('Действия');
+    collect(); // действия и реакции блока
+    fireEvent.click(screen.getByRole('article', { name: 'Bo Tambernack' }));
+    clickTab('DM');
     expect(SECRETS.filter(s => !seen.has(s)), 'строки, которых нет на столе мастера — проба пустая').toEqual([]);
     expect(SECRET_SELECTORS.filter(s => !seenSel.has(s)), 'селекторы, которых нет на столе мастера — проба пустая').toEqual([]);
     expect(screen.getByRole('tab', { name: 'DM' })).toBeInTheDocument();

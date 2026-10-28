@@ -92,14 +92,14 @@ export function TokenHpStrip({ hp }: { hp: HpTriple }) {
   );
 }
 
-/** Актёр → токен. Тип из kind; легендарных действий у блоков SRD в проекте нет — undefined. */
-export function initiativeTokenOf(actor: Actor, initiative: number): Omit<InitiativeTokenProps, 'active' | 'selected' | 'onOpen' | 'className'> {
+/** Актёр → токен. Тип из kind; легендарных действий у блоков SRD в проекте нет — undefined. На столе игроков у монстра нет хитов (Q1). */
+export function initiativeTokenOf(actor: Actor, initiative: number, opts: { players?: boolean } = {}): Omit<InitiativeTokenProps, 'active' | 'selected' | 'onOpen' | 'className'> {
   return {
     id: actor.id,
     name: actor.name,
     type: actor.kind,
     initiative,
-    hp: actor.hp,
+    ...(opts.players && actor.kind === 'monster' ? {} : { hp: actor.hp }),
   };
 }
 

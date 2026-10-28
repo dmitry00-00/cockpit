@@ -12,7 +12,7 @@ import { Icon, type IconName } from '../icons/Icon';
 import { classById, raceById } from '../rules/compendium';
 import { MONSTERS } from '../rules/srd';
 import './EntityCard.css';
-import { hpLevel, hpText, type HpLevel } from './HpBar';
+import { hpLevel, hpText, hpWord, type HpLevel } from './HpBar';
 import { SCALE_LABELS } from './scales';
 import { signedMod } from './StatTile';
 
@@ -290,6 +290,8 @@ export interface ActorCardOptions {
   initiative?: number;
   /** Кости хитов листа (класс SRD) — ячейка КХ «4/5»; у класса из книги костей нет — ячейки нет. */
   hitDice?: { available: number; total: number; die: number };
+  /** Стол игроков (Q1): у монстра нет чисел — ни CR, ни хитов, ни AC; состояние словами, вкладки «Действия» нет. */
+  players?: boolean;
 }
 
 /**
@@ -300,10 +302,20 @@ export interface ActorCardOptions {
  * страница — карточка знает только их коды.
  */
 export function actorCardProps(actor: Actor, opts: ActorCardOptions = {}): ActorCardProps {
-  const { onHp, dmFacts = 0, initiative, hitDice } = opts;
+  const { onHp, dmFacts = 0, initiative, hitDice, players = false } = opts;
   const dm = dmFacts > 0 ? [TAB_DM] : [];
   if (actor.kind === 'monster' && actor.monsterId) {
     const m = MONSTERS[actor.monsterId];
+    if (players) {
+      return {
+        type: 'monster',
+        name: actor.name,
+        badges: [m.size],
+        stats: [{ label: 'Состояние', value: hpWord(actor.hp), title: 'Состояние словами: числа монстра — у мастера' }],
+        tabs: [TAB_OVERVIEW, TAB_CONDITIONS],
+        origin: 'canon',
+      };
+    }
     return {
       type: 'monster',
       name: actor.name,

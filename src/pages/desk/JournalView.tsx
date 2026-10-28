@@ -21,6 +21,9 @@ export interface JournalViewProps {
   filterScales: ScaleLevel[];
   setFilterScales: Dispatch<SetStateAction<ScaleLevel[]>>;
   noteDraft: string;
+  /** Заметка видна игрокам; без отметки — секрет мастера (Q1). */
+  noteForPlayers: boolean;
+  setNoteForPlayers: (on: boolean) => void;
   setNoteDraft: (text: string) => void;
   addNote: () => void;
   reminders: State['facts'][string][];
@@ -31,7 +34,7 @@ export interface JournalViewProps {
 
 export function JournalView({
   mainRef, state, dmView, allEntries, filtered, threads, filterThreads, setFilterThreads, filterScales,
-  setFilterScales, noteDraft, setNoteDraft, addNote, reminders, setLaterFacts, entryProps, api,
+  setFilterScales, noteDraft, setNoteDraft, noteForPlayers, setNoteForPlayers, addNote, reminders, setLaterFacts, entryProps, api,
  }: JournalViewProps) {
   return (
     <section aria-label="Журнал сессии" ref={mainRef} className="relative flex-1 min-w-0 min-h-0 flex flex-col">
@@ -61,6 +64,15 @@ export function JournalView({
             placeholder={filterThreads.length > 0 ? `Заметка в нить: ${filterThreads.map(id => state.world.threads[id]?.name ?? id).join(', ')}` : 'Заметка — Enter записывает'}
             className="flex-1 min-w-0 type-body-sm text-tx bg-cd shadow-bevel-in px-2 py-1 placeholder:text-t3 focus-visible:shadow-[var(--bevel-in),var(--glow-gold)]"
           />
+          <button
+            type="button"
+            aria-pressed={noteForPlayers}
+            title={noteForPlayers ? 'Заметка будет видна игрокам' : 'Заметка только мастеру; нажать — показать и игрокам'}
+            onClick={() => setNoteForPlayers(!noteForPlayers)}
+            className={`${BTN} ${noteForPlayers ? 'text-gd-hi' : ''}`}
+          >
+            Игрокам
+          </button>
           <button type="submit" disabled={noteDraft.trim() === ''} title="Записать в журнал · Enter" className={BTN}>Записать</button>
         </form>
         ) : null}

@@ -292,6 +292,8 @@ export function journalEntries(events: readonly DomainEvent[], state: State): Jo
         const p = e.payload as PayloadByType['NOTE_ADDED'];
         entry.threadIds = p.threadIds;
         entry.scale = p.scale;
+        // Q1: заметка секретна, пока мастер не отметил «Игрокам».
+        entry.secret = p.visible !== true;
         break;
       }
       case 'WORLD_DELTA_ACCEPTED':

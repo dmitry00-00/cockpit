@@ -12,7 +12,7 @@ import type { Actor } from '../engine';
 import { Icon, type IconName } from '../icons/Icon';
 import { MONSTERS } from '../rules/srd';
 import { ENTITY, ORIGIN, type EntityType } from './EntityCard';
-import { hpLevel, hpText, type HpLevel, type HpTriple } from './HpBar';
+import { hpWord, hpLevel, hpText, type HpLevel, type HpTriple } from './HpBar';
 
 export interface CardStackItem {
   id: string;
@@ -86,9 +86,13 @@ export function stackItemTitle(it: CardStackItem): string {
   return it.pending ? `${base} · ждёт решения` : base;
 }
 
-/** Актёр → корешок: PC с уровнем, монстр с CR из блока SRD, NPC без бейджа. Хиты — та же тройка, что везде. */
-export function stackItemOf(actor: Actor): CardStackItem {
+/**
+ * Актёр → корешок: PC с уровнем, монстр с CR из блока SRD, NPC без бейджа. Хиты — та же тройка, что везде.
+ * На столе игроков (Q1) у монстра нет чисел: ни хитов, ни CR — бейджем состояние словами.
+ */
+export function stackItemOf(actor: Actor, opts: { players?: boolean } = {}): CardStackItem {
   if (actor.kind === 'monster') {
+    if (opts.players) return { id: actor.id, name: actor.name, type: 'monster', badge: hpWord(actor.hp) };
     return {
       id: actor.id,
       name: actor.name,

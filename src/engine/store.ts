@@ -57,7 +57,8 @@ export interface EngineStore {
   /** Место открыто игрокам: туман знаний вокруг него снят и на их столе. */
   revealPlace(locationId: string): void;
   /** Заметка мастера; возвращает событие — его id годится как causeId для дельты. */
-  note(text: string, threadIds: readonly string[], scale: ScaleLevel): DomainEvent<'NOTE_ADDED'>;
+  /** visible — заметка видна игрокам; по умолчанию секретна (Q1). */
+  note(text: string, threadIds: readonly string[], scale: ScaleLevel, visible?: boolean): DomainEvent<'NOTE_ADDED'>;
   dismissToast(): void;
 }
 
@@ -168,7 +169,7 @@ export function createEngineStore(initial: State, opts: CreateEngineOptions = {}
       reveal: factId => { dispatch({ type: 'FACT_REVEALED', payload: { factId, audience: 'players' } }); },
       travel: payload => dispatch({ type: 'PARTY_TRAVELED', payload }),
       revealPlace: locationId => { dispatch({ type: 'PLACE_REVEALED', payload: { locationId } }); },
-      note: (text, threadIds, scale) => dispatch({ type: 'NOTE_ADDED', payload: { text, threadIds, scale } }),
+      note: (text, threadIds, scale, visible) => dispatch({ type: 'NOTE_ADDED', payload: { text, threadIds, scale, ...(visible ? { visible: true } : {}) } }),
       dismissToast: () => set({ toast: null }),
     };
   });

@@ -2,8 +2,8 @@
 // в стор не ходят. Проекции из актёра (partyRowOf, chipsOf, actorCardProps, stackItemOf) лежат рядом
 // с компонентами, чтобы корешок партии, карточка и стопка красили одни и те же числа одинаково.
 export {
-  HpBar, hpLevel, hpGeometry, hpText,
-  type HpBarProps, type HpTriple, type HpLevel, type HpFlash,
+  HpBar, hpLevel, hpGeometry, hpText, hpWord,
+  type HpBarProps, type HpTriple, type HpLevel, type HpFlash, type HpWord,
 } from './HpBar';
 export { DeathSaves, clampSaves, type DeathSavesProps, type DeathSaveCount } from './DeathSaves';
 export { StatTile, signedMod, tileEdge, type StatTileProps } from './StatTile';

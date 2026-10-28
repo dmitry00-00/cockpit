@@ -45,6 +45,24 @@ describe('журнал и нити', () => {
     expect(cardOf('Korrin Battlehammer')).toBeInTheDocument();
   });
 
+  it('Q1: заметка без «Игрокам» — без флага (секрет мастера); с «Игрокам» — visible: true, после записи переключатель снимается', () => {
+    const { store } = mount();
+    openJournal();
+    const view = journalView();
+    const input = within(view).getByRole('textbox', { name: 'Заметка' });
+    const toggle = within(view).getByRole('button', { name: 'Игрокам' });
+    expect(toggle).toHaveAttribute('aria-pressed', 'false');
+    fireEvent.change(input, { target: { value: 'Тайный план Zhentarim' } });
+    fireEvent.submit(input.closest('form')!);
+    expect(lastEvent(store).payload).not.toHaveProperty('visible');
+    fireEvent.click(toggle);
+    expect(toggle).toHaveAttribute('aria-pressed', 'true');
+    fireEvent.change(input, { target: { value: 'Партия решила идти к Triboar Trail' } });
+    fireEvent.submit(input.closest('form')!);
+    expect(lastEvent(store)).toMatchObject({ type: 'NOTE_ADDED', payload: { text: 'Партия решила идти к Triboar Trail', visible: true } });
+    expect(toggle).toHaveAttribute('aria-pressed', 'false');
+  });
+
   it('входящие: «Принять» слух → WORLD_DELTA_ACCEPTED в журнале стола; в журнале сессии запись несёт каскад «факт → предложение»; карточка нити показывает каскад; Ctrl+Z возвращает предложение во входящие', () => {
     const { store } = mount();
     expect(within(inbox()).getAllByRole('listitem')).toHaveLength(4);

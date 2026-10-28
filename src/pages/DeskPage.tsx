@@ -46,7 +46,7 @@ import { useMapData } from './desk/useMapData';
 import {
   MONSTER_IDS, MONSTER_ORIGIN_LABEL, MONSTERS, loadMonsterLibraries, monsterLibrariesLoaded, monsterOrigin, needsMonsterLibraries, type MonsterId,
 } from '../rules/srd';
-import { type BodyProps, DmTab, FactionOverview, MonsterActions, MonsterOverview, PcOverview, PcSkills, PlaceOverview } from './desk/bodies';
+import { type BodyProps, DmTab, FactionOverview, MonsterActions, MonsterOverview, MonsterSeen, PcOverview, PcSkills, PlaceOverview } from './desk/bodies';
 import {
   type OpenRail, BATTLE_CELL, DESK_HASH, DESK_LOG_KEY, JOURNAL_TAIL, NARROW_QUERY, NEW_PC_HASH, concentrationRemindersOf, conditionRemindersOf,
   d20Formula, deskDollItems, dmFactsAbout, dmFactsOf, factionItems, hereItems, isDeskHotkey, isNarrow, journalEntryProps, ladderSteps,
@@ -222,6 +222,8 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
   const [filterThreads, setFilterThreads] = useState<string[]>([]);
   const [filterScales, setFilterScales] = useState<ScaleLevel[]>([]);
   const [noteDraft, setNoteDraft] = useState('');
+  /** Заметка видна игрокам — переключатель формы; по умолчанию заметка секретна (Q1). */
+  const [noteForPlayers, setNoteForPlayers] = useState(false);
   const [laterFacts, setLaterFacts] = useState<string[]>([]);
   // «Позже» у напоминаний о концентрации — по ключу актёр + заклинание + срок: новое заклинание напомнит заново.
   const [laterConcentration, setLaterConcentration] = useState<string[]>([]);
@@ -280,9 +282,9 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
   const activeId = combat ? encounter.order[encounter.turnIndex] : undefined;
   const initiative: InitiativeBarEntry[] = encounter.order.flatMap(id => {
     const a = state.actors[id];
-    return a ? [initiativeTokenOf(a, a.initiative ?? 0)] : [];
+    return a ? [initiativeTokenOf(a, a.initiative ?? 0, { players: !dmView })] : [];
   });
-  const tokens = placedActors(state, field).map(({ actor: a, cell }) => battleTokenOf(a, cell));
+  const tokens = placedActors(state, field).map(({ actor: a, cell }) => battleTokenOf(a, cell, { players: !dmView }));
   const lastRoll = lastRollOf(events);
   // Скрытый бросок на столе игроков не показывается — ни карточкой, ни строкой истории.
   const shownRoll = lastRoll && lastRoll.id !== closedRollId && (dmView || !lastRoll.roll.hidden) ? lastRoll : null;
@@ -429,8 +431,9 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
     const text = noteDraft.trim();
     if (!text) return;
     const scale: ScaleLevel = filterScales.length === 1 ? filterScales[0] : combat ? 'battle' : 'settlement';
-    api.note(text, filterThreads, scale);
+    api.note(text, filterThreads, scale, noteForPlayers);
     setNoteDraft('');
+    setNoteForPlayers(false);
   };
   const entryProps = (entry: JournalRecord) => ({ ...journalEntryProps(entry, state), onMention, onThread });
   /** Шаг времени: TIME_ADVANCED и предложения симуляции за отрезок; сводка «что изменилось» поднимается сразу. */
@@ -597,7 +600,7 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
   };
 
   const cardView = actor ? sheetViewOf(actor) : undefined;
-  const cardProps = actor ? actorCardProps(actor, { onHp: dmView ? openFromCard : undefined, dmFacts: dmFactsOf(actor, state.facts).length, initiative: cardView?.initiative, hitDice: cardView?.hitDice }) : null;
+  const cardProps = actor ? actorCardProps(actor, { onHp: dmView ? openFromCard : undefined, dmFacts: dmFactsOf(actor, state.facts).length, initiative: cardView?.initiative, players: !dmView, hitDice: cardView?.hitDice }) : null;
   /**
    * Тело вкладки актёра: `column` — одиночная карточка целиком; в оверлее 720px обзор делится на две колонки —
    * навыки персонажа и действия монстра уходят вправо (`aside`), остальное — влево (`main`). В оверлее
@@ -608,13 +611,15 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
     const body: BodyProps = { actor, worldSec: state.time.sec, onRoll, onCommand, tools: dmView && column === 'column' ? cardTools : null, dmView };
     if (column === 'aside') {
       if (current !== 'overview') return null;
-      return actor.kind === 'monster' ? <MonsterActions actor={actor} /> : <PcSkills actor={actor} onRoll={onRoll} columns={1} />;
+      if (actor.kind === 'monster') return dmView ? <MonsterActions actor={actor} /> : null;
+      return <PcSkills actor={actor} onRoll={onRoll} columns={1} />;
     }
     switch (current) {
       case 'overview':
-        return actor.kind === 'monster' ? <MonsterOverview {...body} /> : <PcOverview {...body} skills={column === 'column'} passport={passportOf(actor, events)} />;
+        if (actor.kind === 'monster') return dmView ? <MonsterOverview {...body} /> : <MonsterSeen {...body} />;
+        return <PcOverview {...body} skills={column === 'column'} passport={passportOf(actor, events)} />;
       case 'actions':
-        return <MonsterActions actor={actor} />;
+        return dmView ? <MonsterActions actor={actor} /> : null;
       case 'conditions':
         return (
           <>
@@ -894,7 +899,7 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
         <CardStack
           title="Противники"
           icon="ent-monster"
-          items={foes.map(stackItemOf)}
+          items={foes.map(a => stackItemOf(a, { players: !dmView }))}
           onOpen={it => open(it.id)}
         />
       ) : null}
@@ -982,6 +987,8 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
               setFilterScales={setFilterScales}
               noteDraft={noteDraft}
               setNoteDraft={setNoteDraft}
+              noteForPlayers={noteForPlayers}
+              setNoteForPlayers={setNoteForPlayers}
               addNote={addNote}
               reminders={reminders}
               setLaterFacts={setLaterFacts}

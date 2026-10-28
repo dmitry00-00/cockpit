@@ -46,6 +46,14 @@ export function hpText(hp: HpTriple): string {
   return `${hp.current}/${hp.max}${hp.temp > 0 ? ` +${hp.temp}` : ''}`;
 }
 
+/** Хиты словами — для стола игроков (решение Q1, 28.10.2026): чисел монстра игроки не видят. Половина и меньше — «тяжело ранен». */
+export type HpWord = 'невредим' | 'ранен' | 'тяжело ранен' | 'повержен';
+export function hpWord(hp: HpTriple): HpWord {
+  if (hp.current <= 0) return 'повержен';
+  if (hp.current >= hp.max) return 'невредим';
+  return hp.current * 2 > hp.max ? 'ранен' : 'тяжело ранен';
+}
+
 export interface HpBarProps {
   hp: HpTriple;
   /** Сердце слева от жёлоба; в корешке партии его нет — там тесно. */

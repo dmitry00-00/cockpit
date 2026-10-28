@@ -273,6 +273,17 @@ export function MonsterOverview({ actor, worldSec, onRoll, onCommand, tools, dmV
   );
 }
 
+/** Монстр на столе игроков (Q1): размер и вид существа, состояния чипами — без блока и чисел. */
+export function MonsterSeen({ actor, worldSec, onCommand, dmView }: BodyProps) {
+  const m = MONSTERS[actor.monsterId!];
+  return (
+    <>
+      <p className="type-body-sm text-t2">{m.size} {m.type}</p>
+      <ChipsRow actor={actor} worldSec={worldSec} onCommand={onCommand} dmView={dmView} />
+    </>
+  );
+}
+
 export function MonsterActions({ actor }: { actor: Actor }) {
   const m = MONSTERS[actor.monsterId!];
   return (
