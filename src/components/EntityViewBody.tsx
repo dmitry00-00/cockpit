@@ -12,6 +12,7 @@ export function cardTypeOf(kind: EntityKind): EntityType {
     case 'item': return 'item';
     case 'plane': case 'sphere': return 'plane';
     case 'body': return 'planet';
+    case 'deity': case 'pantheon': return 'deity';
     case 'place': case 'location': return 'location';
     case 'faction': return 'faction';
     case 'actor': return 'npc';

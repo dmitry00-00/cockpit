@@ -1,7 +1,10 @@
 // Карточка плана (HANDOFF §3, уровень «план»): вид и мировоззрение, свойства модели Великого колеса по-русски
 // (дословное значение вики — в подсказке), слои, город-врата Outlands, книга и ссылка на статью. Тупой компонент:
-// план и что открывать ниже по лестнице даёт страница.
+// план и что открывать ниже по лестнице даёт страница. Кнопка «Боги и карточка» — общая карточка плана по ссылке
+// (боги плана по эпохе кампании), если страница дала вход openEntity.
 import type { ReactNode } from 'react';
+import { useOpenEntity } from '../components/openEntity';
+import { ref } from '../entities/ref';
 import { ALIGNMENT_LABEL, PLANE_KIND_LABEL, TRAIT_ROWS, alignmentLabel, type GateTown, type Plane } from './planes';
 
 export interface PlaneInfoProps {
@@ -16,6 +19,7 @@ export interface PlaneInfoProps {
 }
 
 export function PlaneInfo({ plane, canOpen, onOpen, gate, children, className = '' }: PlaneInfoProps) {
+  const openEntity = useOpenEntity();
   const neutralOnly = plane.alignment.length === 1 && plane.alignment[0] === 'N' && plane.kind !== 'outer' && plane.kind !== 'realm';
   return (
     <div data-part="plane-info" aria-live="polite" className={`flex flex-col gap-1.5 px-3 py-2 bg-pn shadow-bevel max-w-full ${className}`}>
@@ -30,6 +34,16 @@ export function PlaneInfo({ plane, canOpen, onOpen, gate, children, className = 
         {onOpen && canOpen?.(plane) ? (
           <button type="button" onClick={() => onOpen(plane)} className="type-num-12 uppercase px-2 py-1 bg-cd shadow-bevel text-t2 cursor-pointer hover:text-tx focus-visible:shadow-[var(--bevel),var(--glow-gold)]">
             {`Спуститься: ${plane.name}`}
+          </button>
+        ) : null}
+        {openEntity ? (
+          <button
+            type="button"
+            title={`Открыть карточку: ${plane.name} — боги плана, свойства, источник`}
+            onClick={() => openEntity(ref('plane', plane.id))}
+            className="type-num-12 uppercase px-2 py-1 bg-cd shadow-bevel text-t2 cursor-pointer hover:text-tx focus-visible:shadow-[var(--bevel),var(--glow-gold)]"
+          >
+            Боги и карточка
           </button>
         ) : null}
       </div>

@@ -4,6 +4,9 @@ import { FlowGraph } from './FlowGraph';
 import { Planetarium } from './Planetarium';
 import { GreatWheel } from './GreatWheel';
 import { WorldTree } from './WorldTree';
+import { PlaneInfo } from './PlaneInfo';
+import { planeById } from './planes';
+import { OpenEntityContext } from '../components/openEntity';
 
 describe('Planetarium', () => {
   it('солнце, восемь планет, луны Toril; щелчок по телу — сведения с книгой; ползунок двигает тела', () => {
@@ -114,5 +117,18 @@ describe('WorldTree', () => {
     expect(info()).toHaveTextContent('слабо добрый и слабо хаотичный');
     fireEvent.click(screen.getByRole('button', { name: 'Heliopolis' }));
     expect(info().querySelector('[data-part="tree-role"]')).toHaveTextContent('ни Древа, ни River of Blood');
+  });
+});
+
+describe('PlaneInfo', () => {
+  it('«Боги и карточка» — только со входом openEntity, открывает карточку плана по ссылке', () => {
+    const plane = planeById('elysium')!;
+    const { unmount } = render(<PlaneInfo plane={plane} />);
+    expect(screen.queryByRole('button', { name: 'Боги и карточка' })).toBeNull();
+    unmount();
+    const open = vi.fn();
+    render(<OpenEntityContext.Provider value={open}><PlaneInfo plane={plane} /></OpenEntityContext.Provider>);
+    fireEvent.click(screen.getByRole('button', { name: 'Боги и карточка' }));
+    expect(open).toHaveBeenCalledWith('plane:elysium');
   });
 });

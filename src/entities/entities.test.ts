@@ -65,6 +65,26 @@ describe('справочник после загрузки', () => {
     expect(resolve(refsOf('monster').find(r => r.startsWith('monster:bf-'))!)!.source).toMatchObject({ kind: 'bf', license: 'CC-BY-4.0' });
   });
 
+  it('божество и боги плана — по эпохе: из ctx.era или из времени мира (сид — 1492 DR)', () => {
+    const at5 = resolve('deity:lathander')!;
+    expect(at5.facts.find(f => f.label === 'Дом')?.value).toBe('Elysium (Eronia)');
+    expect(at5.links.map(l => l.ref)).toEqual(expect.arrayContaining(['pantheon:faerunian-pantheon', 'plane:elysium', 'deity:amaunator']));
+    const at3 = resolve('deity:lathander', { era: '3e' })!;
+    expect(at3.facts.find(f => f.label === 'Дом')?.value).toBe('House of Nature');
+    expect(at3.links.map(l => l.ref)).toContain('plane:house-of-nature');
+    expect(resolve('deity:mystra')!.facts.find(f => f.label === 'Дом')?.value).toBe('Nirvana (по 2e)');
+    expect(resolve('deity:ao')!.subtitle).toBe('сверхбог');
+    expect(resolve('deity:ao')!.links.some(l => l.ref.startsWith('pantheon:'))).toBe(false);
+    expect(at5.links).toEqual(expect.arrayContaining([{ label: 'домен: Жизни', ref: 'subclass:jrec-jizni' }, { label: 'домен: Света', ref: 'subclass:jrec-sveta' }]));
+    expect(at3.links.some(l => l.ref.startsWith('subclass:'))).toBe(false);
+    expect(at3.facts.find(f => f.label === 'Святые дни')?.value).toBe('Any dawn, Midsummer morning, the equinoxes');
+    expect(resolve('plane:elysium')!.links.map(l => l.ref)).toContain('deity:lathander');
+    expect(resolve('plane:house-of-nature')!.links.map(l => l.ref)).toContain('deity:lathander');
+    const state = seedEngine().getState().state;
+    expect(resolve('deity:lathander', { state })).toBe(at5);
+    expect(resolve('pantheon:seldarine')!.links.map(l => l.ref)).toContain('deity:corellon');
+  });
+
   it('ссылки из состояния сида: актёры, места, фракции резолвятся, связи актёров ведут на справочник', () => {
     const state = seedEngine().getState().state;
     for (const k of STATE_KINDS) {

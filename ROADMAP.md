@@ -300,6 +300,8 @@ flowchart LR
 
 ### 2.1 Импорт богов и пантеонов (E1) — 2 захода
 
+*Сделано 28.10.2026 за один заход (HANDOFF §14). Отличия от плана: разбор не вынесен в `wikilib.py` — импорт берёт `clean`, `named_refs` и `refs_in` из `import-spelljammer.py`, как `import-planes.py`; пантеонов 65, а не около 20 (вики группирует и «Seelie Court», и «Nine trickster gods»); сила — строкой под именем; апофеоз и смерть — текстом.*
+
 - `scripts/import-deities.py <dump>` → `content/cosmos/deities.json` (кусок по требованию). Разбор — общий из `scripts/wikilib.py` (вынести из `import-planes.py`).
 - Поля по эпохе. Для 1492: 5eR → 5e → 4e → 3e → 2e → без редакции. Для 1372: 3e → 2e → без редакции. У значения — отметка редакции.
 - Поля:

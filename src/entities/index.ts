@@ -2,6 +2,8 @@
 // грузится через import() один раз. Данные, которые лист читает синхронно (компендиум, заклинания, монстры SRD),
 // ещё едут в основном куске; магические предметы и библиотеки монстров — уже отдельно (0.5). Виды состояния читаются
 // из переданного State.
+import { harptos } from '../campaign/calendar';
+import { eraOf, type Era } from '../campaign/era';
 import type { State } from '../engine';
 import { loadMonsterLibraries } from '../rules/srd/monsters';
 import type { Pack } from './pack';
@@ -18,7 +20,7 @@ const PACK_OF: Readonly<Record<ReferenceKind, PackId>> = {
   condition: 'rules', ability: 'rules', skill: 'rules', resource: 'rules', spell: 'rules', item: 'rules', monster: 'rules',
   race: 'compendium', subrace: 'compendium', trait: 'compendium', class: 'compendium', subclass: 'compendium',
   feature: 'compendium', feat: 'compendium', background: 'compendium',
-  plane: 'cosmos', body: 'cosmos', sphere: 'cosmos',
+  plane: 'cosmos', body: 'cosmos', sphere: 'cosmos', deity: 'cosmos', pantheon: 'cosmos',
   place: 'places',
 };
 
@@ -51,9 +53,13 @@ export const loadAll = (): Promise<void> => Promise.all((Object.keys(LOADERS) as
 export const isReady = (kind: EntityKind): boolean => isStateKind(kind) || loaded.has(PACK_OF[kind]);
 
 export interface ResolveContext {
-  /** Нужен для видов состояния: actor, location, faction, thread. */
+  /** Нужен для видов состояния: actor, location, faction, thread; его время мира даёт эпоху. */
   state?: State;
+  /** Эпоха без состояния; по умолчанию — из времени State, без него — 5e. */
+  era?: Era;
 }
+
+const eraOfContext = (ctx: ResolveContext): Era => ctx.era ?? (ctx.state ? eraOf(harptos(ctx.state.time.sec).year) : '5e');
 
 /**
  * Представление по ссылке. undefined — записи нет или пакет ещё не загружен (isReady различает); карточка в первом
@@ -63,7 +69,7 @@ export function resolve(value: EntityRef | string, ctx: ResolveContext = {}): En
   const p = parseRef(value);
   if (!p) return undefined;
   if (isStateKind(p.kind)) return ctx.state ? stateView(ctx.state, p.kind, p.id) : undefined;
-  return loaded.get(PACK_OF[p.kind])?.resolve(p.kind, p.id);
+  return loaded.get(PACK_OF[p.kind])?.resolve(p.kind, p.id, eraOfContext(ctx));
 }
 
 /** Все ссылки вида из загруженного пакета (или из State для видов состояния). */
