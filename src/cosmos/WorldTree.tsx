@@ -7,7 +7,8 @@
 import { useState, type ReactNode } from 'react';
 import { PlaneInfo } from './PlaneInfo';
 import { PLACE_LABEL, WORLD_TREE, portalsOf, riverOf, type Plane, type WorldTree as Tree } from './planes';
-import { Label, nodeProps, toward } from './svg';
+import type { RealmIndex } from './realms';
+import { Label, RealmCount, nodeProps, toward } from './svg';
 
 export interface WorldTreeProps {
   data?: Tree;
@@ -17,6 +18,8 @@ export interface WorldTreeProps {
   onOpen?: (plane: Plane) => void;
   /** Кнопки страницы над схемой (переключатель «Колесо / Древо»). */
   tools?: ReactNode;
+  /** Уделы богов по плану (E3): число в узле, список в карточке плана; нет — данные богов ещё грузятся. */
+  realms?: RealmIndex;
   children?: ReactNode;
   className?: string;
 }
@@ -29,6 +32,8 @@ const H = 800;
  */
 const FS = 22;
 const WRAP = 15;
+/** Число уделов в узле — Plex Mono: 20 единиц — около 12 точек на экране. */
+const MONO = 20;
 const NODE = 14;
 const TRUNK = 200;
 const M = { x: 510, y: 620 };
@@ -70,7 +75,7 @@ function riverPath(a: { x: number; y: number }, b: { x: number; y: number }): st
   return `M${a.x + Math.sign(out) * NODE},${a.y} C${a.x + out},${a.y} ${b.x + out},${b.y} ${b.x + Math.sign(out) * (NODE + 4)},${b.y}`;
 }
 
-export function WorldTree({ data = WORLD_TREE, current = 'material', canOpen, onOpen, tools, children, className = '' }: WorldTreeProps) {
+export function WorldTree({ data = WORLD_TREE, current = 'material', canOpen, onOpen, tools, realms, children, className = '' }: WorldTreeProps) {
   const [picked, setPicked] = useState(current);
   const byId = new Map(data.planes.map(p => [p.id, p]));
   const plane = byId.get(picked) ?? data.planes[0];
@@ -158,11 +163,12 @@ export function WorldTree({ data = WORLD_TREE, current = 'material', canOpen, on
             const ly = side === 'middle' ? pt.y + r + FS : pt.y + 7;
             return (
               <g key={p.id} {...nodeProps(p.id, p.name, hot(p.id), setPicked)}>
-                <title>{p.name}</title>
+                <title>{`${p.name}${realms?.(p.id).length ? ` · уделов богов: ${realms(p.id).length}` : ''}`}</title>
                 {/* Вне Древа — ромб, остальные — круг. */}
                 {p.kind === 'outside'
                   ? <rect x={pt.x - r * 0.8} y={pt.y - r * 0.8} width={1.6 * r} height={1.6 * r} transform={`rotate(45 ${pt.x} ${pt.y})`} fill="var(--pn)" stroke={stroke(p)} strokeWidth={width(p)} />
                   : <circle cx={pt.x} cy={pt.y} r={r} fill="var(--pn)" stroke={stroke(p)} strokeWidth={width(p)} />}
+                <RealmCount x={pt.x} y={pt.y} n={realms?.(p.id).length ?? 0} fs={MONO} hot={hot(p.id)} />
                 <Label fs={FS} x={lx} y={ly} text={short(p)} anchor={side} strong={hot(p.id)} wrap={side === 'middle' && !big ? (p.kind === 'celestial' ? 10 : WRAP) : undefined} />
               </g>
             );
@@ -176,7 +182,7 @@ export function WorldTree({ data = WORLD_TREE, current = 'material', canOpen, on
           <span title={note(data.notes.ethereal)}>┈ сосуществуют</span>
           <span className="text-t3">⋯ порталы выбранного плана</span>
         </div>
-        <PlaneInfo plane={plane} canOpen={canOpen} onOpen={onOpen}>
+        <PlaneInfo plane={plane} canOpen={canOpen} onOpen={onOpen} realms={realms?.(plane.id)}>
           {role ? <p className="type-body-sm text-t2" data-part="tree-role" title={note(role.q)}>{role.text}</p> : null}
           {river ? (
             <p className="type-body-sm text-t2" data-part="tree-river" title={note(data.river)}>

@@ -174,3 +174,14 @@ export function serviceOf(d: Deity, era: Era): Service {
     aspects: list([...(d.aspects ?? []), ...DEITIES.filter(x => x.aspects?.includes(d.id)).map(x => x.id)]),
   };
 }
+
+/** Удел бога на плане: бог и имя его владения, если вики его даёт («Morninglory»). */
+export interface PlaneRealm { deity: string; name: string; realm?: string }
+
+/** Уделы плана в эпоху — боги плана (deitiesOfPlane) с владением по той же эпохе. */
+export function realmsOfPlane(planeId: string, era: Era): PlaneRealm[] {
+  return deitiesOfPlane(planeId, era).map(d => {
+    const realm = fieldAt(d, 'realm', era)?.cell.t;
+    return { deity: d.id, name: d.name, ...(realm ? { realm } : {}) };
+  });
+}

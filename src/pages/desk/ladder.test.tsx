@@ -1,5 +1,5 @@
 // Лестница масштабов и её уровни: карта мира, справочник мест, глобус, космос.
-import { act, fireEvent, screen, within } from '@testing-library/react';
+import { act, fireEvent, screen, waitFor, within } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { secOf, seedState } from '../../campaign';
 import { createEngineStore, memoryStore } from '../../engine';
@@ -308,6 +308,22 @@ describe('космос: планетарий и течения флогисто�
     expect(screen.getByRole('img', { name: /^Флогистон/ })).toBeInTheDocument();
     expect(store.getState().events.length).toBe(before);
   });
+
+  it('уделы богов (E3): после загрузки — число в узле Elysium, в карточке плана — «Morninglory — Lathander», щелчок открывает бога; событий нет', async () => {
+    const { store } = mount();
+    const before = store.getState().events.length;
+    toLevel('cosmology');
+    const wheel = screen.getByRole('img', { name: /^Великое колесо/ });
+    await waitFor(() => expect(wheel.querySelector('[data-plane="elysium"] [data-realms]')).not.toBeNull(), { timeout: 10000 });
+    fireEvent.click(screen.getByRole('button', { name: 'Elysium' }));
+    fireEvent.click(screen.getByRole('button', { name: /^Уделы богов/ }));
+    const list = screen.getByRole('list', { name: 'Уделы богов: Elysium' });
+    expect(within(list).getAllByRole('listitem')).toHaveLength(Number(wheel.querySelector('[data-plane="elysium"] [data-realms]')!.textContent));
+    fireEvent.click(within(list).getByRole('button', { name: 'Morninglory — Lathander' }));
+    expect(await screen.findByRole('region', { name: 'Lathander' }, { timeout: 10000 })).toHaveTextContent('Божество');
+    expect(store.getState().events.length).toBe(before);
+  // Данные богов — отдельный кусок: под полным прогоном импорт дольше пяти секунд по умолчанию.
+  }, 20000);
 
   it('год кампании задаёт линзу по умолчанию (ROADMAP 0.6): в 1372 DR космология открывается Великим древом', () => {
     const seed = seedState();

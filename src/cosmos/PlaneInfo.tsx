@@ -1,10 +1,11 @@
 // Карточка плана (HANDOFF §3, уровень «план»): вид и мировоззрение, свойства модели Великого колеса по-русски
 // (дословное значение вики — в подсказке), слои, город-врата Outlands, книга и ссылка на статью. Тупой компонент:
-// план и что открывать ниже по лестнице даёт страница. Кнопка «Боги и карточка» — общая карточка плана по ссылке
-// (боги плана по эпохе кампании), если страница дала вход openEntity.
-import type { ReactNode } from 'react';
+// план и что открывать ниже по лестнице даёт страница. Уделы богов (E3) — списком «владение — бог», щелчок открывает
+// бога; кнопка «Карточка» — общая карточка плана по ссылке. Оба — если страница дала вход openEntity.
+import { useState, type ReactNode } from 'react';
 import { useOpenEntity } from '../components/openEntity';
 import { ref } from '../entities/ref';
+import type { PlaneRealm } from './realms';
 import { ALIGNMENT_LABEL, PLANE_KIND_LABEL, TRAIT_ROWS, alignmentLabel, type GateTown, type Plane } from './planes';
 
 export interface PlaneInfoProps {
@@ -13,13 +14,17 @@ export interface PlaneInfoProps {
   onOpen?: (plane: Plane) => void;
   /** Город-врата Outlands к плану (Великое колесо). */
   gate?: GateTown;
+  /** Уделы богов плана по эпохе кампании (E3); нет — данные богов ещё грузятся или богов нет. */
+  realms?: readonly PlaneRealm[];
   /** Связи плана в своей модели — строками под свойствами. */
   children?: ReactNode;
   className?: string;
 }
 
-export function PlaneInfo({ plane, canOpen, onOpen, gate, children, className = '' }: PlaneInfoProps) {
+export function PlaneInfo({ plane, canOpen, onOpen, gate, realms, children, className = '' }: PlaneInfoProps) {
   const openEntity = useOpenEntity();
+  // Список уделов свёрнут: у Abyss и Arborea их десятки, раскрытый список поднимал бы карточку и сжимал схему.
+  const [realmsOpen, setRealmsOpen] = useState(false);
   const neutralOnly = plane.alignment.length === 1 && plane.alignment[0] === 'N' && plane.kind !== 'outer' && plane.kind !== 'realm';
   return (
     <div data-part="plane-info" aria-live="polite" className={`flex flex-col gap-1.5 px-3 py-2 bg-pn shadow-bevel max-w-full ${className}`}>
@@ -39,11 +44,11 @@ export function PlaneInfo({ plane, canOpen, onOpen, gate, children, className = 
         {openEntity ? (
           <button
             type="button"
-            title={`Открыть карточку: ${plane.name} — боги плана, свойства, источник`}
+            title={`Открыть карточку: ${plane.name} — свойства, боги, источник`}
             onClick={() => openEntity(ref('plane', plane.id))}
             className="type-num-12 uppercase px-2 py-1 bg-cd shadow-bevel text-t2 cursor-pointer hover:text-tx focus-visible:shadow-[var(--bevel),var(--glow-gold)]"
           >
-            Боги и карточка
+            Карточка
           </button>
         ) : null}
       </div>
@@ -80,6 +85,41 @@ export function PlaneInfo({ plane, canOpen, onOpen, gate, children, className = 
           </div>
         ) : null}
       </dl>
+      {realms && realms.length > 0 ? (
+        <div className="flex flex-col gap-1" data-part="realms">
+          <button
+            type="button"
+            aria-expanded={realmsOpen}
+            title={realmsOpen ? 'Свернуть уделы богов' : 'Показать уделы богов: щелчок по уделу открывает бога'}
+            onClick={() => setRealmsOpen(o => !o)}
+            className="self-start flex items-baseline gap-1 type-body-sm text-t2 cursor-pointer hover:text-tx focus-visible:shadow-[var(--glow-gold)]"
+          >
+            <span aria-hidden>{realmsOpen ? '▾' : '▸'}</span>
+            Уделы богов <span className="type-num-12">{realms.length}</span>
+          </button>
+          {realmsOpen ? (
+            <ul aria-label={`Уделы богов: ${plane.name}`} className="flex flex-wrap gap-1 max-h-[84px] overflow-y-auto">
+              {realms.map(r => {
+                const label = r.realm ? `${r.realm} — ${r.name}` : r.name;
+                return (
+                  <li key={r.deity} className="max-w-full">
+                    {openEntity ? (
+                      <button
+                        type="button"
+                        title={`Открыть карточку: ${r.name}`}
+                        onClick={() => openEntity(ref('deity', r.deity))}
+                        className="block max-w-[320px] truncate px-1.5 py-0.5 type-body-sm text-tx bg-linear-to-b from-pl to-cd shadow-bevel cursor-pointer hover:text-gd-hi focus-visible:shadow-[var(--bevel),var(--glow-gold)]"
+                      >
+                        {label}
+                      </button>
+                    ) : <span className="block max-w-[320px] truncate px-1.5 py-0.5 type-body-sm text-t2 bg-cd shadow-bevel-in" title={label}>{label}</span>}
+                  </li>
+                );
+              })}
+            </ul>
+          ) : null}
+        </div>
+      ) : null}
       {children}
       <span className="flex flex-wrap gap-3 type-body-sm text-t3">
         <a href={plane.url} target="_blank" rel="noreferrer" title="Свойства — поля карточки плана, CC BY-SA 3.0" className="underline hover:text-tx">

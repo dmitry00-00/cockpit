@@ -121,14 +121,34 @@ describe('WorldTree', () => {
 });
 
 describe('PlaneInfo', () => {
-  it('«Боги и карточка» — только со входом openEntity, открывает карточку плана по ссылке', () => {
+  it('«Карточка» и уделы-кнопки — только со входом openEntity: карточка плана и бог по щелчку на уделе', () => {
     const plane = planeById('elysium')!;
-    const { unmount } = render(<PlaneInfo plane={plane} />);
-    expect(screen.queryByRole('button', { name: 'Боги и карточка' })).toBeNull();
+    const realms = [{ deity: 'lathander', name: 'Lathander', realm: 'Morninglory' }, { deity: 'chauntea', name: 'Chauntea' }];
+    const { unmount } = render(<PlaneInfo plane={plane} realms={realms} />);
+    expect(screen.queryByRole('button', { name: 'Карточка' })).toBeNull();
+    // Свёрнут: строка с числом, список — по щелчку.
+    expect(screen.queryByRole('list', { name: 'Уделы богов: Elysium' })).toBeNull();
+    fireEvent.click(screen.getByRole('button', { name: /Уделы богов 2/ }));
+    expect(screen.getByRole('list', { name: 'Уделы богов: Elysium' })).toHaveTextContent('Morninglory — Lathander');
+    expect(screen.queryAllByRole('button', { name: /^Открыть карточку/ })).toHaveLength(0);
     unmount();
     const open = vi.fn();
-    render(<OpenEntityContext.Provider value={open}><PlaneInfo plane={plane} /></OpenEntityContext.Provider>);
-    fireEvent.click(screen.getByRole('button', { name: 'Боги и карточка' }));
-    expect(open).toHaveBeenCalledWith('plane:elysium');
+    render(<OpenEntityContext.Provider value={open}><PlaneInfo plane={plane} realms={realms} /></OpenEntityContext.Provider>);
+    fireEvent.click(screen.getByRole('button', { name: 'Карточка' }));
+    fireEvent.click(screen.getByRole('button', { name: /Уделы богов 2/ }));
+    expect(open).toHaveBeenLastCalledWith('plane:elysium');
+    fireEvent.click(screen.getByRole('button', { name: 'Morninglory — Lathander' }));
+    expect(open).toHaveBeenLastCalledWith('deity:lathander');
+  });
+
+  it('уделы на схемах: число в узле плана Plex Mono, ноль не рисуется; без данных — без чисел', () => {
+    const realms = (id: string) => (id === 'elysium' ? [{ deity: 'lathander', name: 'Lathander' }, { deity: 'chauntea', name: 'Chauntea' }] : []);
+    const { unmount } = render(<GreatWheel realms={realms} />);
+    const wheel = screen.getByRole('img', { name: /^Великое колесо/ });
+    expect(wheel.querySelector('[data-plane="elysium"] [data-realms]')).toHaveTextContent('2');
+    expect(wheel.querySelector('[data-plane="bytopia"] [data-realms]')).toBeNull();
+    unmount();
+    render(<WorldTree realms={id => (id === 'house-of-nature' ? [{ deity: 'lathander', name: 'Lathander' }] : [])} />);
+    expect(screen.getByRole('img', { name: /^Великое древо/ }).querySelector('[data-plane="house-of-nature"] [data-realms]')).toHaveTextContent('1');
   });
 });

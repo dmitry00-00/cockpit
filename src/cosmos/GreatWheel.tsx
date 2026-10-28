@@ -8,7 +8,8 @@
 import { useState, type ReactNode } from 'react';
 import { GREAT_WHEEL, planeById, ringAngle, ringPlanes, gateOf, type GreatWheel as Wheel, type Plane } from './planes';
 import { PlaneInfo } from './PlaneInfo';
-import { Label, nodeProps, toward } from './svg';
+import type { RealmIndex } from './realms';
+import { Label, RealmCount, nodeProps, toward } from './svg';
 
 export interface GreatWheelProps {
   data?: Wheel;
@@ -18,6 +19,8 @@ export interface GreatWheelProps {
   onOpen?: (plane: Plane) => void;
   /** Кнопки страницы над схемой (переключатель «Колесо / Древо»). */
   tools?: ReactNode;
+  /** Уделы богов по плану (E3): число в узле, список в карточке плана; нет — данные богов ещё грузятся. */
+  realms?: RealmIndex;
   children?: ReactNode;
   className?: string;
 }
@@ -44,8 +47,10 @@ const ASTRAL_TO = (() => {
 const short = (p: Plane) => p.name.replace(/^Elemental /, '');
 /** Кегль в единицах схемы: зона уровня рядом с корешками — около 460 точек на 680 единиц, 19 единиц — 13 точек. */
 const FS = 19;
+/** Число уделов в узле — Plex Mono, 18 единиц: около 12 точек на экране. */
+const MONO = 18;
 
-export function GreatWheel({ data = GREAT_WHEEL, current = 'material', canOpen, onOpen, tools, children, className = '' }: GreatWheelProps) {
+export function GreatWheel({ data = GREAT_WHEEL, current = 'material', canOpen, onOpen, tools, realms, children, className = '' }: GreatWheelProps) {
   const [picked, setPicked] = useState(current);
   const plane = planeById(picked, data) ?? data.planes[0];
   const ring = ringPlanes(data);
@@ -63,6 +68,8 @@ export function GreatWheel({ data = GREAT_WHEEL, current = 'material', canOpen, 
   const sigil = planeById('sigil', data);
   const material = planeById('material', data);
   const hot = (id: string) => id === plane.id;
+  const count = (p: Plane) => realms?.(p.id).length ?? 0;
+  const realmNote = (p: Plane) => (count(p) ? ` · уделов богов: ${count(p)}` : '');
 
   return (
     <div className={`relative flex min-h-0 bg-wl ${className}`} data-part="great-wheel">
@@ -104,8 +111,9 @@ export function GreatWheel({ data = GREAT_WHEEL, current = 'material', canOpen, 
             const ly = y + s * (NODE + 10) + (Math.abs(c) <= 0.3 ? (s < 0 ? -2 : 10) : 4);
             return (
               <g key={p.id} {...node(p)}>
-                <title>{`${p.name}: ${p.alignment.join(' / ')}${gateOf(p.id, data) ? ` · врата ${gateOf(p.id, data)!.town}` : ''}`}</title>
+                <title>{`${p.name}: ${p.alignment.join(' / ')}${gateOf(p.id, data) ? ` · врата ${gateOf(p.id, data)!.town}` : ''}${realmNote(p)}`}</title>
                 <circle cx={x} cy={y} r={NODE} fill="var(--pn)" stroke={stroke(p)} strokeWidth={width(p)} />
+                <RealmCount x={x} y={y} n={count(p)} fs={MONO} hot={hot(p.id)} />
                 <Label fs={FS} x={lx} y={ly} text={p.name} anchor={anchor} strong={hot(p.id)} />
               </g>
             );
@@ -113,8 +121,9 @@ export function GreatWheel({ data = GREAT_WHEEL, current = 'material', canOpen, 
 
           {outlands ? (
             <g {...node(outlands)}>
-              <title>{`${outlands.name} — в середине кольца, врата ко всем внешним планам`}</title>
+              <title>{`${outlands.name} — в середине кольца, врата ко всем внешним планам${realmNote(outlands)}`}</title>
               <circle cx={C.x} cy={C.y} r={32} fill="var(--pn)" stroke={stroke(outlands)} strokeWidth={width(outlands)} />
+              <RealmCount x={C.x} y={C.y + 19} n={count(outlands)} fs={MONO} hot={hot(outlands.id)} />
               <Label fs={FS} x={C.x} y={C.y + 52} text={outlands.name} strong={hot(outlands.id)} />
             </g>
           ) : null}
@@ -135,8 +144,9 @@ export function GreatWheel({ data = GREAT_WHEEL, current = 'material', canOpen, 
                 <title>{`${link('astral')?.quote ?? ''} — ${link('astral')?.ref ?? 'вики'}`}</title>
               </line>
               <g {...node(astral)}>
-                <title>{`${astral.name}: ${link('astral')?.quote ?? ''}`}</title>
+                <title>{`${astral.name}: ${link('astral')?.quote ?? ''}${realmNote(astral)}`}</title>
                 <circle cx={ASTRAL.x} cy={ASTRAL.y} r={NODE} fill="var(--pn)" stroke={stroke(astral)} strokeWidth={width(astral)} />
+                <RealmCount x={ASTRAL.x} y={ASTRAL.y} n={count(astral)} fs={MONO} hot={hot(astral.id)} />
                 <Label fs={FS} x={ASTRAL.x} y={ASTRAL.y + NODE + 16} text={astral.name} strong={hot(astral.id)} />
               </g>
             </>
@@ -159,8 +169,9 @@ export function GreatWheel({ data = GREAT_WHEEL, current = 'material', canOpen, 
               <g key={id}>
                 <line data-link={echo ? 'echo' : 'ethereal'} {...l} stroke="var(--t2)" strokeWidth={1.5} strokeDasharray={echo ? '1 4' : '4 4'} />
                 <g {...node(p)}>
-                  <title>{p.name}</title>
+                  <title>{`${p.name}${realmNote(p)}`}</title>
                   <circle cx={pt.x} cy={pt.y} r={NODE} fill="var(--pn)" stroke={stroke(p)} strokeWidth={width(p)} />
+                  <RealmCount x={pt.x} y={pt.y} n={count(p)} fs={MONO} hot={hot(p.id)} />
                   <Label fs={FS} x={pt.x} y={below ? pt.y + NODE + 16 : pt.y - NODE - 8} text={short(p)} strong={hot(p.id)} />
                 </g>
               </g>
@@ -168,8 +179,9 @@ export function GreatWheel({ data = GREAT_WHEEL, current = 'material', canOpen, 
           })}
           {material ? (
             <g {...node(material)}>
-              <title>{material.name}</title>
+              <title>{`${material.name}${realmNote(material)}`}</title>
               <circle cx={M.x} cy={M.y} r={18} fill="var(--pn)" stroke={stroke(material)} strokeWidth={width(material)} />
+              <RealmCount x={M.x} y={M.y} n={count(material)} fs={MONO} hot={hot(material.id)} />
               <Label fs={FS} x={M.x} y={M.y + 44} text={material.name} strong={hot(material.id)} />
             </g>
           ) : null}
@@ -184,7 +196,7 @@ export function GreatWheel({ data = GREAT_WHEEL, current = 'material', canOpen, 
             {`между соседними вратами — ${data.outlands.travelDays[0]}–${data.outlands.travelDays[1]} дней пути`}
           </span>
         </div>
-        <PlaneInfo plane={plane} gate={gateOf(plane.id, data)} canOpen={canOpen} onOpen={onOpen} />
+        <PlaneInfo plane={plane} gate={gateOf(plane.id, data)} canOpen={canOpen} onOpen={onOpen} realms={realms?.(plane.id)} />
       </div>
     </div>
   );

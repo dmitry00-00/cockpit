@@ -2,7 +2,7 @@
 // новее эпохи, образцы сверены с карточками вики (Lathander, Ao, Mystra, Lolth).
 import { describe, expect, it } from 'vitest';
 import { EDITION_ORDER } from '../campaign/era';
-import { DEITIES, PANTHEONS, alignmentRu, domainSubclasses, deitiesOfPlane, deityById, editionNote, fieldAt, homePlanesAt, pantheonById, powerLabel } from './deities';
+import { DEITIES, PANTHEONS, alignmentRu, domainSubclasses, deitiesOfPlane, deityById, editionNote, fieldAt, homePlanesAt, pantheonById, powerLabel, realmsOfPlane } from './deities';
 import { GREAT_WHEEL, WORLD_TREE } from './planes';
 
 const PLANES = new Set([...GREAT_WHEEL.planes, ...WORLD_TREE.planes].map(p => p.id));
@@ -53,6 +53,12 @@ describe('значение по эпохе', () => {
     expect(deitiesOfPlane('house-of-nature', '5e').map(d => d.id)).toContain('lathander');
     expect(deitiesOfPlane('house-of-the-triad', '5e').map(d => d.id)).toContain('tyr');
     expect(deitiesOfPlane('celestia', '5e').map(d => d.id)).toContain('tyr');
+    // Удел — бог плана с владением той же эпохи: в 1492 у Lathander владение по 3e — Morninglory.
+    expect(realmsOfPlane('elysium', '5e')).toContainEqual({ deity: 'lathander', name: 'Lathander', realm: 'Morninglory' });
+    expect(realmsOfPlane('elysium', '5e').length).toBe(deitiesOfPlane('elysium', '5e').length);
+    // ROADMAP 2.3: на Древе у Arvandor — Corellon (поле 3e), и в 1492 DR тоже — Древо берёт дом по 3e.
+    expect(realmsOfPlane('arvandor', '3e').map(r => r.deity)).toContain('corellon');
+    expect(realmsOfPlane('arvandor', '5e').map(r => r.deity)).toContain('corellon');
   });
 
   it('эпоха не берёт фактов новее себя; чужая редакция помечена', () => {

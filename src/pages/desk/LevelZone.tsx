@@ -3,6 +3,7 @@
 // карточка страницы лежат поверх слева. Ключ — уровень и фокус: переход — одна анимация приближения на 200 мс.
 // Вид (глобус или карта, колесо или древо) держит страница: он переживает смену вида главной зоны.
 import type { ReactNode } from 'react';
+import { eraOf, harptos } from '../../campaign';
 import { placeEntityType } from '../../components';
 import { SECONDS_PER_DAY, jumpTo, selectPlace, type Ladder, type Location, type State } from '../../engine';
 import { FlowGraph } from '../../cosmos/FlowGraph';
@@ -11,6 +12,7 @@ import { PlaneInfo } from '../../cosmos/PlaneInfo';
 import { Planetarium } from '../../cosmos/Planetarium';
 import { PHLOGISTON, sphereByName } from '../../cosmos/phlogiston';
 import { COSMOLOGY_NAMES, planeOfLocation } from '../../cosmos/planes';
+import { useRealms } from '../../cosmos/realms';
 import { REALMSPACE } from '../../cosmos/realmspace';
 import { WorldTree } from '../../cosmos/WorldTree';
 import { exploredOf } from '../../map/fog';
@@ -84,6 +86,8 @@ export function LevelZone({
   // Космология — Великое колесо кольцом по мировоззрению; план — его карточка (у Материального — рядом со схемой течений).
   const wheelOn = ladder.level === 'cosmology' && !!focus && COSMOLOGY_NAMES.includes(focus.name);
   const planeHere = ladder.level === 'plane' && focus ? planeOfLocation(focus.name) : undefined;
+  // Уделы богов (E3) — по году кампании; данные богов грузятся, только когда на экране схема или план.
+  const realms = useRealms(eraOf(harptos(state.time.sec).year), wheelOn || !!planeHere);
   const pathPlane = ladder.path.plane ? state.world.locations[ladder.path.plane] : undefined;
   const wheelCurrent = (pathPlane && planeOfLocation(pathPlane.name)?.id) ?? 'material';
   const planeChild = (name: string) => here.find(l => planeOfLocation(l.name)?.name === name);
@@ -163,6 +167,7 @@ export function LevelZone({
             current={wheelCurrent}
             canOpen={p => !!planeChild(p.name)}
             onOpen={p => openChild(planeChild(p.name)!.name)}
+            realms={realms}
             className="flex-1 min-h-0"
           >
             {stacks}
@@ -174,7 +179,7 @@ export function LevelZone({
     ) : planeSphere ? (
     <div key={`${ladder.level}:${focus?.id ?? ''}`} data-part="level-zone" className="level-zoom flex-1 min-h-0 flex">
       <FlowGraph
-        plane={planeHere ? <PlaneInfo plane={planeHere} /> : undefined}
+        plane={planeHere ? <PlaneInfo plane={planeHere} realms={realms?.(planeHere.id)} /> : undefined}
         current={planeSphere.id}
         canOpen={sp => here.some(l => l.name === sp.name)}
         onOpen={sp => openChild(sp.name)}
@@ -188,7 +193,7 @@ export function LevelZone({
     <div key={`${ladder.level}:${focus?.id ?? ''}`} data-part="level-zone" className="level-zoom flex-1 min-h-0 flex items-start gap-4 p-4 overflow-auto">
       {stacks}
       {shownCard}
-      {planeHere ? <PlaneInfo plane={planeHere} className="max-w-xl" /> : null}
+      {planeHere ? <PlaneInfo plane={planeHere} realms={realms?.(planeHere.id)} className="max-w-xl" /> : null}
     </div>
   );
 }

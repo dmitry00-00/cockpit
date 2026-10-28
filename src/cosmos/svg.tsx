@@ -70,3 +70,13 @@ export function toward(a: { x: number; y: number }, b: { x: number; y: number },
   const dx = b.x - a.x, dy = b.y - a.y, len = Math.hypot(dx, dy) || 1;
   return { x1: a.x + (dx / len) * from, y1: a.y + (dy / len) * from, x2: b.x - (dx / len) * to, y2: b.y - (dy / len) * to };
 }
+
+/** Число уделов богов в узле плана — Plex Mono; ноль не рисуется. */
+export function RealmCount({ x, y, n, fs, hot }: { x: number; y: number; n: number; fs: number; hot?: boolean }) {
+  if (n <= 0) return null;
+  return (
+    <text x={x} y={y + fs * 0.36} textAnchor="middle" data-realms={n} fill={hot ? 'var(--tx)' : 'var(--t2)'} style={{ fontFamily: 'var(--font-mono)', fontSize: fs }}>
+      {n}
+    </text>
+  );
+}
