@@ -47,7 +47,7 @@ describe('справочник после загрузки', () => {
     const broken: string[] = [];
     const linksOf = (r: EntityRef) => {
       const v = resolve(r)!;
-      return [...v.links, ...[...(v.diagram?.above ?? []), ...(v.diagram?.below ?? [])].flatMap(g => g.links)];
+      return [...v.links, ...[...(v.diagram?.above ?? []), ...(v.diagram?.below ?? []), ...(v.groups ?? [])].flatMap(g => g.links)];
     };
     for (const r of all()) for (const l of linksOf(r)) if (!isStateKind(parseRef(l.ref)!.kind) && !resolve(l.ref)) broken.push(`${r} → ${l.ref}`);
     expect(broken).toEqual([]);
@@ -97,6 +97,24 @@ describe('справочник после загрузки', () => {
     expect(at5.diagram!.below).toEqual([{ title: 'Аспекты', links: [{ label: 'Amaunator', ref: 'deity:amaunator' }], dashed: true }]);
     expect(at5.links.map(l => l.ref)).not.toContain('deity:amaunator');
     expect(resolve('deity:ao')!.facts.find(f => f.label === 'Служит')?.value).toBe('Luminous being (по 2e)');
+  });
+
+  it('NPC вики (E9): карточка с домом и богом; жители места — живые в год кампании (Khelben умер в 1374 DR)', () => {
+    const mirt = resolve('person:mirt')!;
+    expect(mirt.subtitle).toBe('Human · Moneylender; Masked Lord');
+    const waterdeep = mirt.links.find(l => l.ref.startsWith('place:'))!;
+    expect(waterdeep.label).toBe('Waterdeep');
+    const elminster = resolve('person:elminster')!;
+    expect(elminster.links).toContainEqual({ label: 'Mystra', ref: 'deity:mystra' });
+    expect(elminster.facts.find(f => f.label === 'Годы')?.value).toBe('212 — DR · в 1492 DR жив');
+    const khelben = resolve('person:khelben-arunsun', { year: 1372 })!;
+    expect(khelben.facts.find(f => f.label === 'Годы')?.value).toBe('414–1374 DR · в 1372 DR жив');
+    const residents = (year: number) => resolve(waterdeep.ref, { year })!.groups![0];
+    expect(residents(1492).title).toBe('Жители в 1492 DR');
+    expect(residents(1492).links.map(l => l.ref)).toContain('person:mirt');
+    expect(residents(1492).links.map(l => l.ref)).not.toContain('person:khelben-arunsun');
+    expect(residents(1372).links.map(l => l.ref)).toContain('person:khelben-arunsun');
+    expect(resolve('person:drizzt-do-urden')!.facts.find(f => f.label === 'Бог')).toBeUndefined();
   });
 
   it('ссылки из состояния сида: актёры, места, фракции резолвятся, связи актёров ведут на справочник', () => {

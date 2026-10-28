@@ -1,7 +1,9 @@
 // Тело карточки любой сущности по ссылке (ROADMAP 0.3): строка под именем, паспорт фактами, текст источника
-// секциями — дословно, схема окрестности (служение бога), связи кнопками (щелчок открывает карточку связи), источник
-// с лицензией внизу. Тупой: представление и колбэк — пропсами; тексты не переписываются и не переводятся.
-import type { EntityKind, EntityView } from '../entities';
+// секциями — дословно, схема окрестности (служение бога), связи кнопками (щелчок открывает карточку связи), длинные
+// списки связей (жители места) — свёрнутыми группами с числом, источник с лицензией внизу. Тупой: представление и
+// колбэк — пропсами; тексты не переписываются и не переводятся.
+import { useState } from 'react';
+import type { EntityGroup, EntityKind, EntityView } from '../entities';
 import { Icon } from '../icons/Icon';
 import { NeighborhoodGraph } from './NeighborhoodGraph';
 import type { EntityType } from './EntityCard';
@@ -16,10 +18,36 @@ export function cardTypeOf(kind: EntityKind): EntityType {
     case 'deity': case 'pantheon': return 'deity';
     case 'place': case 'location': return 'location';
     case 'faction': return 'faction';
-    case 'actor': return 'npc';
+    case 'actor': case 'person': return 'npc';
     case 'thread': return 'event';
     default: return 'rule';
   }
+}
+
+const LINK_BTN = 'px-1.5 py-0.5 type-body-sm text-tx bg-linear-to-b from-pl to-cd shadow-bevel cursor-pointer hover:text-gd-hi focus-visible:shadow-[var(--bevel),var(--glow-gold)]';
+
+/** Свёрнутая группа связей: строка «Жители в 1492 DR 640», по щелчку — список с прокруткой. */
+export function GroupList({ group, onOpen }: { group: EntityGroup; onOpen?: EntityViewBodyProps['onOpen'] }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="flex flex-col gap-1" data-part="group">
+      <button type="button" aria-expanded={open} onClick={() => setOpen(o => !o)} className="self-start flex items-baseline gap-1 type-body-sm text-t2 cursor-pointer hover:text-tx focus-visible:shadow-[var(--glow-gold)]">
+        <span aria-hidden>{open ? '▾' : '▸'}</span>
+        {group.title} <span className="type-num-12">{group.links.length}</span>
+      </button>
+      {open ? (
+        <ul aria-label={group.title} className="flex flex-wrap gap-1 max-h-48 overflow-y-auto">
+          {group.links.map(l => (
+            <li key={l.ref}>
+              {onOpen
+                ? <button type="button" onClick={() => onOpen(l.ref)} title={`Открыть: ${l.label}`} className={LINK_BTN}>{l.label}</button>
+                : <span className="px-1.5 py-0.5 type-body-sm text-t2 bg-cd shadow-bevel-in">{l.label}</span>}
+            </li>
+          ))}
+        </ul>
+      ) : null}
+    </div>
+  );
 }
 
 export interface EntityViewBodyProps {
@@ -51,6 +79,7 @@ export function EntityViewBody({ view, onOpen, className = '' }: EntityViewBodyP
         </section>
       ))}
       {view.diagram ? <NeighborhoodGraph name={view.name} diagram={view.diagram} onOpen={onOpen} /> : null}
+      {view.groups?.map(g => <GroupList key={g.title} group={g} onOpen={onOpen} />)}
       {view.links.length > 0 ? (
         <ul aria-label="Связи" className="flex flex-wrap gap-1" data-part="links">
           {view.links.map(l => (
@@ -60,7 +89,7 @@ export function EntityViewBody({ view, onOpen, className = '' }: EntityViewBodyP
                   type="button"
                   onClick={() => onOpen(l.ref)}
                   title={`Открыть: ${l.label}`}
-                  className="px-1.5 py-0.5 type-body-sm text-tx bg-linear-to-b from-pl to-cd shadow-bevel cursor-pointer hover:text-gd-hi focus-visible:shadow-[var(--bevel),var(--glow-gold)]"
+                  className={LINK_BTN}
                 >
                   {l.label}
                 </button>

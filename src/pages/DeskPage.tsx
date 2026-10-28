@@ -713,6 +713,8 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
           pending={dmView ? pendingFor(state, focus.id) : []}
           facts={state.facts}
           onReveal={dmView && focus.geo ? () => api.revealPlace(focus.id) : undefined}
+          residentsYear={dmView ? harptos(state.time.sec).year : undefined}
+          onOpenEntity={openEntity}
         />
       ) : current === 'dm' ? <DmTab subjectId={focus.id} facts={state.facts} /> : null}
     </EntityCard>
@@ -757,7 +759,7 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
   ) : cardOf.kind === 'place' && focus ? (
     <EntityCard {...placeCardProps(focus, { pending: pendingIds.has(focus.id), dmFacts: dmView ? dmFactsAbout(focus.id, state.facts).length : 0 })} overlay activeTab={tab} onTab={setTab} dmView={dmView} className="max-h-full">
       {(current: string) => current === 'overview' ? (
-        <PlaceOverview place={focus} parent={focusParent} onOpenParent={focusParent ? () => { setCardOverlay(false); goLadder(selectPlace(state, ladder, focusParent.id)); } : undefined} pending={dmView ? pendingFor(state, focus.id) : []} facts={state.facts} />
+        <PlaceOverview place={focus} parent={focusParent} onOpenParent={focusParent ? () => { setCardOverlay(false); goLadder(selectPlace(state, ladder, focusParent.id)); } : undefined} pending={dmView ? pendingFor(state, focus.id) : []} facts={state.facts} residentsYear={dmView ? harptos(state.time.sec).year : undefined} onOpenEntity={r => { setCardOverlay(false); openEntity(r); }} />
       ) : current === 'dm' ? <DmTab subjectId={focus.id} facts={state.facts} /> : null}
     </EntityCard>
   ) : cardOf.kind === 'entity' && entityView && entityView !== 'loading' ? (

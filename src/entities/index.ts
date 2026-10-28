@@ -2,7 +2,7 @@
 // грузится через import() один раз. Данные, которые лист читает синхронно (компендиум, заклинания, монстры SRD),
 // ещё едут в основном куске; магические предметы и библиотеки монстров — уже отдельно (0.5). Виды состояния читаются
 // из переданного State.
-import { harptos } from '../campaign/calendar';
+import { EPOCH_YEAR, harptos } from '../campaign/calendar';
 import { eraOf, type Era } from '../campaign/era';
 import type { State } from '../engine';
 import { loadMonsterLibraries } from '../rules/srd/monsters';
@@ -16,7 +16,7 @@ export {
   missingView, type EntityDiagram, type EntityFact, type EntityGroup, type EntityLink, type EntitySection, type EntitySource, type EntityView, type SourceKind,
 } from './view';
 
-type PackId = 'rules' | 'compendium' | 'cosmos' | 'places';
+type PackId = 'rules' | 'compendium' | 'cosmos' | 'places' | 'people';
 
 const PACK_OF: Readonly<Record<ReferenceKind, PackId>> = {
   condition: 'rules', ability: 'rules', skill: 'rules', resource: 'rules', spell: 'rules', item: 'rules', monster: 'rules',
@@ -24,6 +24,7 @@ const PACK_OF: Readonly<Record<ReferenceKind, PackId>> = {
   feature: 'compendium', feat: 'compendium', background: 'compendium',
   plane: 'cosmos', body: 'cosmos', sphere: 'cosmos', deity: 'cosmos', pantheon: 'cosmos',
   place: 'places',
+  person: 'people',
 };
 
 const LOADERS: Readonly<Record<PackId, () => Promise<Pack>>> = {
@@ -31,6 +32,7 @@ const LOADERS: Readonly<Record<PackId, () => Promise<Pack>>> = {
   compendium: () => import('./packs/compendium').then(m => m.PACK),
   cosmos: () => import('./packs/cosmos').then(m => m.PACK),
   places: () => import('./packs/places').then(m => m.loadPack()),
+  people: () => import('./packs/people').then(m => m.loadPack()),
 };
 
 const loaded = new Map<PackId, Pack>();
@@ -59,9 +61,12 @@ export interface ResolveContext {
   state?: State;
   /** Эпоха без состояния; по умолчанию — из времени State, без него — 5e. */
   era?: Era;
+  /** Год без состояния (DR): жители места — живые в этот год; по умолчанию — из времени State, без него — 1492. */
+  year?: number;
 }
 
-const eraOfContext = (ctx: ResolveContext): Era => ctx.era ?? (ctx.state ? eraOf(harptos(ctx.state.time.sec).year) : '5e');
+const yearOfContext = (ctx: ResolveContext): number => ctx.year ?? (ctx.state ? harptos(ctx.state.time.sec).year : EPOCH_YEAR);
+const eraOfContext = (ctx: ResolveContext): Era => ctx.era ?? eraOf(yearOfContext(ctx));
 
 /**
  * Представление по ссылке. undefined — записи нет или пакет ещё не загружен (isReady различает); карточка в первом
@@ -71,7 +76,7 @@ export function resolve(value: EntityRef | string, ctx: ResolveContext = {}): En
   const p = parseRef(value);
   if (!p) return undefined;
   if (isStateKind(p.kind)) return ctx.state ? stateView(ctx.state, p.kind, p.id) : undefined;
-  return loaded.get(PACK_OF[p.kind])?.resolve(p.kind, p.id, eraOfContext(ctx));
+  return loaded.get(PACK_OF[p.kind])?.resolve(p.kind, p.id, eraOfContext(ctx), yearOfContext(ctx));
 }
 
 /** Все ссылки вида из загруженного пакета (или из State для видов состояния). */

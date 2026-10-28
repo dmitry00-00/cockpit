@@ -93,7 +93,7 @@ export { RestForm, REST_LABELS, parseDice, parseHealed, diceFormula, type RestFo
 // F9 — планшет: свёрнутая боковая панель — полоса иконок 40px; что свёрнуто и раскрыто — состояние страницы.
 export { IconRail, type IconRailProps, type IconRailItem } from './IconRail';
 export { PartyPortraits, type PartyPortraitsProps } from './PartyPortraits';
-export { EntityViewBody, cardTypeOf, type EntityViewBodyProps } from './EntityViewBody';
+export { EntityViewBody, GroupList, cardTypeOf, type EntityViewBodyProps } from './EntityViewBody';
 export { NeighborhoodGraph, type NeighborhoodGraphProps } from './NeighborhoodGraph';
 export { OpenEntityContext, useOpenEntity } from './openEntity';
 export { HarptosDial, PHASE_HOURS, dialPoint, type HarptosDialProps } from './HarptosDial';

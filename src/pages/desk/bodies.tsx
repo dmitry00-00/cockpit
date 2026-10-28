@@ -5,11 +5,12 @@ import { abilityMod, eraOf, harptos, poolLabel, resourcePoolsOf, sheetViewOf } f
 import {
   ConditionChip, ResourcePips, StatTile, SCALE_LABELS, chipsOf, exhaustionCommand, signedMod, toggleCommand, SKILL_LABEL, SheetAttacks, IconGrid,
   classIcon, featureIcon, raceIcon, traitIcon, AbilityScores, DataPassport, PcHeader, SkillList, type PassportData, type PcHeaderData, SheetChoices,
-  SheetFeats, SheetSpells,
+  SheetFeats, SheetSpells, GroupList,
 } from '../../components';
 import { plural, type Actor, type Command, type Faction, type Location, type State } from '../../engine';
 import { ref, type EntityRef } from '../../entities';
 import { useEntity } from '../../entities/useEntity';
+import { usePlaceResidents } from '../../world/usePlaceResidents';
 import { Icon } from '../../icons/Icon';
 import { classById, raceById } from '../../rules/compendium';
 import { ABILITIES, ABILITY_IDS, MONSTERS, type AbilityId, type ConditionId, type SkillId } from '../../rules/srd';
@@ -378,11 +379,16 @@ interface PlaceOverviewProps {
   facts: State['facts'];
   /** Открыть место игрокам на карте (PLACE_REVEALED) — только мастеру и только месту на карте. */
   onReveal?: () => void;
+  /** Год кампании для жителей из вики (E9) — только мастеру; нет — жителей нет. */
+  residentsYear?: number;
+  /** Открыть карточку жителя. */
+  onOpenEntity?: (ref: EntityRef) => void;
 }
 
 /** Обзор места: внутри чего лежит, что о нём известно игрокам, что ждёт решения. Уровень — бейдж, показатели — полоса карточки: здесь не повторяются. */
-export function PlaceOverview({ place, parent, onOpenParent, pending, facts, onReveal }: PlaceOverviewProps) {
+export function PlaceOverview({ place, parent, onOpenParent, pending, facts, onReveal, residentsYear, onOpenEntity }: PlaceOverviewProps) {
   const known = playerFactsAbout(place.id, facts);
+  const residents = usePlaceResidents(place.name, residentsYear);
   return (
     <>
       {/* Уровень — бейдж корешка, здесь не повторяется (факт живёт в одном месте). */}
@@ -417,6 +423,12 @@ export function PlaceOverview({ place, parent, onOpenParent, pending, facts, onR
         </Section>
       ) : null}
       <PendingRows deltas={pending} />
+      {residents && residents.residents.length > 0 ? (
+        <GroupList
+          group={{ title: `Жители в ${residentsYear} DR по вики`, links: residents.residents.map(([id, name]) => ({ label: name, ref: ref('person', id) })) }}
+          onOpen={onOpenEntity}
+        />
+      ) : null}
     </>
   );
 }
