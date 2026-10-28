@@ -12,6 +12,8 @@ import { HEAD, MOON_PHASES } from './styles';
 export interface TimeViewProps {
   /** Время мира — для календаря Харптоса. */
   sec: number;
+  /** Боги с листов партии — святые дни в календаре (E8). */
+  partyDeities?: ReadonlySet<string>;
   mainRef: RefObject<HTMLElement | null>;
   dmView: boolean;
   phase: ReturnType<typeof dayPhase>;
@@ -24,11 +26,11 @@ export interface TimeViewProps {
   api: ReturnType<EngineStoreApi['getState']>;
 }
 
-export function TimeView({ sec, mainRef, dmView, phase, moon, tempo, lastStep, stepDeltas, scaleLabel, decide, api }: TimeViewProps) {
+export function TimeView({ sec, partyDeities, mainRef, dmView, phase, moon, tempo, lastStep, stepDeltas, scaleLabel, decide, api }: TimeViewProps) {
   return (
     <section aria-label="Шаг времени" ref={mainRef} className="relative flex-1 min-w-0 min-h-0 flex flex-col gap-4 p-4 overflow-auto">
       <DayPhaseStrip value={phase} />
-      <HarptosCalendar sec={sec} />
+      <HarptosCalendar sec={sec} partyDeities={partyDeities} />
       <div className="flex flex-col bg-pn shadow-bevel">
         <div className={HEAD}>
           <Icon name="scale-system" size={16} color="var(--ent-plane)" title="Небесные тела" />

@@ -96,6 +96,8 @@ export interface PcSpec {
   skills: readonly SkillId[];
   /** Мировоззрение и биография — как игрок написал на листе; выводить их не из чего. */
   alignment?: string;
+  /** Божество (E8): id справочника богов и имя латиницей. */
+  deity?: { id: string; name: string };
   bio?: { height?: string; weight?: string; age?: number };
   /** Гибкие бонусы расы, распределённые игроком (Q11): «+1 к двум на выбор» полуэльфа → { dex: 1, con: 1 }. */
   asiChoice?: Asi;

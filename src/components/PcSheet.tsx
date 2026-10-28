@@ -4,7 +4,9 @@
 // и чего в нём нет — одной моноширинной строкой, чтобы мастер видел, можно ли верить записи, до первого скролла.
 // Тупые: числа считает campaign/sheetView.ts, страница передаёт их пропсами; клик — бросок через onRoll.
 import type { ReactNode } from 'react';
+import type { EntityRef } from '../entities/ref';
 import { Icon, type IconName } from '../icons/Icon';
+import { useOpenEntity } from './openEntity';
 import { abilityIcon } from './sheetIcons';
 import { ABILITIES, type AbilityId, type SkillId } from '../rules/srd/abilities';
 import { SKILL_LABEL } from './labels';
@@ -163,6 +165,22 @@ export function DataPassport({ passport }: { passport: PassportData }) {
   );
 }
 
+/** Строка бога в шапке листа: имя открывает карточку бога (если стол дал вход), символ — следом. */
+function DeityLine({ deity }: { deity: NonNullable<PcHeaderData['deity']> }) {
+  const openEntity = useOpenEntity();
+  return (
+    <span className="flex items-center gap-1 min-w-0" data-part="deity" title={deity.symbol ? `Божество · символ: ${deity.symbol}` : 'Божество'}>
+      <Icon name="ent-deity" size={16} color="var(--ent-deity)" title="Божество" />
+      {openEntity ? (
+        <button type="button" title={`Открыть карточку: ${deity.name}`} onClick={() => openEntity(deity.ref)} className="flex-none text-tx underline decoration-t3 cursor-pointer hover:text-gd-hi focus-visible:shadow-[var(--glow-gold)]">
+          {deity.name}
+        </button>
+      ) : <span className="flex-none text-tx">{deity.name}</span>}
+      {deity.symbol ? <span className="min-w-0 truncate">· {deity.symbol}</span> : null}
+    </span>
+  );
+}
+
 export interface PcHeaderData {
   level: number;
   /** «Полурослик · Легконогий · Следопыт» — раса, подраса и класс одной строкой, как «Lightfoot Halfling Ranger». */
@@ -170,6 +188,8 @@ export interface PcHeaderData {
   /** Иконки расы и класса перед строкой; имя — в тултипе. */
   emblems?: readonly { icon: IconName; title: string }[];
   alignment?: string;
+  /** Божество (E8): имя латиницей, символ — из карточки бога, когда справочник загружен. */
+  deity?: { name: string; ref: EntityRef; symbol?: string };
   speed?: number;
   height?: string;
   weight?: string;
@@ -207,6 +227,7 @@ export function PcHeader({ data, name }: { data: PcHeaderData; name: string }) {
                 <span className="text-tx truncate">{data.alignment}</span>
               </span>
             ) : null}
+            {data.deity ? <DeityLine deity={data.deity} /> : null}
             {data.speed !== undefined ? (
               <span className="flex items-center gap-1" title="Скорость ходьбы">
                 <Icon name="move" size={16} color="var(--t2)" title="Скорость" />

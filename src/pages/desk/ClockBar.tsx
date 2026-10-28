@@ -2,7 +2,7 @@
 // инструменты мастера — инициатива, отдых, темп и шаг, «Игроки». На столе игроков инструментов нет (F8).
 // Пропсы — те же имена, что на странице: компонент — перенос её разметки, состояние держит страница.
 import { Popover } from 'radix-ui';
-import { dayPhase, formatHarptos, harptos, inDays, moonState, weatherLabel, weatherOf } from '../../campaign';
+import { dayPhase, formatHarptos, harptos, inDays, moonState, partyDeitiesOf, weatherLabel, weatherOf } from '../../campaign';
 import {
   CelestialBar, HarptosDial, InitiativeEditor, RestForm, TimeTempo, DAY_PHASE_LABELS, type InitiativeRow, type RestRow,
 } from '../../components';
@@ -72,7 +72,7 @@ export function ClockBar({
             collisionPadding={{ top: 8, right: 8, bottom: 8, left: px(railParty ? 'rail-portraits' : 'rail-party') + 8 }}
             sticky="always"
             aria-label="Календарь Харптоса" className="z-20 w-card-overlay max-w-[calc(100vw-16px)] max-h-[calc(100vh-64px)] overflow-auto shadow-float outline-none">
-            <HarptosCalendar sec={state.time.sec} />
+            <HarptosCalendar sec={state.time.sec} partyDeities={new Set(partyDeitiesOf(state).keys())} />
           </Popover.Content>
         </Popover.Portal>
       </Popover.Root>

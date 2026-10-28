@@ -61,7 +61,7 @@ describe('экран создания персонажа', () => {
   it('старт: шаги по порядку со «осталось», карточка уже живая (человек-воин 1-го: 12 хитов, AC 12), «В партию» выключена; пиктограмм нет', () => {
     mount();
     expect(editor()).not.toHaveTextContent(EMOJI);
-    expect(stepNames()).toEqual(['Имя', 'Раса', 'Класс', 'Характеристики', 'Навыки', 'Умения класса', 'Снаряжение']);
+    expect(stepNames()).toEqual(['Имя', 'Раса', 'Класс', 'Божество', 'Характеристики', 'Навыки', 'Умения класса', 'Снаряжение']);
     expect(stepButton('Имя')).toHaveAttribute('aria-current', 'step');
     const card = within(sheet());
     expect(card.getByTitle('Хиты')).toHaveTextContent('12');
@@ -111,7 +111,7 @@ describe('экран создания персонажа', () => {
     expect(within(card).getByTitle(/^Ловкость/)).toHaveTextContent('15');
     goto('Класс');
     fireEvent.click(option('Классы', /^Волшебник/));
-    expect(stepNames()).toEqual(['Имя', 'Раса', 'Класс', 'Характеристики', 'Навыки', 'Заклинания', 'Снаряжение']);
+    expect(stepNames()).toEqual(['Имя', 'Раса', 'Класс', 'Божество', 'Характеристики', 'Навыки', 'Заклинания', 'Снаряжение']);
     expect(stepButton('Раса')).toHaveTextContent('2'); // два навыка расы не выбраны
   });
 
@@ -177,6 +177,39 @@ describe('экран создания персонажа', () => {
     expect(within(sheet()).getByRole('list', { name: 'Что мешает' })).toHaveTextContent('не из SRD: нет кости хитов');
     expect(spawn()).toBeDisabled();
   });
+
+  it('жрец (E8): шаг «Божество» обязателен, домен Жизни — только боги с Life; бог без домена подкласса — ошибка', async () => {
+    mount();
+    goto('Класс');
+    fireEvent.click(option('Классы', /^Жрец/));
+    fireEvent.click(option('Подкласс', /^Жизни/));
+    expect(stepButton('Божество')).toHaveTextContent('1');
+    goto('Божество');
+    const gods = await within(editor()).findByRole('group', { name: 'Боги' }, { timeout: 10000 });
+    const names = within(gods).getAllByRole('button').map(b => b.textContent ?? '');
+    expect(names.length).toBeGreaterThan(10);
+    for (const n of names) expect(n, n).toMatch(/\bLife\b/i);
+    expect(within(gods).queryByRole('button', { name: 'без бога' })).toBeNull();
+    // Подсказка расы: человек — Faerûnian pantheon.
+    fireEvent.click(within(editor()).getByRole('button', { name: 'Почитатели расы: Faerûnian pantheon' }));
+    fireEvent.click(within(gods).getByRole('button', { name: /^Lathander/ }));
+    expect(stepButton('Божество')).not.toHaveTextContent(/ещё/);
+    expect(sheet()).toHaveTextContent('БожествоLathander');
+    goto('Класс');
+    fireEvent.click(option('Подкласс', /^Войны/));
+    expect(within(sheet()).getByRole('list', { name: 'Что мешает' })).toHaveTextContent('божество Lathander не даёт домен Войны');
+    fireEvent.click(option('Подкласс', /^Жизни/));
+    expect(within(sheet()).queryByText(/не даёт домен/)).toBeNull();
+  // Справочник богов — отдельный кусок: под полным прогоном импорт дольше пяти секунд по умолчанию.
+  }, 20000);
+
+  it('не жрецу бог по желанию: «без бога» выбран, шаг без «осталось»', async () => {
+    mount();
+    goto('Божество');
+    const gods = await within(editor()).findByRole('group', { name: 'Боги' }, { timeout: 10000 });
+    expect(within(gods).getByRole('button', { name: 'без бога' })).toHaveAttribute('aria-pressed', 'true');
+    expect(stepButton('Божество')).not.toHaveTextContent(/ещё/);
+  }, 20000);
 
   it('занятый id получает суффикс; «Закрыть» зовёт onClose', () => {
     const { onClose } = mount(['bo', 'bo-2']);

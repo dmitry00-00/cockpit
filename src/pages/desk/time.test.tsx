@@ -1,8 +1,8 @@
 // Шаг времени (F6) и отдых / новая сессия.
-import { fireEvent, render, screen, within } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { seedEngine, seedState } from '../../campaign';
-import { memoryStore } from '../../engine';
+import { createEngineStore, memoryStore } from '../../engine';
 import { DeskPage } from '../DeskPage';
 import { fixed, mount, rowOf, cardOf, hpOf, lastEvent, damageViaPopover, startCombat, inbox, deltaCard, tempoGroup, timeView, step } from './testkit';
 
@@ -249,6 +249,24 @@ describe('часы Харптоса: мини-циферблат и календ
     expect(card).toHaveTextContent('Божество');
     expect(card).toHaveTextContent('Святые дни');
   // Карточка бога — кусок космоса по требованию: под полным прогоном импорт дольше пяти секунд по умолчанию.
+  }, 20000);
+
+  it('бог партии (E8): у Aldric на листе Torm — «Мир спокоен» и календарь начинают с его святых дней, в шапке листа — Torm и символ', async () => {
+    const seed = seedState();
+    const aldric = seed.actors.aldric;
+    // Без лога сида: предложений нет — входящие пусты, строка «Мир спокоен» видна сразу.
+    mount(createEngineStore({ ...seed, actors: { ...seed.actors, aldric: { ...aldric, sheet: { ...aldric.sheet!, deity: { id: 'torm', name: 'Torm' } } } } }, { persist: memoryStore() }));
+    expect(screen.getByText(/Мир спокоен/)).toHaveTextContent(/Святой день бога партии через \d+ дн\S* — The Divine Death: Torm\.$/);
+    fireEvent.click(within(screen.getByLabelText('Мировые часы')).getByRole('button', { name: 'Календарь Харптоса' }));
+    const cal = screen.getByRole('region', { name: 'Календарь Харптоса' });
+    expect(within(cal).getByRole('button', { name: 'партия' })).toHaveAttribute('aria-pressed', 'true');
+    expect(cal.querySelector('[data-part="holy-next"]')).toHaveTextContent('The Divine Death: Torm');
+    fireEvent.keyDown(document.activeElement ?? document.body, { key: 'Escape', code: 'Escape' });
+    fireEvent.click(rowOf('Brother Aldric'));
+    const line = () => cardOf('Brother Aldric').querySelector<HTMLElement>('[data-part="deity"]')!;
+    expect(within(line()).getByRole('button', { name: 'Torm' })).toBeInTheDocument();
+    // Символ — из карточки бога по эпохе (5e): справочник догружается отдельным куском.
+    await waitFor(() => expect(line()).toHaveTextContent('Torm· White right gauntlet'), { timeout: 10000 });
   }, 20000);
 
   it('вкладка «Время» показывает тот же календарь под фазами суток', () => {

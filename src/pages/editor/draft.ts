@@ -56,7 +56,15 @@ export interface Draft {
   armor: ArmorId | null;
   shield: boolean;
   mageArmor: boolean;
+  /**
+   * Божество (E8) и подклассы жреца по его доменам 5e — домены нужны, чтобы проверить выбор без справочника богов:
+   * сменил домен в шаге «Класс» — черновик сам видит, что бог его не даёт.
+   */
+  deity?: { id: string; name: string; domains: readonly string[] };
 }
+
+/** Жрец — класс компендиума «jrec»: ему бог обязателен, и домен подкласса должен быть у бога (SRD: Divine Domain). */
+export const CLERIC_CLASS = 'jrec';
 
 /** Стартовый черновик: человек-воин 1-го уровня со стандартным набором по порядку STR…CHA — всё меняется. */
 export function initialDraft(): Draft {
@@ -386,6 +394,7 @@ export function toSpec(draft: Draft, id: string): PcSpec {
     skills: [...draft.skills],
     alignment: draft.alignment.trim() || undefined,
     bio: Object.keys(bio).length > 0 ? bio : undefined,
+    ...(draft.deity ? { deity: { id: draft.deity.id, name: draft.deity.name } } : {}),
     ...(Object.keys(asiChoice).length ? { asiChoice } : {}),
     choices: Object.fromEntries(Object.entries(draft.choices).map(([k, v]) => [k, [...v]])),
     feats: Object.entries(draft.feats).map(([at, f]) => ({ at: at === 'race' ? 'race' as const : Number(at), id: f.id, ...(f.asi ? { asi: f.asi } : {}) })),
@@ -410,5 +419,10 @@ export function draftIssues(draft: Draft, cls: CharacterClass | undefined): stri
     if (missing > 0) out.push(`снаряжение: выбрать ещё ${missing}`);
   }
   for (const s of draft.skills) if (!SKILL_IDS.includes(s)) out.push(`нет навыка ${s}`);
+  if (draft.classId === CLERIC_CLASS && !draft.deity) out.push('выбрать божество');
+  if (draft.classId === CLERIC_CLASS && draft.deity && draft.subclassId && !draft.deity.domains.includes(draft.subclassId)) {
+    const sub = cls?.subclasses.find(s => s.id === draft.subclassId);
+    out.push(`божество ${draft.deity.name} не даёт домен ${sub?.name ?? draft.subclassId}`);
+  }
   return out;
 }

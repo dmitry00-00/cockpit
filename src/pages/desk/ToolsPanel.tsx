@@ -47,7 +47,7 @@ export interface ToolsPanelProps {
   onCommand: (cmd: Command) => void;
   pending: State['deltas'][string][];
   festival: ReturnType<typeof nextFestival>;
-  /** Ближайший годовой святой день богов Фаэруна (E4) — в строке «Мир спокоен». */
+  /** Ближайший годовой святой день (E4): бога партии, если он есть на листах (E8), иначе богов Фаэруна. */
   holy?: NextHolyDay;
   journal: JournalRecord[];
   allEntries: JournalRecord[];
@@ -251,7 +251,7 @@ export function ToolsPanel({
                 <p data-part="calm" className="px-2 py-2 type-body-sm text-t2">
                   Мир спокоен. Ближайший праздник — <span className="text-tx">{festival.festival}</span> {inDays(festival.days)}
                   {holy && holy.sec === festival.sec ? <>; святые дни — <span className="text-tx">{holyList(holy.holy)}</span>.</>
-                    : holy ? <>. Святой день {inDays(holy.days)} — <span className="text-tx">{holyList(holy.holy)}</span>.</> : '.'}
+                    : holy ? <>. Святой день{holy.party ? ' бога партии' : ''} {inDays(holy.days)} — <span className="text-tx">{holyList(holy.holy)}</span>.</> : '.'}
                 </p>
               </>
             ) : null}

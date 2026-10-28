@@ -16,7 +16,7 @@ import './DeskPage.css';
 import { Dialog, Popover, ToggleGroup } from 'radix-ui';
 import { useEffect, useMemo, useRef, useState, type ReactNode, type RefObject } from 'react';
 import {
-  conModOf, cosmologyOf, currentOrder, eraOf, harptos, dayPhase, encounterCandidates, hitDiceOf, initiativeMod, moonState, nextFestival, nextHolyDay, placeChain, pcActor, placedActors,
+  conModOf, cosmologyOf, currentOrder, eraOf, harptos, dayPhase, encounterCandidates, hitDiceOf, initiativeMod, moonState, nextFestival, nextHolyDayFor, partyDeitiesOf, placeChain, pcActor, placedActors,
   poolLabel, resourcePoolsOf, restCandidates, restResourcesOf, seedBattlefield, seedEngine, seedState, sortInitiative, spawnMonsters, stepTime,
   suggestMonsterName, takeRest, travel, weatherOf, sheetViewOf, passportOf, type PcSpec,
 } from '../campaign';
@@ -478,7 +478,12 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
   const festival = nextFestival(state.time.sec);
   // Святой день меняется раз в сутки: перебор года по дням — только при смене дня.
   const today = Math.floor(state.time.sec / SECONDS_PER_DAY);
-  const holy = useMemo(() => nextHolyDay(today * SECONDS_PER_DAY, eraOf(harptos(today * SECONDS_PER_DAY).year)), [today]);
+  // Сначала святые дни богов партии (E8): ключ — их id, чтобы пересчёт шёл и при смене бога на листе.
+  const partyGods = [...partyDeitiesOf(state).keys()].sort().join(',');
+  const holy = useMemo(
+    () => nextHolyDayFor(today * SECONDS_PER_DAY, eraOf(harptos(today * SECONDS_PER_DAY).year), new Set(partyGods ? partyGods.split(',') : [])),
+    [today, partyGods],
+  );
   // Погода — проекция календаря (§4): день задаёт её целиком, ни состояния, ни события.
   const weather = weatherOf(state.time.sec);
   // Полосы F9: те же иконки в том же порядке, что секции панелей; счётчик — сколько ждёт решения.
@@ -834,7 +839,7 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
         <Dialog.Overlay className="absolute inset-0 z-20 bg-wl opacity-(--op-scrim)" />
         <Dialog.Content aria-describedby={undefined} className="absolute inset-4 z-30 flex justify-center outline-none focus-visible:shadow-none">
           <Dialog.Title className="sr-only">Новый персонаж</Dialog.Title>
-          <CharacterEditor takenIds={new Set(Object.keys(state.actors))} onCreate={onCreatePc} onClose={() => setEditorOpen(false)} />
+          <CharacterEditor takenIds={new Set(Object.keys(state.actors))} onCreate={onCreatePc} onClose={() => setEditorOpen(false)} era={eraOf(harptos(state.time.sec).year)} />
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>
@@ -973,6 +978,7 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
           {shownView === 'time' ? (
             <TimeView
               sec={state.time.sec}
+              partyDeities={new Set(partyGods ? partyGods.split(',') : [])}
               mainRef={mainRef}
               dmView={dmView}
               phase={phase}

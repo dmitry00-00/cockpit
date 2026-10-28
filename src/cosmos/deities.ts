@@ -185,3 +185,23 @@ export function realmsOfPlane(planeId: string, era: Era): PlaneRealm[] {
     return { deity: d.id, name: d.name, ...(realm ? { realm } : {}) };
   });
 }
+
+/** Подклассы жреца по доменам 5e бога (5eR, потом 5e) — выбор бога жрецом: механика 5e, эпоха кампании не важна. */
+export function domains5e(d: Deity): string[] {
+  for (const e of ['5eR', '5e'] as const) {
+    const cell = d.fields.domains?.[e];
+    if (cell) return domainSubclasses(e, cell.t);
+  }
+  return [];
+}
+
+/**
+ * Пантеон, которому по традиции молится раса компендиума, — подсказка в выборе бога (ROADMAP 2.4): Seldarine у эльфов,
+ * Morndinsamman у дварфов. Человеку — Faerûnian pantheon: кампания на Sword Coast.
+ */
+export const RACE_PANTHEON: Readonly<Record<string, string>> = {
+  'celovek': 'faerunian-pantheon', 'el-f': 'seldarine', 'poluel-f': 'seldarine', 'dvarf': 'morndinsamman',
+  'gnom': 'lords-of-the-golden-hills', 'poluroslik': 'yondalla-s-children', 'ork': 'orc-pantheon', 'poluork': 'orc-pantheon',
+  'drakonorojdennyy': 'draconic-pantheon', 'goblinoidy': 'goblinoid-pantheon', 'aarakokra': 'aarakocra-pantheon',
+  'kobol-d': 'kobold-pantheon', 'ludoaser': 'lizardfolk-pantheon', 'kentavr': 'centaur-pantheon', 'satir': 'satyr-pantheon',
+};

@@ -3,10 +3,10 @@
 // после месяца; год — двенадцать месяцев и пять праздников по сезонам. Листать месяцы и год — состояние вида, не
 // событие: время двигает только шаг. Открывается из мини-циферблата полосы часов и стоит на вкладке «Время».
 // Святые дни богов (E4): отметка на дне, список дней месяца, «каждый месяц» и лунные одной строкой, ближайший — в
-// сводке; боги Faerûn или все пантеоны — переключатель вида. Имя бога открывает его карточку, если стол дал вход.
+// сводке; боги партии (с листов, E8), Faerûn или все пантеоны — переключатель вида. Имя бога открывает его карточку, если стол дал вход.
 import { useState } from 'react';
 import {
-  DAYS_PER_YEAR, HOLY_DEITIES, MONTHS, SEASON_LABELS, TENDAY, dayPhase, eraOf, festivalAfter, harptos, holyDaysOn, holyList, holyRulesAt, holyWhat,
+  DAYS_PER_YEAR, HOLY_DEITIES, MONTHS, SEASON_LABELS, TENDAY, dayPhase, eraOf, festivalAfter, harptos, holyDaysOn, holyList, holyRulesAt, holyWhat, inHolyScope,
   inDays, isAnnual, monthBefore, monthDays, moonState, nextFestival, nextHolyDay, seasonOf, yearSlots, type HolyDay, type HolyScope, type MonthName,
 } from '../../campaign';
 import { useOpenEntity } from '../../components/openEntity';
@@ -18,6 +18,8 @@ import { BTN, HEAD, OPT, OPT_OFF, OPT_ON } from './styles';
 export interface HarptosCalendarProps {
   /** Время мира, секунды от эпохи. */
   sec: number;
+  /** Боги с листов партии (E8): их святые дни — переключателем «партия», он же по умолчанию. */
+  partyDeities?: ReadonlySet<string>;
   className?: string;
 }
 
@@ -27,7 +29,7 @@ const ORDINAL = ['первая', 'вторая', 'третья'];
 function recurring(era: ReturnType<typeof eraOf>, scope: HolyScope) {
   const monthly: string[] = [], full: string[] = [], fresh: string[] = [];
   for (const h of HOLY_DEITIES) {
-    if (scope === 'faerun' && !h.pantheons?.includes('faerunian-pantheon')) continue;
+    if (!inHolyScope(h, scope)) continue;
     for (const r of holyRulesAt(h, era)) {
       if (r.monthly) monthly.push(`${h.name} (${r.monthly.join(', ')})`);
       if (r.moon === 'full' && !full.includes(h.name)) full.push(h.name);
@@ -52,13 +54,15 @@ const SKY_SWATCH: Readonly<Record<(typeof DAY_PHASES)[number], string>> = {
   morning: 'bg-sky-dawn', day: 'bg-sky-day', evening: 'bg-sky-dusk', night: 'bg-sky-night',
 };
 
-export function HarptosCalendar({ sec, className = '' }: HarptosCalendarProps) {
+export function HarptosCalendar({ sec, partyDeities, className = '' }: HarptosCalendarProps) {
   const now = harptos(sec);
   const phase = dayPhase(sec);
   const moon = moonState(sec);
   const fest = nextFestival(sec);
   const openEntity = useOpenEntity();
-  const [scope, setScope] = useState<HolyScope>('faerun');
+  const party = partyDeities && partyDeities.size > 0 ? partyDeities : undefined;
+  const [shownScope, setScope] = useState<'party' | 'faerun' | 'all'>(party ? 'party' : 'faerun');
+  const scope: HolyScope = shownScope === 'party' ? (party ?? new Set()) : shownScope;
   const holyNext = nextHolyDay(sec, eraOf(now.year), scope);
   const today = Math.floor(sec / SECONDS_PER_DAY) * SECONDS_PER_DAY;
   // Месяц на экране: в праздник — месяц перед ним.
@@ -154,8 +158,11 @@ export function HarptosCalendar({ sec, className = '' }: HarptosCalendarProps) {
             <button type="button" title="К сегодняшнему дню" onClick={() => setShown({ year: now.year, month: nowMonth })} className={BTN}>Сегодня</button>
           )}
           <span role="group" aria-label="Святые дни: чьи боги" className="ml-auto flex gap-px">
-            {([['faerun', 'Faerûn', 'святые дни богов Faerûnian pantheon'], ['all', 'все пантеоны', 'святые дни всех богов справочника']] as const).map(([id, label, hint]) => (
-              <button key={id} type="button" aria-pressed={scope === id} title={hint} onClick={() => setScope(id)} className={`${OPT} ${scope === id ? OPT_ON : OPT_OFF}`}>{label}</button>
+            {([
+              ...(party ? [['party', 'партия', 'святые дни богов с листов партии']] as const : []),
+              ['faerun', 'Faerûn', 'святые дни богов Faerûnian pantheon'], ['all', 'все пантеоны', 'святые дни всех богов справочника'],
+            ] as const).map(([id, label, hint]) => (
+              <button key={id} type="button" aria-pressed={shownScope === id} title={hint} onClick={() => setScope(id)} className={`${OPT} ${shownScope === id ? OPT_ON : OPT_OFF}`}>{label}</button>
             ))}
           </span>
         </div>

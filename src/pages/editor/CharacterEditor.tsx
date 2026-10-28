@@ -1,5 +1,5 @@
 // Экран создания персонажа: карточка персонажа, которая заполняется по шагам. Слева — шаги (имя → раса → класс →
-// характеристики → предыстория и навыки → умения класса → заклинания → снаряжение), у каждого — «осталось N»;
+// божество → характеристики → предыстория и навыки → умения класса → заклинания → снаряжение), у каждого — «осталось N»;
 // в середине — выбор текущего шага; справа — та же карточка, что на столе (EntityCard и секции листа), живая:
 // числа считает deriveDraft по черновику после каждого клика, несделанное видно в ней же как «осталось выбрать».
 // Шаги идут по порядку, но всё обратимо: любой шаг открывается кликом, смена расы или класса сбрасывает только то,
@@ -25,63 +25,23 @@ import { SourceBadge, SourceFilter } from '../compendium/parts';
 import {
   POINT_BUY_TOTAL, STANDARD_ARRAY, actorIdFor, asiChoiceOf, asiLevelsOf, asiTotal, assignArray, backgroundSkills, bumpAsi, canDecrease,
   canIncrease, draftIssues, initialDraft, pointsLeft, selectKit, setPick, subclassDue, subraceRequired, toSpec, toggleAsiChoice, toggleChoice,
-  toggleSkill, toggleSpell, withBackground, withClass, withLevel, withMethod, withRace, withSubclass, withSubrace, asiMode, setFeat, setFeatAsi, type Draft,
+  toggleSkill, toggleSpell, CLERIC_CLASS, withBackground, withClass, withLevel, withMethod, withRace, withSubclass, withSubrace, asiMode, setFeat, setFeatAsi, type Draft,
 } from './draft';
 import { featBlocked } from '../../campaign/derive';
 import { FEATS, type Feat } from '../../rules/compendium';
 import { CLASS_START } from '../../rules/srd/equipment';
+import { BTN, BTN_MAIN, Field, INPUT, LINK, Left, OPT, OPT_OFF, OPT_ON, Option, STEP, Section } from './parts';
+import { DeityStep } from './DeityStep';
+import type { Era } from '../../campaign/era';
 
 export interface CharacterEditorProps {
   /** Занятые id актёров — новый получит свободный. */
   takenIds: ReadonlySet<string>;
   onCreate: (spec: PcSpec) => void;
   onClose: () => void;
+  /** Эпоха кампании — подписи богов в шаге «Божество»; по умолчанию 5e (1492 DR). */
+  era?: Era;
   className?: string;
-}
-
-const INPUT = 'h-7 px-2 type-body-sm text-tx bg-wl shadow-bevel-in focus-visible:shadow-[var(--bevel-in),var(--glow-gold)] placeholder:text-t3';
-const BTN = 'type-num-12 uppercase whitespace-nowrap px-2 py-1 bg-cd shadow-bevel text-t2 cursor-pointer enabled:hover:text-tx enabled:active:shadow-bevel-in focus-visible:shadow-[var(--bevel),var(--glow-gold)] disabled:cursor-default disabled:opacity-(--op-disabled)';
-const BTN_MAIN = 'type-num-12 uppercase whitespace-nowrap px-3 py-1 bg-linear-to-b from-pl to-cd shadow-[var(--bevel),inset_0_-2px_0_var(--gd)] text-gd-hi cursor-pointer enabled:hover:from-pl enabled:hover:to-pl enabled:active:shadow-bevel-in focus-visible:shadow-[var(--bevel),inset_0_-2px_0_var(--gd),var(--glow-gold)] disabled:cursor-default disabled:opacity-(--op-disabled)';
-const OPT = 'type-body-sm text-left px-2 py-1 cursor-pointer bg-linear-to-b from-pl to-cd disabled:cursor-default disabled:opacity-(--op-disabled)';
-const OPT_OFF = 'text-t2 shadow-bevel enabled:hover:text-tx focus-visible:shadow-[var(--bevel),var(--glow-gold)]';
-const OPT_ON = 'text-gd-hi shadow-[var(--bevel),inset_0_-3px_0_var(--gd)] focus-visible:shadow-[var(--bevel),inset_0_-3px_0_var(--gd),var(--glow-gold)]';
-const STEP = 'size-6 flex items-center justify-center type-num-15 bg-cd shadow-bevel text-t2 cursor-pointer enabled:hover:text-tx enabled:active:shadow-bevel-in focus-visible:shadow-[var(--bevel),var(--glow-gold)] disabled:cursor-default disabled:opacity-(--op-disabled)';
-const LINK = 'type-body-sm text-gd text-left cursor-pointer hover:text-gd-hi focus-visible:shadow-[var(--glow-gold)]';
-
-function Section({ title, right, children, hint }: { title: string; right?: ReactNode; children: ReactNode; hint?: string }) {
-  return (
-    <section aria-label={title} className="flex flex-col gap-2">
-      <div className="flex items-center justify-between gap-2">
-        <h3 className="type-h-15 uppercase text-t2 truncate" title={hint}>{title}</h3>
-        {right}
-      </div>
-      {children}
-    </section>
-  );
-}
-
-function Field({ label, children }: { label: string; children: ReactNode }) {
-  return (
-    <label className="flex flex-col gap-1 min-w-0">
-      <span className="type-key uppercase text-t2">{label}</span>
-      {children}
-    </label>
-  );
-}
-
-/** Кнопка-вариант: нажатая — золотая грань, как у переключателей стола. */
-function Option({ on, disabled, title, onClick, onPeek, children, className = '' }: { on: boolean; disabled?: boolean; title?: string; onClick: () => void; onPeek?: () => void; children: ReactNode; className?: string }) {
-  return (
-    <button type="button" aria-pressed={on} disabled={disabled} title={title} onClick={onClick} onMouseEnter={onPeek} onFocus={onPeek} className={`${OPT} ${on ? OPT_ON : OPT_OFF} ${className}`}>
-      {children}
-    </button>
-  );
-}
-
-/** «Осталось N» у шага и в счётчиках: золото, пока не ноль; готово — галочка с подписью. */
-function Left({ n, label }: { n: number; label?: string }) {
-  if (n <= 0) return <span className="flex items-center gap-1 type-key text-t2" title="готово"><Icon name="check" size={16} color="var(--t2)" title="готово" />{label ?? ''}</span>;
-  return <span className="type-key text-gd whitespace-nowrap" title={`осталось выбрать: ${n}`}>{label ? `${label} · ` : ''}ещё {n}</span>;
 }
 
 /** «+2 DEX, +1 INT» — бонусы расы одной строкой; гибкие — «+1 на выбор». */
@@ -98,10 +58,10 @@ const ALIGNMENTS = [
   ['ЗЗ', 'Законно-злой'], ['НЗ', 'Нейтрально-злой'], ['ХЗ', 'Хаотично-злой'],
 ] as const;
 
-type StepId = 'name' | 'race' | 'class' | 'abilities' | 'skills' | 'features' | 'spells' | 'gear';
+type StepId = 'name' | 'race' | 'class' | 'deity' | 'abilities' | 'skills' | 'features' | 'spells' | 'gear';
 interface Step { id: StepId; label: string; left: number }
 
-export function CharacterEditor({ takenIds, onCreate, onClose, className = '' }: CharacterEditorProps) {
+export function CharacterEditor({ takenIds, onCreate, onClose, era = '5e', className = '' }: CharacterEditorProps) {
   const [draft, setDraft] = useState<Draft>(initialDraft);
   const [sources, setSources] = useState<Source[]>(['srd', 'book', 'hb']);
   const [raceQuery, setRaceQuery] = useState('');
@@ -168,6 +128,7 @@ export function CharacterEditor({ takenIds, onCreate, onClose, className = '' }:
     { id: 'name', label: 'Имя', left: draft.name.trim() ? 0 : 1 },
     { id: 'race', label: 'Раса', left: (race && subraceRequired(race) && !draft.subraceId ? 1 : 0) + (flex ? Math.max(0, flex.count - flexPicked) : 0) + raceFcs.reduce((s, fc) => s + Math.max(0, fc.count - chosenCount(fc)), 0) + (derived && derived.raceFeats > 0 && !draft.feats.race?.id ? 1 : 0) },
     { id: 'class', label: 'Класс', left: due !== null && !draft.subclassId ? 1 : 0 },
+    { id: 'deity', label: 'Божество', left: draft.classId === CLERIC_CLASS && !draft.deity ? 1 : 0 },
     { id: 'abilities', label: 'Характеристики', left: (draft.method === 'pointbuy' && pointsLeft(draft.base) < 0 ? 1 : 0) + asiLevels.filter(l => (draft.feats[l] ? !draft.feats[l].id : asiTotal(draft.improvements[l] ?? {}) !== 2)).length },
     { id: 'skills', label: 'Навыки', left: Math.max(0, skillChoice.count - draft.skills.length) },
     ...(classFcs.length ? [{ id: 'features' as const, label: 'Умения класса', left: classFcs.reduce((s, fc) => s + Math.max(0, fc.count - chosenCount(fc)), 0) }] : []),
@@ -564,7 +525,7 @@ export function CharacterEditor({ takenIds, onCreate, onClose, className = '' }:
   );
 
   const body: Record<StepId, ReactNode> = {
-    name: nameStep, race: raceStep, class: classStep, abilities: abilitiesStep, skills: skillsStep, features: featuresStep, spells: spellsStep, gear: gearStep,
+    name: nameStep, race: raceStep, class: classStep, deity: <DeityStep draft={draft} domainName={subclass?.name} era={era} onPick={deity => patch({ deity })} />, abilities: abilitiesStep, skills: skillsStep, features: featuresStep, spells: spellsStep, gear: gearStep,
   };
 
   /* ---------- Живая карточка ---------- */
@@ -591,6 +552,7 @@ export function CharacterEditor({ takenIds, onCreate, onClose, className = '' }:
         <dt className="type-key uppercase text-t2">Класс</dt><dd className="type-body-sm text-tx truncate">{derived.cls.nameRu}{subclass ? ` · ${subclass.name}` : ''} · {draft.level} ур.</dd>
         {draft.backgroundId ? <><dt className="type-key uppercase text-t2">Предыстория</dt><dd className="type-body-sm text-tx truncate">{BACKGROUNDS.find(b => b.id === draft.backgroundId)?.nameRu}</dd></> : null}
         {draft.alignment.trim() ? <><dt className="type-key uppercase text-t2">Мировоззрение</dt><dd className="type-body-sm text-tx truncate">{draft.alignment.trim()}</dd></> : null}
+        {draft.deity ? <><dt className="type-key uppercase text-t2">Божество</dt><dd className="type-body-sm text-tx truncate">{draft.deity.name}</dd></> : null}
         {derived.speed !== undefined ? <><dt className="type-key uppercase text-t2">Скорость</dt><dd className="type-body-sm text-tx">{derived.speed} фт</dd></> : null}
         <dt className="type-key uppercase text-t2">Кость хитов</dt><dd className="type-body-sm text-tx">d{derived.srdClass.hitDie}</dd>
       </dl>

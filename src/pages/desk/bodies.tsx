@@ -1,7 +1,7 @@
 // Тела карточки стола: обзор персонажа и монстра, действия монстра, вкладка DM, обзор места и державы,
 // мелкая разметка секций. Тупые: всё — пропсами, стор не читают.
 import { type ReactNode } from 'react';
-import { abilityMod, poolLabel, resourcePoolsOf, sheetViewOf } from '../../campaign';
+import { abilityMod, eraOf, harptos, poolLabel, resourcePoolsOf, sheetViewOf } from '../../campaign';
 import {
   ConditionChip, ResourcePips, StatTile, SCALE_LABELS, chipsOf, exhaustionCommand, signedMod, toggleCommand, SKILL_LABEL, SheetAttacks, IconGrid,
   classIcon, featureIcon, raceIcon, traitIcon, AbilityScores, DataPassport, PcHeader, SkillList, type PassportData, type PcHeaderData, SheetChoices,
@@ -9,6 +9,7 @@ import {
 } from '../../components';
 import { plural, type Actor, type Command, type Faction, type Location, type State } from '../../engine';
 import { ref, type EntityRef } from '../../entities';
+import { useEntity } from '../../entities/useEntity';
 import { Icon } from '../../icons/Icon';
 import { classById, raceById } from '../../rules/compendium';
 import { ABILITIES, ABILITY_IDS, MONSTERS, type AbilityId, type ConditionId, type SkillId } from '../../rules/srd';
@@ -122,7 +123,7 @@ export function PcSkills({ actor, onRoll, columns = 2 }: Pick<BodyProps, 'actor'
 }
 
 /** Данные шапки листа: «Полурослик · Легконогий · Следопыт», мировоззрение, скорость, рост · вес · возраст. Чего нет — поля нет. */
-function pcHeaderData(sheet: NonNullable<Actor['sheet']>): PcHeaderData {
+function pcHeaderData(sheet: NonNullable<Actor['sheet']>, deitySymbol?: string): PcHeaderData {
   const race = raceById(sheet.raceId);
   const sub = race?.subraces.find(x => x.id === sheet.subraceId);
   const cls = classById(sheet.classId);
@@ -135,6 +136,7 @@ function pcHeaderData(sheet: NonNullable<Actor['sheet']>): PcHeaderData {
       { icon: classIcon(sheet.classId), title: `Класс: ${cls?.nameRu ?? sheet.classId}` },
     ],
     ...(sheet.alignment ? { alignment: sheet.alignment } : {}),
+    ...(sheet.deity ? { deity: { name: sheet.deity.name, ref: ref('deity', sheet.deity.id), ...(deitySymbol ? { symbol: deitySymbol } : {}) } } : {}),
     ...(sheet.speed !== undefined ? { speed: sheet.speed } : {}),
     ...(sheet.bio?.height ? { height: sheet.bio.height } : {}),
     ...(sheet.bio?.weight ? { weight: sheet.bio.weight } : {}),
@@ -171,9 +173,12 @@ export function PcOverview({ actor, worldSec, onRoll, onCommand, tools, dmView, 
   const sheet = actor.sheet!;
   const cls = classById(sheet.classId);
   const view = sheetViewOf(actor)!;
+  // Символ бога — из его карточки по эпохе года мира: справочник богов грузится отдельным куском, до того — только имя.
+  const deity = useEntity(sheet.deity ? ref('deity', sheet.deity.id) : null, undefined, eraOf(harptos(worldSec).year));
+  const symbol = deity && deity !== 'loading' ? deity.facts.find(f => f.label === 'Символ')?.value : undefined;
   return (
     <>
-      <PcHeader data={pcHeaderData(sheet)} name={actor.name} />
+      <PcHeader data={pcHeaderData(sheet, symbol)} name={actor.name} />
       {dmView && passport ? <DataPassport passport={passport} /> : null}
       <AbilityScores
         abilities={view.abilities}

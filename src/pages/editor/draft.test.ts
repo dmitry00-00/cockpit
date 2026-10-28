@@ -2,6 +2,7 @@
 import { describe, expect, it } from 'vitest';
 import { classById } from '../../rules/compendium';
 import { classArmorProficiency, deriveCharacter, deriveDraft } from '../../campaign/derive';
+import { sheetOf } from '../../campaign/seed';
 import {
   POINT_BUY_TOTAL, STANDARD_ARRAY, actorIdFor, asiLevelsOf, asiMode, assignArray, bumpAsi, canDecrease, canIncrease, draftIssues, initialDraft,
   pointsLeft, pointsUsed, selectKit, setFeat, setPick, toSpec, toggleAsiChoice, toggleChoice, toggleSkill, toggleSpell, withBackground, withClass,
@@ -122,6 +123,19 @@ describe('id и спецификация', () => {
     const issues = deriveDraft(toSpec(d, 'x')).issues;
     expect(issues).toEqual(expect.arrayContaining(['выбрать ещё 2 навыка класса', 'выбрать: Боевой стиль', 'выбрать черту расы']));
     expect(issues.join()).toMatch(/не выбрано увеличение на уровне 4/);
+  });
+
+  it('божество (E8): жрецу обязательно и с доменом подкласса; в спецификацию и лист — id и имя, без доменов', () => {
+    const cleric = { ...initialDraft(), name: 'Tamsin', classId: 'jrec', subclassId: 'jrec-jizni' };
+    expect(draftIssues(cleric, classById('jrec'))).toContain('выбрать божество');
+    const lathander = { id: 'lathander', name: 'Lathander', domains: ['jrec-jizni', 'jrec-sveta'] };
+    expect(draftIssues({ ...cleric, deity: lathander }, classById('jrec')).join()).not.toMatch(/божеств/);
+    expect(draftIssues({ ...cleric, subclassId: 'jrec-voyny', deity: lathander }, classById('jrec'))).toContain('божество Lathander не даёт домен Войны');
+    expect(draftIssues({ ...initialDraft(), name: 'X' }, classById('voin')).join()).not.toMatch(/божеств/);
+    const spec = toSpec({ ...cleric, deity: lathander }, 'tamsin');
+    expect(spec.deity).toEqual({ id: 'lathander', name: 'Lathander' });
+    expect(sheetOf(spec, deriveDraft(spec).derived).deity).toEqual({ id: 'lathander', name: 'Lathander' });
+    expect(toSpec(cleric, 'x').deity).toBeUndefined();
   });
 });
 

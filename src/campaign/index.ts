@@ -31,6 +31,6 @@ export {
 } from './sheetView';
 export { EDITION_ORDER, cosmologyOf, eraOf, type Era } from './era';
 export {
-  HOLY_DEITIES, SOLAR_LABEL, holyDaysOn, holyLabel, holyList, holyRulesAt, holyWhat, isAnnual, nextHolyDay,
+  HOLY_DEITIES, SOLAR_LABEL, holyDaysOn, holyLabel, holyList, holyRulesAt, holyWhat, inHolyScope, isAnnual, nextHolyDay, nextHolyDayFor, partyDeitiesOf,
   type HolyDay, type HolyDeity, type HolyRule, type HolyScope, type NextHolyDay, type Solar,
 } from './holyDays';

@@ -1,7 +1,8 @@
 // Святые дни (E4): правила импорта ложатся на календарь Харптоса, редакция — по эпохе, ближайший — только годовой.
 import { describe, expect, it } from 'vitest';
 import { FESTIVALS, MONTHS, secOf } from './calendar';
-import { HOLY_DEITIES, holyDaysOn, holyLabel, holyList, holyRulesAt, nextHolyDay } from './holyDays';
+import { HOLY_DEITIES, holyDaysOn, holyLabel, holyList, holyRulesAt, nextHolyDay, nextHolyDayFor, partyDeitiesOf } from './holyDays';
+import { seedState } from './seed';
 
 const on = (sec: number, ...args: Parameters<typeof holyDaysOn> extends [number, ...infer R] ? R : never) =>
   holyDaysOn(sec, ...args).map(holyLabel);
@@ -62,5 +63,17 @@ describe('календарь', () => {
     const solstice = nextHolyDay(secOf({ year: 1492, month: 'Mirtul', day: 15 }), '5e')!;
     expect(holyList(solstice.holy)).toBe('летнее солнцестояние: Amaunator, Mielikki');
     expect(holyList(holyDaysOn(secOf({ year: 1492, festival: 'Greengrass' }), '5e'))).toMatch(/^The Greening: Eldath; /);
+  });
+
+  it('боги партии (E8): с листов, без выбывших; ближайший — бога партии, нет его дней — боги Фаэруна', () => {
+    const seed = seedState();
+    expect(partyDeitiesOf(seed).size).toBe(0);
+    const withTorm = { ...seed, actors: { ...seed.actors, aldric: { ...seed.actors.aldric, sheet: { ...seed.actors.aldric.sheet!, deity: { id: 'torm', name: 'Torm' } } } } };
+    expect([...partyDeitiesOf(withTorm)]).toEqual([['torm', ['Brother Aldric']]]);
+    const from = secOf({ year: 1492, month: 'Mirtul', day: 15 });
+    expect(nextHolyDayFor(from, '5e', new Set(['torm']))).toMatchObject({ sec: secOf({ year: 1492, month: 'Eleasis', day: 13 }), party: true });
+    // Бог без правил святых дней — обратно к богам Фаэруна, без пометки «бога партии».
+    expect(nextHolyDayFor(from, '5e', new Set(['no-such-god']))).toMatchObject({ sec: secOf({ year: 1492, month: 'Kythorn', day: 20 }) });
+    expect(nextHolyDayFor(from, '5e', new Set(['no-such-god']))!.party).toBeUndefined();
   });
 });

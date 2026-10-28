@@ -38,6 +38,7 @@ export function sheetOf(spec: PcSpec, d: DerivedCharacter): CharacterSheet {
     speed: d.speed,
     alignment: spec.alignment,
     bio: spec.bio,
+    ...(spec.deity ? { deity: spec.deity } : {}),
     // Поля редактора — только когда они ведутся: лист сида без них не меняется ни на байт.
     ...(d.expertise.length ? { expertise: d.expertise } : {}),
     ...(d.chosen.length ? { choices: d.chosen } : {}),

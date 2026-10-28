@@ -5,7 +5,7 @@
 import raw from '../../content/cosmos/holy-days.json';
 import { DAYS_PER_YEAR, harptos, moonState, type FestivalName, type MonthName } from './calendar';
 import { EDITION_ORDER, type Era } from './era';
-import { SECONDS_PER_DAY } from '../engine/state';
+import { SECONDS_PER_DAY, type State } from '../engine/state';
 
 type Edition = '5eR' | '5e' | '4e' | '3e' | '2e' | '1e' | '';
 export type Solar = 'spring' | 'summer' | 'autumn' | 'winter';
@@ -40,9 +40,21 @@ export const SOLAR_LABEL: Readonly<Record<Solar, string>> = {
   spring: 'весеннее равноденствие', summer: 'летнее солнцестояние', autumn: 'осеннее равноденствие', winter: 'зимнее солнцестояние',
 };
 
-/** Кого показывать: бога Фаэруна (кампания на Sword Coast) или всех. */
-export type HolyScope = 'faerun' | 'all';
-const inScope = (h: HolyDeity, scope: HolyScope) => scope === 'all' || (h.pantheons?.includes('faerunian-pantheon') ?? false);
+/** Кого показывать: богов Фаэруна (кампания на Sword Coast), всех или набор id — богов партии (E8). */
+export type HolyScope = 'faerun' | 'all' | ReadonlySet<string>;
+export const inHolyScope = (h: HolyDeity, scope: HolyScope): boolean =>
+  typeof scope !== 'string' ? scope.has(h.deity) : scope === 'all' || (h.pantheons?.includes('faerunian-pantheon') ?? false);
+
+/** Боги партии по листам (E8): id бога — имена почитателей. Пусто — ни у кого бога на листе нет. */
+export function partyDeitiesOf(state: State): ReadonlyMap<string, readonly string[]> {
+  const out = new Map<string, string[]>();
+  for (const id of state.party) {
+    const a = state.actors[id];
+    const d = a?.sheet?.deity;
+    if (d && !a.removed) out.set(d.id, [...(out.get(d.id) ?? []), a.name]);
+  }
+  return out;
+}
 
 /** Правила бога для эпохи: первая редакция с полем; поле без разобранных правил — пустой список (только текст). */
 export function holyRulesAt(h: HolyDeity, era: Era): readonly HolyRule[] {
@@ -66,7 +78,7 @@ export function holyDaysOn(sec: number, era: Era, scope: HolyScope = 'faerun'): 
   const moon = moonState(start + SECONDS_PER_DAY / 2).phase;
   const out: HolyDay[] = [];
   for (const h of HOLY_DEITIES) {
-    if (!inScope(h, scope)) continue;
+    if (!inHolyScope(h, scope)) continue;
     for (const rule of holyRulesAt(h, era)) {
       const hit = rule.festival ? d.festival === rule.festival
         : rule.month ? d.month === rule.month && d.day === rule.day
@@ -78,7 +90,19 @@ export function holyDaysOn(sec: number, era: Era, scope: HolyScope = 'faerun'): 
   return out.sort((a, b) => a.name.localeCompare(b.name));
 }
 
-export interface NextHolyDay { sec: number; days: number; holy: HolyDay[] }
+export interface NextHolyDay {
+  sec: number;
+  days: number;
+  holy: HolyDay[];
+  /** Святой день бога партии — а не просто ближайший у богов Фаэруна. */
+  party?: boolean;
+}
+
+/** Ближайший святой день для стола: сначала боги партии (E8), нет их или их дней — боги Фаэруна. */
+export function nextHolyDayFor(sec: number, era: Era, partyDeities: ReadonlySet<string>): NextHolyDay | undefined {
+  const own = partyDeities.size ? nextHolyDay(sec, era, partyDeities) : undefined;
+  return own ? { ...own, party: true } : nextHolyDay(sec, era, 'faerun');
+}
 
 /**
  * Ближайший день с годовым святым днём (праздник или дата) — сегодняшний считается сегодняшним. Ежемесячные и лунные

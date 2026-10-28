@@ -1,10 +1,12 @@
 // Хук карточки по ссылке: представление, если пакет вида загружен; иначе — загрузка и перерисовка по готовности.
 // Записи нет после загрузки — заглушка missingView (пропажа видна).
 import { useEffect, useState } from 'react';
+import type { Era } from '../campaign/era';
 import type { State } from '../engine';
 import { isReady, isStateKind, loadKind, missingView, parseRef, resolve, type EntityRef, type EntityView } from './index';
 
-export function useEntity(ref: EntityRef | null, state?: State): EntityView | 'loading' | null {
+/** `era` — эпоха без состояния (лист знает только время мира); иначе её даёт время State. */
+export function useEntity(ref: EntityRef | null, state?: State, era?: Era): EntityView | 'loading' | null {
   const [, bump] = useState(0);
   const p = ref ? parseRef(ref) : null;
   const ready = p ? isReady(p.kind) : true;
@@ -17,5 +19,5 @@ export function useEntity(ref: EntityRef | null, state?: State): EntityView | 'l
   }, [p?.kind, ready]);
   if (!ref || !p) return null;
   if (!ready) return 'loading';
-  return resolve(ref, { state }) ?? missingView(ref);
+  return resolve(ref, { state, era }) ?? missingView(ref);
 }
