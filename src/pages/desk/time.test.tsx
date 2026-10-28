@@ -51,10 +51,11 @@ describe('шаг времени', () => {
     const { store } = mount();
     fireEvent.click(within(tempoGroup()).getByRole('radio', { name: /Десятидневка/ }));
     step();
-    const types = store.getState().events.slice(-3).map(e => e.type);
-    expect(types).toEqual(['TIME_ADVANCED', 'WORLD_DELTA_PROPOSED', 'WORLD_DELTA_PROPOSED']);
+    // Влияние Zhentarim, цены Neverwinter и две вражды растущей Zhentarim (Q7).
+    const types = store.getState().events.slice(-5).map(e => e.type);
+    expect(types).toEqual(['TIME_ADVANCED', ...Array(4).fill('WORLD_DELTA_PROPOSED')]);
     expect(screen.getByLabelText('Мировые часы')).toHaveTextContent('25 Mirtul 1492 DR');
-    expect(within(inbox()).getAllByRole('listitem')).toHaveLength(6);
+    expect(within(inbox()).getAllByRole('listitem')).toHaveLength(8);
 
     const summary = within(timeView()).getByRole('region', { name: 'Что изменилось' });
     expect(summary).toHaveTextContent('Континент · Faerûn');
@@ -69,6 +70,7 @@ describe('шаг времени', () => {
     expect(store.getState().state.world.locations['loc-neverwinter'].pricePercent).toBe(15);
     fireEvent.click(within(summary).getByRole('button', { name: 'Принять пачкой' }));
     expect(store.getState().state.world.factions['fac-zhentarim'].influencePercent).toBe(46);
+    expect(store.getState().state.world.factions['fac-harpers'].relations?.['fac-zhentarim']).toBe(-3);
     expect(summary).toHaveTextContent('Всё решено');
     expect(within(inbox()).getAllByRole('listitem')).toHaveLength(4);
     const journal = screen.getByRole('list', { name: 'Записи журнала' });
@@ -84,9 +86,12 @@ describe('шаг времени', () => {
     expect(screen.getByRole('status')).toHaveTextContent('Отменено: Отклонено: Встречи с ликантропами · Neverwinter Wood');
     expect(within(inbox()).getAllByRole('listitem')).toHaveLength(4);
     expect(store.getState().state.deltas['d-lycanthropes'].status).toBe('pending');
-    // Ещё раз назад — переброс; ещё раз — принятие пачкой возвращает влияние.
+    // Ещё раз назад — переброс; дальше пачка снимается по одному принятию: две вражды, потом влияние.
     fireEvent.keyDown(window, { key: 'z', code: 'KeyZ', ctrlKey: true });
     expect(deltaCard('Zhentarim · Triboar Trail')).toHaveTextContent('караван всё ещё не найден');
+    fireEvent.keyDown(window, { key: 'z', code: 'KeyZ', ctrlKey: true });
+    expect(store.getState().state.world.factions['fac-harpers'].relations?.['fac-zhentarim']).toBe(-2);
+    fireEvent.keyDown(window, { key: 'z', code: 'KeyZ', ctrlKey: true });
     fireEvent.keyDown(window, { key: 'z', code: 'KeyZ', ctrlKey: true });
     expect(store.getState().state.world.factions['fac-zhentarim'].influencePercent).toBe(45);
     // Свёрнутая группа континента вернулась в сводку — с кнопкой пачки, без строк.

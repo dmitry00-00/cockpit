@@ -54,10 +54,11 @@ describe('simulate — правила', () => {
     expect(simulate({ state, fromSec: SEED_SEC, toSec: SEED_SEC + TEMPO_SECONDS.day, timeEventId: 't1' })).toEqual([]);
   });
 
-  it('десятидневка от сида: тренд Zhentarim (континент, патч), цены Neverwinter (поселение, патч, причина — нить каравана); ликантропы уже ждут решения — не дублируются', () => {
+  it('десятидневка от сида: тренд Zhentarim (континент, патч), цены Neverwinter (поселение, патч, причина — нить каравана), растущая Zhentarim обостряет вражду (Q7); ликантропы уже ждут решения — не дублируются', () => {
     const state = seedEngine(fixed()).getState().state;
     const out = simulate({ state, fromSec: SEED_SEC, toSec: SEED_SEC + TEMPO_SECONDS.tenday, timeEventId: 't1' });
-    expect(out.map(d => d.subject)).toEqual(['Zhentarim · влияние', 'Цены · Neverwinter']);
+    expect(out.map(d => d.subject)).toEqual(['Zhentarim · влияние', 'Цены · Neverwinter', "Lords' Alliance и Zhentarim · отношения", 'Harpers и Zhentarim · отношения']);
+    expect(out[3]).toMatchObject({ scale: 'continent', was: '−2', now: '−3', causeId: 't1', patch: { kind: 'relation', id: FACTION.harpers, other: FACTION.zhentarim, value: -3 } });
     expect(out[0]).toMatchObject({ id: 'sim-t1-trend-fac-zhentarim', scale: 'continent', was: '45%', now: '46%', causeId: 't1', patch: { kind: 'faction', id: FACTION.zhentarim, field: 'influencePercent', value: 46 } });
     expect(out[1]).toMatchObject({ scale: 'settlement', was: '+10%', now: '+15%', causeId: THREAD.missingCaravan, threadIds: [THREAD.missingCaravan], patch: { kind: 'location', id: LOCATION.neverwinter, field: 'pricePercent', value: 15 } });
     // Те же входы — те же id: реплей не плодит дублей.
@@ -69,7 +70,7 @@ describe('simulate — правила', () => {
     const out = simulate({ state, fromSec: SEED_SEC, toSec: SEED_SEC + TEMPO_SECONDS.season, timeEventId: 't2' });
     const moon = out.find(d => d.id === 'sim-t2-moon-lycanthropes');
     expect(moon).toMatchObject({ scale: 'region', now: '×2 на 3 ночи', causeId: THREAD.moonAndPack, threadIds: [THREAD.moonAndPack] });
-    expect(moon?.patch).toBeUndefined();
+    expect(moon?.patch).toEqual({ kind: 'encounter', id: LOCATION.neverwinterWood, key: 'Werewolf', value: 2 });
     expect(out.find(d => d.id === 'sim-t2-season-summer')).toMatchObject({ scale: 'planet', subject: 'Сезон · Toril', was: 'весна', now: 'лето', causeId: 't2' });
   });
 
@@ -83,6 +84,49 @@ describe('simulate — правила', () => {
     expect(simulate({ state, fromSec: toCold, toSec: toCold + SECONDS_PER_DAY, timeEventId: 't3' }).some(d => d.id.includes('cold'))).toBe(false);
   });
 
+  it('правила модели мира (Q7): каждое — с causeId и патчем, мир не трогают; цены еды — за сменой сезона и праздником', () => {
+    const state = seedState();
+    const frozen = JSON.stringify(state);
+    const at = (input: Parameters<typeof secOf>[0]) => secOf(input);
+    // Весна → лето: еда в поселениях дешевле на разницу целей сезона (+5 → 0).
+    const summer = simulate({ state, fromSec: SEED_SEC, toSec: SEED_SEC + TEMPO_SECONDS.season, timeEventId: 'ts' });
+    expect(summer.find(d => d.subject === 'Еда и ночлег · Neverwinter')).toMatchObject({
+      was: '0%', now: '-5%', cause: 'лето: цена сезона', causeId: 'ts', patch: { kind: 'price', id: LOCATION.neverwinter, goods: 'food', value: -5 },
+    });
+    // День праздника — толпы +10, следующий день — обратно.
+    const eve = at({ year: 1492, month: 'Flamerule', day: 30, hour: 12 });
+    const midsummer = simulate({ state, fromSec: eve, toSec: eve + SECONDS_PER_DAY, timeEventId: 'tf' });
+    expect(midsummer.find(d => d.subject === 'Еда и ночлег · Neverwinter')).toMatchObject({ now: '+10%', cause: 'Midsummer: толпы', patch: { goods: 'food', value: 10 } });
+    const after = simulate({ state, fromSec: eve + SECONDS_PER_DAY, toSec: eve + 2 * SECONDS_PER_DAY, timeEventId: 'ta' });
+    expect(after.find(d => d.subject === 'Еда и ночлег · Neverwinter')).toMatchObject({ now: '-10%', cause: 'праздник прошёл' });
+    // Каждое предложение — с причиной; кроме смены сезона словами, у каждого патч.
+    for (const d of [...summer, ...midsummer, ...after]) {
+      expect(d.causeId, d.subject).toBeTruthy();
+      if (!d.subject.startsWith('Сезон')) expect(d.patch, d.subject).toBeDefined();
+    }
+    expect(JSON.stringify(state)).toBe(frozen);
+  });
+
+  it('луна (Q7): принятый ×2 после трёх ночей — предложение вернуть ×1; партия известна обеим фракциям — отношение ближе', () => {
+    const store = seedEngine(fixed());
+    store.getState().accept('d-lycanthropes');
+    const state = store.getState().state;
+    const full = SEED_SEC + 3 * SECONDS_PER_DAY; // 18 Mirtul — полнолуние
+    expect(simulate({ state, fromSec: full, toSec: full + SECONDS_PER_DAY, timeEventId: 'm1' }).some(d => d.id.includes('moon-over'))).toBe(false);
+    expect(simulate({ state, fromSec: full + 3 * SECONDS_PER_DAY, toSec: full + 4 * SECONDS_PER_DAY, timeEventId: 'm2' }).find(d => d.id.includes('moon-over'))).toMatchObject({
+      was: '×2', now: '×1', causeId: THREAD.moonAndPack, patch: { kind: 'encounter', id: LOCATION.neverwinterWood, key: 'Werewolf', value: 1 },
+    });
+
+    // Партия: у Church of Helm известность 5 — с Harpers (5) и Lords' Alliance (12) отношение 0 → +1 за десятидневку;
+    // Harpers и Lords' Alliance уже союзники (+2) — не трогаются.
+    const seed = seedState();
+    const known = { ...seed, world: { ...seed.world, factions: { ...seed.world.factions, [FACTION.churchOfHelm]: { ...seed.world.factions[FACTION.churchOfHelm], renown: 5 } } } };
+    const bridges = simulate({ state: known, fromSec: SEED_SEC, toSec: SEED_SEC + TEMPO_SECONDS.tenday, timeEventId: 'tb' }).filter(d => d.id.includes('bridge'));
+    expect(bridges.map(d => d.subject)).toEqual(["Church of Helm и Lords' Alliance · отношения", 'Church of Helm и Harpers · отношения']);
+    expect(bridges[1]).toMatchObject({ was: '0', now: '+1', patch: { kind: 'relation', id: FACTION.churchOfHelm, other: FACTION.harpers, value: 1 } });
+    expect(simulate({ state: seed, fromSec: SEED_SEC, toSec: SEED_SEC + TEMPO_SECONDS.tenday, timeEventId: 'tb' }).some(d => d.id.includes('bridge'))).toBe(false);
+  });
+
   it('tendaysCrossed и placeChain', () => {
     expect(tendaysCrossed(SEED_SEC, SEED_SEC + TEMPO_SECONDS.tenday)).toBe(1);
     expect(tendaysCrossed(SEED_SEC, SEED_SEC + TEMPO_SECONDS.day)).toBe(0);
@@ -93,15 +137,15 @@ describe('simulate — правила', () => {
 });
 
 describe('stepTime и патч мира', () => {
-  it('шаг десятидневки: TIME_ADVANCED, два предложения в логе; принятие цен меняет pricePercent, Ctrl+Z возвращает 10 и предложение во входящие', () => {
+  it('шаг десятидневки: TIME_ADVANCED, четыре предложения в логе; принятие цен меняет pricePercent, Ctrl+Z возвращает 10 и предложение во входящие', () => {
     const store = seedEngine(fixed());
     const api = store.getState();
     const { event, proposals } = stepTime(api, 'tenday');
     expect(event.type).toBe('TIME_ADVANCED');
-    expect(proposals.map(d => d.subject)).toEqual(['Zhentarim · влияние', 'Цены · Neverwinter']);
+    expect(proposals.map(d => d.subject)).toEqual(['Zhentarim · влияние', 'Цены · Neverwinter', "Lords' Alliance и Zhentarim · отношения", 'Harpers и Zhentarim · отношения']);
     const s1 = store.getState();
     expect(s1.state.time.sec).toBe(SEED_SEC + TEMPO_SECONDS.tenday);
-    expect(s1.events.slice(-2).map(e => e.type)).toEqual(['WORLD_DELTA_PROPOSED', 'WORLD_DELTA_PROPOSED']);
+    expect(s1.events.slice(-4).map(e => e.type)).toEqual(Array(4).fill('WORLD_DELTA_PROPOSED'));
     expect(s1.state.world.locations[LOCATION.neverwinter].pricePercent).toBe(10);
 
     const prices = proposals[1];

@@ -3,10 +3,10 @@
 // принятое меняет числа через патч в редьюсере. Правила детерминированы — те же состояние и отрезок дают
 // те же id, поэтому реплей лога не рождает дублей. Причина у каждого предложения: нить, факт или само
 // событие шага времени — по ней журнал строит каскад.
-import { SECONDS_PER_DAY, type State, type WorldDelta } from '../engine/state';
+import { SECONDS_PER_DAY, type Location, type State, type WorldDelta } from '../engine/state';
 import { TEMPO_SECONDS, type DomainEvent, type Tempo } from '../engine/events';
 import type { EngineStore } from '../engine/store';
-import { SEASON_LABELS, fullMoonsBetween, seasonOf } from './calendar';
+import { SEASON_LABELS, fullMoonsBetween, harptos, seasonOf, type Season } from './calendar';
 import { LOCATION, THREAD } from './world';
 
 export interface SimulationInput {
@@ -33,6 +33,34 @@ export const THREAD_COLD_DAYS = 20;
 
 const pct = (n: number) => `${n > 0 ? '+' : ''}${n}%`;
 
+/**
+ * Числа правил модели мира (Q7, ROADMAP 4.1) — правила стола, не SRD: спецификация их не задаёт, поэтому они здесь,
+ * в одном месте, и правятся без поиска по коду.
+ */
+export const SIM_RULES = {
+  /** Цена еды и ночлега в поселении по сезону, % к базовой: зимой запасы дорожают, осенью урожай дешевле. */
+  foodBySeason: { winter: 10, spring: 5, summer: 0, autumn: -5 } satisfies Record<Season, number>,
+  /** В день праздника Харптоса — толпы: еда и ночлег дороже на столько. */
+  festivalCrowd: 10,
+  /** Враги растущей фракции: отношение −1 за десятидневку, не ниже этого. */
+  rivalryFloor: -3,
+  /** Партия известна обеим фракциям хотя бы на столько — их отношение (если не выше 0) +1 за десятидневку. */
+  partyBridgeRenown: 5,
+  /** Ликантропы в полнолуние: множитель встречи и сколько ночей он держится. */
+  moonWeight: 2,
+  moonNights: 3,
+} as const;
+
+/** Кто встречается в полнолуние чаще — ключ веса встречи (латиницей, как в SRD). */
+const LYCANTHROPE = 'Werewolf';
+
+/** Цель цены еды на момент sec: сезон и праздник в этот день. */
+const foodTarget = (sec: number) => SIM_RULES.foodBySeason[seasonOf(sec)] + (harptos(sec).festival ? SIM_RULES.festivalCrowd : 0);
+
+/** Отношение фракций и его подпись для предложения. */
+const relationOf = (state: State, a: string, b: string) => state.world.factions[a]?.relations?.[b] ?? 0;
+const rel = (n: number) => (n > 0 ? `+${n}` : n < 0 ? `−${-n}` : '0');
+
 /** Уже есть такое же предложение, ждущее решения, — второй раз не предлагаем. */
 const alreadyPending = (state: State, subject: string) =>
   Object.values(state.deltas).some(d => d.status === 'pending' && d.subject === subject);
@@ -42,8 +70,13 @@ const alreadyPending = (state: State, subject: string) =>
  * 1. нить без внимания дольше THREAD_COLD_DAYS — предложить закрыть (регион, патч статуса, причина — нить);
  * 2. фракция с трендом — влияние на тренд за каждую десятидневку (континент, патч влияния, причина — шаг);
  * 3. пока караван не найден — цены в Neverwinter +5% за десятидневку (поселение, патч цен, причина — нить);
- * 4. полнолуние за отрезок — ликантропы ×2 на три ночи в Neverwinter Wood (регион, словами, причина — нить «Луна и стая»);
- * 5. сменился сезон — сезон на Toril (планета, словами, причина — шаг).
+ * 4. полнолуние за отрезок — ликантропы ×2 на три ночи в Neverwinter Wood (регион, патч веса, причина — нить «Луна и стая»);
+ *    три ночи прошли — вернуть ×1;
+ * 5. цена еды и ночлега в поселениях — за сменой цели: сезон, день праздника (поселение, патч цены товара, причина — шаг);
+ * 6. отношения фракций раз в десятидневку: растущая фракция — вражда с врагами глубже, партия известна обеим — ближе
+ *    (континент, патч отношения, причина — шаг);
+ * 7. сменился сезон — сезон на Toril (планета, словами, причина — шаг).
+ * Числа правил 4–6 — SIM_RULES.
  */
 export function simulate({ state, fromSec, toSec, timeEventId }: SimulationInput): WorldDelta[] {
   const out: WorldDelta[] = [];
@@ -90,15 +123,72 @@ export function simulate({ state, fromSec, toSec, timeEventId }: SimulationInput
     }
   }
 
-  if (fullMoonsBetween(fromSec, toSec).length > 0) {
-    const wood = state.world.locations[LOCATION.neverwinterWood];
-    const subject = `Встречи с ликантропами · ${wood?.name ?? 'Neverwinter Wood'}`;
-    if (!alreadyPending(state, subject)) {
-      const pack = state.world.threads[THREAD.moonAndPack];
+  // Луна (Q7): полнолуние за отрезок — ликантропы в Neverwinter Wood ×2 (нить «Луна и стая»); прошло три ночи после
+  // полнолуния, а вес ещё выше 1 — вернуть ×1. Срок — словами: модель хранит только множитель.
+  const wood = state.world.locations[LOCATION.neverwinterWood];
+  const moonSubject = `Встречи с ликантропами · ${wood?.name ?? 'Neverwinter Wood'}`;
+  const pack = state.world.threads[THREAD.moonAndPack];
+  const weight = wood?.encounters?.[LYCANTHROPE] ?? 1;
+  if (wood && !alreadyPending(state, moonSubject)) {
+    const moonWindow = SIM_RULES.moonNights * DAY;
+    if (fullMoonsBetween(fromSec, toSec).length > 0 && weight < SIM_RULES.moonWeight) {
       out.push({
-        id: id('moon', 'lycanthropes'), scale: 'region', subject, was: '×1', now: '×2 на 3 ночи',
+        id: id('moon', 'lycanthropes'), scale: 'region', subject: moonSubject, was: `×${weight}`, now: `×${SIM_RULES.moonWeight} на ${SIM_RULES.moonNights} ночи`,
         cause: 'полнолуние Selûne', causeId: pack ? pack.id : timeEventId, status: 'pending', threadIds: pack ? [pack.id] : [],
+        patch: { kind: 'encounter', id: wood.id, key: LYCANTHROPE, value: SIM_RULES.moonWeight },
       });
+    } else if (weight > 1 && fullMoonsBetween(toSec - moonWindow, toSec).length === 0) {
+      out.push({
+        id: id('moon-over', 'lycanthropes'), scale: 'region', subject: moonSubject, was: `×${weight}`, now: '×1',
+        cause: `полнолуние прошло больше ${SIM_RULES.moonNights} ночей назад`, causeId: pack ? pack.id : timeEventId, status: 'pending', threadIds: pack ? [pack.id] : [],
+        patch: { kind: 'encounter', id: wood.id, key: LYCANTHROPE, value: 1 },
+      });
+    }
+  }
+
+  // Цены еды в поселениях (Q7): цель — сезон и праздник; предложение — только когда цель сменилась за отрезок, на
+  // разницу целей: остальное движение цен ведёт мастер.
+  const foodShift = foodTarget(toSec) - foodTarget(fromSec);
+  if (foodShift !== 0) {
+    const d = harptos(toSec);
+    const why = d.festival ? `${d.festival}: толпы` : seasonOf(fromSec) !== seasonOf(toSec) ? `${SEASON_LABELS[seasonOf(toSec)]}: цена сезона` : 'праздник прошёл';
+    for (const l of Object.values(state.world.locations).filter((x): x is Location => x.scale === 'settlement')) {
+      const subject = `Еда и ночлег · ${l.name}`;
+      if (alreadyPending(state, subject)) continue;
+      const was = l.prices?.food ?? 0;
+      out.push({
+        id: id('food', l.id), scale: 'settlement', subject, was: pct(was), now: pct(was + foodShift),
+        cause: why, causeId: timeEventId, status: 'pending', patch: { kind: 'price', id: l.id, goods: 'food', value: was + foodShift },
+      });
+    }
+  }
+
+  // Отношения фракций (Q7), раз в десятидневку: растущая фракция (тренд > 0) обостряет вражду со своими врагами;
+  // партия, известная обеим сторонам, сближает тех, кто не дружит. Пара — один раз, в порядке id.
+  if (tendays > 0) {
+    const factions = Object.values(state.world.factions);
+    for (const f of factions) {
+      for (const g of factions) {
+        if (f.id >= g.id) continue;
+        const now = relationOf(state, f.id, g.id);
+        const growing = [f, g].find(x => (x.trend ?? 0) > 0);
+        const subject = `${f.name} и ${g.name} · отношения`;
+        if (alreadyPending(state, subject)) continue;
+        if (growing && now < 0 && now > SIM_RULES.rivalryFloor) {
+          const value = Math.max(SIM_RULES.rivalryFloor, now - tendays);
+          out.push({
+            id: id('rivalry', `${f.id}-${g.id}`), scale: 'continent', subject, was: rel(now), now: rel(value),
+            cause: `${growing.name} набирает влияние — враги отвечают`, causeId: timeEventId, status: 'pending',
+            patch: { kind: 'relation', id: f.id, other: g.id, value },
+          });
+        } else if (now <= 0 && f.renown >= SIM_RULES.partyBridgeRenown && g.renown >= SIM_RULES.partyBridgeRenown) {
+          out.push({
+            id: id('bridge', `${f.id}-${g.id}`), scale: 'continent', subject, was: rel(now), now: rel(now + 1),
+            cause: `партия известна обеим: ${f.name} ${f.renown}, ${g.name} ${g.renown}`, causeId: timeEventId, status: 'pending',
+            patch: { kind: 'relation', id: f.id, other: g.id, value: now + 1 },
+          });
+        }
+      }
     }
   }
 
