@@ -447,19 +447,33 @@ export function PlaceOverview({ place, parent, onOpenParent, pending, facts, onR
  * Обзор фракции: цель словами, организация вики ссылкой, отношения с другими фракциями (−3…+3, ROADMAP 3.3) и что
  * ждёт решения; влияние, тренд и известность — в полосе карточки.
  */
-export function FactionOverview({ faction, factions, pending, onOpenEntity }: {
+export function FactionOverview({ faction, factions, pending, onOpenEntity, onRenown }: {
   faction: Faction;
   /** Все фракции мира — имена другой стороны отношения. */
   factions: State['world']['factions'];
   pending: readonly State['deltas'][string][];
   onOpenEntity?: (ref: EntityRef) => void;
+  /** Мастер: предложить сдвиг известности партии (E10) — во входящие, не в мир. */
+  onRenown?: (step: 1 | -1) => void;
 }) {
+  // Сдвиг известности уже ждёт решения — второй не предлагается: он считался бы от старого числа.
+  const renownWaits = pending.some(d => d.patch?.kind === 'faction' && d.patch.field === 'renown');
   const relations = Object.entries(faction.relations ?? {})
     .filter(([id]) => factions[id])
     .sort(([, a], [, b]) => b - a);
   return (
     <>
       {faction.goal ? <Pair label="Цель" value={faction.goal} /> : null}
+      {onRenown ? (
+        <div className="flex items-baseline gap-3" data-part="renown">
+          <span className="type-num-12 uppercase text-t2 w-24 flex-none">Известность</span>
+          <span className="flex items-center gap-1">
+            <button type="button" disabled={renownWaits} onClick={() => onRenown(1)} title="Предложить: известность партии +1 — во входящие, мир изменит «Принять»" className={BTN}>+1</button>
+            <button type="button" disabled={renownWaits} onClick={() => onRenown(-1)} title="Предложить: известность партии −1 — во входящие, мир изменит «Принять»" className={BTN}>−1</button>
+            {renownWaits ? <span className="type-body-sm text-src-sim">ждёт решения</span> : null}
+          </span>
+        </div>
+      ) : null}
       {faction.ref && onOpenEntity ? (
         <div className="flex items-baseline gap-3">
           <span className="type-num-12 uppercase text-t2 w-24 flex-none">По вики</span>
@@ -483,5 +497,35 @@ export function FactionOverview({ faction, factions, pending, onOpenEntity }: {
       ) : null}
       <PendingRows deltas={pending} />
     </>
+  );
+}
+
+/**
+ * Организация справочника и кампания (E10): уже фракция — её известность партии и ссылка на карточку фракции;
+ * нет — мастеру кнопка «В кампанию фракцией» (предложение во входящие). Игрокам — только известность.
+ */
+export function OrgCampaignLine({ faction, dm, pendingAdd, onOpenFaction, onAdd }: {
+  faction?: Faction;
+  dm: boolean;
+  /** Предложение добавить эту организацию уже ждёт решения. */
+  pendingAdd: boolean;
+  onOpenFaction: (id: string) => void;
+  onAdd: () => void;
+}) {
+  if (faction) {
+    return (
+      <div className="flex items-baseline gap-3 type-body-sm" data-part="org-campaign">
+        <span className="type-num-12 uppercase text-t2 flex-none">В кампании</span>
+        <TextLink title={`Карточка фракции кампании: ${faction.name}`} onClick={() => onOpenFaction(faction.id)}>{faction.name}</TextLink>
+        <span className="text-t2">известность партии <span className="type-num-15 text-tx">{faction.renown}</span></span>
+      </div>
+    );
+  }
+  if (!dm) return null;
+  return (
+    <div className="flex items-center gap-2" data-part="org-campaign">
+      <button type="button" disabled={pendingAdd} onClick={onAdd} title="Предложить: организация становится фракцией кампании с известностью 0 — во входящие" className={BTN}>В кампанию фракцией</button>
+      {pendingAdd ? <span className="type-body-sm text-src-sim">ждёт решения</span> : null}
+    </div>
   );
 }

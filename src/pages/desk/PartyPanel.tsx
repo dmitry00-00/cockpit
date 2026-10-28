@@ -89,6 +89,7 @@ export function PartyPanel({
             onCompare={() => setCompareOpen(true)}
             onClear={() => setChecked(new Set())}
             dmView={dmView}
+            renown={Object.values(state.world.factions).filter(f => f.renown !== 0).sort((a, b) => b.renown - a.renown).map(f => ({ id: f.id, name: f.name, value: f.renown }))}
           />
         ) : null}
       </aside>

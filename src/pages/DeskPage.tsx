@@ -18,7 +18,7 @@ import { useEffect, useMemo, useRef, useState, type ReactNode, type RefObject } 
 import {
   conModOf, cosmologyOf, currentOrder, eraOf, harptos, dayPhase, encounterCandidates, hitDiceOf, initiativeMod, moonState, nextFestival, nextHolyDayFor, partyDeitiesOf, placeChain, pcActor, placedActors,
   poolLabel, resourcePoolsOf, restCandidates, restResourcesOf, seedBattlefield, seedEngine, seedState, sortInitiative, spawnMonsters, stepTime,
-  suggestMonsterName, takeRest, travel, weatherOf, sheetViewOf, passportOf, newPlaceDelta, type PcSpec,
+  suggestMonsterName, takeRest, travel, weatherOf, sheetViewOf, passportOf, newPlaceDelta, renownDelta, organizationFactionDelta, factionOfOrganization, type PcSpec,
 } from '../campaign';
 import {
   BattleGrid, CardStack, ConcentrationForm, ConditionGrid, EntityCard, EntityViewBody, OpenEntityContext, cardTypeOf, HpControl, InitiativeBar, Paperdoll, PlayerFrame, ScaleLadder, SpawnForm,
@@ -33,7 +33,7 @@ import {
   type JournalEntry as JournalRecord, type Ladder, type RestHitDice, type RestKind, type ScaleLevel, type Tempo,
 } from '../engine';
 import { useEngine, useHpFlashes, useUndoKeys } from '../engine/useEngine';
-import { KIND_LABEL, isEntityRef, parseRef, type EntityRef } from '../entities';
+import { KIND_LABEL, isEntityRef, parseRef, ref, type EntityRef, type EntityView } from '../entities';
 import { useEntity } from '../entities/useEntity';
 import { Icon } from '../icons/Icon';
 import { classById } from '../rules/compendium';
@@ -46,7 +46,7 @@ import { useMapData } from './desk/useMapData';
 import {
   MONSTER_IDS, MONSTER_ORIGIN_LABEL, MONSTERS, loadMonsterLibraries, monsterLibrariesLoaded, monsterOrigin, needsMonsterLibraries, type MonsterId,
 } from '../rules/srd';
-import { type BodyProps, DmTab, FactionOverview, MonsterActions, MonsterOverview, MonsterSeen, PcOverview, PcSkills, PlaceOverview } from './desk/bodies';
+import { type BodyProps, DmTab, FactionOverview, MonsterActions, MonsterOverview, MonsterSeen, OrgCampaignLine, PcOverview, PcSkills, PlaceOverview } from './desk/bodies';
 import {
   type OpenRail, BATTLE_CELL, DESK_HASH, DESK_LOG_KEY, JOURNAL_TAIL, NARROW_QUERY, NEW_PC_HASH, concentrationRemindersOf, conditionRemindersOf,
   d20Formula, deskDollItems, dmFactsAbout, dmFactsOf, factionItems, hereItems, isDeskHotkey, isNarrow, journalEntryProps, ladderSteps,
@@ -728,9 +728,24 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
   ) : null;
   const factionCard = faction ? (
     <EntityCard key={faction.id} {...factionCardProps(faction, { pending: pendingIds.has(faction.id) })} activeTab={tab} onTab={setTab} dmView={dmView} className="max-h-full flex-none">
-      {(current: string) => (current === 'overview' ? <FactionOverview faction={faction} factions={state.world.factions} pending={dmView ? pendingFor(state, faction.id) : []} onOpenEntity={openEntity} /> : null)}
+      {(current: string) => (current === 'overview' ? <FactionOverview faction={faction} factions={state.world.factions} pending={dmView ? pendingFor(state, faction.id) : []} onOpenEntity={openEntity} onRenown={dmView ? step => api.propose(renownDelta(state, faction.id, step)) : undefined} /> : null)}
     </EntityCard>
   ) : null;
+  // Организация справочника и кампания (E10): фракция с известностью или кнопка «В кампанию фракцией».
+  const orgLine = (view: EntityView, onOpen: (r: EntityRef) => void) => {
+    if (view.kind !== 'organization') return null;
+    const orgId = parseRef(view.ref)!.id;
+    const pendingAdd = Object.values(state.deltas).some(d => d.status === 'pending' && d.patch?.kind === 'newFaction' && d.patch.faction.ref === view.ref);
+    return (
+      <OrgCampaignLine
+        faction={factionOfOrganization(state, orgId)}
+        dm={dmView}
+        pendingAdd={pendingAdd}
+        onOpenFaction={id => onOpen(ref('faction', id))}
+        onAdd={() => api.propose(organizationFactionDelta(state, { id: orgId, name: view.name }))}
+      />
+    );
+  };
   const entityCard = cardOf.kind === 'entity' && entityView ? (
     <EntityCard
       key={cardOf.ref}
@@ -741,7 +756,7 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
       dmView={dmView}
       className="max-h-full flex-none"
     >
-      {entityView === 'loading' ? <p className="type-body-sm text-t2">Справочник загружается…</p> : <EntityViewBody view={entityView} onOpen={openEntity} />}
+      {entityView === 'loading' ? <p className="type-body-sm text-t2">Справочник загружается…</p> : <>{orgLine(entityView, openEntity)}<EntityViewBody view={entityView} onOpen={openEntity} /></>}
     </EntityCard>
   ) : null;
   const card = cardOf.kind === 'actor' ? actorCard : cardOf.kind === 'place' ? placeCard : cardOf.kind === 'entity' ? entityCard : factionCard;
@@ -779,11 +794,12 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
       dmView={dmView}
       className="max-h-full"
     >
+      {orgLine(entityView, r => { setCardOverlay(false); openEntity(r); })}
       <EntityViewBody view={entityView} onOpen={r => { setCardOverlay(false); openEntity(r); }} />
     </EntityCard>
   ) : faction ? (
     <EntityCard {...factionCardProps(faction, { pending: pendingIds.has(faction.id) })} overlay activeTab={tab} onTab={setTab} dmView={dmView} className="max-h-full">
-      {(current: string) => (current === 'overview' ? <FactionOverview faction={faction} factions={state.world.factions} pending={dmView ? pendingFor(state, faction.id) : []} onOpenEntity={r => { setCardOverlay(false); openEntity(r); }} /> : null)}
+      {(current: string) => (current === 'overview' ? <FactionOverview faction={faction} factions={state.world.factions} pending={dmView ? pendingFor(state, faction.id) : []} onOpenEntity={r => { setCardOverlay(false); openEntity(r); }} onRenown={dmView ? step => api.propose(renownDelta(state, faction.id, step)) : undefined} /> : null)}
     </EntityCard>
   ) : null;
   // Отметки — только живых членов партии: ушедший из партии актёр из выборки выпадает сам.

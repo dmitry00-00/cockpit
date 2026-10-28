@@ -130,7 +130,10 @@ export type WorldPatch =
   | { kind: 'encounter'; id: string; key: string; value: number }
   // Новое место (M8, ROADMAP 3.5) и обратное ему — снимок «было» при откате принятия.
   | { kind: 'newLocation'; location: Location }
-  | { kind: 'removeLocation'; id: string };
+  | { kind: 'removeLocation'; id: string }
+  // Организация справочника становится фракцией кампании (E10, E5) — и обратное, снимок для отката.
+  | { kind: 'newFaction'; faction: Faction }
+  | { kind: 'removeFaction'; id: string };
 
 /** Предложение симуляции: пока мастер не решил, в мире стоит `was`, а `now` живёт только здесь. */
 export interface WorldDelta {

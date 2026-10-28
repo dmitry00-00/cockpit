@@ -228,6 +228,7 @@ export function patchTargets(patch: WorldPatch): string[] {
   switch (patch.kind) {
     case 'relation': return [patch.id, patch.other];
     case 'newLocation': return patch.location.parentId ? [patch.location.parentId] : [];
+    case 'newFaction': return [];
     default: return [patch.id];
   }
 }

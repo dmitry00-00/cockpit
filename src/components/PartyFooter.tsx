@@ -29,6 +29,8 @@ export interface PartyFooterProps {
   onClear: () => void;
   /** Пробелы листов — только мастеру. */
   dmView?: boolean;
+  /** Известность партии у фракций кампании (E10): не ноль, по убыванию. Нет — раздела нет. */
+  renown?: readonly { id: string; name: string; value: number }[];
   /** Док раскрыт на старте (для проверок и снимков). */
   defaultOpen?: boolean;
 }
@@ -47,7 +49,7 @@ function DockSection({ title, children }: { title: string; children: ReactNode }
   );
 }
 
-export function PartyFooter({ total, selected, summary, onCompare, onClear, dmView = true, defaultOpen = false }: PartyFooterProps) {
+export function PartyFooter({ total, selected, summary, onCompare, onClear, dmView = true, renown = [], defaultOpen = false }: PartyFooterProps) {
   const [dock, setDock] = useState(defaultOpen);
   const scope = selected > 0 ? `выбранных ${selected}` : `партии ${total}`;
   return (
@@ -69,6 +71,18 @@ export function PartyFooter({ total, selected, summary, onCompare, onClear, dmVi
               ))}
             </ul>
           </DockSection>
+          {renown.length > 0 ? (
+            <DockSection title="Известность">
+              <dl className="grid grid-cols-[1fr_auto] gap-x-2 type-body-sm" aria-label="Известность партии">
+                {renown.map(r => (
+                  <div key={r.id} className="contents">
+                    <dt className="text-t2 truncate" title={`Известность партии у фракции ${r.name}`}>{r.name}</dt>
+                    <dd className="type-num-12 text-tx text-right">{r.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </DockSection>
+          ) : null}
           <DockSection title="Запас">
             <dl className="grid grid-cols-[1fr_auto] gap-x-2 type-body-sm">
               <dt className="text-t2">Кости хитов</dt>

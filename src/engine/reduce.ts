@@ -346,6 +346,16 @@ function checkPatch(state: State, patch: WorldPatch): void {
       if (!locations[patch.id]) throw missing('location', patch.id);
       if (Object.values(locations).some(l => l.parentId === patch.id)) throw new EngineError(`в месте ${patch.id} есть другие места — не убирается`);
       return;
+    case 'newFaction': {
+      const f = patch.faction;
+      if (!f?.id || !f.name?.trim()) throw new EngineError('новая фракция без id или имени');
+      if (factions[f.id]) throw new EngineError(`фракция ${f.id} уже есть`);
+      if (!Number.isInteger(f.renown)) throw new EngineError(`известность — целое число, получено ${f.renown}`);
+      return;
+    }
+    case 'removeFaction':
+      if (!factions[patch.id]) throw missing('faction', patch.id);
+      return;
   }
 }
 
@@ -365,6 +375,8 @@ function readPatch(state: State, patch: WorldPatch): WorldPatch {
     // До нового места его не было — откат убирает его; убранное место возвращается целиком.
     case 'newLocation': return { kind: 'removeLocation', id: patch.location.id };
     case 'removeLocation': return { kind: 'newLocation', location: structuredClone(locations[patch.id]) };
+    case 'newFaction': return { kind: 'removeFaction', id: patch.faction.id };
+    case 'removeFaction': return { kind: 'newFaction', faction: structuredClone(factions[patch.id]) };
   }
 }
 
@@ -399,6 +411,8 @@ function writePatch(draft: State, patch: WorldPatch): void {
     }
     case 'newLocation': locations[patch.location.id] = castDraft(structuredClone(patch.location)); return;
     case 'removeLocation': delete locations[patch.id]; return;
+    case 'newFaction': factions[patch.faction.id] = castDraft(structuredClone(patch.faction)); return;
+    case 'removeFaction': delete factions[patch.id]; return;
   }
 }
 

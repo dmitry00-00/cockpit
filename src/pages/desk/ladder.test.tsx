@@ -77,7 +77,7 @@ describe('лестница масштабов', () => {
     fireEvent.click(within(powers).getByRole('button', { name: /Zhentarim/ }));
     const zh = cardOf('Zhentarim');
     expect(within(zh).getByText('45%')).toBeInTheDocument();
-    expect(within(zh).getByText('+1')).toBeInTheDocument();
+    expect(within(zh).getByText('+1', { selector: 'span' })).toBeInTheDocument(); // тренд в плитке, не кнопка известности
     expect(within(zh).getByText('контроль над Triboar Trail')).toBeInTheDocument();
     expect(currentStep()).toBe('continent'); // держава — карточка, не уровень
     fireEvent.click(stepOf('region'));
@@ -110,6 +110,36 @@ describe('лестница масштабов', () => {
     expect(within(cardOf('Neverwinter')).getByText('оружие +10%')).toBeInTheDocument();
     act(() => store.getState().undo());
     expect(within(cardOf('Neverwinter')).queryByText('оружие +10%')).toBeNull();
+  // Карточка организации — кусок мира по требованию: под полным прогоном импорт дольше пяти секунд.
+  }, 20000);
+
+  it("известность (E10): в карточке Lords' Alliance «+1» — предложение во входящие, кнопки ждут; «Принять» — 13, подвал партии показывает; организация справочника — «В кампанию фракцией»", async () => {
+    const { store } = mount();
+    fireEvent.click(stepOf('continent'));
+    fireEvent.click(within(screen.getByRole('group', { name: 'Державы' })).getByRole('button', { name: /Lords' Alliance/ }));
+    const renown = cardOf("Lords' Alliance").querySelector<HTMLElement>('[data-part="renown"]')!;
+    fireEvent.click(within(renown).getByRole('button', { name: '+1' }));
+    expect(lastEvent(store)).toMatchObject({ type: 'WORLD_DELTA_PROPOSED', payload: { delta: { subject: "Известность партии · Lords' Alliance", was: '12', now: '13' } } });
+    expect(within(renown).getByRole('button', { name: '+1' })).toBeDisabled();
+    expect(renown).toHaveTextContent('ждёт решения');
+    const id = (lastEvent(store) as DomainEvent<'WORLD_DELTA_PROPOSED'>).payload.delta.id;
+    act(() => { store.getState().accept(id); });
+    expect(store.getState().state.world.factions['fac-lords-alliance'].renown).toBe(13);
+    fireEvent.click(screen.getByRole('button', { name: 'Сводка партии 4' }));
+    expect(screen.getByLabelText('Известность партии')).toHaveTextContent("Lords' Alliance13Harpers5");
+
+    // Карточка организации: Lords' Alliance уже в кампании — известность и ссылка; союзник Emerald Enclave — нет.
+    fireEvent.click(within(cardOf("Lords' Alliance")).getByRole('button', { name: "Lords' Alliance" }));
+    const org = await screen.findByRole('region', { name: "Lords' Alliance" }, { timeout: 10000 });
+    expect(org.querySelector('[data-part="org-campaign"]')).toHaveTextContent("В кампанииLords' Allianceизвестность партии 13");
+    fireEvent.click(within(org).getByRole('button', { name: /^Союзники/ }));
+    fireEvent.click(within(within(org).getByRole('list', { name: 'Союзники' })).getByRole('button', { name: 'Emerald Enclave' }));
+    const enclave = await screen.findByRole('region', { name: 'Emerald Enclave' }, { timeout: 10000 });
+    fireEvent.click(within(enclave).getByRole('button', { name: 'В кампанию фракцией' }));
+    expect(lastEvent(store)).toMatchObject({ type: 'WORLD_DELTA_PROPOSED', payload: { delta: { subject: 'Новая фракция · Emerald Enclave' } } });
+    expect(within(enclave).getByRole('button', { name: 'В кампанию фракцией' })).toBeDisabled();
+    act(() => { store.getState().accept((lastEvent(store) as DomainEvent<'WORLD_DELTA_PROPOSED'>).payload.delta.id); });
+    expect(enclave.querySelector('[data-part="org-campaign"]')).toHaveTextContent('В кампанииEmerald Enclaveизвестность партии 0');
   // Карточка организации — кусок мира по требованию: под полным прогоном импорт дольше пяти секунд.
   }, 20000);
 
