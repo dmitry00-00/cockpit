@@ -21,6 +21,8 @@ export interface Person {
   /** Бог-покровитель — id справочника богов; не нашёлся — словами. */
   deity?: string;
   deityText?: string;
+  /** Организации — id справочника организаций по категориям «Members of …» (состоял когда-либо). */
+  orgs?: readonly string[];
   /** Годы DR. */
   born?: number;
   died?: number;

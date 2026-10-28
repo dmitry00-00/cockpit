@@ -16,7 +16,7 @@ export {
   missingView, type EntityDiagram, type EntityFact, type EntityGroup, type EntityLink, type EntitySection, type EntitySource, type EntityView, type SourceKind,
 } from './view';
 
-type PackId = 'rules' | 'compendium' | 'cosmos' | 'places' | 'people';
+type PackId = 'rules' | 'compendium' | 'cosmos' | 'places' | 'world';
 
 const PACK_OF: Readonly<Record<ReferenceKind, PackId>> = {
   condition: 'rules', ability: 'rules', skill: 'rules', resource: 'rules', spell: 'rules', item: 'rules', monster: 'rules',
@@ -24,7 +24,7 @@ const PACK_OF: Readonly<Record<ReferenceKind, PackId>> = {
   feature: 'compendium', feat: 'compendium', background: 'compendium',
   plane: 'cosmos', body: 'cosmos', sphere: 'cosmos', deity: 'cosmos', pantheon: 'cosmos',
   place: 'places',
-  person: 'people',
+  person: 'world', organization: 'world',
 };
 
 const LOADERS: Readonly<Record<PackId, () => Promise<Pack>>> = {
@@ -32,7 +32,7 @@ const LOADERS: Readonly<Record<PackId, () => Promise<Pack>>> = {
   compendium: () => import('./packs/compendium').then(m => m.PACK),
   cosmos: () => import('./packs/cosmos').then(m => m.PACK),
   places: () => import('./packs/places').then(m => m.loadPack()),
-  people: () => import('./packs/people').then(m => m.loadPack()),
+  world: () => import('./packs/world').then(m => m.loadPack()),
 };
 
 const loaded = new Map<PackId, Pack>();

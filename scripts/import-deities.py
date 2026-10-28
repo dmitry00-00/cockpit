@@ -147,8 +147,11 @@ def deity_box(text):
 
 
 def current(v):
-    """Без «бывшего»: в каждой строке всё от {{Former}} до конца строки отбрасывается."""
-    segs = (re.split(r'\{\{\s*former\s*\}\}', s, flags=re.I)[0] for s in re.split(r'<br\s*/?>', v))
+    """Без «бывшего»: в каждой строке всё от {{Former}} до конца строки отбрасывается; строка из одного {{Former}} —
+    заголовок списка прежних («Darkhold<br/>{{former}}<br/>Zhentil Keep»): всё после неё тоже."""
+    lines = re.split(r'<br\s*/?>', v)
+    head = next((i for i, s in enumerate(lines) if re.fullmatch(r'\s*(?:<ref[^>]*/>\s*)*\{\{\s*former\s*\}\}\s*', s, flags=re.I)), len(lines))
+    segs = (re.split(r'\{\{\s*former\s*\}\}', s, flags=re.I)[0] for s in lines[:head])
     return '<br/>'.join(s for s in segs if s.strip())
 
 

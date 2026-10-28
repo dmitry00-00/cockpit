@@ -117,6 +117,27 @@ describe('справочник после загрузки', () => {
     expect(resolve('person:drizzt-do-urden')!.facts.find(f => f.label === 'Бог')).toBeUndefined();
   });
 
+  it('организации вики (3.1): глава, союзники, бог церкви, члены; год кампании — есть или распущена', () => {
+    const lords = resolve('organization:lords-alliance')!;
+    expect(lords.facts.find(f => f.label === 'Годы')?.value).toBe('основана 1325 DR · в 1492 DR есть');
+    expect(lords.links).toContainEqual({ label: 'Open Lord Laeral Silverhand', ref: 'person:laeral-silverhand' });
+    expect(lords.groups!.find(g => g.title === 'Союзники')!.links.map(l => l.ref)).toContain('organization:harpers');
+    const church = resolve('organization:church-of-lathander')!;
+    expect(church.subtitle).toBe('церковь · Religious organization');
+    expect(church.links).toContainEqual({ label: 'Lathander', ref: 'deity:lathander' });
+    // У Harpers боги есть, но это не церковь.
+    expect(resolve('organization:harpers')!.subtitle).toBe('Spy network');
+    const nine = (year: number) => resolve('organization:neverwinter-nine', { year })!.facts.find(f => f.label === 'Годы')?.value;
+    expect(nine(1492)).toBe('основана 87 DR, распущена 1451 DR · в 1492 DR распущена');
+    expect(nine(1372)).toBe('основана 87 DR, распущена 1451 DR · в 1372 DR есть');
+    // Члены — по категориям вики, живые в год кампании: Manshoon умер в 1370 DR.
+    const members = (year: number) => resolve('organization:zhentarim', { year })!.groups!.find(g => g.title.startsWith('Члены'))!;
+    expect(members(1360).links.map(l => l.ref)).toContain('person:manshoon');
+    expect(members(1492).links.map(l => l.ref)).not.toContain('person:manshoon');
+    expect(resolve('person:manshoon')!.links).toContainEqual({ label: 'Zhentarim', ref: 'organization:zhentarim' });
+    expect(resolve('person:manshoon')!.facts.find(f => f.label === 'Состоял')?.value).toMatch(/^Zhentarim/);
+  });
+
   it('ссылки из состояния сида: актёры, места, фракции резолвятся, связи актёров ведут на справочник', () => {
     const state = seedEngine().getState().state;
     for (const k of STATE_KINDS) {

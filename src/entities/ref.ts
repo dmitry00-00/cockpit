@@ -7,7 +7,7 @@
 export const REFERENCE_KINDS = [
   'condition', 'ability', 'skill', 'resource', 'spell', 'item', 'monster',
   'race', 'subrace', 'trait', 'class', 'subclass', 'feature', 'feat', 'background',
-  'plane', 'body', 'sphere', 'deity', 'pantheon', 'place', 'person',
+  'plane', 'body', 'sphere', 'deity', 'pantheon', 'place', 'person', 'organization',
 ] as const;
 
 /** Виды состояния — из State, меняются событиями. */
@@ -41,6 +41,7 @@ export const KIND_LABEL: Readonly<Record<EntityKind, string>> = {
   pantheon: 'Пантеон',
   place: 'Место',
   person: 'NPC',
+  organization: 'Организация',
   actor: 'Персонаж',
   location: 'Место кампании',
   faction: 'Фракция',
