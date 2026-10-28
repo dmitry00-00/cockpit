@@ -12,7 +12,9 @@ import { stateIds, stateView } from './state';
 import type { EntityView } from './view';
 
 export * from './ref';
-export { missingView, type EntitySource, type EntityFact, type EntitySection, type EntityLink, type EntityView, type SourceKind } from './view';
+export {
+  missingView, type EntityDiagram, type EntityFact, type EntityGroup, type EntityLink, type EntitySection, type EntitySource, type EntityView, type SourceKind,
+} from './view';
 
 type PackId = 'rules' | 'compendium' | 'cosmos' | 'places';
 

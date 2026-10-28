@@ -76,5 +76,7 @@ describe('значение по эпохе', () => {
     expect(homePlanesAt(get('lolth'), '3e')).toContain('demonweb-pits');
     expect(alignmentRu('Chaotic Evil')).toBe('хаотично-злой');
     expect(powerLabel('Something new')).toBe('Something new');
+    expect(powerLabel('Intermediate deity; Dead power')).toBe('среднее божество; мёртвая сила');
+    expect(powerLabel('Lesser Deity')).toBe('малое божество');
   });
 });

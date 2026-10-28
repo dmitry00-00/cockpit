@@ -102,6 +102,11 @@ export const POWER_LABEL: Readonly<Record<string, string>> = {
   'Lesser deity': 'малое божество', 'Demigod': 'полубог', 'Demipower': 'полусила', 'Deity': 'божество', 'God': 'бог',
   'Lesser power': 'малая сила', 'Dead power': 'мёртвая сила', 'Archdevil': 'архидьявол', 'Demon lord': 'повелитель демонов',
   'Exarch': 'экзарх', 'Archfey': 'архифея', 'Primordial': 'первородный', 'Quasi-deity': 'квазибожество',
+  'Demigoddess': 'полубогиня', 'Lesser god': 'малый бог', 'Great God': 'великий бог', 'Great Goddess': 'великая богиня',
+  'Lesser': 'малое', 'Intermediate': 'среднее', 'Intermediate power': 'средняя сила', 'Quasi-power': 'квазисила',
+  'Primal spirit': 'первородный дух', 'Spirit': 'дух', 'Totem spirit': 'тотемный дух', 'Elder evil': 'древнее зло',
+  'Hero-god': 'бог-герой', 'Local god': 'местный бог', 'Local goddess': 'местная богиня', 'Savage god': 'дикий бог',
+  'Mortal': 'смертный',
 };
 
 const ALIGNMENT_RU: Readonly<Record<string, string>> = {
@@ -125,5 +130,47 @@ export function domainSubclasses(edition: Edition, text: string): string[] {
   return [...new Set(ids.filter((x): x is string => x !== undefined))];
 }
 
-export const powerLabel = (t: string): string => POWER_LABEL[t] ?? t;
+const POWER_FOLDED = new Map(Object.entries(POWER_LABEL).map(([k, v]) => [k.toLowerCase(), v]));
+/** «Intermediate deity; Dead power» → «среднее божество; мёртвая сила»; регистр вики не важен. */
+export const powerLabel = (t: string): string => t.split(/;\s*/).map(x => POWER_FOLDED.get(x.trim().toLowerCase()) ?? x).join('; ');
 export const alignmentRu = (t: string): string => ALIGNMENT_RU[t.toLowerCase()] ?? t;
+
+export interface Service {
+  /** Кому служит. */
+  masters: readonly Deity[];
+  /** Кто служит ему. */
+  servants: readonly Deity[];
+  /** Аспекты: этот бог — аспект их, или они — его. */
+  aspects: readonly Deity[];
+}
+
+const serviceIndex = new Map<Era, Map<string, { masters: Set<string>; servants: Set<string> }>>();
+
+/**
+ * Служение в эпоху — с обеих сторон: статья бога называет одних, статьи других богов называют его («Azuth служит
+ * Mystra» может стоять только у Azuth). Аспекты — без эпохи, поле карточки одно на все редакции.
+ */
+export function serviceOf(d: Deity, era: Era): Service {
+  let idx = serviceIndex.get(era);
+  if (!idx) {
+    idx = new Map();
+    const at = (id: string) => {
+      let e = idx!.get(id);
+      if (!e) idx!.set(id, (e = { masters: new Set(), servants: new Set() }));
+      return e;
+    };
+    for (const x of DEITIES) {
+      for (const m of fieldAt(x, 'serves', era)?.cell.d ?? []) { at(x.id).masters.add(m); at(m).servants.add(x.id); }
+      for (const s of fieldAt(x, 'servedby', era)?.cell.d ?? []) { at(x.id).servants.add(s); at(s).masters.add(x.id); }
+    }
+    serviceIndex.set(era, idx);
+  }
+  const e = idx.get(d.id);
+  const list = (ids: Iterable<string>) => [...new Set(ids)].map(deityById).filter((x): x is Deity => x !== undefined && x.id !== d.id)
+    .sort((a, b) => a.name.localeCompare(b.name));
+  return {
+    masters: list(e?.masters ?? []),
+    servants: list(e?.servants ?? []),
+    aspects: list([...(d.aspects ?? []), ...DEITIES.filter(x => x.aspects?.includes(d.id)).map(x => x.id)]),
+  };
+}

@@ -52,6 +52,27 @@ describe('экран «Компендиум»', () => {
     expect(screen.getByText(/^1 черт/)).toBeInTheDocument();
   });
 
+  it('боги × пантеоны: строки по эпохе, карточка со схемой служения, узел выбирает бога, пантеон — фильтр', async () => {
+    render(<CompendiumPage />);
+    fireEvent.click(screen.getByRole('tab', { name: 'Боги × пантеоны' }));
+    const table = await screen.findByRole('table', {}, { timeout: 10000 });
+    expect(screen.queryByRole('group', { name: 'Источники' })).toBeNull();
+    const row = () => within(table).getByRole('button', { name: /^Lathander/ }).closest('tr')!;
+    expect(row()).toHaveTextContent('Elysium (Eronia)');
+    fireEvent.click(screen.getByRole('tab', { name: '1372 DR · 3e' }));
+    expect(row()).toHaveTextContent('House of Nature');
+    fireEvent.click(screen.getByRole('tab', { name: '1492 DR · 5e' }));
+    fireEvent.change(screen.getByPlaceholderText('имя, титул или сфера'), { target: { value: 'azuth' } });
+    fireEvent.click(within(table).getByRole('button', { name: /^Azuth/ }));
+    const card = screen.getByRole('complementary', { name: 'Карточка бога' });
+    expect(within(card).getByRole('img', { name: 'Схема связей: Azuth' })).toBeInTheDocument();
+    fireEvent.click(within(card).getByRole('button', { name: 'Открыть: Savras' }));
+    expect(within(card).getByRole('img', { name: 'Схема связей: Savras' })).toBeInTheDocument();
+    fireEvent.click(within(card).getByRole('button', { name: 'Faerûnian pantheon' }));
+    expect((screen.getByRole('combobox') as HTMLSelectElement).value).toBe('faerunian-pantheon');
+  // Матрица богов грузится отдельным куском (0,5 МБ): под полным прогоном импорт дольше пяти секунд по умолчанию.
+  }, 20000);
+
   it('в разметке нет эмодзи', () => {
     const { container } = render(<CompendiumPage />);
     expect(container.textContent ?? '').not.toMatch(/\p{Extended_Pictographic}/u);

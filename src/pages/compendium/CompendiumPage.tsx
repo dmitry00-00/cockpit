@@ -1,6 +1,7 @@
-// Экран «Компендиум»: три матрицы, снятые с таблиц-первоисточников, поверх content/compendium/*.json.
-// Это второй способ ориентироваться в расах, классах и чертах — рядом с прозой книги, а не вместо неё.
-import { useState } from 'react';
+// Экран «Компендиум»: три матрицы, снятые с таблиц-первоисточников, поверх content/compendium/*.json, и боги
+// импорта вики (E2, отдельным куском). Это второй способ ориентироваться в расах, классах, чертах и пантеонах —
+// рядом с прозой книги, а не вместо неё.
+import { Suspense, lazy, useState } from 'react';
 import { COMPENDIUM_META, CLASSES, FEATS, RACES, type Source } from '../../rules/compendium';
 import { SOURCES } from '../../rules/compendium/views';
 import { ClassGrid } from './ClassGrid';
@@ -8,12 +9,16 @@ import { FeatTable } from './FeatTable';
 import { RaceMatrix } from './RaceMatrix';
 import { DetailPane, Segmented, SourceFilter, type Detail } from './parts';
 
-type View = 'races' | 'classes' | 'feats';
+// Боги — 0,5 МБ данных: матрица грузится, только когда её открыли.
+const DeityTable = lazy(() => import('./DeityTable'));
+
+type View = 'races' | 'classes' | 'feats' | 'deities';
 
 const VIEWS: readonly { id: View; label: string; hint: string }[] = [
   { id: 'races', label: 'Расы × фасеты', hint: 'лист «Кратко»: что даёт раса, по колонкам' },
   { id: 'classes', label: 'Уровни × подклассы', hint: 'лист класса: ресурсы и умения по уровням' },
   { id: 'feats', label: 'Черты × эффекты', hint: 'лист «Нерасовые черты»' },
+  { id: 'deities', label: 'Боги × пантеоны', hint: 'карточки {{Deity}} Forgotten Realms Wiki: поля по эпохе, служение схемой' },
 ];
 
 /** «#/compendium/classes/volsebnik» — стартовая матрица и класс из адреса; дальше адрес не трогаем. */
@@ -54,30 +59,36 @@ export function CompendiumPage() {
 
       <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
         <Segmented label="Матрица" items={VIEWS} value={view} onChange={v => { setView(v); setSelected(null); }} />
-        <SourceFilter value={sources} onChange={setSources} />
+        {view !== 'deities' && <SourceFilter value={sources} onChange={setSources} />}
         {view !== 'classes' && (
           <label className="flex items-center gap-2">
             <span className="type-body-xs text-t3">поиск</span>
             <input
               value={query}
               onChange={e => setQuery(e.target.value)}
-              placeholder={view === 'races' ? 'раса или подраса' : 'название или текст'}
+              placeholder={view === 'races' ? 'раса или подраса' : view === 'deities' ? 'имя, титул или сфера' : 'название или текст'}
               className="type-body-sm text-tx bg-cd shadow-bevel-in px-2 py-1 w-[220px] placeholder:text-t4"
             />
           </label>
         )}
       </div>
 
-      <div className="grid grid-cols-[1fr_360px] gap-4 items-start">
-        <div className="min-w-0">
-          {view === 'races' && <RaceMatrix sources={sources} query={query} selectedId={selected?.id ?? null} onSelect={select} />}
-          {view === 'classes' && <ClassGrid classId={classId} onClassChange={setClassId} sources={sources} selectedId={selected?.id ?? null} onSelect={select} />}
-          {view === 'feats' && <FeatTable sources={sources} query={query} selectedId={selected?.id ?? null} onSelect={select} />}
+      {view === 'deities' ? (
+        <Suspense fallback={<p className="type-body-sm text-t2">Боги загружаются…</p>}>
+          <DeityTable query={query} />
+        </Suspense>
+      ) : (
+        <div className="grid grid-cols-[1fr_360px] gap-4 items-start">
+          <div className="min-w-0">
+            {view === 'races' && <RaceMatrix sources={sources} query={query} selectedId={selected?.id ?? null} onSelect={select} />}
+            {view === 'classes' && <ClassGrid classId={classId} onClassChange={setClassId} sources={sources} selectedId={selected?.id ?? null} onSelect={select} />}
+            {view === 'feats' && <FeatTable sources={sources} query={query} selectedId={selected?.id ?? null} onSelect={select} />}
+          </div>
+          <div className="sticky top-6">
+            <DetailPane detail={selected?.detail ?? null} onClose={() => setSelected(null)} />
+          </div>
         </div>
-        <div className="sticky top-6">
-          <DetailPane detail={selected?.detail ?? null} onClose={() => setSelected(null)} />
-        </div>
-      </div>
+      )}
 
       <footer className="type-body-xs text-t3">{COMPENDIUM_META.license}</footer>
     </main>

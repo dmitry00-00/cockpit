@@ -43,9 +43,13 @@ describe('справочник после загрузки', () => {
     }
   });
 
-  it('каждая связь справочной записи ведёт на запись', () => {
+  it('каждая связь справочной записи ведёт на запись — и кнопкой, и узлом схемы', () => {
     const broken: string[] = [];
-    for (const r of all()) for (const l of resolve(r)!.links) if (!isStateKind(parseRef(l.ref)!.kind) && !resolve(l.ref)) broken.push(`${r} → ${l.ref}`);
+    const linksOf = (r: EntityRef) => {
+      const v = resolve(r)!;
+      return [...v.links, ...[...(v.diagram?.above ?? []), ...(v.diagram?.below ?? [])].flatMap(g => g.links)];
+    };
+    for (const r of all()) for (const l of linksOf(r)) if (!isStateKind(parseRef(l.ref)!.kind) && !resolve(l.ref)) broken.push(`${r} → ${l.ref}`);
     expect(broken).toEqual([]);
   });
 
@@ -68,7 +72,7 @@ describe('справочник после загрузки', () => {
   it('божество и боги плана — по эпохе: из ctx.era или из времени мира (сид — 1492 DR)', () => {
     const at5 = resolve('deity:lathander')!;
     expect(at5.facts.find(f => f.label === 'Дом')?.value).toBe('Elysium (Eronia)');
-    expect(at5.links.map(l => l.ref)).toEqual(expect.arrayContaining(['pantheon:faerunian-pantheon', 'plane:elysium', 'deity:amaunator']));
+    expect(at5.links.map(l => l.ref)).toEqual(expect.arrayContaining(['pantheon:faerunian-pantheon', 'plane:elysium']));
     const at3 = resolve('deity:lathander', { era: '3e' })!;
     expect(at3.facts.find(f => f.label === 'Дом')?.value).toBe('House of Nature');
     expect(at3.links.map(l => l.ref)).toContain('plane:house-of-nature');
@@ -83,6 +87,16 @@ describe('справочник после загрузки', () => {
     const state = seedEngine().getState().state;
     expect(resolve('deity:lathander', { state })).toBe(at5);
     expect(resolve('pantheon:seldarine')!.links.map(l => l.ref)).toContain('deity:corellon');
+    // Служение схемой с обеих сторон: Azuth в 5e называет хозяйкой статью Mystra, Mystra (Midnight) называет Azuth
+    // слугой в 3e (старше 5e — годится).
+    const azuth = resolve('deity:azuth')!;
+    expect(azuth.diagram!.above[0].links.map(l => l.ref)).toEqual(['deity:mystra', 'deity:mystra-midnight']);
+    expect(azuth.diagram!.below[0].links.map(l => l.ref)).toEqual(['deity:savras', 'deity:velsharoon']);
+    expect(azuth.facts.some(f => f.label === 'Служит' || f.label === 'Слуги')).toBe(false);
+    expect(resolve('deity:mystra')!.diagram!.below[0].links.map(l => l.ref)).toContain('deity:azuth');
+    expect(at5.diagram!.below).toEqual([{ title: 'Аспекты', links: [{ label: 'Amaunator', ref: 'deity:amaunator' }], dashed: true }]);
+    expect(at5.links.map(l => l.ref)).not.toContain('deity:amaunator');
+    expect(resolve('deity:ao')!.facts.find(f => f.label === 'Служит')?.value).toBe('Luminous being (по 2e)');
   });
 
   it('ссылки из состояния сида: актёры, места, фракции резолвятся, связи актёров ведут на справочник', () => {

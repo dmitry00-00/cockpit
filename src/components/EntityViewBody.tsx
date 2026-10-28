@@ -1,8 +1,9 @@
 // Тело карточки любой сущности по ссылке (ROADMAP 0.3): строка под именем, паспорт фактами, текст источника
-// секциями — дословно, связи кнопками (щелчок открывает карточку связи), источник с лицензией внизу. Тупой:
-// представление и колбэк — пропсами; тексты не переписываются и не переводятся.
+// секциями — дословно, схема окрестности (служение бога), связи кнопками (щелчок открывает карточку связи), источник
+// с лицензией внизу. Тупой: представление и колбэк — пропсами; тексты не переписываются и не переводятся.
 import type { EntityKind, EntityView } from '../entities';
 import { Icon } from '../icons/Icon';
+import { NeighborhoodGraph } from './NeighborhoodGraph';
 import type { EntityType } from './EntityCard';
 
 /** Вид сущности → тип карточки (иконка и цвет грани). */
@@ -49,6 +50,7 @@ export function EntityViewBody({ view, onOpen, className = '' }: EntityViewBodyP
           <p className="type-body-sm text-t2 whitespace-pre-line break-words [overflow-wrap:anywhere]">{s.text}</p>
         </section>
       ))}
+      {view.diagram ? <NeighborhoodGraph name={view.name} diagram={view.diagram} onOpen={onOpen} /> : null}
       {view.links.length > 0 ? (
         <ul aria-label="Связи" className="flex flex-wrap gap-1" data-part="links">
           {view.links.map(l => (

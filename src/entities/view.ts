@@ -20,6 +20,12 @@ export interface EntitySection { title?: string; text: string }
 
 export interface EntityLink { label: string; ref: EntityRef }
 
+/** Группа узлов схемы: подпись и связи; пунктир — связь слабее прямой (аспект). */
+export interface EntityGroup { title: string; links: EntityLink[]; dashed?: boolean }
+
+/** Окрестность сущности схемой (E2): группы над ней и под ней, рёбра — от неё к узлам ближайших групп. */
+export interface EntityDiagram { above: EntityGroup[]; below: EntityGroup[] }
+
 export interface EntityView {
   ref: EntityRef;
   kind: EntityKind;
@@ -33,6 +39,8 @@ export interface EntityView {
   facts: EntityFact[];
   sections: EntitySection[];
   links: EntityLink[];
+  /** Схема окрестности: служение бога. Связи схемы в links не повторяются. */
+  diagram?: EntityDiagram;
   /** Ссылка есть, записи нет: карточка показывает заглушку, а не пустоту. */
   missing?: true;
 }
