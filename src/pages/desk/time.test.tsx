@@ -226,6 +226,10 @@ describe('часы Харптоса: мини-циферблат и календ
     const before = store.getState().events.length;
     fireEvent.click(within(screen.getByLabelText('Мировые часы')).getByRole('button', { name: 'Календарь Харптоса' }));
     const cal = screen.getByRole('region', { name: 'Календарь Харптоса' });
+    // У Aldric в сиде Lathander — вид «партия» по умолчанию: ближайший — его Midsummer.
+    expect(within(cal).getByRole('button', { name: 'партия' })).toHaveAttribute('aria-pressed', 'true');
+    expect(cal.querySelector('[data-part="holy-next"]')).toHaveTextContent('Lathander · через 76 дней');
+    fireEvent.click(within(cal).getByRole('button', { name: 'Faerûn' }));
     expect(cal.querySelector('[data-part="holy-next"]')).toHaveTextContent('летнее солнцестояние: Amaunator, Mielikki · через 35 дней');
     // Mirtul: Tyr — 1, 13, 22 каждого месяца — строкой и отметкой.
     expect(cal.querySelector('[data-part="holy-repeats"]')).toHaveTextContent('каждый месяц: Tyr (1, 13, 22)');

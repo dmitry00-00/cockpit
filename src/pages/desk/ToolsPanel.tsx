@@ -250,7 +250,7 @@ export function ToolsPanel({
                 </div>
                 <p data-part="calm" className="px-2 py-2 type-body-sm text-t2">
                   Мир спокоен. Ближайший праздник — <span className="text-tx">{festival.festival}</span> {inDays(festival.days)}
-                  {holy && holy.sec === festival.sec ? <>; святые дни — <span className="text-tx">{holyList(holy.holy)}</span>.</>
+                  {holy && holy.sec === festival.sec ? <>; {holy.party ? 'святой день бога партии' : 'святые дни'} — <span className="text-tx">{holyList(holy.holy)}</span>.</>
                     : holy ? <>. Святой день{holy.party ? ' бога партии' : ''} {inDays(holy.days)} — <span className="text-tx">{holyList(holy.holy)}</span>.</> : '.'}
                 </p>
               </>

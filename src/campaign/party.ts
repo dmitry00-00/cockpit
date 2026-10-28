@@ -71,6 +71,8 @@ export const ALDRIC: PcSpec = {
   armor: 'scale-mail',
   shield: true,
   skills: ['medicine', 'religion'],
+  // Бога §13 не называет — Lathander (домены 5e Life, Light; Faerûnian pantheon): решение владельца 28.10.2026 (E8).
+  deity: { id: 'lathander', name: 'Lathander' },
 };
 
 /** Порядок — как в таблице §13. */

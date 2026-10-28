@@ -67,7 +67,8 @@ describe('календарь', () => {
 
   it('боги партии (E8): с листов, без выбывших; ближайший — бога партии, нет его дней — боги Фаэруна', () => {
     const seed = seedState();
-    expect(partyDeitiesOf(seed).size).toBe(0);
+    // В сиде у Aldric — Lathander (решение владельца 28.10.2026).
+    expect([...partyDeitiesOf(seed)]).toEqual([['lathander', ['Brother Aldric']]]);
     const withTorm = { ...seed, actors: { ...seed.actors, aldric: { ...seed.actors.aldric, sheet: { ...seed.actors.aldric.sheet!, deity: { id: 'torm', name: 'Torm' } } } } };
     expect([...partyDeitiesOf(withTorm)]).toEqual([['torm', ['Brother Aldric']]]);
     const from = secOf({ year: 1492, month: 'Mirtul', day: 15 });

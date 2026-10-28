@@ -255,12 +255,12 @@ describe('живой стол: инициатива, появление прот
     expect(screen.getByRole('dialog', { name: /^Хиты: / })).toHaveTextContent('DC 10');
   });
 
-  it('пустые входящие — «Мир спокоен», ближайший праздник (Midsummer через 76 дней) и святой день; с предложениями строки нет; у игроков нет и её', () => {
+  it('пустые входящие — «Мир спокоен», ближайший праздник (Midsummer через 76 дней) и святой день бога партии в тот же день; с предложениями строки нет; у игроков нет и её', () => {
     const { store } = mount();
     expect(screen.queryByText(/Мир спокоен/)).toBeNull();
     act(() => { for (const d of Object.values(store.getState().state.deltas)) store.getState().reject(d.id); });
     const calm = screen.getByText(/Мир спокоен/);
-    expect(calm).toHaveTextContent('Мир спокоен. Ближайший праздник — Midsummer через 76 дней. Святой день через 35 дней — летнее солнцестояние: Amaunator, Mielikki.');
+    expect(calm).toHaveTextContent('Мир спокоен. Ближайший праздник — Midsummer через 76 дней; святой день бога партии — Lathander.');
     expect(screen.getByLabelText('Журнал и отмена', { selector: 'aside' })).toHaveTextContent('Входящие');
     fireEvent.keyDown(window, { key: 'p', code: 'KeyP' });
     expect(screen.queryByText(/Мир спокоен/)).toBeNull();
