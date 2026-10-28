@@ -44,7 +44,13 @@
     "Forgotten Realms Campaign Setting 3rd edition, с. 257",
     "Player's Guide to Faerûn, с. 140",
     "Player's Guide to Faerûn, с. 151"
-   ]
+   ],
+   "card": {
+    "what": "Небесный план существования и город, обитель Mystra.",
+    "ruler": "Mystra, также Azuth, Savras и Velsharoon.",
+    "danger": "Катастрофический взрыв, убийство Mystra и Spellplague.",
+    "summary": "Dweomerheart — небесный план, где обитали Mystra и другие божества магии. В 1385 DR он был уничтожен в результате Spellplague после убийства Mystra. Многие последователи богов были перенесены на Fugue Plane."
+   }
   },
   {
    "id": "house-of-the-triad",
@@ -64,7 +70,12 @@
    "refs": [
     "Player's Guide to Faerûn, с. 159–160",
     "Dragons of Faerûn, с. 11"
-   ]
+   ],
+   "card": {
+    "what": "одно из небесных планов Мирового древа",
+    "ruler": "Ilmater, Torm, Tyr, Helm и Siamorphe",
+    "summary": "Планом является воплощение закона и принципов добра. Здесь находятся владения Ilmater, Torm и Tyr, а также Helm и Siamorphe."
+   }
   },
   {
    "id": "green-fields",
@@ -80,7 +91,12 @@
    "refs": [
     "Player's Guide to Faerûn, с. 141",
     "Player's Guide to Faerûn, с. 155–156"
-   ]
+   ],
+   "card": {
+    "what": "Небесное обиталище пантеона халфлингов и место пребывания душ умерших добрых халфлингов.",
+    "ruler": "Пантеон халфлингов",
+    "summary": "Green Fields - небесная обитель халфлингов. Здесь обитает пантеон халфлингов и души умерших добрых представителей этого народа."
+   }
   },
   {
    "id": "brightwater",
@@ -105,7 +121,12 @@
     "Player's Guide to Faerûn, с. 146",
     "Forgotten Realms Campaign Setting 3rd edition, с. 257",
     "Player's Guide to Faerûn, с. 140"
-   ]
+   ],
+   "card": {
+    "what": "Небесный план существования в модели мирового древа.",
+    "ruler": "Lliira, Sharess, Sune, Tymora и Waukeen",
+    "summary": "Brightwater был домом для богинь Lliira, Sharess, Sune, Tymora и Waukeen. После Spellplague часть Brightwater выжила и стала владениями Sune в Gates of the Moon."
+   }
   },
   {
    "id": "golden-hills",
@@ -124,7 +145,12 @@
    },
    "refs": [
     "Player's Guide to Faerûn, с. 140"
-   ]
+   ],
+   "card": {
+    "what": "Регион в Dothion половине Bytopia, дом для большей части гномского пантеона.",
+    "ruler": "Гномский пантеон",
+    "summary": "Golden Hills - регион в Bytopia. Ранее считался небесным планом, а между Spellplague и Second Sundering был отнесен в Astral Sea и слился с Arvandor."
+   }
   },
   {
    "id": "house-of-knowledge",
@@ -149,7 +175,12 @@
     "FRCS, с. 256–258",
     "Player's Guide to Faerûn, с. 141",
     "Player's Guide to Faerûn, с. 157–158"
-   ]
+   ],
+   "card": {
+    "what": "Небесный план в различных космологических моделях.",
+    "ruler": "Oghma",
+    "summary": "План связан с магией истинных имен. В библиотеке Oghma хранится оригинальный экземпляр журнала Gargauth."
+   }
   },
   {
    "id": "arvandor",
@@ -202,7 +233,12 @@
    "refs": [
     "Player's Guide to Faerûn, с. 141",
     "Player's Guide to Faerûn, с. 150–151"
-   ]
+   ],
+   "card": {
+    "what": "Астральное владычество, дом бога Moradin и его жены Berronar Truesilver.",
+    "ruler": "Moradin и Berronar Truesilver",
+    "summary": "Dwarfhome расположено на Solania, четвёртом слое Mount Celestia. Это дом дварвенского пантеона."
+   }
   },
   {
    "id": "dragon-eyrie",
@@ -244,7 +280,11 @@
    "refs": [
     "Player's Guide to Faerûn, с. 156–157",
     "Player's Guide to Faerûn, с. 141"
-   ]
+   ],
+   "card": {
+    "what": "Равнина, считающаяся домом для ряда божеств из египетских и мулхорандийских пантеонов.",
+    "summary": "Heliopolis - равнина, где обитают божества из египетских и мулхорандийских пантеонов. Она является домом для этих богов в различных космологиях."
+   }
   },
   {
    "id": "house-of-nature",
@@ -263,7 +303,12 @@
    "refs": [
     "Player's Guide to Faerun, с. 140–141",
     "Player's Guide to Faerun, с. 158–159"
-   ]
+   ],
+   "card": {
+    "what": "Нейтральный план существования в модели мирового древа.",
+    "ruler": "Chauntea, Lathander, Silvanus, Eldath, Gwaeron Windstrom, Lurue, Mielikki, Shiallia, Nobanion и Ubtao.",
+    "summary": "House of Nature - нейтральный план существования. Здесь обитают божества, связанные с природой и плодородием."
+   }
   },
   {
    "id": "jotunheim",
@@ -283,7 +328,12 @@
     "Player's Guide to Faerûn, с. 140",
     "Player's Guide to Faerûn, с. 160–161",
     "Giantcraft, с. 28"
-   ]
+   ],
+   "card": {
+    "what": "Внешняя нейтральная плоскость существования, последнее пристанище великанов.",
+    "ruler": "Thrym (бог ледяных великанов) и Surtr (бог огненных великанов).",
+    "summary": "Jotunheim — плоскость существования, где покоятся великаны и располагаются владения пантеона великанов. В космологии Великого колеса она является божественной сферой Thrym и Surtr."
+   }
   },
   {
    "id": "warriors-rest",
@@ -307,7 +357,12 @@
     "Player's Guide to Faerûn, с. 163–164",
     "On Hallowed Ground, с. 181",
     "Faiths & Avatars, с. 158"
-   ]
+   ],
+   "card": {
+    "what": "Божественная сфера существования, известная также как Knight's Rest.",
+    "danger": "Бесконечные хаотичные сражения, где убитые вновь восстают на стороне победителей.",
+    "summary": "В Warrior's Rest царит атмосфера непрерывной битвы, где нет постоянной лояльности к божествам. Ландшафт похож на каменистые пустоши и может быть изменен силой воли для тактических преимуществ."
+   }
   },
   {
    "id": "abyss",
@@ -357,7 +412,11 @@
    },
    "refs": [
     "Player's Guide to Faerûn, с. 146"
-   ]
+   ],
+   "card": {
+    "what": "Разрыв планов, образованный River of Blood.",
+    "summary": "Blood Rift возник в результате пересечения планов River of Blood. Это разрыв между мирами."
+   }
   },
   {
    "id": "nine-hells",
@@ -377,7 +436,12 @@
     "Player's Guide to Faerûn, с. 140",
     "Player's Guide to Faerûn, с. 161",
     "Forgotten Realms Campaign Guide, с. 81"
-   ]
+   ],
+   "card": {
+    "what": "Равнина существования, дом дьяволов.",
+    "danger": "Враждебная и смертельная для посторонних обстановка, строгая кастовая система.",
+    "summary": "Baator - равнина, воплощающая законно-злобную сущность. Здесь обитают дьяволы, организованные в строгую иерархию. Каждая из Nine Hells имеет свои физические законы."
+   }
   },
   {
    "id": "barrens",
@@ -396,7 +460,12 @@
    "refs": [
     "Player's Guide to Faerûn, с. 144",
     "Forgotten Realms Campaign Guide, с. 62"
-   ]
+   ],
+   "card": {
+    "what": "план существования, иногда называемый Barrens of Doom and Despair",
+    "danger": "опасное место",
+    "summary": "Banehold - зловещий план существования. Его также называют Barrens of Doom and Despair."
+   }
   },
   {
    "id": "clangor",
@@ -443,7 +512,12 @@
     "Player's Guide to Faerûn, с. 140",
     "Player's Guide to Faerûn, с. 153",
     "Dragons of Faerûn, с. 11"
-   ]
+   ],
+   "card": {
+    "what": "Область существования (Fiendish plane) в модели мирового древа.",
+    "ruler": "Auril, Malar, Talos и Umberlee (до Spellplague). Аспект Gruumsh (после Spellplague, часть Talos's portion).",
+    "summary": "Fury's Heart была домом для богов ярости Auril, Malar, Talos и Umberlee. После Spellplague она слилась с House of Nature, образовав Deep Wilds, за исключением части Talos's portion, которую забрал с собой аспект Gruumsh в Nishrek."
+   }
   },
   {
    "id": "hammergrim",
@@ -486,7 +560,12 @@
     "Forgotten Realms Campaign Setting 3rd edition, с. 257",
     "Player's Guide to Faerûn, с. 140",
     "Player's Guide to Faerûn, с. 162"
-   ]
+   ],
+   "card": {
+    "what": "fiendish plane в модели World Tree и astral dominion в модели World Axis",
+    "ruler": "Gruumsh",
+    "summary": "Nishrek был владением Gruumsh в Acheron, занимая одну грань гигантского куба. Позже он стал последним известным домом для оратэй, склонных к скитаниям."
+   }
   },
   {
    "id": "deep-caverns",
@@ -563,7 +642,12 @@
     "Player's Guide to Faerûn, с. 141",
     "Player's Guide to Faerûn, с. 149–150",
     "Demihuman Deities, с. 28"
-   ]
+   ],
+   "card": {
+    "what": "Равнина существования, также известная как Lolth's Web",
+    "ruler": "Lolth",
+    "summary": "Изначально 66-й слой Abyss. Равнина находится под властью Lolth, и все существа там подчиняются её прихотям."
+   }
   },
   {
    "id": "supreme-throne",
@@ -632,7 +716,12 @@
    "refs": [
     "Player's Guide to Faerûn, с. 148",
     "Manual of the Planes 3rd edition, с. 158"
-   ]
+   ],
+   "card": {
+    "what": "Небольшая плоскость существования, также известная как Hall of Meeting.",
+    "danger": "Наказания для божеств, нарушающих Balance.",
+    "summary": "Cynosure - нейтральная плоскость, используемая божествами Faerûn для разрешения споров и определения наказаний. Доступна только через порталы в домены богов, не может быть достигнута с помощью обычных заклинаний межпланарных путешествий."
+   }
   },
   {
    "id": "fugue",
@@ -651,7 +740,12 @@
    "refs": [
     "Player's Guide to Faerûn, с. 152–153",
     "Player's Guide to Faerûn, с. 153"
-   ]
+   ],
+   "card": {
+    "what": "Нейтральный план существования в Astral Sea.",
+    "ruler": "Kelemvor и Jergal",
+    "summary": "Души смертных попадают сюда после смерти. Основная особенность — City of Judgment и Crystal Spire, где обитают Kelemvor и Jergal. Также есть сообщения о связи с Shadowfell."
+   }
   },
   {
    "id": "astral",
@@ -687,7 +781,11 @@
     "Dungeon Master's Guide v.3.5, с. 154",
     "Forgotten Realms Campaign Setting 3rd edition, с. 256",
     "Player's Guide to Faerûn, с. 139"
-   ]
+   ],
+   "card": {
+    "what": "один из планов существования",
+    "summary": "Также известен как Astral Sea. Является одним из планов существования в различных космологических моделях."
+   }
   },
   {
    "id": "ethereal",
@@ -719,7 +817,11 @@
     "Dungeon Master's Guide v.3.5, с. 147",
     "Dungeon Master's Guide v.3.5, с. 151",
     "Player's Guide to Faerûn, с. 142"
-   ]
+   ],
+   "card": {
+    "what": "одно из планов существования",
+    "summary": "Иногда называется Misty Shore или Waveless Sea. Является одним из планов существования в различных космологических моделях."
+   }
   },
   {
    "id": "shadow",
@@ -739,7 +841,12 @@
     "Player's Guide to Faerûn, с. 162",
     "Dungeon Master's Guide v.3.5, с. 152",
     "Cormyr: The Tearing of the Weave, с. 72–74"
-   ]
+   ],
+   "card": {
+    "what": "Один из планов существования, отражение Prime Material Plane.",
+    "danger": "Бесплодное, мрачное место, полное упадка и смерти.",
+    "summary": "Shadowfell - это план существования, также известный как Plane of Shadow. Он является отражением Prime Material Plane и представляет собой мрачное, бесплодное место."
+   }
   },
   {
    "id": "material",
@@ -751,7 +858,11 @@
     "Manual of the Planes 1st edition, с. 12,62",
     "A Guide to the Ethereal Plane, с. 20",
     "Manual of the Planes 3rd edition, с. 49,57"
-   ]
+   ],
+   "card": {
+    "what": "одна из плоскостей существования, в которой находится Toril и окружающий космос",
+    "summary": "Внутренний мир, в котором находится Toril. Этот термин обычно используется существами из других планов мультивселенной, таких как Sigil."
+   }
   },
   {
    "id": "air",
@@ -763,7 +874,12 @@
     "Dungeon Master's Guide v.3.5, с. 155",
     "Manual of the Planes 1st edition, с. 34",
     "Manual of the Planes 3rd edition, с. 68"
-   ]
+   ],
+   "card": {
+    "what": "Внутренняя плоскость существования (Elemental Plane of Air).",
+    "danger": "Смешалась с Elemental Chaos после Spellplague.",
+    "summary": "Elemental Plane of Air является одной из четырёх стихий и двух энергий, составляющих известную вселенную. Она представляет интерес для космологов и заклинателей, желающих использовать стихийную силу."
+   }
   },
   {
    "id": "earth",
@@ -799,7 +915,12 @@
     "Dungeon Master's Guide v.3.5, с. 157",
     "Manual of the Planes 1st edition, с. 46",
     "Manual of the Planes 3rd edition, с. 76"
-   ]
+   ],
+   "card": {
+    "what": "Внутренний план или элементарный план в космологии Великого колеса и Мирового древа.",
+    "danger": "Вортексы, из которых могут быть затянуты существа из других планов.",
+    "summary": "План Elemental Plane of Water изобилует жизнью: местными существами, разумными народами, дышащими водой, и практически всеми видами водных обитателей."
+   }
   },
   {
    "id": "positive",
@@ -823,7 +944,12 @@
     "Manual of the Planes 1st edition, с. 54",
     "Manual of the Planes 3rd edition, с. 81",
     "Manual of the Planes 1st edition, с. 12,62"
-   ]
+   ],
+   "card": {
+    "what": "Внутренний план или энергетический план в космологических моделях Great Wheel и World Tree.",
+    "danger": "Крайне враждебен ко всем формам жизни и энергии. Опасен для живых существ.",
+    "summary": "План отрицательной энергии, иногда называемый Plane of Death. Только нежить может безопасно перемещаться здесь и использовать энергию смерти для атак."
+   }
   }
  ],
  "tree": {

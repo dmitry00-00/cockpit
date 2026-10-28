@@ -84,7 +84,11 @@
     "Manual of the Planes 1st edition, с. 73",
     "Manual of the Planes 1st edition, с. 75",
     "Manual of the Planes 1st edition, с. 78–82"
-   ]
+   ],
+   "card": {
+    "what": "Внешний план в космологии Великого колеса, представляющий собой союз между законно-добрым и нейтрально-добрым мировоззрением.",
+    "summary": "Bytopia состоял из двух слоев. В космологии Великого колеса эти слои были приписаны планам Golden Hills и House of the Triad. После Spellplague Golden Hills стали частью Arvandor."
+   }
   },
   {
    "id": "elysium",
@@ -128,7 +132,11 @@
     "Manual of the Planes 1st edition, с. 73",
     "Manual of the Planes 1st edition, с. 75",
     "Manual of the Planes 1st edition, с. 78–82"
-   ]
+   ],
+   "card": {
+    "what": "Райная область существования, воплощающая чистое добро.",
+    "summary": "Elysium - это область существования, воплощающая чистое добро. Ранее характеристики этой области приписывались Heliopolis и House of Nature. После Spellplague Heliopolis был уничтожен, а House of Nature разделился."
+   }
   },
   {
    "id": "beastlands",
@@ -168,7 +176,11 @@
     "Manual of the Planes 1st edition, с. 73",
     "Manual of the Planes 1st edition, с. 75",
     "Manual of the Planes 1st edition, с. 91"
-   ]
+   ],
+   "card": {
+    "what": "Внешнее планарное существо, представляющее собой нейтрально-добрые и хаотично-добрые мировоззрения.",
+    "summary": "Известно также как Happy Hunting Grounds. В рамках модели Великой колеса представляет собой планарное существо. Части его характеристик приписывались Arvandor и House of Nature."
+   }
   },
   {
    "id": "arborea",
@@ -207,7 +219,12 @@
     "Manual of the Planes 1st edition, с. 73",
     "Manual of the Planes 1st edition, с. 78–82",
     "Manual of the Planes 1st edition, с. 92"
-   ]
+   ],
+   "card": {
+    "what": "Внешняя плоскость, воплощающая хаотичное благо.",
+    "ruler": "Олимпийские силы",
+    "summary": "Arborea — это сфера радости и печали, дом мечтателей. Она представляет собой очаровательное место с глубоким волшебством и захватывающей дух красотой. В мире Realms она известна как Arvandor."
+   }
   },
   {
    "id": "ysgard",
@@ -251,7 +268,12 @@
     "Manual of the Planes 1st edition, с. 73",
     "Manual of the Planes 1st edition, с. 75",
     "Manual of the Planes 1st edition, с. 78–82"
-   ]
+   ],
+   "card": {
+    "what": "Равнина существования, расположенная между хаотично-добрыми и хаотично-нейтральными мировоззрениями.",
+    "ruler": "Боги Norse pantheon, в частности Tyr.",
+    "summary": "Ysgard, также известная как Gladsheim, - равнина существования. Здесь доминируют боги Norse pantheon, за исключением Tyr. В результате Spellplague некоторые аспекты этой равнины были перенесены на другие планеты."
+   }
   },
   {
    "id": "limbo",
@@ -289,7 +311,11 @@
     "Manual of the Planes 1st edition, с. 98",
     "Manual of the Planes 1st edition, с. 73",
     "Manual of the Planes 1st edition, с. 75"
-   ]
+   ],
+   "card": {
+    "what": "Внешняя плоскость, воплощающая нейтральный хаос.",
+    "summary": "Limbo - внешняя плоскость в модели космологии Великого колеса. Она была потеряна во время Spellplague и, возможно, упала в Elemental Chaos."
+   }
   },
   {
    "id": "pandemonium",
@@ -330,7 +356,12 @@
     "Manual of the Planes 1st edition, с. 73",
     "Manual of the Planes 1st edition, с. 75",
     "Manual of the Planes 1st edition, с. 99"
-   ]
+   ],
+   "card": {
+    "what": "Внешняя плоскость существования, связанная с хаотично-нейтральным и хаотично-злым мировоззрением.",
+    "danger": "Хаотично-нейтральное и хаотично-злое мировоззрение.",
+    "summary": "Pandemonium - внешняя плоскость существования. Она связана с хаотично-нейтральным и хаотично-злым мировоззрением. Ранее считалась заброшенным астральным владением."
+   }
   },
   {
    "id": "abyss",
@@ -450,7 +481,12 @@
     "Manual of the Planes 1st edition, с. 73",
     "Manual of the Planes 1st edition, с. 75",
     "Manual of the Planes 1st edition, с. 78–82"
-   ]
+   ],
+   "card": {
+    "what": "Внешняя плоскость существования, дом для демонов.",
+    "danger": "Плоскость зла, балансирующая между Law и Chaos.",
+    "summary": "Gray Waste OF Hades, также известная как Gray Waste, расположена в центре Lower Planes. Это плоскость зла, находящаяся между Law и Chaos."
+   }
   },
   {
    "id": "gehenna",
@@ -495,7 +531,12 @@
     "Manual of the Planes 1st edition, с. 73",
     "Manual of the Planes 1st edition, с. 75",
     "Manual of the Planes 1st edition, с. 78–82"
-   ]
+   ],
+   "card": {
+    "what": "Внешняя плоскость в модели Великой колеса, представляющая собой сочетание нейтрального и законного зла.",
+    "danger": "Сочетание нейтрального и законного зла.",
+    "summary": "Gehenna - внешняя плоскость в модели Великой колесы. Она представляет собой сочетание нейтрального и законного зла."
+   }
   },
   {
    "id": "nine-hells",
@@ -544,7 +585,12 @@
     "Manual of the Planes 1st edition, с. 73",
     "Dungeon Master Guide 2nd Edition, с. 132",
     "Forgotten Realms Campaign Setting 3rd edition, с. 256"
-   ]
+   ],
+   "card": {
+    "what": "Равнина существования, дом дьяволов.",
+    "danger": "Враждебная и смертельная для посторонних обстановка, строгая кастовая система.",
+    "summary": "Baator - равнина, воплощающая законно-злобную сущность. Здесь обитают дьяволы, организованные в строгую иерархию. Каждая из Nine Hells имеет свои физические законы."
+   }
   },
   {
    "id": "acheron",
@@ -585,7 +631,11 @@
     "Manual of the Planes 1st edition, с. 73",
     "Manual of the Planes 1st edition, с. 113",
     "Manual of the Planes 1st edition, с. 78–82"
-   ]
+   ],
+   "card": {
+    "what": "Внешняя плоскость существования, представляющая собой бесконечное поле битвы.",
+    "summary": "Acheron - это внешняя плоскость существования в модели космологии Великого колеса, представляющая собой бесконечное поле битвы. В моделях космологии Мирового древа некоторые характеристики Acheron приписывались плоскостям Clangor, Nishrek и Warrior's Rest."
+   }
   },
   {
    "id": "mechanus",
@@ -619,7 +669,12 @@
     "Manual of the Planes 1st edition, с. 73",
     "Manual of the Planes 1st edition, с. 75",
     "Manual of the Planes 1st edition, с. 84–85"
-   ]
+   ],
+   "card": {
+    "what": "Внепланарная сущность, представляющая собой воплощение закона и нейтральности.",
+    "ruler": "Modrons",
+    "summary": "Mechanus - это внепланарная сущность, также известное как Nirvana. Оно является домом для Modrons и представляет собой воплощение закона в рамках Великой колеса."
+   }
   },
   {
    "id": "arcadia",
@@ -658,7 +713,11 @@
     "Manual of the Planes 1st edition, с. 86",
     "Manual of the Planes 1st edition, с. 73",
     "Manual of the Planes 1st edition, с. 75"
-   ]
+   ],
+   "card": {
+    "what": "Внешняя плоскость существования, представляющая собой сочетание законно-нейтральных и законно-добрых мировоззрений.",
+    "summary": "Arcadia была внешней плоскостью существования в модели Great Wheel. Характеристики этой плоскости приписывались Dwarfhome, House of the Triad и Dweomerheart. Dwarfhome и House of the Triad выжили после Spellplague."
+   }
   },
   {
    "id": "outlands",
@@ -692,7 +751,12 @@
     "Manual of the Planes 1st edition, с. 73",
     "Manual of the Planes 1st edition, с. 75",
     "Manual of the Planes 1st edition, с. 114"
-   ]
+   ],
+   "card": {
+    "what": "Равнина существования, центр Великого колеса Outer Planes.",
+    "danger": "Смешанные свойства других Outer Planes.",
+    "summary": "Outlands - равнина, соединяющая все другие Outer Planes. Здесь существуют Good, Evil, Law и Chaos, но они менее способны влиять друг на друга."
+   }
   },
   {
    "id": "sigil",
@@ -731,7 +795,11 @@
     "Dungeon Master's Guide v.3.5, с. 167",
     "Manual of the Planes 3rd edition, с. 147–151",
     "Dungeon Master's Guide 5th edition, с. 67–68"
-   ]
+   ],
+   "card": {
+    "what": "Плавучий город в центре Outlands, считающийся центром мультивселенной.",
+    "summary": "Sigil - плавучий город, главный хаб межпланарных путешествий. В нём находятся порталы на все известные планы и множество мест в Prime Material Plane."
+   }
   },
   {
    "id": "astral",
@@ -759,7 +827,11 @@
     "Manual of the Planes 1st edition, с. 60",
     "Manual of the Planes 1st edition, с. 63",
     "Manual of the Planes 1st edition, с. 68–70"
-   ]
+   ],
+   "card": {
+    "what": "один из планов существования",
+    "summary": "Также известен как Astral Sea. Является одним из планов существования в различных космологических моделях."
+   }
   },
   {
    "id": "ethereal",
@@ -793,7 +865,11 @@
     "Manual of the Planes 1st edition, с. 11",
     "Manual of the Planes 1st edition, с. 18–20",
     "Dungeon Master's Guide v.3.5, с. 147"
-   ]
+   ],
+   "card": {
+    "what": "одно из планов существования",
+    "summary": "Иногда называется Misty Shore или Waveless Sea. Является одним из планов существования в различных космологических моделях."
+   }
   },
   {
    "id": "material",
@@ -827,7 +903,11 @@
     "Manual of the Planes 3rd edition, с. 41–44",
     "Manual of the Planes 1st edition, с. 12,62",
     "A Guide to the Ethereal Plane, с. 20"
-   ]
+   ],
+   "card": {
+    "what": "одна из плоскостей существования, в которой находится Toril и окружающий космос",
+    "summary": "Внутренний мир, в котором находится Toril. Этот термин обычно используется существами из других планов мультивселенной, таких как Sigil."
+   }
   },
   {
    "id": "feywild",
@@ -897,7 +977,12 @@
     "Forgotten Realms Campaign Setting 3rd edition, с. 256",
     "Manual of the Planes 3rd edition, с. 60",
     "Manual of the Planes 3rd edition, с. 63"
-   ]
+   ],
+   "card": {
+    "what": "Один из планов существования, отражение Prime Material Plane.",
+    "danger": "Бесплодное, мрачное место, полное упадка и смерти.",
+    "summary": "Shadowfell - это план существования, также известный как Plane of Shadow. Он является отражением Prime Material Plane и представляет собой мрачное, бесплодное место."
+   }
   },
   {
    "id": "air",
@@ -933,7 +1018,12 @@
     "Manual of the Planes 1st edition, с. 22",
     "Manual of the Planes 1st edition, с. 23",
     "Manual of the Planes 1st edition, с. 24"
-   ]
+   ],
+   "card": {
+    "what": "Внутренняя плоскость существования (Elemental Plane of Air).",
+    "danger": "Смешалась с Elemental Chaos после Spellplague.",
+    "summary": "Elemental Plane of Air является одной из четырёх стихий и двух энергий, составляющих известную вселенную. Она представляет интерес для космологов и заклинателей, желающих использовать стихийную силу."
+   }
   },
   {
    "id": "earth",
@@ -1041,7 +1131,12 @@
     "Manual of the Planes 1st edition, с. 22",
     "Manual of the Planes 1st edition, с. 23",
     "Manual of the Planes 1st edition, с. 24"
-   ]
+   ],
+   "card": {
+    "what": "Внутренний план или элементарный план в космологии Великого колеса и Мирового древа.",
+    "danger": "Вортексы, из которых могут быть затянуты существа из других планов.",
+    "summary": "План Elemental Plane of Water изобилует жизнью: местными существами, разумными народами, дышащими водой, и практически всеми видами водных обитателей."
+   }
   },
   {
    "id": "positive",
@@ -1113,7 +1208,12 @@
     "Manual of the Planes 1st edition, с. 22–24",
     "Manual of the Planes 3rd edition, с. 6–7",
     "Dungeon Master's Guide v.3.5, с. 157"
-   ]
+   ],
+   "card": {
+    "what": "Внутренний план или энергетический план в космологических моделях Great Wheel и World Tree.",
+    "danger": "Крайне враждебен ко всем формам жизни и энергии. Опасен для живых существ.",
+    "summary": "План отрицательной энергии, иногда называемый Plane of Death. Только нежить может безопасно перемещаться здесь и использовать энергию смерти для атак."
+   }
   }
  ],
  "links": [

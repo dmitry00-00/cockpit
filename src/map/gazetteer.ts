@@ -111,7 +111,7 @@ export const KIND_LABEL: Readonly<Record<string, string>> = {
   City: 'город', Town: 'городок', Village: 'деревня', Fortification: 'крепость', Ruins: 'руины', Tomb: 'гробница',
   Temple: 'храм', 'Monastic Site': 'монастырь', Mine: 'шахта', Inn: 'постоялый двор', 'Water Source': 'источник',
   Oasis: 'оазис', Island: 'остров', Mountain: 'гора', Mountains: 'горы', Volcano: 'вулкан', Pass: 'перевал',
-  Bay: 'залив', Hills: 'холмы', Chasm: 'пропасть', Plateau: 'плато', temple: 'храм', 'Temperate Forest': 'лес', 'Boreal Forest': 'северный лес', 'Tropical Forest': 'джунгли',
+  Bay: 'залив', Hill: 'холм', Hills: 'холмы', Chasm: 'пропасть', Plateau: 'плато', temple: 'храм', 'Temperate Forest': 'лес', 'Boreal Forest': 'северный лес', 'Tropical Forest': 'джунгли',
   Forest: 'лес', Swamp: 'болото', Marsh: 'болото', Desert: 'пустыня', Lake: 'озеро', River: 'река', Sea: 'море',
   Region: 'область', Subregion: 'область', Macroregion: 'край', Continent: 'континент', Country: 'страна',
   Plain: 'равнина', Plains: 'равнины', Grassland: 'степь', Sand: 'пески', Wastes: 'пустоши', Moor: 'пустошь',
