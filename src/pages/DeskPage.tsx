@@ -18,7 +18,7 @@ import { useEffect, useMemo, useRef, useState, type ReactNode, type RefObject } 
 import {
   conModOf, cosmologyOf, currentOrder, eraOf, harptos, dayPhase, encounterCandidates, hitDiceOf, initiativeMod, moonState, nextFestival, nextHolyDayFor, partyDeitiesOf, placeChain, pcActor, placedActors,
   poolLabel, resourcePoolsOf, restCandidates, restResourcesOf, seedBattlefield, seedEngine, seedState, sortInitiative, spawnMonsters, stepTime,
-  suggestMonsterName, takeRest, travel, weatherOf, sheetViewOf, passportOf, newPlaceDelta, renownDelta, organizationFactionDelta, factionOfOrganization, type PcSpec,
+  suggestMonsterName, takeRest, travel, weatherOf, sheetViewOf, passportOf, newPlaceDelta, renownDelta, organizationFactionDelta, factionOfOrganization, oddsTargetOf, type PcSpec,
 } from '../campaign';
 import {
   BattleGrid, CardStack, ConcentrationForm, ConditionGrid, EntityCard, EntityViewBody, OpenEntityContext, cardTypeOf, HpControl, InitiativeBar, Paperdoll, PlayerFrame, ScaleLadder, SpawnForm,
@@ -622,6 +622,12 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
   };
 
   const cardView = actor ? sheetViewOf(actor) : undefined;
+  // Шансы блока монстра — по партии на столе (ROADMAP 5.2); только мастеру: MonsterActions у игроков не рисуется.
+  const oddsTargets = party.filter(a => !a.removed).map(oddsTargetOf);
+  // Шансы листа (5.3) — по блокам противников на столе: одинаковые блоки одной строкой «Bandit ×3».
+  const byBlock = new Map<string, Actor[]>();
+  for (const a of Object.values(state.actors)) if (a.kind === 'monster' && !a.removed && a.monsterId) byBlock.set(a.monsterId, [...(byBlock.get(a.monsterId) ?? []), a]);
+  const enemyTargets = [...byBlock].map(([id, list]) => ({ ...oddsTargetOf(list[0]), id, name: `${MONSTERS[id]?.name ?? list[0].name}${list.length > 1 ? ` ×${list.length}` : ''}` }));
   const cardProps = actor ? actorCardProps(actor, { onHp: dmView ? openFromCard : undefined, dmFacts: dmFactsOf(actor, state.facts).length, initiative: cardView?.initiative, players: !dmView, hitDice: cardView?.hitDice }) : null;
   /**
    * Тело вкладки актёра: `column` — одиночная карточка целиком; в оверлее 720px обзор делится на две колонки —
@@ -633,15 +639,15 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
     const body: BodyProps = { actor, worldSec: state.time.sec, onRoll, onCommand, tools: dmView && column === 'column' ? cardTools : null, dmView };
     if (column === 'aside') {
       if (current !== 'overview') return null;
-      if (actor.kind === 'monster') return dmView ? <MonsterActions actor={actor} /> : null;
+      if (actor.kind === 'monster') return dmView ? <MonsterActions actor={actor} targets={oddsTargets} /> : null;
       return <PcSkills actor={actor} onRoll={onRoll} columns={1} />;
     }
     switch (current) {
       case 'overview':
         if (actor.kind === 'monster') return dmView ? <MonsterOverview {...body} /> : <MonsterSeen {...body} />;
-        return <PcOverview {...body} skills={column === 'column'} passport={passportOf(actor, events)} />;
+        return <PcOverview {...body} skills={column === 'column'} passport={passportOf(actor, events)} enemies={enemyTargets} />;
       case 'actions':
-        return dmView ? <MonsterActions actor={actor} /> : null;
+        return dmView ? <MonsterActions actor={actor} targets={oddsTargets} /> : null;
       case 'conditions':
         return (
           <>

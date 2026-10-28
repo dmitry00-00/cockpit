@@ -37,3 +37,4 @@ export {
   HOLY_DEITIES, SOLAR_LABEL, holyDaysOn, holyLabel, holyList, holyRulesAt, holyWhat, inHolyScope, isAnnual, nextHolyDay, nextHolyDayFor, partyDeitiesOf,
   type HolyDay, type HolyDeity, type HolyRule, type HolyScope, type NextHolyDay, type Solar,
 } from './holyDays';
+export { actionOdds, monsterSaves, oddsTargetOf, sheetAttackOdds, sheetSpellOdds, type ActionOdds, type AttackRow, type OddsTarget, type SaveRow } from './odds';

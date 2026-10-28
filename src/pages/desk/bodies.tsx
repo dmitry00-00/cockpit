@@ -1,11 +1,11 @@
 // Тела карточки стола: обзор персонажа и монстра, действия монстра, вкладка DM, обзор места и державы,
 // мелкая разметка секций. Тупые: всё — пропсами, стор не читают.
-import { type ReactNode } from 'react';
-import { abilityMod, eraOf, harptos, poolLabel, resourcePoolsOf, sheetViewOf } from '../../campaign';
+import { useState, type ReactNode } from 'react';
+import { abilityMod, actionOdds, sheetAttackOdds, sheetSpellOdds, eraOf, harptos, poolLabel, resourcePoolsOf, sheetViewOf, type OddsTarget } from '../../campaign';
 import {
   ConditionChip, ResourcePips, StatTile, SCALE_LABELS, chipsOf, exhaustionCommand, signedMod, toggleCommand, SKILL_LABEL, SheetAttacks, IconGrid,
   classIcon, featureIcon, raceIcon, traitIcon, AbilityScores, DataPassport, PcHeader, SkillList, type PassportData, type PcHeaderData, SheetChoices,
-  SheetFeats, SheetSpells, GroupList, GOODS_LABEL, RELATION_LABEL, signed,
+  SheetFeats, SheetSpells, GroupList, GOODS_LABEL, RELATION_LABEL, signed, OddsTable,
 } from '../../components';
 import { GOODS, plural, type Actor, type Command, type Faction, type Location, type State } from '../../engine';
 import { ref, type EntityRef } from '../../entities';
@@ -13,9 +13,10 @@ import { useEntity } from '../../entities/useEntity';
 import { useWikiPlace } from '../../world/useWikiPlace';
 import { Icon } from '../../icons/Icon';
 import { classById, raceById } from '../../rules/compendium';
-import { ABILITIES, ABILITY_IDS, MONSTERS, type AbilityId, type ConditionId, type SkillId } from '../../rules/srd';
+import { ABILITIES, ABILITY_IDS, MONSTERS, type AbilityId, type ConditionId, type MonsterAction, type SkillId } from '../../rules/srd';
 import { d20Formula, dmFactsAbout, playerFactsAbout } from './helpers';
-import { BTN } from './styles';
+import { ROLL_MODES, ROLL_MODE_LABEL, type RollMode } from '../../rules/srd/odds';
+import { BTN, OPT, OPT_OFF, OPT_ON } from './styles';
 
 /** Текст умения класса по id из компендиума; у части умений он пуст — тогда имя без текста (ловушка импорта). */
 /** Текст умения: у класса, затем у выбранного подкласса — id умений повторяются между подклассами (заклинания доменов), поэтому чужие подклассы не смотрим. */
@@ -170,7 +171,29 @@ function PcResources({ actor, onCommand, dmView }: Pick<BodyProps, 'actor' | 'on
   );
 }
 
-export function PcOverview({ actor, worldSec, onRoll, onCommand, tools, dmView, skills = true, passport }: BodyProps & { skills?: boolean; passport?: PassportData }) {
+/**
+ * Шансы листа по противникам на столе (ROADMAP 5.3): атаки оружием — попадание и средний урон, заклинания со спасброском —
+ * кто провалит. Только мастеру: AC и спасброски монстров игрокам не видны (Q1).
+ */
+function PcOdds({ actor, targets }: { actor: Actor; targets: readonly OddsTarget[] }) {
+  const [mode, setMode] = useState<RollMode>('normal');
+  const odds = [...sheetAttackOdds(actor, targets, mode), ...sheetSpellOdds(actor, targets, mode)];
+  if (!odds.length) return null;
+  return (
+    <Section title="Шансы по противникам" right={<RollModeLens mode={mode} onMode={setMode} />}>
+      <div className="flex flex-col gap-2">
+        {odds.map(o => (
+          <div key={`${o.kind}:${o.name}`} className="flex flex-col gap-1">
+            <span className="type-body-bold text-tx">{o.name}{o.kind === 'attack' ? <span className="type-num-12 text-t2"> {signedMod(o.toHit)}</span> : null}</span>
+            <OddsTable odds={o} />
+          </div>
+        ))}
+      </div>
+    </Section>
+  );
+}
+
+export function PcOverview({ actor, worldSec, onRoll, onCommand, tools, dmView, skills = true, passport, enemies = [] }: BodyProps & { skills?: boolean; passport?: PassportData; enemies?: readonly OddsTarget[] }) {
   const sheet = actor.sheet!;
   const cls = classById(sheet.classId);
   const view = sheetViewOf(actor)!;
@@ -190,6 +213,7 @@ export function PcOverview({ actor, worldSec, onRoll, onCommand, tools, dmView, 
       {skills ? <PcSkills actor={actor} onRoll={onRoll} /> : null}
       <SheetAttacks sheet={sheet} />
       <SheetSpells sheet={sheet} />
+      {dmView && enemies.length ? <PcOdds actor={actor} targets={enemies} /> : null}
       <ChipsRow actor={actor} worldSec={worldSec} onCommand={onCommand} dmView={dmView} />
       {sheet.features.length > 0 ? (
         <Section title={`Умения класса${cls ? ` · ${cls.nameRu}` : ''}`}>
@@ -290,34 +314,54 @@ export function MonsterSeen({ actor, worldSec, onCommand, dmView }: BodyProps) {
   );
 }
 
-export function MonsterActions({ actor }: { actor: Actor }) {
+/** Линза шансов: как бросает монстр (атака) или цели (спасбросок). Не событие — как фильтр. */
+function RollModeLens({ mode, onMode }: { mode: RollMode; onMode: (m: RollMode) => void }) {
+  return (
+    <div role="group" aria-label="Шансы: как бросают" className="flex items-center gap-px p-px bg-lo">
+      {ROLL_MODES.map(m => (
+        <button key={m} type="button" aria-pressed={m === mode} onClick={() => onMode(m)} title={m === 'normal' ? 'Один d20' : m === 'advantage' ? 'Лучший из двух d20' : 'Худший из двух d20'} className={`${OPT} ${m === mode ? OPT_ON : OPT_OFF}`}>
+          {ROLL_MODE_LABEL[m]}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+/**
+ * Действия блока; у мастера под атакой и действием со спасброском — шансы по каждому из партии (ROADMAP 5.2):
+ * попадание и средний урон или провал спасброска. Мультиатаку не складываем: её состав — текст.
+ */
+export function MonsterActions({ actor, targets = [] }: { actor: Actor; targets?: readonly OddsTarget[] }) {
   const m = MONSTERS[actor.monsterId!];
+  const [mode, setMode] = useState<RollMode>('normal');
+  const entries = (list: readonly MonsterAction[]) => list.map(a => {
+    const odds = targets.length ? actionOdds(a, targets, mode) : null;
+    return (
+      <div key={a.name} className="flex flex-col gap-1">
+        <Entry name={a.name} text={a.text} />
+        {odds ? <OddsTable odds={odds} /> : null}
+      </div>
+    );
+  });
+  const hasOdds = targets.length > 0 && [...m.actions, ...(m.bonusActions ?? []), ...m.reactions, ...(m.legendary ?? [])].some(a => actionOdds(a, targets) !== null);
   return (
     <>
-      <Section title="Действия">
-        <div className="flex flex-col gap-2">
-          {m.actions.map(a => <Entry key={a.name} name={a.name} text={a.text} />)}
-        </div>
+      <Section title="Действия" right={hasOdds ? <RollModeLens mode={mode} onMode={setMode} /> : undefined}>
+        <div className="flex flex-col gap-2">{entries(m.actions)}</div>
       </Section>
       {m.bonusActions?.length ? (
         <Section title="Бонусные действия">
-          <div className="flex flex-col gap-2">
-            {m.bonusActions.map(a => <Entry key={a.name} name={a.name} text={a.text} />)}
-          </div>
+          <div className="flex flex-col gap-2">{entries(m.bonusActions)}</div>
         </Section>
       ) : null}
       {m.reactions.length > 0 ? (
         <Section title="Реакции">
-          <div className="flex flex-col gap-2">
-            {m.reactions.map(a => <Entry key={a.name} name={a.name} text={a.text} />)}
-          </div>
+          <div className="flex flex-col gap-2">{entries(m.reactions)}</div>
         </Section>
       ) : null}
       {m.legendary?.length ? (
         <Section title="Легендарные действия">
-          <div className="flex flex-col gap-2">
-            {m.legendary.map(a => <Entry key={a.name} name={a.name} text={a.text} />)}
-          </div>
+          <div className="flex flex-col gap-2">{entries(m.legendary)}</div>
         </Section>
       ) : null}
     </>

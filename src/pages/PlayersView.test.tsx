@@ -124,6 +124,7 @@ const SECRET_SELECTORS = [
   '[aria-label^="Бросок"] input[type="checkbox"]',
   '[data-row^="secret-"]',
   '[data-row="cascade"]',
+  '[data-part="odds"]',                                   // шансы блока монстра по партии (ROADMAP 5.2)
 ];
 
 /** Инструменты мастера: HANDOFF §14 шаг 9 и референс F8 («панель темпа времени и подсказки клавиш» убраны). */

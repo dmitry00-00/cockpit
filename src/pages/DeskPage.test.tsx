@@ -3,7 +3,8 @@
 // плитки берут числа из листа; вкладка DM есть только на столе мастера; ни одной пиктограммы.
 import { act, fireEvent, render, screen, within } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { seedEngine, seedState, sheetViewOf } from '../campaign';
+import { pcActor, seedEngine, seedLog, seedState, sheetViewOf } from '../campaign';
+import { KORRIN } from '../campaign/party';
 import { createEngineStore, memoryStore, parseLog, serializeLog } from '../engine';
 import { actorCardProps } from '../components';
 import { DeskPage } from './DeskPage';
@@ -277,6 +278,41 @@ describe('стол на сиде', () => {
     expect(screen.getByRole('button', { name: /^STR/ })).toHaveTextContent('+2');
     tab('Действия');
     expect(screen.getByRole('tabpanel')).toHaveTextContent('Multiattack');
+  });
+
+  it('шансы блока (ROADMAP 5.2): под Scimitar — каждый из партии с AC, попаданием и средним уроном; линза «преимущество» поднимает шанс; у Multiattack шансов нет', () => {
+    mount();
+    fireEvent.click(screen.getByTitle('Bandit Captain · CR 2'));
+    tab('Действия');
+    const panel = screen.getByRole('tabpanel');
+    const table = within(panel).getByRole('table', { name: 'Шансы: Scimitar' });
+    const party = within(screen.getByRole('list', { name: 'Партия' })).getAllByRole('button', { name: /^Открыть карточку: / }).map(b => b.getAttribute('aria-label')!.replace('Открыть карточку: ', ''));
+    const rows = within(table).getAllByRole('row').slice(1);
+    expect(rows.map(r => within(r).getByRole('rowheader').textContent)).toEqual(party);
+    const hitOf = (r: HTMLElement) => Number(within(r).getAllByRole('cell')[1].textContent!.replace('%', ''));
+    const normal = rows.map(hitOf);
+    expect(normal.every(n => n > 0 && n < 100)).toBe(true);
+    expect(within(rows[0]).getAllByRole('cell')[2].textContent).toMatch(/^\d+(,\d)?$/);
+    expect(within(panel).queryByRole('table', { name: 'Шансы: Multiattack' })).toBeNull();
+    fireEvent.click(within(panel).getByRole('button', { name: 'преимущество' }));
+    const adv = within(within(panel).getByRole('table', { name: 'Шансы: Scimitar' })).getAllByRole('row').slice(1).map(hitOf);
+    adv.forEach((n, i) => expect(n).toBeGreaterThan(normal[i]));
+  });
+
+  it('шансы листа (ROADMAP 5.3): меч Korrin против блоков на столе — Bandit ×3 одной строкой; у игроков секции нет', () => {
+    const state = seedState();
+    const korrin = pcActor({ ...KORRIN, equipment: [{ id: 'chain-mail', qty: 1 }, { id: 'longsword', qty: 1 }, { id: 'shield', qty: 1 }] });
+    state.actors.korrin = { ...state.actors.korrin, sheet: korrin.sheet };
+    const store = createEngineStore(state, { persist: { load: () => seedLog(), save: () => {}, clear: () => {} }, ...fixed() });
+    mount(store);
+    fireEvent.click(within(screen.getByRole('list', { name: 'Партия' })).getByRole('button', { name: 'Открыть карточку: Korrin Battlehammer' }));
+    const section = within(cardOf('Korrin Battlehammer')).getByRole('region', { name: 'Шансы по противникам' });
+    const table = within(section).getByRole('table', { name: 'Шансы: Longsword' });
+    expect(within(table).getAllByRole('rowheader').map(r => r.textContent)).toEqual(['Bandit Captain', 'Bandit ×3']);
+    expect(within(section).getByRole('table', { name: 'Шансы: Longsword · двумя руками' })).toBeInTheDocument();
+    fireEvent.keyDown(window, { key: 'p', code: 'KeyP' });
+    expect(screen.queryByRole('region', { name: 'Шансы по противникам' })).toBeNull();
+    expect(document.querySelector('[data-part="odds"]')).toBeNull();
   });
 
   it('кнопка «Хиты» в карточке открывает тот же попап; повторный клик по ячейке HP его не закрывает; Esc закрывает', async () => {
