@@ -3,6 +3,7 @@
 import { fireEvent, render, screen, within } from '@testing-library/react';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 import { MAPS } from './maps';
+import { loadJourney } from '../rules/a5e/journey';
 import { travelDaysOver } from '../rules/srd/travel';
 import { TERRAIN_CODES, routeTerrain, type TerrainGrid } from './terrain';
 import { WorldMap, milesLabel, rulerSummary, type MapPinItem } from './WorldMap';
@@ -169,7 +170,8 @@ describe('поход по карте местности', () => {
     expect(onGo.mock.calls[0][0].difficult).toBeUndefined();
   });
 
-  it('поход по A5E: регионы пути с DC по уровню, припасы на путь; «встреча» зовёт страницу с регионом', () => {
+  it('поход по A5E: регионы пути с DC по уровню, припасы на путь; «встреча» зовёт страницу с регионом', async () => {
+    await loadJourney(); // данные похода — отдельный кусок (ROADMAP 0.5); стол грузит их после первой отрисовки
     const onEncounter = vi.fn();
     render(<WorldMap passport={toril} frame={frame} frameKey="k" pins={pins} terrain={grid} travel={{ from: pts[0], onGo: vi.fn(), journey: { tier: 2, members: 4, onEncounter } }} />);
     fireEvent.click(screen.getByRole('button', { name: 'Поход' }));

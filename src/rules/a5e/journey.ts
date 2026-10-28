@@ -3,7 +3,7 @@
 // у A5E медленный и быстрый темп — 16 и 32 мили, у SRD — 18 и 30; продукт держится SRD). От A5E — то, чего в SRD нет:
 // путь как цепочка регионов с уровнем опасности, DC занятий в пути по уровню, хотя бы одна встреча на регион,
 // таблицы встреч d100, погода d20 на регион и припасы (Supply). Тексты правил — дословно в content/a5e/journey.json.
-import raw from '../../../content/a5e/journey.json';
+// С 28.10.2026 (ROADMAP 0.5) данные — отдельный кусок: loadJourney() заполняет те же экспорты; до загрузки они пусты.
 import type { TerrainCode } from '../../map/terrain';
 import { DIFFICULT_TERRAIN_FACTOR, TRAVEL_PACES, type TravelPaceId } from '../srd/travel';
 
@@ -44,7 +44,7 @@ export interface JourneyActivity {
   outcomes: { criticalFailure?: string; failure?: string; success?: string; criticalSuccess?: string };
 }
 
-const DATA = raw as unknown as {
+interface JourneyFile {
   source: string;
   attribution: string;
   activityDc: Record<string, number>;
@@ -52,13 +52,37 @@ const DATA = raw as unknown as {
   rules: Record<string, string>;
   activities: JourneyActivity[];
   regions: JourneyRegion[];
-};
+}
 
-export const JOURNEY_SOURCE = DATA.source;
+const DATA: JourneyFile = { source: '', attribution: '', activityDc: {}, dcModifiers: [], rules: {}, activities: [], regions: [] };
+const regions: Record<string, JourneyRegion> = {};
+
+/** Источник с лицензией; пуст до loadJourney(). */
+export const JOURNEY_META: { readonly source: string; readonly attribution: string } = DATA;
 export const JOURNEY_RULES: Readonly<Record<string, string>> = DATA.rules;
 export const JOURNEY_ACTIVITIES: readonly JourneyActivity[] = DATA.activities;
-export const JOURNEY_REGIONS: Readonly<Record<string, JourneyRegion>> = Object.fromEntries(DATA.regions.map(r => [r.id, r]));
+export const JOURNEY_REGIONS: Readonly<Record<string, JourneyRegion>> = regions;
 export const DC_MODIFIERS: readonly { name: string; dc: number }[] = DATA.dcModifiers;
+
+let loading: Promise<void> | null = null;
+
+/** Догрузить правила похода в экспорты модуля; повторный вызов — тот же промис. */
+export function loadJourney(): Promise<void> {
+  loading ??= import('../../../content/a5e/journey.json').then(m => {
+    const raw = m.default as unknown as JourneyFile;
+    DATA.source = raw.source;
+    DATA.attribution = raw.attribution;
+    Object.assign(DATA.activityDc, raw.activityDc);
+    Object.assign(DATA.rules, raw.rules);
+    DATA.dcModifiers.push(...raw.dcModifiers);
+    DATA.activities.push(...raw.activities);
+    DATA.regions.push(...raw.regions);
+    for (const r of raw.regions) regions[r.id] = r;
+  });
+  return loading;
+}
+
+export const journeyLoaded = (): boolean => DATA.regions.length > 0;
 
 /** «The DC of a journey activity is based on the region’s tier: tier 0 — DC 10, tier 1 — DC 12 … tier 4 — DC 18». */
 export function activityDc(tier: RegionTier, modifiers: readonly string[] = []): number {

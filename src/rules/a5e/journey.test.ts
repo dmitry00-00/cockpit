@@ -1,10 +1,19 @@
-import { describe, expect, it } from 'vitest';
+import { beforeAll, describe, expect, it } from 'vitest';
 import { DIFFICULT } from '../../map/terrain';
-import { JOURNEY_ACTIVITIES, JOURNEY_REGIONS, JOURNEY_SOURCE, activityDc, encounterAt, journeyLegs, REGION_OF_TERRAIN, supplyNeeded, tierOfLevel, weatherAt } from './journey';
+import {
+  JOURNEY_ACTIVITIES, JOURNEY_META, JOURNEY_REGIONS, activityDc, loadJourney, encounterAt, journeyLegs, REGION_OF_TERRAIN, supplyNeeded, tierOfLevel,
+  weatherAt,
+} from './journey';
+
+// Данные похода — отдельный кусок (ROADMAP 0.5): до загрузки экспорты пусты.
+beforeAll(async () => {
+  expect(Object.keys(JOURNEY_REGIONS)).toHaveLength(0);
+  await loadJourney();
+});
 
 describe('поход A5E — данные', () => {
   it('18 регионов, у каждого таблицы уровней 0–4; строки в пределах 1–100; источник — A5E SRD CC BY 4.0', () => {
-    expect(JOURNEY_SOURCE).toContain('CC BY 4.0');
+    expect(JOURNEY_META.source).toContain('CC BY 4.0');
     expect(Object.keys(JOURNEY_REGIONS)).toHaveLength(18);
     for (const r of Object.values(JOURNEY_REGIONS)) {
       expect(Object.keys(r.encounters).sort(), r.id).toEqual(['0', '1', '2', '3', '4']);

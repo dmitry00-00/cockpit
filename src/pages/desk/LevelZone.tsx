@@ -43,7 +43,8 @@ export interface LevelZoneProps {
   onPlanetView: (v: 'globe' | 'map') => void;
   cosmologyView: 'wheel' | 'tree';
   onCosmologyView: (v: 'wheel' | 'tree') => void;
-  journey: JourneyProps;
+  /** Поход A5E; нет — данные похода ещё грузятся (ROADMAP 0.5), панель регионов не рисуется. */
+  journey?: JourneyProps;
   onTravel: (route: TravelRoute) => void;
   goLadder: (next: Ladder) => void;
   onPin: (id: string) => void;
@@ -124,7 +125,7 @@ export function LevelZone({
         party={map.party ? { ...map.party, label: 'Партия' } : undefined}
         hexMiles={HEX_MILES[ladder.level]}
         onPin={onPin}
-        travel={dmView && !combat && map.party ? { from: map.party, onGo: onTravel, journey } : undefined}
+        travel={dmView && !combat && map.party ? { from: map.party, onGo: onTravel, ...(journey ? { journey } : {}) } : undefined}
         fog={mapFog}
         terrain={terrain}
         gazetteer={dmView ? gazetteer : undefined}

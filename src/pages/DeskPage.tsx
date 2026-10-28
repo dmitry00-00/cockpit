@@ -40,7 +40,7 @@ import { classById } from '../rules/compendium';
 import { CharacterEditor } from './editor/CharacterEditor';
 import { levelMap } from '../map/levelMap';
 import { type JourneyProps, type TravelRoute } from '../map/WorldMap';
-import { ENCOUNTER_TYPE_LABEL, JOURNEY_REGIONS, encounterAt, tierOfLevel } from '../rules/a5e/journey';
+import { ENCOUNTER_TYPE_LABEL, JOURNEY_REGIONS, encounterAt, journeyLoaded, loadJourney, tierOfLevel } from '../rules/a5e/journey';
 import { LevelZone } from './desk/LevelZone';
 import { useMapData } from './desk/useMapData';
 import {
@@ -525,6 +525,14 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
    * Поход по A5E: уровень опасности — ступень партии по старшему уровню; встреча — d100 в лог (DICE_ROLLED) и итог
    * строкой журнала (NOTE_ADDED, масштаб «регион»). Попал в дыру таблицы — так и пишем: бросок повторяют.
    */
+  const [journeyReady, setJourneyReady] = useState(journeyLoaded);
+  // Правила похода A5E — отдельный кусок (ROADMAP 0.5): грузятся после первой отрисовки, панель регионов — по готовности.
+  useEffect(() => {
+    if (journeyReady) return;
+    let live = true;
+    void loadJourney().then(() => { if (live) setJourneyReady(true); });
+    return () => { live = false; };
+  }, [journeyReady]);
   const journeyTier = tierOfLevel(Math.max(1, ...party.map(a => a.sheet?.level ?? 1)));
   const journey: JourneyProps = {
     tier: journeyTier,
@@ -1083,7 +1091,7 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
                   onPlanetView={setPlanetView}
                   cosmologyView={cosmologyView}
                   onCosmologyView={setCosmologyView}
-                  journey={journey}
+                  journey={journeyReady ? journey : undefined}
                   onTravel={onTravel}
                   goLadder={goLadder}
                   onPin={id => goLadder(selectPlace(state, ladder, id))}
