@@ -1,6 +1,6 @@
 {
  "meta": {
-  "importedAt": "2026-09-19",
+  "importedAt": "2026-10-27",
   "importer": "scripts/import-compendium.py",
   "sources": {
    "races": "Копия расы.xlsx",
@@ -47,12 +47,7 @@
      "nameRu": "Прохода",
      "source": "book",
      "asi": {
-      "str": 1,
-      "dex": 2,
-      "con": 1,
-      "int": 1,
-      "wis": 1,
-      "cha": 1
+      "dex": 2
      },
      "traits": [
       {
@@ -118,7 +113,18 @@
        "name": "Круг телепортации"
       }
      ],
-     "row": 4
+     "row": 4,
+     "asiChoice": {
+      "count": 1,
+      "amount": 1,
+      "from": [
+       "str",
+       "con",
+       "int",
+       "wis",
+       "cha"
+      ]
+     }
     },
     {
      "id": "celovek-uhoda",
@@ -126,12 +132,7 @@
      "nameRu": "Ухода",
      "source": "book",
      "asi": {
-      "str": 1,
-      "dex": 1,
-      "con": 1,
-      "int": 1,
-      "wis": 2,
-      "cha": 1
+      "wis": 2
      },
      "traits": [
       {
@@ -197,7 +198,18 @@
        "name": "Пробуждение разума"
       }
      ],
-     "row": 10
+     "row": 10,
+     "asiChoice": {
+      "count": 1,
+      "amount": 1,
+      "from": [
+       "str",
+       "dex",
+       "con",
+       "int",
+       "cha"
+      ]
+     }
     },
     {
      "id": "celovek-sozdania",
@@ -205,12 +217,7 @@
      "nameRu": "Создания",
      "source": "book",
      "asi": {
-      "str": 1,
-      "dex": 1,
-      "con": 1,
-      "int": 2,
-      "wis": 1,
-      "cha": 1
+      "int": 2
      },
      "traits": [
       {
@@ -284,7 +291,18 @@
        "name": "Сотворение"
       }
      ],
-     "row": 16
+     "row": 16,
+     "asiChoice": {
+      "count": 1,
+      "amount": 1,
+      "from": [
+       "str",
+       "dex",
+       "con",
+       "wis",
+       "cha"
+      ]
+     }
     },
     {
      "id": "celovek-straja",
@@ -1690,7 +1708,18 @@
      },
      "traits": [],
      "spells": [],
-     "row": 90
+     "row": 90,
+     "asiChoice": {
+      "count": 2,
+      "amount": 1,
+      "from": [
+       "str",
+       "dex",
+       "con",
+       "int",
+       "wis"
+      ]
+     }
     },
     {
      "id": "poluel-f-metki-obnarujenia",
@@ -1875,7 +1904,18 @@
     }
    ],
    "facetMarks": [],
-   "row": 90
+   "row": 90,
+   "asiChoice": {
+    "count": 2,
+    "amount": 1,
+    "from": [
+     "str",
+     "dex",
+     "con",
+     "int",
+     "wis"
+    ]
+   }
   },
   {
    "id": "tifling",
@@ -3487,11 +3527,6 @@
    "nameRu": "Изменяющийся",
    "source": "book",
    "asi": {
-    "str": 1,
-    "dex": 1,
-    "con": 1,
-    "int": 1,
-    "wis": 1,
     "cha": 2
    },
    "traits": [
@@ -3514,7 +3549,18 @@
    ],
    "subraces": [],
    "facetMarks": [],
-   "row": 144
+   "row": 144,
+   "asiChoice": {
+    "count": 1,
+    "amount": 1,
+    "from": [
+     "str",
+     "dex",
+     "con",
+     "int",
+     "wis"
+    ]
+   }
   },
   {
    "id": "kalastar",
@@ -3612,12 +3658,7 @@
    "nameRu": "Кованый",
    "source": "book",
    "asi": {
-    "str": 1,
-    "dex": 1,
-    "con": 2,
-    "int": 1,
-    "wis": 1,
-    "cha": 1
+    "con": 2
    },
    "traits": [
     {
@@ -3658,7 +3699,18 @@
     "skill",
     "unarmed"
    ],
-   "row": 147
+   "row": 147,
+   "asiChoice": {
+    "count": 1,
+    "amount": 1,
+    "from": [
+     "str",
+     "dex",
+     "int",
+     "wis",
+     "cha"
+    ]
+   }
   },
   {
    "id": "kobol-d",

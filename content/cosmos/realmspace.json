@@ -1,0 +1,225 @@
+{
+  "source": "Forgotten Realms Wiki, дамп fr-wiki-2026-10-21",
+  "license": "CC BY-SA 3.0",
+  "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0",
+  "note": "Год в месяцах пересчитан по 30 дней (месяц Harptos). Начальные углы орбит книги не задают — их ставит схема.",
+  "sphere": {
+    "id": "realmspace",
+    "name": "Realmspace",
+    "url": "https://forgottenrealms.fandom.com/wiki/Realmspace",
+    "radiusMi": 3200000000.0,
+    "refs": [
+      "Realmspace"
+    ]
+  },
+  "bodies": [
+    {
+      "id": "sun",
+      "name": "the Sun",
+      "url": "https://forgottenrealms.fandom.com/wiki/The_sun",
+      "type": "Sun",
+      "size": "H",
+      "shape": "Spherical",
+      "element": "Fire",
+      "satellites": "8 planetary bodies",
+      "day": "37 hours",
+      "population": "Creatures native to the Elemental Plane of Fire, helians, lavaworms",
+      "refs": [
+        "Realmspace, с. 5–6",
+        "Spelljammer: AD&D Adventures in Space: Lorebook of the Void, с. 93",
+        "Spelljammer: AD&D Adventures in Space: Concordance of Arcane Space, с. 34",
+        "Realmspace, с. 84–85"
+      ]
+    },
+    {
+      "id": "anadia",
+      "name": "Anadia",
+      "url": "https://forgottenrealms.fandom.com/wiki/Anadia",
+      "type": "Planet",
+      "size": "B",
+      "shape": "Spherical",
+      "element": "earth",
+      "parent": "The sun",
+      "distanceMi": 50000000.0,
+      "day": "12 hours",
+      "year": "30 days",
+      "population": "Anadjiin, halflings, plainsjan, umber hulks, beasts",
+      "yearDays": 30.0,
+      "refs": [
+        "Realmspace, с. 7–11",
+        "Realmspace: Monstrous Compendium, с. 80",
+        "Realmspace: Monstrous Compendium, с. 87"
+      ]
+    },
+    {
+      "id": "coliar",
+      "name": "Coliar",
+      "url": "https://forgottenrealms.fandom.com/wiki/Coliar",
+      "type": "Planet",
+      "size": "G",
+      "shape": "Spherical",
+      "element": "Air",
+      "parent": "The sun",
+      "distanceMi": 100000000.0,
+      "radiusMi": 30100.0,
+      "radiusNote": "At least 30100",
+      "day": "30 hours",
+      "year": "8 months",
+      "population": "Aarakocra, dragons, lizardfolk, birds",
+      "yearDays": 240.0,
+      "refs": [
+        "Realmspace, с. 12–17"
+      ]
+    },
+    {
+      "id": "toril",
+      "name": "Toril",
+      "url": "https://forgottenrealms.fandom.com/wiki/Toril",
+      "type": "Planet",
+      "size": "E",
+      "shape": "Spherical",
+      "element": "earth",
+      "satellites": "Selûne; Tears of Selûne",
+      "parent": "The sun",
+      "distanceMi": 200000000.0,
+      "radiusMi": 3980.0,
+      "day": "24 hours",
+      "year": "365 days",
+      "population": "Humans; Humanoids",
+      "yearDays": 365.0,
+      "refs": [
+        "Realmspace, с. 18",
+        "Dragon 161: Sage Advice, с. 89"
+      ]
+    },
+    {
+      "id": "selune",
+      "name": "Selûne",
+      "url": "https://forgottenrealms.fandom.com/wiki/Selûne_(moon)",
+      "type": "Moon",
+      "size": "D",
+      "shape": "Spherical",
+      "element": "earth",
+      "parent": "Toril",
+      "day": "30d 10h 30min",
+      "year": "30d 10h 30min",
+      "population": "Elves, humans",
+      "yearDays": 30.438,
+      "refs": [
+        "Realmspace, с. 25–28",
+        "Forgotten Realms Campaign Setting 3rd edition, с. 230"
+      ]
+    },
+    {
+      "id": "tears",
+      "name": "Tears of Selûne",
+      "url": "https://forgottenrealms.fandom.com/wiki/Tears_of_Selûne",
+      "type": "Asteroid cluster",
+      "size": "A",
+      "shape": "Cluster",
+      "element": "Earth",
+      "parent": "Toril",
+      "day": "Various",
+      "year": "30 days",
+      "population": "Mostly elves and humans, plus other spacefaring races.",
+      "yearDays": 30.0,
+      "refs": [
+        "Realmspace, с. 29–31"
+      ]
+    },
+    {
+      "id": "karpri",
+      "name": "Karpri",
+      "url": "https://forgottenrealms.fandom.com/wiki/Karpri",
+      "type": "Planet",
+      "size": "D",
+      "shape": "Spherical",
+      "element": "Water",
+      "parent": "The sun",
+      "distanceMi": 300000000.0,
+      "day": "1 h 12 min",
+      "year": "650 days",
+      "population": "Aquatic elves, giant insects, arctic predators, whales, eye of the deep",
+      "yearDays": 650.0,
+      "refs": [
+        "Realmspace, с. 32–35"
+      ]
+    },
+    {
+      "id": "chandos",
+      "name": "Chandos",
+      "url": "https://forgottenrealms.fandom.com/wiki/Chandos",
+      "type": "Planet",
+      "size": "F",
+      "shape": "Spherical",
+      "element": "Water",
+      "parent": "The sun",
+      "distanceMi": 400000000.0,
+      "day": "48 hours",
+      "year": "67 months",
+      "population": "Dwarves, humans, orcs",
+      "yearDays": 2010.0,
+      "refs": [
+        "Realmspace, с. 36–38"
+      ]
+    },
+    {
+      "id": "glyth",
+      "name": "Glyth",
+      "url": "https://forgottenrealms.fandom.com/wiki/Glyth",
+      "type": "Planet",
+      "size": "E",
+      "shape": "Spherical",
+      "element": "earth",
+      "satellites": "3 moons and ring",
+      "parent": "The sun",
+      "distanceMi": 1000000000.0,
+      "day": "30 hours, 30 minutes",
+      "year": "360 months",
+      "population": "Illithid, humanoids, oortlings, monkeys",
+      "yearDays": 10800.0,
+      "refs": [
+        "Realmspace, с. 39–43"
+      ]
+    },
+    {
+      "id": "garden",
+      "name": "Garden",
+      "url": "https://forgottenrealms.fandom.com/wiki/Garden",
+      "type": "Planet",
+      "size": "A",
+      "shape": "Cluster",
+      "element": "earth",
+      "satellites": "12 moons",
+      "parent": "The sun",
+      "distanceMi": 1200000000.0,
+      "day": "128 hours",
+      "year": "1,022 months",
+      "population": "Pirates",
+      "yearDays": 30660.0,
+      "refs": [
+        "Realmspace, с. 44–46"
+      ]
+    },
+    {
+      "id": "hcatha",
+      "name": "H'Catha",
+      "url": "https://forgottenrealms.fandom.com/wiki/H'Catha",
+      "type": "Planet",
+      "size": "C",
+      "shape": "Flat",
+      "element": "Water",
+      "satellites": "2 moons",
+      "parent": "The Sun",
+      "distanceMi": 1600000000.0,
+      "day": "Infinite",
+      "year": "2004 months",
+      "population": "Beholders, orogs",
+      "yearDays": 60120.0,
+      "refs": [
+        "Realmspace, с. 47–50",
+        "Waterdeep: Dungeon of the Mad Mage, с. 244"
+      ]
+    }
+  ]
+}

@@ -15,10 +15,10 @@ beforeAll(() => {
 afterAll(() => rmSync(tmp, { recursive: true, force: true }));
 
 describe('build-icons', () => {
-  it('генератор читается без побочного вывода: 105 иконок', () => {
+  it('генератор читается без побочного вывода: 183 иконки', () => {
     const gen = loadGenerator();
-    expect(gen.names.length).toBe(105);
-    expect(result.count).toBe(105);
+    expect(gen.names.length).toBe(183);
+    expect(result.count).toBe(183);
     expect(result.files.length).toBe(3);
   });
 
@@ -30,12 +30,12 @@ describe('build-icons', () => {
     }
   });
 
-  it('атлас: 16 колонок × 7 рядов = 256×112, meta.size равен IHDR', () => {
+  it('атлас: 16 колонок × 12 рядов = 256×192, meta.size равен IHDR', () => {
     const png = readFileSync(path.join(tmp, OUT.png));
     const json = JSON.parse(readFileSync(path.join(tmp, OUT.json), 'utf8'));
-    expect(readPngSize(png)).toEqual({ w: 256, h: 112 });
-    expect(json.meta.size).toEqual({ w: 256, h: 112 });
-    expect(Object.keys(json.frames).length).toBe(105);
+    expect(readPngSize(png)).toEqual({ w: 256, h: 192 });
+    expect(json.meta.size).toEqual({ w: 256, h: 192 });
+    expect(Object.keys(json.frames).length).toBe(183);
   });
 
   it('crc32 и encodePng: IEND по эталону, минимальный PNG с корректными чанками', () => {

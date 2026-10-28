@@ -4,6 +4,7 @@
 import { castDraft, current, produce } from 'immer';
 import { EXHAUSTION_MAX_LEVEL, isConditionId } from '../rules/srd/conditions';
 import { RESOURCES, isResourceId } from '../rules/srd/resources';
+import { TRAVEL_PACES } from '../rules/srd/travel';
 import type { ConditionSnapshot, DomainEvent, Effect, EncounterSnapshot, HpSnapshot, InitiativeEntry, PayloadByType, RestSnapshot } from './events';
 import type { Actor, State, WorldPatch } from './state';
 
@@ -282,6 +283,25 @@ export function validate(state: State, event: Pick<DomainEvent, 'type' | 'payloa
       if (!state.facts[p.factId]) throw new EngineError(`нет факта ${p.factId}`);
       return;
     }
+    case 'PARTY_TRAVELED': {
+      const p = event.payload as PayloadByType['PARTY_TRAVELED'];
+      if (state.encounter.active) throw new EngineError('в бою не уходят в поход: сначала закончить бой');
+      if (!state.world.locations[p.toId]) throw new EngineError(`нет места ${p.toId}`);
+      if (p.fromId !== undefined && !state.world.locations[p.fromId]) throw new EngineError(`нет места ${p.fromId}`);
+      if (!state.party.some(id => !state.actors[id]?.removed)) throw new EngineError('поход: в партии никого');
+      if (!TRAVEL_PACES[p.pace]) throw new EngineError(`темп похода бывает быстрый, обычный или медленный, не ${String(p.pace)}`);
+      if (p.points.length < 2) throw new EngineError('поход: путь — хотя бы две точки');
+      if (!Number.isFinite(p.miles) || p.miles < 0) throw new EngineError(`поход: мили — не меньше нуля, получено ${p.miles}`);
+      if (!Number.isFinite(p.days) || p.days <= 0) throw new EngineError(`поход: дней пути больше нуля, получено ${p.days}`);
+      return;
+    }
+    case 'PLACE_REVEALED': {
+      const p = event.payload as PayloadByType['PLACE_REVEALED'];
+      const l = state.world.locations[p.locationId];
+      if (!l) throw new EngineError(`нет места ${p.locationId}`);
+      if (l.revealed) throw new EngineError(`${l.name} уже открыто игрокам`);
+      return;
+    }
     case 'DICE_ROLLED':
     case 'NOTE_ADDED':
       return;
@@ -441,6 +461,23 @@ export function apply(state: State, event: DomainEvent): { state: State; effect:
       case 'NOTE_ADDED':
         effect = { kind: 'note', noteId: event.id };
         break;
+      case 'PARTY_TRAVELED': {
+        const p = event.payload as PayloadByType['PARTY_TRAVELED'];
+        // Переезжает вся партия, кроме выбывших: место у каждого своё, след — по каждому.
+        const actors = state.party.filter(id => !state.actors[id]?.removed).map(actorId => {
+          const before = state.actors[actorId].locationId;
+          draft.actors[actorId].locationId = p.toId;
+          return before === undefined ? { actorId, after: p.toId } : { actorId, before, after: p.toId };
+        });
+        effect = { kind: 'travel', actors };
+        break;
+      }
+      case 'PLACE_REVEALED': {
+        const p = event.payload as PayloadByType['PLACE_REVEALED'];
+        draft.world.locations[p.locationId].revealed = true;
+        effect = { kind: 'place', locationId: p.locationId, before: false, after: true };
+        break;
+      }
       case 'DICE_ROLLED':
         effect = { kind: 'none' };
         break;
@@ -650,6 +687,22 @@ export function applyEffect(state: State, effect: Effect): State {
         putSpent(a, effect.resourceId, effect.after);
         return;
       }
+      case 'travel': {
+        for (const t of effect.actors) {
+          const a = draft.actors[t.actorId];
+          if (!a) throw new EngineError(`нет актёра ${t.actorId}`);
+          if (t.after === undefined) delete a.locationId;
+          else a.locationId = t.after;
+        }
+        return;
+      }
+      case 'place': {
+        const l = draft.world.locations[effect.locationId];
+        if (!l) throw new EngineError(`нет места ${effect.locationId}`);
+        if (effect.after) l.revealed = true;
+        else delete l.revealed;
+        return;
+      }
       case 'note':
       case 'none':
         return;
@@ -677,6 +730,8 @@ export function invert(effect: Effect): Effect {
     };
     case 'rest': return { ...effect, actors: effect.actors.map(r => ({ actorId: r.actorId, before: r.after, after: r.before })) };
     case 'resource': return { ...effect, before: effect.after, after: effect.before };
+    case 'travel': return { ...effect, actors: effect.actors.map(t => ({ actorId: t.actorId, before: t.after, after: t.before })) };
+    case 'place': return { ...effect, before: effect.after, after: effect.before };
     case 'note':
     case 'none':
       return effect;

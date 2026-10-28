@@ -3,11 +3,11 @@
 // той же дорогой, что живая сессия, и Ctrl+Z работает на нём с первой секунды.
 import type { DomainEvent } from '../engine/events';
 import type { EventStore } from '../engine/persist';
-import { emptyState, type Actor, type State } from '../engine/state';
+import { emptyState, type Actor, type CharacterSheet, type State } from '../engine/state';
 import { createEngineStore, type CreateEngineOptions, type EngineStoreApi } from '../engine/store';
 import { MONSTERS, type MonsterId } from '../rules/srd/monsters';
 import { secOf } from './calendar';
-import { abilityMod, deriveCharacter, passivePerception, type PcSpec } from './derive';
+import { abilityMod, deriveCharacter, passivePerception, type DerivedCharacter, type PcSpec } from './derive';
 import { PARTY } from './party';
 import { THREAD, seedDeltas, seedFacts, seedWorld } from './world';
 
@@ -18,6 +18,34 @@ export const SEED_SEC = secOf({ year: 1492, month: 'Mirtul', day: 15, hour: 8 })
 const INITIATIVE: Readonly<Record<string, number>> = {
   korrin: 18, bo: 15, captain: 14, lyra: 12, 'bandit-1': 11, aldric: 9, 'bandit-2': 8, 'bandit-3': 6,
 };
+
+/** Лист персонажа из спецификации и вывода: ссылки на компендиум и посчитанные числа. Поля редактора — только когда ведутся. */
+export function sheetOf(spec: PcSpec, d: DerivedCharacter): CharacterSheet {
+  return {
+    level: spec.level,
+    raceId: spec.raceId,
+    subraceId: spec.subraceId,
+    classId: spec.classId,
+    subclassId: spec.subclassId,
+    backgroundId: spec.backgroundId,
+    abilities: d.abilities,
+    proficiencyBonus: d.proficiencyBonus,
+    skills: d.skills,
+    features: d.features,
+    traits: d.traits,
+    armor: spec.armor ?? undefined,
+    shield: spec.shield || undefined,
+    speed: d.speed,
+    alignment: spec.alignment,
+    bio: spec.bio,
+    // Поля редактора — только когда они ведутся: лист сида без них не меняется ни на байт.
+    ...(d.expertise.length ? { expertise: d.expertise } : {}),
+    ...(d.chosen.length ? { choices: d.chosen } : {}),
+    ...(d.feats.length ? { feats: d.feats } : {}),
+    ...(spec.spells && d.spellcasting ? { spellcasting: d.spellcasting } : {}),
+    ...(spec.equipment ? { equipment: d.equipment, attacks: d.attacks } : {}),
+  };
+}
 
 /** Персонаж игрока → актёр: числа выведены из листа, лист остаётся рядом для карточки. */
 export function pcActor(spec: PcSpec): Actor {
@@ -31,24 +59,7 @@ export function pcActor(spec: PcSpec): Actor {
     passivePerception: d.passivePerception,
     conditions: {},
     initiative: INITIATIVE[spec.id],
-    sheet: {
-      level: spec.level,
-      raceId: spec.raceId,
-      subraceId: spec.subraceId,
-      classId: spec.classId,
-      subclassId: spec.subclassId,
-      backgroundId: spec.backgroundId,
-      abilities: d.abilities,
-      proficiencyBonus: d.proficiencyBonus,
-      skills: d.skills,
-      features: d.features,
-      traits: d.traits,
-      armor: spec.armor ?? undefined,
-      shield: spec.shield || undefined,
-      speed: d.speed,
-      alignment: spec.alignment,
-      bio: spec.bio,
-    },
+    sheet: sheetOf(spec, d),
   };
 }
 

@@ -20,10 +20,13 @@ export interface PartySpineProps {
   locations?: Readonly<Record<string, AwayLocation>>;
   /** Спасброски от смерти по актёру; поля в State пока нет (HANDOFF §7). */
   deathSaves?: Readonly<Record<string, NonNullable<PartySpineRowProps['deathSaves']>>>;
+  /** Отмеченные строки для подвала партии; без onCheck флажков нет. */
+  checkedIds?: ReadonlySet<string>;
+  onCheck?: (id: string) => void;
   className?: string;
 }
 
-export function PartySpine({ actors, worldSec, selectedId, onOpen, flash, locations, deathSaves, className = '' }: PartySpineProps) {
+export function PartySpine({ actors, worldSec, selectedId, onOpen, flash, locations, deathSaves, checkedIds, onCheck, className = '' }: PartySpineProps) {
   return (
     <ul aria-label="Партия" className={`flex flex-col gap-1 w-rail-party ${className}`}>
       {actors.map(actor => (
@@ -36,6 +39,8 @@ export function PartySpine({ actors, worldSec, selectedId, onOpen, flash, locati
             onOpen={onOpen}
             flash={flash?.[actor.id]}
             deathSaves={deathSaves?.[actor.id]}
+            checked={checkedIds?.has(actor.id) ?? false}
+            onCheck={onCheck}
           />
         </li>
       ))}

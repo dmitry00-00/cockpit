@@ -2,7 +2,9 @@
 import { describe, expect, it } from 'vitest';
 import { TEMPO_SECONDS } from '../engine/events';
 import { SECONDS_PER_DAY } from '../engine/state';
-import { DAYS_PER_YEAR, FESTIVALS, MONTHS, formatHarptos, harptos, nextFestival, secOf } from './calendar';
+import {
+  DAYS_PER_YEAR, FESTIVALS, MONTHS, festivalAfter, formatHarptos, harptos, monthBefore, monthDays, nextFestival, secOf, yearSlots,
+} from './calendar';
 import { SEED_SEC } from './seed';
 
 const day = (n: number) => n * SECONDS_PER_DAY;
@@ -67,3 +69,39 @@ describe('nextFestival', () => {
     expect(nextFestival(afterFeast).sec).toBe(secOf({ year: 1493, festival: 'Midwinter' }));
   });
 });
+
+describe('календарь на экране: год, месяц, праздники (часы Харптоса, 28.10.2026)', () => {
+  it('год — 12 месяцев и 5 праздников по порядку, 365 дней подряд без дыр; сезоны по месяцу', () => {
+    const slots = yearSlots(1492);
+    expect(slots).toHaveLength(17);
+    expect(slots.map(s => s.month ?? s.festival)).toEqual([
+      'Hammer', 'Midwinter', 'Alturiak', 'Ches', 'Tarsakh', 'Greengrass', 'Mirtul', 'Kythorn', 'Flamerule', 'Midsummer',
+      'Eleasis', 'Eleint', 'Highharvestide', 'Marpenoth', 'Uktar', 'Feast of the Moon', 'Nightal',
+    ]);
+    expect(slots.reduce((n, s) => n + s.days, 0)).toBe(DAYS_PER_YEAR);
+    for (let i = 1; i < slots.length; i++) expect(slots[i].startSec).toBe(slots[i - 1].startSec + day(slots[i - 1].days));
+    expect(slots[0].startSec).toBe(0);
+    expect(yearSlots(1493)[0].startSec).toBe(day(DAYS_PER_YEAR));
+    expect(slots.find(s => s.month === 'Mirtul')!.season).toBe('spring');
+    expect(slots.find(s => s.festival === 'Midsummer')!.season).toBe('summer');
+  });
+
+  it('праздник после месяца и месяц перед праздником — взаимно обратны', () => {
+    for (const f of FESTIVALS) expect(festivalAfter(monthBefore(f))).toBe(f);
+    expect(festivalAfter('Mirtul')).toBeNull();
+    expect(monthBefore('Greengrass')).toBe('Tarsakh');
+  });
+
+  it('Mirtul 1492: 30 дней по три десятидневки, полнолуние 18-го (§13), новолуние в середине цикла', () => {
+    const days = monthDays(1492, 'Mirtul');
+    expect(days).toHaveLength(30);
+    expect(days.map(d => d.tenday)).toEqual([...Array(10).fill(1), ...Array(10).fill(2), ...Array(10).fill(3)]);
+    expect(days[0].sec).toBe(secOf({ year: 1492, month: 'Mirtul', day: 1 }));
+    expect(days[17]).toMatchObject({ day: 18, moon: 'full' });
+    // Полная ±1 день вокруг 18-го, новая — ±1 день вокруг середины цикла (3-е, за 15 дней до полной).
+    expect(days.filter(d => d.moon === 'full').map(d => d.day)).toEqual([17, 18, 19]);
+    expect(days.filter(d => d.moon === 'new').map(d => d.day)).toEqual([2, 3, 4]);
+    expect(harptos(days[29].sec)).toMatchObject({ month: 'Mirtul', day: 30 });
+  });
+});
+

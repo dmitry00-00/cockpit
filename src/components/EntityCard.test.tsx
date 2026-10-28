@@ -36,9 +36,9 @@ const iconPaths = (name: keyof typeof ICONS) => tonePaths(ICONS[name]).filter(Bo
 const spineOf = (card: HTMLElement) => card.querySelector('[data-part=spine]') as HTMLElement;
 
 describe('ENTITY', () => {
-  it('у каждого из десяти типов есть иконка из набора, грань цветом ent-* и ни одного hex', () => {
+  it('у каждого из одиннадцати типов (с 28.10 — «правило») есть иконка из набора, грань цветом ent-* и ни одного hex', () => {
     const types = Object.keys(ENTITY) as EntityType[];
-    expect(types).toHaveLength(10);
+    expect(types).toHaveLength(11);
     for (const t of types) {
       const e = ENTITY[t];
       expect(ICON_NAMES, t).toContain(e.icon);
@@ -238,13 +238,17 @@ describe('EntityCard: корешок и полоса', () => {
 });
 
 describe('actorCardProps', () => {
-  it('Bo: pc, «5 ур.» и «Следопыт», HP 41/49 · AC 16 · PP 12 · БМ +3, вкладки Обзор · Состояния · Снаряжение; DM — только при секретах', () => {
+  it('Bo: pc, «5 ур.» и «Следопыт», HP 41/49 · AC 16 · PP 12, с листом — ИНИЦ и КХ, вкладки Обзор · Состояния · Снаряжение; DM — только при секретах', () => {
     const store = seedEngine();
     const bo = store.getState().state.actors.bo;
     const p = actorCardProps(bo);
     expect(p.type).toBe('pc');
     expect(p.badges).toEqual(['5 ур.', 'Следопыт']); // раса — в обзоре: третий бейдж обрезал имя в 400px
-    expect(p.stats?.map(s => [s.label, s.value])).toEqual([['HP', '41/49'], ['AC', '16'], ['PP', '12'], ['БМ', '+3']]);
+    expect(p.stats?.map(s => [s.label, s.value])).toEqual([['HP', '41/49'], ['AC', '16'], ['PP', '12']]);
+    // Ряд медальонов бумажной карточки: инициатива и кости хитов приходят из листа страницы; бонус мастерства — в шапке навыков.
+    const full = actorCardProps(bo, { initiative: 3, hitDice: { available: 4, total: 5, die: 10 } });
+    expect(full.stats?.map(s => [s.label, s.value])).toEqual([['HP', '41/49'], ['AC', '16'], ['ИНИЦ', '+3'], ['PP', '12'], ['КХ', '4/5']]);
+    expect(full.stats?.[4].title).toBe('Кости хитов d10: осталось 4 из 5');
     expect(p.stats?.[0].mark).toBe('high');
     expect(p.tabs?.map(t => t.label)).toEqual(['Обзор', 'Состояния', 'Снаряжение']);
     expect(actorCardProps(bo, { dmFacts: 1 }).tabs?.map(t => t.label)).toEqual(['Обзор', 'Состояния', 'Снаряжение', 'DM']);

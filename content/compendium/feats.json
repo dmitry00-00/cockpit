@@ -1,6 +1,6 @@
 {
  "meta": {
-  "importedAt": "2026-09-19",
+  "importedAt": "2026-10-27",
   "importer": "scripts/import-compendium.py",
   "sources": {
    "races": "Копия расы.xlsx",
@@ -162,7 +162,8 @@
    "source": "hb",
    "prerequisites": {
     "abilities": [],
-    "spellcasting": true
+    "spellcasting": true,
+    "text": "Способность накладывать хотя бы одно заклинание"
    },
    "asi": [],
    "effects": {},
@@ -568,7 +569,9 @@
    "source": "book",
    "prerequisites": {
     "abilities": [],
-    "spellcasting": false
+    "spellcasting": false,
+    "text": "владение легкими доспехами",
+    "armor": "light"
    },
    "asi": [],
    "effects": {
@@ -912,7 +915,9 @@
    "source": "book",
    "prerequisites": {
     "abilities": [],
-    "spellcasting": false
+    "spellcasting": false,
+    "text": "Владение средними доспехами",
+    "armor": "medium"
    },
    "asi": [],
    "effects": {
@@ -1626,7 +1631,9 @@
    "source": "book",
    "prerequisites": {
     "abilities": [],
-    "spellcasting": false
+    "spellcasting": false,
+    "text": "Владение лёгкими доспехами",
+    "armor": "light"
    },
    "asi": [
     "str",
@@ -1645,7 +1652,9 @@
    "source": "book",
    "prerequisites": {
     "abilities": [],
-    "spellcasting": false
+    "spellcasting": false,
+    "text": "Владение средними доспехами",
+    "armor": "medium"
    },
    "asi": [
     "str"
@@ -1807,7 +1816,9 @@
    "source": "book",
    "prerequisites": {
     "abilities": [],
-    "spellcasting": false
+    "spellcasting": false,
+    "text": "владение воинским оружием",
+    "weapons": "martial"
    },
    "asi": [],
    "effects": {
@@ -2075,7 +2086,13 @@
      "dex",
      "str"
     ],
-    "spellcasting": false
+    "spellcasting": false,
+    "text": "4 уровень персонажа, Ловкость 13 или Сила 14 или выше",
+    "level": 4,
+    "minScore": {
+     "dex": 13,
+     "str": 14
+    }
    },
    "asi": [
     "str",
@@ -2092,7 +2109,8 @@
    "source": "book",
    "prerequisites": {
     "abilities": [],
-    "spellcasting": false
+    "spellcasting": false,
+    "text": "отсутствие иммунитета к эффектам страха"
    },
    "asi": [],
    "effects": {},
@@ -2302,7 +2320,9 @@
    "source": "book",
    "prerequisites": {
     "abilities": [],
-    "spellcasting": false
+    "spellcasting": false,
+    "text": "способность накладывать хотя бы один заговор",
+    "cantrip": true
    },
    "asi": [],
    "effects": {},

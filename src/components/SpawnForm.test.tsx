@@ -24,7 +24,7 @@ describe('SpawnForm', () => {
   it('блоки — кнопки с CR, AC и хитами, первый нажат; имя — его подсказка; «Добавить» отдаёт блок, имя и 1', () => {
     const onSpawn = vi.fn();
     render(<SpawnForm options={OPTIONS} onSpawn={onSpawn} />);
-    const group = screen.getByRole('group', { name: 'Блок SRD' });
+    const group = screen.getByRole('group', { name: 'Блок' });
     const buttons = within(group).getAllByRole('button');
     expect(buttons.map(b => b.textContent)).toEqual(['BanditCR 1/8AC 12HP 11', 'Bandit CaptainCR 2AC 15HP 65']);
     expect(buttons[0]).toHaveAttribute('aria-pressed', 'true');
@@ -60,7 +60,7 @@ describe('SpawnForm', () => {
     unmount();
     expect(container).toBeEmptyDOMElement();
     render(<SpawnForm options={[]} onSpawn={onSpawn} />);
-    expect(screen.queryByRole('group', { name: 'Блок SRD' })).toBeNull();
+    expect(screen.queryByRole('group', { name: 'Блок' })).toBeNull();
   });
 });
 
@@ -71,7 +71,7 @@ describe('поиск по блокам', () => {
     const onSpawn = vi.fn();
     render(<SpawnForm options={OPTIONS} onSpawn={onSpawn} />);
     fireEvent.change(screen.getByRole('searchbox', { name: 'Найти блок' }), { target: { value: 'capt' } });
-    const group = screen.getByRole('group', { name: 'Блок SRD' });
+    const group = screen.getByRole('group', { name: 'Блок' });
     expect(within(group).getAllByRole('button')).toHaveLength(1);
     expect(within(group).getByRole('button')).toHaveAttribute('aria-pressed', 'true');
     expect(screen.getByRole('textbox', { name: 'Имя' })).toHaveValue('Bandit Captain 2');

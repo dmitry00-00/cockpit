@@ -1,0 +1,51 @@
+// Карта уровня лестницы на сиде §13: на каких уровнях она есть, куда смотрит, какие места на ней отмечены,
+// где партия. Координаты мест — пиксели карты HandsomeRob (content/maps/toril.json).
+import { describe, expect, it } from 'vitest';
+import { LOCATION, seedState } from '../campaign';
+import { initialLadder, jumpTo, selectPlace } from '../engine';
+import { HEX_MILES, geoOf, levelMap } from './levelMap';
+
+describe('карта уровня', () => {
+  const state = seedState();
+
+  it('регион на старте: карта Toril, рамка Sword Coast North, пины — места региона с координатами', () => {
+    const ladder = initialLadder(state);
+    expect(ladder.level).toBe('region');
+    const m = levelMap(state, ladder)!;
+    expect(m.passport.id).toBe('toril');
+    expect(m.frameKey).toBe(`region:${LOCATION.swordCoastNorth}`);
+    expect(m.places.map(l => l.id).sort()).toEqual([LOCATION.neverwinter, LOCATION.neverwinterWood, LOCATION.oldOwlWell, LOCATION.triboarTrail].sort());
+    expect(HEX_MILES.region).toBe(6);
+  });
+
+  it('партия — там же, где Neverwinter: Южные ворота своих координат не имеют и берут их у города', () => {
+    const m = levelMap(state, initialLadder(state))!;
+    const nw = state.world.locations[LOCATION.neverwinter].geo!;
+    expect(m.party).toEqual({ x: nw.x, y: nw.y });
+    expect(geoOf(state, LOCATION.southGate)).toEqual(nw);
+  });
+
+  it('континент: рамка Faerûn шире, чем выше; подрегионы Sword Coast North не дублируют свой регион', () => {
+    const m = levelMap(state, jumpTo(state, initialLadder(state), 'continent'))!;
+    expect(m.frame.x1 - m.frame.x0).toBeGreaterThan(m.frame.y1 - m.frame.y0);
+    expect(m.places.map(l => l.id)).toEqual([LOCATION.swordCoastNorth]);
+  });
+
+  it('подрегион в фокусе: рамка — его, пины — от верхнего места уровня', () => {
+    const ladder = selectPlace(state, initialLadder(state), LOCATION.triboarTrail);
+    const m = levelMap(state, ladder)!;
+    expect(m.frameKey).toBe(`region:${LOCATION.triboarTrail}`);
+    expect(m.places.map(l => l.id)).toContain(LOCATION.neverwinter);
+  });
+
+  it('уровни без карты — здание, план, космология — карты не дают', () => {
+    const base = initialLadder(state);
+    for (const level of ['building', 'plane', 'cosmology'] as const) expect(levelMap(state, jumpTo(state, base, level)), level).toBeUndefined();
+  });
+
+  it('место без координат и без предков с ними — карты нет', () => {
+    const s = seedState();
+    for (const l of Object.values(s.world.locations)) delete l.geo;
+    expect(levelMap(s, initialLadder(s))).toBeUndefined();
+  });
+});

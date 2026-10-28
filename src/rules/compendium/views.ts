@@ -141,7 +141,11 @@ export function classLevelGrid(cls: CharacterClass, sources: readonly Source[]):
     proficiencyBonus: lv.proficiencyBonus,
     resources: lv.resources,
     features: lv.features,
-    bySubclass: Object.fromEntries(subclasses.map(s => [s.id, s.features.filter(f => f.level === lv.level)])),
+    // Заклинания подкласса (домен, клятва, покровитель) импортёр отделил от умений — в сетке они на своей строке, как в таблице.
+    bySubclass: Object.fromEntries(subclasses.map(s => [s.id, [
+      ...s.features.filter(f => f.level === lv.level),
+      ...(s.spells ?? []).filter(sp => sp.level === lv.level).map(sp => ({ level: sp.level, id: `spell-${sp.name}`, name: sp.name, text: s.spellLevel === 'spell' ? `Заклинание подкласса, ${sp.level} круг` : `Заклинание подкласса с ${sp.level}-го уровня` })),
+    ]])),
   }));
   return { resourceKeys, subclasses, rows };
 }

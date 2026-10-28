@@ -12,9 +12,11 @@
 import { useId } from 'react';
 import type { Actor, ScaleLevel } from '../engine';
 import { Icon, type IconName } from '../icons/Icon';
+import { classById, raceById } from '../rules/compendium';
 import { chipsOf, ConditionChip, type ChipSpec } from './ConditionChip';
 import { DeathSaves, clampSaves, type DeathSavesProps } from './DeathSaves';
 import { HpBar, type HpFlash, type HpTriple } from './HpBar';
+import { classIcon, raceIcon } from './sheetIcons';
 
 /** Место, куда актёр ушёл от партии: имя и масштаб — из World.locations, больше строке не нужно. */
 export interface AwayLocation {
@@ -28,6 +30,11 @@ export interface PartyRow {
   name: string;
   /** Уровень из листа; у актёра без листа бейджа нет. */
   level?: number;
+  /** Аватар — иконка расы, значок — иконка класса; у актёра без листа — общая иконка персонажа. */
+  avatar: IconName;
+  classIcon?: IconName;
+  /** «Полурослик · Следопыт» — русские имена из компендиума, без записи — id. */
+  lineage?: string;
   hp: HpTriple;
   ac: number;
   pp: number;
@@ -49,6 +56,9 @@ export function partyRowOf(actor: Actor, worldSec: number, locations?: Readonly<
     id: actor.id,
     name: actor.name,
     level: actor.sheet?.level,
+    avatar: actor.sheet ? raceIcon(actor.sheet.raceId) : 'ent-pc',
+    classIcon: actor.sheet ? classIcon(actor.sheet.classId) : undefined,
+    lineage: actor.sheet ? lineageOf(actor.sheet) : undefined,
     hp: actor.hp,
     ac: actor.ac,
     pp: actor.passivePerception,
@@ -58,6 +68,11 @@ export function partyRowOf(actor: Actor, worldSec: number, locations?: Readonly<
       : { label: loc?.name ?? actor.locationId, icon: `scale-${loc?.scale ?? 'settlement'}` as IconName },
     down: actor.hp.current === 0,
   };
+}
+
+/** «Раса · Класс» по-русски из компендиума; записи нет — печатается id, пропажа видна. */
+export function lineageOf(sheet: Pick<NonNullable<Actor['sheet']>, 'raceId' | 'classId'>): string {
+  return `${raceById(sheet.raceId)?.nameRu ?? sheet.raceId} · ${classById(sheet.classId)?.nameRu ?? sheet.classId}`;
 }
 
 /**
@@ -89,10 +104,13 @@ export interface PartySpineRowProps {
   flash?: HpFlash;
   /** Спасброски от смерти при 0 HP. В State поля пока нет (HANDOFF §7) — без пропса пипки пустые. */
   deathSaves?: Pick<DeathSavesProps, 'saves' | 'fails'>;
+  /** Отметка строки для действий подвала (сравнение, сводка выборки); без onCheck флажка нет. Состояние вида, не событие. */
+  checked?: boolean;
+  onCheck?: (id: string) => void;
   className?: string;
 }
 
-export function PartySpineRow({ actor, worldSec, locations, selected = false, onOpen, flash = null, deathSaves, className = '' }: PartySpineRowProps) {
+export function PartySpineRow({ actor, worldSec, locations, selected = false, onOpen, flash = null, deathSaves, checked = false, onCheck, className = '' }: PartySpineRowProps) {
   const row = partyRowOf(actor, worldSec, locations);
   const descId = useId();
   const open = () => onOpen(row.id);
@@ -111,8 +129,8 @@ export function PartySpineRow({ actor, worldSec, locations, selected = false, on
     >
       <span id={descId} className="sr-only">{partyRowDescription(row, deathSaves)}</span>
       {/* 0 HP — метка «выбыл» на портрете (.55 как в прототипе), а не на всей строке: пипки и числа читаются в полную силу. */}
-      <div className={`relative flex-none size-8 flex items-center justify-center bg-cd shadow-bevel-in ${row.down ? 'opacity-55' : ''}`} data-part="portrait">
-        <Icon name="ent-pc" size={24} color="var(--t2)" title="Персонаж игрока" />
+      <div className={`relative flex-none size-12 flex items-center justify-center bg-cd shadow-bevel-in ${row.down ? 'opacity-55' : ''}`} data-part="portrait">
+        <Icon name={row.avatar} size={32} color="var(--t2)" title={row.lineage ?? 'Персонаж игрока'} />
         {row.level !== undefined && (
           // Золотой плиты в токенах нет (спека §10.1): пока плита pl с фаской и золотым текстом.
           <span className="absolute right-0 bottom-0 type-num-12 text-gd-hi bg-pl shadow-bevel px-[3px]" title="Уровень">
@@ -121,6 +139,7 @@ export function PartySpineRow({ actor, worldSec, locations, selected = false, on
         )}
       </div>
       <div className="flex-1 min-w-0 flex flex-col gap-1">
+        <div className="flex items-center gap-1.5">
         {/* Кнопка имени — единственный вход с клавиатуры. Выбывший — имя вторичным цветом (t2: 4.7:1 на pl), не прозрачностью. */}
         <button
           type="button"
@@ -131,6 +150,28 @@ export function PartySpineRow({ actor, worldSec, locations, selected = false, on
         >
           {row.name}
         </button>
+        {onCheck ? (
+          // Флажок — своя кнопка: клик не открывает карточку (не всплывает до строки).
+          <button
+            type="button"
+            role="checkbox"
+            aria-checked={checked}
+            aria-label={`Выбрать: ${row.name}`}
+            title={checked ? 'Снять отметку' : 'Отметить для сравнения и сводки'}
+            onClick={e => { e.stopPropagation(); onCheck(row.id); }}
+            className={`flex-none size-4 flex items-center justify-center cursor-pointer focus-visible:shadow-[var(--glow-gold)] ${checked ? 'bg-gd shadow-bevel' : 'bg-wl shadow-bevel-in'}`}
+            data-part="check"
+          >
+            {checked ? <Icon name="check" size={16} color="var(--wl)" title="отмечен" /> : null}
+          </button>
+        ) : null}
+        </div>
+        {row.lineage ? (
+          <div className="flex items-center gap-1 min-w-0 type-body-sm text-t2" data-part="lineage" title={row.lineage}>
+            {row.classIcon ? <Icon name={row.classIcon} size={16} color="var(--t2)" title="Класс" /> : null}
+            <span className="truncate">{row.lineage}</span>
+          </div>
+        ) : null}
         {row.down
           ? <DeathSaves saves={deathSaves?.saves ?? 0} fails={deathSaves?.fails ?? 0} />
           : <HpBar hp={row.hp} icon={false} label={row.name} flash={flash} />}

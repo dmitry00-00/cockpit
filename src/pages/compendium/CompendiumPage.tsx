@@ -42,6 +42,14 @@ export function CompendiumPage() {
         <h1 className="type-h-28 text-gd">Компендиум</h1>
         <span className="type-num-12 text-t2">{RACES.length} рас · {subraces} подрас · {CLASSES.length} классов · {subclasses} подклассов · {FEATS.length} черт</span>
         <span className="type-body-xs text-t3">импорт {COMPENDIUM_META.importedAt} из {Object.values(COMPENDIUM_META.sources).join(' и ')}</span>
+        {/* Таблицы не висят сами по себе: из них собирается персонаж — редактор на столе (#/desk/new). */}
+        <a
+          href="#/desk/new"
+          title="Экран создания персонажа на столе: раса, класс, умения, заклинания и снаряжение из этих таблиц и SRD"
+          className="ml-auto type-num-12 uppercase whitespace-nowrap px-3 py-1 bg-linear-to-b from-pl to-cd shadow-[var(--bevel),inset_0_-2px_0_var(--gd)] text-gd-hi hover:from-pl hover:to-pl focus-visible:shadow-[var(--bevel),inset_0_-2px_0_var(--gd),var(--glow-gold)]"
+        >
+          Создать персонажа
+        </a>
       </header>
 
       <div className="flex flex-wrap items-center gap-x-6 gap-y-2">

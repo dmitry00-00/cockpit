@@ -10,3 +10,8 @@ public/icons/atlas.png
 public/icons/atlas.json
 *.tsbuildinfo
 .tools/
+maps/tiles/
+maps/gis/
+maps/ocr/
+maps/world/
+maps/llm/

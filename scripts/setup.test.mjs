@@ -20,6 +20,14 @@ const REPO = 'https://github.com/dmitry00-00/cockpit';
 const SHA = /^[0-9a-f]{64}$/;
 
 describe('setup: Mac и Windows', () => {
+  it('оба режут тайлы карты необязательным шагом, если пирамиды ещё нет', () => {
+    for (const [name, text] of [['setup.command', mac], ['setup.ps1', ps]]) {
+      expect(text, name).toMatch(/tile-map\.py.*toril\.json.*--optional/);
+      expect(text, name).toMatch(/done\.json/);
+      expect(text, name).toMatch(/terrain-from-map\.py.*toril\.json.*--optional/);
+    }
+  });
+
   it('закрепляют одну версию Node.js', () => {
     const m = mac.match(/^NODE_VERSION=(\d+\.\d+\.\d+)$/m);
     const w = ps.match(/^\$NodeVersion = '(\d+\.\d+\.\d+)'$/m);

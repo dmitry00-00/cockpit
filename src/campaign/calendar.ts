@@ -184,3 +184,56 @@ export function nextFestival(sec: number): NextFestival {
   const next = candidates.filter(c => c.sec >= today).sort((a, b) => a.sec - b.sec)[0];
   return { ...next, days: floorDiv(next.sec - today, SECONDS_PER_DAY) };
 }
+
+/* ---------- Календарь на экране: слоты года и дни месяца (часы Харптоса, 28.10.2026) ---------- */
+
+/** В месяце три десятидневки по десять дней. */
+export const TENDAY = 10;
+
+export interface YearSlotView {
+  month: MonthName | null;
+  festival: FestivalName | null;
+  /** Начало первого дня слота, секунды от эпохи. */
+  startSec: number;
+  days: number;
+  season: Season;
+}
+
+/** Год по порядку: двенадцать месяцев и пять праздников между ними — для сетки года. */
+export function yearSlots(year: number): YearSlotView[] {
+  let sec = (year - EPOCH_YEAR) * DAYS_PER_YEAR * SECONDS_PER_DAY;
+  return YEAR_LAYOUT.map(slot => {
+    const view = { month: slot.month, festival: slot.festival, startSec: sec, days: slot.days, season: seasonOf(sec) };
+    sec += slot.days * SECONDS_PER_DAY;
+    return view;
+  });
+}
+
+/** Месяц перед праздником: в праздник календарь показывает его. */
+export function monthBefore(festival: FestivalName): MonthName {
+  return MONTHS[FESTIVAL_AFTER_MONTH[festival]];
+}
+
+/** Праздник сразу после месяца — или null. */
+export function festivalAfter(month: MonthName): FestivalName | null {
+  return FESTIVALS.find(f => FESTIVAL_AFTER_MONTH[f] === MONTHS.indexOf(month)) ?? null;
+}
+
+export interface MonthDay {
+  day: number;
+  /** Начало дня, секунды от эпохи. */
+  sec: number;
+  /** Десятидневка 1–3. */
+  tenday: number;
+  /** Selûne в полдень этого дня. */
+  moon: MoonPhase;
+}
+
+/** Тридцать дней месяца с десятидневкой и фазой Selûne. */
+export function monthDays(year: number, month: MonthName): MonthDay[] {
+  const start = secOf({ year, month, day: 1 });
+  return Array.from({ length: DAYS_PER_MONTH }, (_, i) => {
+    const sec = start + i * SECONDS_PER_DAY;
+    return { day: i + 1, sec, tenday: Math.floor(i / TENDAY) + 1, moon: moonState(sec + SECONDS_PER_DAY / 2).phase };
+  });
+}

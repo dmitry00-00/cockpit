@@ -1,4 +1,4 @@
-// Сгенерированный источник и атлас: 105 имён, сетки 16×16 из 0–4, палитры из четырёх hex,
+// Сгенерированный источник и атлас: 183 имени, сетки 16×16 из 0–4, палитры из четырёх hex,
 // atlas.json согласован с IHDR atlas.png, кадры внутри и не пересекаются.
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
@@ -19,9 +19,9 @@ interface Atlas {
 }
 
 describe('icons.generated.ts', () => {
-  it('ровно 105 имён, без повторов, ICON_NAMES в порядке ключей', () => {
-    expect(ICON_NAMES.length).toBe(105);
-    expect(new Set(ICON_NAMES).size).toBe(105);
+  it('ровно 183 имени, без повторов, ICON_NAMES в порядке ключей', () => {
+    expect(ICON_NAMES.length).toBe(183);
+    expect(new Set(ICON_NAMES).size).toBe(183);
     expect(ICON_NAMES).toEqual(Object.keys(ICONS));
     expect(Object.keys(IPAL)).toEqual(Object.keys(ICONS));
   });
@@ -56,8 +56,8 @@ describe('public/icons/atlas', () => {
     expect(png.toString('latin1', png.length - 8, png.length - 4)).toBe('IEND');
   });
 
-  it('105 кадров — те же имена, что в ICONS', () => {
-    expect(Object.keys(atlas.frames).length).toBe(105);
+  it('183 кадра — те же имена, что в ICONS', () => {
+    expect(Object.keys(atlas.frames).length).toBe(183);
     expect(Object.keys(atlas.frames)).toEqual([...ICON_NAMES]);
   });
 

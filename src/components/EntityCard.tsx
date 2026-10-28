@@ -18,7 +18,9 @@ import { signedMod } from './StatTile';
 
 export type EntityType =
   | 'pc' | 'npc' | 'monster' | 'item'
-  | 'location' | 'faction' | 'plane' | 'planet' | 'deity' | 'event';
+  | 'location' | 'faction' | 'plane' | 'planet' | 'deity' | 'event'
+  /** Запись правил и компендиума: заклинание, состояние, черта, умение, раса, класс, навык (ROADMAP 0.3). */
+  | 'rule';
 
 export type Origin = 'canon' | 'dm' | 'sim' | 'players';
 
@@ -38,6 +40,7 @@ export const ENTITY: Readonly<Record<EntityType, { icon: IconName; label: string
   planet: { icon: 'scale-planet', label: 'Планета', color: 'var(--ent-plane)', edge: 'shadow-[var(--plate),inset_3px_0_0_var(--ent-plane)]' },
   deity: { icon: 'ent-deity', label: 'Божество', color: 'var(--ent-deity)', edge: 'shadow-[var(--plate),inset_3px_0_0_var(--ent-deity)]' },
   event: { icon: 'ent-event', label: 'Событие', color: 'var(--ent-event)', edge: 'shadow-[var(--plate),inset_3px_0_0_var(--ent-event)]' },
+  rule: { icon: 'src-canon', label: 'Правило', color: 'var(--ent-rule)', edge: 'shadow-[var(--plate),inset_3px_0_0_var(--ent-rule)]' },
 };
 
 /** Метка происхождения: иконка src-* тем же цветом, подпись — в title. */
@@ -141,7 +144,7 @@ const TAB = [
   'focus-visible:shadow-[var(--bevel),var(--glow-gold)]',
 ].join(' ');
 
-const STAT_CELL = 'flex-1 min-w-0 flex flex-col items-center px-1 py-1 bg-linear-to-b from-pl to-cd shadow-bevel';
+const STAT_CELL = 'min-w-0 flex flex-col items-center px-1 py-1 bg-linear-to-b from-pl to-cd shadow-bevel';
 
 function renderBody(node: EntityCardProps['children'], tab: string | undefined): ReactNode {
   return typeof node === 'function' ? node(tab ?? '') : node;
@@ -197,7 +200,9 @@ export function EntityCard({
 
   const statsBar = stats && stats.length > 0 ? (
     <div data-part="stats" className="flex gap-px bg-lo py-px flex-none">
-      {stats.map(s => {
+      {stats.map((s, i) => {
+        // Хиты «41/49» вдвое длиннее прочих чисел: в полосе из пяти ячеек первая шире, иначе число упирается в грань.
+        const grow = i === 0 && stats.length > 4 ? 'flex-[1.6]' : 'flex-1';
         const inner = (
           <>
             <span className="type-num-12 uppercase text-t2 truncate max-w-full">{s.label}</span>
@@ -213,12 +218,12 @@ export function EntityCard({
             type="button"
             title={s.title ?? s.label}
             onClick={s.onClick}
-            className={`${STAT_CELL} cursor-pointer hover:from-pl hover:to-pl active:shadow-bevel-in focus-visible:shadow-[var(--bevel),var(--glow-gold)]`}
+            className={`${STAT_CELL} ${grow} cursor-pointer hover:from-pl hover:to-pl active:shadow-bevel-in focus-visible:shadow-[var(--bevel),var(--glow-gold)]`}
           >
             {inner}
           </button>
         ) : (
-          <div key={s.label} title={s.title ?? s.label} className={STAT_CELL}>
+          <div key={s.label} title={s.title ?? s.label} className={`${STAT_CELL} ${grow}`}>
             {inner}
           </div>
         );
@@ -281,16 +286,21 @@ export interface ActorCardOptions {
   onHp?: () => void;
   /** Сколько у актёра секретов мастера: вкладка DM появляется только при них — пустая секция не показывается. */
   dmFacts?: number;
+  /** Модификатор инициативы листа — ячейка ИНИЦ; не передан — ячейки нет. */
+  initiative?: number;
+  /** Кости хитов листа (класс SRD) — ячейка КХ «4/5»; у класса из книги костей нет — ячейки нет. */
+  hitDice?: { available: number; total: number; die: number };
 }
 
 /**
  * Актёр → корешок, полоса и вкладки. HP всегда первая ячейка — она одна и та же у всех и кликабельна.
- * PC: «5 ур.» · класс по-русски (раса — в обзоре, третий бейдж обрезал имя), HP · AC · PP · БМ; монстр:
- * CR и размер из блока SRD, HP · AC · SPD. Вкладок без данных нет: снаряжение — только при листе,
- * DM — только при секретах. Тела вкладок собирает страница — карточка знает только их коды.
+ * PC — как ряд медальонов бумажной карточки: HP · AC · ИНИЦ · PP · КХ (бонус мастерства — в шапке навыков,
+ * «Владение +N»; раса — в шапке листа, третий бейдж обрезал имя); монстр: CR и размер из блока SRD, HP · AC · SPD.
+ * Вкладок без данных нет: снаряжение — только при листе, DM — только при секретах. Тела вкладок собирает
+ * страница — карточка знает только их коды.
  */
 export function actorCardProps(actor: Actor, opts: ActorCardOptions = {}): ActorCardProps {
-  const { onHp, dmFacts = 0 } = opts;
+  const { onHp, dmFacts = 0, initiative, hitDice } = opts;
   const dm = dmFacts > 0 ? [TAB_DM] : [];
   if (actor.kind === 'monster' && actor.monsterId) {
     const m = MONSTERS[actor.monsterId];
@@ -315,7 +325,8 @@ export function actorCardProps(actor: Actor, opts: ActorCardOptions = {}): Actor
     { label: 'AC', value: String(actor.ac), title: 'Класс доспеха' },
     { label: 'PP', value: String(actor.passivePerception), title: 'Пассивная внимательность' },
   ];
-  if (sheet) stats.push({ label: 'БМ', value: signedMod(sheet.proficiencyBonus), title: 'Бонус мастерства' });
+  if (initiative !== undefined) stats.splice(2, 0, { label: 'ИНИЦ', value: signedMod(initiative), title: 'Инициатива: d20 + модификатор DEX' });
+  if (hitDice) stats.push({ label: 'КХ', value: `${hitDice.available}/${hitDice.total}`, title: `Кости хитов d${hitDice.die}: осталось ${hitDice.available} из ${hitDice.total}` });
   return {
     type: actor.kind === 'pc' ? 'pc' : 'npc',
     name: actor.name,

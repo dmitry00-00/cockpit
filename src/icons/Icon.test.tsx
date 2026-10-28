@@ -1,4 +1,4 @@
-// Компонент Icon: каждая из 105 иконок даёт <svg role="img"> с <title>, не больше четырёх <path>,
+// Компонент Icon: каждая из 183 иконок даёт <svg role="img"> с <title>, не больше четырёх <path>,
 // color перекрашивает fill по формуле pal(), tonePaths покрывает все клетки без потерь.
 import { cleanup, render } from '@testing-library/react';
 import { afterEach, describe, expect, it } from 'vitest';
@@ -14,8 +14,8 @@ const countTone = (grid: string, t: number) => grid.split('').filter((c) => c ==
 const pathCells = (d: string) => [...d.matchAll(/h(\d+)v1/g)].reduce((s, m) => s + Number(m[1]), 0);
 
 describe('Icon', () => {
-  it('каждая из 105 иконок рендерится: svg[role=img], title, aria-label, ≤ 4 path', () => {
-    expect(ICON_NAMES.length).toBe(105);
+  it('каждая из 183 иконок рендерится: svg[role=img], title, aria-label, ≤ 4 path', () => {
+    expect(ICON_NAMES.length).toBe(183);
     for (const name of ICON_NAMES) {
       const { container, unmount } = render(<Icon name={name} title={`Иконка ${name}`} />);
       const svg = container.querySelector('svg');

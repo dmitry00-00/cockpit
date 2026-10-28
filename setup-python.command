@@ -2,6 +2,7 @@
 # Ставит Python-зависимости пакета в отдельный venv ./.venv рядом с этим файлом:
 #   Pillow   — design/mask-from-map.py (маски планет)
 #   openpyxl — scripts/import-compendium.py (компендиум из таблиц .xlsx)
+#   numpy    — scripts/terrain-from-map.py и gazetteer-from-map.py (местность и места карты мира)
 # Запуск: двойной клик в Finder или `zsh setup-python.command`. Повторный запуск безопасен.
 # Ничего системного не трогает: только каталог .venv внутри пакета.
 set -u
@@ -29,7 +30,7 @@ fi
 
 # 3. Pillow. pip обновляем тихо, чтобы не тянуть предупреждения в лог.
 .venv/bin/python -m pip install --quiet --upgrade pip || fail "не обновился pip"
-.venv/bin/python -m pip install --quiet --upgrade 'pillow>=10' 'openpyxl>=3.1' || fail "не установились Pillow и openpyxl (нет сети?)"
+.venv/bin/python -m pip install --quiet --upgrade 'pillow>=10' 'openpyxl>=3.1' 'numpy>=1.26' || fail "не установились Pillow, openpyxl и numpy (нет сети?)"
 
 # 4. Проверка: импорт и поддержка WebP — без неё не откроется maps/ASOIAF/i.webp.
 .venv/bin/python - <<'PYEOF' || fail "пакеты поставились, но не импортируются"

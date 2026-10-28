@@ -14,3 +14,11 @@ if (typeof Element !== 'undefined') {
     return selector === ':popover-open' || selector === ':modal' ? false : nativeMatches.call(this, selector);
   };
 }
+
+// jsdom без пакета canvas: getContext пишет в консоль «Not implemented» и возвращает undefined. Карта мира рисует
+// на канвасе только гексы и без контекста их пропускает — отвечаем null молча, как браузер без 2D.
+if (typeof HTMLCanvasElement !== 'undefined') {
+  HTMLCanvasElement.prototype.getContext = function getContext() {
+    return null;
+  } as typeof HTMLCanvasElement.prototype.getContext;
+}

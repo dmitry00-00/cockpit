@@ -226,7 +226,58 @@ def import_races():
             del race['asi']
         if not race['subraces'] and 'asi' not in race:
             note(f'расы: у {race["nameRu"]} нет ни ASI, ни подрас')
+        # Гибкие бонусы (Q11): строка «+2 к одной, 1 во всех остальных пяти» — это «+2 и +1 к одной на выбор»
+        # (Изменяющийся, Кованый, Метки Эберрона); шесть единиц — человек SRD (+1 ко всем), их не трогаем.
+        for rec in [race] + race['subraces']:
+            flex = flexible_asi(rec.get('asi'))
+            if flex:
+                rec['asi'], rec['asiChoice'] = flex
+        # Полуэльф SRD: «Your Charisma score increases by 2, and two other ability scores of your choice increase by 1»
+        # (SRD 5.1, Half-Elf) — в таблице только +2 CHA; выбор — правило SRD, а не догадка.
+        if race['source'] == 'srd' and race['name'] == 'Half-Elf':
+            choice = {'count': 2, 'amount': 1, 'from': [a for a in ABILITIES if a != 'cha']}
+            race['asiChoice'] = choice
+            for sub in race['subraces']:
+                if sub['row'] == race['row'] and sub.get('asi') == race.get('asi'):
+                    sub['asiChoice'] = choice
+    check_srd_races(races)
     return races
+
+# Бонусы рас SRD 5.1 (Racial Traits: Ability Score Increase) — для сверки таблицы, не для подмены: расхождение — в отчёт.
+SRD_RACE_ASI = {
+    'Human': {a: 1 for a in ABILITIES}, 'Dragonborn': {'str': 2, 'cha': 1}, 'Half-Elf': {'cha': 2},
+    'Half-Orc': {'str': 2, 'con': 1}, 'Tiefling': {'cha': 2, 'int': 1},
+}
+SRD_SUBRACE_ASI = {
+    'High Elf': {'dex': 2, 'int': 1}, 'Hill Dwarf': {'con': 2, 'wis': 1}, 'Rock Gnome': {'int': 2, 'con': 1}, 'Lightfoot': {'dex': 2, 'cha': 1},
+}
+SRD_SUBRACE_OF = {'Elf': 'High Elf', 'Dwarf': 'Hill Dwarf', 'Gnome': 'Rock Gnome', 'Halfling': 'Lightfoot'}
+
+def asi_text(a):
+    return ', '.join(f'+{v} {k.upper()}' for k, v in (a or {}).items()) or 'нет'
+
+def check_srd_races(races):
+    for race in races:
+        if race['source'] != 'srd':
+            continue
+        if race['name'] in SRD_RACE_ASI and race.get('asi') != SRD_RACE_ASI[race['name']]:
+            note(f"расы: {race['nameRu']} — в таблице {asi_text(race.get('asi'))}, в SRD {asi_text(SRD_RACE_ASI[race['name']])} (строка {race['row']})")
+        sub_en = SRD_SUBRACE_OF.get(race['name'])
+        if sub_en:
+            sub = next((x for x in race['subraces'] if x['name'] == sub_en), None)
+            if not sub:
+                note(f"расы: у {race['nameRu']} нет подрасы SRD {sub_en} — без неё бонусы расы взяты из строки «{race['subraces'][0]['nameRu'] if race['subraces'] else '—'}»")
+            elif sub['asi'] != SRD_SUBRACE_ASI[sub_en]:
+                note(f"расы: {race['nameRu']} · {sub['nameRu']} — в таблице {asi_text(sub['asi'])}, в SRD {asi_text(SRD_SUBRACE_ASI[sub_en])}")
+
+def flexible_asi(asi):
+    if not asi or len(asi) != 6:
+        return None
+    twos = [a for a, v in asi.items() if v == 2]
+    ones = [a for a, v in asi.items() if v == 1]
+    if len(twos) == 1 and len(ones) == 5:
+        return {twos[0]: 2}, {'count': 1, 'amount': 1, 'from': ones}
+    return None
 
 # ----------------------------------------------------------------- черты
 FEAT_EFFECT_COLS = {15: 'saves', 16: 'advantage', 17: 'tools', 18: 'weapons-armor', 19: 'skills', 20: 'cantrips', 21: 'spells',
@@ -262,8 +313,39 @@ def import_feats():
         if feat['id'] in seen:
             note(f'черты: «{base}» встречается в таблице дважды (строка {i}) — второй экземпляр получил id с -2')
             feat['id'] += '-2'
+        parse_requirement(feat)
         feats.append(feat)
     return feats
+
+ABILITY_WORDS = {'сила': 'str', 'силы': 'str', 'ловкость': 'dex', 'ловкости': 'dex', 'телосложение': 'con', 'интеллект': 'int', 'мудрость': 'wis', 'харизма': 'cha'}
+
+def parse_requirement(feat):
+    """«Требование: …» из текста черты → поля prerequisites: уровень, порог характеристики, владение доспехами или
+    оружием, заклинание или заговор. Что не разобралось — остаётся текстом в prerequisites.text и в отчёте."""
+    m = re.match(r'Требовани[ея]:\s*([^\n]*)', feat['text'])
+    if not m:
+        return
+    req = m.group(1).strip().rstrip('.')
+    pre = feat['prerequisites']
+    pre['text'] = req
+    low = req.lower()
+    lvl = re.search(r'(\d+)\s*уров', low)
+    if lvl:
+        pre['level'] = int(lvl.group(1))
+    scores = re.findall(r'(сила|силы|ловкость|ловкости|телосложение|интеллект|мудрость|харизма)\s+(\d+)', low)
+    if scores:
+        pre['minScore'] = {ABILITY_WORDS[w]: int(n) for w, n in scores}
+    arm = re.search(r'владение\s+(л[её]гкими|средними|тяж[её]лыми)\s+доспехами', low)
+    if arm:
+        pre['armor'] = {'л': 'light', 'с': 'medium', 'т': 'heavy'}[arm.group(1)[0]]
+    if 'воинским оружием' in low:
+        pre['weapons'] = 'martial'
+    if 'заговор' in low:
+        pre['cantrip'] = True
+    elif 'заклинани' in low:
+        pre['spellcasting'] = True
+    if not any(k in pre for k in ('level', 'minScore', 'armor', 'weapons', 'cantrip')) and 'заклинани' not in low:
+        note(f"черты: «{feat['nameRu']}» — требование «{req}» оставлено текстом")
 
 # ----------------------------------------------------------------- классы
 def import_classes():
@@ -392,13 +474,153 @@ def import_classes():
                     if re.fullmatch(r'\d+(\.0)?', str(v)):
                         continue
                     name, text = split_trait(v)
-                    sub['features'].append({'level': lv, 'id': slug(name), 'name': name, 'text': text})
-                    if sub['gainedAt'] is None:
-                        sub['gainedAt'] = lv
+                    s.setdefault('cells', []).append((lv, j, name, text))
             cls['levels'].append(entry)
+        for s, sub in zip(subs, cls['subclasses']):
+            sort_subclass_cells(key, s, sub)
         cls['sheet'] = sheet
+        import_option_blocks(ws, rows, level_rows, subs, cls, key)
         cls['levelColumn'] = level_col + 1
+    for key, cls in classes.items():
+        mark_choice_placeholders(cls)
+    for key, cls in classes.items():
+        for block in cls.get('options', []):
+            dest = OPTION_BLOCK_MOVES.get((key, norm_key(block['name'])))
+            if dest:
+                cls['options'].remove(block)
+                classes[dest].setdefault('options', []).append(block)
+                note(f"классы: блок «{block['name']}» стоит на листе «{cls['sheet']}», а по составу — {CLASS_NAMES_RU[dest]} (TCE); перенесён импортёром")
     return list(classes.values())
+
+# Классы, у подклассов которых в таблице рядом с умениями стоят списки заклинаний (домены, клятвы, покровители,
+# круги, специализации изобретателя): клетка без текста не в первой колонке блока — заклинание, а не умение.
+SPELL_LIST_CLASSES = {'жрец', 'паладин', 'колдун', 'изобретатель', 'друид'}
+# Блоки, где эта раскладка не работает: у круга Земли — местности, у Гения — виды гениев со своими списками.
+SPELL_SPLIT_SKIP = {('друид', 'земли'), ('колдун', 'гений')}
+
+def sort_subclass_cells(key, s, sub):
+    """Клетки подкласса → умения, заклинания, подписи колонок.
+
+    Подпись — клетка без текста выше первого описанного умения подкласса («Заклинания клятвы», «Ячейки заклинаний»):
+    это заголовок колонки, а не умение, иначе подкласс «получается» на 1-м уровне. Заклинание — клетка без текста
+    не в первой колонке блока у классов из SPELL_LIST_CLASSES; уровень — строка таблицы: у колдуна это круг
+    заклинания (таблица покровителя — по кругам), у остальных — уровень класса.
+    """
+    cells = s.get('cells', [])
+    texted = [lv for lv, _, _, text in cells if text]
+    first = min(texted) if texted else None
+    labels, spells = [], []
+    split = key in SPELL_LIST_CLASSES and (key, norm_key(sub['name'])) not in SPELL_SPLIT_SKIP
+    for lv, j, name, text in cells:
+        if not text and first is not None and lv < first:
+            labels.append(name)
+            continue
+        if split and not text and j != s['col']:
+            spells.append({'level': lv, 'name': clean(name)})
+            continue
+        sub['features'].append({'level': lv, 'id': slug(name), 'name': name, 'text': text})
+    if spells:
+        sub['spells'] = spells
+        sub['spellLevel'] = 'spell' if key == 'колдун' else 'class'
+    if labels:
+        sub['labels'] = labels
+    sub['gainedAt'] = min((f['level'] for f in sub['features']), default=None)
+    if (key, norm_key(sub['name'])) in SPELL_SPLIT_SKIP:
+        note(f"классы: {CLASS_NAMES_RU[key]} · {sub['name']} — заклинания по вариантам (местности, виды гениев) остались умениями: раскладку таблицы не разобрать без подписей")
+
+def mark_choice_placeholders(cls):
+    """Умение в таблице уровней, названное одним из вариантов блока («Сражение большим оружием» у воина 1-го уровня), —
+    это место выбора, а не само умение: имя становится именем блока («Боевой стиль»), вариант — в выборах персонажа."""
+    for block in cls.get('options', []):
+        if block.get('subclassId'):
+            continue
+        names = {norm_key(i['name']) for i in block['items']}
+        for lvl in cls['levels']:
+            for f in lvl['features']:
+                if norm_key(f['name']) in names and not f['text']:
+                    note(f"классы: {cls['nameRu']}, {lvl['level']} ур. — «{f['name']}» в таблице уровней — вариант блока «{block['name']}»: показан как выбор «{block['name']}»")
+                    f['name'], f['id'], f['text'], f['choice'] = block['name'], slug(block['name']), block['text'], block['id']
+
+# Блок «Боевой стиль» с листа друида по составу (Воин-друид, Сражение вслепую…) — стили следопыта из TCE.
+OPTION_BLOCK_MOVES = {('друид', 'боевойстиль'): 'следопыт'}
+# Варианты из SRD 5.1 — по русскому имени из таблицы; остальные — книга (TCE и др.).
+SRD_OPTIONS = {
+    'стрельба': 'Archery', 'оборона': 'Defense', 'дуэлянт': 'Dueling', 'сражениебольшиморужием': 'Great Weapon Fighting',
+    'защита': 'Protection', 'сражениедвумяоружиями': 'Two-Weapon Fighting',
+    'аккуратноезаклинание': 'Careful Spell', 'далёкоезаклинание': 'Distant Spell', 'далекоезаклинание': 'Distant Spell',
+    'усиленноезаклинание': 'Empowered Spell', 'продлённоезаклинание': 'Extended Spell', 'продленноезаклинание': 'Extended Spell',
+    'непреодолимоезаклинание': 'Heightened Spell', 'ускоренноезаклинание': 'Quickened Spell', 'неуловимоезаклинание': 'Subtle Spell',
+    'удвоенноезаклинание': 'Twinned Spell', 'двойноезаклинание': 'Twinned Spell',
+}
+
+def import_option_blocks(ws, rows, level_rows, subs, cls, key):
+    """Списки выбора под таблицей уровней: боевые стили, приёмы, метамагия, инфузии, руны; «Предрасположенность»
+    подклассов; спутники («Спутник/ Гримуар»). Заголовок блока — клетка одна в своей строке (соседи слева и справа
+    пусты), под ней есть клетка, и сама она — подпись без текста или с вводным абзацем через пустую строку; вариант —
+    клетка ниже заголовка в его колонках (до следующей клетки строки заголовка). Что не легло — в отчёт."""
+    start = max(level_rows.values()) + 1
+    cell = lambda i, j: rows[i][j] if i < len(rows) and j < len(rows[i]) and not is_empty(rows[i][j]) else None
+    sub_at = lambda j: next((sub for s, sub in zip(subs, cls['subclasses']) if s['col'] <= j <= s['end']), None)
+    blocks = []  # {name, text, row, col, end, items}
+    for i in range(start, len(rows)):
+        row = rows[i]
+        filled = [j for j in range(len(row)) if cell(i, j) is not None]
+        if not filled:
+            continue
+        if norm_key(row[filled[0]]).startswith('предрасположенность'):
+            for j in filled[1:]:
+                sub = sub_at(j)
+                lines = [clean(x) for x in re.split(r'\n+', str(rows[i][j])) if clean(x)]
+                if sub:
+                    sub.setdefault('affinity', []).extend(lines)
+                else:
+                    note(f'классы: {cls["sheet"]} — «Предрасположенность» в {ws.cell(i + 1, j + 1).coordinate} вне колонок подклассов')
+            continue
+        for j in filled:
+            raw = str(rows[i][j])
+            name, text = split_trait(raw)
+            if norm_key(name).startswith('спутник'):
+                sub = sub_at(j)
+                body = clean_text(raw.split('\n', 1)[1] if '\n' in raw else '')
+                comp_name, _, comp_text = body.partition('\n')
+                if sub:
+                    sub['companion'] = {'name': clean(comp_name), 'text': clean_text(comp_text)}
+                continue
+            isolated = cell(i, j - 1) is None and cell(i, j + 1) is None
+            intro = re.search(r'\n\s*\n', raw.strip()) is not None
+            below_affinity = i + 1 < len(rows) and any(cell(i + 1, k) is not None and norm_key(cell(i + 1, k)).startswith('предрасположенность') for k in range(len(rows[i + 1])))
+            if isolated and cell(i + 1, j) is not None and not below_affinity and (not text or intro or len(text) < 30):
+                nxt = next((k for k in filled if k > j), None)
+                blocks = [b for b in blocks if not (b['col'] <= j <= b['end'])]
+                blocks.append({'name': clean(f'{name} {text}') if text and not intro and len(text) < 30 else name,
+                               'text': text if intro else '', 'col': j, 'end': (nxt - 1) if nxt else 10 ** 6, 'items': [], 'row': i})
+                cls.setdefault('_blocks', []).append(blocks[-1])
+                continue
+            owner = next((b for b in blocks if b['col'] <= j <= b['end'] and b['row'] < i), None)
+            if owner is None:
+                note(f'классы: {cls["sheet"]} — {ws.cell(i + 1, j + 1).coordinate} «{name[:40]}» под таблицей не разобрано')
+                continue
+            if not text and len(name) > 60:
+                name, text = name[:60].rstrip() + '…', clean_text(raw)
+            m = re.search(r'\s*\((TCE|XGE|ТСЕ)\)\s*$', name, flags=re.I)
+            clean_name = name[:m.start()].strip() if m else name.rstrip('. ').strip()
+            srd = SRD_OPTIONS.get(norm_key(clean_name))
+            item = {'id': slug(clean_name), 'name': clean_name, 'text': text, 'source': 'srd' if srd else 'book', 'cell': ws.cell(i + 1, j + 1).coordinate}
+            if srd:
+                item['srdName'] = srd
+            owner['items'].append(item)
+    out = []
+    for b in cls.pop('_blocks', []):
+        if not b['items']:
+            note(f'классы: {cls["sheet"]} — блок «{b["name"]}» без вариантов')
+            continue
+        sub = sub_at(b['col'])
+        block = {'id': slug(b['name']), 'name': b['name'][:1].upper() + b['name'][1:], 'text': b['text'], 'items': b['items']}
+        if sub:
+            block['subclassId'] = sub['id']
+        out.append(block)
+    if out:
+        cls['options'] = out
 
 # ----------------------------------------------------------------- запуск
 def main():

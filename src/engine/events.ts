@@ -1,9 +1,11 @@
 // Доменные события — единственный источник правды (HANDOFF §7). Тринадцать типов из пакета плюс восемь,
 // добавленных решением владельца 19.09.2026 (сборка боя, концентрация, появление и уход актёров, само
 // предложение симуляции — иначе они жили вне лога и ломали реплей), плюс отдых и ресурсы персонажа (трата и
-// восстановление) — решения владельца 21.09.2026. Навигация, оверлеи, фильтры, слои и режим «глазами игроков»
+// восстановление) — решения владельца 21.09.2026, поход партии и открытие места игрокам — решения владельца
+// 27.10.2026. Навигация, оверлеи, фильтры, слои и режим «глазами игроков»
 // событиями не являются.
 import type { ConditionId } from '../rules/srd/conditions';
+import type { TravelPaceId } from '../rules/srd/travel';
 import type { ResourceId } from '../rules/srd/resources';
 import type { Actor, WorldDelta, WorldPatch } from './state';
 
@@ -81,6 +83,28 @@ export interface RestTaken { kind: RestKind; actorIds: readonly string[]; hitDic
 export interface ResourceSpent { actorId: string; resourceId: ResourceId; amount: number; max: number }
 export interface ResourceRestored { actorId: string; resourceId: ResourceId; amount: number; max: number }
 
+/**
+ * Поход партии по карте (решение владельца 27.10.2026): путь линейкой от места партии до места назначения.
+ * Партия переезжает в `toId` целиком; часы двигает не поход, а TIME_ADVANCED перед ним — как у отдыха.
+ * Путь — точки исходника карты `map`: из них проекция выводит пройденное для тумана знаний.
+ */
+export interface PartyTraveled {
+  fromId?: string;
+  toId: string;
+  map: string;
+  points: readonly { x: number; y: number }[];
+  miles: number;
+  pace: TravelPaceId;
+  /** Дни пути по таблице Travel Pace SRD, до десятых. */
+  days: number;
+  /** По трудной местности (SRD Difficult Terrain: вдвое медленнее) — отметил мастер. */
+  difficult?: boolean;
+  /** Сколько миль пути по трудной местности — посчитала карта местности (лес, болото, горы, лёд); дни уже с ними. */
+  difficultMiles?: number;
+}
+/** Место открыто игрокам (решение владельца 27.10.2026): туман знаний вокруг него снят и на столе игроков. */
+export interface PlaceRevealed { locationId: string }
+
 export interface PayloadByType {
   DAMAGE_APPLIED: DamageApplied;
   HEALING_APPLIED: HealingApplied;
@@ -106,6 +130,8 @@ export interface PayloadByType {
   REST_TAKEN: RestTaken;
   RESOURCE_SPENT: ResourceSpent;
   RESOURCE_RESTORED: ResourceRestored;
+  PARTY_TRAVELED: PartyTraveled;
+  PLACE_REVEALED: PlaceRevealed;
 }
 
 export type EventType = keyof PayloadByType;
@@ -119,6 +145,8 @@ export const EVENT_TYPES = Object.freeze([
   'ACTOR_SPAWNED', 'ACTOR_REMOVED', 'WORLD_DELTA_PROPOSED',
   // решение владельца 21.09.2026
   'REST_TAKEN', 'RESOURCE_SPENT', 'RESOURCE_RESTORED',
+  // решение владельца 27.10.2026
+  'PARTY_TRAVELED', 'PLACE_REVEALED',
 ] as const satisfies readonly EventType[]);
 
 /** Обратимость и попадание в журнал — колонки таблицы HANDOFF §7. */
@@ -147,6 +175,8 @@ export const EVENT_META: Readonly<Record<EventType, { reversible: boolean; journ
   REST_TAKEN: { reversible: true, journal: true },
   RESOURCE_SPENT: { reversible: true, journal: true },
   RESOURCE_RESTORED: { reversible: true, journal: true },
+  PARTY_TRAVELED: { reversible: true, journal: true },
+  PLACE_REVEALED: { reversible: true, journal: true },
 };
 
 /** Команда — то, что просит интерфейс. Событие — то, что легло в лог. */
@@ -186,6 +216,8 @@ export type Effect =
   | { kind: 'actor'; actorId: string; before?: Actor; after?: Actor; party: { before: readonly string[]; after: readonly string[] }; encounter: { before: EncounterSnapshot; after: EncounterSnapshot } }
   | { kind: 'rest'; actors: readonly { actorId: string; before: RestSnapshot; after: RestSnapshot }[] }
   | { kind: 'resource'; actorId: string; resourceId: ResourceId; before: number; after: number }
+  | { kind: 'travel'; actors: readonly { actorId: string; before?: string; after?: string }[] }
+  | { kind: 'place'; locationId: string; before: boolean; after: boolean }
   | { kind: 'none' };
 
 export interface HpSnapshot { current: number; temp: number }

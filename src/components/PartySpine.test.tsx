@@ -102,7 +102,9 @@ describe('<PartySpine> на сиде', () => {
     expect(within(bo).getByTitle('Класс доспеха')).toHaveTextContent(/^AC16$/);
     expect(within(bo).getByTitle('Пассивная внимательность')).toHaveTextContent(/^PP12$/);
     expect(within(bo).getByTitle('Уровень')).toHaveTextContent('5');
-    expect(within(bo).getByRole('img', { name: 'Персонаж игрока' })).toBeInTheDocument();
+    // Аватар — иконка расы, рядом строка «раса · класс» с иконкой класса (просьба владельца 28.10).
+    expect(within(bo).getByRole('img', { name: 'Полурослик · Следопыт' })).toBeInTheDocument();
+    expect(bo.querySelector('[data-part="lineage"]')).toHaveTextContent('Полурослик · Следопыт');
     // Имя — Forum 17, обрезается с тултипом; это и есть кнопка открытия.
     const name = within(bo).getByTitle('Bo Tambernack');
     expect(name).toBe(open);

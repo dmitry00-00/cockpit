@@ -1,0 +1,1246 @@
+{
+ "cosmology": "Great Wheel",
+ "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0",
+ "license": "CC BY-SA 3.0",
+ "note": "Свойства — поля модели Великого колеса из карточек планов вики (дословно и в переводе); место плана на кольце — по его сетке мировоззрения; русская карточка — ночная разметка L4, где она готова.",
+ "planes": [
+  {
+   "id": "celestia",
+   "name": "Mount Celestia",
+   "kind": "outer",
+   "url": "https://forgottenrealms.fandom.com/wiki/Mount_Celestia",
+   "alignment": [
+    "LG"
+   ],
+   "shape": {
+    "en": "Seven infinite layers",
+    "ru": "семь бесконечных слоёв"
+   },
+   "gravity": {
+    "en": "Normal",
+    "ru": "обычная"
+   },
+   "time": {
+    "en": "Normal",
+    "ru": "обычное"
+   },
+   "morphic": {
+    "en": "Divinely",
+    "ru": "меняют только боги"
+   },
+   "magic": {
+    "en": "Normal with special cases",
+    "ru": "обычная, с особыми случаями"
+   },
+   "layers": [
+    "Lunia",
+    "Mercuria",
+    "Venya",
+    "Solania",
+    "Mertion",
+    "Jovar",
+    "Chronias"
+   ],
+   "refs": [
+    "Manual of the Planes 1st edition, с. 73",
+    "Manual of the Planes 1st edition, с. 75",
+    "Manual of the Planes 1st edition, с. 78–82"
+   ]
+  },
+  {
+   "id": "bytopia",
+   "name": "Bytopia",
+   "kind": "outer",
+   "url": "https://forgottenrealms.fandom.com/wiki/Bytopia",
+   "alignment": [
+    "LG",
+    "NG"
+   ],
+   "shape": {
+    "en": "Two layers that share the same sky",
+    "ru": "два слоя под общим небом"
+   },
+   "gravity": {
+    "en": "Objective Directional: both layers, in opposite directions",
+    "ru": "направленная: на двух слоях — в противоположные стороны"
+   },
+   "time": {
+    "en": "Normal",
+    "ru": "обычное"
+   },
+   "morphic": {
+    "en": "Divinely",
+    "ru": "меняют только боги"
+   },
+   "magic": {
+    "en": "Normal with special cases",
+    "ru": "обычная, с особыми случаями"
+   },
+   "layers": [
+    "Dothion",
+    "Shurrock"
+   ],
+   "refs": [
+    "Manual of the Planes 1st edition, с. 73",
+    "Manual of the Planes 1st edition, с. 75",
+    "Manual of the Planes 1st edition, с. 78–82"
+   ]
+  },
+  {
+   "id": "elysium",
+   "name": "Elysium",
+   "kind": "outer",
+   "url": "https://forgottenrealms.fandom.com/wiki/Elysium",
+   "alignment": [
+    "NG"
+   ],
+   "shape": {
+    "en": "Infinite",
+    "ru": "бесконечен"
+   },
+   "gravity": {
+    "en": "Normal",
+    "ru": "обычная"
+   },
+   "time": {
+    "en": "Normal",
+    "ru": "обычное"
+   },
+   "morphic": {
+    "en": "Divinely",
+    "ru": "меняют только боги"
+   },
+   "elements": {
+    "en": "Minor positive-dominant",
+    "ru": "слабо преобладает положительная энергия"
+   },
+   "magic": {
+    "en": "Normal with special cases",
+    "ru": "обычная, с особыми случаями"
+   },
+   "layers": [
+    "Amoria",
+    "Eronia",
+    "Belierin",
+    "Thalasia"
+   ],
+   "refs": [
+    "Manual of the Planes 1st edition, с. 73",
+    "Manual of the Planes 1st edition, с. 75",
+    "Manual of the Planes 1st edition, с. 78–82"
+   ]
+  },
+  {
+   "id": "beastlands",
+   "name": "Beastlands",
+   "kind": "outer",
+   "url": "https://forgottenrealms.fandom.com/wiki/Beastlands_(plane)",
+   "alignment": [
+    "NG",
+    "CG"
+   ],
+   "shape": {
+    "en": "Infinite",
+    "ru": "бесконечен"
+   },
+   "gravity": {
+    "en": "Normal",
+    "ru": "обычная"
+   },
+   "time": {
+    "en": "Normal",
+    "ru": "обычное"
+   },
+   "morphic": {
+    "en": "Alterable",
+    "ru": "поддаётся изменению"
+   },
+   "magic": {
+    "en": "Limited (by the mortai): air and weather spells",
+    "ru": "ограничена (mortai): заклинания воздуха и погоды"
+   },
+   "layers": [
+    "Krigala",
+    "Brux",
+    "Karasuthra"
+   ],
+   "refs": [
+    "Manual of the Planes 1st edition, с. 73",
+    "Manual of the Planes 1st edition, с. 75",
+    "Manual of the Planes 1st edition, с. 91"
+   ]
+  },
+  {
+   "id": "arborea",
+   "name": "Arborea",
+   "kind": "outer",
+   "url": "https://forgottenrealms.fandom.com/wiki/Arborea",
+   "alignment": [
+    "CG"
+   ],
+   "shape": {
+    "en": "Three infinite layers",
+    "ru": "три бесконечных слоя"
+   },
+   "gravity": {
+    "en": "Normal",
+    "ru": "обычная"
+   },
+   "time": {
+    "en": "Normal",
+    "ru": "обычное"
+   },
+   "morphic": {
+    "en": "Divinely",
+    "ru": "меняют только боги"
+   },
+   "magic": {
+    "en": "Normal with special cases",
+    "ru": "обычная, с особыми случаями"
+   },
+   "layers": [
+    "Arvandor",
+    "Aquallor",
+    "Mithardir"
+   ],
+   "refs": [
+    "Manual of the Planes 1st edition, с. 73",
+    "Manual of the Planes 1st edition, с. 78–82",
+    "Manual of the Planes 1st edition, с. 92"
+   ]
+  },
+  {
+   "id": "ysgard",
+   "name": "Ysgard",
+   "kind": "outer",
+   "url": "https://forgottenrealms.fandom.com/wiki/Ysgard",
+   "alignment": [
+    "CG",
+    "CN"
+   ],
+   "shape": {
+    "en": "Three layers filled with rivers of earth",
+    "ru": "три слоя, полные рек земли"
+   },
+   "gravity": {
+    "en": "Objective directional: normal to one side of a river",
+    "ru": "направленная: к одному берегу реки"
+   },
+   "time": {
+    "en": "Normal",
+    "ru": "обычное"
+   },
+   "morphic": {
+    "en": "Highly on large scale",
+    "ru": "легко меняется в крупном"
+   },
+   "elements": {
+    "en": "Minor positive-dominant",
+    "ru": "слабо преобладает положительная энергия"
+   },
+   "magic": {
+    "en": "Normal with special cases",
+    "ru": "обычная, с особыми случаями"
+   },
+   "layers": [
+    "Ysgard",
+    "Muspelheim",
+    "Nidavellir"
+   ],
+   "refs": [
+    "Manual of the Planes 1st edition, с. 73",
+    "Manual of the Planes 1st edition, с. 75",
+    "Manual of the Planes 1st edition, с. 78–82"
+   ]
+  },
+  {
+   "id": "limbo",
+   "name": "Limbo",
+   "kind": "outer",
+   "url": "https://forgottenrealms.fandom.com/wiki/Limbo",
+   "alignment": [
+    "CN"
+   ],
+   "shape": {
+    "en": "Five infinite layers",
+    "ru": "пять бесконечных слоёв"
+   },
+   "gravity": {
+    "en": "Subjective Directional: normal when touching a solid object, otherwise No Gravity",
+    "ru": "субъективная: обычная, пока касаешься твёрдого, иначе нет"
+   },
+   "time": {
+    "en": "Normal",
+    "ru": "обычное"
+   },
+   "morphic": {
+    "en": "Highly",
+    "ru": "легко меняется"
+   },
+   "elements": {
+    "en": "Air-Earth-Fire-Water-Dominant, in pockets",
+    "ru": "карманами преобладают воздух, земля, огонь, вода"
+   },
+   "magic": {
+    "en": "Normal, but semi-permanent",
+    "ru": "обычная, но эффекты почти постоянны"
+   },
+   "refs": [
+    "Manual of the Planes 1st edition, с. 98",
+    "Manual of the Planes 1st edition, с. 73",
+    "Manual of the Planes 1st edition, с. 75"
+   ]
+  },
+  {
+   "id": "pandemonium",
+   "name": "Pandemonium",
+   "kind": "outer",
+   "url": "https://forgottenrealms.fandom.com/wiki/Pandemonium",
+   "alignment": [
+    "CN",
+    "CE"
+   ],
+   "shape": {
+    "en": "Four infinite layers",
+    "ru": "четыре бесконечных слоя"
+   },
+   "gravity": {
+    "en": "Objective Directional: away from the center of passages and caverns",
+    "ru": "направленная: от середины ходов и пещер"
+   },
+   "time": {
+    "en": "Normal",
+    "ru": "обычное"
+   },
+   "morphic": {
+    "en": "Divinely",
+    "ru": "меняют только боги"
+   },
+   "magic": {
+    "en": "Normal, but sound-based spells have very limited range",
+    "ru": "обычная, но у звуковых заклинаний очень малая дальность"
+   },
+   "layers": [
+    "Pandesmos",
+    "Cocytus",
+    "Phlegethon",
+    "Agathion"
+   ],
+   "refs": [
+    "Manual of the Planes 1st edition, с. 73",
+    "Manual of the Planes 1st edition, с. 75",
+    "Manual of the Planes 1st edition, с. 99"
+   ]
+  },
+  {
+   "id": "abyss",
+   "name": "Abyss",
+   "kind": "outer",
+   "url": "https://forgottenrealms.fandom.com/wiki/Abyss",
+   "alignment": [
+    "CE"
+   ],
+   "shape": {
+    "en": "Innumerable, immeasurable layers",
+    "ru": "бесчисленные слои неизмеримой величины"
+   },
+   "gravity": {
+    "en": "Normal, varies between layers",
+    "ru": "обычная, по слоям разная"
+   },
+   "time": {
+    "en": "Normal",
+    "ru": "обычное"
+   },
+   "morphic": {
+    "en": "Divinely",
+    "ru": "меняют только боги"
+   },
+   "elements": {
+    "en": "Mixed",
+    "ru": "смешанные"
+   },
+   "magic": {
+    "en": "Normal",
+    "ru": "обычная"
+   },
+   "refs": [
+    "Manual of the Planes 1st edition, с. 101",
+    "Dungeon Master's Guide 5th edition, с. 58,62–63",
+    "Manual of the Planes 1st edition, с. 73"
+   ]
+  },
+  {
+   "id": "carceri",
+   "name": "Carceri",
+   "kind": "outer",
+   "url": "https://forgottenrealms.fandom.com/wiki/Carceri",
+   "alignment": [
+    "NE",
+    "CE"
+   ],
+   "shape": {
+    "en": "Six layers, each a string of planetoids floating in air",
+    "ru": "шесть слоёв, каждый — цепь планетоидов в воздухе"
+   },
+   "gravity": {
+    "en": "Normal",
+    "ru": "обычная"
+   },
+   "time": {
+    "en": "Normal",
+    "ru": "обычное"
+   },
+   "morphic": {
+    "en": "Divinely",
+    "ru": "меняют только боги"
+   },
+   "magic": {
+    "en": "Normal with special cases",
+    "ru": "обычная, с особыми случаями"
+   },
+   "layers": [
+    "Orthrys",
+    "Cathrys",
+    "Minethys",
+    "Colothys",
+    "Porphatys",
+    "Agathys"
+   ],
+   "refs": [
+    "Manual of the Planes 1st edition, с. 73",
+    "Manual of the Planes 1st edition, с. 75",
+    "Manual of the Planes 1st edition, с. 78–82"
+   ]
+  },
+  {
+   "id": "hades",
+   "name": "Hades",
+   "kind": "outer",
+   "url": "https://forgottenrealms.fandom.com/wiki/Hades",
+   "alignment": [
+    "NE"
+   ],
+   "shape": {
+    "en": "Infinite",
+    "ru": "бесконечен"
+   },
+   "gravity": {
+    "en": "Normal",
+    "ru": "обычная"
+   },
+   "time": {
+    "en": "Normal",
+    "ru": "обычное"
+   },
+   "morphic": {
+    "en": "Divinely",
+    "ru": "меняют только боги"
+   },
+   "magic": {
+    "en": "Normal with special cases",
+    "ru": "обычная, с особыми случаями"
+   },
+   "layers": [
+    "Oinos",
+    "Niflheim",
+    "Pluton"
+   ],
+   "refs": [
+    "Manual of the Planes 1st edition, с. 73",
+    "Manual of the Planes 1st edition, с. 75",
+    "Manual of the Planes 1st edition, с. 78–82"
+   ]
+  },
+  {
+   "id": "gehenna",
+   "name": "Gehenna",
+   "kind": "outer",
+   "url": "https://forgottenrealms.fandom.com/wiki/Gehenna",
+   "alignment": [
+    "LE",
+    "NE"
+   ],
+   "shape": {
+    "en": "Infinite",
+    "ru": "бесконечен"
+   },
+   "gravity": {
+    "en": "Objective directional: at a 45° angle to the level of the ground",
+    "ru": "направленная: под углом 45° к земле"
+   },
+   "time": {
+    "en": "Normal",
+    "ru": "обычное"
+   },
+   "morphic": {
+    "en": "Divinely",
+    "ru": "меняют только боги"
+   },
+   "elements": {
+    "en": "Fire-dominant (partial)",
+    "ru": "местами преобладает огонь"
+   },
+   "magic": {
+    "en": "Normal with special cases",
+    "ru": "обычная, с особыми случаями"
+   },
+   "layers": [
+    "Khalas",
+    "Chamada",
+    "Mungoth",
+    "Krangath"
+   ],
+   "refs": [
+    "Manual of the Planes 1st edition, с. 73",
+    "Manual of the Planes 1st edition, с. 75",
+    "Manual of the Planes 1st edition, с. 78–82"
+   ]
+  },
+  {
+   "id": "nine-hells",
+   "name": "Nine Hells",
+   "kind": "outer",
+   "url": "https://forgottenrealms.fandom.com/wiki/Nine_Hells",
+   "alignment": [
+    "LE"
+   ],
+   "shape": {
+    "en": "Nine infinite layers",
+    "ru": "девять бесконечных слоёв"
+   },
+   "gravity": {
+    "en": "Normal",
+    "ru": "обычная"
+   },
+   "time": {
+    "en": "Normal",
+    "ru": "обычное"
+   },
+   "morphic": {
+    "en": "Divinely",
+    "ru": "меняют только боги"
+   },
+   "elements": {
+    "en": "None, but with exceptions",
+    "ru": "нет, с исключениями"
+   },
+   "magic": {
+    "en": "Normal with special cases",
+    "ru": "обычная, с особыми случаями"
+   },
+   "layers": [
+    "Avernus",
+    "Dis",
+    "Minauros",
+    "Phlegethos",
+    "Stygia",
+    "Malbolge",
+    "Maladomini",
+    "Cania",
+    "Nessus"
+   ],
+   "refs": [
+    "Manual of the Planes 1st edition, с. 73",
+    "Dungeon Master Guide 2nd Edition, с. 132",
+    "Forgotten Realms Campaign Setting 3rd edition, с. 256"
+   ]
+  },
+  {
+   "id": "acheron",
+   "name": "Acheron",
+   "kind": "outer",
+   "url": "https://forgottenrealms.fandom.com/wiki/Acheron",
+   "alignment": [
+    "LN",
+    "LE"
+   ],
+   "shape": {
+    "en": "Infinite void, four layers shaped like floating blocks",
+    "ru": "бесконечная пустота; четыре слоя — парящие глыбы"
+   },
+   "gravity": {
+    "en": "Objective Directional: toward the surface of each floating block",
+    "ru": "направленная: к поверхности каждой глыбы"
+   },
+   "time": {
+    "en": "Normal",
+    "ru": "обычное"
+   },
+   "morphic": {
+    "en": "Divinely",
+    "ru": "меняют только боги"
+   },
+   "magic": {
+    "en": "Normal with special cases",
+    "ru": "обычная, с особыми случаями"
+   },
+   "layers": [
+    "Avalas",
+    "Thuldanin",
+    "Tintibulus",
+    "Ocanthus"
+   ],
+   "refs": [
+    "Manual of the Planes 1st edition, с. 73",
+    "Manual of the Planes 1st edition, с. 113",
+    "Manual of the Planes 1st edition, с. 78–82"
+   ]
+  },
+  {
+   "id": "mechanus",
+   "name": "Mechanus",
+   "kind": "outer",
+   "url": "https://forgottenrealms.fandom.com/wiki/Mechanus",
+   "alignment": [
+    "LN"
+   ],
+   "shape": {
+    "en": "Infinite",
+    "ru": "бесконечен"
+   },
+   "gravity": {
+    "en": "Objective Directional: normal to the surface of each cog",
+    "ru": "направленная: к поверхности каждой шестерни"
+   },
+   "time": {
+    "en": "Normal",
+    "ru": "обычное"
+   },
+   "morphic": {
+    "en": "Divinely",
+    "ru": "меняют только боги"
+   },
+   "magic": {
+    "en": "Limited: School of Illusion (Illusions and phantasms are useless)",
+    "ru": "ограничена: школа иллюзии бесполезна"
+   },
+   "refs": [
+    "Manual of the Planes 1st edition, с. 73",
+    "Manual of the Planes 1st edition, с. 75",
+    "Manual of the Planes 1st edition, с. 84–85"
+   ]
+  },
+  {
+   "id": "arcadia",
+   "name": "Arcadia",
+   "kind": "outer",
+   "url": "https://forgottenrealms.fandom.com/wiki/Arcadia",
+   "alignment": [
+    "LG",
+    "LN"
+   ],
+   "shape": {
+    "en": "Three infinite layers",
+    "ru": "три бесконечных слоя"
+   },
+   "gravity": {
+    "en": "Normal",
+    "ru": "обычная"
+   },
+   "time": {
+    "en": "Normal",
+    "ru": "обычное"
+   },
+   "morphic": {
+    "en": "Divinely",
+    "ru": "меняют только боги"
+   },
+   "magic": {
+    "en": "Limited: spells that affect animals, otherwise normal",
+    "ru": "ограничена: заклинания на животных; остальное — обычно"
+   },
+   "layers": [
+    "Abellio",
+    "Buxenus"
+   ],
+   "refs": [
+    "Manual of the Planes 1st edition, с. 86",
+    "Manual of the Planes 1st edition, с. 73",
+    "Manual of the Planes 1st edition, с. 75"
+   ]
+  },
+  {
+   "id": "outlands",
+   "name": "Outlands",
+   "kind": "outer",
+   "url": "https://forgottenrealms.fandom.com/wiki/Outlands",
+   "alignment": [
+    "N"
+   ],
+   "shape": {
+    "en": "One infinite layer, but with a definite center",
+    "ru": "один бесконечный слой с определённым центром"
+   },
+   "gravity": {
+    "en": "Normal",
+    "ru": "обычная"
+   },
+   "time": {
+    "en": "Normal",
+    "ru": "обычное"
+   },
+   "morphic": {
+    "en": "Highly (special); Divinely (minor)",
+    "ru": "легко меняется (по-особому), боги — в малом"
+   },
+   "magic": {
+    "en": "Limited to dead: magic fades toward the center",
+    "ru": "слабеет к центру до полного исчезновения"
+   },
+   "refs": [
+    "Manual of the Planes 1st edition, с. 73",
+    "Manual of the Planes 1st edition, с. 75",
+    "Manual of the Planes 1st edition, с. 114"
+   ]
+  },
+  {
+   "id": "sigil",
+   "name": "Sigil",
+   "kind": "realm",
+   "url": "https://forgottenrealms.fandom.com/wiki/Sigil",
+   "alignment": [
+    "N"
+   ],
+   "shape": {
+    "en": "Torus; Diameter: 5; Circumference: 20",
+    "ru": "тор: диаметр 5 миль, окружность 20 миль"
+   },
+   "gravity": {
+    "en": "Objective directional",
+    "ru": "направленная"
+   },
+   "time": {
+    "en": "Normal",
+    "ru": "обычное"
+   },
+   "morphic": {
+    "en": "Divinely",
+    "ru": "меняют только боги"
+   },
+   "elements": {
+    "en": "None",
+    "ru": "нет"
+   },
+   "magic": {
+    "en": "Normal",
+    "ru": "обычная"
+   },
+   "location": "Outlands",
+   "refs": [
+    "Dungeon Master's Guide v.3.5, с. 167",
+    "Manual of the Planes 3rd edition, с. 147–151",
+    "Dungeon Master's Guide 5th edition, с. 67–68"
+   ]
+  },
+  {
+   "id": "astral",
+   "name": "Astral Plane",
+   "kind": "transitive",
+   "url": "https://forgottenrealms.fandom.com/wiki/Astral_Plane",
+   "alignment": [],
+   "shape": {
+    "en": "Infinite",
+    "ru": "бесконечен"
+   },
+   "gravity": {
+    "en": "None",
+    "ru": "нет"
+   },
+   "time": {
+    "en": "Flowing (1000 real years = 1 subjective day)",
+    "ru": "течёт иначе: 1000 лет снаружи — 1 день здесь"
+   },
+   "magic": {
+    "en": "Normal with special cases",
+    "ru": "обычная, с особыми случаями"
+   },
+   "refs": [
+    "Manual of the Planes 1st edition, с. 60",
+    "Manual of the Planes 1st edition, с. 63",
+    "Manual of the Planes 1st edition, с. 68–70"
+   ]
+  },
+  {
+   "id": "ethereal",
+   "name": "Ethereal Plane",
+   "kind": "transitive",
+   "url": "https://forgottenrealms.fandom.com/wiki/Ethereal_plane",
+   "alignment": [
+    "N"
+   ],
+   "shape": {
+    "en": "Infinite or the same size as its coexistent plane",
+    "ru": "бесконечен или равен плану, с которым сосуществует"
+   },
+   "gravity": {
+    "en": "None",
+    "ru": "нет"
+   },
+   "time": {
+    "en": "Normal",
+    "ru": "обычное"
+   },
+   "morphic": {
+    "en": "Alterable",
+    "ru": "поддаётся изменению"
+   },
+   "magic": {
+    "en": "Normal",
+    "ru": "обычная"
+   },
+   "refs": [
+    "Manual of the Planes 1st edition, с. 11",
+    "Manual of the Planes 1st edition, с. 18–20",
+    "Dungeon Master's Guide v.3.5, с. 147"
+   ]
+  },
+  {
+   "id": "material",
+   "name": "Prime Material Plane",
+   "kind": "material",
+   "url": "https://forgottenrealms.fandom.com/wiki/Prime_Material_plane",
+   "alignment": [
+    "N"
+   ],
+   "shape": {
+    "en": "Infinite",
+    "ru": "бесконечен"
+   },
+   "gravity": {
+    "en": "Normal",
+    "ru": "обычная"
+   },
+   "time": {
+    "en": "Normal",
+    "ru": "обычное"
+   },
+   "morphic": {
+    "en": "Alterable",
+    "ru": "поддаётся изменению"
+   },
+   "magic": {
+    "en": "Normal",
+    "ru": "обычная"
+   },
+   "refs": [
+    "Manual of the Planes 3rd edition, с. 41–44",
+    "Manual of the Planes 1st edition, с. 12,62",
+    "A Guide to the Ethereal Plane, с. 20"
+   ]
+  },
+  {
+   "id": "feywild",
+   "name": "Feywild",
+   "kind": "parallel",
+   "url": "https://forgottenrealms.fandom.com/wiki/Feywild",
+   "alignment": [
+    "N"
+   ],
+   "shape": {
+    "en": "Infinite",
+    "ru": "бесконечен"
+   },
+   "gravity": {
+    "en": "Light",
+    "ru": "слабая"
+   },
+   "time": {
+    "en": "Erratic",
+    "ru": "непостоянное"
+   },
+   "morphic": {
+    "en": "Alterable",
+    "ru": "поддаётся изменению"
+   },
+   "magic": {
+    "en": "Enhanced (arcane)",
+    "ru": "усилена — тайная магия"
+   },
+   "refs": [
+    "Dungeon Master's Guide 5th edition, с. 49–50",
+    "Manual of the Planes 3rd edition, с. 210",
+    "Manual of the Planes 4th edition, с. 40"
+   ]
+  },
+  {
+   "id": "shadowfell",
+   "name": "Shadowfell",
+   "kind": "parallel",
+   "url": "https://forgottenrealms.fandom.com/wiki/Shadowfell",
+   "alignment": [],
+   "shape": {
+    "en": "Infinite",
+    "ru": "бесконечен"
+   },
+   "gravity": {
+    "en": "Normal",
+    "ru": "обычная"
+   },
+   "time": {
+    "en": "Normal",
+    "ru": "обычное"
+   },
+   "morphic": {
+    "en": "Magically",
+    "ru": "меняется магией"
+   },
+   "elements": {
+    "en": "None, but some minor negative-dominant areas",
+    "ru": "нет, местами слабо преобладает отрицательная энергия"
+   },
+   "magic": {
+    "en": "Enhanced (shadow), Impeded (light and fire)",
+    "ru": "усилена — тень, ослаблена — свет и огонь"
+   },
+   "refs": [
+    "Forgotten Realms Campaign Setting 3rd edition, с. 256",
+    "Manual of the Planes 3rd edition, с. 60",
+    "Manual of the Planes 3rd edition, с. 63"
+   ]
+  },
+  {
+   "id": "air",
+   "name": "Elemental Plane of Air",
+   "kind": "inner",
+   "url": "https://forgottenrealms.fandom.com/wiki/Elemental_Plane_of_Air",
+   "alignment": [],
+   "shape": {
+    "en": "Infinite",
+    "ru": "бесконечен"
+   },
+   "gravity": {
+    "en": "Subjective Directional",
+    "ru": "субъективная: низ там, где решишь"
+   },
+   "time": {
+    "en": "Normal",
+    "ru": "обычное"
+   },
+   "morphic": {
+    "en": "Alterable",
+    "ru": "поддаётся изменению"
+   },
+   "elements": {
+    "en": "Air-dominant",
+    "ru": "преобладает воздух"
+   },
+   "magic": {
+    "en": "Enhanced: air-related; Impeded: earth-related",
+    "ru": "усилена — воздух, ослаблена — земля"
+   },
+   "refs": [
+    "Manual of the Planes 1st edition, с. 22",
+    "Manual of the Planes 1st edition, с. 23",
+    "Manual of the Planes 1st edition, с. 24"
+   ]
+  },
+  {
+   "id": "earth",
+   "name": "Elemental Plane of Earth",
+   "kind": "inner",
+   "url": "https://forgottenrealms.fandom.com/wiki/Elemental_Plane_of_Earth",
+   "alignment": [],
+   "shape": {
+    "en": "Infinite",
+    "ru": "бесконечен"
+   },
+   "gravity": {
+    "en": "Heavy",
+    "ru": "сильная"
+   },
+   "time": {
+    "en": "Normal",
+    "ru": "обычное"
+   },
+   "morphic": {
+    "en": "Alterable",
+    "ru": "поддаётся изменению"
+   },
+   "elements": {
+    "en": "Earth-dominant",
+    "ru": "преобладает земля"
+   },
+   "magic": {
+    "en": "Enhanced: earth-related; Impeded: air-related",
+    "ru": "усилена — земля, ослаблена — воздух"
+   },
+   "refs": [
+    "Manual of the Planes 1st edition, с. 22",
+    "Manual of the Planes 1st edition, с. 23",
+    "Manual of the Planes 1st edition, с. 24"
+   ]
+  },
+  {
+   "id": "fire",
+   "name": "Elemental Plane of Fire",
+   "kind": "inner",
+   "url": "https://forgottenrealms.fandom.com/wiki/Elemental_Plane_of_Fire",
+   "alignment": [],
+   "shape": {
+    "en": "Infinite",
+    "ru": "бесконечен"
+   },
+   "gravity": {
+    "en": "Normal",
+    "ru": "обычная"
+   },
+   "time": {
+    "en": "Normal",
+    "ru": "обычное"
+   },
+   "morphic": {
+    "en": "Alterable",
+    "ru": "поддаётся изменению"
+   },
+   "elements": {
+    "en": "Fire-dominant",
+    "ru": "преобладает огонь"
+   },
+   "magic": {
+    "en": "Enhanced: fire-related; Impeded: water-related",
+    "ru": "усилена — огонь, ослаблена — вода"
+   },
+   "refs": [
+    "Dungeon Master's Guide v.3.5, с. 156",
+    "Manual of the Planes 1st edition, с. 22",
+    "Manual of the Planes 1st edition, с. 23"
+   ]
+  },
+  {
+   "id": "water",
+   "name": "Elemental Plane of Water",
+   "kind": "inner",
+   "url": "https://forgottenrealms.fandom.com/wiki/Elemental_Plane_of_Water",
+   "alignment": [],
+   "shape": {
+    "en": "Infinite",
+    "ru": "бесконечен"
+   },
+   "gravity": {
+    "en": "Subjective directional",
+    "ru": "субъективная: низ там, где решишь"
+   },
+   "time": {
+    "en": "Normal",
+    "ru": "обычное"
+   },
+   "morphic": {
+    "en": "Alterable",
+    "ru": "поддаётся изменению"
+   },
+   "elements": {
+    "en": "Water-dominant",
+    "ru": "преобладает вода"
+   },
+   "magic": {
+    "en": "Enhanced: water-related; Impeded: fire-related",
+    "ru": "усилена — вода, ослаблена — огонь"
+   },
+   "refs": [
+    "Manual of the Planes 1st edition, с. 22",
+    "Manual of the Planes 1st edition, с. 23",
+    "Manual of the Planes 1st edition, с. 24"
+   ]
+  },
+  {
+   "id": "positive",
+   "name": "Positive Energy Plane",
+   "kind": "energy",
+   "url": "https://forgottenrealms.fandom.com/wiki/Positive_Energy_plane",
+   "alignment": [],
+   "shape": {
+    "en": "Infinite Size",
+    "ru": "бесконечен"
+   },
+   "gravity": {
+    "en": "Subjective Directional",
+    "ru": "субъективная: низ там, где решишь"
+   },
+   "time": {
+    "en": "Normal",
+    "ru": "обычное"
+   },
+   "morphic": {
+    "en": "Alterable Morphic",
+    "ru": "поддаётся изменению"
+   },
+   "elements": {
+    "en": "Major Positive-Dominant with some Minor Dominant regions",
+    "ru": "сильно преобладает положительная энергия, местами слабее"
+   },
+   "magic": {
+    "en": "Enhanced Magic: cure spells, positive-energy related; Impeded Magic: inflict spells, negative-energy related",
+    "ru": "усилена — лечение и положительная энергия, ослаблена — причинение ран и отрицательная энергия"
+   },
+   "refs": [
+    "Dungeon Master's Guide 5th edition, с. 43",
+    "Manual of the Planes 1st edition, с. 22–24",
+    "Manual of the Planes 3rd edition, с. 6–7"
+   ]
+  },
+  {
+   "id": "negative",
+   "name": "Negative Energy Plane",
+   "kind": "energy",
+   "url": "https://forgottenrealms.fandom.com/wiki/Negative_Energy_plane",
+   "alignment": [],
+   "shape": {
+    "en": "Infinite Size",
+    "ru": "бесконечен"
+   },
+   "gravity": {
+    "en": "Subjective Directional",
+    "ru": "субъективная: низ там, где решишь"
+   },
+   "time": {
+    "en": "Normal Time",
+    "ru": "обычное"
+   },
+   "morphic": {
+    "en": "Alterable Morphic",
+    "ru": "поддаётся изменению"
+   },
+   "elements": {
+    "en": "Major Negative-Dominant with some Minor Dominant regions",
+    "ru": "сильно преобладает отрицательная энергия, местами слабее"
+   },
+   "magic": {
+    "en": "Enhanced Magic: inflict spells, negative-energy related; Impeded Magic: cure spells, positive-energy related",
+    "ru": "усилена — причинение ран и отрицательная энергия, ослаблена — лечение и положительная энергия"
+   },
+   "refs": [
+    "Manual of the Planes 1st edition, с. 22–24",
+    "Manual of the Planes 3rd edition, с. 6–7",
+    "Dungeon Master's Guide v.3.5, с. 157"
+   ]
+  }
+ ],
+ "links": [
+  {
+   "from": "material",
+   "to": "astral",
+   "kind": "astral",
+   "quote": "According to the Great Wheel cosmology model, the Astral plane connected the Prime Material Planes to the first layers of the Outer planes.",
+   "url": "https://forgottenrealms.fandom.com/wiki/Astral_Plane",
+   "ref": "Manual of the Planes 1st edition, с. 60"
+  },
+  {
+   "from": "material",
+   "to": "ethereal",
+   "kind": "ethereal",
+   "quote": "In the Great Wheel cosmology model, the Ethereal plane existed adjacent to the Prime Material Plane and connected it to the Inner planes (the Elemental planes plus the Energy planes).",
+   "url": "https://forgottenrealms.fandom.com/wiki/Ethereal_plane",
+   "ref": "Manual of the Planes 1st edition, с. 11"
+  },
+  {
+   "from": "material",
+   "to": "feywild",
+   "kind": "echo",
+   "quote": "was an \"echo\" of the Prime Material Plane suffused with potent magic and unrestrained emotions.",
+   "url": "https://forgottenrealms.fandom.com/wiki/Feywild",
+   "ref": null
+  },
+  {
+   "from": "material",
+   "to": "shadowfell",
+   "kind": "echo",
+   "quote": "It existed as sort of a counterpart to the Feywild, in the sense that it was a reflection, or \"echo\", of the Prime Material Plane.",
+   "url": "https://forgottenrealms.fandom.com/wiki/Shadowfell",
+   "ref": "Forgotten Realms Campaign Guide, с. 69"
+  }
+ ],
+ "outlands": {
+  "gates": [
+   {
+    "town": "Automata",
+    "plane": "mechanus",
+    "url": "https://forgottenrealms.fandom.com/wiki/Automata"
+   },
+   {
+    "town": "Fortitude",
+    "plane": "arcadia",
+    "url": "https://forgottenrealms.fandom.com/wiki/Fortitude"
+   },
+   {
+    "town": "Excelsior",
+    "plane": "celestia",
+    "url": "https://forgottenrealms.fandom.com/wiki/Excelsior"
+   },
+   {
+    "town": "Tradegate",
+    "plane": "bytopia",
+    "url": "https://forgottenrealms.fandom.com/wiki/Tradegate"
+   },
+   {
+    "town": "Ecstasy",
+    "plane": "elysium",
+    "url": "https://forgottenrealms.fandom.com/wiki/Ecstasy"
+   },
+   {
+    "town": "Faunel",
+    "plane": "beastlands",
+    "url": "https://forgottenrealms.fandom.com/wiki/Faunel"
+   },
+   {
+    "town": "Sylvania",
+    "plane": "arborea",
+    "url": "https://forgottenrealms.fandom.com/wiki/Sylvania"
+   },
+   {
+    "town": "Glorium",
+    "plane": "ysgard",
+    "url": "https://forgottenrealms.fandom.com/wiki/Glorium"
+   },
+   {
+    "town": "Xaos",
+    "plane": "limbo",
+    "url": "https://forgottenrealms.fandom.com/wiki/Xaos_(gate-town)"
+   },
+   {
+    "town": "Bedlam",
+    "plane": "pandemonium",
+    "url": "https://forgottenrealms.fandom.com/wiki/Bedlam"
+   },
+   {
+    "town": "Plague-Mort",
+    "plane": "abyss",
+    "url": "https://forgottenrealms.fandom.com/wiki/Plague-Mort"
+   },
+   {
+    "town": "Curst",
+    "plane": "carceri",
+    "url": "https://forgottenrealms.fandom.com/wiki/Curst_(gate-town)"
+   },
+   {
+    "town": "Hopeless",
+    "plane": "hades",
+    "url": "https://forgottenrealms.fandom.com/wiki/Hopeless"
+   },
+   {
+    "town": "Torch",
+    "plane": "gehenna",
+    "url": "https://forgottenrealms.fandom.com/wiki/Torch_(gate-town)"
+   },
+   {
+    "town": "Ribcage",
+    "plane": "nine-hells",
+    "url": "https://forgottenrealms.fandom.com/wiki/Ribcage"
+   },
+   {
+    "town": "Rigus",
+    "plane": "acheron",
+    "url": "https://forgottenrealms.fandom.com/wiki/Rigus"
+   }
+  ],
+  "quote": "Moving clockwise around the spire, the sixteen gate-towns were …",
+  "travelQuote": "Such a journey usually took between three and eighteen days, and it did not seem to matter whether the trip were made on foot or on horseback.",
+  "travelDays": [
+   3,
+   18
+  ],
+  "url": "https://forgottenrealms.fandom.com/wiki/Gate-town",
+  "ref": "Manual of the Planes 3rd edition, с. 147–151",
+  "travelRef": "A Player's Primer to the Outlands, с. 4–6"
+ }
+}

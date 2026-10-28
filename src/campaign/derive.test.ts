@@ -5,7 +5,7 @@ import { describe, expect, it } from 'vitest';
 import { CLASSES, RACES, bySource } from '../rules/compendium';
 import { ARMOR_IDS } from '../rules/srd/armor';
 import { SRD_CLASSES, SRD_CLASS_IDS } from '../rules/srd/classes';
-import { MONSTERS, MONSTER_IDS } from '../rules/srd/monsters';
+import { MONSTERS, SRD_MONSTER_IDS as MONSTER_IDS } from '../rules/srd/monsters';
 import {
   DeriveError, TRAIT_EFFECTS, abilityMod, armorClass, classArmorProficiency, classSkillChoices, deriveCharacter,
   maxHp, passivePerception, proficiencyBonusOf, srdClassOf,
@@ -177,20 +177,27 @@ describe('партия §13 — вывод с подстановкой', () => {
   it('что не проходит: чужой доспех, лишний навык, ASI не по правилу, характеристика выше 20', () => {
     expect(() => deriveCharacter({ ...LYRA, mageArmor: false, armor: 'scale-mail' })).toThrow(/не владеет доспехом/);
     expect(() => deriveCharacter({ ...ALDRIC, skills: ['medicine', 'perception'] })).toThrow(/не предлагает Perception/);
-    expect(() => deriveCharacter({ ...BO, skills: ['stealth'] })).toThrow(/даёт 3 навыка/);
+    expect(() => deriveCharacter({ ...BO, skills: ['stealth'] })).toThrow(/выбрать ещё 2 навыка класса/);
+    expect(() => deriveCharacter({ ...BO, skills: ['stealth', 'survival', 'nature', 'perception'] })).toThrow(/даёт 3 навыка, выбрано 4/);
     expect(() => deriveCharacter({ ...BO, improvements: [{ level: 4, asi: { con: 3 } }] })).toThrow(/\+2 к одной или \+1 к двум/);
     expect(() => deriveCharacter({ ...BO, improvements: [] })).toThrow(/не выбрано увеличение на уровне 4/);
     expect(() => deriveCharacter({ ...BO, improvements: [{ level: 6, asi: { con: 2 } }] })).toThrow(/не даёт увеличение на уровне 6/);
     expect(() => deriveCharacter({ ...LYRA, base: { ...LYRA.base, int: 18 } })).toThrow(/выше 20/);
-    expect(() => deriveCharacter({ ...KORRIN, base: { ...KORRIN.base, str: 8 }, improvements: [{ level: 4, asi: { con: 2 } }] })).toThrow(/требует STR 13/);
+    // SRD, Armor: тяжёлый доспех без нужной Силы надеть можно — скорость на 10 футов меньше (раньше лист падал, это было не по SRD).
+    const weak = deriveCharacter({ ...KORRIN, base: { ...KORRIN.base, str: 8 }, improvements: [{ level: 4, asi: { con: 2 } }] });
+    expect(weak.speed).toBe(25); // SRD, Dwarf: «Your speed is not reduced by wearing heavy armor»
+    expect(weak.notes.join()).toMatch(/дварфа тяжёлый доспех не замедляет/);
+    const human = deriveCharacter({ ...KORRIN, raceId: 'celovek', subraceId: undefined, base: { ...KORRIN.base, str: 8 }, improvements: [{ level: 4, asi: { con: 2 } }] });
+    expect(human.speed).toBe(20); // человек 30 − 10
+    expect(human.notes.join()).toMatch(/требует STR 13, есть 9: скорость на 10 футов меньше/);
     expect(() => deriveCharacter({ ...BO, subraceId: undefined })).toThrow(/нужно выбрать подрасу/);
     expect(() => deriveCharacter({ ...BO, raceId: 'nope' })).toThrow(/нет расы/);
   });
 });
 
 describe('монстры SRD — блок против формулы', () => {
-  it('библиотека: 45 блоков из импортёра, бандиты §13 на месте; у каждого — источник CC-BY-4.0, бонус мастерства по CR и хиты среднего', () => {
-    expect(MONSTER_IDS.length).toBeGreaterThanOrEqual(45);
+  it('библиотека: весь SRD 5.1 (334 блока), стартовые бандиты §13 первыми; у каждого — источник CC-BY-4.0, бонус мастерства по CR и хиты среднего', () => {
+    expect(MONSTER_IDS.length).toBe(334);
     expect(MONSTER_IDS).toContain('bandit');
     expect(MONSTER_IDS).toContain('bandit-captain');
     expect(MONSTER_IDS.slice(0, 6)).toEqual(['commoner', 'acolyte', 'guard', 'noble', 'bandit', 'bandit-captain']);
@@ -199,13 +206,14 @@ describe('монстры SRD — блок против формулы', () => {
       const mod = m[3] === '-' ? -Number(m[4]) : Number(m[4] ?? 0);
       return Math.floor(Number(m[1]) * (Number(m[2]) + 1) / 2) + mod;
     };
-    const PB: Record<string, number> = { '0': 2, '1/8': 2, '1/4': 2, '1/2': 2, '1': 2, '2': 2, '3': 2, '4': 2, '5': 3, '6': 3, '7': 3, '8': 3 };
+    // SRD 5.1, Proficiency Bonus by Challenge Rating: 0–4 → +2, 5–8 → +3, … 29–30 → +9.
+    const pbOf = (cr: string) => (cr.includes('/') ? 2 : Math.max(2, Math.ceil(Number(cr) / 4) + 1));
     for (const id of MONSTER_IDS) {
       const m = MONSTERS[id];
       expect(m.id).toBe(id);
       expect(m.source, id).toContain('CC-BY-4.0');
       expect(avg(m.hp.formula), `${id}: ${m.hp.formula}`).toBe(m.hp.average);
-      expect(m.proficiencyBonus, `${id}: CR ${m.cr}`).toBe(PB[m.cr]);
+      expect(m.proficiencyBonus, `${id}: CR ${m.cr}`).toBe(pbOf(m.cr));
       expect(m.speedText, id).toContain(`${m.speed} ft.`);
     }
   });
@@ -220,7 +228,9 @@ describe('монстры SRD — блок против формулы', () => {
         expect(a.text, `${m.name}: ${a.name}`).toContain(`${a.attack.toHit >= 0 ? '+' : ''}${a.attack.toHit} to hit`);
         if (a.attack.reach !== undefined) expect(a.text).toContain(`reach ${a.attack.reach} ft.`);
         if (a.attack.range) expect(a.text).toContain(`range ${a.attack.range[0]}/${a.attack.range[1]} ft.`);
-        if (a.attack.damage) expect(a.text, `${m.name}: ${a.name}`).toContain(`${a.attack.average} (${a.attack.damage}) ${a.attack.damageType} damage`);
+        // Урон без кости (мелкие звери: «Hit: 1 piercing damage») печатается без скобок.
+        const dmg = a.attack.damage?.includes('d') ? `${a.attack.average} (${a.attack.damage})` : `Hit: ${a.attack.average}`;
+        if (a.attack.damage) expect(a.text, `${m.name}: ${a.name}`).toContain(`${dmg} ${a.attack.damageType} damage`);
       }
       for (const [ab, v] of Object.entries(m.savingThrows)) expect(v, `${m.name}: save ${ab}`).toBe(abilityMod(m.abilities[ab as keyof typeof m.abilities]) + m.proficiencyBonus);
     }

@@ -37,7 +37,8 @@ export interface JournalEntryProps {
   /** Запись-компенсация («Отменено: …», «Повторено: …») — вторичным цветом. */
   compensation?: 'undo' | 'redo';
   /** @упоминание — кнопка «Открыть карточку: Имя». Без колбэка — просто текст. */
-  onMention?: (entity: 'actor' | 'location' | 'faction', id: string) => void;
+  /** entity 'ref' — справочная сущность, id — ссылка «вид:id». */
+  onMention?: (entity: 'actor' | 'location' | 'faction' | 'ref', id: string) => void;
   /** #нить — кнопка «Нить: Имя» цветом src-canon. Без колбэка — просто текст. */
   onThread?: (id: string) => void;
   className?: string;

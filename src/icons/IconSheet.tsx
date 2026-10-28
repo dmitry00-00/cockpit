@@ -1,4 +1,4 @@
-// Лист иконок для страницы токенов: все 105 сеткой, по группам, с именами.
+// Лист иконок для страницы токенов: все 183 сеткой, по группам, с именами.
 // Фрагмент без роутинга. Tailwind — только раскладка; цвета — через переменные токенов.
 
 import type { CSSProperties } from 'react';
@@ -23,6 +23,11 @@ const GROUPS: readonly Group[] = [
   { title: 'Навыки', test: (n) => n.startsWith('skill-') },
   { title: 'Слоты экипировки', test: (n) => n.startsWith('slot-') },
   { title: 'Пины карты', test: (n) => n.startsWith('pin-') },
+  { title: 'Характеристики', test: (n) => n.startsWith('ab-') },
+  { title: 'Классы', test: (n) => n.startsWith('cls-') },
+  { title: 'Школы магии', test: (n) => n.startsWith('school-') },
+  { title: 'Виды умений', test: (n) => n.startsWith('kind-') },
+  { title: 'Расы', test: (n) => n.startsWith('race-') },
 ];
 
 export interface IconGroup {

@@ -2,7 +2,7 @@
 import { create } from 'zustand';
 import { EventLog, type EventLogOptions } from './log';
 import { EngineError } from './reduce';
-import { TEMPO_SECONDS, type ActorRemoveReason, type Command, type ConcentrationEndReason, type DomainEvent, type EventType, type InitiativeEntry, type RestHitDice, type RestKind, type RestResource, type ScaleLevel, type Tempo } from './events';
+import { TEMPO_SECONDS, type PartyTraveled, type ActorRemoveReason, type Command, type ConcentrationEndReason, type DomainEvent, type EventType, type InitiativeEntry, type RestHitDice, type RestKind, type RestResource, type ScaleLevel, type Tempo } from './events';
 import type { ResourceId } from '../rules/srd/resources';
 import { roll, type RollOptions } from './dice';
 import { undoToast, redoToast } from './journal';
@@ -52,6 +52,10 @@ export interface EngineStore {
   /** Переброс — следующий вариант по кругу, отличный от текущего; без вариантов ничего не происходит. */
   reroll(deltaId: string): void;
   reveal(factId: string): void;
+  /** Поход партии (PARTY_TRAVELED): часы двигает отдельный advanceTime до него — см. campaign/travel.ts travel. */
+  travel(payload: PartyTraveled): DomainEvent<'PARTY_TRAVELED'>;
+  /** Место открыто игрокам: туман знаний вокруг него снят и на их столе. */
+  revealPlace(locationId: string): void;
   /** Заметка мастера; возвращает событие — его id годится как causeId для дельты. */
   note(text: string, threadIds: readonly string[], scale: ScaleLevel): DomainEvent<'NOTE_ADDED'>;
   dismissToast(): void;
@@ -162,6 +166,8 @@ export function createEngineStore(initial: State, opts: CreateEngineOptions = {}
         if (variantId) dispatch({ type: 'WORLD_DELTA_REROLLED', payload: { deltaId, variantId } });
       },
       reveal: factId => { dispatch({ type: 'FACT_REVEALED', payload: { factId, audience: 'players' } }); },
+      travel: payload => dispatch({ type: 'PARTY_TRAVELED', payload }),
+      revealPlace: locationId => { dispatch({ type: 'PLACE_REVEALED', payload: { locationId } }); },
       note: (text, threadIds, scale) => dispatch({ type: 'NOTE_ADDED', payload: { text, threadIds, scale } }),
       dismissToast: () => set({ toast: null }),
     };

@@ -5,7 +5,7 @@ import { isHex6, mix, pal, palCss, paletteFor } from './palette';
 
 describe('palette', () => {
   it('pal(IPAL[name][2]) совпадает с IPAL[name] для каждой из иконок', () => {
-    expect(ICON_NAMES.length).toBe(105);
+    expect(ICON_NAMES.length).toBe(183);
     for (const name of ICON_NAMES) {
       const p = IPAL[name];
       expect(pal(p[2]), name).toEqual([...p]);

@@ -1,0 +1,206 @@
+{
+  "source": "Forgotten Realms Wiki, дамп fr-wiki-2026-10-21",
+  "license": "CC BY-SA 3.0",
+  "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0",
+  "typicalDays": [
+    10,
+    100
+  ],
+  "typicalQuote": "Generally, in order for a spelljammer to reach any random crystal sphere from its closest neighbor, it would take any amount of time ranging from 10 days to 100 days, although exceptions to the average did exist.",
+  "typicalUrl": "https://forgottenrealms.fandom.com/wiki/Phlogiston",
+  "typicalRef": "Spelljammer: AD&D Adventures in Space: Concordance of Arcane Space, с. 54",
+  "spheres": [
+    {
+      "id": "realmspace",
+      "name": "Realmspace",
+      "kind": "sphere",
+      "url": "https://forgottenrealms.fandom.com/wiki/Realmspace"
+    },
+    {
+      "id": "greyspace",
+      "name": "Greyspace",
+      "kind": "sphere",
+      "url": "https://forgottenrealms.fandom.com/wiki/Greyspace"
+    },
+    {
+      "id": "krynnspace",
+      "name": "Krynnspace",
+      "kind": "sphere",
+      "url": "https://forgottenrealms.fandom.com/wiki/Krynnspace"
+    },
+    {
+      "id": "refuge",
+      "name": "Refuge",
+      "kind": "sphere"
+    },
+    {
+      "id": "pirtelspace",
+      "name": "Pirtelspace",
+      "kind": "sphere",
+      "url": "https://forgottenrealms.fandom.com/wiki/Pirtelspace"
+    },
+    {
+      "id": "darnannon",
+      "name": "Darnannon",
+      "kind": "sphere"
+    },
+    {
+      "id": "moragspace",
+      "name": "Moragspace",
+      "kind": "sphere"
+    },
+    {
+      "id": "winterspace",
+      "name": "Winterspace",
+      "kind": "sphere",
+      "url": "https://forgottenrealms.fandom.com/wiki/Winterspace"
+    },
+    {
+      "id": "shadowspace",
+      "name": "Shadowspace",
+      "kind": "sphere"
+    },
+    {
+      "id": "clusterspace",
+      "name": "Clusterspace",
+      "kind": "sphere",
+      "url": "https://forgottenrealms.fandom.com/wiki/Clusterspace"
+    },
+    {
+      "id": "vodoni",
+      "name": "Vodoni Empire",
+      "kind": "empire",
+      "url": "https://forgottenrealms.fandom.com/wiki/Vodoni_Empire"
+    }
+  ],
+  "flows": [
+    {
+      "from": "realmspace",
+      "to": "greyspace",
+      "days": null,
+      "way": "two",
+      "quote": "The phlogiston had a strong current that flowed between Realmspace and Greyspace, making two-way travel between the two crystal spheres relatively simple.",
+      "url": "https://forgottenrealms.fandom.com/wiki/Phlogiston",
+      "ref": "Spelljammer: AD&D Adventures in Space: Concordance of Arcane Space, с. 10–11"
+    },
+    {
+      "from": "greyspace",
+      "to": "krynnspace",
+      "days": null,
+      "way": "one",
+      "quote": "There were one-way flows from Greyspace to Krynnspace and from Krynnspace to Realmspace, but not in the opposite directions.",
+      "url": "https://forgottenrealms.fandom.com/wiki/Phlogiston",
+      "ref": "Spelljammer: AD&D Adventures in Space: Concordance of Arcane Space, с. 10–11"
+    },
+    {
+      "from": "krynnspace",
+      "to": "realmspace",
+      "days": 53,
+      "way": "one",
+      "quote": "Recorded travel times indicate that in order for someone to travel from Krynnspace to Realmspace, it would take them around 53 days aboard a spelljammer (SJD).",
+      "url": "https://forgottenrealms.fandom.com/wiki/Phlogiston",
+      "ref": "Into the Void, с. 168"
+    },
+    {
+      "from": "realmspace",
+      "to": "refuge",
+      "days": 7,
+      "way": "two",
+      "quote": "From Realmspace to Refuge (and vice-versa), it would take travelers around 7 days.",
+      "url": "https://forgottenrealms.fandom.com/wiki/Realmspace",
+      "ref": "Dungeon 36: The Sea of Sorrow"
+    },
+    {
+      "from": "refuge",
+      "to": "pirtelspace",
+      "days": null,
+      "way": "two",
+      "quote": "Pirtelspace was located halfway between Refugespace and Darnannonspace in the Arcane Inner Flow. The flow currents in the region allowed for two-way travel to both neighboring spheres.",
+      "url": "https://forgottenrealms.fandom.com/wiki/Pirtelspace",
+      "ref": "Dungeon 36: The Sea of Sorrow, с. 44–45"
+    },
+    {
+      "from": "pirtelspace",
+      "to": "darnannon",
+      "days": null,
+      "way": "two",
+      "quote": "Pirtelspace was located halfway between Refugespace and Darnannonspace in the Arcane Inner Flow. The flow currents in the region allowed for two-way travel to both neighboring spheres.",
+      "url": "https://forgottenrealms.fandom.com/wiki/Pirtelspace",
+      "ref": "Dungeon 36: The Sea of Sorrow, с. 44–45"
+    },
+    {
+      "from": "moragspace",
+      "to": "realmspace",
+      "days": 21,
+      "way": "",
+      "quote": "Recorded travel times indicate that in order for someone to travel from Moragspace to Realmspace, it would take travelers around 21 days.",
+      "url": "https://forgottenrealms.fandom.com/wiki/Realmspace",
+      "ref": "SJQ1 Heart of the Enemy, с. 7"
+    },
+    {
+      "from": "realmspace",
+      "to": "winterspace",
+      "days": 45,
+      "way": "",
+      "quote": "From Realmspace to Winterspace, it would take travelers around 45 days.",
+      "url": "https://forgottenrealms.fandom.com/wiki/Realmspace",
+      "ref": "The Radiant Dragon, с. 155"
+    },
+    {
+      "from": "realmspace",
+      "to": "shadowspace",
+      "days": [
+        12,
+        21
+      ],
+      "way": "",
+      "quote": "From Realmspace to Shadowspace, it would take travelers around 12 to 21 days.",
+      "url": "https://forgottenrealms.fandom.com/wiki/Realmspace",
+      "ref": "The Radiant Dragon, с. 155"
+    },
+    {
+      "from": "realmspace",
+      "to": "clusterspace",
+      "days": null,
+      "way": "",
+      "quote": "Other connections include Clusterspace and the Vodoni Empire.",
+      "url": "https://forgottenrealms.fandom.com/wiki/Realmspace",
+      "ref": null
+    },
+    {
+      "from": "realmspace",
+      "to": "vodoni",
+      "days": null,
+      "way": "",
+      "quote": "Other connections include Clusterspace and the Vodoni Empire.",
+      "url": "https://forgottenrealms.fandom.com/wiki/Realmspace",
+      "ref": null
+    }
+  ],
+  "groups": [
+    {
+      "id": "inner-flow",
+      "name": "Arcane Inner Flow",
+      "members": [
+        "refuge",
+        "pirtelspace",
+        "darnannon"
+      ],
+      "quote": "It encompassed nearly a dozen crystal spheres, including Refuge, a close neighbor of Realmspace and the site of a spaceport controlled by the Arcane, as well as Pirtelspace and the elven-controlled sphere of Darnannon.",
+      "url": "https://forgottenrealms.fandom.com/wiki/Phlogiston",
+      "ref": "Dungeon 36: The Sea of Sorrow, с. 40–45"
+    },
+    {
+      "id": "triangle",
+      "name": "Треугольник",
+      "members": [
+        "realmspace",
+        "greyspace",
+        "krynnspace"
+      ],
+      "quote": "One such stable configuration was a triangle consisting of Realmspace, in which Toril was located; Greyspace, where the world of Oerth was found; and Krynnspace, home to the world of Krynn.",
+      "url": "https://forgottenrealms.fandom.com/wiki/Phlogiston",
+      "ref": "Spelljammer: AD&D Adventures in Space: Concordance of Arcane Space, с. 10–11"
+    }
+  ]
+}

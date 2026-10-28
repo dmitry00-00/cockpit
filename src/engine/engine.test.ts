@@ -36,9 +36,11 @@ function seed(): State {
 }
 
 describe('список событий', () => {
-  it('13 из пакета плюс 8 по решению владельца 19.09.2026 плюс 3 от 21.09.2026; у каждого — обратимость и журнал', () => {
-    expect(EVENT_TYPES).toHaveLength(24);
-    expect(EVENT_TYPES.slice(13)).toEqual(['ENCOUNTER_STARTED', 'ENCOUNTER_ENDED', 'INITIATIVE_SET', 'CONCENTRATION_STARTED', 'CONCENTRATION_ENDED', 'ACTOR_SPAWNED', 'ACTOR_REMOVED', 'WORLD_DELTA_PROPOSED', 'REST_TAKEN', 'RESOURCE_SPENT', 'RESOURCE_RESTORED']);
+  it('13 из пакета плюс 8 по решению владельца 19.09.2026, 3 от 21.09.2026 и 2 от 27.10.2026; у каждого — обратимость и журнал', () => {
+    expect(EVENT_TYPES).toHaveLength(26);
+    expect(EVENT_TYPES.slice(13)).toEqual(['ENCOUNTER_STARTED', 'ENCOUNTER_ENDED', 'INITIATIVE_SET', 'CONCENTRATION_STARTED', 'CONCENTRATION_ENDED', 'ACTOR_SPAWNED', 'ACTOR_REMOVED', 'WORLD_DELTA_PROPOSED', 'REST_TAKEN', 'RESOURCE_SPENT', 'RESOURCE_RESTORED', 'PARTY_TRAVELED', 'PLACE_REVEALED']);
+    expect(EVENT_META.PARTY_TRAVELED).toEqual({ reversible: true, journal: true });
+    expect(EVENT_META.PLACE_REVEALED).toEqual({ reversible: true, journal: true });
     expect(EVENT_META.REST_TAKEN).toEqual({ reversible: true, journal: true });
     expect(EVENT_META.RESOURCE_SPENT).toEqual({ reversible: true, journal: true });
     expect(EVENT_META.RESOURCE_RESTORED).toEqual({ reversible: true, journal: true });
@@ -246,6 +248,71 @@ describe('отдых (решение владельца 21.09.2026)', () => {
     expect(() => log.dispatch({ type: 'REST_TAKEN', payload: { kind: 'long', actorIds: ['bo'] } })).toThrow(/в бою/);
     // Ни одна ошибка не легла в лог.
     expect(log.entries.filter(e => e.type === 'REST_TAKEN')).toHaveLength(0);
+  });
+});
+
+describe('поход и открытие места (решение владельца 27.10.2026)', () => {
+  const withPlaces = () => {
+    const s = seed();
+    s.world.locations = {
+      nw: { id: 'nw', name: 'Neverwinter', scale: 'settlement', geo: { map: 'toril', x: 8522, y: 2610 } },
+      tb: { id: 'tb', name: 'Triboar', scale: 'settlement', geo: { map: 'toril', x: 8906, y: 2752 } },
+    };
+    s.actors.bo.locationId = 'nw';
+    return s;
+  };
+  const route = { fromId: 'nw', toId: 'tb', map: 'toril', points: [{ x: 8522, y: 2610 }, { x: 8906, y: 2752 }], miles: 204.7, pace: 'normal' as const, days: 8.5 };
+
+  it('партия переезжает целиком, выбывший — нет; отмена возвращает каждому его место, у кого не было — снова нет', () => {
+    const s = withPlaces();
+    s.party = ['bo', 'korrin', 'captain'];
+    s.actors.captain.removed = true;
+    const log = new EventLog(s, [], fixed());
+    log.dispatch({ type: 'PARTY_TRAVELED', payload: route });
+    expect(log.state.actors.bo.locationId).toBe('tb');
+    expect(log.state.actors.korrin.locationId).toBe('tb');
+    expect(log.state.actors.captain.locationId).toBeUndefined();
+    log.undo();
+    expect(log.state.actors.bo.locationId).toBe('nw');
+    expect(log.state.actors.korrin.locationId).toBeUndefined();
+    log.redo();
+    expect(log.state.actors.korrin.locationId).toBe('tb');
+    const [entry] = journalEntries(log.entries.slice(0, 1), log.state);
+    expect(entry).toMatchObject({ scale: 'region', text: 'Поход: Neverwinter → Triboar, 205 миль, 8,5 дня (обычный темп)' });
+    expect(describeEvent({ ...log.entries[0], payload: { ...route, difficult: true, days: 17 } } as never, log.state)).toBe('Поход: Neverwinter → Triboar, 205 миль, 17 дней (обычный темп, трудная местность)');
+  });
+
+  it('проверки: куда — существующее место, путь — две точки, темп SRD, в бою — нельзя; не прошедшее в лог не попадает', () => {
+    const log = new EventLog(withPlaces(), [], fixed());
+    const go = (patch: object) => () => log.dispatch({ type: 'PARTY_TRAVELED', payload: { ...route, ...patch } as never });
+    expect(go({ toId: 'nowhere' })).toThrow(/нет места/);
+    expect(go({ points: [{ x: 0, y: 0 }] })).toThrow(/две точки/);
+    expect(go({ pace: 'gallop' })).toThrow(/темп похода/);
+    expect(go({ days: 0 })).toThrow(EngineError);
+    log.dispatch({ type: 'ENCOUNTER_STARTED', payload: { order: [{ actorId: 'bo', initiative: 15 }] } });
+    expect(go({})).toThrow(/в бою/);
+    expect(log.entries.filter(e => e.type === 'PARTY_TRAVELED')).toHaveLength(0);
+  });
+
+  it('место открыто игрокам: флаг на месте, дважды — нельзя, отмена снимает; запись журнала — игрокам', () => {
+    const log = new EventLog(withPlaces(), [], fixed());
+    log.dispatch({ type: 'PLACE_REVEALED', payload: { locationId: 'tb' } });
+    expect(log.state.world.locations.tb.revealed).toBe(true);
+    expect(() => log.dispatch({ type: 'PLACE_REVEALED', payload: { locationId: 'tb' } })).toThrow(/уже открыто/);
+    expect(() => log.dispatch({ type: 'PLACE_REVEALED', payload: { locationId: 'x' } })).toThrow(/нет места/);
+    const [entry] = journalEntries(log.entries, log.state);
+    expect(entry).toMatchObject({ origin: 'players', scale: 'settlement', text: 'Открыто игрокам: Triboar' });
+    log.undo();
+    expect(log.state.world.locations.tb.revealed).toBeUndefined();
+  });
+
+  it('реплей лога с походом даёт то же состояние', () => {
+    const log = new EventLog(withPlaces(), [], fixed());
+    log.dispatch({ type: 'PARTY_TRAVELED', payload: route });
+    log.dispatch({ type: 'PLACE_REVEALED', payload: { locationId: 'nw' } });
+    log.undo();
+    const again = new EventLog(withPlaces(), log.entries, fixed());
+    expect(again.state).toEqual(log.state);
   });
 });
 
@@ -459,6 +526,8 @@ describe('журнал — проекция', () => {
       WORLD_DELTA_PROPOSED: { delta: s.deltas.d1 },
       REST_TAKEN: { kind: 'short', actorIds: ['bo', 'korrin'], hitDice: [{ actorId: 'bo', dice: 2, healed: 13 }] },
       RESOURCE_SPENT: { actorId: 'bo', resourceId: 'slot-1', amount: 1, max: 4 }, RESOURCE_RESTORED: { actorId: 'bo', resourceId: 'ki', amount: 2, max: 5 },
+      PARTY_TRAVELED: { toId: 'nw', map: 'toril', points: [{ x: 0, y: 0 }, { x: 1, y: 1 }], miles: 1, pace: 'normal', days: 0.1 },
+      PLACE_REVEALED: { locationId: 'nw' },
     };
     for (const t of EVENT_TYPES) {
       const text = describeEvent({ id: 'x', seq: 0, at: 0, worldSec: 0, type: t, payload: samples[t] as never }, s);

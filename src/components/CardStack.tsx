@@ -50,6 +50,7 @@ const EDGE: Readonly<Record<EntityType, string>> = {
   planet: 'shadow-[inset_3px_0_0_var(--ent-plane),inset_0_-1px_0_var(--lo)]',
   deity: 'shadow-[inset_3px_0_0_var(--ent-deity),inset_0_-1px_0_var(--lo)]',
   event: 'shadow-[inset_3px_0_0_var(--ent-event),inset_0_-1px_0_var(--lo)]',
+  rule: 'shadow-[inset_3px_0_0_var(--ent-rule),inset_0_-1px_0_var(--lo)]',
 };
 
 /** Кольцо фокуса поверх полосы типа: глобальное затирает её, поэтому пишем вместе. */
@@ -64,6 +65,7 @@ const FOCUS: Readonly<Record<EntityType, string>> = {
   planet: 'focus-visible:shadow-[inset_3px_0_0_var(--ent-plane),var(--glow-gold)]',
   deity: 'focus-visible:shadow-[inset_3px_0_0_var(--ent-deity),var(--glow-gold)]',
   event: 'focus-visible:shadow-[inset_3px_0_0_var(--ent-event),var(--glow-gold)]',
+  rule: 'focus-visible:shadow-[inset_3px_0_0_var(--ent-rule),var(--glow-gold)]',
 };
 
 /** Метка порога хитов — заливка, как у полосы HpBar; текстом hp-* не ставится. Строки полные — Tailwind ищет их в исходнике. */

@@ -37,6 +37,28 @@ export interface CharacterSheet {
   alignment?: string;
   /** Рост, вес, возраст — как на бумажном листе; заполняется, когда игрок сказал. */
   bio?: { height?: string; weight?: string; age?: number };
+  /** Компетентность: навыки (и «thieves-tools») с удвоенным бонусом мастерства. Нет поля — нет компетентности. */
+  expertise?: readonly string[];
+  /** Сделанные выборы умений: боевой стиль, избранный враг, предок дракона… — подписью и id вариантов. */
+  choices?: readonly { id: string; label: string; values: readonly { id: string; name: string }[] }[];
+  /** Заклинательство по SRD: характеристика, Сл спасброска и бонус атаки заклинанием, заклинания SRD по id. */
+  spellcasting?: {
+    ability: AbilityId;
+    saveDc: number;
+    attack: number;
+    kind: 'known' | 'prepared' | 'spellbook';
+    maxLevel: number;
+    cantrips: readonly string[];
+    spells: readonly string[];
+    /** Всегда подготовлены (домен, клятва) и не считаются. */
+    always: readonly string[];
+  };
+  /** Черты (feats) из таблицы владельца: id, имя, где взяты (раса или уровень ASI), +1 к характеристике. */
+  feats?: readonly { id: string; name: string; at: 'race' | number; asi?: AbilityId }[];
+  /** Снаряжение — предметы SRD по id с количеством (content/srd/equipment.json). */
+  equipment?: readonly { id: string; qty: number }[];
+  /** Атаки оружием из снаряжения: бонус к попаданию и урон уже посчитаны по листу. */
+  attacks?: readonly { id: string; name: string; toHit: number; damage: string; damageType: string; proficient: boolean; range?: string }[];
 }
 
 /** Действующий эффект заклинания без концентрации (Mage Armor): состоянием SRD не является, событий для него нет. */
@@ -133,6 +155,19 @@ export interface Location {
   danger?: 'low' | 'medium' | 'high';
   /** Надбавка к ценам в процентах: +10 → «цены +10%». */
   pricePercent?: number;
+  /** Где место на карте мира: пиксели исходного растра карты `map` (content/maps/<map>.json). */
+  geo?: LocationGeo;
+  /** Открыто игрокам (PLACE_REVEALED): туман знаний вокруг места снят и на их столе. */
+  revealed?: boolean;
+}
+
+export interface LocationGeo {
+  map: string;
+  x: number;
+  y: number;
+  /** Полуширина рамки, в которую карта вписывает место на его уровне; ry — полувысота, если рамка не квадрат. */
+  r?: number;
+  ry?: number;
 }
 
 export interface Faction {

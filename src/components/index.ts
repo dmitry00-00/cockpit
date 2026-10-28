@@ -14,7 +14,7 @@ export {
 } from './ConditionChip';
 export { ConditionGrid, toggleCommand, exhaustionCommand, type ConditionGridProps } from './ConditionGrid';
 export { PartySpine, type PartySpineProps } from './PartySpine';
-export { PartySpineRow, partyRowOf, partyRowDescription, type PartySpineRowProps, type PartyRow, type AwayLocation } from './PartySpineRow';
+export { PartySpineRow, partyRowOf, partyRowDescription, lineageOf, type PartySpineRowProps, type PartyRow, type AwayLocation } from './PartySpineRow';
 export {
   HpControl, HpPopover, parseAmount, digitsOnly, lastDamageOf, QUICK_DAMAGE, QUICK_TEMP,
   type HpControlProps, type HpPopoverProps, type DamageRef,
@@ -92,7 +92,21 @@ export { ConcentrationForm, CONCENTRATION_DURATIONS, type ConcentrationFormProps
 export { RestForm, REST_LABELS, parseDice, parseHealed, diceFormula, type RestFormProps, type RestRow } from './RestForm';
 // F9 — планшет: свёрнутая боковая панель — полоса иконок 40px; что свёрнуто и раскрыто — состояние страницы.
 export { IconRail, type IconRailProps, type IconRailItem } from './IconRail';
+export { PartyPortraits, type PartyPortraitsProps } from './PartyPortraits';
+export { EntityViewBody, cardTypeOf, type EntityViewBodyProps } from './EntityViewBody';
+export { OpenEntityContext, useOpenEntity } from './openEntity';
+export { HarptosDial, PHASE_HOURS, dialPoint, type HarptosDialProps } from './HarptosDial';
 // Ресурсы персонажа пипками (решение владельца 21.09.2026): максимум и потраченное пропсами, события пишет страница.
 export { ResourcePips, PIPS_MAX, parsePoolAmount, type ResourcePipsProps, type ResourcePipsKind } from './ResourcePips';
 // Русские подписи характеристик и навыков — слой вида, одна таблица на стол и редактор.
 export { ABILITY_LABEL, SKILL_LABEL, SKILLS_BY_ABILITY } from './labels';
+// Секции листа из редактора персонажа: выборы умений, атаки, заклинания, снаряжение — одни на карточке стола и в редакторе.
+export { IconGrid, type IconGridItem } from './IconGrid';
+export { abilityIcon, classIcon, raceIcon, schoolIcon, featIcon, featureIcon, traitIcon, TRAIT_ICON } from './sheetIcons';
+export { SheetChoices, SheetFeats, SheetAttacks, SheetSpells, SheetEquipment, dollExtrasOf, choiceValueLabel, spellTitle, itemLabel } from './SheetSections';
+
+// Лист по бумажной карточке владельца и поверхности из макетов 27.10.2026: паспорт данных, подвал партии со сводкой
+// выборки, лист сравнения. Тупые: числа — из campaign/sheetView.ts.
+export { AbilityScores, SkillList, ProficiencyMark, DataPassport, PcHeader, bySkillLabel, type AbilityCell, type SkillCell, type SkillProficiency, type PassportData, type PcHeaderData } from './PcSheet';
+export { PartyFooter, type PartyFooterProps, type PartySummaryData } from './PartyFooter';
+export { CompareSheet, bestOf, type CompareSheetProps, type CompareColumn } from './CompareSheet';

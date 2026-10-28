@@ -4,13 +4,15 @@
 // ничего не хранится. Фильтр журнала — состояние вида, поэтому filterJournal — чистая функция над записями.
 import { CONDITIONS } from '../rules/srd/conditions';
 import { RESOURCES } from '../rules/srd/resources';
+import { TRAVEL_PACES } from '../rules/srd/travel';
 import { EVENT_META, SCALE_LEVELS, TEMPO_SECONDS, type DomainEvent, type PayloadByType, type ScaleLevel, type Tempo } from './events';
 import type { Fact, State, WorldDelta } from './state';
 
 /** Кусок текста записи: обычный, @упоминание сущности (открывает карточку), #нить (фильтр). */
 export type JournalPart =
   | { kind: 'text'; text: string }
-  | { kind: 'mention'; entity: 'actor' | 'location' | 'faction'; id: string; name: string }
+  /** entity 'ref' — справочная сущность, id — ссылка «вид:id» (заклинание в записи концентрации). */
+  | { kind: 'mention'; entity: 'actor' | 'location' | 'faction' | 'ref'; id: string; name: string }
   | { kind: 'thread'; id: string; name: string };
 
 /** Откуда запись: рука мастера, симуляция (предложения), открыто игрокам. Метка происхождения — иконка src-*. */
@@ -195,8 +197,23 @@ export function describe(event: DomainEvent, state: State): string {
       });
       return `Короткий отдых: ${who.join(', ')}`;
     }
+    case 'PARTY_TRAVELED': {
+      const p = event.payload as PayloadByType['PARTY_TRAVELED'];
+      const place = (id: string | undefined) => (id ? state.world.locations[id]?.name ?? id : undefined);
+      const from = place(p.fromId);
+      const miles = Math.round(p.miles);
+      const days = String(p.days).replace('.', ',');
+      return `Поход: ${from ? `${from} → ` : ''}${place(p.toId)}, ${miles} ${plural(miles, MILES)}, ${days} ${Number.isInteger(p.days) ? plural(p.days, DAYS) : 'дня'} (${TRAVEL_PACES[p.pace]?.label ?? p.pace} темп${p.difficult ? ', трудная местность' : p.difficultMiles ? `, по трудной местности ${Math.round(p.difficultMiles)} ${plural(Math.round(p.difficultMiles), MILES)}` : ''})`;
+    }
+    case 'PLACE_REVEALED': {
+      const p = event.payload as PayloadByType['PLACE_REVEALED'];
+      return `Открыто игрокам: ${state.world.locations[p.locationId]?.name ?? p.locationId}`;
+    }
   }
 }
+
+const MILES: readonly [string, string, string] = ['миля', 'мили', 'миль'];
+const DAYS: readonly [string, string, string] = ['день', 'дня', 'дней'];
 
 const HIT_DICE: readonly [string, string, string] = ['кость', 'кости', 'костей'];
 
@@ -300,6 +317,16 @@ export function journalEntries(events: readonly DomainEvent[], state: State): Jo
         entry.secret = f?.visibility !== 'players';
         break;
       }
+      case 'PARTY_TRAVELED':
+        // Поход — дни пути по карте: уровень региона, как у темпа «день».
+        entry.scale = 'region';
+        break;
+      case 'PLACE_REVEALED': {
+        const p = e.payload as PayloadByType['PLACE_REVEALED'];
+        entry.origin = 'players';
+        entry.scale = state.world.locations[p.locationId]?.scale;
+        break;
+      }
       default:
         break;
     }
@@ -315,13 +342,15 @@ type MentionEntity = Extract<JournalPart, { kind: 'mention' }>['entity'];
 /**
  * Текст записи по кускам: имена актёров, мест и фракций из состояния становятся @упоминаниями (длинные
  * имена раньше коротких, чтобы «Bandit Captain» не разрезался на «Bandit»), нити записи — #чипами в конце.
- * Имена ищутся по границам слова: «Bo» не зажигается внутри «Bolt».
+ * Имена ищутся по границам слова: «Bo» не зажигается внутри «Bolt». extra — имена справочника со ссылками (страница
+ * даёт заклинания SRD): при равной длине имя из состояния важнее.
  */
-export function journalParts(entry: Pick<JournalEntry, 'text' | 'threadIds'>, state: State): JournalPart[] {
+export function journalParts(entry: Pick<JournalEntry, 'text' | 'threadIds'>, state: State, extra: readonly { ref: string; name: string }[] = []): JournalPart[] {
   const names: { entity: MentionEntity; id: string; name: string }[] = [
     ...Object.values(state.actors).map(a => ({ entity: 'actor' as const, id: a.id, name: a.name })),
     ...Object.values(state.world.locations).map(l => ({ entity: 'location' as const, id: l.id, name: l.name })),
     ...Object.values(state.world.factions).map(f => ({ entity: 'faction' as const, id: f.id, name: f.name })),
+    ...extra.map(x => ({ entity: 'ref' as const, id: x.ref, name: x.name })),
   ].filter(n => n.name.length > 0).sort((a, b) => b.name.length - a.name.length);
   const text = entry.text;
   const taken: { start: number; end: number; part: JournalPart }[] = [];

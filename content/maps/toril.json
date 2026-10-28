@@ -1,0 +1,33 @@
+{
+  "id": "toril",
+  "label": "Toril",
+  "note": "Карта HandsomeRob: исходник 30600×13400 в maps/abeir toril/ (в репозиторий не идёт), тайлы режет scripts/tile-map.py в maps/tiles/toril/. Координаты мест в сиде — пиксели этого исходника.",
+  "source": {
+    "file": "maps/abeir toril/HandsomeRobs_map_of_Toril-TorilMap.tif",
+    "author": "HandsomeRob",
+    "extent": {
+      "lon": [
+        27,
+        327
+      ],
+      "lat": [
+        88,
+        -61
+      ]
+    }
+  },
+  "width": 30600,
+  "height": 13400,
+  "tileSize": 256,
+  "maxZoom": 7,
+  "format": "webp",
+  "quality": 82,
+  "tiles": "/maps/tiles/toril",
+  "milesPerPixel": 0.37,
+  "calibration": "0.37 мили на пиксель исходника (уточнено 27.10.2026, было 0.5). Канон: серия D&D Beyond «Road to Baldur's Gate» — Waterdeep → Baldur's Gate «около 750 миль» по Trade Way через Daggerford, Boareskyr Bridge, Triel, Scornubel, Elturel; на растре те же значки ломаной — 1995 px (дорога длиннее ломаной, так что 0.376 — верхняя граница). Сходится с Lost Mine of Phandelver: Neverwinter → Phandalin по дорогам ≈ 210 px ≈ 78 миль, около трёх дней. Toril GIS (основа — карты 2e) даёт по долготе 0.35, по широте 0.6: его карта вытянута с севера на юг относительно HandsomeRob, по нему не калибруем. Карта не равнопромежуточная — вдали от Sword Coast погрешность растёт.",
+  "terrain": {
+    "url": "/maps/tiles/toril/terrain.png",
+    "cell": 8,
+    "note": "Местность по цвету растра: scripts/terrain-from-map.py (после tile-map.py), класс на клетку 8×8 px исходника."
+  }
+}

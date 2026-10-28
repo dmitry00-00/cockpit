@@ -24,17 +24,18 @@ export function seedWorld(nowSec: number): World {
       [LOCATION.greatWheel]: { id: LOCATION.greatWheel, name: 'Великое Колесо', scale: 'cosmology' },
       [LOCATION.material]: { id: LOCATION.material, name: 'Материальный', scale: 'plane', parentId: LOCATION.greatWheel },
       [LOCATION.realmspace]: { id: LOCATION.realmspace, name: 'Realmspace', scale: 'system', parentId: LOCATION.material },
-      [LOCATION.toril]: { id: LOCATION.toril, name: 'Toril', scale: 'planet', parentId: LOCATION.realmspace },
-      [LOCATION.faerun]: { id: LOCATION.faerun, name: 'Faerûn', scale: 'continent', parentId: LOCATION.toril },
-      [LOCATION.swordCoastNorth]: { id: LOCATION.swordCoastNorth, name: 'Sword Coast North', scale: 'region', parentId: LOCATION.faerun },
-      [LOCATION.neverwinter]: { id: LOCATION.neverwinter, name: 'Neverwinter', scale: 'settlement', parentId: LOCATION.swordCoastNorth, population: 23_000, danger: 'medium', pricePercent: 10 },
+      [LOCATION.toril]: { id: LOCATION.toril, name: 'Toril', scale: 'planet', parentId: LOCATION.realmspace, geo: { map: 'toril', x: 15300, y: 6700, r: 15300 } },
+      [LOCATION.faerun]: { id: LOCATION.faerun, name: 'Faerûn', scale: 'continent', parentId: LOCATION.toril, geo: { map: 'toril', x: 12800, y: 4200, r: 5400, ry: 2900 } },
+      [LOCATION.swordCoastNorth]: { id: LOCATION.swordCoastNorth, name: 'Sword Coast North', scale: 'region', parentId: LOCATION.faerun, geo: { map: 'toril', x: 8750, y: 2700, r: 450 } },
+      [LOCATION.neverwinter]: { id: LOCATION.neverwinter, name: 'Neverwinter', scale: 'settlement', parentId: LOCATION.swordCoastNorth, population: 23_000, danger: 'medium', pricePercent: 10, geo: { map: 'toril', x: 8522, y: 2610, r: 120 } },
       // Здание §3 — Южные ворота Neverwinter: место на уровне здания, чтобы `]` из поселения было куда спуститься.
       [LOCATION.southGate]: { id: LOCATION.southGate, name: 'Южные ворота', scale: 'building', parentId: LOCATION.neverwinter },
+      // geo — пиксели исходника карты HandsomeRob (content/maps/toril.json): по подписям на самой карте, 27.10.2026.
       // Подрегионы Sword Coast North: тот же уровень, что родитель, — лестница держит одно место на уровень,
       // и подрегион становится точкой фокуса региона, когда мастер его выбрал.
-      [LOCATION.triboarTrail]: { id: LOCATION.triboarTrail, name: 'Triboar Trail', scale: 'region', parentId: LOCATION.swordCoastNorth },
-      [LOCATION.neverwinterWood]: { id: LOCATION.neverwinterWood, name: 'Neverwinter Wood', scale: 'region', parentId: LOCATION.swordCoastNorth },
-      [LOCATION.oldOwlWell]: { id: LOCATION.oldOwlWell, name: 'Old Owl Well', scale: 'building', parentId: LOCATION.swordCoastNorth },
+      [LOCATION.triboarTrail]: { id: LOCATION.triboarTrail, name: 'Triboar Trail', scale: 'region', parentId: LOCATION.swordCoastNorth, geo: { map: 'toril', x: 8840, y: 2730, r: 220 } },
+      [LOCATION.neverwinterWood]: { id: LOCATION.neverwinterWood, name: 'Neverwinter Wood', scale: 'region', parentId: LOCATION.swordCoastNorth, geo: { map: 'toril', x: 8570, y: 2520, r: 120 } },
+      [LOCATION.oldOwlWell]: { id: LOCATION.oldOwlWell, name: 'Old Owl Well', scale: 'building', parentId: LOCATION.swordCoastNorth, geo: { map: 'toril', x: 8700, y: 2668 } },
     },
     factions: {
       [FACTION.zhentarim]: { id: FACTION.zhentarim, name: 'Zhentarim', renown: 0, influencePercent: 45, trend: 1, goal: 'контроль над Triboar Trail' },

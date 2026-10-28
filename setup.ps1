@@ -217,6 +217,26 @@ if ($Dev) {
   if ($LASTEXITCODE -ne 0) { Fail 'сборка не прошла' }
 }
 
+# 3½. Карта мира: пирамида тайлов из большого .tif (scripts\tile-map.py, HANDOFF §14 шаг 11). Исходника в git нет —
+# нет его, Python с Pillow или GDAL — шаг говорит об этом и не останавливает установку: стол работает и без карты.
+if (-not (Test-Path (Join-Path $Root 'maps\tiles\toril\done.json'))) {
+  Step 'Карта мира'
+  $py = Join-Path $Root '.venv\Scripts\python.exe'
+  if (Test-Path $py) {
+    & $py (Join-Path $Root 'scripts\tile-map.py') (Join-Path $Root 'content\maps\toril.json') --optional
+    if ($LASTEXITCODE -ne 0) { Write-Host 'тайлы не нарезаны — см. выше; стол работает и без карты' }
+  } else {
+    Write-Host 'нет .venv с Pillow — карта без тайлов; чтобы нарезать: поставить Python с Pillow в .venv, потом снова setup.cmd'
+  }
+}
+# Местность для похода (scripts\terrain-from-map.py, TASKS M9) — из тайлов z4, секунды; без неё поход — по галочке мастера.
+$pyT = Join-Path $Root '.venv\Scripts\python.exe'
+if ((Test-Path (Join-Path $Root 'maps\tiles\toril\done.json')) -and -not (Test-Path (Join-Path $Root 'maps\tiles\toril\terrain.png')) -and (Test-Path $pyT)) {
+  Step 'Местность карты'
+  & $pyT (Join-Path $Root 'scripts\terrain-from-map.py') (Join-Path $Root 'content\maps\toril.json') --optional
+  if ($LASTEXITCODE -ne 0) { Write-Host 'местность не посчитана — поход по галочке мастера' }
+}
+
 if ($Start) {
   $hostArgs = @()
   if ($Lan) { $hostArgs = @('--host') }

@@ -1,4 +1,4 @@
-// Появление противника в сессии (ACTOR_SPAWNED): блок SRD из списка, имя, сколько штук. Компонент тупой —
+// Появление противника в сессии (ACTOR_SPAWNED): блок из списка (SRD, Black Flag, A5E — с подписью библиотеки), имя, сколько штук. Компонент тупой —
 // список блоков, подсказка имени и колбэк приходят пропсами; снимок актёра собирает страница (spawnMonsters),
 // здесь только выбор. Блок — кнопка с CR, AC и хитами: за столом выбирают по силе, а не по алфавиту.
 // Имя подставляется из подсказки при смене блока, пока мастер его не тронул; несколько штук — с номерами.
@@ -11,6 +11,8 @@ export interface SpawnOption {
   cr: string;
   ac: number;
   hp: number;
+  /** Библиотека блока за столом: «SRD», «Black Flag», «A5E» — одноимённые блоки (Bandit) различаются ею. */
+  origin?: string;
   /** Подсказка имени для этого блока — от страницы: «Bandit 4», если трое уже есть. */
   suggested: string;
 }
@@ -84,10 +86,11 @@ export function SpawnForm({ options, onSpawn, className = '' }: SpawnFormProps) 
         onKeyDown={onKeyDown}
         className={INPUT}
       />
-      <div role="group" aria-label="Блок SRD" className="flex flex-col gap-1 max-h-64 overflow-auto">
+      <div role="group" aria-label="Блок" className="flex flex-col gap-1 max-h-64 overflow-auto">
         {shown.map(o => (
-          <button key={o.id} type="button" aria-pressed={o.id === monsterId} title={`${o.name}: CR ${o.cr}, AC ${o.ac}, ${o.hp} хитов`} onClick={() => pick(o)} className={`${OPT} ${o.id === monsterId ? OPT_ON : OPT_OFF}`}>
+          <button key={o.id} type="button" aria-pressed={o.id === monsterId} title={`${o.name}${o.origin ? ` (${o.origin})` : ''}: CR ${o.cr}, AC ${o.ac}, ${o.hp} хитов`} onClick={() => pick(o)} className={`${OPT} ${o.id === monsterId ? OPT_ON : OPT_OFF}`}>
             <span className="flex-1 min-w-0 truncate type-body">{o.name}</span>
+            {o.origin ? <span className="type-key flex-none text-t2">{o.origin}</span> : null}
             <span className="type-key flex-none">CR {o.cr}</span>
             <span className="type-key flex-none">AC {o.ac}</span>
             <span className="type-key flex-none">HP {o.hp}</span>

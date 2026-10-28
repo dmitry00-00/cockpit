@@ -159,6 +159,22 @@ elif [[ $MODE == setup ]] || stale; then
   npm run build || fail "сборка не прошла"
 fi
 
+# 3½. Карта мира: пирамида тайлов из большого .tif (scripts/tile-map.py, HANDOFF §14 шаг 11). Исходника в git нет —
+# нет его, Python с Pillow или GDAL — шаг говорит об этом и не останавливает установку: стол работает и без карты.
+if [[ ! -f maps/tiles/toril/done.json ]]; then
+  step "Карта мира"
+  if [[ -x .venv/bin/python ]]; then
+    .venv/bin/python scripts/tile-map.py content/maps/toril.json --optional || echo "тайлы не нарезаны — см. выше; стол работает и без карты"
+  else
+    echo "нет .venv с Pillow — карта без тайлов; чтобы нарезать: zsh setup-python.command, потом снова setup.command"
+  fi
+fi
+# Местность для похода (scripts/terrain-from-map.py, TASKS M9) — из тайлов z4, секунды; без неё поход — по галочке мастера.
+if [[ -f maps/tiles/toril/done.json && ! -f maps/tiles/toril/terrain.png && -x .venv/bin/python ]]; then
+  step "Местность карты"
+  .venv/bin/python scripts/terrain-from-map.py content/maps/toril.json --optional || echo "местность не посчитана — поход по галочке мастера"
+fi
+
 if [[ $MODE == start ]]; then
   local -a host=(); (( LAN )) && host=(--host)
   echo

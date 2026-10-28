@@ -12,681 +12,52 @@
 // «Добавить» в шапке главной зоны — противник из блока SRD (ACTOR_SPAWNED, в бою сразу в порядок),
 // «Концентрация» в карточке — CONCENTRATION_STARTED со сроком SRD. Пустые входящие — «Мир спокоен» и ближайший
 // праздник (CLAUDE.md, единственное исключение из правила пустых секций).
-import { Dialog, Popover, ToggleGroup } from 'radix-ui';
 import './DeskPage.css';
-import { Fragment, useEffect, useRef, useState, type ReactNode, type RefObject } from 'react';
+import { Dialog, Popover, ToggleGroup } from 'radix-ui';
+import { useEffect, useRef, useState, type ReactNode, type RefObject } from 'react';
 import {
-  NEAR_SCALES, abilityMod, conModOf, currentOrder, dayPhase, encounterCandidates, formatHarptos, hitDiceOf, inDays, initiativeMod, moonState, nextFestival, placeChain,
-  pcActor, placedActors, poolLabel, resourcePoolsOf, restCandidates, restResourcesOf, seedBattlefield, seedEngine, seedState, sortInitiative, spawnMonsters, srdClassOf, stepTime,
-  suggestMonsterName, takeRest, weatherLabel, weatherOf,
-  type PcSpec, type Sky,
+  conModOf, cosmologyOf, currentOrder, harptos, dayPhase, encounterCandidates, hitDiceOf, initiativeMod, moonState, nextFestival, placeChain, pcActor, placedActors,
+  poolLabel, resourcePoolsOf, restCandidates, restResourcesOf, seedBattlefield, seedEngine, seedState, sortInitiative, spawnMonsters, stepTime,
+  suggestMonsterName, takeRest, travel, weatherOf, sheetViewOf, passportOf, type PcSpec,
 } from '../campaign';
 import {
-  BattleGrid, CardStack, CelestialBar, ChangeSummary, ConcentrationForm, ConditionChip, ConditionGrid, DayPhaseStrip, EntityCard, HpControl, InitiativeBar,
-  IconRail, InitiativeEditor, JournalCascade, JournalEntry, JournalReminder, Paperdoll, PartySpine, PlayerFrame, ResourcePips, RestForm, RollModal, ScaleLadder, SpawnForm, StatTile,
-  ThreadCard, ThreadFilter, TimeTempo, WorldDelta,
-  CONCENTRATION_DURATIONS, DAY_PHASE_ICONS, DAY_PHASE_LABELS, MOON_ICONS, MOON_LABELS, SCALE_LABELS, SCALE_TEMPO_LABELS, TAB_OVERVIEW, TEMPO_LABELS,
-  actorCardProps, battleTokenOf, chipsOf, exhaustionCommand, factionCardProps, initiativeFormula, initiativeTokenOf, lastDamageOf, lastRollOf, placeCardProps,
-  placeEntityType, raceLabel, rollHistoryOf, signedMod, stackItemOf, summaryGroups, toggleCommand, toggleIn, worldDeltaProps,
-  SKILL_LABEL, SKILLS_BY_ABILITY,
-  type CardStackItem, type IconRailItem, type InitiativeBarEntry, type InitiativeRow, type JournalEntryProps, type MoonPhase, type RestRow, type ScaleStep, type SlotId,
-  type SlotItem, type SpawnOption, type ThreadCardRow,
+  BattleGrid, CardStack, ConcentrationForm, ConditionGrid, EntityCard, EntityViewBody, OpenEntityContext, cardTypeOf, HpControl, InitiativeBar, Paperdoll, PlayerFrame, ScaleLadder, SpawnForm,
+  SCALE_LABELS, SCALE_TEMPO_LABELS, TAB_OVERVIEW, actorCardProps, battleTokenOf, exhaustionCommand, factionCardProps, initiativeFormula,
+  initiativeTokenOf, lastDamageOf, lastRollOf, placeCardProps, stackItemOf, toggleCommand, CompareSheet, type CompareColumn, SheetEquipment,
+  dollExtrasOf, type IconRailItem, type InitiativeBarEntry, type InitiativeRow, type RestRow, type SpawnOption,
 } from '../components';
 import {
-  LEVEL_TEMPO, SCALE_LEVELS, cascadeOf, causeChain, childrenOf, createEngineStore, filterJournal, focusOf, initialLadder, journalEntries, journalParts, journalScales, jumpTo, ladderLevels,
-  localStorageStore, memoryStore, parseLog, serializeLog,
-  type EventStore,
-  moveLevel, normalizeLadder, pendingFor, pendingTargets, placeCounts, plural, selectPlace, threadSummaries,
-  type Actor, type Command, type EngineStoreApi, type EventType, type Faction, type InitiativeEntry, type JournalEntry as JournalRecord, type Ladder, type Location,
-  type RestHitDice, type RestKind, type ScaleLevel, type State, type Tempo, type ThreadSummary,
+  LEVEL_TEMPO, SCALE_LEVELS, childrenOf, createEngineStore, filterJournal, focusOf, initialLadder, journalEntries, jumpTo, ladderLevels,
+  localStorageStore, memoryStore, parseLog, serializeLog, type EventStore, moveLevel, normalizeLadder, partyPlaceId, pendingFor, pendingTargets,
+  placeCounts, plural, selectPlace, threadSummaries, type Actor, type Command, type EngineStoreApi, type InitiativeEntry,
+  type JournalEntry as JournalRecord, type Ladder, type RestHitDice, type RestKind, type ScaleLevel, type Tempo,
 } from '../engine';
 import { useEngine, useHpFlashes, useUndoKeys } from '../engine/useEngine';
-import { Icon, type IconName } from '../icons/Icon';
-import { classById, raceById } from '../rules/compendium';
+import { KIND_LABEL, isEntityRef, parseRef, type EntityRef } from '../entities';
+import { useEntity } from '../entities/useEntity';
+import { Icon } from '../icons/Icon';
+import { classById } from '../rules/compendium';
 import { CharacterEditor } from './editor/CharacterEditor';
+import { levelMap } from '../map/levelMap';
+import { type JourneyProps, type TravelRoute } from '../map/WorldMap';
+import { ENCOUNTER_TYPE_LABEL, JOURNEY_REGIONS, encounterAt, tierOfLevel } from '../rules/a5e/journey';
+import { LevelZone } from './desk/LevelZone';
+import { useMapData } from './desk/useMapData';
 import {
-  ABILITIES, ABILITY_IDS, ARMOR, CONDITIONS, MONSTER_IDS, MONSTERS, SHIELD, SKILLS, isArmorId,
-  type AbilityId, type ConditionId, type MonsterId, type SkillId,
+  MONSTER_IDS, MONSTER_ORIGIN_LABEL, MONSTERS, loadMonsterLibraries, monsterLibrariesLoaded, monsterOrigin, needsMonsterLibraries, type MonsterId,
 } from '../rules/srd';
-
-/** Ключ лога в localStorage: сессия переживает перезагрузку, а тесты подставляют memoryStore. */
-export const DESK_LOG_KEY = 'dm-cockpit:log';
-
-/** Сколько последних записей журнала показывает правая колонка. */
-export const JOURNAL_TAIL = 10;
-
-/** Клетка боевой сетки на столе: 72px — как в F2, кратно 4; при 12 колонках сетка занимает 864px главной зоны. */
-export const BATTLE_CELL = 72;
-
-/**
- * Уже этой ширины — планшет (F9, 1366×1024): обе боковые панели свёрнуты в полосы 40px, главная зона занимает
- * всё, панель открывается оверлеем поверх неё; полоса часов — без года, подписей луны и слов у видов.
- */
-export const NARROW_WIDTH = 1600;
-export const NARROW_QUERY = `(max-width: ${NARROW_WIDTH - 1}px)`;
-
-/** «15 Mirtul 1492 DR, 08:00» → «15 Mirtul, 08:00»: на узкой полосе часов год не помещается, а он один на кампанию. */
-export function shortHarptos(sec: number): string {
-  return formatHarptos(sec).replace(/ \d+ DR,/, ',');
-}
-
-/** Планшет ли сейчас — по matchMedia; без window (тесты движка) — нет. */
-export function isNarrow(): boolean {
-  return typeof window !== 'undefined' && typeof window.matchMedia === 'function' && window.matchMedia(NARROW_QUERY).matches;
-}
-
-/**
- * Горячая клавиша стола — только когда фокус не в поле и не на кнопке: Space на кнопке нажимает её,
- * и ход бы ушёл дважды; в поле пробел — символ. Модификаторы не наши (Ctrl+Z — у useUndoKeys).
- */
-export function isDeskHotkey(e: Pick<KeyboardEvent, 'key' | 'code' | 'ctrlKey' | 'metaKey' | 'altKey' | 'target'>, code: string): boolean {
-  if (e.ctrlKey || e.metaKey || e.altKey) return false;
-  if (e.code !== code) return false;
-  const t = e.target instanceof Element ? e.target : null;
-  return !t?.closest('input, textarea, select, button, a, [contenteditable], [role="dialog"]');
-}
-
-/** Иконка записи журнала по типу события — вместе с подписью, цвет — только там, где он уже что-то значит (урон, лечение, симуляция). */
-export const ENTRY_ICON: Readonly<Record<EventType, { icon: IconName; title: string; color?: string }>> = {
-  DAMAGE_APPLIED: { icon: 'attack', title: 'Урон', color: 'var(--fx-damage-hi)' },
-  HEALING_APPLIED: { icon: 'hp', title: 'Лечение', color: 'var(--fx-heal-hi)' },
-  TEMP_HP_GRANTED: { icon: 'hp', title: 'Временные хиты', color: 'var(--fx-temp)' },
-  CONDITION_ADDED: { icon: 'pulse', title: 'Состояние' },
-  CONDITION_REMOVED: { icon: 'check', title: 'Состояние снято' },
-  DICE_ROLLED: { icon: 'dice', title: 'Бросок' },
-  TURN_ADVANCED: { icon: 'initiative', title: 'Ход' },
-  TIME_ADVANCED: { icon: 'tempo', title: 'Шаг времени' },
-  WORLD_DELTA_ACCEPTED: { icon: 'src-sim', title: 'Принятое предложение', color: 'var(--src-sim)' },
-  WORLD_DELTA_REJECTED: { icon: 'cross', title: 'Отклонённое предложение' },
-  WORLD_DELTA_REROLLED: { icon: 'reroll', title: 'Переброс' },
-  FACT_REVEALED: { icon: 'src-players', title: 'Открыто игрокам', color: 'var(--src-players)' },
-  NOTE_ADDED: { icon: 'note', title: 'Заметка' },
-  ENCOUNTER_STARTED: { icon: 'scale-battle', title: 'Бой' },
-  ENCOUNTER_ENDED: { icon: 'scale-battle', title: 'Бой окончен' },
-  INITIATIVE_SET: { icon: 'initiative', title: 'Порядок инициативы' },
-  CONCENTRATION_STARTED: { icon: 'cond-concentration', title: 'Концентрация' },
-  CONCENTRATION_ENDED: { icon: 'cond-concentration', title: 'Концентрация снята' },
-  ACTOR_SPAWNED: { icon: 'move', title: 'Появился' },
-  ACTOR_REMOVED: { icon: 'cross', title: 'Выбыл' },
-  WORLD_DELTA_PROPOSED: { icon: 'src-sim', title: 'Предложение' },
-  REST_TAKEN: { icon: 'night', title: 'Отдых' },
-  RESOURCE_SPENT: { icon: 'spell', title: 'Ресурс потрачен' },
-  RESOURCE_RESTORED: { icon: 'spell', title: 'Ресурс возвращён' },
-};
-
-/** «15 Mirtul 1492 DR, 08:00» → дата «15 Mirtul» и время «08:00»: журналу год не нужен, он один на кампанию. */
-export function splitHarptos(sec: number): { date: string; time: string } {
-  const [date, time = ''] = formatHarptos(sec).split(', ');
-  return { date: date.replace(/ \d+ DR$/, ''), time };
-}
-
-/** Реальное время записи — часы:минуты по стене; у записей сида (at = 0) его нет. */
-export function wallTimeOf(at: number): string | undefined {
-  if (at <= 0) return undefined;
-  const d = new Date(at);
-  return `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
-}
-
-/** Запись журнала → пропсы компонента: время, иконка по типу, текст по кускам с упоминаниями и нитями. */
-export function journalEntryProps(entry: JournalRecord, state: State): Omit<JournalEntryProps, 'onMention' | 'onThread' | 'className'> {
-  const { date, time } = splitHarptos(entry.worldSec);
-  const ic = ENTRY_ICON[entry.type];
-  return {
-    id: entry.id,
-    worldDate: date,
-    worldTime: time,
-    wallTime: wallTimeOf(entry.at),
-    icon: ic.icon,
-    iconColor: ic.color,
-    iconTitle: ic.title,
-    parts: journalParts(entry, state),
-    origin: entry.origin,
-    secret: entry.secret,
-    undone: entry.undone,
-    compensation: entry.compensation,
-  };
-}
-
-const DAYS: readonly [string, string, string] = ['день', 'дня', 'дней'];
-
-/** Строки карточки нити из сводки: срок, последняя запись, «без внимания», секреты, каскад. Пустого не рисуется. */
-export function threadCardRows(t: ThreadSummary, dmView = true): ThreadCardRow[] {
-  const rows: ThreadCardRow[] = [{ key: 'opened', label: `${t.openedDays} ${plural(t.openedDays, DAYS)}`, text: 'открыта', tone: 't2' }];
-  if (t.last) rows.push({ key: 'last', label: 'сейчас', text: t.last.text });
-  // «Без внимания» — планирование мастера, игрокам не показывается.
-  if (dmView && t.idleDays >= 3) rows.push({ key: 'idle', label: `${t.idleDays} ${plural(t.idleDays, DAYS)}`, text: 'без внимания', tone: 'gd' });
-  for (const f of t.secrets) rows.push({ key: `secret-${f.id}`, label: 'секрет', text: f.text, secret: true });
-  if (t.cascade.length > 0) rows.push({ key: 'cascade', label: 'каскад', text: t.cascade.map(c => c.label).join(' → '), tone: 'sim' });
-  return rows;
-}
-
-/* ---------- Подписи слоя вида — в components/labels.ts; SKILL_LABEL реэкспортируется для тестов стола ---------- */
-
-export { SKILL_LABEL };
-
-/** Формула броска d20 с модификатором: «1d20+3», «1d20-1», без модификатора — «1d20». */
-export function d20Formula(mod: number): string {
-  return mod === 0 ? '1d20' : `1d20${mod > 0 ? '+' : ''}${mod}`;
-}
-
-/** Секреты мастера о сущности (актёре, месте): факты `dm` с её subjectId. Ноль — вкладки DM нет (пустая секция не показывается). */
-export function dmFactsAbout(subjectId: string, facts: State['facts']) {
-  return Object.values(facts).filter(f => f.visibility === 'dm' && f.subjectId === subjectId);
-}
-
-export function dmFactsOf(actor: Actor, facts: State['facts']) {
-  return dmFactsAbout(actor.id, facts);
-}
-
-export interface ConcentrationReminder {
-  key: string;
-  actorId: string;
-  reason: 'unconscious' | 'expired';
-  text: string;
-}
-
-/**
- * Концентрация, которую система не снимает сама, а предлагает снять (HANDOFF §7): актёр на нуле хитов
- * (без сознания — падает без спасброска) или срок заклинания вышел. Ключ — актёр, заклинание, срок:
- * «Позже» молчит ровно про это заклинание.
- */
-export function concentrationRemindersOf(state: State): ConcentrationReminder[] {
-  return Object.values(state.actors).flatMap((a): ConcentrationReminder[] => {
-    const c = a.concentration;
-    if (!c || a.removed) return [];
-    const key = `${a.id}:${c.spell}:${c.untilSec ?? ''}`;
-    if (a.hp.current === 0) return [{ key: `${key}:unconscious`, actorId: a.id, reason: 'unconscious', text: `${a.name} без сознания — концентрация ${c.spell} падает` }];
-    if (c.untilSec !== undefined && c.untilSec <= state.time.sec) return [{ key: `${key}:expired`, actorId: a.id, reason: 'expired', text: `${a.name}: срок концентрации ${c.spell} вышел` }];
-    return [];
-  });
-}
-
-export interface ConditionReminder {
-  key: string;
-  actorId: string;
-  conditionId: ConditionId;
-  text: string;
-}
-
-/** Состояния со сроком в мировом времени, срок которых вышел: система предлагает снять, мастер решает (как с концентрацией). */
-export function conditionRemindersOf(state: State): ConditionReminder[] {
-  return Object.values(state.actors).flatMap((a): ConditionReminder[] => {
-    if (a.removed) return [];
-    return (Object.entries(a.conditions) as [ConditionId, { untilSec?: number } | undefined][])
-      .filter(([, snap]) => snap?.untilSec !== undefined && snap.untilSec <= state.time.sec)
-      .map(([id, snap]) => ({ key: `${a.id}:${id}:${snap!.untilSec}`, actorId: a.id, conditionId: id, text: `${a.name}: срок состояния «${CONDITIONS[id].label}» вышел` }));
-  });
-}
-
-/** Что известно игрокам о сущности — открытые факты с её subjectId; видны на обоих столах. */
-export function playerFactsAbout(subjectId: string, facts: State['facts']) {
-  return Object.values(facts).filter(f => f.visibility === 'players' && f.subjectId === subjectId);
-}
-
-/**
- * Ступени лестницы: каждый уровень сеттинга (и бой, пока он идёт) с именем места пути на нём; уровень без
- * места на пути подписан именем уровня — крошка всё равно прыгает туда, куда найдётся спуск или подъём.
- */
-export function ladderSteps(state: State, ladder: Ladder): ScaleStep[] {
-  return ladderLevels(state).map(id => {
-    const placeId = ladder.path[id];
-    const place = placeId ? state.world.locations[placeId] : undefined;
-    return { id, label: id === 'battle' ? SCALE_LABELS.battle : (place?.name ?? SCALE_LABELS[id]) };
-  });
-}
-
-/**
- * Корешки «Здесь»: прямые дети фокуса — иконка уровня, бейдж — сколько о месте записей и фактов, выбран тот,
- * что на пути (ВЫБРАНО), пульс — цель ждущего предложения (только мастеру: симуляция игрокам не видна).
- */
-export function hereItems(children: readonly Location[], ladder: Ladder, counts: ReadonlyMap<string, number>, pending: ReadonlySet<string>): CardStackItem[] {
-  return children.map(l => ({
-    id: l.id,
-    name: l.name,
-    type: placeEntityType(l.scale),
-    icon: `scale-${l.scale}` as const,
-    badge: counts.get(l.id) ? String(counts.get(l.id)) : undefined,
-    selected: ladder.path[l.scale] === l.id,
-    pending: pending.has(l.id),
-  }));
-}
-
-/** Корешки держав на уровне континента: бейдж — влияние, пульс — цель ждущего предложения. */
-export function factionItems(factions: readonly Faction[], pending: ReadonlySet<string>): CardStackItem[] {
-  return factions.map(f => ({
-    id: f.id,
-    name: f.name,
-    type: 'faction',
-    badge: f.influencePercent !== undefined ? `${f.influencePercent}%` : undefined,
-    pending: pending.has(f.id),
-  }));
-}
-
-/** Доспех — в слот доспеха, щит — в слот кистей (решение ведущего для стола); остальные семь честно пусты. */
-export function deskDollItems(sheet: Actor['sheet']): Partial<Record<SlotId, SlotItem>> {
-  const out: Partial<Record<SlotId, SlotItem>> = {};
-  if (!sheet) return out;
-  if (sheet.armor && isArmorId(sheet.armor)) out.armor = { name: ARMOR[sheet.armor].name };
-  if (sheet.shield) out.hands = { name: SHIELD.name, note: `AC +${SHIELD.acBonus}` };
-  return out;
-}
-
-/** Текст умения класса по id из компендиума; у части умений он пуст — тогда имя без текста (ловушка импорта). */
-/** Текст умения: у класса, затем у выбранного подкласса — id умений повторяются между подклассами (заклинания доменов), поэтому чужие подклассы не смотрим. */
-function featureText(classId: string, featureId: string, subclassId?: string): string {
-  const cls = classById(classId);
-  if (!cls) return '';
-  const own = cls.levels.flatMap(l => l.features).find(f => f.id === featureId);
-  if (own) return own.text;
-  return cls.subclasses.find(sc => sc.id === subclassId)?.features.find(f => f.id === featureId)?.text ?? '';
-}
-
-function traitText(raceId: string, subraceId: string | undefined, traitId: string): string {
-  const race = raceById(raceId);
-  if (!race) return '';
-  const pool = [...race.traits, ...(race.subraces.find(s => s.id === subraceId)?.traits ?? [])];
-  return pool.find(t => t.id === traitId)?.text ?? '';
-}
-
-/* ---------- Мелкая разметка стола ---------- */
-
-const HEAD = 'flex items-center gap-2 h-7 px-2 flex-none bg-linear-to-b from-pl to-cd shadow-plate type-h-15 uppercase text-t2 whitespace-nowrap';
-const VIEW_LABEL = { desk: 'Стол', time: 'Время', journal: 'Журнал' } as const;
-const VIEW_ICON = { desk: 'map', time: 'tempo', journal: 'journal' } as const satisfies Record<keyof typeof VIEW_LABEL, IconName>;
-const VIEW_TITLE = { desk: 'Стол: карточка или поле боя · Esc', time: 'Шаг времени и сводка «что изменилось» · T делает шаг', journal: 'Журнал сессии · J' } as const;
-const MOON_PHASES: readonly MoonPhase[] = ['new', 'waxing', 'full', 'waning'];
-/** Иконка неба — из набора погоды генератора; у каждой title, подпись рядом словами. */
-const SKY_ICON: Readonly<Record<Sky, IconName>> = { clear: 'day', cloudy: 'cloudy', rain: 'rain', storm: 'storm' };
-const BTN = 'type-num-12 uppercase px-2 py-1 bg-cd shadow-bevel text-t2 cursor-pointer enabled:hover:text-tx enabled:active:shadow-bevel-in focus-visible:shadow-[var(--bevel),var(--glow-gold)] disabled:cursor-default disabled:opacity-(--op-disabled)';
-const OPT = 'type-num-12 uppercase whitespace-nowrap px-2 py-1 cursor-pointer bg-linear-to-b from-pl to-cd';
-const OPT_OFF = 'text-t2 shadow-bevel hover:text-tx focus-visible:shadow-[var(--bevel),var(--glow-gold)]';
-const OPT_ON = 'text-gd-hi shadow-[var(--bevel),inset_0_-3px_0_var(--gd)] focus-visible:shadow-[var(--bevel),inset_0_-3px_0_var(--gd),var(--glow-gold)]';
-
-/** Сроки состояний из сетки — те же ступени, что у концентрации, но по умолчанию «без срока». */
-const CONDITION_DURATIONS = [{ sec: 0, label: 'без срока' }, ...CONCENTRATION_DURATIONS.filter(d => d.sec > 0)] as const;
-/* Кнопка в шапке-плите: без своей плиты, подпись как у шапки; наведение — текст. */
-const BTN_HEAD = 'type-key uppercase px-1 text-t2 cursor-pointer hover:text-tx focus-visible:shadow-[var(--glow-gold)]';
-/* F9: панель, раскрытая из полосы иконок, — оверлей поверх главной зоны у своей полосы; float — единственная внешняя тень. */
-const PANEL_OVERLAY_LEFT = 'absolute inset-y-0 left-10 z-10 w-rail-party flex flex-col bg-pn shadow-float min-h-0';
-const PANEL_OVERLAY_RIGHT = 'absolute inset-y-0 right-10 z-10 w-rail-tools flex flex-col bg-pn shadow-float min-h-0';
-
-function Section({ title, right, children }: { title: string; right?: ReactNode; children: ReactNode }) {
-  return (
-    <section aria-label={title} className="flex flex-col gap-2">
-      <div className="flex items-center justify-between gap-2">
-        <h3 className="type-h-15 uppercase text-t2 truncate">{title}</h3>
-        {right}
-      </div>
-      {children}
-    </section>
-  );
-}
-
-/** Имя и текст умения или черты; пустой текст — только имя, а не пустой абзац. */
-function Entry({ name, meta, text }: { name: string; meta?: string; text: string }) {
-  return (
-    <div className="flex flex-col gap-0.5">
-      <div className="flex items-baseline gap-2">
-        <span className="type-body-bold text-tx">{name}</span>
-        {meta ? <span className="type-key text-t3 flex-none">{meta}</span> : null}
-      </div>
-      {text ? <p className="type-body-sm text-t2 whitespace-pre-line break-words [overflow-wrap:anywhere]">{text}</p> : null}
-    </div>
-  );
-}
-
-/* ---------- Тела вкладок ---------- */
-
-interface BodyProps {
-  actor: Actor;
-  worldSec: number;
-  onRoll: (formula: string, label: string) => void;
-  onCommand: (cmd: Command) => void;
-  /** Инструменты мастера в теле: «Хиты» (попап, который страница держит вокруг карточки) и «Концентрация»; на столе игроков — нет. */
-  tools: ReactNode;
-  /** Стол мастера: у чипов есть крестик снятия. */
-  dmView: boolean;
-}
-
-function ChipsRow({ actor, worldSec, onCommand, dmView }: Pick<BodyProps, 'actor' | 'worldSec' | 'onCommand' | 'dmView'>) {
-  const chips = chipsOf(actor, worldSec);
-  if (chips.length === 0) return null;
-  // Снять можно состояние SRD и концентрацию (CONCENTRATION_ENDED, решение мастера); у эффектов события нет — данные сида.
-  const removeOf = (id: ConditionId | 'concentration'): (() => void) => () => onCommand(
-    id === 'concentration'
-      ? { type: 'CONCENTRATION_ENDED', payload: { actorId: actor.id, reason: 'dm' } }
-      : id === 'exhaustion'
-        ? exhaustionCommand(actor.id, (actor.conditions.exhaustion?.level ?? 1) - 1)
-        : toggleCommand(actor.id, id, false),
-  );
-  return (
-    <Section title="Состояния и эффекты">
-      <div className="flex flex-wrap gap-1" data-part="chips">
-        {chips.map(({ key, id, ...chip }) => (
-          <ConditionChip key={key} {...chip} onRemove={id === 'effect' || !dmView ? undefined : removeOf(id)} />
-        ))}
-      </div>
-    </Section>
-  );
-}
-
-/** Навыки листа плитками — в одиночной карточке под характеристиками, в оверлее 720px — второй колонкой. */
-function PcSkills({ actor, onRoll }: Pick<BodyProps, 'actor' | 'onRoll'>) {
-  const sheet = actor.sheet!;
-  const mods = Object.fromEntries(ABILITY_IDS.map(id => [id, abilityMod(sheet.abilities[id])])) as Record<AbilityId, number>;
-  return (
-    <Section title="Навыки">
-      <div className="grid grid-cols-3 gap-1">
-        {SKILLS_BY_ABILITY.map(id => {
-          const owned = sheet.skills.includes(id);
-          const mod = mods[SKILLS[id].ability] + (owned ? sheet.proficiencyBonus : 0);
-          return (
-            <StatTile
-              key={id}
-              label={SKILL_LABEL[id]}
-              mod={mod}
-              ability={SKILLS[id].ability}
-              owned={owned}
-              onRoll={() => onRoll(d20Formula(mod), `${SKILL_LABEL[id]} · ${actor.name}`)}
-            />
-          );
-        })}
-      </div>
-    </Section>
-  );
-}
-
-/** Владение спасбросками по классу SRD; класс вне SRD — никаких. */
-function saveProficiencies(classId: string): readonly AbilityId[] {
-  const cls = classById(classId);
-  if (!cls) return [];
-  try { return srdClassOf(cls).saves; } catch { return []; }
-}
-
-/**
- * Шапка листа по бумажной карточке владельца: портрет (пока — иконка класса на плите), раса и класс, мировоззрение,
- * скорость, рост · вес · возраст. Чего на листе нет — не показывается, пустых подписей не бывает.
- */
-function PcHeader({ actor }: Pick<BodyProps, 'actor'>) {
-  const sheet = actor.sheet!;
-  const cls = classById(sheet.classId);
-  const bio = [sheet.bio?.height, sheet.bio?.weight, sheet.bio?.age !== undefined ? `${sheet.bio.age} ${plural(sheet.bio.age, ['год', 'года', 'лет'])}` : undefined].filter(Boolean);
-  const rows: { label: string; value: string }[] = [
-    { label: 'Раса', value: raceLabel(sheet) },
-    { label: 'Класс', value: `${cls?.nameRu ?? sheet.classId} · ${sheet.level} ур.` },
-  ];
-  if (sheet.alignment) rows.push({ label: 'Мировоззрение', value: sheet.alignment });
-  if (sheet.speed !== undefined) rows.push({ label: 'Скорость', value: `${sheet.speed} фт` });
-  if (bio.length > 0) rows.push({ label: 'Тело', value: bio.join(' · ') });
-  return (
-    <div className="flex items-start gap-3" data-part="pc-header">
-      <div className="size-12 flex-none flex items-center justify-center bg-linear-to-b from-pl to-cd shadow-plate" data-part="portrait" title="Портрет: пока иконка класса">
-        <Icon name="ent-pc" size={32} color="var(--gd)" title={actor.name} />
-      </div>
-      <dl className="flex-1 min-w-0 grid grid-cols-[auto_1fr] gap-x-3 gap-y-0.5">
-        {rows.map(r => (
-          <Fragment key={r.label}>
-            <dt className="type-key uppercase text-t2">{r.label}</dt>
-            <dd className="type-body-sm text-tx truncate" title={r.value}>{r.value}</dd>
-          </Fragment>
-        ))}
-      </dl>
-    </div>
-  );
-}
-
-/** Ресурсы листа (решение владельца 21.09.2026): ячейки, ярость, ци, применения умений — пипками; на столе игроков без кнопок. */
-function PcResources({ actor, onCommand, dmView }: Pick<BodyProps, 'actor' | 'onCommand' | 'dmView'>) {
-  const pools = resourcePoolsOf(actor);
-  if (pools.length === 0) return null;
-  return (
-    <Section title="Ресурсы">
-      <div className="flex flex-col gap-1" data-part="resources">
-        {pools.map(p => (
-          <ResourcePips
-            key={p.id}
-            id={p.id}
-            label={poolLabel(p)}
-            max={p.max}
-            spent={p.spent}
-            kind={p.kind}
-            restoresOn={p.restoresOn}
-            onSpend={dmView ? amount => onCommand({ type: 'RESOURCE_SPENT', payload: { actorId: actor.id, resourceId: p.id, amount, max: p.max } }) : undefined}
-            onRestore={dmView ? amount => onCommand({ type: 'RESOURCE_RESTORED', payload: { actorId: actor.id, resourceId: p.id, amount, max: p.max } }) : undefined}
-          />
-        ))}
-      </div>
-    </Section>
-  );
-}
-
-function PcOverview({ actor, worldSec, onRoll, onCommand, tools, dmView, skills = true }: BodyProps & { skills?: boolean }) {
-  const sheet = actor.sheet!;
-  const mods = Object.fromEntries(ABILITY_IDS.map(id => [id, abilityMod(sheet.abilities[id])])) as Record<AbilityId, number>;
-  const cls = classById(sheet.classId);
-  const saves = saveProficiencies(sheet.classId);
-  return (
-    <>
-      <PcHeader actor={actor} />
-      <Section title="Характеристики" right={tools}>
-        <div className="grid grid-cols-6 gap-1">
-          {ABILITY_IDS.map(id => {
-            const owned = saves.includes(id);
-            const save = mods[id] + (owned ? sheet.proficiencyBonus : 0);
-            return (
-              <StatTile
-                key={id}
-                label={ABILITIES[id].code}
-                mod={mods[id]}
-                score={sheet.abilities[id]}
-                ability={id}
-                owned={owned}
-                title={`${ABILITIES[id].name}: ${signedMod(mods[id])} · спасбросок ${signedMod(save)}${owned ? ' (владение)' : ''}`}
-                onRoll={() => onRoll(d20Formula(mods[id]), `${ABILITIES[id].code} · ${actor.name}`)}
-              />
-            );
-          })}
-        </div>
-      </Section>
-      <PcResources actor={actor} onCommand={onCommand} dmView={dmView} />
-      {skills ? <PcSkills actor={actor} onRoll={onRoll} /> : null}
-      <ChipsRow actor={actor} worldSec={worldSec} onCommand={onCommand} dmView={dmView} />
-      {sheet.features.length > 0 ? (
-        <Section title={`Умения класса${cls ? ` · ${cls.nameRu}` : ''}`}>
-          <div className="flex flex-col gap-2">
-            {sheet.features.map(f => (
-              <Entry key={`${f.level}:${f.id}`} name={f.name} meta={`${f.level} ур.`} text={featureText(sheet.classId, f.id, sheet.subclassId)} />
-            ))}
-          </div>
-        </Section>
-      ) : null}
-      {sheet.traits.length > 0 ? (
-        <Section title="Черты расы">
-          <div className="flex flex-col gap-2">
-            {sheet.traits.map(t => (
-              <Entry key={t.id} name={t.name} text={traitText(sheet.raceId, sheet.subraceId, t.id)} />
-            ))}
-          </div>
-        </Section>
-      ) : null}
-    </>
-  );
-}
-
-/** Пара «подпись — значение» блока монстра: как в F3 (СПАСБРОСКИ · STR +4, DEX +5). */
-function Pair({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="flex items-baseline gap-3">
-      <span className="type-num-12 uppercase text-t2 w-24 flex-none">{label}</span>
-      <span className="type-body text-tx min-w-0">{value}</span>
-    </div>
-  );
-}
-
-function MonsterOverview({ actor, worldSec, onRoll, onCommand, tools, dmView }: BodyProps) {
-  const m = MONSTERS[actor.monsterId!];
-  const saves = Object.entries(m.savingThrows).map(([ab, v]) => `${ABILITIES[ab as AbilityId].code} ${signedMod(v ?? 0)}`).join(', ');
-  const skills = Object.entries(m.skills).map(([id, v]) => `${SKILL_LABEL[id as SkillId]} ${signedMod(v ?? 0)}`).join(', ');
-  return (
-    <>
-      <Section title="Характеристики" right={tools}>
-        <div className="grid grid-cols-6 gap-1">
-          {ABILITY_IDS.map(id => {
-            const mod = abilityMod(m.abilities[id]);
-            return (
-              <StatTile
-                key={id}
-                label={ABILITIES[id].code}
-                mod={mod}
-                score={m.abilities[id]}
-                ability={id}
-                onRoll={() => onRoll(d20Formula(mod), `${ABILITIES[id].code} · ${actor.name}`)}
-              />
-            );
-          })}
-        </div>
-      </Section>
-      <div className="flex flex-col gap-1">
-        {/* Скорость ходьбы — в полосе показателей (SPD); строка здесь — только когда есть полёт, плавание, лазание. */}
-        {m.speedText !== `${m.speed} ft.` ? <Pair label="Скорость" value={m.speedText} /> : null}
-        {saves ? <Pair label="Спасброски" value={saves} /> : null}
-        {skills ? <Pair label="Навыки" value={skills} /> : null}
-        {m.damageVulnerabilities.length > 0 ? <Pair label="Уязвимость" value={m.damageVulnerabilities.join('; ')} /> : null}
-        {m.damageResistances.length > 0 ? <Pair label="Сопротивление" value={m.damageResistances.join('; ')} /> : null}
-        {m.damageImmunities.length > 0 ? <Pair label="Иммунитет" value={m.damageImmunities.join('; ')} /> : null}
-        {m.conditionImmunities.length > 0 ? <Pair label="Не подвержен" value={m.conditionImmunities.join(', ')} /> : null}
-        <Pair label="Чувства" value={m.senses} />
-        <Pair label="Языки" value={m.languages} />
-        <Pair label="CR" value={`${m.cr} (${m.xp} XP)`} />
-      </div>
-      <ChipsRow actor={actor} worldSec={worldSec} onCommand={onCommand} dmView={dmView} />
-      {m.traits.length > 0 ? (
-        <Section title="Особенности">
-          <div className="flex flex-col gap-2">
-            {m.traits.map(t => <Entry key={t.name} name={t.name} text={t.text} />)}
-          </div>
-        </Section>
-      ) : null}
-    </>
-  );
-}
-
-function MonsterActions({ actor }: { actor: Actor }) {
-  const m = MONSTERS[actor.monsterId!];
-  return (
-    <>
-      <Section title="Действия">
-        <div className="flex flex-col gap-2">
-          {m.actions.map(a => <Entry key={a.name} name={a.name} text={a.text} />)}
-        </div>
-      </Section>
-      {m.reactions.length > 0 ? (
-        <Section title="Реакции">
-          <div className="flex flex-col gap-2">
-            {m.reactions.map(a => <Entry key={a.name} name={a.name} text={a.text} />)}
-          </div>
-        </Section>
-      ) : null}
-    </>
-  );
-}
-
-function DmTab({ subjectId, facts }: { subjectId: string; facts: State['facts'] }) {
-  const own = dmFactsAbout(subjectId, facts);
-  return (
-    <ul className="flex flex-col gap-1">
-      {own.map(f => (
-        <li key={f.id} className="flex items-start gap-2 type-body-sm text-tx">
-          <Icon name="hidden" size={16} color="var(--t2)" title="Скрыто от игроков" className="mt-0.5" />
-          <span>{f.text}</span>
-        </li>
-      ))}
-    </ul>
-  );
-}
-
-/** Ссылка-текст на сущность (родитель места): кнопка без плиты, чтобы читалась строкой, а не действием. */
-function TextLink({ title, onClick, children }: { title: string; onClick: () => void; children: ReactNode }) {
-  return (
-    <button type="button" title={title} onClick={onClick} className="type-body text-tx underline decoration-t2 underline-offset-2 hover:text-gd-hi cursor-pointer text-left">
-      {children}
-    </button>
-  );
-}
-
-/**
- * «Ждёт решения» в карточке места или фракции: ждущие предложения, целящие в неё, — было → стало словами.
- * Только мастеру: игроки симуляции не видят. Решения — во входящих, здесь только знак, почему карточка пульсирует.
- */
-function PendingRows({ deltas }: { deltas: readonly State['deltas'][string][] }) {
-  if (deltas.length === 0) return null;
-  return (
-    <Section title="Ждёт решения">
-      <ul className="flex flex-col gap-1">
-        {deltas.map(d => (
-          <li key={d.id} className="flex items-start gap-2 type-body-sm text-tx">
-            <Icon name="src-sim" size={16} color="var(--src-sim)" title="Симуляция, ждёт решения" className="mt-0.5" />
-            <span className="min-w-0">
-              <span className="type-body-bold">{d.subject}</span>
-              <span className="text-t2">{` · ${d.was} → ${d.now}`}</span>
-            </span>
-          </li>
-        ))}
-      </ul>
-    </Section>
-  );
-}
-
-interface PlaceOverviewProps {
-  place: Location;
-  parent?: Location;
-  onOpenParent?: () => void;
-  /** Ждущие предложения о месте — только мастеру. */
-  pending: readonly State['deltas'][string][];
-  facts: State['facts'];
-}
-
-/** Обзор места: внутри чего лежит, что о нём известно игрокам, что ждёт решения. Уровень — бейдж, показатели — полоса карточки: здесь не повторяются. */
-function PlaceOverview({ place, parent, onOpenParent, pending, facts }: PlaceOverviewProps) {
-  const known = playerFactsAbout(place.id, facts);
-  return (
-    <>
-      {/* Уровень — бейдж корешка, здесь не повторяется (факт живёт в одном месте). */}
-      <div className="flex flex-col gap-1">
-        {parent ? (
-          <div className="flex items-baseline gap-3">
-            <span className="type-num-12 uppercase text-t2 w-24 flex-none">Внутри</span>
-            {onOpenParent ? <TextLink title={`${SCALE_LABELS[parent.scale]} · ${parent.name}: подняться на уровень выше`} onClick={onOpenParent}>{parent.name}</TextLink> : <span className="type-body text-tx">{parent.name}</span>}
-          </div>
-        ) : null}
-      </div>
-      {known.length > 0 ? (
-        <Section title="Известно игрокам">
-          <ul className="flex flex-col gap-1">
-            {known.map(f => (
-              <li key={f.id} className="flex items-start gap-2 type-body-sm text-tx">
-                <Icon name="src-players" size={16} color="var(--src-players)" title="Известно игрокам" className="mt-0.5" />
-                <span>{f.text}</span>
-              </li>
-            ))}
-          </ul>
-        </Section>
-      ) : null}
-      <PendingRows deltas={pending} />
-    </>
-  );
-}
-
-/** Обзор фракции: цель словами и что ждёт решения; влияние, тренд и известность — в полосе карточки. */
-function FactionOverview({ faction, pending }: { faction: Faction; pending: readonly State['deltas'][string][] }) {
-  return (
-    <>
-      {faction.goal ? <Pair label="Цель" value={faction.goal} /> : null}
-      <PendingRows deltas={pending} />
-    </>
-  );
-}
-
+import { type BodyProps, DmTab, FactionOverview, MonsterActions, MonsterOverview, PcOverview, PcSkills, PlaceOverview } from './desk/bodies';
+import {
+  type OpenRail, BATTLE_CELL, DESK_HASH, DESK_LOG_KEY, JOURNAL_TAIL, NARROW_QUERY, NEW_PC_HASH, concentrationRemindersOf, conditionRemindersOf,
+  d20Formula, deskDollItems, dmFactsAbout, dmFactsOf, factionItems, hereItems, isDeskHotkey, isNarrow, journalEntryProps, ladderSteps,
+} from './desk/helpers';
+import { downloadText, readText, sessionFileName } from './desk/session';
+import { BTN, BTN_HEAD, CONDITION_DURATIONS, HEAD, OPT, OPT_OFF, OPT_ON } from './desk/styles';
+import { ClockBar } from './desk/ClockBar';
+import { PartyPanel } from './desk/PartyPanel';
+import { TimeView } from './desk/TimeView';
+import { JournalView } from './desk/JournalView';
+import { ToolsPanel } from './desk/ToolsPanel';
 /* ---------- Страница ---------- */
 
 export interface DeskPageProps {
@@ -708,35 +79,6 @@ interface DeskProps {
   /** «Сохранить» — журнал сессии файлом; «Открыть…» — стол из файла (проверяется реплеем до подмены). */
   onExport: () => void;
   onImport: (file: File) => void;
-}
-
-/** Имя файла сессии: dm-cockpit-<дата стены>.json. */
-export function sessionFileName(now: Date = new Date()): string {
-  const d = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
-  return `dm-cockpit-${d}.json`;
-}
-
-/** Текст файла через FileReader: он есть везде, где есть <input type="file">; Blob.text() — не везде (jsdom). */
-export function readText(file: Blob): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const r = new FileReader();
-    r.onload = () => resolve(typeof r.result === 'string' ? r.result : '');
-    r.onerror = () => reject(r.error ?? new Error('файл не прочитался'));
-    r.readAsText(file);
-  });
-}
-
-/** Скачать текст файлом через временную ссылку; без URL.createObjectURL (старый браузер, jsdom) — тихо ничего. */
-export function downloadText(name: string, text: string, doc: Document = document): void {
-  const url = globalThis.URL?.createObjectURL?.(new Blob([text], { type: 'application/json' }));
-  if (!url) return;
-  const a = doc.createElement('a');
-  a.href = url;
-  a.download = name;
-  doc.body.appendChild(a);
-  a.click();
-  a.remove();
-  globalThis.URL.revokeObjectURL(url);
 }
 
 /**
@@ -776,6 +118,18 @@ export function DeskPage({ store: given, persist: givenPersist, dmView = true }:
     }
     setSession(s => ({ ...s, n: s.n + 1, note }));
   };
+  // Библиотеки монстров Black Flag и A5E — отдельный кусок (ROADMAP 0.5): грузятся после первой отрисовки. Если в
+  // сессии уже стоит монстр из них, стол ждёт загрузки — иначе карточка не нашла бы его блок.
+  const [libsReady, setLibsReady] = useState(monsterLibrariesLoaded);
+  useEffect(() => {
+    if (libsReady) return;
+    let live = true;
+    void loadMonsterLibraries().then(() => { if (live) setLibsReady(true); });
+    return () => { live = false; };
+  }, [libsReady]);
+  if (!libsReady && needsMonsterLibraries(Object.values(session.store.getState().state.actors).map(a => a.monsterId))) {
+    return <p role="status" className="p-4 type-body text-t2">Загружаются библиотеки монстров Black Flag и A5E…</p>;
+  }
   return (
     <Desk
       key={session.n}
@@ -793,7 +147,8 @@ export function DeskPage({ store: given, persist: givenPersist, dmView = true }:
 type PopoverAnchor = 'card' | 'token';
 
 /** Что показывает слот карточки: выбранного актёра, место в фокусе лестницы или державу по id. */
-type CardSlot = { kind: 'actor' } | { kind: 'place' } | { kind: 'faction'; id: string };
+/** Слот карточки: актёр, место в фокусе, фракция — свои карточки; любая другая сущность по ссылке — общая (ROADMAP 0.3). */
+type CardSlot = { kind: 'actor' } | { kind: 'place' } | { kind: 'faction'; id: string } | { kind: 'entity'; ref: EntityRef };
 
 function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImport }: DeskProps) {
   // Режим «глазами игроков» — состояние вида, не событие: P переключает, рамка обозначает, модель фильтрует.
@@ -829,12 +184,34 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
   const [conditionDuration, setConditionDuration] = useState(0);
   // Оверлей карточки 720px (F3) — вид: та же карточка в две колонки с бронзовой рамкой поверх главной зоны.
   const [cardOverlay, setCardOverlay] = useState(false);
+  // Отметки строк партии и лист сравнения — состояние вида (CLAUDE.md: выбор и оверлеи событиями не являются).
+  const [checked, setChecked] = useState<ReadonlySet<string>>(() => new Set());
+  const [compareOpen, setCompareOpen] = useState(false);
   /** Редактор персонажа (шаг B) — оверлей в главной зоне; черновик — его собственное состояние, в лог идёт только ACTOR_SPAWNED. */
-  const [editorOpen, setEditorOpen] = useState(false);
+  // #/desk/new — вход в создание персонажа извне стола (кнопка на экране компендиума): открыть редактор, хэш вернуть к столу.
+  // Открывается после монтирования: диалог порталится в главную зону, а её узел появляется только с первым рендером.
+  const [editorOpen, setEditorOpenRaw] = useState(false);
+  const setEditorOpen = (open: boolean) => {
+    setEditorOpenRaw(open);
+    if (!open && globalThis.location?.hash === NEW_PC_HASH) history.replaceState(null, '', DESK_HASH);
+  };
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const check = () => { if (location.hash === NEW_PC_HASH) setEditorOpenRaw(true); };
+    check();
+    addEventListener('hashchange', check);
+    return () => removeEventListener('hashchange', check);
+  }, []);
   // Лестница масштабов (шаг 10) — навигация, не событие: уровень и путь (по месту на уровень) живут здесь.
   // Что в слоте карточки: актёр из корешка, место в фокусе лестницы или держава со стопки континента.
   const [ladderState, setLadderState] = useState<Ladder>(() => initialLadder(state));
   const [cardOf, setCardOf] = useState<CardSlot>({ kind: 'actor' });
+  const entityView = useEntity(cardOf.kind === 'entity' ? cardOf.ref : null, state);
+  /** Уровень планеты: глобус или плоская карта — состояние экрана, не событие. */
+  const [planetView, setPlanetView] = useState<'globe' | 'map'>('globe');
+  // Модель космологии на уровне «космология» — линза, не событие: Великое колесо (действует в 1492 DR) или Великое древо (1372 DR).
+  // Линза космологии по умолчанию — от года кампании (ROADMAP 0.6): 1372 DR — Древо, 1492 DR — Колесо.
+  const [cosmologyView, setCosmologyView] = useState<'wheel' | 'tree'>(() => cosmologyOf(harptos(state.time.sec).year));
   // Журнал сессии (F7) — вид главной зоны, не событие: фильтр по нитям и уровням, черновик заметки,
   // отложенные напоминания о секретах («Позже») — всё живёт здесь и не переживает перезагрузку.
   const [view, setView] = useState<'desk' | 'time' | 'journal'>('desk');
@@ -853,7 +230,7 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
   const [narrow, setNarrow] = useState(isNarrow);
   const [railParty, setRailParty] = useState(narrow);
   const [railTools, setRailTools] = useState(narrow);
-  const [openRail, setOpenRail] = useState<{ side: 'party' | 'tools'; item: string } | null>(null);
+  const [openRail, setOpenRail] = useState<OpenRail>(null);
   useEffect(() => {
     if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') return;
     const mq = window.matchMedia(NARROW_QUERY);
@@ -921,6 +298,8 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
   const pendingIds = dmView ? pendingTargets(state) : new Set<string>();
   const visibleFacts = Object.values(state.facts).filter(f => dmView || f.visibility === 'players');
   const counts = placeCounts(allEntries, state, visibleFacts);
+  // Карта уровня (планета, континент, регион, поселение), если у места есть координаты и паспорт карты.
+  const map = combat && ladder.level === 'battle' ? undefined : levelMap(state, ladder);
   const factions = Object.values(state.world.factions);
   const faction = cardOf.kind === 'faction' ? state.world.factions[cardOf.id] : undefined;
   // ВЫБРАНО на уровне: место пути ниже фокуса — куда `]` спустится.
@@ -1026,10 +405,19 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
   }, [store, hiddenRolls]);
 
   /** @упоминание открывает карточку: актёра — в слоте, место — прыжком лестницы к нему, фракцию — со стопки держав. */
-  const onMention = (entity: 'actor' | 'location' | 'faction', id: string) => {
+  const onMention = (entity: 'actor' | 'location' | 'faction' | 'ref', id: string) => {
+    if (entity === 'ref') { if (isEntityRef(id)) openEntity(id); return; }
     if (entity === 'actor' && state.actors[id]) { open(id); setView('desk'); }
     else if (entity === 'location' && state.world.locations[id]) goLadder(selectPlace(state, ladder, id));
     else if (entity === 'faction' && state.world.factions[id]) { showCard({ kind: 'faction', id }); setView('desk'); }
+  };
+  /** Карточка по ссылке «вид:id»: актёр, место кампании и фракция — своими слотами, остальное — общей карточкой. */
+  const openEntity = (r: EntityRef) => {
+    const p = parseRef(r);
+    if (!p) return;
+    if (p.kind === 'actor' || p.kind === 'location' || p.kind === 'faction') { onMention(p.kind, p.id); return; }
+    showCard({ kind: 'entity', ref: r });
+    setView('desk');
   };
   /** #нить в записи — журнал с фильтром по ней (как на F7); повторный клик по чипу снимает фильтр. */
   const onThread = (id: string) => {
@@ -1063,7 +451,7 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
   };
   const spawnOptions: SpawnOption[] = MONSTER_IDS.map(id => {
     const m = MONSTERS[id];
-    return { id, name: m.name, cr: m.cr, ac: m.ac.value, hp: m.hp.average, suggested: suggestMonsterName(state, id) };
+    return { id, name: m.name, cr: m.cr, ac: m.ac.value, hp: m.hp.average, origin: MONSTER_ORIGIN_LABEL[monsterOrigin(m)], suggested: suggestMonsterName(state, id) };
   });
   /**
    * Противник появился: ACTOR_SPAWNED на каждого снимком; в бою — бросок инициативы каждому и INITIATIVE_SET
@@ -1088,7 +476,6 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
   // Погода — проекция календаря (§4): день задаёт её целиком, ни состояния, ни события.
   const weather = weatherOf(state.time.sec);
   // Полосы F9: те же иконки в том же порядке, что секции панелей; счётчик — сколько ждёт решения.
-  const partyRailItems: IconRailItem[] = [{ id: 'party', icon: 'ent-pc', label: 'Партия', color: 'var(--ent-pc)' }];
   const toolsRailItems: IconRailItem[] = dmView
     ? [
       { id: 'actions', icon: 'reroll', label: 'Действия' },
@@ -1123,6 +510,33 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
     const resting = actorIds.map(id => state.actors[id]).filter((a): a is Actor => a !== undefined);
     const { time, proposals } = takeRest(store.getState(), kind, actorIds, hitDice, restResourcesOf(resting, kind));
     setRestOpen(false);
+    if (proposals.length > 0) {
+      setLastStep({ eventId: time.id, deltaIds: proposals.map(d => d.id) });
+      setView('time');
+    }
+  };
+  /** Поход по карте — дни пути шагом времени (с предложениями мира за эти дни) и PARTY_TRAVELED; сводка — как после отдыха. */
+  const { terrain, gazetteer } = useMapData(map);
+
+  /**
+   * Поход по A5E: уровень опасности — ступень партии по старшему уровню; встреча — d100 в лог (DICE_ROLLED) и итог
+   * строкой журнала (NOTE_ADDED, масштаб «регион»). Попал в дыру таблицы — так и пишем: бросок повторяют.
+   */
+  const journeyTier = tierOfLevel(Math.max(1, ...party.map(a => a.sheet?.level ?? 1)));
+  const journey: JourneyProps = {
+    tier: journeyTier,
+    members: party.length,
+    onEncounter: regionId => {
+      const region = JOURNEY_REGIONS[regionId];
+      const roll = rollTotal('1d100', `Встреча · ${region.name}, уровень ${journeyTier}`);
+      const row = encounterAt(regionId, journeyTier, roll);
+      const what = row ? `${row.name}${row.giant && roll % 2 === 1 ? ' (giant)' : ''} — ${ENCOUNTER_TYPE_LABEL[row.type]}` : 'дыра таблицы, бросьте ещё раз';
+      api.note(`${region.name}, уровень ${journeyTier}: d100 = ${roll} → ${what}`, [], 'region');
+    },
+  };
+  const onTravel = (route: TravelRoute) => {
+    if (!map) return;
+    const { time, proposals } = travel(store.getState(), { ...route, map: map.passport.id, fromId: partyPlaceId(state) });
     if (proposals.length > 0) {
       setLastStep({ eventId: time.id, deltaIds: proposals.map(d => d.id) });
       setView('time');
@@ -1182,7 +596,8 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
     if (t?.closest('[data-hp-opener], [data-part="stats"] button, [data-actor]')) e.preventDefault();
   };
 
-  const cardProps = actor ? actorCardProps(actor, { onHp: dmView ? openFromCard : undefined, dmFacts: dmFactsOf(actor, state.facts).length }) : null;
+  const cardView = actor ? sheetViewOf(actor) : undefined;
+  const cardProps = actor ? actorCardProps(actor, { onHp: dmView ? openFromCard : undefined, dmFacts: dmFactsOf(actor, state.facts).length, initiative: cardView?.initiative, hitDice: cardView?.hitDice }) : null;
   /**
    * Тело вкладки актёра: `column` — одиночная карточка целиком; в оверлее 720px обзор делится на две колонки —
    * навыки персонажа и действия монстра уходят вправо (`aside`), остальное — влево (`main`). В оверлее
@@ -1193,11 +608,11 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
     const body: BodyProps = { actor, worldSec: state.time.sec, onRoll, onCommand, tools: dmView && column === 'column' ? cardTools : null, dmView };
     if (column === 'aside') {
       if (current !== 'overview') return null;
-      return actor.kind === 'monster' ? <MonsterActions actor={actor} /> : <PcSkills actor={actor} onRoll={onRoll} />;
+      return actor.kind === 'monster' ? <MonsterActions actor={actor} /> : <PcSkills actor={actor} onRoll={onRoll} columns={1} />;
     }
     switch (current) {
       case 'overview':
-        return actor.kind === 'monster' ? <MonsterOverview {...body} /> : <PcOverview {...body} skills={column === 'column'} />;
+        return actor.kind === 'monster' ? <MonsterOverview {...body} /> : <PcOverview {...body} skills={column === 'column'} passport={passportOf(actor, events)} />;
       case 'actions':
         return <MonsterActions actor={actor} />;
       case 'conditions':
@@ -1229,7 +644,12 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
           </>
         );
       case 'gear':
-        return <Paperdoll items={deskDollItems(actor.sheet)} />;
+        return (
+          <>
+            <Paperdoll items={deskDollItems(actor.sheet)} {...dollExtrasOf(actor.sheet)} />
+            {actor.sheet ? <SheetEquipment sheet={actor.sheet} /> : null}
+          </>
+        );
       case 'dm':
         return <DmTab subjectId={actor.id} facts={state.facts} />;
       default:
@@ -1271,6 +691,7 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
           onOpenParent={focusParent ? () => goLadder(selectPlace(state, ladder, focusParent.id)) : undefined}
           pending={dmView ? pendingFor(state, focus.id) : []}
           facts={state.facts}
+          onReveal={dmView && focus.geo ? () => api.revealPlace(focus.id) : undefined}
         />
       ) : current === 'dm' ? <DmTab subjectId={focus.id} facts={state.facts} /> : null}
     </EntityCard>
@@ -1280,11 +701,25 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
       {(current: string) => (current === 'overview' ? <FactionOverview faction={faction} pending={dmView ? pendingFor(state, faction.id) : []} /> : null)}
     </EntityCard>
   ) : null;
-  const card = cardOf.kind === 'actor' ? actorCard : cardOf.kind === 'place' ? placeCard : factionCard;
+  const entityCard = cardOf.kind === 'entity' && entityView ? (
+    <EntityCard
+      key={cardOf.ref}
+      type={entityView === 'loading' ? 'rule' : cardTypeOf(entityView.kind)}
+      name={entityView === 'loading' ? 'Загрузка…' : entityView.name}
+      badges={entityView === 'loading' ? [] : [KIND_LABEL[entityView.kind], ...(entityView.nameRu ? [entityView.nameRu] : [])]}
+      origin={entityView !== 'loading' && entityView.source.kind === 'campaign' ? 'dm' : 'canon'}
+      dmView={dmView}
+      className="max-h-full flex-none"
+    >
+      {entityView === 'loading' ? <p className="type-body-sm text-t2">Справочник загружается…</p> : <EntityViewBody view={entityView} onOpen={openEntity} />}
+    </EntityCard>
+  ) : null;
+  const card = cardOf.kind === 'actor' ? actorCard : cardOf.kind === 'place' ? placeCard : cardOf.kind === 'entity' ? entityCard : factionCard;
   // Оверлей 720px — та же сущность в две колонки с бронзовой рамкой (F3). Живёт в главной зоне (портал в неё):
   // партию и полосу часов не накрывает (CLAUDE.md), Esc и клик по затемнению закрывают. У места и державы —
   // тот же обзор в одну колонку. В оверлее вкладка та же, что в одиночной карточке.
-  const overlayName = cardOf.kind === 'actor' ? actor?.name : cardOf.kind === 'place' ? focus?.name : faction?.name;
+  const overlayName = cardOf.kind === 'actor' ? actor?.name : cardOf.kind === 'place' ? focus?.name
+    : cardOf.kind === 'entity' ? (entityView && entityView !== 'loading' ? entityView.name : undefined) : faction?.name;
   const overlayCard = cardOf.kind === 'actor' && actor && cardProps ? (
     <EntityCard
       {...cardProps}
@@ -1304,10 +739,59 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
         <PlaceOverview place={focus} parent={focusParent} onOpenParent={focusParent ? () => { setCardOverlay(false); goLadder(selectPlace(state, ladder, focusParent.id)); } : undefined} pending={dmView ? pendingFor(state, focus.id) : []} facts={state.facts} />
       ) : current === 'dm' ? <DmTab subjectId={focus.id} facts={state.facts} /> : null}
     </EntityCard>
+  ) : cardOf.kind === 'entity' && entityView && entityView !== 'loading' ? (
+    <EntityCard
+      type={cardTypeOf(entityView.kind)}
+      name={entityView.name}
+      badges={[KIND_LABEL[entityView.kind], ...(entityView.nameRu ? [entityView.nameRu] : [])]}
+      origin={entityView.source.kind === 'campaign' ? 'dm' : 'canon'}
+      overlay
+      dmView={dmView}
+      className="max-h-full"
+    >
+      <EntityViewBody view={entityView} onOpen={r => { setCardOverlay(false); openEntity(r); }} />
+    </EntityCard>
   ) : faction ? (
     <EntityCard {...factionCardProps(faction, { pending: pendingIds.has(faction.id) })} overlay activeTab={tab} onTab={setTab} dmView={dmView} className="max-h-full">
       {(current: string) => (current === 'overview' ? <FactionOverview faction={faction} pending={dmView ? pendingFor(state, faction.id) : []} /> : null)}
     </EntityCard>
+  ) : null;
+  // Отметки — только живых членов партии: ушедший из партии актёр из выборки выпадает сам.
+  const checkedParty: ReadonlySet<string> = new Set(party.filter(a => checked.has(a.id)).map(a => a.id));
+  const compareColumns: CompareColumn[] = party.filter(a => checkedParty.has(a.id) && a.sheet).map(a => {
+    const v = sheetViewOf(a)!;
+    const cls = classById(a.sheet!.classId);
+    return {
+      id: a.id,
+      name: a.name,
+      subtitle: `${cls?.nameRu ?? a.sheet!.classId} · ${a.sheet!.level} ур.`,
+      hp: a.hp,
+      ac: a.ac,
+      pp: a.passivePerception,
+      initiative: v.initiative,
+      ...(a.sheet!.speed !== undefined ? { speed: a.sheet!.speed } : {}),
+      ...(v.hitDice ? { hitDice: v.hitDice } : {}),
+      abilities: v.abilities,
+      skills: v.skills,
+      resources: resourcePoolsOf(a).map(p => ({ id: p.id, label: poolLabel(p), available: p.available, max: p.max })),
+      passport: passportOf(a, events),
+    };
+  });
+  const compareDialog = compareOpen && dmView && compareColumns.length >= 2 ? (
+    <Dialog.Root open onOpenChange={o => { if (!o) setCompareOpen(false); }}>
+      <Dialog.Portal container={mainRef.current ?? undefined}>
+        <Dialog.Overlay className="absolute inset-0 z-20 bg-wl opacity-(--op-scrim)" />
+        <Dialog.Content aria-describedby={undefined} className="absolute top-4 bottom-4 right-0 left-[8%] z-30 flex outline-none">
+          <Dialog.Title className="sr-only">Сравнение персонажей</Dialog.Title>
+          <CompareSheet
+            columns={compareColumns}
+            dmView={dmView}
+            onClose={() => setCompareOpen(false)}
+            onRoll={(_, mod, label) => onRoll(d20Formula(mod), label)}
+          />
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>
   ) : null;
   const cardOverlayDialog = cardOverlay && overlayCard && overlayName ? (
     <Dialog.Root open onOpenChange={o => { if (!o) setCardOverlay(false); }}>
@@ -1332,7 +816,7 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
     <Dialog.Root open onOpenChange={o => { if (!o) setEditorOpen(false); }}>
       <Dialog.Portal container={mainRef.current ?? undefined}>
         <Dialog.Overlay className="absolute inset-0 z-20 bg-wl opacity-(--op-scrim)" />
-        <Dialog.Content aria-describedby={undefined} className="absolute top-6 left-1/2 -translate-x-1/2 z-30 max-h-[calc(100%-48px)] flex outline-none">
+        <Dialog.Content aria-describedby={undefined} className="absolute inset-4 z-30 flex justify-center outline-none focus-visible:shadow-none">
           <Dialog.Title className="sr-only">Новый персонаж</Dialog.Title>
           <CharacterEditor takenIds={new Set(Object.keys(state.actors))} onCreate={onCreatePc} onClose={() => setEditorOpen(false)} />
         </Dialog.Content>
@@ -1387,209 +871,123 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
     </Popover.Portal>
   ) : null;
 
+  // Корешки главной зоны: «Здесь», державы континента, противники — слева над картой или над пустым столом.
+  const levelStacks = here.length > 0 || (ladder.level === 'continent' && factions.length > 0) || foes.length > 0 ? (
+    <div className="w-72 flex-none flex flex-col gap-4">
+      {here.length > 0 ? (
+        <CardStack
+          title="Здесь"
+          icon="ent-location"
+          items={hereItems(here, ladder, counts, pendingIds)}
+          onOpen={it => goLadder(selectPlace(state, ladder, it.id))}
+        />
+      ) : null}
+      {ladder.level === 'continent' && factions.length > 0 ? (
+        <CardStack
+          title="Державы"
+          icon="ent-faction"
+          items={factionItems(factions, pendingIds)}
+          onOpen={it => showCard({ kind: 'faction', id: it.id })}
+        />
+      ) : null}
+      {foes.length > 0 ? (
+        <CardStack
+          title="Противники"
+          icon="ent-monster"
+          items={foes.map(stackItemOf)}
+          onOpen={it => open(it.id)}
+        />
+      ) : null}
+    </div>
+  ) : null;
+
   return (
+    <OpenEntityContext.Provider value={openEntity}>
     <PlayerFrame on={playersView}>
     <main aria-label={playersView ? 'Стол игроков' : 'Стол'} data-view={playersView ? 'players' : 'dm'} className="flex-1 min-h-0 flex flex-col">
-      <header aria-label="Мировые часы" className="h-bar-clock flex-none flex items-center gap-3 px-3 bg-linear-to-b from-pl to-cd shadow-plate">
-        <Icon name={DAY_PHASE_ICONS[phase]} size={16} color="var(--gd)" title={`Фаза суток: ${DAY_PHASE_LABELS[phase].toLowerCase()}`} />
-        <time className="type-num-15 text-gd whitespace-nowrap" title={narrow ? `Дата и время мира: ${formatHarptos(state.time.sec)}` : 'Дата и время мира'}>{narrow ? shortHarptos(state.time.sec) : formatHarptos(state.time.sec)}</time>
-        {narrow ? null : <span className="type-num-12 uppercase text-t2" data-part="phase">{DAY_PHASE_LABELS[phase]}</span>}
-        <span data-part="weather" title={`Погода: ${weatherLabel(weather)}`} className="flex flex-none items-center gap-1 whitespace-nowrap type-body-sm text-t2">
-          <Icon name={SKY_ICON[weather.sky]} size={16} color="var(--t2)" title={weatherLabel(weather)} />
-          <span>{narrow ? `${weather.tempC < 0 ? '\u2212' : '+'}${Math.abs(weather.tempC)} °C` : weatherLabel(weather)}</span>
-        </span>
-        <CelestialBar moon={moon.phase} next={{ label: 'Полнолуние', countdown: inDays(moon.daysToFull) }} compact={narrow} />
-        {combat ? <span className="type-num-12 uppercase text-t2" data-part="round">Раунд {encounter.round}</span> : null}
-        <div role="group" aria-label="Вид главной зоны" className="ml-auto flex items-center gap-1">
-          {views.map(v => (
-            <button
-              key={v}
-              type="button"
-              aria-pressed={shownView === v}
-              aria-label={narrow ? VIEW_LABEL[v] : undefined}
-              title={dmView ? VIEW_TITLE[v] : VIEW_LABEL[v]}
-              onClick={() => setView(v)}
-              className={`${BTN} ${shownView === v ? 'text-gd-hi' : ''}`}
-            >
-              {narrow ? <Icon name={VIEW_ICON[v]} size={16} color="currentColor" title={VIEW_LABEL[v]} /> : VIEW_LABEL[v]}
-            </button>
-          ))}
-        </div>
-        {/* Инструменты мастера — темп, шаг, начало боя, переключатель режима — на столе игроков отсутствуют (F8). */}
-        {dmView ? (
-          <>
-            <Popover.Root open={initiativeOpen} onOpenChange={setInitiativeOpen}>
-              <Popover.Trigger asChild>
-                <button
-                  type="button"
-                  title={combat ? 'Порядок инициативы: поправить броски, вписать новичка' : 'Начать бой: броски инициативы — игроки называют, монстрам бросает стол'}
-                  className={BTN}
-                >
-                  {combat ? 'Порядок' : 'Начать бой'}
-                </button>
-              </Popover.Trigger>
-              <Popover.Portal>
-                <Popover.Content side="bottom" align="end" sideOffset={4} collisionPadding={8} aria-label="Инициатива" className="z-20 outline-none">
-                  <InitiativeEditor rows={initiativeRows} mode={combat ? 'set' : 'start'} onRoll={rollTotal} onApply={applyInitiative} />
-                </Popover.Content>
-              </Popover.Portal>
-            </Popover.Root>
-            {combat ? null : (
-              // Отдых — вне боя (SRD: бой прерывает отдых); в бою кнопки нет вовсе.
-              <Popover.Root open={restOpen} onOpenChange={setRestOpen}>
-                <Popover.Trigger asChild>
-                  <button type="button" title="Отдых: короткий — час и кости хитов, долгий — восемь часов и хиты полны" className={BTN}>Отдых</button>
-                </Popover.Trigger>
-                <Popover.Portal>
-                  <Popover.Content side="bottom" align="end" sideOffset={4} collisionPadding={8} aria-label="Отдых" className="z-20 outline-none">
-                    <RestForm rows={restRows} onRoll={rollTotal} onRest={onRest} />
-                  </Popover.Content>
-                </Popover.Portal>
-              </Popover.Root>
-            )}
-            <TimeTempo value={tempo} onChange={setTempoChoice} onStep={onStep} disabled={combat} />
-            <button
-              type="button"
-              aria-pressed={false}
-              title="Глазами игроков: секреты уходят из DOM · P"
-              onClick={() => setPlayersView(true)}
-              className={BTN}
-            >
-              Игроки
-            </button>
-          </>
-        ) : null}
-      </header>
+      <ClockBar
+        railParty={railParty}
+        state={state}
+        encounter={encounter}
+        phase={phase}
+        narrow={narrow}
+        weather={weather}
+        moon={moon}
+        combat={combat}
+        views={views}
+        shownView={shownView}
+        setView={setView}
+        dmView={dmView}
+        initiativeOpen={initiativeOpen}
+        setInitiativeOpen={setInitiativeOpen}
+        initiativeRows={initiativeRows}
+        rollTotal={rollTotal}
+        applyInitiative={applyInitiative}
+        restOpen={restOpen}
+        setRestOpen={setRestOpen}
+        restRows={restRows}
+        onRest={onRest}
+        tempo={tempo}
+        setTempoChoice={setTempoChoice}
+        onStep={onStep}
+        setPlayersView={setPlayersView}
+      />
 
       <div className="relative flex-1 min-h-0 flex">
-        {railParty ? (
-          <IconRail
-            side="left"
-            label="Партия"
-            items={partyRailItems}
-            active={openRail?.side === 'party' ? openRail.item : undefined}
-            onOpen={item => setOpenRail(o => (o?.side === 'party' ? null : { side: 'party', item }))}
-          />
-        ) : null}
-        {!railParty || openRail?.side === 'party' ? (
-        <aside aria-label="Партия" data-overlay={railParty || undefined} className={railParty ? PANEL_OVERLAY_LEFT : 'w-rail-party flex-none flex flex-col bg-pn shadow-bevel min-h-0'}>
-          <div className={HEAD}>
-            <Icon name="ent-pc" size={16} color="var(--t2)" title="Партия" />
-            <span>Партия</span>
-            <span className="ml-auto type-key text-t2" title="Персонажей в партии">{party.length}</span>
-            {dmView ? (
-              <button type="button" title="Новый персонаж из компендиума: раса, класс, point buy, навыки — в партию одним событием" onClick={() => setEditorOpen(true)} className={BTN_HEAD}>Новый</button>
-            ) : null}
-            {railParty ? (
-              <button type="button" title="Закрепить панель на столе" onClick={() => { setRailParty(false); setOpenRail(null); }} className={BTN_HEAD}>Закрепить</button>
-            ) : (
-              <button type="button" title="Свернуть панель в полосу иконок" onClick={() => setRailParty(true)} className={BTN_HEAD}>Свернуть</button>
-            )}
-          </div>
-          <div className="min-h-0 overflow-auto">
-            <PartySpine actors={party} worldSec={state.time.sec} selectedId={selectedId} onOpen={open} flash={flashes} locations={state.world.locations} />
-          </div>
-        </aside>
-        ) : null}
+        <PartyPanel
+          state={state}
+          dmView={dmView}
+          party={party}
+          selectedId={selectedId}
+          open={open}
+          flashes={flashes}
+          checkedParty={checkedParty}
+          setChecked={setChecked}
+          setCompareOpen={setCompareOpen}
+          setEditorOpen={setEditorOpen}
+          railParty={railParty}
+          setRailParty={setRailParty}
+          openRail={openRail}
+          setOpenRail={setOpenRail}
+        />
 
         {/* Popover.Root — вокруг всей главной зоны: якорь один, но живёт то в карточке, то на токене. */}
         <Popover.Root key={actor?.id ?? 'none'} open={popoverOpen} onOpenChange={setPopoverOpen}>
           {anchor === 'token' ? <Popover.Anchor virtualRef={tokenAnchor} /> : null}
           {shownView === 'time' ? (
-            <section aria-label="Шаг времени" ref={mainRef} className="relative flex-1 min-w-0 min-h-0 flex flex-col gap-4 p-4 overflow-auto">
-              <DayPhaseStrip value={phase} />
-              <div className="flex flex-col bg-pn shadow-bevel">
-                <div className={HEAD}>
-                  <Icon name="scale-system" size={16} color="var(--ent-plane)" title="Небесные тела" />
-                  <span>Небесные тела</span>
-                  <span className="type-key text-t2 normal-case">темп часов: {TEMPO_LABELS[tempo].toLowerCase()}</span>
-                </div>
-                {/* Планетарий (Orrery) — уровень звёздной системы, шаг 10; здесь — фазы Selûne и обратный отсчёт. */}
-                <ol aria-label="Фазы Selûne" className="flex flex-col gap-1 p-3">
-                  {MOON_PHASES.map(ph => (
-                    <li key={ph} aria-current={ph === moon.phase ? 'true' : undefined} className={`flex items-center gap-2 type-body-sm ${ph === moon.phase ? 'text-tx' : 'text-t2'}`}>
-                      <Icon name={MOON_ICONS[ph]} size={16} color={ph === moon.phase ? 'var(--src-canon)' : 'var(--t2)'} title={MOON_LABELS[ph]} />
-                      <span>{MOON_LABELS[ph]}</span>
-                      {ph === 'full' ? <span className="type-key text-t2">{inDays(moon.daysToFull)}</span> : null}
-                      {ph === 'new' ? <span className="type-key text-t2">{inDays(moon.daysToNew)}</span> : null}
-                    </li>
-                  ))}
-                </ol>
-              </div>
-              {dmView ? (
-              <div className="flex flex-col bg-pn shadow-bevel">
-                <div className={HEAD}>
-                  <Icon name="pulse" size={16} color="var(--src-sim)" title="Что изменилось" />
-                  <span>Что изменилось</span>
-                  {lastStep ? <span className="type-key text-t2 normal-case">после шага · ждут решения: {stepDeltas.length}</span> : null}
-                </div>
-                <ChangeSummary
-                  className="p-3"
-                  emptyText={lastStep ? 'Всё решено — предложения этого шага разобраны.' : 'Сводка появится после шага времени: выбери темп в полосе часов и нажми «Шаг» (или T).'}
-                  groups={summaryGroups(stepDeltas, scaleLabel, NEAR_SCALES).map(g => ({
-                    ...g,
-                    items: g.items.map(it => ({ ...it, onAccept: () => decide(it.id, 'accept'), onReject: () => decide(it.id, 'reject') })),
-                  }))}
-                  onAcceptAll={groupId => { for (const d of stepDeltas) if (d.scale === groupId) api.accept(d.id); }}
-                />
-              </div>
-              ) : null}
-            </section>
+            <TimeView
+              sec={state.time.sec}
+              mainRef={mainRef}
+              dmView={dmView}
+              phase={phase}
+              moon={moon}
+              tempo={tempo}
+              lastStep={lastStep}
+              stepDeltas={stepDeltas}
+              scaleLabel={scaleLabel}
+              decide={decide}
+              api={api}
+            />
           ) : shownView === 'journal' ? (
-            <section aria-label="Журнал сессии" ref={mainRef} className="relative flex-1 min-w-0 min-h-0 flex flex-col">
-              <div className="flex flex-col gap-2 px-4 pt-3 pb-2 shadow-[inset_0_-1px_0_var(--lo)]">
-                <div className="flex items-start gap-4">
-                  <ThreadFilter
-                    threads={threads.map(t => ({ id: t.id, name: t.name, count: t.count }))}
-                    scales={journalScales(allEntries).map(id => ({ id }))}
-                    activeThreads={filterThreads}
-                    activeScales={filterScales}
-                    onThread={(id, on) => setFilterThreads(t => toggleIn(t, id, on))}
-                    onScale={(id, on) => setFilterScales(sc => toggleIn(sc, id, on))}
-                    className="flex-1 min-w-0"
-                  />
-                  <span className="type-key uppercase text-t2 whitespace-nowrap" data-part="count">Записей: {filtered.length} из {allEntries.length}</span>
-                </div>
-                {dmView ? (
-                <form
-                  className="flex items-center gap-2"
-                  onSubmit={e => { e.preventDefault(); addNote(); }}
-                >
-                  <Icon name="note" size={16} color="var(--src-dm)" title="Заметка мастера" />
-                  <input
-                    value={noteDraft}
-                    onChange={e => setNoteDraft(e.target.value)}
-                    aria-label="Заметка"
-                    placeholder={filterThreads.length > 0 ? `Заметка в нить: ${filterThreads.map(id => state.world.threads[id]?.name ?? id).join(', ')}` : 'Заметка — Enter записывает'}
-                    className="flex-1 min-w-0 type-body-sm text-tx bg-cd shadow-bevel-in px-2 py-1 placeholder:text-t3 focus-visible:shadow-[var(--bevel-in),var(--glow-gold)]"
-                  />
-                  <button type="submit" disabled={noteDraft.trim() === ''} title="Записать в журнал · Enter" className={BTN}>Записать</button>
-                </form>
-                ) : null}
-              </div>
-              <div className="flex-1 min-h-0 overflow-auto px-4">
-                {reminders.map(f => (
-                  <JournalReminder
-                    key={f.id}
-                    text={`${f.text} — открыть игрокам?`}
-                    onReveal={() => api.reveal(f.id)}
-                    onLater={() => setLaterFacts(l => [...l, f.id])}
-                    className="my-2"
-                  />
-                ))}
-                <ol aria-label="Записи журнала сессии" className="flex flex-col">
-                  {filtered.map(entry => {
-                    const cascade = cascadeOf(entry, allEntries, state);
-                    return (
-                      <li key={entry.id} data-undone={entry.undone || undefined} className="flex flex-col">
-                        <JournalEntry {...entryProps(entry)} />
-                        {cascade.length > 0 ? <JournalCascade steps={cascade} className="mb-2" /> : null}
-                      </li>
-                    );
-                  })}
-                </ol>
-              </div>
-            </section>
+            <JournalView
+              mainRef={mainRef}
+              state={state}
+              dmView={dmView}
+              allEntries={allEntries}
+              filtered={filtered}
+              threads={threads}
+              filterThreads={filterThreads}
+              setFilterThreads={setFilterThreads}
+              filterScales={filterScales}
+              setFilterScales={setFilterScales}
+              noteDraft={noteDraft}
+              setNoteDraft={setNoteDraft}
+              addNote={addNote}
+              reminders={reminders}
+              setLaterFacts={setLaterFacts}
+              entryProps={entryProps}
+              api={api}
+            />
           ) : (
             // Главная зона (§4): лестница масштабов и под ней уровень — сетка на ступени боя, карточки на остальных
             // (MVP: карт нет). В бою карточка рядом с сеткой — по кнопке «Карточка»: главная зона отдана полю боя.
@@ -1660,247 +1058,80 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
                   {cardInCombat ? card : null}
                 </div>
               ) : (
-                // Ключ — уровень и фокус: переход — одна анимация приближения на 200 мс (HANDOFF §3), точка фокуса та же.
-                <div key={`${ladder.level}:${focus?.id ?? ''}`} data-part="level-zone" className="level-zoom flex-1 min-h-0 flex items-start gap-4 p-4 overflow-auto">
-                  {here.length > 0 || (ladder.level === 'continent' && factions.length > 0) || foes.length > 0 ? (
-                    <div className="w-72 flex-none flex flex-col gap-4">
-                      {here.length > 0 ? (
-                        <CardStack
-                          title="Здесь"
-                          icon="ent-location"
-                          items={hereItems(here, ladder, counts, pendingIds)}
-                          onOpen={it => goLadder(selectPlace(state, ladder, it.id))}
-                        />
-                      ) : null}
-                      {ladder.level === 'continent' && factions.length > 0 ? (
-                        <CardStack
-                          title="Державы"
-                          icon="ent-faction"
-                          items={factionItems(factions, pendingIds)}
-                          onOpen={it => showCard({ kind: 'faction', id: it.id })}
-                        />
-                      ) : null}
-                      {foes.length > 0 ? (
-                        <CardStack
-                          title="Противники"
-                          icon="ent-monster"
-                          items={foes.map(stackItemOf)}
-                          onOpen={it => open(it.id)}
-                        />
-                      ) : null}
-                    </div>
-                  ) : null}
-                  {!combat || cardInCombat ? card : null}
-                </div>
+                <LevelZone
+                  state={state}
+                  events={events}
+                  ladder={ladder}
+                  focus={focus}
+                  here={here}
+                  dmView={dmView}
+                  combat={combat}
+                  cardInCombat={cardInCombat}
+                  counts={counts}
+                  pendingIds={pendingIds}
+                  map={map}
+                  terrain={terrain}
+                  gazetteer={gazetteer}
+                  planetView={planetView}
+                  onPlanetView={setPlanetView}
+                  cosmologyView={cosmologyView}
+                  onCosmologyView={setCosmologyView}
+                  journey={journey}
+                  onTravel={onTravel}
+                  goLadder={goLadder}
+                  onPin={id => goLadder(selectPlace(state, ladder, id))}
+                  stacks={levelStacks}
+                  card={card}
+                />
               )}
               {cardOverlayDialog}
+              {compareDialog}
               {editorDialog}
             </section>
           )}
           {hpPopover}
         </Popover.Root>
 
-        {railTools ? (
-          <IconRail
-            side="right"
-            label={dmView ? 'Инструменты' : 'Хроника'}
-            items={toolsRailItems}
-            active={openRail?.side === 'tools' ? openRail.item : undefined}
-            onOpen={item => setOpenRail(o => (o?.side === 'tools' ? null : { side: 'tools', item }))}
-            className="order-last"
-          />
-        ) : null}
-        {!railTools || openRail?.side === 'tools' ? (
-        <aside aria-label={dmView ? 'Журнал и отмена' : 'Хроника похода'} data-overlay={railTools || undefined} className={railTools ? PANEL_OVERLAY_RIGHT : 'w-rail-tools flex-none flex flex-col bg-pn shadow-bevel min-h-0'}>
-          {dmView ? (
-          <>
-          <div className={HEAD}>
-            <Icon name="reroll" size={16} color="var(--t2)" title="Отмена и повтор" />
-            <span>Действия</span>
-            {toolsPin}
-          </div>
-          <div className="flex items-center gap-1 p-2">
-            <button type="button" title="Отменить последнее действие · Ctrl+Z" disabled={!canUndo} onClick={() => api.undo()} className={BTN}>Отменить</button>
-            <button type="button" title="Повторить отменённое · Ctrl+Shift+Z" disabled={!canRedo} onClick={() => api.redo()} className={BTN}>Повторить</button>
-            {resetArmed ? null : (
-              <button type="button" title="Новая сессия: стереть журнал и собрать стол из сида заново — спросит подтверждение" onClick={() => setResetArmed(true)} className={`ml-auto ${BTN}`}>Новая сессия</button>
-            )}
-          </div>
-          {/* Файл сессии — страховка живой игры: журнал целиком, тем же конвертом, что в хранилище браузера. */}
-          <div className="flex items-center gap-1 px-2 pb-2">
-            <button type="button" title="Сохранить журнал сессии файлом (dm-cockpit-<дата>.json)" onClick={onExport} className={BTN}>Сохранить</button>
-            <label title="Открыть журнал сессии из файла: стол соберётся из него, битый файл сессию не тронет" className={`${BTN} inline-flex items-center`}>
-              Открыть…
-              <input
-                type="file"
-                accept="application/json,.json"
-                aria-label="Файл сессии"
-                onChange={e => { const f = e.target.files?.[0]; if (f) onImport(f); e.target.value = ''; }}
-                className="sr-only"
-              />
-            </label>
-          </div>
-          {resetArmed ? (
-            <div role="alertdialog" aria-label="Новая сессия" className="flex flex-col gap-2 mx-2 mb-2 px-2 py-2 bg-pl shadow-plate type-body-sm text-tx">
-              <span>Стереть журнал сессии и начать заново? Отменить это будет нельзя.</span>
-              <div className="flex items-center gap-1">
-                <button type="button" title="Стереть журнал: стол из сида" onClick={onReset} className={`${BTN} text-fx-damage-hi`}>Стереть</button>
-                <button type="button" title="Оставить сессию как есть" onClick={() => setResetArmed(false)} className={BTN}>Оставить</button>
-              </div>
-            </div>
-          ) : null}
-          {/* Живой регион существует всегда: скринридер объявляет изменения внутри него, а не его появление. */}
-          <div role="status" aria-live="polite" className={toast ? 'flex items-start gap-2 mx-2 mb-2 px-2 py-1 bg-pl shadow-plate type-body-sm text-tx' : 'sr-only'}>
-            {toast ? (
-              <>
-                <span className="flex-1 min-w-0">{toast}</span>
-                <button type="button" aria-label="Скрыть тост" title="Скрыть" onClick={() => api.dismissToast()} className="flex-none text-t2 hover:text-tx">
-                  <Icon name="cross" size={16} color="currentColor" title="Скрыть" />
-                </button>
-              </>
-            ) : null}
-          </div>
-          {note ? (
-            <div role="note" className="flex items-start gap-2 mx-2 mb-2 px-2 py-1 bg-cd shadow-bevel type-body-sm text-t2">
-              <Icon name="note" size={16} color="var(--src-dm)" title="Заметка мастера" className="mt-0.5" />
-              <span className="flex-1 min-w-0">{note}</span>
-              <button type="button" aria-label="Скрыть заметку" title="Скрыть" onClick={() => setNote(null)} className="flex-none text-t2 hover:text-tx">
-                <Icon name="cross" size={16} color="currentColor" title="Скрыть" />
-              </button>
-            </div>
-          ) : null}
-          </>
-          ) : (
-            // Стол игроков (F8): вместо действий мастера — открытые задачи партии, без сроков и секретов.
-            <>
-              <div className={HEAD}>
-                <Icon name="threads" size={16} color="var(--t2)" title="Хроника похода" />
-                <span>Хроника похода</span>
-                {toolsPin}
-              </div>
-              {openThreads.length > 0 ? (
-                <p className="px-2 py-2 type-body-sm text-tx">
-                  Открытые задачи: {openThreads.map(t => t.name).join('; ')}.
-                </p>
-              ) : null}
-            </>
-          )}
-          {shownRoll ? (
-            // Последний бросок из лога (DICE_ROLLED); закрытый крестиком не возвращается, следующий бросок — новая карточка.
-            // На столе игроков — без переключателя скрытости, переброса и истории со скрытыми бросками.
-            <RollModal
-              roll={shownRoll.roll}
-              history={rollHistoryOf(events).filter(r => r.id !== shownRoll.id && (dmView || !r.hidden))}
-              hidden={hiddenRolls}
-              onHiddenChange={dmView ? setHiddenRolls : undefined}
-              onReroll={dmView ? () => api.rollDice(shownRoll.roll.formula, { label: shownRoll.roll.label, hidden: hiddenRolls }) : undefined}
-              onClose={() => setClosedRollId(shownRoll.id)}
-              className="mx-auto mb-2"
-            />
-          ) : null}
-          {shownView === 'journal' ? (
-            <>
-              <div className={HEAD}>
-                <Icon name="threads" size={16} color="var(--t2)" title="Нити" />
-                <span>Нити</span>
-                <span className="ml-auto type-key text-t2" title="Открытых нитей">{threads.length}</span>
-              </div>
-              <div className="min-h-0 overflow-auto flex flex-col gap-2 p-2">
-                {threads.map(t => (
-                  <ThreadCard
-                    key={t.id}
-                    id={t.id}
-                    name={t.name}
-                    count={t.count}
-                    rows={threadCardRows(t, dmView)}
-                    selected={filterThreads.includes(t.id)}
-                    onSelect={id => setFilterThreads(f => toggleIn(f, id, !f.includes(id)))}
-                  />
-                ))}
-              </div>
-            </>
-          ) : (
-            <>
-              {concentrationReminders.length > 0 || conditionReminders.length > 0 ? (
-                // Система предлагает, мастер решает: снять — событие, «Позже» — вид. Пустого списка нет вовсе.
-                <div aria-label="Напоминания" role="list" className="flex flex-col px-2 pt-1">
-                  {conditionReminders.map(r => (
-                    <div key={r.key} role="listitem">
-                      <JournalReminder
-                        inset={false}
-                        icon={{ name: `cond-${r.conditionId}` as IconName, color: 'var(--fx-damage-hi)', title: 'Срок вышел' }}
-                        action={{ label: 'Снять', title: `Снять состояние «${CONDITIONS[r.conditionId].label}»: срок вышел` }}
-                        text={r.text}
-                        onReveal={() => onCommand({ type: 'CONDITION_REMOVED', payload: { targetId: r.actorId, conditionId: r.conditionId } })}
-                        onLater={() => setLaterConcentration(l => [...l, r.key])}
-                      />
-                    </div>
-                  ))}
-                  {concentrationReminders.map(r => (
-                    <div key={r.key} role="listitem">
-                      <JournalReminder
-                        inset={false}
-                        icon={{ name: r.reason === 'unconscious' ? 'cond-unconscious' : 'cond-concentration', color: 'var(--fx-damage-hi)', title: r.reason === 'unconscious' ? 'Без сознания' : 'Срок вышел' }}
-                        action={{ label: 'Снять', title: r.reason === 'unconscious' ? 'Снять концентрацию: без сознания' : 'Снять концентрацию: срок вышел' }}
-                        text={r.text}
-                        onReveal={() => onCommand({ type: 'CONCENTRATION_ENDED', payload: { actorId: r.actorId, reason: r.reason } })}
-                        onLater={() => setLaterConcentration(l => [...l, r.key])}
-                      />
-                    </div>
-                  ))}
-                </div>
-              ) : null}
-              {dmView && pending.length > 0 ? (
-                // Входящие — сверху панели инструментов (HANDOFF §4): пока мастер не решил, мир не менялся.
-                <>
-                  <div className={HEAD}>
-                    <Icon name="inbox" size={16} color="var(--src-sim)" title="Предложения мира" />
-                    <span>Входящие</span>
-                    <span className="ml-auto type-key text-t2" title="Ждут решения">{pending.length}</span>
-                  </div>
-                  <div aria-label="Входящие" role="list" className="min-h-0 max-h-[45%] overflow-auto flex flex-col gap-2 p-2">
-                    {pending.map(d => (
-                      <div key={d.id} role="listitem">
-                        <WorldDelta
-                          {...worldDeltaProps(d)}
-                          chain={causeChain(d.causeId, allEntries, state, [d.id]).map(c => c.label)}
-                          onAccept={() => api.accept(d.id)}
-                          onReject={() => api.reject(d.id)}
-                          onReroll={(d.variants?.length ?? 0) > 1 ? () => api.reroll(d.id) : undefined}
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </>
-              ) : dmView ? (
-                // Единственная секция, что показывается пустой (CLAUDE.md): «Мир спокоен» и ближайший праздник —
-                // луна уже в полосе часов, второй раз не печатается.
-                <>
-                  <div className={HEAD}>
-                    <Icon name="inbox" size={16} color="var(--t2)" title="Предложения мира" />
-                    <span>Входящие</span>
-                  </div>
-                  <p data-part="calm" className="px-2 py-2 type-body-sm text-t2">
-                    Мир спокоен. Ближайший праздник — <span className="text-tx">{festival.festival}</span> {inDays(festival.days)}.
-                  </p>
-                </>
-              ) : null}
-              <div className={HEAD}>
-                <Icon name="journal" size={16} color="var(--t2)" title="Журнал" />
-                <span>{combat ? 'Журнал боя' : 'Журнал'}</span>
-                <span className="ml-auto type-key text-t2" title="Показаны последние записи">последние {journal.length}</span>
-              </div>
-              <ol aria-label="Записи журнала" className="min-h-0 overflow-auto flex flex-col px-2">
-                {journal.map(e => (
-                  <li key={e.id} data-undone={e.undone || undefined} className="flex flex-col">
-                    <JournalEntry {...entryProps(e)} />
-                  </li>
-                ))}
-              </ol>
-            </>
-          )}
-        </aside>
-        ) : null}
+        <ToolsPanel
+          state={state}
+          events={events}
+          api={api}
+          dmView={dmView}
+          combat={combat}
+          shownView={shownView}
+          canUndo={canUndo}
+          canRedo={canRedo}
+          resetArmed={resetArmed}
+          setResetArmed={setResetArmed}
+          onReset={onReset}
+          onExport={onExport}
+          onImport={onImport}
+          note={note}
+          setNote={setNote}
+          toast={toast}
+          shownRoll={shownRoll}
+          setClosedRollId={setClosedRollId}
+          hiddenRolls={hiddenRolls}
+          setHiddenRolls={setHiddenRolls}
+          openThreads={openThreads}
+          threads={threads}
+          filterThreads={filterThreads}
+          setFilterThreads={setFilterThreads}
+          concentrationReminders={concentrationReminders}
+          conditionReminders={conditionReminders}
+          setLaterConcentration={setLaterConcentration}
+          onCommand={onCommand}
+          pending={pending}
+          festival={festival}
+          journal={journal}
+          allEntries={allEntries}
+          entryProps={entryProps}
+          railTools={railTools}
+          toolsPin={toolsPin}
+          toolsRailItems={toolsRailItems}
+          openRail={openRail}
+          setOpenRail={setOpenRail}
+        />
       </div>
 
       {combat ? (
@@ -1918,6 +1149,7 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
       ) : null}
     </main>
     </PlayerFrame>
+    </OpenEntityContext.Provider>
   );
 }
 

@@ -1,0 +1,3532 @@
+{
+ "source": "SRD 5.1 (CC-BY-4.0) via https://www.dnd5eapi.co/api/2014",
+ "fetchedAt": "2026-10-27",
+ "items": {
+  "alms-box": {
+   "id": "alms-box",
+   "name": "Alms box",
+   "kind": "gear",
+   "cost": "0 cp",
+   "weight": 0,
+   "text": "A small box for alms, typically found in a priest's pack."
+  },
+  "amulet": {
+   "id": "amulet",
+   "name": "Amulet",
+   "kind": "focus",
+   "cost": "5 gp",
+   "weight": 1,
+   "text": "A holy symbol is a representation of a god or pantheon. It might be an amulet depicting a symbol representing a deity, the same symbol carefully engraved or inlaid as an emblem on a shield, or a tiny box holding a fragment of a sacred relic.\n\nAppendix B lists the symbols commonly associated with many gods in the multiverse. A cleric or paladin can use a holy symbol as a spellcasting focus. To use the symbol in this way, the caster must hold it in hand, wear it visibly, or bear it on a shield."
+  },
+  "arrow": {
+   "id": "arrow",
+   "name": "Arrow",
+   "kind": "gear",
+   "cost": "1 gp",
+   "weight": 1
+  },
+  "backpack": {
+   "id": "backpack",
+   "name": "Backpack",
+   "kind": "gear",
+   "cost": "2 gp",
+   "weight": 5
+  },
+  "bagpipes": {
+   "id": "bagpipes",
+   "name": "Bagpipes",
+   "kind": "tool",
+   "cost": "30 gp",
+   "weight": 6,
+   "text": "Several of the most common types of musical instruments are shown on the table as examples. If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use a musical instrument as a spellcasting focus. Each type of musical instrument requires a separate proficiency."
+  },
+  "ball-bearings-bag-of-1000": {
+   "id": "ball-bearings-bag-of-1000",
+   "name": "Ball bearings (bag of 1,000)",
+   "kind": "gear",
+   "cost": "1 gp",
+   "weight": 2,
+   "text": "As an action, you can spill these tiny metal balls from their pouch to cover a level, square area that is 10 feet on a side.\n\nA creature moving across the covered area must succeed on a DC 10 Dexterity saving throw or fall prone.\n\nA creature moving through the area at half speed doesn't need to make the save."
+  },
+  "battleaxe": {
+   "id": "battleaxe",
+   "name": "Battleaxe",
+   "kind": "weapon",
+   "weapon": {
+    "category": "martial",
+    "range": "melee",
+    "damage": "1d8",
+    "damageType": "slashing",
+    "properties": [
+     "versatile"
+    ],
+    "versatile": "1d10"
+   },
+   "cost": "10 gp",
+   "weight": 4
+  },
+  "bedroll": {
+   "id": "bedroll",
+   "name": "Bedroll",
+   "kind": "gear",
+   "cost": "1 gp",
+   "weight": 7
+  },
+  "bell": {
+   "id": "bell",
+   "name": "Bell",
+   "kind": "gear",
+   "cost": "1 gp",
+   "weight": 0
+  },
+  "blanket": {
+   "id": "blanket",
+   "name": "Blanket",
+   "kind": "gear",
+   "cost": "5 sp",
+   "weight": 3
+  },
+  "block-of-incense": {
+   "id": "block-of-incense",
+   "name": "Block of incense",
+   "kind": "gear",
+   "cost": "0 cp",
+   "weight": 0,
+   "text": "A block of incense, typically found in a priest's pack."
+  },
+  "blowgun": {
+   "id": "blowgun",
+   "name": "Blowgun",
+   "kind": "weapon",
+   "weapon": {
+    "category": "martial",
+    "range": "ranged",
+    "damage": "1",
+    "damageType": "piercing",
+    "properties": [
+     "ammunition",
+     "loading"
+    ],
+    "rangeFt": [
+     25,
+     100
+    ]
+   },
+   "cost": "10 gp",
+   "weight": 1
+  },
+  "book": {
+   "id": "book",
+   "name": "Book",
+   "kind": "gear",
+   "cost": "25 gp",
+   "weight": 5,
+   "text": "A book might contain poetry, historical accounts, information pertaining to a particular field of lore, diagrams and notes on gnomish contraptions, or just about anything else that can be represented using text or pictures. A book of spells is a spellbook (described later in this section)."
+  },
+  "breastplate": {
+   "id": "breastplate",
+   "name": "Breastplate",
+   "kind": "armor",
+   "armor": {
+    "category": "medium",
+    "baseAc": 14,
+    "strength": null,
+    "stealthDisadvantage": false
+   },
+   "cost": "400 gp",
+   "weight": 20
+  },
+  "burglars-pack": {
+   "id": "burglars-pack",
+   "name": "Burglar's Pack",
+   "kind": "pack",
+   "contents": [
+    {
+     "id": "backpack",
+     "qty": 1
+    },
+    {
+     "id": "ball-bearings-bag-of-1000",
+     "qty": 1
+    },
+    {
+     "id": "string-10-feet",
+     "qty": 1
+    },
+    {
+     "id": "bell",
+     "qty": 1
+    },
+    {
+     "id": "candle",
+     "qty": 5
+    },
+    {
+     "id": "crowbar",
+     "qty": 1
+    },
+    {
+     "id": "hammer",
+     "qty": 1
+    },
+    {
+     "id": "piton",
+     "qty": 10
+    },
+    {
+     "id": "lantern-hooded",
+     "qty": 1
+    },
+    {
+     "id": "oil-flask",
+     "qty": 2
+    },
+    {
+     "id": "rations-1-day",
+     "qty": 5
+    },
+    {
+     "id": "tinderbox",
+     "qty": 1
+    },
+    {
+     "id": "waterskin",
+     "qty": 1
+    },
+    {
+     "id": "rope-hempen-50-feet",
+     "qty": 1
+    }
+   ],
+   "cost": "16 gp"
+  },
+  "candle": {
+   "id": "candle",
+   "name": "Candle",
+   "kind": "gear",
+   "cost": "1 cp",
+   "weight": 0,
+   "text": "For 1 hour, a candle sheds bright light in a 5-foot radius and dim light for an additional 5 feet."
+  },
+  "case-map-or-scroll": {
+   "id": "case-map-or-scroll",
+   "name": "Case, map or scroll",
+   "kind": "gear",
+   "cost": "1 gp",
+   "weight": 1,
+   "text": "This cylindrical leather case can hold up to ten rolled-up sheets of paper or five rolled-up sheets of parchment."
+  },
+  "censer": {
+   "id": "censer",
+   "name": "Censer",
+   "kind": "gear",
+   "cost": "0 cp",
+   "weight": 0,
+   "text": "A censer, typically found in a priest's pack."
+  },
+  "chain-mail": {
+   "id": "chain-mail",
+   "name": "Chain Mail",
+   "kind": "armor",
+   "armor": {
+    "category": "heavy",
+    "baseAc": 16,
+    "strength": 13,
+    "stealthDisadvantage": true
+   },
+   "cost": "75 gp",
+   "weight": 55
+  },
+  "chain-shirt": {
+   "id": "chain-shirt",
+   "name": "Chain Shirt",
+   "kind": "armor",
+   "armor": {
+    "category": "medium",
+    "baseAc": 13,
+    "strength": null,
+    "stealthDisadvantage": false
+   },
+   "cost": "50 gp",
+   "weight": 20
+  },
+  "chest": {
+   "id": "chest",
+   "name": "Chest",
+   "kind": "gear",
+   "cost": "5 gp",
+   "weight": 25
+  },
+  "clothes-costume": {
+   "id": "clothes-costume",
+   "name": "Clothes, costume",
+   "kind": "gear",
+   "cost": "5 gp",
+   "weight": 4
+  },
+  "clothes-fine": {
+   "id": "clothes-fine",
+   "name": "Clothes, fine",
+   "kind": "gear",
+   "cost": "15 gp",
+   "weight": 6
+  },
+  "club": {
+   "id": "club",
+   "name": "Club",
+   "kind": "weapon",
+   "weapon": {
+    "category": "simple",
+    "range": "melee",
+    "damage": "1d4",
+    "damageType": "bludgeoning",
+    "properties": [
+     "light",
+     "monk"
+    ]
+   },
+   "cost": "1 sp",
+   "weight": 2
+  },
+  "component-pouch": {
+   "id": "component-pouch",
+   "name": "Component pouch",
+   "kind": "gear",
+   "cost": "25 gp",
+   "weight": 2,
+   "text": "A component pouch is a small, watertight leather belt pouch that has compartments to hold all the material components and other special items you need to cast your spells, except for those components that have a specific cost (as indicated in a spell's description)."
+  },
+  "crossbow-bolt": {
+   "id": "crossbow-bolt",
+   "name": "Crossbow bolt",
+   "kind": "gear",
+   "cost": "1 gp",
+   "weight": 1.5
+  },
+  "crossbow-hand": {
+   "id": "crossbow-hand",
+   "name": "Crossbow, hand",
+   "kind": "weapon",
+   "weapon": {
+    "category": "martial",
+    "range": "ranged",
+    "damage": "1d6",
+    "damageType": "piercing",
+    "properties": [
+     "ammunition",
+     "light",
+     "loading"
+    ],
+    "rangeFt": [
+     30,
+     120
+    ]
+   },
+   "cost": "75 gp",
+   "weight": 3
+  },
+  "crossbow-heavy": {
+   "id": "crossbow-heavy",
+   "name": "Crossbow, heavy",
+   "kind": "weapon",
+   "weapon": {
+    "category": "martial",
+    "range": "ranged",
+    "damage": "1d10",
+    "damageType": "piercing",
+    "properties": [
+     "ammunition",
+     "heavy",
+     "loading",
+     "two-handed"
+    ],
+    "rangeFt": [
+     100,
+     400
+    ]
+   },
+   "cost": "50 gp",
+   "weight": 18
+  },
+  "crossbow-light": {
+   "id": "crossbow-light",
+   "name": "Crossbow, light",
+   "kind": "weapon",
+   "weapon": {
+    "category": "simple",
+    "range": "ranged",
+    "damage": "1d8",
+    "damageType": "piercing",
+    "properties": [
+     "ammunition",
+     "loading",
+     "two-handed"
+    ],
+    "rangeFt": [
+     80,
+     320
+    ]
+   },
+   "cost": "25 gp",
+   "weight": 5
+  },
+  "crowbar": {
+   "id": "crowbar",
+   "name": "Crowbar",
+   "kind": "gear",
+   "cost": "2 gp",
+   "weight": 5,
+   "text": "Using a crowbar grants advantage to Strength checks where the crowbar's leverage can be applied."
+  },
+  "crystal": {
+   "id": "crystal",
+   "name": "Crystal",
+   "kind": "focus",
+   "cost": "10 gp",
+   "weight": 1,
+   "text": "An arcane focus is a special item--an orb, a crystal, a rod, a specially constructed staff, a wand-like length of wood, or some similar item--designed to channel the power of arcane spells. A sorcerer, warlock, or wizard can use such an item as a spellcasting focus."
+  },
+  "dagger": {
+   "id": "dagger",
+   "name": "Dagger",
+   "kind": "weapon",
+   "weapon": {
+    "category": "simple",
+    "range": "melee",
+    "damage": "1d4",
+    "damageType": "piercing",
+    "properties": [
+     "finesse",
+     "light",
+     "thrown",
+     "monk"
+    ],
+    "rangeFt": [
+     20,
+     60
+    ]
+   },
+   "cost": "2 gp",
+   "weight": 1
+  },
+  "dart": {
+   "id": "dart",
+   "name": "Dart",
+   "kind": "weapon",
+   "weapon": {
+    "category": "simple",
+    "range": "ranged",
+    "damage": "1d4",
+    "damageType": "piercing",
+    "properties": [
+     "finesse",
+     "thrown"
+    ],
+    "rangeFt": [
+     20,
+     60
+    ]
+   },
+   "cost": "5 cp",
+   "weight": 0.25
+  },
+  "diplomats-pack": {
+   "id": "diplomats-pack",
+   "name": "Diplomat's Pack",
+   "kind": "pack",
+   "contents": [
+    {
+     "id": "chest",
+     "qty": 1
+    },
+    {
+     "id": "case-map-or-scroll",
+     "qty": 2
+    },
+    {
+     "id": "clothes-fine",
+     "qty": 1
+    },
+    {
+     "id": "ink-1-ounce-bottle",
+     "qty": 1
+    },
+    {
+     "id": "ink-pen",
+     "qty": 1
+    },
+    {
+     "id": "lamp",
+     "qty": 1
+    },
+    {
+     "id": "oil-flask",
+     "qty": 2
+    },
+    {
+     "id": "paper-one-sheet",
+     "qty": 5
+    },
+    {
+     "id": "perfume-vial",
+     "qty": 1
+    },
+    {
+     "id": "sealing-wax",
+     "qty": 1
+    },
+    {
+     "id": "soap",
+     "qty": 1
+    }
+   ],
+   "cost": "39 gp"
+  },
+  "disguise-kit": {
+   "id": "disguise-kit",
+   "name": "Disguise Kit",
+   "kind": "gear",
+   "cost": "25 gp",
+   "weight": 3,
+   "text": "This pouch of cosmetics, hair dye, and small props lets you create disguises that change your physical appearance. Proficiency with this kit lets you add your proficiency bonus to any ability checks you make to create a visual disguise."
+  },
+  "drum": {
+   "id": "drum",
+   "name": "Drum",
+   "kind": "tool",
+   "cost": "6 gp",
+   "weight": 3,
+   "text": "Several of the most common types of musical instruments are shown on the table as examples. If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use a musical instrument as a spellcasting focus. Each type of musical instrument requires a separate proficiency."
+  },
+  "dulcimer": {
+   "id": "dulcimer",
+   "name": "Dulcimer",
+   "kind": "tool",
+   "cost": "25 gp",
+   "weight": 10,
+   "text": "Several of the most common types of musical instruments are shown on the table as examples. If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use a musical instrument as a spellcasting focus. Each type of musical instrument requires a separate proficiency."
+  },
+  "dungeoneers-pack": {
+   "id": "dungeoneers-pack",
+   "name": "Dungeoneer's Pack",
+   "kind": "pack",
+   "contents": [
+    {
+     "id": "backpack",
+     "qty": 1
+    },
+    {
+     "id": "crowbar",
+     "qty": 1
+    },
+    {
+     "id": "hammer",
+     "qty": 1
+    },
+    {
+     "id": "piton",
+     "qty": 10
+    },
+    {
+     "id": "torch",
+     "qty": 10
+    },
+    {
+     "id": "tinderbox",
+     "qty": 1
+    },
+    {
+     "id": "rations-1-day",
+     "qty": 10
+    },
+    {
+     "id": "waterskin",
+     "qty": 1
+    },
+    {
+     "id": "rope-hempen-50-feet",
+     "qty": 1
+    }
+   ],
+   "cost": "12 gp"
+  },
+  "emblem": {
+   "id": "emblem",
+   "name": "Emblem",
+   "kind": "focus",
+   "cost": "5 gp",
+   "weight": 0,
+   "text": "A holy symbol is a representation of a god or pantheon. It might be an amulet depicting a symbol representing a deity, the same symbol carefully engraved or inlaid as an emblem on a shield, or a tiny box holding a fragment of a sacred relic.\n\nAppendix B lists the symbols commonly associated with many gods in the multiverse. A cleric or paladin can use a holy symbol as a spellcasting focus. To use the symbol in this way, the caster must hold it in hand, wear it visibly, or bear it on a shield."
+  },
+  "entertainers-pack": {
+   "id": "entertainers-pack",
+   "name": "Entertainer's Pack",
+   "kind": "pack",
+   "contents": [
+    {
+     "id": "backpack",
+     "qty": 1
+    },
+    {
+     "id": "bedroll",
+     "qty": 1
+    },
+    {
+     "id": "clothes-costume",
+     "qty": 2
+    },
+    {
+     "id": "candle",
+     "qty": 5
+    },
+    {
+     "id": "rations-1-day",
+     "qty": 5
+    },
+    {
+     "id": "waterskin",
+     "qty": 1
+    },
+    {
+     "id": "disguise-kit",
+     "qty": 1
+    }
+   ],
+   "cost": "40 gp"
+  },
+  "explorers-pack": {
+   "id": "explorers-pack",
+   "name": "Explorer's Pack",
+   "kind": "pack",
+   "contents": [
+    {
+     "id": "backpack",
+     "qty": 1
+    },
+    {
+     "id": "bedroll",
+     "qty": 1
+    },
+    {
+     "id": "mess-kit",
+     "qty": 1
+    },
+    {
+     "id": "tinderbox",
+     "qty": 1
+    },
+    {
+     "id": "torch",
+     "qty": 10
+    },
+    {
+     "id": "rations-1-day",
+     "qty": 10
+    },
+    {
+     "id": "waterskin",
+     "qty": 1
+    },
+    {
+     "id": "rope-hempen-50-feet",
+     "qty": 1
+    }
+   ],
+   "cost": "10 gp"
+  },
+  "flail": {
+   "id": "flail",
+   "name": "Flail",
+   "kind": "weapon",
+   "weapon": {
+    "category": "martial",
+    "range": "melee",
+    "damage": "1d8",
+    "damageType": "bludgeoning",
+    "properties": []
+   },
+   "cost": "10 gp",
+   "weight": 2
+  },
+  "flute": {
+   "id": "flute",
+   "name": "Flute",
+   "kind": "tool",
+   "cost": "2 gp",
+   "weight": 1,
+   "text": "Several of the most common types of musical instruments are shown on the table as examples. If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use a musical instrument as a spellcasting focus. Each type of musical instrument requires a separate proficiency."
+  },
+  "glaive": {
+   "id": "glaive",
+   "name": "Glaive",
+   "kind": "weapon",
+   "weapon": {
+    "category": "martial",
+    "range": "melee",
+    "damage": "1d10",
+    "damageType": "slashing",
+    "properties": [
+     "heavy",
+     "reach",
+     "two-handed"
+    ]
+   },
+   "cost": "20 gp",
+   "weight": 6
+  },
+  "greataxe": {
+   "id": "greataxe",
+   "name": "Greataxe",
+   "kind": "weapon",
+   "weapon": {
+    "category": "martial",
+    "range": "melee",
+    "damage": "1d12",
+    "damageType": "slashing",
+    "properties": [
+     "heavy",
+     "two-handed"
+    ]
+   },
+   "cost": "30 gp",
+   "weight": 7
+  },
+  "greatclub": {
+   "id": "greatclub",
+   "name": "Greatclub",
+   "kind": "weapon",
+   "weapon": {
+    "category": "simple",
+    "range": "melee",
+    "damage": "1d8",
+    "damageType": "bludgeoning",
+    "properties": [
+     "two-handed"
+    ]
+   },
+   "cost": "2 sp",
+   "weight": 10
+  },
+  "greatsword": {
+   "id": "greatsword",
+   "name": "Greatsword",
+   "kind": "weapon",
+   "weapon": {
+    "category": "martial",
+    "range": "melee",
+    "damage": "2d6",
+    "damageType": "slashing",
+    "properties": [
+     "heavy",
+     "two-handed"
+    ]
+   },
+   "cost": "50 gp",
+   "weight": 6
+  },
+  "halberd": {
+   "id": "halberd",
+   "name": "Halberd",
+   "kind": "weapon",
+   "weapon": {
+    "category": "martial",
+    "range": "melee",
+    "damage": "1d10",
+    "damageType": "slashing",
+    "properties": [
+     "heavy",
+     "reach",
+     "two-handed"
+    ]
+   },
+   "cost": "20 gp",
+   "weight": 6
+  },
+  "half-plate-armor": {
+   "id": "half-plate-armor",
+   "name": "Half Plate Armor",
+   "kind": "armor",
+   "armor": {
+    "category": "medium",
+    "baseAc": 15,
+    "strength": null,
+    "stealthDisadvantage": true
+   },
+   "cost": "750 gp",
+   "weight": 40
+  },
+  "hammer": {
+   "id": "hammer",
+   "name": "Hammer",
+   "kind": "gear",
+   "cost": "1 gp",
+   "weight": 3
+  },
+  "handaxe": {
+   "id": "handaxe",
+   "name": "Handaxe",
+   "kind": "weapon",
+   "weapon": {
+    "category": "simple",
+    "range": "melee",
+    "damage": "1d6",
+    "damageType": "slashing",
+    "properties": [
+     "light",
+     "thrown",
+     "monk"
+    ],
+    "rangeFt": [
+     20,
+     60
+    ]
+   },
+   "cost": "5 gp",
+   "weight": 2
+  },
+  "hide-armor": {
+   "id": "hide-armor",
+   "name": "Hide Armor",
+   "kind": "armor",
+   "armor": {
+    "category": "medium",
+    "baseAc": 12,
+    "strength": null,
+    "stealthDisadvantage": false
+   },
+   "cost": "10 gp",
+   "weight": 12
+  },
+  "horn": {
+   "id": "horn",
+   "name": "Horn",
+   "kind": "tool",
+   "cost": "3 gp",
+   "weight": 2,
+   "text": "Several of the most common types of musical instruments are shown on the table as examples. If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use a musical instrument as a spellcasting focus. Each type of musical instrument requires a separate proficiency."
+  },
+  "ink-1-ounce-bottle": {
+   "id": "ink-1-ounce-bottle",
+   "name": "Ink (1 ounce bottle)",
+   "kind": "gear",
+   "cost": "10 gp",
+   "weight": 0
+  },
+  "ink-pen": {
+   "id": "ink-pen",
+   "name": "Ink pen",
+   "kind": "gear",
+   "cost": "2 cp",
+   "weight": 0
+  },
+  "javelin": {
+   "id": "javelin",
+   "name": "Javelin",
+   "kind": "weapon",
+   "weapon": {
+    "category": "simple",
+    "range": "melee",
+    "damage": "1d6",
+    "damageType": "piercing",
+    "properties": [
+     "thrown",
+     "monk"
+    ],
+    "rangeFt": [
+     30,
+     120
+    ]
+   },
+   "cost": "5 sp",
+   "weight": 2
+  },
+  "lamp": {
+   "id": "lamp",
+   "name": "Lamp",
+   "kind": "gear",
+   "cost": "5 sp",
+   "weight": 1,
+   "text": "A lamp casts bright light in a 15-foot radius and dim light for an additional 30 feet. Once lit, it burns for 6 hours on a flask (1 pint) of oil."
+  },
+  "lance": {
+   "id": "lance",
+   "name": "Lance",
+   "kind": "weapon",
+   "weapon": {
+    "category": "martial",
+    "range": "melee",
+    "damage": "1d12",
+    "damageType": "piercing",
+    "properties": [
+     "reach",
+     "special"
+    ]
+   },
+   "cost": "10 gp",
+   "weight": 6
+  },
+  "lantern-hooded": {
+   "id": "lantern-hooded",
+   "name": "Lantern, hooded",
+   "kind": "gear",
+   "cost": "5 gp",
+   "weight": 2,
+   "text": "A hooded lantern casts bright light in a 30-foot radius and dim light for an additional 30 feet. Once lit, it burns for 6 hours on a flask (1 pint) of oil. As an action, you can lower the hood, reducing the light to dim light in a 5-foot radius."
+  },
+  "leather-armor": {
+   "id": "leather-armor",
+   "name": "Leather Armor",
+   "kind": "armor",
+   "armor": {
+    "category": "light",
+    "baseAc": 11,
+    "strength": null,
+    "stealthDisadvantage": false
+   },
+   "cost": "10 gp",
+   "weight": 10
+  },
+  "light-hammer": {
+   "id": "light-hammer",
+   "name": "Light hammer",
+   "kind": "weapon",
+   "weapon": {
+    "category": "simple",
+    "range": "melee",
+    "damage": "1d4",
+    "damageType": "bludgeoning",
+    "properties": [
+     "light",
+     "thrown",
+     "monk"
+    ],
+    "rangeFt": [
+     20,
+     60
+    ]
+   },
+   "cost": "2 gp",
+   "weight": 2
+  },
+  "little-bag-of-sand": {
+   "id": "little-bag-of-sand",
+   "name": "Little bag of sand",
+   "kind": "gear",
+   "cost": "0 cp",
+   "weight": 0,
+   "text": "A small bag of sand, typically found in a scholar's pack."
+  },
+  "longbow": {
+   "id": "longbow",
+   "name": "Longbow",
+   "kind": "weapon",
+   "weapon": {
+    "category": "martial",
+    "range": "ranged",
+    "damage": "1d8",
+    "damageType": "piercing",
+    "properties": [
+     "ammunition",
+     "heavy",
+     "two-handed"
+    ],
+    "rangeFt": [
+     150,
+     600
+    ]
+   },
+   "cost": "50 gp",
+   "weight": 2
+  },
+  "longsword": {
+   "id": "longsword",
+   "name": "Longsword",
+   "kind": "weapon",
+   "weapon": {
+    "category": "martial",
+    "range": "melee",
+    "damage": "1d8",
+    "damageType": "slashing",
+    "properties": [
+     "versatile"
+    ],
+    "versatile": "1d10"
+   },
+   "cost": "15 gp",
+   "weight": 3
+  },
+  "lute": {
+   "id": "lute",
+   "name": "Lute",
+   "kind": "tool",
+   "cost": "35 gp",
+   "weight": 2,
+   "text": "Several of the most common types of musical instruments are shown on the table as examples. If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use a musical instrument as a spellcasting focus. Each type of musical instrument requires a separate proficiency."
+  },
+  "lyre": {
+   "id": "lyre",
+   "name": "Lyre",
+   "kind": "tool",
+   "cost": "30 gp",
+   "weight": 2,
+   "text": "Several of the most common types of musical instruments are shown on the table as examples. If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use a musical instrument as a spellcasting focus. Each type of musical instrument requires a separate proficiency."
+  },
+  "mace": {
+   "id": "mace",
+   "name": "Mace",
+   "kind": "weapon",
+   "weapon": {
+    "category": "simple",
+    "range": "melee",
+    "damage": "1d6",
+    "damageType": "bludgeoning",
+    "properties": [
+     "monk"
+    ]
+   },
+   "cost": "5 gp",
+   "weight": 4
+  },
+  "maul": {
+   "id": "maul",
+   "name": "Maul",
+   "kind": "weapon",
+   "weapon": {
+    "category": "martial",
+    "range": "melee",
+    "damage": "2d6",
+    "damageType": "bludgeoning",
+    "properties": [
+     "heavy",
+     "two-handed"
+    ]
+   },
+   "cost": "10 gp",
+   "weight": 10
+  },
+  "mess-kit": {
+   "id": "mess-kit",
+   "name": "Mess Kit",
+   "kind": "gear",
+   "cost": "2 sp",
+   "weight": 1,
+   "text": "This tin box contains a cup and simple cutlery. The box clamps together, and one side can be used as a cooking pan and the other as a plate or shallow bowl."
+  },
+  "morningstar": {
+   "id": "morningstar",
+   "name": "Morningstar",
+   "kind": "weapon",
+   "weapon": {
+    "category": "martial",
+    "range": "melee",
+    "damage": "1d8",
+    "damageType": "piercing",
+    "properties": []
+   },
+   "cost": "15 gp",
+   "weight": 4
+  },
+  "net": {
+   "id": "net",
+   "name": "Net",
+   "kind": "weapon",
+   "weapon": {
+    "category": "martial",
+    "range": "ranged",
+    "damage": null,
+    "damageType": null,
+    "properties": [
+     "thrown",
+     "special"
+    ],
+    "rangeFt": [
+     5,
+     15
+    ]
+   },
+   "cost": "1 gp",
+   "weight": 3
+  },
+  "oil-flask": {
+   "id": "oil-flask",
+   "name": "Oil (flask)",
+   "kind": "gear",
+   "cost": "1 sp",
+   "weight": 1,
+   "text": "Oil usually comes in a clay flask that holds 1 pint.\n\nAs an action, you can splash the oil in this flask onto a creature within 5 feet of you or throw it up to 20 feet, shattering it on impact. Make a ranged attack against a target creature or object, treating the oil as an improvised weapon.\n\nOn a hit, the target is covered in oil. If the target takes any fire damage before the oil dries (after 1 minute), the target takes an additional 5 fire damage from the burning oil.\n\nYou can also pour a flask of oil on the ground to cover a 5-foot-square area, provided that the surface is level.\n\nIf lit, the oil burns for 2 rounds and deals 5 fire damage to any creature that enters the area or ends its turn in the area. A creature can take this damage only once per turn."
+  },
+  "orb": {
+   "id": "orb",
+   "name": "Orb",
+   "kind": "focus",
+   "cost": "20 gp",
+   "weight": 3,
+   "text": "An arcane focus is a special item--an orb, a crystal, a rod, a specially constructed staff, a wand-like length of wood, or some similar item--designed to channel the power of arcane spells. A sorcerer, warlock, or wizard can use such an item as a spellcasting focus."
+  },
+  "padded-armor": {
+   "id": "padded-armor",
+   "name": "Padded Armor",
+   "kind": "armor",
+   "armor": {
+    "category": "light",
+    "baseAc": 11,
+    "strength": null,
+    "stealthDisadvantage": true
+   },
+   "cost": "5 gp",
+   "weight": 8
+  },
+  "pan-flute": {
+   "id": "pan-flute",
+   "name": "Pan flute",
+   "kind": "tool",
+   "cost": "12 gp",
+   "weight": 2,
+   "text": "Several of the most common types of musical instruments are shown on the table as examples. If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use a musical instrument as a spellcasting focus. Each type of musical instrument requires a separate proficiency."
+  },
+  "paper-one-sheet": {
+   "id": "paper-one-sheet",
+   "name": "Paper (one sheet)",
+   "kind": "gear",
+   "cost": "2 sp",
+   "weight": 0
+  },
+  "parchment-one-sheet": {
+   "id": "parchment-one-sheet",
+   "name": "Parchment (one sheet)",
+   "kind": "gear",
+   "cost": "1 sp",
+   "weight": 0
+  },
+  "perfume-vial": {
+   "id": "perfume-vial",
+   "name": "Perfume (vial)",
+   "kind": "gear",
+   "cost": "5 gp",
+   "weight": 0
+  },
+  "pike": {
+   "id": "pike",
+   "name": "Pike",
+   "kind": "weapon",
+   "weapon": {
+    "category": "martial",
+    "range": "melee",
+    "damage": "1d10",
+    "damageType": "piercing",
+    "properties": [
+     "heavy",
+     "reach",
+     "two-handed"
+    ]
+   },
+   "cost": "5 gp",
+   "weight": 18
+  },
+  "piton": {
+   "id": "piton",
+   "name": "Piton",
+   "kind": "gear",
+   "cost": "5 cp",
+   "weight": 0.25
+  },
+  "plate-armor": {
+   "id": "plate-armor",
+   "name": "Plate Armor",
+   "kind": "armor",
+   "armor": {
+    "category": "heavy",
+    "baseAc": 18,
+    "strength": 15,
+    "stealthDisadvantage": true
+   },
+   "cost": "1500 gp",
+   "weight": 65
+  },
+  "priests-pack": {
+   "id": "priests-pack",
+   "name": "Priest's Pack",
+   "kind": "pack",
+   "contents": [
+    {
+     "id": "backpack",
+     "qty": 1
+    },
+    {
+     "id": "blanket",
+     "qty": 1
+    },
+    {
+     "id": "candle",
+     "qty": 10
+    },
+    {
+     "id": "tinderbox",
+     "qty": 1
+    },
+    {
+     "id": "rations-1-day",
+     "qty": 2
+    },
+    {
+     "id": "waterskin",
+     "qty": 1
+    },
+    {
+     "id": "alms-box",
+     "qty": 1
+    },
+    {
+     "id": "block-of-incense",
+     "qty": 2
+    },
+    {
+     "id": "censer",
+     "qty": 1
+    },
+    {
+     "id": "vestments",
+     "qty": 1
+    }
+   ],
+   "cost": "19 gp"
+  },
+  "quarterstaff": {
+   "id": "quarterstaff",
+   "name": "Quarterstaff",
+   "kind": "weapon",
+   "weapon": {
+    "category": "simple",
+    "range": "melee",
+    "damage": "1d6",
+    "damageType": "bludgeoning",
+    "properties": [
+     "versatile",
+     "monk"
+    ],
+    "versatile": "1d8"
+   },
+   "cost": "2 sp",
+   "weight": 4
+  },
+  "rapier": {
+   "id": "rapier",
+   "name": "Rapier",
+   "kind": "weapon",
+   "weapon": {
+    "category": "martial",
+    "range": "melee",
+    "damage": "1d8",
+    "damageType": "piercing",
+    "properties": [
+     "finesse"
+    ]
+   },
+   "cost": "25 gp",
+   "weight": 2
+  },
+  "rations-1-day": {
+   "id": "rations-1-day",
+   "name": "Rations (1 day)",
+   "kind": "gear",
+   "cost": "5 sp",
+   "weight": 2,
+   "text": "Rations consist of dry foods suitable for extended travel, including jerky, dried fruit, hardtack, and nuts."
+  },
+  "reliquary": {
+   "id": "reliquary",
+   "name": "Reliquary",
+   "kind": "focus",
+   "cost": "5 gp",
+   "weight": 2,
+   "text": "A holy symbol is a representation of a god or pantheon. It might be an amulet depicting a symbol representing a deity, the same symbol carefully engraved or inlaid as an emblem on a shield, or a tiny box holding a fragment of a sacred relic.\n\nAppendix B lists the symbols commonly associated with many gods in the multiverse. A cleric or paladin can use a holy symbol as a spellcasting focus. To use the symbol in this way, the caster must hold it in hand, wear it visibly, or bear it on a shield."
+  },
+  "ring-mail": {
+   "id": "ring-mail",
+   "name": "Ring Mail",
+   "kind": "armor",
+   "armor": {
+    "category": "heavy",
+    "baseAc": 14,
+    "strength": null,
+    "stealthDisadvantage": true
+   },
+   "cost": "30 gp",
+   "weight": 40
+  },
+  "rod": {
+   "id": "rod",
+   "name": "Rod",
+   "kind": "focus",
+   "cost": "10 gp",
+   "weight": 2,
+   "text": "An arcane focus is a special item--an orb, a crystal, a rod, a specially constructed staff, a wand-like length of wood, or some similar item--designed to channel the power of arcane spells. A sorcerer, warlock, or wizard can use such an item as a spellcasting focus."
+  },
+  "rope-hempen-50-feet": {
+   "id": "rope-hempen-50-feet",
+   "name": "Rope, hempen (50 feet)",
+   "kind": "gear",
+   "cost": "1 gp",
+   "weight": 10,
+   "text": "Rope, whether made of hemp or silk, has 2 hit points and can be burst with a DC 17 Strength check."
+  },
+  "scale-mail": {
+   "id": "scale-mail",
+   "name": "Scale Mail",
+   "kind": "armor",
+   "armor": {
+    "category": "medium",
+    "baseAc": 14,
+    "strength": null,
+    "stealthDisadvantage": true
+   },
+   "cost": "50 gp",
+   "weight": 45
+  },
+  "scholars-pack": {
+   "id": "scholars-pack",
+   "name": "Scholar's Pack",
+   "kind": "pack",
+   "contents": [
+    {
+     "id": "backpack",
+     "qty": 1
+    },
+    {
+     "id": "book",
+     "qty": 1
+    },
+    {
+     "id": "ink-1-ounce-bottle",
+     "qty": 1
+    },
+    {
+     "id": "ink-pen",
+     "qty": 1
+    },
+    {
+     "id": "parchment-one-sheet",
+     "qty": 10
+    },
+    {
+     "id": "little-bag-of-sand",
+     "qty": 1
+    },
+    {
+     "id": "small-knife",
+     "qty": 1
+    }
+   ],
+   "cost": "40 gp"
+  },
+  "scimitar": {
+   "id": "scimitar",
+   "name": "Scimitar",
+   "kind": "weapon",
+   "weapon": {
+    "category": "martial",
+    "range": "melee",
+    "damage": "1d6",
+    "damageType": "slashing",
+    "properties": [
+     "finesse",
+     "light"
+    ]
+   },
+   "cost": "25 gp",
+   "weight": 3
+  },
+  "sealing-wax": {
+   "id": "sealing-wax",
+   "name": "Sealing wax",
+   "kind": "gear",
+   "cost": "5 sp",
+   "weight": 0
+  },
+  "shawm": {
+   "id": "shawm",
+   "name": "Shawm",
+   "kind": "tool",
+   "cost": "2 gp",
+   "weight": 1,
+   "text": "Several of the most common types of musical instruments are shown on the table as examples. If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use a musical instrument as a spellcasting focus. Each type of musical instrument requires a separate proficiency."
+  },
+  "shield": {
+   "id": "shield",
+   "name": "Shield",
+   "kind": "shield",
+   "armor": {
+    "category": "shield",
+    "baseAc": 2,
+    "strength": null,
+    "stealthDisadvantage": false
+   },
+   "cost": "10 gp",
+   "weight": 6
+  },
+  "shortbow": {
+   "id": "shortbow",
+   "name": "Shortbow",
+   "kind": "weapon",
+   "weapon": {
+    "category": "simple",
+    "range": "ranged",
+    "damage": "1d6",
+    "damageType": "piercing",
+    "properties": [
+     "ammunition",
+     "two-handed"
+    ],
+    "rangeFt": [
+     80,
+     320
+    ]
+   },
+   "cost": "25 gp",
+   "weight": 2
+  },
+  "shortsword": {
+   "id": "shortsword",
+   "name": "Shortsword",
+   "kind": "weapon",
+   "weapon": {
+    "category": "martial",
+    "range": "melee",
+    "damage": "1d6",
+    "damageType": "piercing",
+    "properties": [
+     "finesse",
+     "light",
+     "monk"
+    ]
+   },
+   "cost": "10 gp",
+   "weight": 2
+  },
+  "sickle": {
+   "id": "sickle",
+   "name": "Sickle",
+   "kind": "weapon",
+   "weapon": {
+    "category": "simple",
+    "range": "melee",
+    "damage": "1d4",
+    "damageType": "slashing",
+    "properties": [
+     "light",
+     "monk"
+    ]
+   },
+   "cost": "1 gp",
+   "weight": 2
+  },
+  "sling": {
+   "id": "sling",
+   "name": "Sling",
+   "kind": "weapon",
+   "weapon": {
+    "category": "simple",
+    "range": "ranged",
+    "damage": "1d4",
+    "damageType": "bludgeoning",
+    "properties": [
+     "ammunition"
+    ],
+    "rangeFt": [
+     30,
+     120
+    ]
+   },
+   "cost": "1 sp",
+   "weight": 0
+  },
+  "small-knife": {
+   "id": "small-knife",
+   "name": "Small knife",
+   "kind": "gear",
+   "cost": "0 cp",
+   "weight": 0,
+   "text": "A small knife, typically found in a scholar's pack."
+  },
+  "soap": {
+   "id": "soap",
+   "name": "Soap",
+   "kind": "gear",
+   "cost": "2 cp",
+   "weight": 0
+  },
+  "spear": {
+   "id": "spear",
+   "name": "Spear",
+   "kind": "weapon",
+   "weapon": {
+    "category": "simple",
+    "range": "melee",
+    "damage": "1d6",
+    "damageType": "piercing",
+    "properties": [
+     "thrown",
+     "versatile",
+     "monk"
+    ],
+    "versatile": "1d8",
+    "rangeFt": [
+     20,
+     60
+    ]
+   },
+   "cost": "1 gp",
+   "weight": 3
+  },
+  "spellbook": {
+   "id": "spellbook",
+   "name": "Spellbook",
+   "kind": "gear",
+   "cost": "50 gp",
+   "weight": 3,
+   "text": "Essential for wizards, a spellbook is a leather-bound tome with 100 blank vellum pages suitable for recording spells."
+  },
+  "splint-armor": {
+   "id": "splint-armor",
+   "name": "Splint Armor",
+   "kind": "armor",
+   "armor": {
+    "category": "heavy",
+    "baseAc": 17,
+    "strength": 15,
+    "stealthDisadvantage": true
+   },
+   "cost": "200 gp",
+   "weight": 60
+  },
+  "sprig-of-mistletoe": {
+   "id": "sprig-of-mistletoe",
+   "name": "Sprig of mistletoe",
+   "kind": "focus",
+   "cost": "1 gp",
+   "weight": 0,
+   "text": "A druidic focus might be a sprig of mistletoe or holly, a wand or scepter made of yew or another special wood, a staff drawn whole out of a living tree, or a totem object incorporating feathers, fur, bones, and teeth from sacred animals. A druid can use such an object as a spellcasting focus."
+  },
+  "staff": {
+   "id": "staff",
+   "name": "Staff",
+   "kind": "focus",
+   "cost": "5 gp",
+   "weight": 4,
+   "text": "An arcane focus is a special item--an orb, a crystal, a rod, a specially constructed staff, a wand-like length of wood, or some similar item--designed to channel the power of arcane spells. A sorcerer, warlock, or wizard can use such an item as a spellcasting focus."
+  },
+  "string-10-feet": {
+   "id": "string-10-feet",
+   "name": "String (10 feet)",
+   "kind": "gear",
+   "cost": "0 cp",
+   "weight": 0,
+   "text": "A 10-foot length of string, typically found in a burglar's pack."
+  },
+  "studded-leather-armor": {
+   "id": "studded-leather-armor",
+   "name": "Studded Leather Armor",
+   "kind": "armor",
+   "armor": {
+    "category": "light",
+    "baseAc": 12,
+    "strength": null,
+    "stealthDisadvantage": false
+   },
+   "cost": "45 gp",
+   "weight": 13
+  },
+  "thieves-tools": {
+   "id": "thieves-tools",
+   "name": "Thieves' Tools",
+   "kind": "tool",
+   "cost": "25 gp",
+   "weight": 1,
+   "text": "This set of tools includes a small file, a set of lock picks, a small mirror mounted on a metal handle, a set of narrow-bladed scissors, and a pair of pliers. Proficiency with these tools lets you add your proficiency bonus to any ability checks you make to disarm traps or open locks."
+  },
+  "tinderbox": {
+   "id": "tinderbox",
+   "name": "Tinderbox",
+   "kind": "gear",
+   "cost": "5 sp",
+   "weight": 1,
+   "text": "This small container holds flint, fire steel, and tinder (usually dry cloth soaked in light oil) used to kindle a fire. Using it to light a torch--or anything else with abundant, exposed fuel--takes an action.\n\nLighting any other fire takes 1 minute."
+  },
+  "torch": {
+   "id": "torch",
+   "name": "Torch",
+   "kind": "gear",
+   "cost": "1 cp",
+   "weight": 1,
+   "text": "A torch burns for 1 hour, providing bright light in a 20-foot radius and dim light for an additional 20 feet. If you make a melee attack with a burning torch and hit, it deals 1 fire damage."
+  },
+  "totem": {
+   "id": "totem",
+   "name": "Totem",
+   "kind": "focus",
+   "cost": "1 gp",
+   "weight": 0,
+   "text": "A druidic focus might be a sprig of mistletoe or holly, a wand or scepter made of yew or another special wood, a staff drawn whole out of a living tree, or a totem object incorporating feathers, fur, bones, and teeth from sacred animals. A druid can use such an object as a spellcasting focus."
+  },
+  "trident": {
+   "id": "trident",
+   "name": "Trident",
+   "kind": "weapon",
+   "weapon": {
+    "category": "martial",
+    "range": "melee",
+    "damage": "1d6",
+    "damageType": "piercing",
+    "properties": [
+     "thrown",
+     "versatile"
+    ],
+    "versatile": "1d8",
+    "rangeFt": [
+     20,
+     60
+    ]
+   },
+   "cost": "5 gp",
+   "weight": 4
+  },
+  "vestments": {
+   "id": "vestments",
+   "name": "Vestments",
+   "kind": "gear",
+   "cost": "0 cp",
+   "weight": 0,
+   "text": "Religious clothing, typically found in a priest's pack."
+  },
+  "viol": {
+   "id": "viol",
+   "name": "Viol",
+   "kind": "tool",
+   "cost": "30 gp",
+   "weight": 1,
+   "text": "Several of the most common types of musical instruments are shown on the table as examples. If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use a musical instrument as a spellcasting focus. Each type of musical instrument requires a separate proficiency."
+  },
+  "wand": {
+   "id": "wand",
+   "name": "Wand",
+   "kind": "focus",
+   "cost": "10 gp",
+   "weight": 1,
+   "text": "An arcane focus is a special item--an orb, a crystal, a rod, a specially constructed staff, a wand-like length of wood, or some similar item--designed to channel the power of arcane spells. A sorcerer, warlock, or wizard can use such an item as a spellcasting focus."
+  },
+  "war-pick": {
+   "id": "war-pick",
+   "name": "War pick",
+   "kind": "weapon",
+   "weapon": {
+    "category": "martial",
+    "range": "melee",
+    "damage": "1d8",
+    "damageType": "piercing",
+    "properties": []
+   },
+   "cost": "5 gp",
+   "weight": 2
+  },
+  "warhammer": {
+   "id": "warhammer",
+   "name": "Warhammer",
+   "kind": "weapon",
+   "weapon": {
+    "category": "martial",
+    "range": "melee",
+    "damage": "1d8",
+    "damageType": "bludgeoning",
+    "properties": [
+     "versatile"
+    ],
+    "versatile": "1d10"
+   },
+   "cost": "15 gp",
+   "weight": 2
+  },
+  "waterskin": {
+   "id": "waterskin",
+   "name": "Waterskin",
+   "kind": "gear",
+   "cost": "2 sp",
+   "weight": 5
+  },
+  "whip": {
+   "id": "whip",
+   "name": "Whip",
+   "kind": "weapon",
+   "weapon": {
+    "category": "martial",
+    "range": "melee",
+    "damage": "1d4",
+    "damageType": "slashing",
+    "properties": [
+     "finesse",
+     "reach"
+    ]
+   },
+   "cost": "2 gp",
+   "weight": 3
+  },
+  "wooden-staff": {
+   "id": "wooden-staff",
+   "name": "Wooden staff",
+   "kind": "focus",
+   "cost": "5 gp",
+   "weight": 4,
+   "text": "A druidic focus might be a sprig of mistletoe or holly, a wand or scepter made of yew or another special wood, a staff drawn whole out of a living tree, or a totem object incorporating feathers, fur, bones, and teeth from sacred animals. A druid can use such an object as a spellcasting focus."
+  },
+  "yew-wand": {
+   "id": "yew-wand",
+   "name": "Yew wand",
+   "kind": "focus",
+   "cost": "10 gp",
+   "weight": 1,
+   "text": "A druidic focus might be a sprig of mistletoe or holly, a wand or scepter made of yew or another special wood, a staff drawn whole out of a living tree, or a totem object incorporating feathers, fur, bones, and teeth from sacred animals. A druid can use such an object as a spellcasting focus."
+  }
+ },
+ "categories": {
+  "simple-weapons": [
+   "club",
+   "dagger",
+   "greatclub",
+   "handaxe",
+   "javelin",
+   "light-hammer",
+   "mace",
+   "quarterstaff",
+   "sickle",
+   "spear",
+   "crossbow-light",
+   "dart",
+   "shortbow",
+   "sling"
+  ],
+  "martial-weapons": [
+   "battleaxe",
+   "flail",
+   "glaive",
+   "greataxe",
+   "greatsword",
+   "halberd",
+   "lance",
+   "longsword",
+   "maul",
+   "morningstar",
+   "pike",
+   "rapier",
+   "scimitar",
+   "shortsword",
+   "trident",
+   "war-pick",
+   "warhammer",
+   "whip",
+   "blowgun",
+   "crossbow-hand",
+   "crossbow-heavy",
+   "longbow",
+   "net"
+  ],
+  "simple-melee-weapons": [
+   "club",
+   "dagger",
+   "greatclub",
+   "handaxe",
+   "javelin",
+   "light-hammer",
+   "mace",
+   "quarterstaff",
+   "sickle",
+   "spear"
+  ],
+  "martial-melee-weapons": [
+   "battleaxe",
+   "flail",
+   "glaive",
+   "greataxe",
+   "greatsword",
+   "halberd",
+   "lance",
+   "longsword",
+   "maul",
+   "morningstar",
+   "pike",
+   "rapier",
+   "scimitar",
+   "shortsword",
+   "trident",
+   "war-pick",
+   "warhammer",
+   "whip"
+  ],
+  "simple-ranged-weapons": [
+   "crossbow-light",
+   "dart",
+   "shortbow",
+   "sling"
+  ],
+  "martial-ranged-weapons": [
+   "blowgun",
+   "crossbow-hand",
+   "crossbow-heavy",
+   "longbow",
+   "net"
+  ],
+  "holy-symbols": [
+   "amulet",
+   "emblem",
+   "reliquary"
+  ],
+  "druidic-foci": [
+   "sprig-of-mistletoe",
+   "totem",
+   "wooden-staff",
+   "yew-wand"
+  ],
+  "arcane-foci": [
+   "crystal",
+   "orb",
+   "rod",
+   "staff",
+   "wand"
+  ],
+  "musical-instruments": [
+   "bagpipes",
+   "drum",
+   "dulcimer",
+   "flute",
+   "lute",
+   "lyre",
+   "horn",
+   "pan-flute",
+   "shawm",
+   "viol"
+  ],
+  "armor": [
+   "padded-armor",
+   "leather-armor",
+   "studded-leather-armor",
+   "hide-armor",
+   "chain-shirt",
+   "scale-mail",
+   "breastplate",
+   "half-plate-armor",
+   "ring-mail",
+   "chain-mail",
+   "splint-armor",
+   "plate-armor",
+   "shield"
+  ],
+  "weapon": [
+   "club",
+   "dagger",
+   "greatclub",
+   "handaxe",
+   "javelin",
+   "light-hammer",
+   "mace",
+   "quarterstaff",
+   "sickle",
+   "spear",
+   "crossbow-light",
+   "dart",
+   "shortbow",
+   "sling",
+   "battleaxe",
+   "flail",
+   "glaive",
+   "greataxe",
+   "greatsword",
+   "halberd",
+   "lance",
+   "longsword",
+   "maul",
+   "morningstar",
+   "pike",
+   "rapier",
+   "scimitar",
+   "shortsword",
+   "trident",
+   "war-pick",
+   "warhammer",
+   "whip",
+   "blowgun",
+   "crossbow-hand",
+   "crossbow-heavy",
+   "longbow",
+   "net"
+  ]
+ },
+ "classes": {
+  "barbarian": {
+   "name": "Barbarian",
+   "equipment": {
+    "fixed": [
+     {
+      "item": "explorers-pack",
+      "qty": 1
+     },
+     {
+      "item": "javelin",
+      "qty": 4
+     }
+    ],
+    "choices": [
+     {
+      "text": "(a) a greataxe or (b) any martial melee weapon",
+      "options": [
+       [
+        {
+         "item": "greataxe",
+         "qty": 1
+        }
+       ],
+       [
+        {
+         "pick": "martial-melee-weapons",
+         "qty": 1
+        }
+       ]
+      ]
+     },
+     {
+      "text": "(a) two handaxes or (b) any simple weapon",
+      "options": [
+       [
+        {
+         "item": "handaxe",
+         "qty": 2
+        }
+       ],
+       [
+        {
+         "pick": "simple-weapons",
+         "qty": 1
+        }
+       ]
+      ]
+     }
+    ]
+   },
+   "weapons": {
+    "categories": [
+     "simple",
+     "martial"
+    ],
+    "items": []
+   }
+  },
+  "bard": {
+   "name": "Bard",
+   "equipment": {
+    "fixed": [
+     {
+      "item": "leather-armor",
+      "qty": 1
+     },
+     {
+      "item": "dagger",
+      "qty": 1
+     }
+    ],
+    "choices": [
+     {
+      "text": "(a) a rapier, (b) a longsword, or (c) any simple weapon",
+      "options": [
+       [
+        {
+         "item": "rapier",
+         "qty": 1
+        }
+       ],
+       [
+        {
+         "item": "longsword",
+         "qty": 1
+        }
+       ],
+       [
+        {
+         "pick": "simple-weapons",
+         "qty": 1
+        }
+       ]
+      ]
+     },
+     {
+      "text": "(a) a diplomat’s pack or (b) an entertainer’s pack",
+      "options": [
+       [
+        {
+         "item": "diplomats-pack",
+         "qty": 1
+        }
+       ],
+       [
+        {
+         "item": "entertainers-pack",
+         "qty": 1
+        }
+       ]
+      ]
+     },
+     {
+      "text": "(a) a lute or (b) any other musical instrument",
+      "options": [
+       [
+        {
+         "item": "lute",
+         "qty": 1
+        }
+       ],
+       [
+        {
+         "pick": "musical-instruments",
+         "qty": 1
+        }
+       ]
+      ]
+     }
+    ]
+   },
+   "weapons": {
+    "categories": [
+     "simple"
+    ],
+    "items": [
+     "longsword",
+     "rapier",
+     "shortsword",
+     "crossbow-hand"
+    ]
+   },
+   "spellcasting": {
+    "ability": "cha",
+    "level": 1
+   },
+   "spellsByLevel": {
+    "1": {
+     "cantrips": 2,
+     "known": 4
+    },
+    "2": {
+     "cantrips": 2,
+     "known": 5
+    },
+    "3": {
+     "cantrips": 2,
+     "known": 6
+    },
+    "4": {
+     "cantrips": 3,
+     "known": 7
+    },
+    "5": {
+     "cantrips": 3,
+     "known": 8
+    },
+    "6": {
+     "cantrips": 3,
+     "known": 9
+    },
+    "7": {
+     "cantrips": 3,
+     "known": 10
+    },
+    "8": {
+     "cantrips": 3,
+     "known": 11
+    },
+    "9": {
+     "cantrips": 3,
+     "known": 12
+    },
+    "10": {
+     "cantrips": 4,
+     "known": 14
+    },
+    "11": {
+     "cantrips": 4,
+     "known": 15
+    },
+    "12": {
+     "cantrips": 4,
+     "known": 15
+    },
+    "13": {
+     "cantrips": 4,
+     "known": 16
+    },
+    "14": {
+     "cantrips": 4,
+     "known": 18
+    },
+    "15": {
+     "cantrips": 4,
+     "known": 19
+    },
+    "16": {
+     "cantrips": 4,
+     "known": 19
+    },
+    "17": {
+     "cantrips": 4,
+     "known": 20
+    },
+    "18": {
+     "cantrips": 4,
+     "known": 22
+    },
+    "19": {
+     "cantrips": 4,
+     "known": 22
+    },
+    "20": {
+     "cantrips": 4,
+     "known": 22
+    }
+   }
+  },
+  "cleric": {
+   "name": "Cleric",
+   "equipment": {
+    "fixed": [
+     {
+      "item": "shield",
+      "qty": 1
+     }
+    ],
+    "choices": [
+     {
+      "text": "(a) a mace or (b) a warhammer (if proficient)",
+      "options": [
+       [
+        {
+         "item": "mace",
+         "qty": 1
+        }
+       ],
+       [
+        {
+         "item": "warhammer",
+         "qty": 1,
+         "ifProficient": true
+        }
+       ]
+      ]
+     },
+     {
+      "text": "(a) scale mail, (b) leather armor, or (c) chain mail (if proficient)",
+      "options": [
+       [
+        {
+         "item": "scale-mail",
+         "qty": 1
+        }
+       ],
+       [
+        {
+         "item": "leather-armor",
+         "qty": 1
+        }
+       ],
+       [
+        {
+         "item": "chain-mail",
+         "qty": 1,
+         "ifProficient": true
+        }
+       ]
+      ]
+     },
+     {
+      "text": "(a) a light crossbow and 20 bolts or (b) any simple weapon",
+      "options": [
+       [
+        {
+         "item": "crossbow-light",
+         "qty": 1
+        },
+        {
+         "item": "crossbow-bolt",
+         "qty": 20
+        }
+       ],
+       [
+        {
+         "pick": "simple-weapons",
+         "qty": 1
+        }
+       ]
+      ]
+     },
+     {
+      "text": "(a) a priest’s pack or (b) an explorer’s pack",
+      "options": [
+       [
+        {
+         "item": "priests-pack",
+         "qty": 1
+        }
+       ],
+       [
+        {
+         "item": "explorers-pack",
+         "qty": 1
+        }
+       ]
+      ]
+     },
+     {
+      "text": "holy symbol",
+      "options": [
+       [
+        {
+         "pick": "holy-symbols",
+         "qty": 1
+        }
+       ]
+      ]
+     }
+    ]
+   },
+   "weapons": {
+    "categories": [
+     "simple"
+    ],
+    "items": []
+   },
+   "spellcasting": {
+    "ability": "wis",
+    "level": 1
+   },
+   "spellsByLevel": {
+    "1": {
+     "cantrips": 3
+    },
+    "2": {
+     "cantrips": 3
+    },
+    "3": {
+     "cantrips": 3
+    },
+    "4": {
+     "cantrips": 4
+    },
+    "5": {
+     "cantrips": 4
+    },
+    "6": {
+     "cantrips": 4
+    },
+    "7": {
+     "cantrips": 4
+    },
+    "8": {
+     "cantrips": 4
+    },
+    "9": {
+     "cantrips": 4
+    },
+    "10": {
+     "cantrips": 5
+    },
+    "11": {
+     "cantrips": 5
+    },
+    "12": {
+     "cantrips": 5
+    },
+    "13": {
+     "cantrips": 5
+    },
+    "14": {
+     "cantrips": 5
+    },
+    "15": {
+     "cantrips": 5
+    },
+    "16": {
+     "cantrips": 5
+    },
+    "17": {
+     "cantrips": 5
+    },
+    "18": {
+     "cantrips": 5
+    },
+    "19": {
+     "cantrips": 5
+    },
+    "20": {
+     "cantrips": 5
+    }
+   }
+  },
+  "druid": {
+   "name": "Druid",
+   "equipment": {
+    "fixed": [
+     {
+      "item": "leather-armor",
+      "qty": 1
+     },
+     {
+      "item": "explorers-pack",
+      "qty": 1
+     }
+    ],
+    "choices": [
+     {
+      "text": "(a) a wooden shield or (b) any simple weapon",
+      "options": [
+       [
+        {
+         "item": "shield",
+         "qty": 1
+        }
+       ],
+       [
+        {
+         "pick": "simple-weapons",
+         "qty": 1
+        }
+       ]
+      ]
+     },
+     {
+      "text": "(a) a scimitar or (b) any simple melee weapon",
+      "options": [
+       [
+        {
+         "item": "scimitar",
+         "qty": 1
+        }
+       ],
+       [
+        {
+         "pick": "simple-melee-weapons",
+         "qty": 1
+        }
+       ]
+      ]
+     },
+     {
+      "text": "druidic focus",
+      "options": [
+       [
+        {
+         "pick": "druidic-foci",
+         "qty": 1
+        }
+       ]
+      ]
+     }
+    ]
+   },
+   "weapons": {
+    "categories": [],
+    "items": [
+     "club",
+     "dagger",
+     "javelin",
+     "mace",
+     "quarterstaff",
+     "sickle",
+     "spear",
+     "dart",
+     "sling",
+     "scimitar"
+    ]
+   },
+   "spellcasting": {
+    "ability": "wis",
+    "level": 1
+   },
+   "spellsByLevel": {
+    "1": {
+     "cantrips": 2
+    },
+    "2": {
+     "cantrips": 2
+    },
+    "3": {
+     "cantrips": 2
+    },
+    "4": {
+     "cantrips": 3
+    },
+    "5": {
+     "cantrips": 3
+    },
+    "6": {
+     "cantrips": 3
+    },
+    "7": {
+     "cantrips": 3
+    },
+    "8": {
+     "cantrips": 3
+    },
+    "9": {
+     "cantrips": 3
+    },
+    "10": {
+     "cantrips": 4
+    },
+    "11": {
+     "cantrips": 4
+    },
+    "12": {
+     "cantrips": 4
+    },
+    "13": {
+     "cantrips": 4
+    },
+    "14": {
+     "cantrips": 4
+    },
+    "15": {
+     "cantrips": 4
+    },
+    "16": {
+     "cantrips": 4
+    },
+    "17": {
+     "cantrips": 4
+    },
+    "18": {
+     "cantrips": 4
+    },
+    "19": {
+     "cantrips": 4
+    },
+    "20": {
+     "cantrips": 4
+    }
+   }
+  },
+  "fighter": {
+   "name": "Fighter",
+   "equipment": {
+    "fixed": [],
+    "choices": [
+     {
+      "text": "(a) chain mail or (b) leather armor, longbow, and 20 arrows",
+      "options": [
+       [
+        {
+         "item": "chain-mail",
+         "qty": 1
+        }
+       ],
+       [
+        {
+         "item": "leather-armor",
+         "qty": 1
+        },
+        {
+         "item": "longbow",
+         "qty": 1
+        },
+        {
+         "item": "arrow",
+         "qty": 20
+        }
+       ]
+      ]
+     },
+     {
+      "text": "(a) a martial weapon and a shield or (b) two martial weapons",
+      "options": [
+       [
+        {
+         "pick": "martial-weapons",
+         "qty": 1
+        },
+        {
+         "item": "shield",
+         "qty": 1
+        }
+       ],
+       [
+        {
+         "pick": "martial-weapons",
+         "qty": 2
+        }
+       ]
+      ]
+     },
+     {
+      "text": "(a) a light crossbow and 20 bolts or (b) two handaxes",
+      "options": [
+       [
+        {
+         "item": "crossbow-light",
+         "qty": 1
+        },
+        {
+         "item": "crossbow-bolt",
+         "qty": 20
+        }
+       ],
+       [
+        {
+         "item": "handaxe",
+         "qty": 2
+        }
+       ]
+      ]
+     },
+     {
+      "text": "(a) a dungeoneer’s pack or (b) an explorer’s pack",
+      "options": [
+       [
+        {
+         "item": "dungeoneers-pack",
+         "qty": 1
+        }
+       ],
+       [
+        {
+         "item": "explorers-pack",
+         "qty": 1
+        }
+       ]
+      ]
+     }
+    ]
+   },
+   "weapons": {
+    "categories": [
+     "simple",
+     "martial"
+    ],
+    "items": []
+   }
+  },
+  "monk": {
+   "name": "Monk",
+   "equipment": {
+    "fixed": [
+     {
+      "item": "dart",
+      "qty": 10
+     }
+    ],
+    "choices": [
+     {
+      "text": "(a) a shortsword or (b) any simple weapon",
+      "options": [
+       [
+        {
+         "item": "shortsword",
+         "qty": 1
+        }
+       ],
+       [
+        {
+         "pick": "simple-weapons",
+         "qty": 1
+        }
+       ]
+      ]
+     },
+     {
+      "text": "(a) a dungeoneer’s pack or (b) an explorer’s pack",
+      "options": [
+       [
+        {
+         "item": "dungeoneers-pack",
+         "qty": 1
+        }
+       ],
+       [
+        {
+         "item": "explorers-pack",
+         "qty": 1
+        }
+       ]
+      ]
+     }
+    ]
+   },
+   "weapons": {
+    "categories": [
+     "simple"
+    ],
+    "items": [
+     "shortsword"
+    ]
+   }
+  },
+  "paladin": {
+   "name": "Paladin",
+   "equipment": {
+    "fixed": [
+     {
+      "item": "chain-mail",
+      "qty": 1
+     }
+    ],
+    "choices": [
+     {
+      "text": "(a) a martial weapon and a shield or (b) two martial weapons",
+      "options": [
+       [
+        {
+         "pick": "martial-weapons",
+         "qty": 1
+        },
+        {
+         "item": "shield",
+         "qty": 1
+        }
+       ],
+       [
+        {
+         "pick": "martial-weapons",
+         "qty": 2
+        }
+       ]
+      ]
+     },
+     {
+      "text": "(a) five javelins or (b) any simple melee weapon",
+      "options": [
+       [
+        {
+         "item": "javelin",
+         "qty": 5
+        }
+       ],
+       [
+        {
+         "pick": "simple-melee-weapons",
+         "qty": 1
+        }
+       ]
+      ]
+     },
+     {
+      "text": "(a) a priest’s pack or (b) an explorer’s pack",
+      "options": [
+       [
+        {
+         "item": "priests-pack",
+         "qty": 1
+        }
+       ],
+       [
+        {
+         "item": "explorers-pack",
+         "qty": 1
+        }
+       ]
+      ]
+     },
+     {
+      "text": "holy symbol",
+      "options": [
+       [
+        {
+         "pick": "holy-symbols",
+         "qty": 1
+        }
+       ]
+      ]
+     }
+    ]
+   },
+   "weapons": {
+    "categories": [
+     "simple",
+     "martial"
+    ],
+    "items": []
+   },
+   "spellcasting": {
+    "ability": "cha",
+    "level": 2
+   }
+  },
+  "ranger": {
+   "name": "Ranger",
+   "equipment": {
+    "fixed": [
+     {
+      "item": "longbow",
+      "qty": 1
+     },
+     {
+      "item": "arrow",
+      "qty": 20
+     }
+    ],
+    "choices": [
+     {
+      "text": "(a) scale mail or (b) leather armor",
+      "options": [
+       [
+        {
+         "item": "scale-mail",
+         "qty": 1
+        }
+       ],
+       [
+        {
+         "item": "leather-armor",
+         "qty": 1
+        }
+       ]
+      ]
+     },
+     {
+      "text": "(a) two shortswords or (b) two simple melee weapons",
+      "options": [
+       [
+        {
+         "item": "shortsword",
+         "qty": 2
+        }
+       ],
+       [
+        {
+         "pick": "simple-melee-weapons",
+         "qty": 2
+        }
+       ]
+      ]
+     },
+     {
+      "text": "(a) a dungeoneer’s pack or (b) an explorer’s pack",
+      "options": [
+       [
+        {
+         "item": "dungeoneers-pack",
+         "qty": 1
+        }
+       ],
+       [
+        {
+         "item": "explorers-pack",
+         "qty": 1
+        }
+       ]
+      ]
+     }
+    ]
+   },
+   "weapons": {
+    "categories": [
+     "simple",
+     "martial"
+    ],
+    "items": []
+   },
+   "spellcasting": {
+    "ability": "wis",
+    "level": 2
+   },
+   "spellsByLevel": {
+    "1": {
+     "known": 0
+    },
+    "2": {
+     "known": 2
+    },
+    "3": {
+     "known": 3
+    },
+    "4": {
+     "known": 3
+    },
+    "5": {
+     "known": 4
+    },
+    "6": {
+     "known": 4
+    },
+    "7": {
+     "known": 5
+    },
+    "8": {
+     "known": 5
+    },
+    "9": {
+     "known": 6
+    },
+    "10": {
+     "known": 6
+    },
+    "11": {
+     "known": 7
+    },
+    "12": {
+     "known": 7
+    },
+    "13": {
+     "known": 8
+    },
+    "14": {
+     "known": 8
+    },
+    "15": {
+     "known": 9
+    },
+    "16": {
+     "known": 9
+    },
+    "17": {
+     "known": 10
+    },
+    "18": {
+     "known": 10
+    },
+    "19": {
+     "known": 11
+    },
+    "20": {
+     "known": 11
+    }
+   }
+  },
+  "rogue": {
+   "name": "Rogue",
+   "equipment": {
+    "fixed": [
+     {
+      "item": "leather-armor",
+      "qty": 1
+     },
+     {
+      "item": "dagger",
+      "qty": 2
+     },
+     {
+      "item": "thieves-tools",
+      "qty": 1
+     }
+    ],
+    "choices": [
+     {
+      "text": "(a) a rapier or (b) a shortsword",
+      "options": [
+       [
+        {
+         "item": "rapier",
+         "qty": 1
+        }
+       ],
+       [
+        {
+         "item": "shortsword",
+         "qty": 1
+        }
+       ]
+      ]
+     },
+     {
+      "text": "(a) a shortbow and quiver of 20 arrows or (b) a shortsword",
+      "options": [
+       [
+        {
+         "item": "shortbow",
+         "qty": 1
+        },
+        {
+         "item": "arrow",
+         "qty": 20
+        }
+       ],
+       [
+        {
+         "item": "shortsword",
+         "qty": 1
+        }
+       ]
+      ]
+     },
+     {
+      "text": "(a) a burglar’s pack, (b) a dungeoneer’s pack, or (c) an explorer’s pack",
+      "options": [
+       [
+        {
+         "item": "burglars-pack",
+         "qty": 1
+        }
+       ],
+       [
+        {
+         "item": "dungeoneers-pack",
+         "qty": 1
+        }
+       ],
+       [
+        {
+         "item": "explorers-pack",
+         "qty": 1
+        }
+       ]
+      ]
+     }
+    ]
+   },
+   "weapons": {
+    "categories": [
+     "simple"
+    ],
+    "items": [
+     "longsword",
+     "rapier",
+     "shortsword",
+     "crossbow-hand"
+    ]
+   }
+  },
+  "sorcerer": {
+   "name": "Sorcerer",
+   "equipment": {
+    "fixed": [
+     {
+      "item": "dagger",
+      "qty": 2
+     }
+    ],
+    "choices": [
+     {
+      "text": "(a) a light crossbow and 20 bolts or (b) any simple weapon",
+      "options": [
+       [
+        {
+         "item": "crossbow-light",
+         "qty": 1
+        },
+        {
+         "item": "crossbow-bolt",
+         "qty": 20
+        }
+       ],
+       [
+        {
+         "pick": "simple-weapons",
+         "qty": 1
+        }
+       ]
+      ]
+     },
+     {
+      "text": "(a) a component pouch or (b) an arcane focus",
+      "options": [
+       [
+        {
+         "item": "component-pouch",
+         "qty": 1
+        }
+       ],
+       [
+        {
+         "pick": "arcane-foci",
+         "qty": 1
+        }
+       ]
+      ]
+     },
+     {
+      "text": "(a) a dungeoneer’s pack or (b) an explorer’s pack",
+      "options": [
+       [
+        {
+         "item": "dungeoneers-pack",
+         "qty": 1
+        }
+       ],
+       [
+        {
+         "item": "explorers-pack",
+         "qty": 1
+        }
+       ]
+      ]
+     }
+    ]
+   },
+   "weapons": {
+    "categories": [],
+    "items": [
+     "dagger",
+     "dart",
+     "sling",
+     "quarterstaff",
+     "crossbow-light"
+    ]
+   },
+   "spellcasting": {
+    "ability": "cha",
+    "level": 1
+   },
+   "spellsByLevel": {
+    "1": {
+     "cantrips": 4,
+     "known": 2
+    },
+    "2": {
+     "cantrips": 4,
+     "known": 3
+    },
+    "3": {
+     "cantrips": 4,
+     "known": 4
+    },
+    "4": {
+     "cantrips": 5,
+     "known": 5
+    },
+    "5": {
+     "cantrips": 5,
+     "known": 6
+    },
+    "6": {
+     "cantrips": 5,
+     "known": 7
+    },
+    "7": {
+     "cantrips": 5,
+     "known": 8
+    },
+    "8": {
+     "cantrips": 5,
+     "known": 9
+    },
+    "9": {
+     "cantrips": 5,
+     "known": 10
+    },
+    "10": {
+     "cantrips": 6,
+     "known": 11
+    },
+    "11": {
+     "cantrips": 6,
+     "known": 12
+    },
+    "12": {
+     "cantrips": 6,
+     "known": 12
+    },
+    "13": {
+     "cantrips": 6,
+     "known": 13
+    },
+    "14": {
+     "cantrips": 6,
+     "known": 13
+    },
+    "15": {
+     "cantrips": 6,
+     "known": 14
+    },
+    "16": {
+     "cantrips": 6,
+     "known": 14
+    },
+    "17": {
+     "cantrips": 6,
+     "known": 15
+    },
+    "18": {
+     "cantrips": 6,
+     "known": 15
+    },
+    "19": {
+     "cantrips": 6,
+     "known": 15
+    },
+    "20": {
+     "cantrips": 6,
+     "known": 15
+    }
+   }
+  },
+  "warlock": {
+   "name": "Warlock",
+   "equipment": {
+    "fixed": [
+     {
+      "item": "dagger",
+      "qty": 2
+     },
+     {
+      "item": "leather-armor",
+      "qty": 1
+     }
+    ],
+    "choices": [
+     {
+      "text": "(a) a light crossbow and 20 bolts or (b) any simple weapon",
+      "options": [
+       [
+        {
+         "item": "crossbow-light",
+         "qty": 1
+        },
+        {
+         "item": "crossbow-bolt",
+         "qty": 20
+        }
+       ],
+       [
+        {
+         "pick": "simple-weapons",
+         "qty": 1
+        }
+       ]
+      ]
+     },
+     {
+      "text": "(a) a component pouch or (b) an arcane focus",
+      "options": [
+       [
+        {
+         "item": "component-pouch",
+         "qty": 1
+        }
+       ],
+       [
+        {
+         "pick": "arcane-foci",
+         "qty": 1
+        }
+       ]
+      ]
+     },
+     {
+      "text": "(a) a scholar’s pack or (b) a dungeoneer’s pack",
+      "options": [
+       [
+        {
+         "item": "scholars-pack",
+         "qty": 1
+        }
+       ],
+       [
+        {
+         "item": "dungeoneers-pack",
+         "qty": 1
+        }
+       ]
+      ]
+     },
+     {
+      "text": "any simple weapon",
+      "options": [
+       [
+        {
+         "pick": "simple-weapons",
+         "qty": 1
+        }
+       ]
+      ]
+     }
+    ]
+   },
+   "weapons": {
+    "categories": [
+     "simple"
+    ],
+    "items": []
+   },
+   "spellcasting": {
+    "ability": "cha",
+    "level": 1
+   },
+   "spellsByLevel": {
+    "1": {
+     "cantrips": 2,
+     "known": 2
+    },
+    "2": {
+     "cantrips": 2,
+     "known": 3
+    },
+    "3": {
+     "cantrips": 2,
+     "known": 4
+    },
+    "4": {
+     "cantrips": 3,
+     "known": 5
+    },
+    "5": {
+     "cantrips": 3,
+     "known": 6
+    },
+    "6": {
+     "cantrips": 3,
+     "known": 7
+    },
+    "7": {
+     "cantrips": 3,
+     "known": 8
+    },
+    "8": {
+     "cantrips": 3,
+     "known": 9
+    },
+    "9": {
+     "cantrips": 3,
+     "known": 10
+    },
+    "10": {
+     "cantrips": 4,
+     "known": 10
+    },
+    "11": {
+     "cantrips": 4,
+     "known": 11
+    },
+    "12": {
+     "cantrips": 4,
+     "known": 11
+    },
+    "13": {
+     "cantrips": 4,
+     "known": 12
+    },
+    "14": {
+     "cantrips": 4,
+     "known": 12
+    },
+    "15": {
+     "cantrips": 4,
+     "known": 13
+    },
+    "16": {
+     "cantrips": 4,
+     "known": 13
+    },
+    "17": {
+     "cantrips": 4,
+     "known": 14
+    },
+    "18": {
+     "cantrips": 4,
+     "known": 14
+    },
+    "19": {
+     "cantrips": 4,
+     "known": 15
+    },
+    "20": {
+     "cantrips": 4,
+     "known": 15
+    }
+   }
+  },
+  "wizard": {
+   "name": "Wizard",
+   "equipment": {
+    "fixed": [
+     {
+      "item": "spellbook",
+      "qty": 1
+     }
+    ],
+    "choices": [
+     {
+      "text": "(a) a quarterstaff or (b) a dagger",
+      "options": [
+       [
+        {
+         "item": "quarterstaff",
+         "qty": 1
+        }
+       ],
+       [
+        {
+         "item": "dagger",
+         "qty": 1
+        }
+       ]
+      ]
+     },
+     {
+      "text": "(a) a component pouch or (b) an arcane focus",
+      "options": [
+       [
+        {
+         "item": "component-pouch",
+         "qty": 1
+        }
+       ],
+       [
+        {
+         "pick": "arcane-foci",
+         "qty": 1
+        }
+       ]
+      ]
+     },
+     {
+      "text": "(a) a scholar’s pack or (b) an explorer’s pack",
+      "options": [
+       [
+        {
+         "item": "scholars-pack",
+         "qty": 1
+        }
+       ],
+       [
+        {
+         "item": "explorers-pack",
+         "qty": 1
+        }
+       ]
+      ]
+     }
+    ]
+   },
+   "weapons": {
+    "categories": [],
+    "items": [
+     "dagger",
+     "dart",
+     "sling",
+     "quarterstaff",
+     "crossbow-light"
+    ]
+   },
+   "spellcasting": {
+    "ability": "int",
+    "level": 1
+   },
+   "spellsByLevel": {
+    "1": {
+     "cantrips": 3
+    },
+    "2": {
+     "cantrips": 3
+    },
+    "3": {
+     "cantrips": 3
+    },
+    "4": {
+     "cantrips": 4
+    },
+    "5": {
+     "cantrips": 4
+    },
+    "6": {
+     "cantrips": 4
+    },
+    "7": {
+     "cantrips": 4
+    },
+    "8": {
+     "cantrips": 4
+    },
+    "9": {
+     "cantrips": 4
+    },
+    "10": {
+     "cantrips": 5
+    },
+    "11": {
+     "cantrips": 5
+    },
+    "12": {
+     "cantrips": 5
+    },
+    "13": {
+     "cantrips": 5
+    },
+    "14": {
+     "cantrips": 5
+    },
+    "15": {
+     "cantrips": 5
+    },
+    "16": {
+     "cantrips": 5
+    },
+    "17": {
+     "cantrips": 5
+    },
+    "18": {
+     "cantrips": 5
+    },
+    "19": {
+     "cantrips": 5
+    },
+    "20": {
+     "cantrips": 5
+    }
+   }
+  }
+ },
+ "features": {
+  "favored-enemy-1-type": {
+   "name": "Favored Enemy (1 type)",
+   "class": "ranger",
+   "level": 1,
+   "choose": 1,
+   "text": "Beginning at 1st level, you have significant experience studying, tracking, hunting, and even talking to a certain type of enemy.\n\nChoose a type of favored enemy: aberrations, beasts, celestials, constructs, dragons, elementals, fey, fiends, giants, monstrosities, oozes, plants, or undead. Alternatively, you can select two races of humanoid (such as gnolls and orcs) as favored enemies.\n\nYou have advantage on Wisdom (Survival) checks to track your favored enemies, as well as on Intelligence checks to recall information about them.\n\nWhen you gain this feature, you also learn one language of your choice that is spoken by your favored enemies, if they speak one at all.\n\nYou choose one additional favored enemy, as well as an associated language, at 6th and 14th level. As you gain levels, your choices should reflect the types of monsters you have encountered on your adventures.",
+   "options": [
+    {
+     "id": "aberrations",
+     "name": "aberrations"
+    },
+    {
+     "id": "beasts",
+     "name": "beasts"
+    },
+    {
+     "id": "celestials",
+     "name": "celestials"
+    },
+    {
+     "id": "constructs",
+     "name": "constructs"
+    },
+    {
+     "id": "dragons",
+     "name": "dragons"
+    },
+    {
+     "id": "elementals",
+     "name": "elementals"
+    },
+    {
+     "id": "fey",
+     "name": "fey"
+    },
+    {
+     "id": "fiends",
+     "name": "fiends"
+    },
+    {
+     "id": "giants",
+     "name": "giants"
+    },
+    {
+     "id": "monstrosities",
+     "name": "monstrosities"
+    },
+    {
+     "id": "oozes",
+     "name": "oozes"
+    },
+    {
+     "id": "plants",
+     "name": "plants"
+    },
+    {
+     "id": "undead",
+     "name": "undead"
+    },
+    {
+     "id": "humanoids",
+     "name": "humanoids"
+    }
+   ]
+  },
+  "natural-explorer-1-terrain-type": {
+   "name": "Natural Explorer (1 terrain type)",
+   "class": "ranger",
+   "level": 1,
+   "choose": 1,
+   "text": "You are particularly familiar with one type of natural environment and are adept at traveling and surviving in such regions. Choose one type of favored terrain: arctic, coast, desert, forest, grassland, mountain, or swamp. When you make an Intelligence or Wisdom check related to your favored terrain, your proficiency bonus is doubled if you are using a skill that you're proficient in.\n\nWhile traveling for an hour or more in your favored terrain, you gain the following benefits:\n\n- Difficult terrain doesn't slow your group's travel.\n\n- Your group can't become lost except by magical means.\n\n- Even when you are engaged in another activity while traveling (such as foraging, navigating, or tracking), you remain alert to danger.\n\n- If you are traveling alone, you can move stealthily at a normal pace.\n\n- When you forage, you find twice as much food as you normally would.\n\n- While tracking other creatures, you also learn their exact number, their sizes, and how long ago they passed through the area.\n\nYou choose additional favored terrain types at 6th and 10th level.",
+   "options": [
+    {
+     "id": "arctic",
+     "name": "arctic"
+    },
+    {
+     "id": "coast",
+     "name": "coast"
+    },
+    {
+     "id": "desert",
+     "name": "desert"
+    },
+    {
+     "id": "forest",
+     "name": "forest"
+    },
+    {
+     "id": "grassland",
+     "name": "grassland"
+    },
+    {
+     "id": "mountain",
+     "name": "mountain"
+    },
+    {
+     "id": "swamp",
+     "name": "swamp"
+    }
+   ]
+  },
+  "dragon-ancestor": {
+   "name": "Dragon Ancestor",
+   "class": "sorcerer",
+   "subclass": "draconic",
+   "level": 1,
+   "choose": 1,
+   "text": "At 1st level, you choose one type of dragon as your ancestor. The damage type associated with each dragon is used by features you gain later.\n\nYou can speak, read, and write Draconic. Additionally, whenever you make a Charisma check when interacting with dragons, your proficiency bonus is doubled if it applies to the check.",
+   "options": [
+    {
+     "id": "dragon-ancestor-black---acid-damage",
+     "name": "Black - Acid Damage",
+     "text": "At 1st level, you choose one type of dragon as your ancestor. The damage type associated with each dragon is used by features you gain later.\n\nYou can speak, read, and write Draconic. Additionally, whenever you make a Charisma check when interacting with dragons, your proficiency bonus is doubled if it applies to the check."
+    },
+    {
+     "id": "dragon-ancestor-blue---lightning-damage",
+     "name": "Blue - Lightning Damage",
+     "text": "At 1st level, you choose one type of dragon as your ancestor. The damage type associated with each dragon is used by features you gain later.\n\nYou can speak, read, and write Draconic. Additionally, whenever you make a Charisma check when interacting with dragons, your proficiency bonus is doubled if it applies to the check."
+    },
+    {
+     "id": "dragon-ancestor-brass---fire-damage",
+     "name": "Brass - Fire Damage",
+     "text": "At 1st level, you choose one type of dragon as your ancestor. The damage type associated with each dragon is used by features you gain later.\n\nYou can speak, read, and write Draconic. Additionally, whenever you make a Charisma check when interacting with dragons, your proficiency bonus is doubled if it applies to the check."
+    },
+    {
+     "id": "dragon-ancestor-bronze---lightning-damage",
+     "name": "Bronze - Lightning Damage",
+     "text": "At 1st level, you choose one type of dragon as your ancestor. The damage type associated with each dragon is used by features you gain later.\n\nYou can speak, read, and write Draconic. Additionally, whenever you make a Charisma check when interacting with dragons, your proficiency bonus is doubled if it applies to the check."
+    },
+    {
+     "id": "dragon-ancestor-copper---acid-damage",
+     "name": "Copper - Acid Damage",
+     "text": "At 1st level, you choose one type of dragon as your ancestor. The damage type associated with each dragon is used by features you gain later.\n\nYou can speak, read, and write Draconic. Additionally, whenever you make a Charisma check when interacting with dragons, your proficiency bonus is doubled if it applies to the check."
+    },
+    {
+     "id": "dragon-ancestor-gold---fire-damage",
+     "name": "Gold - Fire Damage",
+     "text": "At 1st level, you choose one type of dragon as your ancestor. The damage type associated with each dragon is used by features you gain later.\n\nYou can speak, read, and write Draconic. Additionally, whenever you make a Charisma check when interacting with dragons, your proficiency bonus is doubled if it applies to the check."
+    },
+    {
+     "id": "dragon-ancestor-green---poison-damage",
+     "name": "Green - Poison Damage",
+     "text": "At 1st level, you choose one type of dragon as your ancestor. The damage type associated with each dragon is used by features you gain later.\n\nYou can speak, read, and write Draconic. Additionally, whenever you make a Charisma check when interacting with dragons, your proficiency bonus is doubled if it applies to the check."
+    },
+    {
+     "id": "dragon-ancestor-red---fire-damage",
+     "name": "Red - Fire Damage",
+     "text": "At 1st level, you choose one type of dragon as your ancestor. The damage type associated with each dragon is used by features you gain later.\n\nYou can speak, read, and write Draconic. Additionally, whenever you make a Charisma check when interacting with dragons, your proficiency bonus is doubled if it applies to the check."
+    },
+    {
+     "id": "dragon-ancestor-silver---cold-damage",
+     "name": "Silver - Cold Damage",
+     "text": "At 1st level, you choose one type of dragon as your ancestor. The damage type associated with each dragon is used by features you gain later.\n\nYou can speak, read, and write Draconic. Additionally, whenever you make a Charisma check when interacting with dragons, your proficiency bonus is doubled if it applies to the check."
+    },
+    {
+     "id": "dragon-ancestor-white---cold-damage",
+     "name": "White - Cold Damage",
+     "text": "At 1st level, you choose one type of dragon as your ancestor. The damage type associated with each dragon is used by features you gain later.\n\nYou can speak, read, and write Draconic. Additionally, whenever you make a Charisma check when interacting with dragons, your proficiency bonus is doubled if it applies to the check."
+    }
+   ]
+  }
+ }
+}

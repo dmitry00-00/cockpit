@@ -1,5 +1,5 @@
-// Редактор персонажа (шаг B): пустой лист не сходится и объясняет чем; выбор расы/класса/предыстории/навыков/
-// увеличений/доспеха отражается в превью справа теми же числами, что даёт derive; «В партию» отдаёт PcSpec,
+// Экран создания персонажа: шаги по порядку и обратимо, живая карточка справа (те же числа, что даст derive), «осталось
+// выбрать» у шагов и в карточке; выборы умений, заклинания и снаряжение из таблиц и SRD; «В партию» отдаёт PcSpec,
 // из которого получается тот же актёр; id уникален среди занятых; ни одной пиктограммы.
 import { cleanup, fireEvent, render, screen, within } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
@@ -19,115 +19,163 @@ function mount(taken: string[] = []) {
 
 const editor = () => document.querySelector<HTMLElement>('[data-part="character-editor"]')!;
 const sheet = () => within(editor()).getByRole('complementary', { name: 'Лист' });
+const steps = () => within(editor()).getByRole('navigation', { name: 'Шаги' });
+const stepNames = () => within(steps()).getAllByRole('button').map(b => b.getAttribute('aria-label'));
+const stepButton = (label: string) => within(steps()).getByRole('button', { name: label });
+const goto = (label: string) => fireEvent.click(stepButton(label));
 const group = (name: string) => within(editor()).getByRole('group', { name });
 const option = (g: string, name: string | RegExp) => within(group(g)).getByRole('button', { name });
 const pressed = (b: HTMLElement) => b.getAttribute('aria-pressed') === 'true';
 const spawn = () => within(editor()).getByRole('button', { name: 'В партию' });
+const select = (label: string, value: string) => fireEvent.change(within(editor()).getByRole('combobox', { name: label }), { target: { value } });
 
-/** Воин 5-го уровня, человек, солдат: тот же путь, что и на снимке владельца. */
-function fillFighter() {
+/** Человек-воин: стиль «Оборона», навык и черта расы, кольчуга, меч со щитом — то, что сделает игрок за столом. */
+function fillFighter(level = 1) {
   fireEvent.change(screen.getByRole('textbox', { name: 'Имя' }), { target: { value: 'Sildar Hallwinter' } });
+  goto('Раса');
+  fireEvent.click(option('Навыки расы', 'Скрытность'));
+  select('Черта расы', 'bditel-nyy');
+  goto('Класс');
+  for (let i = 1; i < level; i++) fireEvent.click(screen.getByRole('button', { name: 'Уровень выше' }));
+  if (level >= 3) fireEvent.click(option('Подкласс', /^Чемпион/));
+  if (level >= 4) {
+    goto('Характеристики');
+    fireEvent.click(screen.getByTitle('+1 Сила на 4-м уровне'));
+    fireEvent.click(screen.getByTitle('+1 Сила на 4-м уровне'));
+  }
+  goto('Навыки');
   fireEvent.click(option('Предыстории', /^Солдат/));
   fireEvent.click(within(group('Навыки')).getByTitle(/^Внимательность/));
   fireEvent.click(within(group('Навыки')).getByTitle(/^История/));
-  for (let i = 0; i < 4; i++) fireEvent.click(screen.getByRole('button', { name: 'Уровень выше' }));
-  fireEvent.click(screen.getByTitle('+1 Сила на 4-м уровне'));
-  fireEvent.click(screen.getByTitle('+1 Сила на 4-м уровне'));
-  fireEvent.click(option('Доспех', 'Chain mail'));
-  fireEvent.click(option('Доспех', 'Щит'));
-  fireEvent.click(option('Подкласс', /^Мастер боевых/));
+  goto('Умения класса');
+  fireEvent.click(option('Боевой стиль', /^Оборона/));
+  goto('Снаряжение');
+  fireEvent.click(option('Снаряжение: выбор 1', /Chain Mail/));
+  fireEvent.click(option('Снаряжение: выбор 2', /Shield/));
+  select('любое воинское оружие, 1', 'longsword');
+  fireEvent.click(option('Снаряжение: выбор 3', /Handaxe/));
+  fireEvent.click(option('Снаряжение: выбор 4', /Explorer/));
 }
 
-describe('редактор персонажа', () => {
-  it('пустой лист: человек-воин 1-го уровня, стандартный набор, 0 очков; «В партию» выключена, справа — что мешает; пиктограмм нет', () => {
+describe('экран создания персонажа', () => {
+  it('старт: шаги по порядку со «осталось», карточка уже живая (человек-воин 1-го: 12 хитов, AC 12), «В партию» выключена; пиктограмм нет', () => {
     mount();
     expect(editor()).not.toHaveTextContent(EMOJI);
-    expect(pressed(within(group('Расы')).getByRole('button', { name: /^Человек/ }))).toBe(true);
-    expect(pressed(option('Классы', 'Воин'))).toBe(true);
-    expect(screen.getByRole('textbox', { name: 'Уровень' })).toHaveValue('1');
-    expect(screen.getByTitle('Очки: 27 на всё, 8–15 до бонусов расы')).toHaveTextContent('осталось 0 из 27');
+    expect(stepNames()).toEqual(['Имя', 'Раса', 'Класс', 'Характеристики', 'Навыки', 'Умения класса', 'Снаряжение']);
+    expect(stepButton('Имя')).toHaveAttribute('aria-current', 'step');
+    const card = within(sheet());
+    expect(card.getByTitle('Хиты')).toHaveTextContent('12');
+    expect(card.getByTitle('Класс доспеха')).toHaveTextContent('12');
+    const left = card.getByRole('region', { name: 'Осталось выбрать' });
+    expect(left).toHaveTextContent('Имя · ещё 1');
+    expect(left).toHaveTextContent('Умения класса · ещё 1');
     expect(spawn()).toBeDisabled();
-    const issues = within(sheet()).getByRole('list', { name: 'Что мешает' });
-    expect(issues).toHaveTextContent('нет имени');
-    expect(issues).toHaveTextContent('выбрать ещё 2 навыка класса');
-    expect(within(sheet()).queryByText('HP')).toBeNull();
+    // Клик по строке «осталось» открывает шаг.
+    fireEvent.click(within(left).getByRole('button', { name: /^Снаряжение/ }));
+    expect(stepButton('Снаряжение')).toHaveAttribute('aria-current', 'step');
+    fireEvent.click(screen.getByRole('button', { name: 'Назад' }));
+    expect(stepButton('Умения класса')).toHaveAttribute('aria-current', 'step');
   });
 
-  it('point buy: минус отдаёт очки, плюс тратит; выше 15 нельзя; итог = база + бонус расы; «Набор» возвращает 15 14 13 12 10 8', () => {
+  it('характеристики: стандартный набор обменом, point buy очками; итог = база + раса', () => {
     mount();
+    goto('Характеристики');
     const stats = group('Очки характеристик');
     const final = () => [...stats.querySelectorAll('[data-part="final"]')].map(e => e.textContent);
     expect(final()).toEqual(['16', '15', '14', '13', '11', '9']); // человек: +1 ко всему
-    expect(within(stats).getByRole('button', { name: 'Харизма выше' })).toBeDisabled(); // очков нет
-    fireEvent.click(within(stats).getByRole('button', { name: 'Сила ниже' })); // 15 → 14: +2 очка
+    select('Интеллект: значение набора', '15'); // обмен с Силой
+    expect(final()).toEqual(['13', '15', '14', '16', '11', '9']);
+    fireEvent.click(option('Способ', 'Point buy'));
+    expect(screen.getByTitle('Очки: 27 на всё, 8–15 до бонусов расы')).toHaveTextContent('осталось 0 из 27');
+    fireEvent.click(within(stats).getByRole('button', { name: 'Интеллект ниже' })); // 15 → 14: +2 очка
     expect(screen.getByTitle('Очки: 27 на всё, 8–15 до бонусов расы')).toHaveTextContent('осталось 2 из 27');
-    fireEvent.click(within(stats).getByRole('button', { name: 'Харизма выше' })); // 8 → 9: −1
-    expect(screen.getByTitle('Очки: 27 на всё, 8–15 до бонусов расы')).toHaveTextContent('осталось 1 из 27');
-    expect(final()).toEqual(['15', '15', '14', '13', '11', '10']);
-    expect(within(stats).getByRole('button', { name: 'Ловкость выше' })).toBeDisabled(); // 14 → 15 стоит 2
-    fireEvent.click(screen.getByRole('button', { name: 'Набор' }));
-    expect(final()).toEqual(['16', '15', '14', '13', '11', '9']);
+    fireEvent.click(within(stats).getByRole('button', { name: 'Харизма выше' }));
+    expect(final()).toEqual(['13', '15', '14', '15', '11', '10']);
+    expect(within(stats).getByRole('button', { name: 'Ловкость выше' })).toBeDisabled(); // 14 → 15 стоит 2, осталось 1
   });
 
-  it('раса: эльф требует подрасу и даёт её бонусы; поиск сужает список; смена класса сбрасывает подкласс и навыки', () => {
+  it('раса: эльф требует подрасу; полуэльф — +1 к двум на выбор и два навыка; смена класса на волшебника — шаг «Заклинания» вместо «Умения класса»', () => {
     mount();
+    goto('Раса');
     fireEvent.click(within(group('Расы')).getByRole('button', { name: /^Эльф/ }));
-    const sub = group('Подраса');
-    expect(within(sub).queryByRole('button', { name: 'без подрасы' })).toBeNull();
-    expect(within(sub).getAllByRole('button').some(pressed)).toBe(true);
-    fireEvent.change(screen.getByRole('searchbox', { name: 'Поиск расы' }), { target: { value: 'двар' } });
-    expect(within(group('Расы')).getAllByRole('button').map(b => b.textContent)).toHaveLength(1);
-    fireEvent.change(screen.getByRole('searchbox', { name: 'Поиск расы' }), { target: { value: '' } });
-    // Класс: воин 3-го уровня с подклассом; смена на волшебника — подкласса нет, навыки класса пустые.
-    fireEvent.click(screen.getByRole('button', { name: 'Уровень выше' }));
-    fireEvent.click(screen.getByRole('button', { name: 'Уровень выше' }));
-    fireEvent.click(option('Подкласс', /^Чемпион/));
-    fireEvent.click(within(group('Навыки')).getByTitle(/^Атлетика/));
-    expect(pressed(option('Подкласс', /^Чемпион/))).toBe(true);
-    fireEvent.click(option('Классы', 'Волшебник'));
-    expect(pressed(option('Классы', 'Волшебник'))).toBe(true);
-    expect(within(group('Подкласс')).getAllByRole('button').filter(pressed).map(b => b.textContent)).toEqual(['без подкласса']);
-    expect(within(group('Навыки')).getAllByRole('button').filter(pressed)).toHaveLength(0);
-    // Волшебник не предлагает атлетику — плитка выключена и говорит почему.
-    expect(within(group('Навыки')).getByTitle(/^Атлетика/)).toBeDisabled();
-    expect(within(group('Навыки')).getByTitle(/^Атлетика/).title).toContain('класс не предлагает');
+    expect(within(group('Подраса')).queryByRole('button', { name: 'без подрасы' })).toBeNull();
+    expect(within(group('Подраса')).getAllByRole('button').some(pressed)).toBe(true);
+    fireEvent.change(screen.getByRole('searchbox', { name: 'Поиск расы' }), { target: { value: 'полуэ' } });
+    fireEvent.click(within(group('Расы')).getByRole('button', { name: /^Полуэльф/ }));
+    const flex = group('Бонус расы на выбор');
+    expect(within(flex).getByRole('button', { name: 'CHA' })).toBeDisabled();
+    fireEvent.click(within(flex).getByRole('button', { name: 'DEX' }));
+    fireEvent.click(within(flex).getByRole('button', { name: 'CON' }));
+    expect(within(flex).getByRole('button', { name: 'WIS' })).toBeDisabled();
+    const card = sheet();
+    expect(within(card).getByTitle(/^Ловкость/)).toHaveTextContent('15');
+    goto('Класс');
+    fireEvent.click(option('Классы', /^Волшебник/));
+    expect(stepNames()).toEqual(['Имя', 'Раса', 'Класс', 'Характеристики', 'Навыки', 'Заклинания', 'Снаряжение']);
+    expect(stepButton('Раса')).toHaveTextContent('2'); // два навыка расы не выбраны
   });
 
-  it('предыстория даёт навыки сверх класса и снимает совпавший выбор; лимит навыков класса держится', () => {
+  it('навыки: предыстория сверх класса и снимает совпавший выбор; лимит класса держится; не предложенный классом — выключен с причиной', () => {
     mount();
+    goto('Навыки');
     const skills = group('Навыки');
     fireEvent.click(within(skills).getByTitle(/^Атлетика/));
     fireEvent.click(within(skills).getByTitle(/^Внимательность/));
-    expect(within(skills).getByTitle(/^История/)).toBeDisabled(); // 2 из 2
-    fireEvent.click(option('Предыстории', /^Солдат/)); // атлетика + запугивание
+    expect(within(skills).getByTitle(/^История/)).toBeDisabled();
+    fireEvent.click(option('Предыстории', /^Солдат/));
     expect(within(skills).getByTitle(/^Атлетика/).title).toContain('предыстория');
-    expect(within(skills).getByTitle(/^Атлетика/)).toBeDisabled();
     expect(screen.getByTitle('Навыки класса; предыстория и раса — сверх них')).toHaveTextContent('выбрать ещё 1');
-    fireEvent.click(within(skills).getByTitle(/^История/));
-    expect(screen.getByTitle('Навыки класса; предыстория и раса — сверх них')).toHaveTextContent('класс: 2 из 2');
+    expect(within(skills).getByTitle(/^Магия/).title).toContain('класс не предлагает');
   });
 
-  it('воин 5-го уровня: превью считает HP 44, AC 18, PP 13, БМ +3, ресурсы и умения подкласса; «В партию» отдаёт спецификацию того же актёра', () => {
+  it('воин 5-го уровня до конца: стиль «Оборона» в карточке и в AC (19), атаки, снаряжение; «В партию» отдаёт спецификацию того же актёра', () => {
     const { onCreate } = mount(['bo']);
-    fillFighter();
+    fillFighter(5);
     const s = sheet();
+    expect(within(s).queryByRole('region', { name: 'Осталось выбрать' })).toBeNull();
     expect(within(s).getByTitle('Хиты')).toHaveTextContent('44');
-    expect(within(s).getByTitle('Класс доспеха')).toHaveTextContent('18');
+    expect(within(s).getByTitle('Класс доспеха')).toHaveTextContent('19');
     expect(within(s).getByTitle('Пассивная внимательность')).toHaveTextContent('13');
-    expect(within(s).getByTitle('Бонус мастерства')).toHaveTextContent('+3');
-    expect(s).toHaveTextContent('Воин · Мастер боевых исскуств · 5 ур.');
-    expect(within(s).getByRole('region', { name: 'Ресурсы' })).toHaveTextContent('Второе дыхание');
-    expect(within(s).getByRole('list', { name: 'Умения листа' })).toHaveTextContent('Боевое превосходство');
+    expect(within(s).getByRole('region', { name: 'Выборы умений' })).toHaveTextContent('Оборона');
+    expect(within(s).getByRole('region', { name: 'Черты' })).toHaveTextContent('Бдительный');
+    expect(within(s).getByRole('list', { name: 'Атаки листа' })).toHaveTextContent('Longsword');
+    expect(within(s).getByRole('list', { name: 'Снаряжение листа' })).toHaveTextContent('Chain Mail');
+    expect(within(s).getByRole('list', { name: 'Умения листа' })).toHaveTextContent('Улучшенные критические попадания');
     expect(screen.getByTitle('id актёра в состоянии')).toHaveTextContent('sildar-hallwinter');
     expect(spawn()).toBeEnabled();
     fireEvent.click(spawn());
-    expect(onCreate).toHaveBeenCalledTimes(1);
     const spec = onCreate.mock.calls[0][0];
-    expect(spec).toMatchObject({ id: 'sildar-hallwinter', name: 'Sildar Hallwinter', classId: 'voin', level: 5, backgroundId: 'soldier', armor: 'chain-mail', shield: true });
-    expect(spec.skills).toEqual(expect.arrayContaining(['perception', 'history']));
+    expect(spec).toMatchObject({ id: 'sildar-hallwinter', classId: 'voin', subclassId: 'voin-cempion', level: 5, armor: 'chain-mail', shield: true, choices: { 'fighting-style': ['oborona'], 'race-skills': ['stealth'] } });
     const actor = pcActor(spec);
-    expect(actor).toMatchObject({ id: 'sildar-hallwinter', kind: 'pc', hp: { current: 44, max: 44 }, ac: 18, passivePerception: 13 });
-    expect(deriveCharacter(spec).abilities.str).toBe(18); // 15 + 1 раса + 2 на 4-м
+    expect(actor).toMatchObject({ hp: { current: 44, max: 44 }, ac: 19, passivePerception: 13 });
+    expect(actor.sheet!.attacks!.map(a => a.name)).toEqual(['Longsword', 'Handaxe']);
+    expect(deriveCharacter(spec).abilities.str).toBe(18);
+  });
+
+  it('волшебник: заговоры и книга заклинаний из списка SRD со счётчиками, описание дословно, карточка показывает Сл и списки', () => {
+    mount();
+    goto('Класс');
+    fireEvent.click(option('Классы', /^Волшебник/));
+    goto('Заклинания');
+    fireEvent.mouseEnter(option('Заговоры', /^Fire Bolt/));
+    expect(within(editor()).getByRole('region', { name: 'Описание заклинания' })).toHaveTextContent('You hurl a mote of fire');
+    for (const n of ['Fire Bolt', 'Light', 'Mage Hand']) fireEvent.click(option('Заговоры', new RegExp(`^${n}`)));
+    expect(option('Заговоры', /^Ray of Frost/)).toBeDisabled();
+    fireEvent.click(option('Заклинания 1 круга', /^Magic Missile/));
+    expect(stepButton('Заклинания')).toHaveTextContent('5');
+    const spells = within(sheet()).getByRole('region', { name: 'Заклинания' });
+    expect(spells).toHaveTextContent('INT · Сл 11 · атака +3');
+    expect(within(spells).getByRole('list', { name: 'Заговоры' })).toHaveTextContent('Fire Bolt');
+    expect(spells).toHaveTextContent('Magic Missile');
+    expect(spells).toHaveTextContent('осталось: заклинаний 5');
+  });
+
+  it('класс из книги: честно «нет данных» — лист не собирается и говорит почему', () => {
+    mount();
+    goto('Класс');
+    fireEvent.click(option('Классы', /^Изобретатель/));
+    expect(within(sheet()).getByRole('list', { name: 'Что мешает' })).toHaveTextContent('не из SRD: нет кости хитов');
+    expect(spawn()).toBeDisabled();
   });
 
   it('занятый id получает суффикс; «Закрыть» зовёт onClose', () => {

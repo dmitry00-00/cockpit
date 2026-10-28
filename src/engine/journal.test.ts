@@ -55,6 +55,17 @@ describe('journalParts — упоминания и нити', () => {
       { kind: 'thread', id: 'caravan', name: 'The Missing Caravan' },
     ]);
   });
+  it('имена справочника (extra) — упоминания вида ref со ссылкой; при равном имени актёр важнее', () => {
+    const parts = journalParts({ text: "Концентрация: Hunter's Mark — Bo; Bandit Captain", threadIds: [] }, world(), [
+      { ref: 'spell:hunters-mark', name: "Hunter's Mark" },
+      { ref: 'monster:bandit-captain', name: 'Bandit Captain' },
+    ]);
+    expect(parts.filter(p => p.kind === 'mention')).toEqual([
+      { kind: 'mention', entity: 'ref', id: 'spell:hunters-mark', name: "Hunter's Mark" },
+      { kind: 'mention', entity: 'actor', id: 'bo', name: 'Bo' },
+      { kind: 'mention', entity: 'actor', id: 'captain', name: 'Bandit Captain' },
+    ]);
+  });
   it('граница слова: «Bo» не зажигается внутри «Bolt Thrower», а «Bolt Thrower» — своё упоминание', () => {
     const parts = journalParts({ text: 'Bolt Thrower и Bo', threadIds: [] }, world());
     expect(parts.filter(p => p.kind === 'mention').map(p => (p as { id: string }).id)).toEqual(['bolt', 'bo']);

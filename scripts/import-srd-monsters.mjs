@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 // Библиотека монстров SRD 5.1 из открытого API (https://www.dnd5eapi.co/api/2014/monsters/<index>, CC-BY-4.0):
 // текст умений, действий и реакций дословно, числа — из блока, не пересчитаны. Пишет content/srd/monsters.json;
-// руками не править — перезапустить: `node scripts/import-srd-monsters.mjs`. Набор — стартовый для Sword Coast
-// пятого уровня (сид §13: бандиты, ликантропы, нежить Old Owl Well, головорезы Zhentarim, гоблиноиды, звери).
+// руками не править — перезапустить: `node scripts/import-srd-monsters.mjs`. Набор — весь SRD 5.1 (решение владельца
+// 27.10.2026): сначала стартовый для Sword Coast пятого уровня (сид §13: бандиты, ликантропы, нежить Old Owl Well,
+// головорезы Zhentarim, гоблиноиды, звери) — в нём порядок списка «Добавить», затем остальные по имени.
 // Сеть нужна только импортёру; продукт читает JSON. Ошибка сети — ошибка импорта, частичный файл не пишется.
 import { mkdir, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
@@ -12,8 +13,8 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = resolve(ROOT, 'content/srd/monsters.json');
 const API = 'https://www.dnd5eapi.co/api/2014/monsters';
 
-/** Индексы API в порядке показа: люди и NPC, гоблиноиды, звери, нежить, великаны и прочие. Формы ликантропа — три блока. */
-const INDICES = [
+/** Стартовый набор в порядке показа: люди и NPC, гоблиноиды, звери, нежить, великаны и прочие. Формы ликантропа — три блока. */
+const STARTER = [
   'commoner', 'acolyte', 'guard', 'noble', 'bandit', 'bandit-captain', 'thug', 'cultist', 'spy', 'scout', 'priest', 'berserker', 'veteran', 'knight', 'mage', 'druid',
   'kobold', 'goblin', 'hobgoblin', 'bugbear', 'orc', 'gnoll',
   'giant-rat', 'swarm-of-rats', 'wolf', 'worg', 'dire-wolf', 'black-bear', 'brown-bear', 'giant-spider', 'owlbear',
@@ -31,6 +32,15 @@ const ABILITY = { strength: 'str', dexterity: 'dex', constitution: 'con', intell
 const FIXES = {
   // SRD 5.1, Appendix MM-A, Black Bear: «Skills Perception +3», «Senses passive Perception 13» — API отдаёт proficiencies: [].
   'black-bear': m => { m.skills.perception = 3; },
+  // Сверка с SRD 5.1 (Markdown-копия github.com/oldmanumby/dnd.srd.5.1, 10_Monsters) 27.10.2026 — API и Open5e ошибаются одинаково.
+  // Blink Dog: «Skills Perception +3, Stealth +5», «Senses passive Perception 13».
+  'blink-dog': m => { m.senses = 'passive Perception 13'; },
+  // Half-Red Dragon Veteran: «Skills Athletics +5, Perception +2», «passive Perception 12».
+  'half-red-dragon-veteran': m => { m.skills.perception = 2; },
+  // Spider: «Skills Stealth +4», «Senses darkvision 30 ft., passive Perception 10».
+  'spider': m => { m.senses = 'darkvision 30 ft., passive Perception 10'; },
+  // Swarm of Ravens: «Skills Perception +5», «Senses passive Perception 15».
+  'swarm-of-ravens': m => { m.skills.perception = 5; },
 };
 const SENSE_ORDER = ['blindsight', 'darkvision', 'tremorsense', 'truesight'];
 
@@ -72,16 +82,23 @@ function usageOf(u) {
 /** Абзац действия: имя с пометкой использования, текст дословно; у атаки — разобранные числа для стола. */
 function actionOf(a) {
   const out = { name: `${a.name}${usageOf(a.usage)}`, text: a.desc };
-  if (typeof a.attack_bonus === 'number') {
+  // Бонус атаки бывает и у не-атаки (Ink Cloud осьминога: attack_bonus 0) — атака только там, где SRD пишет «to hit».
+  if (typeof a.attack_bonus === 'number' && /to hit/.test(a.desc)) {
     const reach = /reach (\d+) ft\./.exec(a.desc);
     const range = /range (\d+)\/(\d+) ft\./.exec(a.desc);
     const hit = /Hit: (\d+) \(([^)]+)\) (\w+) damage/.exec(a.desc);
+    // Урон без кости у мелких зверей: «Hit: 1 piercing damage».
+    const flat = hit ? null : /Hit: (\d+) (\w+) damage/.exec(a.desc);
     const first = a.damage?.[0];
     const attack = { toHit: a.attack_bonus };
     if (reach) attack.reach = Number(reach[1]);
     if (range) attack.range = [Number(range[1]), Number(range[2])];
     // Атака без урона (паутина гигантского паука) — только бонус и дальность.
-    if (hit || first) {
+    if (flat) {
+      attack.damage = flat[1];
+      attack.average = Number(flat[1]);
+      attack.damageType = flat[2];
+    } else if (hit || first) {
       attack.damage = formula(first?.damage_dice ?? hit?.[2] ?? '');
       attack.average = hit ? Number(hit[1]) : 0;
       attack.damageType = first?.damage_type?.index ?? hit?.[3] ?? '';
@@ -125,6 +142,8 @@ function monsterOf(m) {
     traits: (m.special_abilities ?? []).map(actionOf),
     actions: (m.actions ?? []).map(actionOf),
     reactions: (m.reactions ?? []).map(actionOf),
+    // Легендарные действия драконов и прочих; вводный абзац («can take 3 legendary actions…») API в блоке не отдаёт.
+    ...(m.legendary_actions?.length ? { legendary: m.legendary_actions.map(actionOf) } : {}),
     source: `SRD 5.1 (CC-BY-4.0) · ${API}/${m.index}`,
   };
 }
@@ -134,6 +153,13 @@ async function fetchMonster(index) {
   if (!res.ok) throw new Error(`${index}: HTTP ${res.status}`);
   return res.json();
 }
+
+const list = await fetch(API).then(r => {
+  if (!r.ok) throw new Error(`список: HTTP ${r.status}`);
+  return r.json();
+});
+const rest = list.results.filter(m => !STARTER.includes(m.index)).sort((a, b) => a.name.localeCompare(b.name)).map(m => m.index);
+const INDICES = [...STARTER, ...rest];
 
 const monsters = {};
 for (const index of INDICES) {
