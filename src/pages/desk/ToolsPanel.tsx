@@ -3,7 +3,7 @@
 // Свёрнутая — полоса иконок, раскрытая из полосы — оверлей. Пропсы — те же имена, что на странице: компонент —
 // перенос её разметки, состояние держит страница.
 import type { Dispatch, ReactNode, SetStateAction } from 'react';
-import { inDays, nextFestival } from '../../campaign';
+import { holyList, inDays, nextFestival, type NextHolyDay } from '../../campaign';
 import {
   IconRail, JournalEntry, JournalReminder, RollModal, ThreadCard, WorldDelta, lastRollOf, rollHistoryOf, toggleIn, worldDeltaProps,
   type IconRailItem, type JournalEntryProps,
@@ -47,6 +47,8 @@ export interface ToolsPanelProps {
   onCommand: (cmd: Command) => void;
   pending: State['deltas'][string][];
   festival: ReturnType<typeof nextFestival>;
+  /** Ближайший годовой святой день богов Фаэруна (E4) — в строке «Мир спокоен». */
+  holy?: NextHolyDay;
   journal: JournalRecord[];
   allEntries: JournalRecord[];
   entryProps: (entry: JournalRecord) => JournalEntryProps;
@@ -61,7 +63,7 @@ export function ToolsPanel({
   state, events, api, dmView, combat, shownView, canUndo, canRedo, resetArmed, setResetArmed, onReset,
   onExport, onImport, note, setNote, toast, shownRoll, setClosedRollId, hiddenRolls, setHiddenRolls,
   openThreads, threads, filterThreads, setFilterThreads, concentrationReminders, conditionReminders,
-  setLaterConcentration, onCommand, pending, festival, journal, allEntries, entryProps, railTools, toolsPin,
+  setLaterConcentration, onCommand, pending, festival, holy, journal, allEntries, entryProps, railTools, toolsPin,
   toolsRailItems, openRail, setOpenRail,
  }: ToolsPanelProps) {
   return (
@@ -239,15 +241,17 @@ export function ToolsPanel({
                 </div>
               </>
             ) : dmView ? (
-              // Единственная секция, что показывается пустой (CLAUDE.md): «Мир спокоен» и ближайший праздник —
-              // луна уже в полосе часов, второй раз не печатается.
+              // Единственная секция, что показывается пустой (CLAUDE.md): «Мир спокоен», ближайший праздник и святой
+              // день богов Фаэруна — луна уже в полосе часов, второй раз не печатается.
               <>
                 <div className={HEAD}>
                   <Icon name="inbox" size={16} color="var(--t2)" title="Предложения мира" />
                   <span>Входящие</span>
                 </div>
                 <p data-part="calm" className="px-2 py-2 type-body-sm text-t2">
-                  Мир спокоен. Ближайший праздник — <span className="text-tx">{festival.festival}</span> {inDays(festival.days)}.
+                  Мир спокоен. Ближайший праздник — <span className="text-tx">{festival.festival}</span> {inDays(festival.days)}
+                  {holy && holy.sec === festival.sec ? <>; святые дни — <span className="text-tx">{holyList(holy.holy)}</span>.</>
+                    : holy ? <>. Святой день {inDays(holy.days)} — <span className="text-tx">{holyList(holy.holy)}</span>.</> : '.'}
                 </p>
               </>
             ) : null}

@@ -6,8 +6,13 @@
 # божество (по статье, через перенаправления) и на план — по статьям планов Колеса и Древа (content/cosmos), слою
 # плана Колеса или перенаправлению на них. Пантеоны — из поля pantheon и категорий «… pantheon».
 #
+# Святые дни (E4) разбираются в правила календаря: праздник Харптоса, дата месяца, равноденствие и солнцестояние (даты —
+# статья Calendar of Harptos), дни каждого месяца, полнолуние и новолуние. Что не разобралось (Shieldmeet — календарь
+# его не ведёт, «Starfall», «varies»), остаётся только текстом карточки. Правила — отдельным маленьким файлом: календарь
+# на столе читает их сразу, а не из куска богов.
+#
 # Запуск: .venv/bin/python -I scripts/import-deities.py <dump.xml>
-#   Выход: content/cosmos/deities.json.
+#   Выход: content/cosmos/deities.json, content/cosmos/holy-days.json.
 import importlib.util
 import json
 import os
@@ -40,6 +45,60 @@ TREE_ALIASES = {'Layers of the Abyss': 'abyss'}
 
 # Одна группа под двумя именами: поле статьи и категория.
 PANTHEON_ALIASES = {'Orcish pantheon': 'Orc pantheon', 'Norse Pantheon': 'Norse pantheon'}
+
+MONTH_NAMES = ['Hammer', 'Alturiak', 'Ches', 'Tarsakh', 'Mirtul', 'Kythorn', 'Flamerule', 'Eleasis', 'Eleint', 'Marpenoth', 'Uktar', 'Nightal']
+# Праздники Харптоса, которые ведёт календарь стола; Shieldmeet не ведёт (src/campaign/calendar.ts).
+FESTIVAL_WORDS = [('Feast of the Moon', 'Feast of the Moon'), ('Highharvestide', 'Highharvestide'), ('Higharvestide', 'Highharvestide'),
+                  ('Midwinter', 'Midwinter'), ('Greengrass', 'Greengrass'), ('Midsummer', 'Midsummer')]
+# Calendar of Harptos (FR Wiki): Spring Equinox on Ches 19, Summer Solstice on Kythorn 20, Autumn Equinox on Eleint 21,
+# Winter Solstice on Nightal 20.
+SOLAR = {'spring': ('Ches', 19), 'summer': ('Kythorn', 20), 'autumn': ('Eleint', 21), 'winter': ('Nightal', 20)}
+
+
+def holy_rules(text):
+    """«The Divine Death (Eleasis 13); Midsummer» → правила календаря; неразобранное не попадает в правила."""
+    rules = []
+    parts = []
+    for seg in re.split(r'\s*;\s*', text):
+        # «The Retreat (Midwinter's day) and The Queen's Gambit (Tarsakh 1)» — у каждой скобки своё имя: последний
+        # кусок перед ней после «and», «plus» или запятой. Остаток строки без скобок разбирается без имени.
+        for m in re.finditer(r'([^()]*?)\s*\(([^()]+)\)', seg):
+            name = re.split(r'\band\b|\bplus\b|,', m.group(1))[-1].strip(' .')
+            parts.append((name or None, m.group(2)))
+        parts.append((None, re.sub(r'\([^()]*\)', '', seg)))
+    for label, seg in parts:
+        found = []
+        months = '|'.join(MONTH_NAMES)
+        for m in re.finditer(rf'\b({months})\s+(\d{{1,2}})\b', seg):
+            found.append({'month': m.group(1), 'day': int(m.group(2))})
+        for m in re.finditer(rf'\b(\d{{1,2}})(?:st|nd|rd|th)?\s+of\s+({months})\b', seg):
+            found.append({'month': m.group(2), 'day': int(m.group(1))})
+        if re.search(r'first day of (each|every) month', seg, re.I):
+            found.append({'monthly': [1]})
+        elif m := re.search(r'((?:\d{1,2}(?:st|nd|rd|th)[,&\s]*(?:and\s+)?)+)of (?:each|every) month', seg, re.I):
+            found.append({'monthly': [int(x) for x in re.findall(r'\d+', m.group(1))]})
+        for word, fest in FESTIVAL_WORDS:
+            if re.search(rf'\b{word}\b', seg, re.I) and not any(r.get('festival') == fest for r in found):
+                found.append({'festival': fest})
+        if re.search(r'equinox', seg, re.I):
+            sides = [k for k, pat in (('spring', r'spring|vernal'), ('autumn', r'autumn|fall')) if re.search(pat, seg, re.I)] or ['spring', 'autumn']
+            found += [{'month': SOLAR[k][0], 'day': SOLAR[k][1], 'solar': k} for k in sides]
+        for k in ('summer', 'winter'):
+            if re.search(rf'{k} solstice', seg, re.I):
+                found.append({'month': SOLAR[k][0], 'day': SOLAR[k][1], 'solar': k})
+        # «Third full moon of the year» — одно полнолуние в году, не каждое: не правило.
+        if re.search(r'full moon', seg, re.I) and not re.search(r'\b(first|second|third|fourth|blood)\s+full moon', seg, re.I):
+            found.append({'moon': 'full'})
+        if re.search(r'new moon', seg, re.I):
+            found.append({'moon': 'new'})
+        for r in found:
+            if 'month' in r and not 1 <= r['day'] <= 30:
+                continue
+            if label:
+                r['label'] = label
+            if r not in rules:
+                rules.append(r)
+    return rules
 
 
 def slug(title):
@@ -236,6 +295,19 @@ def main():
         'deities': deities,
         'pantheons': sorted(pantheons.values(), key=lambda p: p['name']),
     }
+    holy = []
+    for d in deities:
+        eds = {ed: {'text': c['t'], 'rules': holy_rules(c['t'])} for ed, c in d['fields'].get('holydays', {}).items()}
+        if any(e['rules'] for e in eds.values()):
+            holy.append({'deity': d['id'], 'name': d['name'], 'url': d['url'], **({'pantheons': d['pantheons']} if d.get('pantheons') else {}), 'editions': eds})
+    hpath = os.path.join(ROOT, 'content', 'cosmos', 'holy-days.json')
+    with open(hpath, 'w', encoding='utf-8') as fh:
+        json.dump({'attribution': sj.ATTRIBUTION, 'license': sj.LICENSE,
+                   'note': 'Святые дни из поля holy days карточек {{Deity}}: правила календаря по редакциям; даты равноденствий и солнцестояний — статья Calendar of Harptos.',
+                   'deities': holy}, fh, ensure_ascii=False, indent=1)
+        fh.write('\n')
+    print(f'святые дни: {len(holy)} богов с правилами календаря → {hpath} ({os.path.getsize(hpath) // 1024} КБ)')
+
     path = os.path.join(ROOT, 'content', 'cosmos', 'deities.json')
     with open(path, 'w', encoding='utf-8') as fh:
         json.dump(out, fh, ensure_ascii=False, separators=(',', ':'))

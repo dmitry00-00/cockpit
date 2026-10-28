@@ -221,6 +221,36 @@ describe('часы Харптоса: мини-циферблат и календ
     expect(store.getState().events).toHaveLength(before);
   });
 
+  it('святые дни (E4): ближайший в сводке, отметка и список месяца, праздник с богами, «все пантеоны» — вид; имя бога открывает карточку', async () => {
+    const { store } = mount();
+    const before = store.getState().events.length;
+    fireEvent.click(within(screen.getByLabelText('Мировые часы')).getByRole('button', { name: 'Календарь Харптоса' }));
+    const cal = screen.getByRole('region', { name: 'Календарь Харптоса' });
+    expect(cal.querySelector('[data-part="holy-next"]')).toHaveTextContent('летнее солнцестояние: Amaunator, Mielikki · через 35 дней');
+    // Mirtul: Tyr — 1, 13, 22 каждого месяца — строкой и отметкой.
+    expect(cal.querySelector('[data-part="holy-repeats"]')).toHaveTextContent('каждый месяц: Tyr (1, 13, 22)');
+    const mirtul = within(cal).getByRole('table', { name: 'Mirtul 1492 DR' });
+    expect(within(mirtul).getByTitle(/^13 Mirtul 1492 DR · .* · святой день: Tyr$/)).toBeInTheDocument();
+    fireEvent.click(within(cal).getByRole('button', { name: 'Следующий месяц' }));
+    const kythorn = within(cal).getByRole('table', { name: 'Kythorn 1492 DR' });
+    expect(within(kythorn).getByTitle(/^20 Kythorn .* святой день: летнее солнцестояние: Amaunator, Mielikki$/).querySelector('[data-holy]')).not.toBeNull();
+    const list = within(cal).getByRole('list', { name: 'Святые дни: Kythorn' });
+    expect(list).toHaveTextContent('20 Kythorn летнее солнцестояние: Amaunator, Mielikki');
+    fireEvent.click(within(cal).getByRole('button', { name: 'Tarsakh' }));
+    expect(cal.querySelector('[data-part="festival-holy"]')).toHaveTextContent('Eldath');
+    fireEvent.click(within(cal).getByRole('button', { name: 'Mirtul' }));
+    expect(within(cal).getByTitle(/^18 Mirtul 1492 DR · Selûne полная$/)).toBeInTheDocument();
+    fireEvent.click(within(cal).getByRole('button', { name: 'все пантеоны' }));
+    expect(within(cal).getByTitle(/^18 Mirtul 1492 DR · Selûne полная · святой день: .*Sehanine Moonbow/)).toBeInTheDocument();
+    expect(store.getState().events).toHaveLength(before);
+    fireEvent.click(within(cal).getByRole('button', { name: 'Kythorn' }));
+    fireEvent.click(within(within(cal).getByRole('list', { name: 'Святые дни: Kythorn' })).getByRole('button', { name: /Amaunator/ }));
+    const card = await screen.findByRole('region', { name: 'Amaunator' }, { timeout: 10000 });
+    expect(card).toHaveTextContent('Божество');
+    expect(card).toHaveTextContent('Святые дни');
+  // Карточка бога — кусок космоса по требованию: под полным прогоном импорт дольше пяти секунд по умолчанию.
+  }, 20000);
+
   it('вкладка «Время» показывает тот же календарь под фазами суток', () => {
     mount();
     fireEvent.click(within(screen.getByRole('group', { name: 'Вид главной зоны' })).getByRole('button', { name: /Время/ }));

@@ -1,0 +1,1276 @@
+{
+ "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0",
+ "license": "CC BY-SA 3.0",
+ "note": "Святые дни из поля holy days карточек {{Deity}}: правила календаря по редакциям; даты равноденствий и солнцестояний — статья Calendar of Harptos.",
+ "deities": [
+  {
+   "deity": "aerdrie-faenya",
+   "name": "Aerdrie Faenya",
+   "url": "https://forgottenrealms.fandom.com/wiki/Aerdrie_Faenya",
+   "pantheons": [
+    "seldarine",
+    "aarakocra-pantheon"
+   ],
+   "editions": {
+    "3e": {
+     "text": "Vernal and autumnal equinoxes",
+     "rules": [
+      {
+       "month": "Ches",
+       "day": 19,
+       "solar": "spring"
+      },
+      {
+       "month": "Eleint",
+       "day": 21,
+       "solar": "autumn"
+      }
+     ]
+    },
+    "2e": {
+     "text": "Vernal and autumnal equinoxes",
+     "rules": [
+      {
+       "month": "Ches",
+       "day": 19,
+       "solar": "spring"
+      },
+      {
+       "month": "Eleint",
+       "day": 21,
+       "solar": "autumn"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "akadi",
+   "name": "Akadi",
+   "url": "https://forgottenrealms.fandom.com/wiki/Akadi",
+   "pantheons": [
+    "faerunian-pantheon",
+    "zakharan-pantheon",
+    "hordelands-pantheon"
+   ],
+   "editions": {
+    "2e": {
+     "text": "Midsummer",
+     "rules": [
+      {
+       "festival": "Midsummer"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "amaunator",
+   "name": "Amaunator",
+   "url": "https://forgottenrealms.fandom.com/wiki/Amaunator",
+   "pantheons": [
+    "faerunian-pantheon",
+    "netherese-pantheon"
+   ],
+   "editions": {
+    "2e": {
+     "text": "Third full moon of the year, summer solstice",
+     "rules": [
+      {
+       "month": "Kythorn",
+       "day": 20,
+       "solar": "summer"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "anubis",
+   "name": "Anubis",
+   "url": "https://forgottenrealms.fandom.com/wiki/Anubis",
+   "pantheons": [
+    "pharaonic-pantheon",
+    "egyptian-pantheon"
+   ],
+   "editions": {
+    "1e": {
+     "text": "Night of a full moon",
+     "rules": [
+      {
+       "moon": "full"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "ao",
+   "name": "Ao",
+   "url": "https://forgottenrealms.fandom.com/wiki/Ao",
+   "editions": {
+    "2e": {
+     "text": "Gods' Day (Marpenoth 15)",
+     "rules": [
+      {
+       "month": "Marpenoth",
+       "day": 15,
+       "label": "Gods' Day"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "araleth-letheranil",
+   "name": "Araleth Letheranil",
+   "url": "https://forgottenrealms.fandom.com/wiki/Araleth_Letheranil",
+   "pantheons": [
+    "seldarine"
+   ],
+   "editions": {
+    "2e": {
+     "text": "Spring Equinox",
+     "rules": [
+      {
+       "month": "Ches",
+       "day": 19,
+       "solar": "spring"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "artemis",
+   "name": "Artemis",
+   "url": "https://forgottenrealms.fandom.com/wiki/Artemis",
+   "pantheons": [
+    "olympian-pantheon"
+   ],
+   "editions": {
+    "1e": {
+     "text": "Equinox",
+     "rules": [
+      {
+       "month": "Ches",
+       "day": 19,
+       "solar": "spring"
+      },
+      {
+       "month": "Eleint",
+       "day": 21,
+       "solar": "autumn"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "auril",
+   "name": "Auril",
+   "url": "https://forgottenrealms.fandom.com/wiki/Auril",
+   "pantheons": [
+    "gods-of-fury",
+    "faerunian-pantheon"
+   ],
+   "editions": {
+    "": {
+     "text": "Midwinter Night",
+     "rules": [
+      {
+       "festival": "Midwinter"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "baervan-wildwanderer",
+   "name": "Baervan Wildwanderer",
+   "url": "https://forgottenrealms.fandom.com/wiki/Baervan_Wildwanderer",
+   "pantheons": [
+    "lords-of-the-golden-hills"
+   ],
+   "editions": {
+    "3e": {
+     "text": "Nights of the full moon",
+     "rules": [
+      {
+       "moon": "full"
+      }
+     ]
+    },
+    "2e": {
+     "text": "Nights of the full moon",
+     "rules": [
+      {
+       "moon": "full"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "bahgtru",
+   "name": "Bahgtru",
+   "url": "https://forgottenrealms.fandom.com/wiki/Bahgtru",
+   "pantheons": [
+    "orc-pantheon"
+   ],
+   "editions": {
+    "3e": {
+     "text": "Festival of Strength every full moon",
+     "rules": [
+      {
+       "moon": "full"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "balder",
+   "name": "Balder",
+   "url": "https://forgottenrealms.fandom.com/wiki/Balder",
+   "pantheons": [
+    "norse-pantheon"
+   ],
+   "editions": {
+    "1e": {
+     "text": "Full moon",
+     "rules": [
+      {
+       "moon": "full"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "bhaal",
+   "name": "Bhaal",
+   "url": "https://forgottenrealms.fandom.com/wiki/Bhaal",
+   "pantheons": [
+    "faerunian-pantheon"
+   ],
+   "editions": {
+    "2e": {
+     "text": "Feast of the Moon",
+     "rules": [
+      {
+       "festival": "Feast of the Moon"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "bright-nydra",
+   "name": "Bright Nydra",
+   "url": "https://forgottenrealms.fandom.com/wiki/Bright_Nydra",
+   "editions": {
+    "2e": {
+     "text": "Midwinter",
+     "rules": [
+      {
+       "festival": "Midwinter"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "cyrrollalee",
+   "name": "Cyrrollalee",
+   "url": "https://forgottenrealms.fandom.com/wiki/Cyrrollalee",
+   "pantheons": [
+    "yondalla-s-children"
+   ],
+   "editions": {
+    "2e": {
+     "text": "First day of each month, \"Hearthday\"",
+     "rules": [
+      {
+       "monthly": [
+        1
+       ]
+      }
+     ]
+    },
+    "1e": {
+     "text": "First day of each month",
+     "rules": [
+      {
+       "monthly": [
+        1
+       ]
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "demeter",
+   "name": "Demeter",
+   "url": "https://forgottenrealms.fandom.com/wiki/Demeter",
+   "pantheons": [
+    "olympian-pantheon"
+   ],
+   "editions": {
+    "1e": {
+     "text": "Spring Equinox",
+     "rules": [
+      {
+       "month": "Ches",
+       "day": 19,
+       "solar": "spring"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "dugmaren-brightmantle",
+   "name": "Dugmaren Brightmantle",
+   "url": "https://forgottenrealms.fandom.com/wiki/Dugmaren_Brightmantle",
+   "pantheons": [
+    "morndinsamman"
+   ],
+   "editions": {
+    "3e": {
+     "text": "Greengrass, Highharvestide",
+     "rules": [
+      {
+       "festival": "Highharvestide"
+      },
+      {
+       "festival": "Greengrass"
+      }
+     ]
+    },
+    "2e": {
+     "text": "Greengrass, Highharvestide",
+     "rules": [
+      {
+       "festival": "Highharvestide"
+      },
+      {
+       "festival": "Greengrass"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "eldath",
+   "name": "Eldath",
+   "url": "https://forgottenrealms.fandom.com/wiki/Eldath",
+   "pantheons": [
+    "faerunian-pantheon"
+   ],
+   "editions": {
+    "3e": {
+     "text": "The Greening (Greengrass)",
+     "rules": [
+      {
+       "festival": "Greengrass",
+       "label": "The Greening"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "finder-wyvernspur",
+   "name": "Finder Wyvernspur",
+   "url": "https://forgottenrealms.fandom.com/wiki/Finder_Wyvernspur",
+   "pantheons": [
+    "faerunian-pantheon"
+   ],
+   "editions": {
+    "2e": {
+     "text": "20th of Marpenoth",
+     "rules": [
+      {
+       "month": "Marpenoth",
+       "day": 20
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "gruumsh",
+   "name": "Gruumsh",
+   "url": "https://forgottenrealms.fandom.com/wiki/Gruumsh",
+   "pantheons": [
+    "orc-pantheon"
+   ],
+   "editions": {
+    "4e": {
+     "text": "Gharfek'taaz",
+     "rules": []
+    },
+    "3e": {
+     "text": "New moon",
+     "rules": [
+      {
+       "moon": "new"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "hanali-celanil",
+   "name": "Hanali Celanil",
+   "url": "https://forgottenrealms.fandom.com/wiki/Hanali_Celanil",
+   "pantheons": [
+    "seldarine"
+   ],
+   "editions": {
+    "1e": {
+     "text": "Full moon",
+     "rules": [
+      {
+       "moon": "full"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "hecate",
+   "name": "Hecate",
+   "url": "https://forgottenrealms.fandom.com/wiki/Hecate",
+   "pantheons": [
+    "olympian-pantheon"
+   ],
+   "editions": {
+    "1e": {
+     "text": "Fall equinox",
+     "rules": [
+      {
+       "month": "Eleint",
+       "day": 21,
+       "solar": "autumn"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "ilneval",
+   "name": "Ilneval",
+   "url": "https://forgottenrealms.fandom.com/wiki/Ilneval",
+   "pantheons": [
+    "orc-pantheon"
+   ],
+   "editions": {
+    "3e": {
+     "text": "Greengrass",
+     "rules": [
+      {
+       "festival": "Greengrass"
+      }
+     ]
+    },
+    "1e": {
+     "text": "Battle days",
+     "rules": []
+    }
+   }
+  },
+  {
+   "deity": "kelemvor",
+   "name": "Kelemvor",
+   "url": "https://forgottenrealms.fandom.com/wiki/Kelemvor",
+   "pantheons": [
+    "faerunian-pantheon"
+   ],
+   "editions": {
+    "4e": {
+     "text": "Shieldmeet, Feast of the Moon",
+     "rules": [
+      {
+       "festival": "Feast of the Moon"
+      }
+     ]
+    },
+    "2e": {
+     "text": "Shieldmeet, Feast of the Moon",
+     "rules": [
+      {
+       "festival": "Feast of the Moon"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "laogzed",
+   "name": "Laogzed",
+   "url": "https://forgottenrealms.fandom.com/wiki/Laogzed",
+   "editions": {
+    "2e": {
+     "text": "Midwinter's day",
+     "rules": [
+      {
+       "festival": "Midwinter"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "lathander",
+   "name": "Lathander",
+   "url": "https://forgottenrealms.fandom.com/wiki/Lathander",
+   "pantheons": [
+    "faerunian-pantheon"
+   ],
+   "editions": {
+    "3e": {
+     "text": "Any dawn, Midsummer morning, the equinoxes",
+     "rules": [
+      {
+       "festival": "Midsummer"
+      },
+      {
+       "month": "Ches",
+       "day": 19,
+       "solar": "spring"
+      },
+      {
+       "month": "Eleint",
+       "day": 21,
+       "solar": "autumn"
+      }
+     ]
+    },
+    "2e": {
+     "text": "Any dawn, Midsummer morning, the equinoxes",
+     "rules": [
+      {
+       "festival": "Midsummer"
+      },
+      {
+       "month": "Ches",
+       "day": 19,
+       "solar": "spring"
+      },
+      {
+       "month": "Eleint",
+       "day": 21,
+       "solar": "autumn"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "lurue",
+   "name": "Lurue",
+   "url": "https://forgottenrealms.fandom.com/wiki/Lurue",
+   "pantheons": [
+    "faerunian-pantheon"
+   ],
+   "editions": {
+    "3e": {
+     "text": "Midsummer's Eve ; Feast of the Moon",
+     "rules": [
+      {
+       "festival": "Midsummer"
+      },
+      {
+       "festival": "Feast of the Moon"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "luthic",
+   "name": "Luthic",
+   "url": "https://forgottenrealms.fandom.com/wiki/Luthic",
+   "pantheons": [
+    "orc-pantheon"
+   ],
+   "editions": {
+    "4e": {
+     "text": "Blood moon",
+     "rules": []
+    },
+    "3e": {
+     "text": "The Feast of the Moon",
+     "rules": [
+      {
+       "festival": "Feast of the Moon"
+      }
+     ]
+    },
+    "1e": {
+     "text": "Midwinter",
+     "rules": [
+      {
+       "festival": "Midwinter"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "mielikki",
+   "name": "Mielikki",
+   "url": "https://forgottenrealms.fandom.com/wiki/Mielikki",
+   "pantheons": [
+    "faerunian-pantheon",
+    "finnish-pantheon",
+    "seldarine"
+   ],
+   "editions": {
+    "2e": {
+     "text": "Four Feasts: summer solstice, winter solstice, spring equinox, autumn equinox; Greengrass; Midsummer; Shieldmeet",
+     "rules": [
+      {
+       "month": "Ches",
+       "day": 19,
+       "solar": "spring"
+      },
+      {
+       "month": "Eleint",
+       "day": 21,
+       "solar": "autumn"
+      },
+      {
+       "month": "Kythorn",
+       "day": 20,
+       "solar": "summer"
+      },
+      {
+       "month": "Nightal",
+       "day": 20,
+       "solar": "winter"
+      },
+      {
+       "festival": "Greengrass"
+      },
+      {
+       "festival": "Midsummer"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "mythrien-sarath",
+   "name": "Mythrien Sarath",
+   "url": "https://forgottenrealms.fandom.com/wiki/Mythrien_Sarath",
+   "pantheons": [
+    "seldarine"
+   ],
+   "editions": {
+    "2e": {
+     "text": "Ches 12",
+     "rules": [
+      {
+       "month": "Ches",
+       "day": 12
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "nomog-geaya",
+   "name": "Nomog-Geaya",
+   "url": "https://forgottenrealms.fandom.com/wiki/Nomog-Geaya",
+   "pantheons": [
+    "goblinoid-pantheon"
+   ],
+   "editions": {
+    "1e": {
+     "text": "Midwinter",
+     "rules": [
+      {
+       "festival": "Midwinter"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "oghma",
+   "name": "Oghma",
+   "url": "https://forgottenrealms.fandom.com/wiki/Oghma",
+   "pantheons": [
+    "faerunian-pantheon",
+    "adama",
+    "celtic-pantheon"
+   ],
+   "editions": {
+    "3e": {
+     "text": "Midsummer, Shieldmeet",
+     "rules": [
+      {
+       "festival": "Midsummer"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "osiris",
+   "name": "Osiris",
+   "url": "https://forgottenrealms.fandom.com/wiki/Osiris",
+   "pantheons": [
+    "mulhorandi-pantheon",
+    "egyptian-pantheon"
+   ],
+   "editions": {
+    "2e": {
+     "text": "Higharvestide and Midwinter",
+     "rules": [
+      {
+       "festival": "Highharvestide"
+      },
+      {
+       "festival": "Midwinter"
+      }
+     ]
+    },
+    "1e": {
+     "text": "Higharvestide and Midwinter",
+     "rules": [
+      {
+       "festival": "Highharvestide"
+      },
+      {
+       "festival": "Midwinter"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "pan-deity",
+   "name": "Pan",
+   "url": "https://forgottenrealms.fandom.com/wiki/Pan_(deity)",
+   "pantheons": [
+    "olympian-pantheon"
+   ],
+   "editions": {
+    "1e": {
+     "text": "Spring equinox",
+     "rules": [
+      {
+       "month": "Ches",
+       "day": 19,
+       "solar": "spring"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "red-knight",
+   "name": "Red Knight",
+   "url": "https://forgottenrealms.fandom.com/wiki/Red_Knight",
+   "pantheons": [
+    "faerunian-pantheon"
+   ],
+   "editions": {
+    "3e": {
+     "text": "Same as Tempus plus The Retreat (Midwinter's day) and The Queen's Gambit (Tarsakh 1).",
+     "rules": [
+      {
+       "festival": "Midwinter",
+       "label": "The Retreat"
+      },
+      {
+       "month": "Tarsakh",
+       "day": 1,
+       "label": "The Queen's Gambit"
+      }
+     ]
+    },
+    "2e": {
+     "text": "Same as Tempus plus The Retreat (Midwinter's day) and The Queen's Gambit (Tarsakh 1).",
+     "rules": [
+      {
+       "festival": "Midwinter",
+       "label": "The Retreat"
+      },
+      {
+       "month": "Tarsakh",
+       "day": 1,
+       "label": "The Queen's Gambit"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "sehanine-moonbow",
+   "name": "Sehanine Moonbow",
+   "url": "https://forgottenrealms.fandom.com/wiki/Sehanine_Moonbow",
+   "pantheons": [
+    "seldarine"
+   ],
+   "editions": {
+    "3e": {
+     "text": "Full moon",
+     "rules": [
+      {
+       "moon": "full"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "seker",
+   "name": "Seker",
+   "url": "https://forgottenrealms.fandom.com/wiki/Seker",
+   "pantheons": [
+    "pharaonic-pantheon",
+    "egyptian-pantheon"
+   ],
+   "editions": {
+    "1e": {
+     "text": "Summer solstice",
+     "rules": [
+      {
+       "month": "Kythorn",
+       "day": 20,
+       "solar": "summer"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "semuanya",
+   "name": "Semuanya",
+   "url": "https://forgottenrealms.fandom.com/wiki/Semuanya",
+   "pantheons": [
+    "lizardfolk-pantheon"
+   ],
+   "editions": {
+    "1e": {
+     "text": "Full moon",
+     "rules": [
+      {
+       "moon": "full"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "shar",
+   "name": "Shar",
+   "url": "https://forgottenrealms.fandom.com/wiki/Shar",
+   "pantheons": [
+    "faerunian-pantheon",
+    "netherese-pantheon"
+   ],
+   "editions": {
+    "3e": {
+     "text": "Rising of the Dark (Feast of the Moon)",
+     "rules": [
+      {
+       "festival": "Feast of the Moon",
+       "label": "Rising of the Dark"
+      }
+     ]
+    },
+    "2e": {
+     "text": "Rising of the Dark (Feast of the Moon)",
+     "rules": [
+      {
+       "festival": "Feast of the Moon",
+       "label": "Rising of the Dark"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "sharess",
+   "name": "Sharess",
+   "url": "https://forgottenrealms.fandom.com/wiki/Sharess",
+   "pantheons": [
+    "faerunian-pantheon",
+    "mulhorandi-pantheon",
+    "egyptian-pantheon"
+   ],
+   "editions": {
+    "3e": {
+     "text": "Midsummer's Eve and many others",
+     "rules": [
+      {
+       "festival": "Midsummer"
+      }
+     ]
+    },
+    "2e": {
+     "text": "Midsummer's Eve and many others",
+     "rules": [
+      {
+       "festival": "Midsummer"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "shargaas",
+   "name": "Shargaas",
+   "url": "https://forgottenrealms.fandom.com/wiki/Shargaas",
+   "pantheons": [
+    "orc-pantheon"
+   ],
+   "editions": {
+    "1e": {
+     "text": "Cloudy nights of the new moon",
+     "rules": [
+      {
+       "moon": "new"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "shiallia",
+   "name": "Shiallia",
+   "url": "https://forgottenrealms.fandom.com/wiki/Shiallia",
+   "pantheons": [
+    "faerunian-pantheon"
+   ],
+   "editions": {
+    "2e": {
+     "text": "Greengrass, Highharvestide",
+     "rules": [
+      {
+       "festival": "Highharvestide"
+      },
+      {
+       "festival": "Greengrass"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "silvanus",
+   "name": "Silvanus",
+   "url": "https://forgottenrealms.fandom.com/wiki/Silvanus",
+   "pantheons": [
+    "celtic-pantheon",
+    "faerunian-pantheon"
+   ],
+   "editions": {
+    "4e": {
+     "text": "Greengrass; Midsummer; Highharvestide",
+     "rules": [
+      {
+       "festival": "Greengrass"
+      },
+      {
+       "festival": "Midsummer"
+      },
+      {
+       "festival": "Highharvestide"
+      }
+     ]
+    },
+    "3e": {
+     "text": "Greengrass, Midsummer night, Highharvestide, Night the Forest Walks",
+     "rules": [
+      {
+       "festival": "Highharvestide"
+      },
+      {
+       "festival": "Greengrass"
+      },
+      {
+       "festival": "Midsummer"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "sune",
+   "name": "Sune",
+   "url": "https://forgottenrealms.fandom.com/wiki/Sune",
+   "pantheons": [
+    "faerunian-pantheon"
+   ],
+   "editions": {
+    "3e": {
+     "text": "Greengrass, Midsummer night",
+     "rules": [
+      {
+       "festival": "Greengrass"
+      },
+      {
+       "festival": "Midsummer"
+      }
+     ]
+    },
+    "2e": {
+     "text": "Greengrass, Midsummer night",
+     "rules": [
+      {
+       "festival": "Greengrass"
+      },
+      {
+       "festival": "Midsummer"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "torm",
+   "name": "Torm",
+   "url": "https://forgottenrealms.fandom.com/wiki/Torm",
+   "pantheons": [
+    "faerunian-pantheon"
+   ],
+   "editions": {
+    "4e": {
+     "text": "The Divine Death (Eleasis 13); The True Resurrection (Marpenoth 15)",
+     "rules": [
+      {
+       "month": "Eleasis",
+       "day": 13,
+       "label": "The Divine Death"
+      },
+      {
+       "month": "Marpenoth",
+       "day": 15,
+       "label": "The True Resurrection"
+      }
+     ]
+    },
+    "3e": {
+     "text": "The Divine Death (Eleasis 13); The True Resurrection (Marpenoth 15)",
+     "rules": [
+      {
+       "month": "Eleasis",
+       "day": 13,
+       "label": "The Divine Death"
+      },
+      {
+       "month": "Marpenoth",
+       "day": 15,
+       "label": "The True Resurrection"
+      }
+     ]
+    },
+    "2e": {
+     "text": "The Divine Death (Eleasis 13); The True Resurrection (Marpenoth 15)",
+     "rules": [
+      {
+       "month": "Eleasis",
+       "day": 13,
+       "label": "The Divine Death"
+      },
+      {
+       "month": "Marpenoth",
+       "day": 15,
+       "label": "The True Resurrection"
+      }
+     ]
+    },
+    "": {
+     "text": "The Divine Death; The True Resurrection; Shieldmeet",
+     "rules": []
+    }
+   }
+  },
+  {
+   "deity": "tyche",
+   "name": "Tyche",
+   "url": "https://forgottenrealms.fandom.com/wiki/Tyche",
+   "pantheons": [
+    "netherese-pantheon",
+    "olympian-pantheon"
+   ],
+   "editions": {
+    "2e": {
+     "text": "Midsummer",
+     "rules": [
+      {
+       "festival": "Midsummer"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "tymora",
+   "name": "Tymora",
+   "url": "https://forgottenrealms.fandom.com/wiki/Tymora",
+   "pantheons": [
+    "faerunian-pantheon",
+    "yondalla-s-children"
+   ],
+   "editions": {
+    "5e": {
+     "text": "Midsummer; Starfall",
+     "rules": [
+      {
+       "festival": "Midsummer"
+      }
+     ]
+    },
+    "3e": {
+     "text": "Midsummer; Starfall",
+     "rules": [
+      {
+       "festival": "Midsummer"
+      }
+     ]
+    },
+    "2e": {
+     "text": "Midsummer; Starfall",
+     "rules": [
+      {
+       "festival": "Midsummer"
+      }
+     ]
+    },
+    "": {
+     "text": "Midsummer; Starfall; Shieldmeet",
+     "rules": [
+      {
+       "festival": "Midsummer"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "tyr",
+   "name": "Tyr",
+   "url": "https://forgottenrealms.fandom.com/wiki/Tyr",
+   "pantheons": [
+    "faerunian-pantheon",
+    "norse-pantheon"
+   ],
+   "editions": {
+    "3e": {
+     "text": "1st, 13th, & 22nd of every month",
+     "rules": [
+      {
+       "monthly": [
+        1,
+        13,
+        22
+       ]
+      }
+     ]
+    },
+    "2e": {
+     "text": "1st, 13th, & 22nd of every month",
+     "rules": [
+      {
+       "monthly": [
+        1,
+        13,
+        22
+       ]
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "untamo",
+   "name": "Untamo",
+   "url": "https://forgottenrealms.fandom.com/wiki/Untamo",
+   "pantheons": [
+    "finnish-pantheon"
+   ],
+   "editions": {
+    "1e": {
+     "text": "New moon",
+     "rules": [
+      {
+       "moon": "new"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "vhaeraun",
+   "name": "Vhaeraun",
+   "url": "https://forgottenrealms.fandom.com/wiki/Vhaeraun",
+   "pantheons": [
+    "dark-seldarine"
+   ],
+   "editions": {
+    "3e": {
+     "text": "Masked Lord's Embrace (Midwinter Night); Nights of new moon",
+     "rules": [
+      {
+       "festival": "Midwinter",
+       "label": "Masked Lord's Embrace"
+      },
+      {
+       "moon": "new"
+      }
+     ]
+    },
+    "2e": {
+     "text": "Masked Lord's Embrace (Midwinter Night); Nights of new moon",
+     "rules": [
+      {
+       "festival": "Midwinter",
+       "label": "Masked Lord's Embrace"
+      },
+      {
+       "moon": "new"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "yurtrus",
+   "name": "Yurtrus",
+   "url": "https://forgottenrealms.fandom.com/wiki/Yurtrus",
+   "pantheons": [
+    "orc-pantheon"
+   ],
+   "editions": {
+    "3e": {
+     "text": "Midsummer night; Midwinter eve",
+     "rules": [
+      {
+       "festival": "Midsummer"
+      },
+      {
+       "festival": "Midwinter"
+      }
+     ]
+    },
+    "1e": {
+     "text": "Full moon",
+     "rules": [
+      {
+       "moon": "full"
+      }
+     ]
+    }
+   }
+  }
+ ]
+}

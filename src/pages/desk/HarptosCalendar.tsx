@@ -2,15 +2,18 @@
 // сезоном, Selûne и ближайшим праздником; месяц сеткой три десятидневки по десять дней с фазами Selûne и праздником
 // после месяца; год — двенадцать месяцев и пять праздников по сезонам. Листать месяцы и год — состояние вида, не
 // событие: время двигает только шаг. Открывается из мини-циферблата полосы часов и стоит на вкладке «Время».
+// Святые дни богов (E4): отметка на дне, список дней месяца, «каждый месяц» и лунные одной строкой, ближайший — в
+// сводке; боги Faerûn или все пантеоны — переключатель вида. Имя бога открывает его карточку, если стол дал вход.
 import { useState } from 'react';
 import {
-  DAYS_PER_YEAR, MONTHS, SEASON_LABELS, TENDAY, dayPhase, festivalAfter, harptos, inDays, monthBefore, monthDays, moonState, nextFestival,
-  seasonOf, yearSlots, type MonthName,
+  DAYS_PER_YEAR, HOLY_DEITIES, MONTHS, SEASON_LABELS, TENDAY, dayPhase, eraOf, festivalAfter, harptos, holyDaysOn, holyList, holyRulesAt, holyWhat,
+  inDays, isAnnual, monthBefore, monthDays, moonState, nextFestival, nextHolyDay, seasonOf, yearSlots, type HolyDay, type HolyScope, type MonthName,
 } from '../../campaign';
+import { useOpenEntity } from '../../components/openEntity';
 import { DAY_PHASES, DAY_PHASE_LABELS, HarptosDial, MOON_ICONS, MOON_LABELS, PHASE_HOURS } from '../../components';
 import { SECONDS_PER_DAY } from '../../engine';
 import { Icon } from '../../icons/Icon';
-import { BTN, HEAD } from './styles';
+import { BTN, HEAD, OPT, OPT_OFF, OPT_ON } from './styles';
 
 export interface HarptosCalendarProps {
   /** Время мира, секунды от эпохи. */
@@ -20,6 +23,31 @@ export interface HarptosCalendarProps {
 
 const two = (n: number) => String(n).padStart(2, '0');
 const ORDINAL = ['первая', 'вторая', 'третья'];
+/** Боги, у которых правило святого дня этого вида, — для строки «каждый месяц» и лунных. */
+function recurring(era: ReturnType<typeof eraOf>, scope: HolyScope) {
+  const monthly: string[] = [], full: string[] = [], fresh: string[] = [];
+  for (const h of HOLY_DEITIES) {
+    if (scope === 'faerun' && !h.pantheons?.includes('faerunian-pantheon')) continue;
+    for (const r of holyRulesAt(h, era)) {
+      if (r.monthly) monthly.push(`${h.name} (${r.monthly.join(', ')})`);
+      if (r.moon === 'full' && !full.includes(h.name)) full.push(h.name);
+      if (r.moon === 'new' && !fresh.includes(h.name)) fresh.push(h.name);
+    }
+  }
+  return [
+    monthly.length ? `каждый месяц: ${monthly.join(', ')}` : null,
+    full.length ? `в полнолуние: ${full.join(', ')}` : null,
+    fresh.length ? `в новолуние: ${fresh.join(', ')}` : null,
+  ].filter(Boolean).join(' · ');
+}
+
+/** Святые дни по имени дня: сначала названные («The Divine Death»), последней — без имени (сам праздник или дата). */
+const byWhat = (list: readonly HolyDay[]): [string, HolyDay[]][] => {
+  const groups = new Map<string, HolyDay[]>();
+  for (const h of list) groups.set(holyWhat(h) ?? '', [...(groups.get(holyWhat(h) ?? '') ?? []), h]);
+  return [...groups].sort(([a], [b]) => Number(a === '') - Number(b === ''));
+};
+
 const SKY_SWATCH: Readonly<Record<(typeof DAY_PHASES)[number], string>> = {
   morning: 'bg-sky-dawn', day: 'bg-sky-day', evening: 'bg-sky-dusk', night: 'bg-sky-night',
 };
@@ -29,6 +57,9 @@ export function HarptosCalendar({ sec, className = '' }: HarptosCalendarProps) {
   const phase = dayPhase(sec);
   const moon = moonState(sec);
   const fest = nextFestival(sec);
+  const openEntity = useOpenEntity();
+  const [scope, setScope] = useState<HolyScope>('faerun');
+  const holyNext = nextHolyDay(sec, eraOf(now.year), scope);
   const today = Math.floor(sec / SECONDS_PER_DAY) * SECONDS_PER_DAY;
   // Месяц на экране: в праздник — месяц перед ним.
   const nowMonth: MonthName = now.month ?? monthBefore(now.festival!);
@@ -39,6 +70,25 @@ export function HarptosCalendar({ sec, className = '' }: HarptosCalendarProps) {
   });
   const isNow = shown.year === now.year && shown.month === nowMonth;
   const days = monthDays(shown.year, shown.month);
+  const shownEra = eraOf(shown.year);
+  const holyOf = (daySec: number) => holyDaysOn(daySec, shownEra, scope);
+  const holyMonth = days.map(d => ({ d, holy: holyOf(d.sec).filter(h => isAnnual(h.rule)) })).filter(x => x.holy.length);
+  const repeats = recurring(shownEra, scope);
+  const gods = (list: readonly HolyDay[]) => {
+    const ids = [...new Map(list.map(h => [h.deity, h.name])).entries()];
+    return openEntity ? (
+      <span>
+        {ids.map(([id, name], i) => (
+          <span key={id}>
+            <button type="button" title={`Открыть карточку: ${name}`} onClick={() => openEntity(`deity:${id}`)} className="text-tx underline decoration-t3 cursor-pointer hover:text-gd-hi focus-visible:shadow-[var(--glow-gold)]">
+              {name}
+            </button>
+            {i < ids.length - 1 ? ', ' : ''}
+          </span>
+        ))}
+      </span>
+    ) : <span className="text-tx">{ids.map(([, n]) => n).join(', ')}</span>;
+  };
   const after = festivalAfter(shown.month);
   const afterSec = after ? yearSlots(shown.year).find(s => s.festival === after)!.startSec : null;
   const dayOfYear = Math.floor((today - yearSlots(now.year)[0].startSec) / SECONDS_PER_DAY) + 1;
@@ -76,6 +126,12 @@ export function HarptosCalendar({ sec, className = '' }: HarptosCalendarProps) {
             </dd>
             <dt className="text-t2">Праздник</dt>
             <dd className="text-tx">{fest.festival} · {inDays(fest.days)}</dd>
+            {holyNext ? (
+              <>
+                <dt className="text-t2">Святой день</dt>
+                <dd className="text-tx" data-part="holy-next">{holyList(holyNext.holy)} · {inDays(holyNext.days)}</dd>
+              </>
+            ) : null}
           </dl>
           <ul aria-label="Фазы суток" className="flex flex-wrap gap-x-3 gap-y-1 type-body-sm text-t2">
             {DAY_PHASES.map(p => (
@@ -95,8 +151,13 @@ export function HarptosCalendar({ sec, className = '' }: HarptosCalendarProps) {
           <span className="type-key text-t2 normal-case">{SEASON_LABELS[seasonOf(days[0].sec)]}</span>
           <button type="button" aria-label="Следующий месяц" title="Следующий месяц" onClick={() => step(1)} className={BTN}>›</button>
           {isNow ? null : (
-            <button type="button" title="К сегодняшнему дню" onClick={() => setShown({ year: now.year, month: nowMonth })} className={`ml-auto ${BTN}`}>Сегодня</button>
+            <button type="button" title="К сегодняшнему дню" onClick={() => setShown({ year: now.year, month: nowMonth })} className={BTN}>Сегодня</button>
           )}
+          <span role="group" aria-label="Святые дни: чьи боги" className="ml-auto flex gap-px">
+            {([['faerun', 'Faerûn', 'святые дни богов Faerûnian pantheon'], ['all', 'все пантеоны', 'святые дни всех богов справочника']] as const).map(([id, label, hint]) => (
+              <button key={id} type="button" aria-pressed={scope === id} title={hint} onClick={() => setScope(id)} className={`${OPT} ${scope === id ? OPT_ON : OPT_OFF}`}>{label}</button>
+            ))}
+          </span>
         </div>
         <table aria-label={`${shown.month} ${shown.year} DR`} className="self-start border-separate border-spacing-px">
           <tbody>
@@ -107,14 +168,20 @@ export function HarptosCalendar({ sec, className = '' }: HarptosCalendarProps) {
                   const on = d.sec === today;
                   const past = d.sec < today;
                   const marked = d.moon === 'full' || d.moon === 'new';
+                  const holy = holyOf(d.sec);
                   return (
                     <td
                       key={d.day}
                       aria-current={on ? 'date' : undefined}
-                      title={`${d.day} ${shown.month} ${shown.year} DR · ${MOON_LABELS[d.moon]}`}
+                      title={`${d.day} ${shown.month} ${shown.year} DR · ${MOON_LABELS[d.moon]}${holy.length ? ` · святой день: ${holyList(holy, 6)}` : ''}`}
                       className={`relative h-9 w-10 align-top px-1 pt-0.5 bg-cd ${on ? 'shadow-[var(--bevel),var(--glow-gold)]' : 'shadow-bevel'}`}
                     >
                       <span className={`type-num-12 ${on ? 'text-gd-hi' : past ? 'text-t3' : 'text-tx'}`}>{d.day}</span>
+                      {holy.length ? (
+                        <span className="absolute right-0 top-0 flex" data-holy={holy.length}>
+                          <Icon name="ent-deity" size={16} color="var(--ent-deity)" title="Святой день" />
+                        </span>
+                      ) : null}
                       {marked ? (
                         <span className="absolute right-0 bottom-0 flex" data-moon={d.moon}>
                           <Icon name={MOON_ICONS[d.moon]} size={16} color="var(--src-canon)" title={MOON_LABELS[d.moon]} />
@@ -136,7 +203,22 @@ export function HarptosCalendar({ sec, className = '' }: HarptosCalendarProps) {
             <Icon name="ent-event" size={16} color="var(--ent-event)" title="Праздник" />
             <span className="type-h-17">{after}</span>
             <span className="text-t2">— праздник после {shown.month}, вне десятидневок</span>
+            {holyOf(afterSec).length ? <span className="text-t2" data-part="festival-holy">· святые дни: {gods(holyOf(afterSec))}</span> : null}
           </div>
+        ) : null}
+        {holyMonth.length || repeats ? (
+          <ul aria-label={`Святые дни: ${shown.month}`} className="flex flex-col gap-0.5 type-body-sm text-t2" data-part="holy">
+            {holyMonth.map(({ d, holy }) => (
+              <li key={d.day} className="flex flex-wrap items-baseline gap-x-1">
+                <Icon name="ent-deity" size={16} color="var(--ent-deity)" title="Святой день" />
+                <span className="type-num-12 text-tx">{d.day} {shown.month}</span>{' '}
+                {byWhat(holy).map(([what, list], i) => (
+                  <span key={what}>{i > 0 ? '; ' : ''}{what ? `${what}: ` : ''}{gods(list)}</span>
+                ))}
+              </li>
+            ))}
+            {repeats ? <li className="text-t2" data-part="holy-repeats">{repeats}</li> : null}
+          </ul>
         ) : null}
       </div>
 

@@ -14,9 +14,9 @@
 // праздник (CLAUDE.md, единственное исключение из правила пустых секций).
 import './DeskPage.css';
 import { Dialog, Popover, ToggleGroup } from 'radix-ui';
-import { useEffect, useRef, useState, type ReactNode, type RefObject } from 'react';
+import { useEffect, useMemo, useRef, useState, type ReactNode, type RefObject } from 'react';
 import {
-  conModOf, cosmologyOf, currentOrder, harptos, dayPhase, encounterCandidates, hitDiceOf, initiativeMod, moonState, nextFestival, placeChain, pcActor, placedActors,
+  conModOf, cosmologyOf, currentOrder, eraOf, harptos, dayPhase, encounterCandidates, hitDiceOf, initiativeMod, moonState, nextFestival, nextHolyDay, placeChain, pcActor, placedActors,
   poolLabel, resourcePoolsOf, restCandidates, restResourcesOf, seedBattlefield, seedEngine, seedState, sortInitiative, spawnMonsters, stepTime,
   suggestMonsterName, takeRest, travel, weatherOf, sheetViewOf, passportOf, type PcSpec,
 } from '../campaign';
@@ -27,7 +27,7 @@ import {
   dollExtrasOf, type IconRailItem, type InitiativeBarEntry, type InitiativeRow, type RestRow, type SpawnOption,
 } from '../components';
 import {
-  LEVEL_TEMPO, SCALE_LEVELS, childrenOf, createEngineStore, filterJournal, focusOf, initialLadder, journalEntries, jumpTo, ladderLevels,
+  LEVEL_TEMPO, SCALE_LEVELS, SECONDS_PER_DAY, childrenOf, createEngineStore, filterJournal, focusOf, initialLadder, journalEntries, jumpTo, ladderLevels,
   localStorageStore, memoryStore, parseLog, serializeLog, type EventStore, moveLevel, normalizeLadder, partyPlaceId, pendingFor, pendingTargets,
   placeCounts, plural, selectPlace, threadSummaries, type Actor, type Command, type EngineStoreApi, type InitiativeEntry,
   type JournalEntry as JournalRecord, type Ladder, type RestHitDice, type RestKind, type ScaleLevel, type Tempo,
@@ -476,6 +476,9 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
     setConcentrationOpen(false);
   };
   const festival = nextFestival(state.time.sec);
+  // Святой день меняется раз в сутки: перебор года по дням — только при смене дня.
+  const today = Math.floor(state.time.sec / SECONDS_PER_DAY);
+  const holy = useMemo(() => nextHolyDay(today * SECONDS_PER_DAY, eraOf(harptos(today * SECONDS_PER_DAY).year)), [today]);
   // Погода — проекция календаря (§4): день задаёт её целиком, ни состояния, ни события.
   const weather = weatherOf(state.time.sec);
   // Полосы F9: те же иконки в том же порядке, что секции панелей; счётчик — сколько ждёт решения.
@@ -1138,6 +1141,7 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
           onCommand={onCommand}
           pending={pending}
           festival={festival}
+          holy={holy}
           journal={journal}
           allEntries={allEntries}
           entryProps={entryProps}
