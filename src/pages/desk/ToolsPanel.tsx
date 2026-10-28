@@ -14,7 +14,7 @@ import {
 import { Icon, type IconName } from '../../icons/Icon';
 import { CONDITIONS } from '../../rules/srd';
 import { threadCardRows, type ConcentrationReminder, type ConditionReminder, type OpenRail } from './helpers';
-import { BTN, HEAD, PANEL_OVERLAY_RIGHT } from './styles';
+import { BTN, HEAD, PANEL_OVERLAY_RIGHT, type DeskView } from './styles';
 
 export interface ToolsPanelProps {
   state: State;
@@ -22,7 +22,7 @@ export interface ToolsPanelProps {
   api: ReturnType<EngineStoreApi['getState']>;
   dmView: boolean;
   combat: boolean;
-  shownView: 'desk' | 'time' | 'journal';
+  shownView: DeskView;
   canUndo: boolean;
   canRedo: boolean;
   resetArmed: boolean;

@@ -95,6 +95,7 @@ export { IconRail, type IconRailProps, type IconRailItem } from './IconRail';
 export { PartyPortraits, type PartyPortraitsProps } from './PartyPortraits';
 export { EntityViewBody, GroupList, cardTypeOf, type EntityViewBodyProps } from './EntityViewBody';
 export { NeighborhoodGraph, type NeighborhoodGraphProps } from './NeighborhoodGraph';
+export { FactionGraph, edgeStyle, type FactionGraphProps } from './FactionGraph';
 export { OpenEntityContext, useOpenEntity } from './openEntity';
 export { HarptosDial, PHASE_HOURS, dialPoint, type HarptosDialProps } from './HarptosDial';
 // Ресурсы персонажа пипками (решение владельца 21.09.2026): максимум и потраченное пропсами, события пишет страница.

@@ -52,10 +52,11 @@ import {
   d20Formula, deskDollItems, dmFactsAbout, dmFactsOf, factionItems, hereItems, isDeskHotkey, isNarrow, journalEntryProps, ladderSteps,
 } from './desk/helpers';
 import { downloadText, readText, sessionFileName } from './desk/session';
-import { BTN, BTN_HEAD, CONDITION_DURATIONS, HEAD, OPT, OPT_OFF, OPT_ON } from './desk/styles';
+import { BTN, BTN_HEAD, CONDITION_DURATIONS, HEAD, OPT, OPT_OFF, OPT_ON, type DeskView } from './desk/styles';
 import { ClockBar } from './desk/ClockBar';
 import { PartyPanel } from './desk/PartyPanel';
 import { TimeView } from './desk/TimeView';
+import { PulseView } from './desk/PulseView';
 import { JournalView } from './desk/JournalView';
 import { ToolsPanel } from './desk/ToolsPanel';
 /* ---------- Страница ---------- */
@@ -214,7 +215,7 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
   const [cosmologyView, setCosmologyView] = useState<'wheel' | 'tree'>(() => cosmologyOf(harptos(state.time.sec).year));
   // Журнал сессии (F7) — вид главной зоны, не событие: фильтр по нитям и уровням, черновик заметки,
   // отложенные напоминания о секретах («Позже») — всё живёт здесь и не переживает перезагрузку.
-  const [view, setView] = useState<'desk' | 'time' | 'journal'>('desk');
+  const [view, setView] = useState<DeskView>('desk');
   // Темп — переключатель, не событие (HANDOFF §7): начальный — из состояния, в бою всегда раунды.
   const [tempoChoice, setTempoChoice] = useState<Tempo>(() => state.time.tempo);
   // Последний шаг времени этого экрана: сводка «что изменилось» — предложения именно этого шага, пока они ждут решения.
@@ -275,9 +276,9 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
   const places = placeChain(state);
   const scaleLabel = (sc: ScaleLevel) => (places[sc] ? `${SCALE_LABELS[sc]} · ${places[sc]}` : SCALE_LABELS[sc]);
   const stepDeltas = dmView ? (lastStep?.deltaIds ?? []).map(id => state.deltas[id]).filter(d => d?.status === 'pending') : [];
-  const views = dmView ? (['desk', 'time', 'journal'] as const) : (['desk', 'journal'] as const);
-  // Вид «Время» — экран мастера: на столе игроков вместо него стол, а состояние вида не теряется до возврата.
-  const shownView = !dmView && view === 'time' ? 'desk' : view;
+  const views: readonly DeskView[] = dmView ? ['desk', 'time', 'pulse', 'journal'] : ['desk', 'journal'];
+  // Виды «Время» и «Пульс» — экраны мастера: на столе игроков вместо них стол, а состояние вида не теряется до возврата.
+  const shownView = !dmView && (view === 'time' || view === 'pulse') ? 'desk' : view;
   const openThreads = Object.values(state.world.threads).filter(t => t.status === 'open');
   const activeId = combat ? encounter.order[encounter.turnIndex] : undefined;
   const initiative: InitiativeBarEntry[] = encounter.order.flatMap(id => {
@@ -386,6 +387,11 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
       } else if (isDeskHotkey(e, 'KeyJ')) {
         e.preventDefault();
         setView(v => (v === 'journal' ? 'desk' : 'journal'));
+      } else if (isDeskHotkey(e, 'KeyW')) {
+        // Пульс мира (F5) — экран мастера: у игроков вида нет.
+        if (playersRef.current) return;
+        e.preventDefault();
+        setView(v => (v === 'pulse' ? 'desk' : 'pulse'));
       } else if (isDeskHotkey(e, 'KeyT')) {
         if (playersRef.current) return;
         e.preventDefault();
@@ -993,6 +999,8 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
               decide={decide}
               api={api}
             />
+          ) : shownView === 'pulse' ? (
+            <PulseView state={state} mainRef={mainRef} onOpenEntity={openEntity} />
           ) : shownView === 'journal' ? (
             <JournalView
               mainRef={mainRef}

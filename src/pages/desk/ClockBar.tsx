@@ -11,7 +11,7 @@ import { Icon } from '../../icons/Icon';
 import { SIZES } from '../../styles/tokens.generated';
 import { HarptosCalendar } from './HarptosCalendar';
 import { shortHarptos } from './helpers';
-import { BTN, SKY_ICON, VIEW_ICON, VIEW_LABEL, VIEW_TITLE } from './styles';
+import { BTN, SKY_ICON, VIEW_ICON, VIEW_LABEL, VIEW_TITLE, type DeskView } from './styles';
 
 export interface ClockBarProps {
   /** Партия свёрнута в портреты: откидной календарь не заходит на неё (CLAUDE.md: оверлей не перекрывает партию). */
@@ -23,9 +23,9 @@ export interface ClockBarProps {
   weather: ReturnType<typeof weatherOf>;
   moon: ReturnType<typeof moonState>;
   combat: boolean;
-  views: readonly ('desk' | 'time' | 'journal')[];
-  shownView: 'desk' | 'time' | 'journal';
-  setView: (view: 'desk' | 'time' | 'journal') => void;
+  views: readonly DeskView[];
+  shownView: DeskView;
+  setView: (view: DeskView) => void;
   dmView: boolean;
   initiativeOpen: boolean;
   setInitiativeOpen: (open: boolean) => void;
