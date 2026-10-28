@@ -11,6 +11,7 @@ import type { IconName } from '../icons/icons.generated';
 import { TRAVEL_PACE_IDS, TRAVEL_PACES, travelDays, travelDaysOver, type TravelPaceId } from '../rules/srd/travel';
 import { DIFFICULT, difficultLabel, routeTerrain, type RouteTerrain, type TerrainGrid } from './terrain';
 import { ENCOUNTER_TYPE_LABEL, journeyLegs, supplyNeeded, type RegionTier } from '../rules/a5e/journey';
+import type { ScaleLevel } from '../engine/events';
 import type { Explored } from './fog';
 import { KIND_LABEL, placeNear, searchPlaces, wikiUrl, type GazetteerPlace } from './gazetteer';
 import {
@@ -55,6 +56,12 @@ export interface WorldMapProps {
    * места. Справка, не состояние: ничего не пишет в журнал.
    */
   gazetteer?: readonly GazetteerPlace[];
+  /**
+   * Новое место щелчком (M8, только мастеру): точка на карте и форма — имя и уровень, из справочника под щелчком или
+   * ввод; «Предложить» отдаёт черновик странице, а та кладёт во входящие предложение с патчем — мир меняется только
+   * принятием. `scales` — какие уровни можно выбрать на этой карте.
+   */
+  newPlace?: { scales: readonly ScaleLevel[]; scaleLabel: (s: ScaleLevel) => string; onPropose: (draft: NewPlaceDraft) => void };
   /** Свои кнопки страницы в начале панели карты (переключатель «Глобус» на уровне планеты). */
   tools?: ReactNode;
   /** Слева сверху поверх карты — корешки и карточка страницы. */
@@ -72,6 +79,23 @@ export interface JourneyProps {
   onEncounter: (regionId: string) => void;
 }
 
+/** Черновик нового места (M8): точка исходника, имя, уровень; из справочника — ещё ссылка на его место. */
+export interface NewPlaceDraft extends MapPoint {
+  name: string;
+  scale: ScaleLevel;
+  /** id места справочника карты, если щёлкнули по его значку. */
+  gazetteerId?: string;
+}
+
+/** Уровень по классу справочника: город — поселение, крепость и руины — здание, лес и горы — регион; иначе — первый из допустимых. */
+export function scaleForKind(kind: string | undefined, scales: readonly ScaleLevel[]): ScaleLevel {
+  const k = (kind ?? '').toLowerCase();
+  const guess: ScaleLevel | undefined = /city|town|village|settlement|capital/.test(k) ? 'settlement'
+    : /fort|ruin|temple|tomb|inn|mine|monast|tower|castle|keep|well/.test(k) ? 'building'
+      : /region|forest|mountain|hill|swamp|marsh|desert|lake|island|pass|road|river|sea/.test(k) ? 'region' : undefined;
+  return guess && scales.includes(guess) ? guess : scales[0];
+}
+
 /** Путь похода, который карта отдаёт странице: точки исходника от партии до места, мили и дни выбранным темпом. */
 export interface TravelRoute {
   toId: string;
@@ -85,7 +109,7 @@ export interface TravelRoute {
   difficultMiles?: number;
 }
 
-type Tool = 'none' | 'ruler' | 'travel';
+type Tool = 'none' | 'ruler' | 'travel' | 'place';
 
 /** Размер окна, пока его не измерили (jsdom, первый кадр). */
 const FALLBACK_VP: Viewport = { w: 960, h: 540 };
@@ -251,7 +275,7 @@ function JourneyLegs({ terrain, journey }: { terrain: RouteTerrain; journey: Jou
   );
 }
 
-export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMiles, travel, fog, terrain, gazetteer, tools, children, className = '' }: WorldMapProps) {
+export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMiles, travel, fog, terrain, gazetteer, newPlace, tools, children, className = '' }: WorldMapProps) {
   const rootRef = useRef<HTMLDivElement>(null);
   const hexRef = useRef<HTMLCanvasElement>(null);
   const [vp, setVp] = useState<Viewport>(FALLBACK_VP);
@@ -267,6 +291,7 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
   const [missing, setMissing] = useState(false);
   /** Место справочника под карточкой: найдено поиском или щелчком по значку. */
   const [found, setFound] = useState<GazetteerPlace | null>(null);
+  const [draft, setDraft] = useState<NewPlaceDraft | null>(null);
   const [inset, setInset] = useState(0);
   const drag = useRef<{ id: number; x: number; y: number; moved: boolean } | null>(null);
   const fitted = useRef<string>('');
@@ -378,7 +403,14 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
     const d = drag.current;
     drag.current = null;
     if (!d || d.id !== e.pointerId || d.moved) return;
-    if (tool !== 'none') {
+    if (tool === 'place' && newPlace) {
+      // Новое место: под щелчком значок справочника — его имя, класс и точка; иначе — точка щелчка и пустое имя.
+      const pt = toMap(view, vp, local(e));
+      const near = gazetteer ? placeNear(gazetteer, pt, PICK_PX / view.scale, PICK_LABEL_PX / view.scale) : undefined;
+      setDraft(near
+        ? { x: near.x, y: near.y, name: near.name, scale: scaleForKind(near.kind, newPlace.scales), gazetteerId: near.id }
+        : { x: Math.round(pt.x), y: Math.round(pt.y), name: draft?.name ?? '', scale: draft?.scale ?? newPlace.scales[0] });
+    } else if (tool !== 'none') {
       const pt = toMap(view, vp, local(e));
       setRuler(r => [...r, pt]);
       setDest(null);
@@ -409,6 +441,7 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
       setRuler([]);
       setDest(null);
     }
+    else if (e.key === 'Escape' && draft) setDraft(null);
     else if (e.key === 'Escape' && found) setFound(null);
     else return;
     e.preventDefault();
@@ -427,7 +460,15 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
     setTool(cur => (cur === t ? 'none' : t));
     setRuler([]);
     setDest(null);
+    setDraft(null);
   };
+  const propose = () => {
+    if (!newPlace || !draft || !draft.name.trim()) return;
+    newPlace.onPropose({ ...draft, name: draft.name.trim(), x: Math.round(draft.x), y: Math.round(draft.y) });
+    setDraft(null);
+    setTool('none');
+  };
+  const draftAt = draft ? toScreen(view, vp, draft) : null;
   const go = (pace: TravelPaceId) => {
     if (!travel || !dest) return;
     travel.onGo({
@@ -528,6 +569,15 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
         </div>
       ) : null}
 
+      {draftAt ? (
+        <span
+          aria-hidden="true"
+          data-part="new-place"
+          className="absolute size-3 -translate-x-1/2 -translate-y-1/2 pointer-events-none bg-src-sim shadow-[0_0_0_2px_var(--lo)]"
+          style={{ left: draftAt.x, top: draftAt.y }}
+        />
+      ) : null}
+
       {foundAt ? (
         <span
           aria-hidden="true"
@@ -614,6 +664,11 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
         <button type="button" aria-pressed={tool === 'ruler'} title="Линейка: щелчки по карте ставят точки пути, Esc — стереть" onClick={() => pickTool('ruler')} className={BTN}>
           Линейка
         </button>
+        {newPlace ? (
+          <button type="button" aria-pressed={tool === 'place'} title="Новое место: щелчок по карте — точка, имя и уровень; во входящие ляжет предложение, мир изменит только «Принять»" onClick={() => pickTool('place')} className={BTN}>
+            Место
+          </button>
+        ) : null}
         {travel ? (
           <button type="button" aria-pressed={tool === 'travel'} title="Поход: путь от партии щелчками, конец — пин места; время пойдёт на дни пути" onClick={() => pickTool('travel')} className={BTN}>
             Поход
@@ -625,6 +680,36 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
         {tool === 'ruler' ? (
           <div data-part="ruler" className="px-2 py-1 bg-cd shadow-float type-body-sm text-tx pointer-events-auto">
             {ruler.length < 2 ? 'Щелчками по карте отметьте путь' : rulerSummary(rulerMiles, rulerTerrain)}
+          </div>
+        ) : null}
+        {tool === 'place' && newPlace ? (
+          <div data-part="new-place-form" role="group" aria-label="Новое место" className="flex flex-col gap-1 px-2 py-1.5 bg-cd shadow-float type-body-sm text-tx pointer-events-auto">
+            {draft ? (
+              <>
+                <span className="flex items-center gap-2">
+                  <input
+                    type="text"
+                    autoFocus
+                    aria-label="Имя места"
+                    placeholder="имя латиницей, как в книгах"
+                    value={draft.name}
+                    onChange={e => setDraft({ ...draft, name: e.target.value, gazetteerId: undefined })}
+                    onKeyDown={e => { if (e.key === 'Enter') propose(); }}
+                    className={INPUT}
+                  />
+                  <select aria-label="Уровень места" value={draft.scale} onChange={e => setDraft({ ...draft, scale: e.target.value as ScaleLevel })} className={`${INPUT} w-auto`}>
+                    {newPlace.scales.map(sc => <option key={sc} value={sc}>{newPlace.scaleLabel(sc)}</option>)}
+                  </select>
+                </span>
+                {draft.gazetteerId ? <span className="text-t2">из справочника карты — карточка по вики будет у места</span> : null}
+                <span className="flex items-center gap-1">
+                  <button type="button" disabled={!draft.name.trim()} onClick={propose} title="Во входящие — предложение; место появится после «Принять», Ctrl+Z уберёт" className={BTN}>Предложить</button>
+                  <button type="button" onClick={() => setDraft(null)} title="Стереть точку · Esc" className={BTN}>Отмена</button>
+                </span>
+              </>
+            ) : (
+              <span>Щелчок по карте — точка нового места</span>
+            )}
           </div>
         ) : null}
         {tool === 'travel' ? (

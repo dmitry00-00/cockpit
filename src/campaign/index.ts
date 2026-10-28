@@ -16,6 +16,7 @@ export { SEED_SEC, seedState, seedLog, seedEngine, pcActor, sheetOf, monsterActo
 export { seedBattlefield, placedActors, type Battlefield, type Cell } from './battlefield';
 export { simulate, stepTime, tendaysCrossed, placeChain, NEAR_SCALES, THREAD_COLD_DAYS, type SimulationInput } from './simulation';
 export { pulseOf, pulseEvents, PULSE_DAYS, type Pulse, type PulseEvent, type PulseEventKind, type PulseEdge, type PulseFaction, type PulsePriceRow, type PulsePriceCell, type PulseEncounterRow, type PulseGod } from './pulse';
+export { newPlaceDelta, type NewPlaceInput } from './newPlace';
 // Бой за живым столом: появление противников из блоков SRD и инициатива — чистые функции, события пишет страница.
 export { initiativeMod, encounterCandidates, sortInitiative, currentOrder, nextActorId, suggestMonsterName, spawnMonsters } from './encounter';
 // Отдых (решение владельца 21.09.2026): кости хитов по листу, кандидаты, takeRest = TIME_ADVANCED + REST_TAKEN.

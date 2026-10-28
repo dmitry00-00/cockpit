@@ -4,8 +4,8 @@
 // Вид (глобус или карта, колесо или древо) держит страница: он переживает смену вида главной зоны.
 import type { ReactNode } from 'react';
 import { eraOf, harptos } from '../../campaign';
-import { placeEntityType } from '../../components';
-import { SECONDS_PER_DAY, jumpTo, selectPlace, type Ladder, type Location, type State } from '../../engine';
+import { SCALE_LABELS, placeEntityType } from '../../components';
+import { SCALE_LEVELS, SECONDS_PER_DAY, jumpTo, selectPlace, type Ladder, type Location, type State } from '../../engine';
 import { FlowGraph } from '../../cosmos/FlowGraph';
 import { GreatWheel } from '../../cosmos/GreatWheel';
 import { PlaneInfo } from '../../cosmos/PlaneInfo';
@@ -21,7 +21,7 @@ import { Globe } from '../../map/Globe';
 import { HEX_MILES, type LevelMap } from '../../map/levelMap';
 import { PLANET_MASKS, mapToLonLat, subsolarLon } from '../../map/planet';
 import type { TerrainGrid } from '../../map/terrain';
-import { WorldMap, type JourneyProps, type MapPinItem, type TravelRoute } from '../../map/WorldMap';
+import { WorldMap, type JourneyProps, type MapPinItem, type NewPlaceDraft, type TravelRoute } from '../../map/WorldMap';
 import { BTN, BTN_TOGGLE } from './styles';
 
 export interface LevelZoneProps {
@@ -50,6 +50,8 @@ export interface LevelZoneProps {
   onTravel: (route: TravelRoute) => void;
   goLadder: (next: Ladder) => void;
   onPin: (id: string) => void;
+  /** Новое место щелчком по карте (M8) — только мастеру: черновик и место фокуса, куда оно встанет. */
+  onNewPlace?: (draft: NewPlaceDraft, parent: Location) => void;
   /** Корешки «Здесь», державы, противники. */
   stacks: ReactNode;
   /** Карточка в слоте: в бою — только по кнопке. */
@@ -58,7 +60,7 @@ export interface LevelZoneProps {
 
 export function LevelZone({
   state, events, ladder, focus, here, dmView, combat, cardInCombat, counts, pendingIds, map, terrain, gazetteer,
-  planetView, onPlanetView, cosmologyView, onCosmologyView, journey, onTravel, goLadder, onPin, stacks, card,
+  planetView, onPlanetView, cosmologyView, onCosmologyView, journey, onTravel, goLadder, onPin, onNewPlace, stacks, card,
 }: LevelZoneProps) {
   const shownCard = !combat || cardInCombat ? card : null;
   const mapPins: MapPinItem[] = (map?.places ?? []).map(l => ({
@@ -76,6 +78,20 @@ export function LevelZone({
       .filter(f => f.subjectId === l.id && (dmView || f.visibility === 'players'))
       .map(f => ({ id: f.id, text: f.text, secret: f.visibility !== 'players' })),
   }));
+  // Ждущие новые места (M8) — пины симуляции: место ещё не в мире, только в предложении; щелчок по ним никуда не ведёт.
+  const proposed: MapPinItem[] = dmView && map ? Object.values(state.deltas).flatMap(d => {
+    const p = d.status === 'pending' ? d.patch : undefined;
+    const geo = p?.kind === 'newLocation' ? p.location.geo : undefined;
+    return p?.kind === 'newLocation' && geo?.map === map.passport.id
+      ? [{ id: d.id, name: p.location.name, type: placeEntityType(p.location.scale), icon: `scale-${p.location.scale}` as const, x: geo.x, y: geo.y, pending: true }]
+      : [];
+  }) : [];
+  const proposedIds = new Set(proposed.map(p => p.id));
+  // Уровни нового места: ниже фокуса, у региона — и подрегион того же уровня; не выше региона и не ниже здания.
+  const at = (s: Location['scale']) => SCALE_LEVELS.indexOf(s);
+  const newScales = focus && map
+    ? SCALE_LEVELS.slice(Math.max(at('region'), focus.scale === 'region' ? at('region') : at(focus.scale) + 1), at('building') + 1)
+    : [];
   const mapFog = map ? { explored: exploredOf(state, events, map.passport), forced: !dmView } : undefined;
   // Уровень планеты — глобус по маске (§10), если у карты она есть; плоская карта — переключателем.
   const planetMask = map && ladder.level === 'planet' ? PLANET_MASKS[map.passport.id] : undefined;
@@ -125,10 +141,11 @@ export function LevelZone({
         passport={map.passport}
         frame={map.frame}
         frameKey={map.frameKey}
-        pins={mapPins}
+        pins={[...mapPins, ...proposed]}
         party={map.party ? { ...map.party, label: 'Партия' } : undefined}
         hexMiles={HEX_MILES[ladder.level]}
-        onPin={onPin}
+        onPin={id => { if (!proposedIds.has(id)) onPin(id); }}
+        newPlace={dmView && !combat && onNewPlace && focus && newScales.length ? { scales: newScales, scaleLabel: s => SCALE_LABELS[s], onPropose: d => onNewPlace(d, focus) } : undefined}
         travel={dmView && !combat && map.party ? { from: map.party, onGo: onTravel, ...(journey ? { journey } : {}) } : undefined}
         fog={mapFog}
         terrain={terrain}

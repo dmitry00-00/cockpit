@@ -18,7 +18,7 @@ import { useEffect, useMemo, useRef, useState, type ReactNode, type RefObject } 
 import {
   conModOf, cosmologyOf, currentOrder, eraOf, harptos, dayPhase, encounterCandidates, hitDiceOf, initiativeMod, moonState, nextFestival, nextHolyDayFor, partyDeitiesOf, placeChain, pcActor, placedActors,
   poolLabel, resourcePoolsOf, restCandidates, restResourcesOf, seedBattlefield, seedEngine, seedState, sortInitiative, spawnMonsters, stepTime,
-  suggestMonsterName, takeRest, travel, weatherOf, sheetViewOf, passportOf, type PcSpec,
+  suggestMonsterName, takeRest, travel, weatherOf, sheetViewOf, passportOf, newPlaceDelta, type PcSpec,
 } from '../campaign';
 import {
   BattleGrid, CardStack, ConcentrationForm, ConditionGrid, EntityCard, EntityViewBody, OpenEntityContext, cardTypeOf, HpControl, InitiativeBar, Paperdoll, PlayerFrame, ScaleLadder, SpawnForm,
@@ -1115,6 +1115,7 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
                   onTravel={onTravel}
                   goLadder={goLadder}
                   onPin={id => goLadder(selectPlace(state, ladder, id))}
+                  onNewPlace={(d, parent) => map && api.propose(newPlaceDelta(state, { ...d, map: map.passport.id }, parent))}
                   stacks={levelStacks}
                   card={card}
                 />

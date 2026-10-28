@@ -2,7 +2,7 @@
 import { act, fireEvent, screen, waitFor, within } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { secOf, seedState } from '../../campaign';
-import { createEngineStore, memoryStore } from '../../engine';
+import { createEngineStore, memoryStore, type DomainEvent } from '../../engine';
 import { loadGazetteer } from '../../map/gazetteer';
 import {
   EMOJI, mount, cardOf, lastEvent, bar, grid, startCombat, journalView, openJournal, ladderNav, stepOf, currentStep, worldView, levelHead, here,
@@ -186,6 +186,33 @@ describe('лестница масштабов', () => {
 
 describe('карта мира (27.10.2026)', () => {
   const map = () => screen.getByRole('application', { name: 'Карта Toril' });
+
+  it('новое место (M8): «Место» — щелчок, имя, «Предложить» — во входящих предложение и пин симуляции; «Принять» — место на карте; Ctrl+Z убирает; у игроков инструмента нет', () => {
+    // Указатель jsdom не знает: без PointerEvent координаты щелчка теряются (как в WorldMap.test.tsx).
+    if (!('PointerEvent' in window)) vi.stubGlobal('PointerEvent', class extends MouseEvent { pointerId: number; constructor(t: string, i: PointerEventInit = {}) { super(t, i); this.pointerId = i.pointerId ?? 0; } });
+    const { store } = mount();
+    const m = map();
+    fireEvent.click(within(m).getByRole('button', { name: 'Место' }));
+    fireEvent.pointerDown(m, { button: 0, pointerId: 1, clientX: 300, clientY: 200 });
+    fireEvent.pointerUp(m, { button: 0, pointerId: 1, clientX: 300, clientY: 200 });
+    const form = within(m).getByRole('group', { name: 'Новое место' });
+    fireEvent.change(within(form).getByRole('textbox', { name: 'Имя места' }), { target: { value: "Helm's Hold" } });
+    fireEvent.click(within(form).getByRole('button', { name: 'Предложить' }));
+    expect(lastEvent(store)).toMatchObject({ type: 'WORLD_DELTA_PROPOSED', payload: { delta: { subject: "Новое место · Helm's Hold", patch: { kind: 'newLocation', location: { parentId: 'loc-sword-coast-north' } } } } });
+    const deltaId = (lastEvent(store) as DomainEvent<'WORLD_DELTA_PROPOSED'>).payload.delta.id;
+    expect(store.getState().state.world.locations["loc-helm-s-hold"]).toBeUndefined();
+    expect(m.querySelector(`[data-pin="${deltaId}"]`)).toHaveAttribute('data-pending', 'true');
+
+    act(() => { store.getState().accept(deltaId); });
+    expect(store.getState().state.world.locations['loc-helm-s-hold']).toMatchObject({ scale: 'region', parentId: 'loc-sword-coast-north' });
+    expect(m.querySelector('[data-pin="loc-helm-s-hold"]')).not.toBeNull();
+    expect(m.querySelector(`[data-pin="${deltaId}"]`)).toBeNull();
+    act(() => store.getState().undo());
+    expect(m.querySelector('[data-pin="loc-helm-s-hold"]')).toBeNull();
+
+    fireEvent.keyDown(window, { key: 'p', code: 'KeyP' });
+    expect(within(map()).queryByRole('button', { name: 'Место' })).toBeNull();
+  });
 
   it('регион на старте — карта под корешками: пины мест региона, у мастера — пульс ждущих решений, знак партии', () => {
     mount();

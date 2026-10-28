@@ -283,6 +283,35 @@ describe('справочник мест (M12)', () => {
     expect(map.querySelector('[data-part="place-info"]')).toBeNull();
   });
 
+  it('новое место (M8): «Место», щелчок по значку — имя и уровень из справочника; мимо — пустое имя и «Предложить» недоступно; Enter отдаёт черновик', () => {
+    const onPropose = vi.fn();
+    render(<WorldMap passport={toril} frame={frame} frameKey="region:scn" pins={[]} gazetteer={gazetteer} newPlace={{ scales: ['region', 'settlement', 'building'], scaleLabel: s => s, onPropose }} />);
+    const map = screen.getByRole('application', { name: 'Карта Toril' });
+    const click = (x: number, y: number) => {
+      fireEvent.pointerDown(map, { button: 0, pointerId: 1, clientX: x, clientY: y });
+      fireEvent.pointerUp(map, { button: 0, pointerId: 1, clientX: x, clientY: y });
+    };
+    fireEvent.click(screen.getByRole('button', { name: 'Место' }));
+    const form = screen.getByRole('group', { name: 'Новое место' });
+    expect(form).toHaveTextContent('Щелчок по карте — точка нового места');
+    click(482, 268);
+    expect(within(form).getByRole('textbox', { name: 'Имя места' })).toHaveValue('Port Llast');
+    expect(within(form).getByRole('combobox', { name: 'Уровень места' })).toHaveValue('settlement');
+    expect(map.querySelector('[data-part="place-info"]')).toBeNull();
+    click(100, 100);
+    const name = within(form).getByRole('textbox', { name: 'Имя места' });
+    // Имя сохраняется между точками — мастер поправил точку, а не имя.
+    expect(name).toHaveValue('Port Llast');
+    fireEvent.change(name, { target: { value: '' } });
+    expect(within(form).getByRole('button', { name: 'Предложить' })).toBeDisabled();
+    fireEvent.change(name, { target: { value: "  Helm's Hold " } });
+    fireEvent.change(within(form).getByRole('combobox', { name: 'Уровень места' }), { target: { value: 'building' } });
+    fireEvent.keyDown(name, { key: 'Enter' });
+    expect(onPropose).toHaveBeenCalledWith(expect.objectContaining({ name: "Helm's Hold", scale: 'building' }));
+    expect(onPropose.mock.calls[0][0].gazetteerId).toBeUndefined();
+    expect(screen.queryByRole('group', { name: 'Новое место' })).toBeNull();
+  });
+
   it('место без описания и место по предсказанию GIS подписаны', () => {
     const map = withGaz();
     const box = screen.getByRole('searchbox', { name: 'Найти место' });
