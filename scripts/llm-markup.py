@@ -17,6 +17,8 @@
 #        нет во входе, — status review. Текст вики — CC BY-SA: у карточки source и license.
 #   L4 — карточка плана (статьи вики с карточкой Plane) тем же запросом, что L3; id «plane:<статья>». Свойства плана —
 #        поля вики, их берёт импортёр, не модель.
+#   F  — готовые карточки L4 и L3 по нынешним правилам проверки: регистр — без модели, карточка с переведённым именем —
+#        заново (строка на месте, redo: true).
 #   R  — второе мнение (--second, по умолчанию qwen) по строкам review: L1 — тот же класс, L3 — имена вне входа
 #        оправданы, L2 — те же пары. Согласие — done с полем second, иначе review остаётся. Файлы переписываются.
 #   Выжимка вики: --wiki <fr-wiki-places.jsonl>, по умолчанию самая свежая /Volumes/внешний/datasets/fr-wiki-*/.
@@ -323,9 +325,11 @@ def run_l2(wiki, model, out, until, limit, done):
 
 L3_PROMPT = (
     'Ты помогаешь мастеру D&D (Forgotten Realms). По описанию места на английском составь короткую карточку по-русски. '
-    'Используй ТОЛЬКО факты из описания; чего в описании нет — оставь поле пустой строкой, не додумывай. '
-    'Имена собственные (места, страны, люди, организации, божества, моря, горы) пиши ЛАТИНИЦЕЙ ровно как во входе, не '
-    'переводи и не склоняй: «в Amn», а не «в Амне»; «Sword Coast», а не «Берег Мечей»; «столица — Darromar». '
+    'Используй только факты из описания; чего в описании нет — оставь поле пустой строкой, не додумывай. '
+    # 28.10: «ЛАТИНИЦЕЙ» капсом gemma понимала как «капсом» — «LIMBO», «ХЕКАТЫ» в каждой четвёртой карточке L4.
+    'Имена собственные (места, страны, люди, организации, божества, моря, горы) пиши латиницей ровно как во входе, в том '
+    'же регистре, не переводи и не склоняй: «в Amn», а не «в Амне»; «Sword Coast», а не «Берег Мечей»; «Hecate», а не '
+    '«HECATE» и не «Геката»; «столица — Darromar». '
     'Пустое поле — пустая строка "", а не «не указано». '
     'Ответ — только JSON: {"what": "что это, одна фраза", "ruler": "кто правит или владеет", '
     '"danger": "чем опасно", "summary": "2–3 предложения, до 300 знаков"}.'
@@ -343,14 +347,32 @@ L3_REPAIR = ('\n\nТвой прошлый ответ: {card}\nВ нём имен
              'Верни тот же JSON, где каждое имя собственное — латиницей ровно как во входе; имени, которого во входе нет, не пиши.')
 
 
+# «Великое колесо», «Мировое древо» — названия моделей космологии, которые и стол пишет по-русски; второе слово — со строчной.
+RU_COSMOLOGY = re.compile(r'((?:Велик|Миров)[а-яё]+) ([КкДд])(олес|рев)([а-яё]*)')
+
+
+def normalize(card, src):
+    """Регистр без модели: латинское слово капсом («LIMBO»), которое во входе есть в обычном написании, — к нему;
+    «Великого Колеса» — «Великого колеса»."""
+    forms = {}
+    for w in re.findall(r"[A-Za-z][A-Za-z'’-]+", src):
+        if not w.isupper():
+            forms.setdefault(w.lower(), w)
+    fix = lambda v: RU_COSMOLOGY.sub(lambda m: f'{m[1]} {m[2].lower()}{m[3]}{m[4]}', re.sub(
+        r"(?<![A-Za-z])[A-Z][A-Z'’-]{2,}(?![A-Za-z])", lambda m: forms.get(m[0].lower(), m[0]), v))
+    return {k: fix(str(v)) for k, v in card.items()}
+
+
 def l3_check(card, src):
     card = {k: ('' if str(v).strip().lower().rstrip('.') in EMPTY else str(v).strip()) for k, v in card.items()}
-    text = ' '.join(card.values())
+    text = RU_COSMOLOGY.sub('', ' '.join(card.values()))
     # Латинское слово с заглавной, которого нет во входе (без учёта регистра: в GIS области капсом), — модель что-то
     # добавила или исказила; кириллица с заглавной в середине предложения — скорее всего, переведённое имя («в Амне»).
     low = src.lower()
     extra = sorted({w.strip("'’-") for n in latin_names(text) for w in n.split() if w.strip("'’-").lower() not in low})
     ru = set(re.findall(r'(?<=[a-zа-яё,;:—–-] )[А-ЯЁ][а-яё]+', text))
+    # Кириллица капсом («ХЕКАТЫ», «ПАНДЕМОНИУМа») — переведённое имя где угодно, и в начале фразы.
+    ru |= set(re.findall(r'[А-ЯЁ]{3,}[а-яё]*', text))
     # В начале фразы заглавная обычна, поэтому там — только слово, которое транслитом похоже на латинское имя входа
     # (проба L4 28.10: «Абисс» — Abyss, «Аверн» — Avernus).
     # Имя — латинское слово с заглавной, которое во входе ни разу не пишется со строчной: «Mirabar» — да, «Ruins» и
@@ -407,7 +429,7 @@ def make_card(model, src, row):
     if not card or not card.get('summary'):
         row['status'] = 'failed'
         return row
-    card, extra, ru = l3_check(card, src)
+    card, extra, ru = l3_check(normalize(card, src), src)
     if extra or ru:
         # Проба 27.10: gemma переводит известные имена («Берег Мечей», «Чулт») даже при запрете — один
         # повтор с её же ответом и списком нарушений; остаётся ответ с меньшим числом нарушений.
@@ -417,7 +439,7 @@ def make_card(model, src, row):
         except Exception:
             again = None
         if again and again.get('summary'):
-            card2, extra2, ru2 = l3_check(again, src)
+            card2, extra2, ru2 = l3_check(normalize(again, src), src)
             if len(extra2) + len(ru2) < len(extra) + len(ru):
                 card, extra, ru = card2, extra2, ru2
                 row['repaired'] = True
@@ -502,6 +524,54 @@ def run_l4(wiki, model, out, until, limit, done):
             if stalled(row, streak):
                 print(f'L4: {MAX_FAILS} отказов подряд — модель не отвечает, остановка', file=sys.stderr)
                 return
+
+
+# ---------- F: готовые карточки по нынешним правилам ----------
+
+def run_fix(entries, gis, wiki, model, outdir, until):
+    """Карточки L4 и L3 по нынешним правилам проверки (28.10: капс, кириллица капсом, «Великое колесо»). Регистр
+    правится без модели; карточка с переведённым именем — заново тем же запросом, строка на месте. Имена вне входа
+    модель не переделывает: это вопрос второго мнения (R), и строка, которую R уже подтвердил, остаётся готовой."""
+    pages, _ = wiki
+    by_id = {e['id']: e for e in entries}
+    taken = {e['name'] for e in entries}
+    for task in ('L4', 'L3'):
+        path = os.path.join(outdir, f'{task}.jsonl')
+        if not os.path.exists(path):
+            continue
+        rows = [json.loads(line) for line in open(path, encoding='utf-8')]
+        redo, fixed = [], 0
+        for i, r in enumerate(rows):
+            if r.get('status') not in ('done', 'review') or not r.get('card'):
+                continue
+            src = plane_source(pages[r['name']]) if task == 'L4' and r['name'] in pages else \
+                l3_source(by_id[r['id']], gis, wiki, taken)[0] if task == 'L3' and r['id'] in by_id else None
+            if not src:
+                continue
+            card, extra, ru = l3_check(normalize(r['card'], src), src)
+            if 'second' in r:
+                extra = []
+            if ru:
+                redo.append((i, src))
+                continue
+            was = (r['card'], r['status'])
+            r.update(card=card, status='review' if extra else 'done')
+            r.pop('cyrillic_names', None)
+            if (card, r['status']) != was:
+                fixed += 1
+        rewrite(path, rows)
+        print(f'F {task}: поправлено без модели {fixed}, заново {len(redo)}', file=sys.stderr, flush=True)
+        for k, (i, src) in enumerate(redo):
+            if past(until):
+                print('F: время вышло', file=sys.stderr)
+                return
+            r = rows[i]
+            row = {key: r[key] for key in ('id', 'task', 'name', 'sources', 'license') if key in r}
+            row.update(model=model, at=datetime.now().isoformat(timespec='seconds'), redo=True)
+            rows[i] = make_card(model, src, row)
+            if (k + 1) % 10 == 0 or k + 1 == len(redo):
+                rewrite(path, rows)
+                print(f'F {task}: {k + 1}/{len(redo)}', file=sys.stderr, flush=True)
 
 
 # ---------- R: второе мнение по строкам «на проверку» ----------
@@ -674,6 +744,8 @@ def main():
             run_l3(entries, gis_texts(GPKG()), wiki, model, out, until, limit, done)
         elif t == 'L4':
             run_l4(wiki, model, out, until, limit, done)
+        elif t == 'F':
+            run_fix(entries, gis_texts(GPKG()), wiki, model, outdir, until)
         elif t == 'R':
             run_recheck(entries, gis_texts(GPKG()), wiki, arg('--second', 'qwen'), outdir, until)
         elif t == 'L2':
