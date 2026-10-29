@@ -29,7 +29,7 @@ export { resourcePoolsOf, tableResources, poolLabel, restResourcesOf, type Resou
 export { travel, travelCalendarDays, type TravelResult } from './travel';
 // Лист числами для карточки, сводки партии и сравнения; паспорт данных листа (раса, класс, источники, пробелы).
 export {
-  sheetViewOf, saveProficiencies, passportOf, missingFieldsOf, partySummaryOf, GROUP_CHECKS, SOURCE_LABEL,
+  sheetViewOf, saveProficiencies, passportOf, missingFieldsOf, partySummaryOf, concentrationSpellsOf, GROUP_CHECKS, SOURCE_LABEL,
   type SheetView, type AbilityView, type SkillView, type Proficiency, type Passport, type PartySummary, type SkillLeader,
 } from './sheetView';
 export { EDITION_ORDER, cosmologyOf, eraOf, type Era } from './era';

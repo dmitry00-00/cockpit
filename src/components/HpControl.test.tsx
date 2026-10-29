@@ -198,6 +198,21 @@ describe('промпт концентрации (тупые пропсы)', () =
     expect(screen.queryByText(/DC 10/)).toBeNull();
   });
 
+  it('спасбросок CON передан — «удержит с шансом» (ROADMAP 5.5): +3 против DC 10 — 70%, против DC 15 — 45%; без него строки нет', () => {
+    const store = seedEngine();
+    const bo = actorOf(store, 'bo');
+    // Урон, бывший при открытии, — история; промпт — про новый.
+    const { rerender } = render(<HpControl actor={bo} {...noop()} conSave={3} lastDamage={{ id: 'seed-1', amount: 8 }} />);
+    rerender(<HpControl actor={bo} {...noop()} conSave={3} lastDamage={{ id: 'e1', amount: 8 }} />);
+    const hold = () => prompt()!.querySelector('[data-part="concentration-hold"]');
+    expect(hold()).toHaveTextContent('удержит с шансом 70%');
+    expect(hold()).toHaveAttribute('title', expect.stringContaining('нужно 7+ на d20'));
+    rerender(<HpControl actor={bo} {...noop()} conSave={3} lastDamage={{ id: 'e2', amount: 30 }} />);
+    expect(hold()).toHaveTextContent('удержит с шансом 45%');
+    rerender(<HpControl actor={bo} {...noop()} lastDamage={{ id: 'e3', amount: 30 }} />);
+    expect(hold()).toBeNull();
+  });
+
   it('«Удержал» и «Потерял» зовут колбэки и гасят промпт; без колбэков — просто гасят; отвеченный урон не спрашивается снова', () => {
     const store = seedEngine();
     const bo = actorOf(store, 'bo');

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { seedEngine } from './seed';
-import { GROUP_CHECKS, missingFieldsOf, partySummaryOf, passportOf, sheetViewOf } from './sheetView';
+import { GROUP_CHECKS, concentrationSpellsOf, missingFieldsOf, partySummaryOf, passportOf, sheetViewOf } from './sheetView';
 
 const state = () => seedEngine().getState().state;
 
@@ -56,5 +56,17 @@ describe('partySummaryOf: сводка выборки', () => {
     expect(sum.slots?.max).toBeGreaterThan(0);
     expect(partySummaryOf([s.actors.korrin]).slots).toBeUndefined();
     expect(sum.gaps.find(g => g.field === 'мировоззрение')?.names).toContain('Korrin Battlehammer');
+  });
+});
+
+describe('concentrationSpellsOf: заклинания листа с концентрацией (ROADMAP 5.5)', () => {
+  it('Bo — Hunter\'s Mark 1 ч и Pass Without Trace 1 ч; у Korrin заклинаний нет; Aldric — с доменными', () => {
+    const actors = seedEngine().getState().state.actors;
+    expect(concentrationSpellsOf(actors.bo)).toEqual([
+      { id: 'hunters-mark', name: "Hunter's Mark", duration: 'Up to 1 hour', durationSec: 3600 },
+      { id: 'pass-without-trace', name: 'Pass Without Trace', duration: 'Up to 1 hour', durationSec: 3600 },
+    ]);
+    expect(concentrationSpellsOf(actors.korrin)).toEqual([]);
+    expect(concentrationSpellsOf(actors.aldric).map(s => s.name)).toEqual(expect.arrayContaining(['Bless', 'Spirit Guardians', 'Beacon of Hope']));
   });
 });

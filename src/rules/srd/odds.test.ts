@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { MONSTERS } from './monsters';
+import { SPELLS, SPELL_LIST, concentrationSec } from './spells';
 import {
   attackOdds, attackProfileOf, concentrationHoldChance, critChance, damageFactor, diceMean, hitChance, meanText, parseDice,
   percent, saveFailChance, saveInText, spellSaveAbility, withDisadvantage,
@@ -76,6 +77,15 @@ describe('математика d20 (ROADMAP 5.1)', () => {
   it('концентрация: DC 10 или половина урона; +2 после 30 урона — DC 15, удержит в 40%', () => {
     expect(concentrationHoldChance(2, 30)).toBeCloseTo(0.4, 12);
     expect(concentrationHoldChance(2, 4)).toBeCloseTo(0.65, 12);
+  });
+
+  it('срок концентрации из duration SRD (ROADMAP 5.5): Hunter\'s Mark — 1 час, раунд — 6 с; у всех заклинаний с концентрацией разбирается', () => {
+    expect(concentrationSec(SPELLS['hunters-mark'])).toBe(3600);
+    expect(concentrationSec(SPELLS['hold-person'])).toBe(60);
+    expect(concentrationSec(SPELLS['fireball'])).toBeUndefined();
+    const conc = SPELL_LIST.filter(s => s.concentration);
+    expect(conc.filter(s => concentrationSec(s) === undefined).map(s => s.duration)).toEqual([]);
+    expect(conc.filter(s => concentrationSec(s) === 6)).toHaveLength(1);
   });
 
   it('спасбросок в тексте действия и заклинания', () => {

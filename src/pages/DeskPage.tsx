@@ -18,7 +18,7 @@ import { useEffect, useMemo, useRef, useState, type ReactNode, type RefObject } 
 import {
   conModOf, cosmologyOf, currentOrder, eraOf, harptos, dayPhase, encounterCandidates, hitDiceOf, initiativeMod, moonState, nextFestival, nextHolyDayFor, partyDeitiesOf, placeChain, pcActor, placedActors,
   poolLabel, resourcePoolsOf, restCandidates, restResourcesOf, seedBattlefield, seedEngine, seedState, sortInitiative, spawnMonsters, stepTime,
-  suggestMonsterName, takeRest, travel, weatherOf, sheetViewOf, passportOf, newPlaceDelta, renownDelta, organizationFactionDelta, factionOfOrganization, oddsTargetOf, explain, signedTotal, type PcSpec,
+  suggestMonsterName, takeRest, travel, weatherOf, sheetViewOf, passportOf, newPlaceDelta, renownDelta, organizationFactionDelta, factionOfOrganization, oddsTargetOf, explain, signedTotal, concentrationSpellsOf, type PcSpec,
 } from '../campaign';
 import {
   BattleGrid, CardStack, ConcentrationForm, ConditionGrid, DerivationPanel, EntityCard, EntityViewBody, OpenEntityContext, cardTypeOf, HpControl, InitiativeBar, Paperdoll, PlayerFrame, ScaleLadder, SpawnForm,
@@ -615,7 +615,7 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
         </Popover.Trigger>
         <Popover.Portal>
           <Popover.Content side="bottom" align="end" sideOffset={4} collisionPadding={8} aria-label="Концентрация" className="z-20 outline-none">
-            {actor ? <ConcentrationForm current={actor.concentration?.spell} onStart={startConcentration} /> : null}
+            {actor ? <ConcentrationForm current={actor.concentration?.spell} options={concentrationSpellsOf(actor)} onStart={startConcentration} /> : null}
           </Popover.Content>
         </Popover.Portal>
       </Popover.Root>
@@ -915,6 +915,8 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
           surface="float"
           flash={flashes[actor.id] ?? null}
           lastDamage={lastDamageOf(events, actor.id)}
+          // Шанс удержать концентрацию (ROADMAP 5.5): спасбросок CON листа или блока; попап хитов — только у мастера.
+          conSave={oddsTargetOf(actor).saves?.con}
           onDamage={n => api.damage(actor.id, n)}
           onHeal={n => api.heal(actor.id, n)}
           onTempHp={n => api.tempHp(actor.id, n)}

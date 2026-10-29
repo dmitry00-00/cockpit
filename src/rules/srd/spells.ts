@@ -47,6 +47,19 @@ export const SRD_SUBCLASS_SPELLS = DATA.subclassSpells;
 
 export const isSpellId = (id: string): boolean => Object.hasOwn(SPELLS, id);
 
+/** Единицы срока SRD в секундах: раунд — 6 с (SRD, Combat Sequence: «A round represents about 6 seconds in the game world.»). */
+const UNIT_SEC: Readonly<Record<string, number>> = { round: 6, minute: 60, hour: 3600, day: 86400 };
+
+/**
+ * Срок концентрации из поля duration SRD: «Up to 1 hour» → 3600. Не концентрация или срок не «Up to N …» — undefined.
+ * Срок от ячейки выше (Hunter's Mark — 8 ч с 3-го круга) — в higherLevel текстом; здесь базовый.
+ */
+export function concentrationSec(spell: Spell): number | undefined {
+  if (!spell.concentration) return undefined;
+  const m = /^Up to (\d+) (round|minute|hour|day)s?$/i.exec(spell.duration.trim());
+  return m ? Number(m[1]) * UNIT_SEC[m[2].toLowerCase()] : undefined;
+}
+
 /** Список заклинаний класса SRD до круга maxLevel включительно (заговоры — круг 0), по кругу и имени. */
 export function classSpellList(classId: SrdClassId, maxLevel: number): Spell[] {
   return SPELL_LIST.filter(s => s.level <= maxLevel && s.classes.includes(classId));

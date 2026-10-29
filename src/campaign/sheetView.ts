@@ -5,6 +5,7 @@
 import type { Actor, DomainEvent } from '../engine';
 import { classById, raceById, type Source } from '../rules/compendium';
 import { ABILITY_IDS, SKILL_IDS, SKILLS, type AbilityId, type SkillId } from '../rules/srd/abilities';
+import { SPELLS, concentrationSec } from '../rules/srd/spells';
 import { abilityMod, srdClassOf } from './derive';
 import { initiativeMod } from './encounter';
 import { resourcePoolsOf } from './resources';
@@ -68,6 +69,23 @@ export function sheetViewOf(actor: Actor): SheetView | undefined {
     proficiencyBonus: pb,
     ...(hd ? { hitDice: { die: hd.die, available: hd.available, total: hd.total } } : {}),
   };
+}
+
+/**
+ * Заклинания листа с концентрацией (ROADMAP 5.5, Q9) — для формы концентрации: имя и срок SRD, по кругу и имени.
+ * Заговоры, известные, подготовленные и «всегда подготовленные» — всё, что лист может сотворить.
+ */
+export function concentrationSpellsOf(actor: Actor): { id: string; name: string; durationSec?: number; duration: string }[] {
+  const sc = actor.sheet?.spellcasting;
+  if (!sc) return [];
+  return [...new Set([...sc.cantrips, ...sc.spells, ...sc.always])]
+    .map(id => SPELLS[id])
+    .filter(s => s?.concentration)
+    .sort((a, b) => a.level - b.level || a.name.localeCompare(b.name))
+    .map(s => {
+      const sec = concentrationSec(s);
+      return { id: s.id, name: s.name, duration: s.duration, ...(sec !== undefined ? { durationSec: sec } : {}) };
+    });
 }
 
 /* ---------- Паспорт данных: можно ли верить записи — до первого скролла ---------- */

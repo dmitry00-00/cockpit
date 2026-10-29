@@ -88,7 +88,7 @@ export {
   type InitiativeEditorProps, type InitiativeRow,
 } from './InitiativeEditor';
 export { SpawnForm, parseCount, filterOptions, type SpawnFormProps, type SpawnOption } from './SpawnForm';
-export { ConcentrationForm, CONCENTRATION_DURATIONS, type ConcentrationFormProps } from './ConcentrationForm';
+export { ConcentrationForm, CONCENTRATION_DURATIONS, durationLabel, type ConcentrationFormProps, type ConcentrationOption } from './ConcentrationForm';
 export { RestForm, REST_LABELS, parseDice, parseHealed, diceFormula, type RestFormProps, type RestRow } from './RestForm';
 // F9 — планшет: свёрнутая боковая панель — полоса иконок 40px; что свёрнуто и раскрыто — состояние страницы.
 export { IconRail, type IconRailProps, type IconRailItem } from './IconRail';

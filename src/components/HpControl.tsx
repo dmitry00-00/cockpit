@@ -11,6 +11,7 @@ import { Popover } from 'radix-ui';
 import { undoneIds, type Actor, type DomainEvent, type PayloadByType } from '../engine';
 import { Icon } from '../icons/Icon';
 import { concentrationSaveDc } from '../rules/srd';
+import { concentrationHoldChance, percent } from '../rules/srd/odds';
 import { DeathSaves } from './DeathSaves';
 import { HpBar, type HpFlash } from './HpBar';
 
@@ -51,6 +52,11 @@ export interface HpControlProps {
    */
   onConcentrationKept?: () => void;
   onConcentrationLost?: () => void;
+  /**
+   * Спасбросок CON актёра (лист или блок) — промпт пишет «удержит с шансом N%» (ROADMAP 5.5). Нет — только DC.
+   * Только у мастера: у монстра это число блока (Q1), а промпт — в попапе хитов мастера.
+   */
+  conSave?: number;
   /**
    * 0 хитов при концентрации: без сознания — концентрация падает без спасброска (SRD), но система не снимает
    * её сама (HANDOFF §7) — предлагает «Снять», событие пишет мастер (CONCENTRATION_ENDED, unconscious).
@@ -115,7 +121,7 @@ const SURFACE: Record<NonNullable<HpControlProps['surface']>, string> = {
 
 export function HpControl({
   actor, onDamage, onHeal, onTempHp, flash = null, lastDamage = null, onConcentrationKept, onConcentrationLost, onConcentrationDropped,
-  deathSaves, resist, surface = 'panel', className,
+  deathSaves, resist, surface = 'panel', className, conSave,
 }: HpControlProps) {
   const [draft, setDraft] = useState('');
   // Уроны, на которые ответ уже дан. Урон, бывший в логе при открытии панели, — история, вопрос не про него.
@@ -134,7 +140,7 @@ export function HpControl({
   const concentration = actor.concentration;
   // На нуле хитов спасбросок не нужен: без сознания концентрация падает — вместо DC предлагается снять её.
   const savePrompt = concentration && !down && lastDamage && !answered.includes(lastDamage.id)
-    ? { spell: concentration.spell, dc: concentrationSaveDc(lastDamage.amount) }
+    ? { spell: concentration.spell, dc: concentrationSaveDc(lastDamage.amount), hold: conSave === undefined ? undefined : concentrationHoldChance(conSave, lastDamage.amount) }
     : null;
   const dropPrompt = concentration && down ? concentration.spell : null;
 
@@ -213,6 +219,15 @@ export function HpControl({
             <div className="flex min-w-0 flex-col">
               <span className="truncate text-tx" title={savePrompt.spell}>{savePrompt.spell}</span>
               <span className="text-t2">{`Спасбросок Телосложения на концентрацию, DC ${savePrompt.dc}`}</span>
+              {savePrompt.hold !== undefined && conSave !== undefined ? (
+                <span
+                  data-part="concentration-hold"
+                  className="text-tx"
+                  title={`CON ${conSave < 0 ? '−' : '+'}${Math.abs(conSave)} против DC ${savePrompt.dc}: нужно ${Math.max(1, savePrompt.dc - conSave)}+ на d20; 1 и 20 у спасброска не автоматичны`}
+                >
+                  {`удержит с шансом ${percent(savePrompt.hold)}`}
+                </span>
+              ) : null}
             </div>
           </div>
           <div className="flex items-center gap-1">

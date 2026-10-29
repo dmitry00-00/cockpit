@@ -253,6 +253,20 @@ describe('живой стол: инициатива, появление прот
     damageViaPopover(cardOf('Lyra Moonwhisper'), 7);
     expect(screen.getByRole('dialog', { name: /^Хиты: / })).toHaveTextContent('Hold Person');
     expect(screen.getByRole('dialog', { name: /^Хиты: / })).toHaveTextContent('DC 10');
+    // Шанс удержать (ROADMAP 5.5): CON Lyra +2 против DC 10 — нужно 8+, 65%.
+    expect(screen.getByRole('dialog', { name: /^Хиты: / })).toHaveTextContent('удержит с шансом 65%');
+  });
+
+  it('форма концентрации берёт заклинание с листа и срок SRD (ROADMAP 5.5): Hunter\'s Mark у Bo — 1 час', () => {
+    const { store } = mount();
+    fireEvent.click(within(cardOf('Bo Tambernack')).getByRole('button', { name: 'Концентрация' }));
+    const dlg = screen.getByRole('dialog', { name: 'Концентрация' });
+    const fromSheet = within(dlg).getByRole('group', { name: 'С листа' });
+    expect([...fromSheet.querySelectorAll('button')].map(b => b.textContent)).toEqual(["Hunter's Mark", 'Pass Without Trace']);
+    fireEvent.click(within(fromSheet).getByRole('button', { name: "Hunter's Mark" }));
+    fireEvent.click(within(dlg).getByRole('button', { name: 'Начать' }));
+    const sec = store.getState().state.time.sec;
+    expect(lastEvent(store)).toMatchObject({ type: 'CONCENTRATION_STARTED', payload: { actorId: 'bo', spell: "Hunter's Mark", untilSec: sec + 3600 } });
   });
 
   it('пустые входящие — «Мир спокоен», ближайший праздник (Midsummer через 76 дней) и святой день бога партии в тот же день; с предложениями строки нет; у игроков нет и её', () => {
