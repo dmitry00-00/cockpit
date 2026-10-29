@@ -22,7 +22,7 @@ export {
 export {
   EntityCard, ENTITY, ORIGIN, cardShadow, visibleTabs, hpStat, actorCardProps, raceLabel,
   placeCardProps, factionCardProps, placeEntityType, populationLabel, priceLabel, DANGER_LABELS,
-  TAB_OVERVIEW, TAB_CONDITIONS, TAB_GEAR, TAB_ACTIONS, TAB_DM,
+  TAB_OVERVIEW, TAB_CONDITIONS, TAB_GEAR, TAB_ACTIONS, TAB_NOW, TAB_DM,
   type EntityCardProps, type EntityCardTab, type EntityStat, type EntityType, type Origin, type StatTone, type ActorCardProps, type ActorCardOptions,
   type PlaceCardProps, type PlaceCardOptions,
 } from './EntityCard';
@@ -114,3 +114,4 @@ export { SheetChoices, SheetFeats, SheetAttacks, SheetSpells, SheetEquipment, do
 export { AbilityScores, SkillList, ProficiencyMark, DataPassport, PcHeader, bySkillLabel, type AbilityCell, type SkillCell, type SkillProficiency, type PassportData, type PcHeaderData } from './PcSheet';
 export { PartyFooter, type PartyFooterProps, type PartySummaryData } from './PartyFooter';
 export { CompareSheet, bestOf, type CompareSheetProps, type CompareColumn } from './CompareSheet';
+export { SceneView, SCENE_ROWS_SHOWN, type SceneViewProps } from './SceneView';

@@ -18,11 +18,11 @@ import { useEffect, useMemo, useRef, useState, type ReactNode, type RefObject } 
 import {
   conModOf, cosmologyOf, currentOrder, eraOf, harptos, dayPhase, encounterCandidates, hitDiceOf, initiativeMod, moonState, nextFestival, nextHolyDayFor, partyDeitiesOf, placeChain, pcActor, placedActors,
   poolLabel, resourcePoolsOf, restCandidates, restResourcesOf, seedBattlefield, seedEngine, seedState, sortInitiative, spawnMonsters, stepTime,
-  suggestMonsterName, takeRest, travel, weatherOf, sheetViewOf, passportOf, newPlaceDelta, renownDelta, organizationFactionDelta, factionOfOrganization, oddsTargetOf, explain, signedTotal, concentrationSpellsOf, type PcSpec,
+  suggestMonsterName, takeRest, travel, DAYS_PER_YEAR, weatherOf, sheetViewOf, passportOf, newPlaceDelta, renownDelta, organizationFactionDelta, factionOfOrganization, oddsTargetOf, explain, signedTotal, concentrationSpellsOf, type PcSpec,
 } from '../campaign';
 import {
   BattleGrid, CardStack, ConcentrationForm, ConditionGrid, DerivationPanel, EntityCard, EntityViewBody, OpenEntityContext, cardTypeOf, HpControl, InitiativeBar, Paperdoll, PlayerFrame, ScaleLadder, SpawnForm,
-  SCALE_LABELS, SCALE_TEMPO_LABELS, TAB_OVERVIEW, actorCardProps, battleTokenOf, exhaustionCommand, factionCardProps, initiativeFormula,
+  SCALE_LABELS, SCALE_TEMPO_LABELS, TAB_NOW, TAB_OVERVIEW, SceneView, actorCardProps, battleTokenOf, exhaustionCommand, factionCardProps, initiativeFormula,
   initiativeTokenOf, lastDamageOf, lastRollOf, placeCardProps, stackItemOf, toggleCommand, CompareSheet, type CompareColumn, SheetEquipment,
   dollExtrasOf, type IconRailItem, type InitiativeBarEntry, type InitiativeRow, type RestRow, type SpawnOption,
 } from '../components';
@@ -43,6 +43,7 @@ import { type JourneyProps, type TravelRoute } from '../map/WorldMap';
 import { ENCOUNTER_TYPE_LABEL, JOURNEY_REGIONS, encounterAt, journeyLoaded, loadJourney, tierOfLevel } from '../rules/a5e/journey';
 import { LevelZone } from './desk/LevelZone';
 import { useMapData } from './desk/useMapData';
+import { useScene } from './desk/useScene';
 import {
   MONSTER_IDS, MONSTER_ORIGIN_LABEL, MONSTERS, loadMonsterLibraries, monsterLibrariesLoaded, monsterOrigin, needsMonsterLibraries, type MonsterId,
 } from '../rules/srd';
@@ -151,6 +152,8 @@ type PopoverAnchor = 'card' | 'token';
 
 /** Числа полосы показателей с выводом (ROADMAP 5.4): КХ раскрывает максимум хитов — он из костей хитов. */
 type WhyKey = 'ac' | 'initiative' | 'pp' | 'hp';
+/** Место справочника карты (Д2): карточка по вики и сцена «Сейчас». */
+const PLACE_TABS = [{ ...TAB_OVERVIEW, title: 'Карточка места по вики: боги, церкви, организации, жители' }, TAB_NOW];
 const WHY_TITLE: Readonly<Record<WhyKey, string>> = { ac: 'AC', initiative: 'Инициатива', pp: 'Пассивная Внимательность', hp: 'Максимум хитов' };
 
 /** Что показывает слот карточки: выбранного актёра, место в фокусе лестницы или державу по id. */
@@ -323,6 +326,12 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
   const ladder = normalizeLadder(state, ladderState);
   const focus = focusOf(state, ladder);
   const focusParent = focus?.parentId ? state.world.locations[focus.parentId] : undefined;
+  // Место как сцена (Д2, ROADMAP 6.2): вкладка «Сейчас» у места кампании и у места справочника карты; справочник
+  // грузится, только когда вкладка открыта. Год сцены — линза «Хроники»: тот же день в выбранном году.
+  const entityPlace = cardOf.kind === 'entity' && parseRef(cardOf.ref)?.kind === 'place' ? parseRef(cardOf.ref)!.id : undefined;
+  const sceneAt = tab !== TAB_NOW.id ? null : cardOf.kind === 'place' && focus ? { location: focus.id } : entityPlace ? { place: entityPlace } : null;
+  const sceneSec = state.time.sec + (lensYear !== null ? (lensYear - campaignYear) * DAYS_PER_YEAR * SECONDS_PER_DAY : 0);
+  const { scene, loading: sceneLoading } = useScene(state, sceneAt, sceneSec, dmView);
   const steps = ladderSteps(state, ladder);
   const here = focus ? childrenOf(state, focus.id) : [];
   // Цели ждущих предложений пульсируют только у мастера: на столе игроков симуляции нет вовсе.
@@ -773,7 +782,8 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
           onOpenEntity={openEntity}
           dm={dmView}
         />
-      ) : current === 'dm' ? <DmTab subjectId={focus.id} facts={state.facts} /> : null}
+      ) : current === TAB_NOW.id && scene ? <SceneView scene={scene} onOpen={openEntity} loading={sceneLoading} />
+        : current === 'dm' ? <DmTab subjectId={focus.id} facts={state.facts} /> : null}
     </EntityCard>
   ) : null;
   const factionCard = faction ? (
@@ -803,10 +813,13 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
       name={entityView === 'loading' ? 'Загрузка…' : entityView.name}
       badges={entityView === 'loading' ? [] : [KIND_LABEL[entityView.kind], ...(entityView.nameRu ? [entityView.nameRu] : [])]}
       origin={entityView !== 'loading' && entityView.source.kind === 'campaign' ? 'dm' : 'canon'}
+      {...(entityPlace ? { tabs: PLACE_TABS, activeTab: tab, onTab: setTab } : {})}
       dmView={dmView}
       className="max-h-full flex-none"
     >
-      {entityView === 'loading' ? <p className="type-body-sm text-t2">Справочник загружается…</p> : <>{orgLine(entityView, openEntity)}<EntityViewBody view={entityView} onOpen={openEntity} /></>}
+      {(current: string) => (entityView === 'loading' ? <p className="type-body-sm text-t2">Справочник загружается…</p>
+        : entityPlace && current === TAB_NOW.id && scene ? <SceneView scene={scene} onOpen={openEntity} loading={sceneLoading} />
+          : <>{orgLine(entityView, openEntity)}<EntityViewBody view={entityView} onOpen={openEntity} /></>)}
     </EntityCard>
   ) : null;
   const card = cardOf.kind === 'actor' ? actorCard : cardOf.kind === 'place' ? placeCard : cardOf.kind === 'entity' ? entityCard : factionCard;
@@ -832,7 +845,8 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
     <EntityCard {...placeCardProps(focus, { pending: pendingIds.has(focus.id), dmFacts: dmView ? dmFactsAbout(focus.id, state.facts).length : 0 })} overlay activeTab={tab} onTab={setTab} dmView={dmView} className="max-h-full">
       {(current: string) => current === 'overview' ? (
         <PlaceOverview place={focus} parent={focusParent} onOpenParent={focusParent ? () => { setCardOverlay(false); goLadder(selectPlace(state, ladder, focusParent.id)); } : undefined} pending={dmView ? pendingFor(state, focus.id) : []} facts={state.facts} wikiYear={dmView ? harptos(state.time.sec).year : undefined} onOpenEntity={r => { setCardOverlay(false); openEntity(r); }} dm={dmView} />
-      ) : current === 'dm' ? <DmTab subjectId={focus.id} facts={state.facts} /> : null}
+      ) : current === TAB_NOW.id && scene ? <SceneView scene={scene} onOpen={r => { setCardOverlay(false); openEntity(r); }} loading={sceneLoading} />
+        : current === 'dm' ? <DmTab subjectId={focus.id} facts={state.facts} /> : null}
     </EntityCard>
   ) : cardOf.kind === 'entity' && entityView && entityView !== 'loading' ? (
     <EntityCard
@@ -840,12 +854,14 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
       name={entityView.name}
       badges={[KIND_LABEL[entityView.kind], ...(entityView.nameRu ? [entityView.nameRu] : [])]}
       origin={entityView.source.kind === 'campaign' ? 'dm' : 'canon'}
+      {...(entityPlace ? { tabs: PLACE_TABS, activeTab: tab, onTab: setTab } : {})}
       overlay
       dmView={dmView}
       className="max-h-full"
     >
-      {orgLine(entityView, r => { setCardOverlay(false); openEntity(r); })}
-      <EntityViewBody view={entityView} onOpen={r => { setCardOverlay(false); openEntity(r); }} />
+      {(current: string) => (entityPlace && current === TAB_NOW.id && scene
+        ? <SceneView scene={scene} onOpen={r => { setCardOverlay(false); openEntity(r); }} loading={sceneLoading} />
+        : <>{orgLine(entityView, r => { setCardOverlay(false); openEntity(r); })}<EntityViewBody view={entityView} onOpen={r => { setCardOverlay(false); openEntity(r); }} /></>)}
     </EntityCard>
   ) : faction ? (
     <EntityCard {...factionCardProps(faction, { pending: pendingIds.has(faction.id) })} overlay activeTab={tab} onTab={setTab} dmView={dmView} className="max-h-full">
@@ -1185,6 +1201,7 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
                   terrain={terrain}
                   gazetteer={gazetteer}
                   lens={lensYear !== null ? { year: lensYear, marks: eventMarks, onClear: () => setLens(null) } : undefined}
+                  onScene={id => { showCard({ kind: 'entity', ref: ref('place', id) }); setTab(TAB_NOW.id); }}
                   planetView={planetView}
                   onPlanetView={setPlanetView}
                   cosmologyView={cosmologyView}

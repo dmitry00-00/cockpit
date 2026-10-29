@@ -61,6 +61,8 @@ export interface WorldMapProps {
    * Отметка — значок события с числом; щелчок — карточка места.
    */
   eventMarks?: { year: number; places: ReadonlyMap<string, readonly string[]> };
+  /** Место справочника — сцена «Сейчас здесь» (Д2, ROADMAP 6.2): кнопка в карточке места под щелчком. */
+  onScene?: (placeId: string) => void;
   /**
    * Новое место щелчком (M8, только мастеру): точка на карте и форма — имя и уровень, из справочника под щелчком или
    * ввод; «Предложить» отдаёт черновик странице, а та кладёт во входящие предложение с патчем — мир меняется только
@@ -222,7 +224,7 @@ function PlaceSearch({ places, onPick }: { places: readonly GazetteerPlace[]; on
 }
 
 /** Карточка места справочника: что это, кто правит, чем опасно, коротко — и откуда текст. */
-function PlaceInfo({ place, onClose }: { place: GazetteerPlace; onClose: () => void }) {
+function PlaceInfo({ place, onClose, onScene }: { place: GazetteerPlace; onClose: () => void; onScene?: (id: string) => void }) {
   const c = place.card;
   const url = wikiUrl(place);
   const gis = !place.sources || place.sources.includes('Toril GIS');
@@ -231,7 +233,8 @@ function PlaceInfo({ place, onClose }: { place: GazetteerPlace; onClose: () => v
       <div className="flex items-baseline gap-2">
         <span className="type-h-17 text-tx truncate" title={place.name}>{place.name}</span>
         {KIND_LABEL[place.kind] ? <span className="type-body-sm text-t2 flex-none">{KIND_LABEL[place.kind]}</span> : null}
-        <button type="button" title="Закрыть · Esc" onClick={onClose} className={`${BTN} ml-auto flex-none`}>Закрыть</button>
+        {onScene ? <button type="button" title="Карточка места на вкладке «Сейчас»: день, вера, силы, люди, округа" onClick={() => onScene(place.id)} className={`${BTN} ml-auto flex-none`}>Сейчас здесь</button> : null}
+        <button type="button" title="Закрыть · Esc" onClick={onClose} className={`${BTN} ${onScene ? '' : 'ml-auto '}flex-none`}>Закрыть</button>
       </div>
       {place.approx ? <span className="type-body-sm text-t3">Позиция по Toril GIS: на растре место не подписано</span> : null}
       {c?.what ? <p className="type-body text-tx">{c.what}</p> : null}
@@ -280,7 +283,7 @@ function JourneyLegs({ terrain, journey }: { terrain: RouteTerrain; journey: Jou
   );
 }
 
-export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMiles, travel, fog, terrain, gazetteer, eventMarks, newPlace, tools, children, className = '' }: WorldMapProps) {
+export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMiles, travel, fog, terrain, gazetteer, eventMarks, onScene, newPlace, tools, children, className = '' }: WorldMapProps) {
   const rootRef = useRef<HTMLDivElement>(null);
   const hexRef = useRef<HTMLCanvasElement>(null);
   const [vp, setVp] = useState<Viewport>(FALLBACK_VP);
@@ -817,7 +820,7 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
         </div>
       </div>
 
-      {found ? <div data-part="map-ui"><PlaceInfo place={found} onClose={() => setFound(null)} /></div> : null}
+      {found ? <div data-part="map-ui"><PlaceInfo place={found} onClose={() => setFound(null)} {...(onScene ? { onScene } : {})} /></div> : null}
 
       {missing ? (
         <div role="status" className="absolute inset-x-0 top-1/3 mx-auto w-fit max-w-[90%] px-4 py-3 bg-cd shadow-float type-body text-tx">

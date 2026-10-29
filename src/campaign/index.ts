@@ -15,7 +15,7 @@ export { seedWorld, seedDeltas, seedFacts, LOCATION, FACTION, THREAD, DELTA, FAC
 export { SEED_SEC, seedState, seedLog, seedEngine, pcActor, sheetOf, monsterActor } from './seed';
 export { seedBattlefield, placedActors, type Battlefield, type Cell } from './battlefield';
 export { simulate, stepTime, tendaysCrossed, placeChain, NEAR_SCALES, THREAD_COLD_DAYS, type SimulationInput } from './simulation';
-export { pulseOf, pulseEvents, PULSE_DAYS, type Pulse, type PulseEvent, type PulseEventKind, type PulseEdge, type PulseFaction, type PulsePriceRow, type PulsePriceCell, type PulseEncounterRow, type PulseGod } from './pulse';
+export { pulseOf, pulseEvents, priceRowOf, PULSE_DAYS, type Pulse, type PulseEvent, type PulseEventKind, type PulseEdge, type PulseFaction, type PulsePriceRow, type PulsePriceCell, type PulseEncounterRow, type PulseGod } from './pulse';
 export { newPlaceDelta, type NewPlaceInput } from './newPlace';
 export { renownDelta, organizationFactionDelta, factionOfOrganization } from './renown';
 // Бой за живым столом: появление противников из блоков SRD и инициатива — чистые функции, события пишет страница.
@@ -39,3 +39,5 @@ export {
 } from './holyDays';
 export { actionOdds, monsterSaves, oddsTargetOf, sheetAttackOdds, sheetSpellOdds, type ActionOdds, type AttackRow, type OddsTarget, type SaveRow } from './odds';
 export { explain, explainText, signedTotal, type DeriveStep, type ExplainKey, type Explanation } from './explain';
+// Место как сцена (Д2, ROADMAP 6.1): проекция «что здесь сейчас» — календарь, вера, силы, люди, рынок, округа, нити, канон.
+export { sceneOf, regionOfKind, SCENE_TITLE, SCENE_CANON_EVENTS, type Scene, type SceneAt, type SceneCanon, type SceneLink, type SceneOptions, type SceneRow, type SceneSection, type SceneSectionId } from './scene';

@@ -280,6 +280,8 @@ export const TAB_OVERVIEW: EntityCardTab = { id: 'overview', label: 'Обзор'
 export const TAB_CONDITIONS: EntityCardTab = { id: 'conditions', label: 'Состояния', title: 'Состояния SRD; истощение — уровнями' };
 export const TAB_GEAR: EntityCardTab = { id: 'gear', label: 'Снаряжение', title: 'Экипировка' };
 export const TAB_ACTIONS: EntityCardTab = { id: 'actions', label: 'Действия', title: 'Действия из блока SRD' };
+/** Место как сцена (Д2): что здесь в этот день — календарь, вера, силы, люди, рынок, округа, нити. */
+export const TAB_NOW: EntityCardTab = { id: 'now', label: 'Сейчас', title: 'Что здесь сейчас: день, вера, силы, люди, рынок, округа, нити' };
 export const TAB_DM: EntityCardTab = { id: 'dm', label: 'DM', title: 'Только мастеру', dm: true };
 
 /** Ячейка HP: число всегда tx, порог полосы — меткой рядом; клик открывает попап хитов. */
@@ -418,7 +420,7 @@ export function placeCardProps(place: Location, opts: PlaceCardOptions = {}): Pl
     name: place.name,
     badges: [SCALE_LABELS[place.scale]],
     stats: stats.length > 0 ? stats : undefined,
-    tabs: dmFacts > 0 ? [TAB_OVERVIEW, TAB_DM] : [TAB_OVERVIEW],
+    tabs: dmFacts > 0 ? [TAB_OVERVIEW, TAB_NOW, TAB_DM] : [TAB_OVERVIEW, TAB_NOW],
     origin: 'canon',
     pending,
   };

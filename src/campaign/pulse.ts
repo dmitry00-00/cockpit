@@ -2,7 +2,7 @@
 // десятидневки вперёд (праздники, Selûne, святые дни богов партии, смена сезона, остывание нитей), фракции и их
 // отношения, индексы цен поселений по товарам, веса встреч. Значение, которое ждёт решения, идёт рядом с нынешним
 // (`pending`), а не вместо него: симуляция не выглядит свершившимся фактом (CLAUDE.md «Правила экрана»).
-import { GOODS, SECONDS_PER_DAY, type GoodsId, type State, type WorldPatch } from '../engine/state';
+import { GOODS, SECONDS_PER_DAY, type GoodsId, type Location, type State, type WorldPatch } from '../engine/state';
 import { SEASON_LABELS, harptos, moonState, seasonOf } from './calendar';
 import { eraOf } from './era';
 import { holyDaysOn, holyList, isAnnual, partyDeitiesOf } from './holyDays';
@@ -86,6 +86,22 @@ export function pulseEvents(state: State, days = PULSE_DAYS): PulseEvent[] {
   return out.sort((a, b) => a.days - b.days);
 }
 
+/** Строка цен места: общий индекс и товары против базовых (100), значение ждущего патча — рядом. */
+export function priceRowOf(l: Location, patches: readonly WorldPatch[]): PulsePriceRow {
+  const base = l.pricePercent ?? 0;
+  const pBase = patches.find(x => x.kind === 'location' && x.field === 'pricePercent' && x.id === l.id);
+  const pendingBase = pBase && pBase.kind === 'location' && pBase.field === 'pricePercent' ? pBase.value : undefined;
+  const goods = Object.fromEntries(GOODS.map(g => {
+    const own = l.prices?.[g] ?? 0;
+    const p = patches.find(x => x.kind === 'price' && x.id === l.id && x.goods === g);
+    const pendingOwn = p && p.kind === 'price' ? p.value : undefined;
+    const cell: PulsePriceCell = { index: 100 + base + own };
+    if (pendingOwn !== undefined || pendingBase !== undefined) cell.pending = 100 + (pendingBase ?? base) + (pendingOwn ?? own);
+    return [g, cell];
+  })) as Record<GoodsId, PulsePriceCell>;
+  return { id: l.id, name: l.name, all: { index: 100 + base, ...(pendingBase !== undefined ? { pending: 100 + pendingBase } : {}) }, goods };
+}
+
 export function pulseOf(state: State, days = PULSE_DAYS): Pulse {
   const patches = pendingPatches(state);
   const { factions, locations } = state.world;
@@ -101,20 +117,7 @@ export function pulseOf(state: State, days = PULSE_DAYS): Pulse {
     }
   }
 
-  const prices: PulsePriceRow[] = Object.values(locations).filter(l => l.scale === 'settlement').map(l => {
-    const base = l.pricePercent ?? 0;
-    const pBase = patches.find(x => x.kind === 'location' && x.field === 'pricePercent' && x.id === l.id);
-    const pendingBase = pBase && pBase.kind === 'location' && pBase.field === 'pricePercent' ? pBase.value : undefined;
-    const goods = Object.fromEntries(GOODS.map(g => {
-      const own = l.prices?.[g] ?? 0;
-      const p = patches.find(x => x.kind === 'price' && x.id === l.id && x.goods === g);
-      const pendingOwn = p && p.kind === 'price' ? p.value : undefined;
-      const cell: PulsePriceCell = { index: 100 + base + own };
-      if (pendingOwn !== undefined || pendingBase !== undefined) cell.pending = 100 + (pendingBase ?? base) + (pendingOwn ?? own);
-      return [g, cell];
-    })) as Record<GoodsId, PulsePriceCell>;
-    return { id: l.id, name: l.name, all: { index: 100 + base, ...(pendingBase !== undefined ? { pending: 100 + pendingBase } : {}) }, goods };
-  });
+  const prices: PulsePriceRow[] = Object.values(locations).filter(l => l.scale === 'settlement').map(l => priceRowOf(l, patches));
 
   const encounters: PulseEncounterRow[] = Object.values(locations).flatMap(l => {
     const keys = new Set([

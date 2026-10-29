@@ -44,6 +44,8 @@ export interface LevelZoneProps {
   gazetteer: readonly GazetteerPlace[] | undefined;
   /** Линза года канона (ROADMAP Х3): события года у мест справочника и выход из линзы; только мастеру. */
   lens?: { year: number; marks: ReadonlyMap<string, readonly string[]>; onClear: () => void };
+  /** Сцена места справочника (Д2): «Сейчас здесь» из карточки места на карте — только мастеру. */
+  onScene?: (placeId: string) => void;
   planetView: 'globe' | 'map';
   onPlanetView: (v: 'globe' | 'map') => void;
   cosmologyView: 'wheel' | 'tree';
@@ -62,7 +64,7 @@ export interface LevelZoneProps {
 }
 
 export function LevelZone({
-  state, events, ladder, focus, here, dmView, combat, cardInCombat, counts, pendingIds, map, terrain, gazetteer, lens,
+  state, events, ladder, focus, here, dmView, combat, cardInCombat, counts, pendingIds, map, terrain, gazetteer, lens, onScene,
   planetView, onPlanetView, cosmologyView, onCosmologyView, journey, onTravel, goLadder, onPin, onNewPlace, stacks, card,
 }: LevelZoneProps) {
   const shownCard = !combat || cardInCombat ? card : null;
@@ -164,6 +166,7 @@ export function LevelZone({
         terrain={terrain}
         gazetteer={dmView ? gazetteer : undefined}
         eventMarks={dmView && lens ? { year: lens.year, places: lens.marks } : undefined}
+        onScene={dmView ? onScene : undefined}
         className="flex-1 min-h-0"
       >
         {stacks}

@@ -1,6 +1,6 @@
 // Карта мира как компонент: тайлы видимого окна, пины-кнопки, знак партии, линейка с днями пути по SRD,
 // гексы, кнопки приближения. В jsdom окно не измеряется — компонент берёт запасные 960×540.
-import { fireEvent, render, screen, within } from '@testing-library/react';
+import { cleanup, fireEvent, render, screen, within } from '@testing-library/react';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 import { MAPS } from './maps';
 import { loadJourney } from '../rules/a5e/journey';
@@ -270,6 +270,19 @@ describe('справочник мест (M12)', () => {
     expect(box).toHaveValue('');
     fireEvent.keyDown(map, { key: 'Escape' });
     expect(map.querySelector('[data-part="place-info"]')).toBeNull();
+  });
+
+  it('«Сейчас здесь» (Д2): кнопка в карточке места под щелчком отдаёт id места; без колбэка кнопки нет', () => {
+    const onScene = vi.fn();
+    render(<WorldMap passport={toril} frame={frame} frameKey="region:scn" pins={[]} gazetteer={gazetteer} onScene={onScene} />);
+    const map = screen.getByRole('application', { name: 'Карта Toril' });
+    fireEvent.click(map.querySelector<HTMLElement>('[data-place="pt"]')!);
+    fireEvent.click(within(map.querySelector<HTMLElement>('[data-part="place-info"]')!).getByRole('button', { name: 'Сейчас здесь' }));
+    expect(onScene).toHaveBeenCalledWith('pt');
+    cleanup();
+    const plain = withGaz();
+    fireEvent.click(plain.querySelector<HTMLElement>('[data-place="pt"]')!);
+    expect(within(plain.querySelector<HTMLElement>('[data-part="place-info"]')!).queryByRole('button', { name: 'Сейчас здесь' })).toBeNull();
   });
 
   it('слой «Справочник» (29.10): маркеры мест с карточкой, полый — позиция по GIS; щелчок — карточка; кнопка и линейка прячут', () => {

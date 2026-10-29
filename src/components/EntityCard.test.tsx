@@ -282,7 +282,7 @@ describe('actorCardProps', () => {
 describe('placeCardProps', () => {
   const world = () => seedState().world;
 
-  it('Neverwinter из сида: location, бейдж «Поселение», полоса Население 23k · Опасность средняя · Цены +10%, вкладка Обзор, канон; DM — только при секретах', () => {
+  it('Neverwinter из сида: location, бейдж «Поселение», полоса Население 23k · Опасность средняя · Цены +10%, вкладки Обзор и Сейчас, канон; DM — только при секретах', () => {
     const nw = world().locations[LOCATION.neverwinter];
     const p = placeCardProps(nw);
     expect(p.type).toBe('location');
@@ -290,12 +290,12 @@ describe('placeCardProps', () => {
     expect(p.badges).toEqual(['Поселение']);
     expect(p.stats?.map(st => [st.label, st.value])).toEqual([['Население', '23k'], ['Опасность', 'средняя'], ['Цены', '+10%']]);
     expect(p.stats?.map(st => st.title)).toEqual(['Население', 'Опасность для партии', 'Надбавка к ценам']);
-    expect(p.tabs?.map(t => t.label)).toEqual(['Обзор']);
+    expect(p.tabs?.map(t => t.label)).toEqual(['Обзор', 'Сейчас']);
     expect(p.origin).toBe('canon');
     expect(p.pending).toBeUndefined();
-    expect(placeCardProps(nw, { dmFacts: 2 }).tabs?.map(t => t.label)).toEqual(['Обзор', 'DM']);
+    expect(placeCardProps(nw, { dmFacts: 2 }).tabs?.map(t => t.label)).toEqual(['Обзор', 'Сейчас', 'DM']);
     expect(placeCardProps(nw, { dmFacts: 2 }).tabs?.find(t => t.label === 'DM')?.dm).toBe(true);
-    expect(placeCardProps(nw, { dmFacts: 0 }).tabs?.map(t => t.label)).toEqual(['Обзор']);
+    expect(placeCardProps(nw, { dmFacts: 0 }).tabs?.map(t => t.label)).toEqual(['Обзор', 'Сейчас']);
     expect(placeCardProps(nw, { pending: true }).pending).toBe(true);
   });
 
