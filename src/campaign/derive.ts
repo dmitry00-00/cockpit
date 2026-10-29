@@ -4,7 +4,7 @@
 import { ABILITY_IDS, SKILL_IDS, SKILLS, type AbilityId, type SkillId } from '../rules/srd/abilities';
 import { ARMOR, MAGE_ARMOR, MEDIUM_ARMOR_DEX_CAP, SHIELD, type ArmorCategory, type ArmorId } from '../rules/srd/armor';
 import { ABILITY_SCORE_CAP, SRD_CLASSES, isSrdClassId, type SrdClass } from '../rules/srd/classes';
-import { srdRaceSpeed } from '../rules/srd/races';
+import { srdRaceSize, srdRaceSpeed } from '../rules/srd/races';
 import { backgroundById, classById, featById, raceById, type Asi, type AsiChoice, type CharacterClass, type Feat, type Race, type Subrace, type Trait } from '../rules/compendium';
 import { CLASS_START, armorIdOfItem, ITEMS } from '../rules/srd/equipment';
 import { SPELLS } from '../rules/srd/spells';
@@ -503,6 +503,7 @@ function deriveWith(spec: PcSpec, issue: Issue): DerivedCharacter {
   const equipment = [...(spec.equipment ?? [])];
   const attacks = attacksOf(equipment, {
     mods, proficiencyBonus, srdClass: srdId, extraWeapons: effects.flatMap(e => e.weapons ?? []), archery: style === ARCHERY_STYLE,
+    small: srdRaceSize(race.name) === 'Small',
   });
 
   return {

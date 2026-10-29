@@ -5,7 +5,7 @@ import type { Actor } from '../engine';
 import { ABILITY_IDS, MONSTERS, type AbilityId, type Monster, type MonsterAction } from '../rules/srd';
 import { SPELLS } from '../rules/srd/spells';
 import {
-  attackOdds, attackProfileOf, parseDice, saveFailChance, saveInText, spellSaveAbility, type Defenses, type RollMode,
+  attackOdds, attackProfileOf, parseDice, saveFailChance, saveInText, spellSaveAbility, withDisadvantage, type Defenses, type RollMode,
 } from '../rules/srd/odds';
 import { abilityMod } from './derive';
 import { sheetViewOf } from './sheetView';
@@ -64,12 +64,15 @@ export function actionOdds(action: MonsterAction, targets: readonly OddsTarget[]
   return rows.length ? { kind: 'save', name: action.name, dc: save.dc, ability: save.ability, rows } : null;
 }
 
-/** Атаки оружием с листа против целей. */
+/** Атаки оружием с листа против целей. Атака с постоянной помехой (тяжёлое у Маленького) — с ней и в имени. */
 export function sheetAttackOdds(actor: Actor, targets: readonly OddsTarget[], mode: RollMode = 'normal'): ActionOdds[] {
   // Универсальное оружие лист пишет «1d8 + 3 / 1d10 + 3»: одной рукой и двумя — две строки.
-  return (actor.sheet?.attacks ?? []).flatMap(a => a.damage.split(' / ').flatMap((dmg, i) => (parseDice(dmg)
-    ? [{ kind: 'attack' as const, name: i === 0 ? a.name : `${a.name} · двумя руками`, toHit: a.toHit, rows: attackRows(a.toHit, dmg, a.damageType, '', targets, mode) }]
-    : [])));
+  return (actor.sheet?.attacks ?? []).flatMap(a => a.damage.split(' / ').flatMap((dmg, i) => {
+    if (!parseDice(dmg)) return [];
+    const name = `${i === 0 ? a.name : `${a.name} · двумя руками`}${a.disadvantage ? ' · с помехой' : ''}`;
+    const m = a.disadvantage ? withDisadvantage(mode) : mode;
+    return [{ kind: 'attack' as const, name, toHit: a.toHit, rows: attackRows(a.toHit, dmg, a.damageType, '', targets, m) }];
+  }));
 }
 
 /** Заклинания листа со спасброском в тексте SRD: DC листа против спасбросков целей. Атаки заклинаниями — по `attack` листа. */

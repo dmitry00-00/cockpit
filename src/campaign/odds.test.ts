@@ -59,4 +59,19 @@ describe('шансы за столом (ROADMAP 5.2–5.3)', () => {
     // Bandit: DEX 12 → +1; провал против DC 14 — грани 1…12.
     expect(spells[0].kind === 'save' && spells[0].rows[0].fail).toBeCloseTo(0.6, 12);
   });
+
+  it('снаряжение сида (29.10): у Bo длинный лук с помехой — Маленький с тяжёлым; преимущество её гасит', () => {
+    const bo = seedState().actors.bo;
+    const targets = [oddsTargetOf(bandit())];
+    const names = (mode?: 'advantage') => sheetAttackOdds(bo, targets, mode).map(a => a.name);
+    expect(names()).toEqual(['Longbow · с помехой', 'Shortsword']);
+    const hit = (i: number, mode?: 'advantage') => {
+      const a = sheetAttackOdds(bo, targets, mode)[i];
+      return a.kind === 'attack' ? a.rows[0].hit : NaN;
+    };
+    // +6 против AC 12 у Bandit: нужно 6+ → 0,75 одной костью; с помехой 0,75², с преимуществом и помехой — одна кость.
+    expect(hit(0)).toBeCloseTo(0.75 ** 2, 12);
+    expect(hit(0, 'advantage')).toBe(0.75);
+    expect(hit(1)).toBe(0.75);
+  });
 });

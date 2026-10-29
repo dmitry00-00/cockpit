@@ -86,9 +86,9 @@ export function SheetAttacks({ sheet }: { sheet: Pick<CharacterSheet, 'attacks'>
     <Section title="Атаки">
       <ul className="flex flex-col gap-0.5" aria-label="Атаки листа">
         {list.map(a => (
-          <li key={a.id} className="flex items-baseline gap-2 type-body-sm" title={`${a.name}: ${signedMod(a.toHit)} к попаданию, ${damageText(a.damage, a.damageType)}${a.range ? `, дистанция ${a.range} фт` : ''}${a.proficient ? '' : ' · без владения'}`}>
+          <li key={a.id} className="flex items-baseline gap-2 type-body-sm" title={`${a.name}: ${signedMod(a.toHit)} к попаданию, ${damageText(a.damage, a.damageType)}${a.range ? `, дистанция ${a.range} фт` : ''}${a.proficient ? '' : ' · без владения'}${a.disadvantage ? ` · с помехой: ${a.disadvantage}` : ''}`}>
             <span className="type-num-12 text-gd w-7 flex-none">{signedMod(a.toHit)}</span>
-            <span className="text-tx flex-1 min-w-0 truncate">{a.name}{a.proficient ? '' : <span className="type-key text-t3"> без владения</span>}</span>
+            <span className="text-tx flex-1 min-w-0 truncate">{a.name}{a.proficient ? '' : <span className="type-key text-t3"> без владения</span>}{a.disadvantage ? <span className="type-key text-t3"> с помехой</span> : ''}</span>
             <span className="type-num-12 text-t2 flex-none whitespace-nowrap">{a.damage}</span>
           </li>
         ))}

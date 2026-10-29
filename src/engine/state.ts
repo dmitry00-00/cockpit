@@ -64,7 +64,7 @@ export interface CharacterSheet {
   /** Снаряжение — предметы SRD по id с количеством (content/srd/equipment.json). */
   equipment?: readonly { id: string; qty: number }[];
   /** Атаки оружием из снаряжения: бонус к попаданию и урон уже посчитаны по листу. */
-  attacks?: readonly { id: string; name: string; toHit: number; damage: string; damageType: string; proficient: boolean; range?: string }[];
+  attacks?: readonly { id: string; name: string; toHit: number; damage: string; damageType: string; proficient: boolean; range?: string; disadvantage?: string }[];
 }
 
 /** Действующий эффект заклинания без концентрации (Mage Armor): состоянием SRD не является, событий для него нет. */

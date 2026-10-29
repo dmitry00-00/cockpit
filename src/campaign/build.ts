@@ -286,18 +286,24 @@ export interface Attack {
   proficient: boolean;
   /** Дистанция «20/60» у метательного и дальнобойного. */
   range?: string;
+  /** Атака всегда с помехой — почему: «тяжёлое у Маленького». */
+  disadvantage?: string;
 }
+
+/** SRD 5.1, Weapon Properties (CC-BY-4.0), дословно. */
+export const HEAVY_RULE = "Heavy. Small creatures have disadvantage on attack rolls with heavy weapons. A heavy weapon's size and bulk make it too large for a Small creature to use effectively.";
 
 const dmg = (dice: string, mod: number) => (mod === 0 ? dice : `${dice} ${mod > 0 ? '+' : '−'} ${Math.abs(mod)}`);
 
 /**
  * Атаки оружием из инвентаря (SRD: бросок атаки = модификатор + бонус мастерства при владении; урон = кость + тот же
  * модификатор). Фехтовальное — лучшая из STR и DEX, дальнобойное — DEX, остальное — STR; монах с оружием монаха —
- * лучшая из STR и DEX (Martial Arts). Боевой стиль «Стрельба» — +2 к попаданию дальнобойным (Archery).
+ * лучшая из STR и DEX (Martial Arts). Боевой стиль «Стрельба» — +2 к попаданию дальнобойным (Archery). Маленький
+ * с тяжёлым оружием — с помехой (HEAVY_RULE): у полурослика-следопыта длинный лук из стартового набора.
  */
 export function attacksOf(
   items: readonly InventoryLine[],
-  ctx: { mods: Readonly<Record<AbilityId, number>>; proficiencyBonus: number; srdClass?: SrdClassId; extraWeapons: readonly string[]; archery: boolean },
+  ctx: { mods: Readonly<Record<AbilityId, number>>; proficiencyBonus: number; srdClass?: SrdClassId; extraWeapons: readonly string[]; archery: boolean; small?: boolean },
 ): Attack[] {
   const out: Attack[] = [];
   for (const line of items) {
@@ -311,7 +317,7 @@ export function attacksOf(
     const proficient = (ctx.srdClass ? classWeaponProficient(ctx.srdClass, line.id) : false) || ctx.extraWeapons.includes(line.id);
     const toHit = mod + (proficient ? ctx.proficiencyBonus : 0) + (ctx.archery && w.range === 'ranged' ? 2 : 0);
     const damage = w.versatile ? `${dmg(w.damage, mod)} / ${dmg(w.versatile, mod)}` : dmg(w.damage, mod);
-    out.push({ id: line.id, name: item.name, toHit, damage, damageType: w.damageType ?? '', proficient, ...(w.rangeFt ? { range: `${w.rangeFt[0]}/${w.rangeFt[1]}` } : {}) });
+    out.push({ id: line.id, name: item.name, toHit, damage, damageType: w.damageType ?? '', proficient, ...(w.rangeFt ? { range: `${w.rangeFt[0]}/${w.rangeFt[1]}` } : {}), ...(ctx.small && w.properties.includes('heavy') ? { disadvantage: 'тяжёлое у Маленького' } : {}) });
   }
   return out;
 }

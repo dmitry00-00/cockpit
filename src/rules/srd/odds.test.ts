@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { MONSTERS } from './monsters';
 import {
   attackOdds, attackProfileOf, concentrationHoldChance, critChance, damageFactor, diceMean, hitChance, meanText, parseDice,
-  percent, saveFailChance, saveInText, spellSaveAbility,
+  percent, saveFailChance, saveInText, spellSaveAbility, withDisadvantage,
 } from './odds';
 
 describe('математика d20 (ROADMAP 5.1)', () => {
@@ -15,6 +15,12 @@ describe('математика d20 (ROADMAP 5.1)', () => {
   it('20 попадает всегда, 1 промахивается всегда', () => {
     expect(hitChance(0, 30)).toBe(0.05);
     expect(hitChance(20, 5)).toBe(0.95);
+  });
+
+  it('постоянная помеха: с преимуществом гасятся до одной кости', () => {
+    expect(withDisadvantage('normal')).toBe('disadvantage');
+    expect(withDisadvantage('advantage')).toBe('normal');
+    expect(withDisadvantage('disadvantage')).toBe('disadvantage');
   });
 
   it('крит — 1/20, с преимуществом 39/400, с помехой 1/400', () => {

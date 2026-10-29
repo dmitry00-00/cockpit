@@ -16,6 +16,7 @@ export const ODDS_RULES = {
   criticalHits: "When you score a critical hit, you get to roll extra dice for the attack's damage against the target. Roll all of the attack's damage dice twice and add them together. Then add any relevant modifiers as normal.",
   resistance: 'If a creature or an object has resistance to a damage type, damage of that type is halved against it. If a creature or an object has vulnerability to a damage type, damage of that type is doubled against it.',
   resistanceOrder: 'Resistance and then vulnerability are applied after all other modifiers to damage.',
+  both: 'If circumstances cause a roll to have both advantage and disadvantage, you are considered to have neither of them, and you roll one d20.',
 } as const;
 
 /** Как бросается d20: обычно, с преимуществом (лучший из двух), с помехой (худший из двух). */
@@ -24,6 +25,11 @@ export type RollMode = 'normal' | 'advantage' | 'disadvantage';
 export const ROLL_MODES: readonly RollMode[] = ['normal', 'advantage', 'disadvantage'];
 
 export const ROLL_MODE_LABEL: Readonly<Record<RollMode, string>> = { normal: 'обычно', advantage: 'преимущество', disadvantage: 'помеха' };
+
+/** Режим с постоянной помехой (тяжёлое у Маленького): преимущество и помеха гасят друг друга (ODDS_RULES.both). */
+export function withDisadvantage(mode: RollMode): RollMode {
+  return mode === 'advantage' ? 'normal' : 'disadvantage';
+}
 
 /** Строка костей «2d10 + 6»: кости и постоянная прибавка. */
 export interface Dice {

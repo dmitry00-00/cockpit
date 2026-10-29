@@ -10,7 +10,20 @@
 // Что это значит для игры: у Bo Внимательности нет (с ней PP был бы 15), у Aldric её нет в списке жреца (иначе 16);
 // у Aldric увеличение 4-го уровня ушло не в WIS +2 (иначе PP 14), а в WIS +1 и STR +1. Раса, подраса и доспех
 // Korrin, Lyra и Aldric в §13 не названы — это предложение, при котором числа сходятся.
+//
+// Снаряжение — стартовые наборы SRD (решение владельца 29.10: дать, чтобы атаки и шансы на листе были сразу). §13 его
+// не называет; варианты (a)/(b) выбраны под доспех §13 и расу: Korrin — warhammer (Dwarven Combat Training) и ручные
+// топоры, Lyra — кинжал (фехтовальный, DEX лучше STR). Длинный лук Bo — обязательная часть набора следопыта; полурослик
+// Маленький, поэтому лук с помехой (build.ts, HEAVY_RULE).
+import type { SrdClassId } from '../rules/srd';
+import { CLASS_START } from '../rules/srd/equipment';
+import { inventoryOf } from './build';
 import type { PcSpec } from './derive';
+
+/** Стартовый набор класса SRD: номер варианта на каждый вопрос набора и что взято из категорий. */
+function kit(cls: SrdClassId, options: readonly number[], picks: Readonly<Record<number, readonly string[]>> = {}) {
+  return inventoryOf(CLASS_START[cls].equipment, Object.fromEntries(options.map((option, i) => [i, { option, picks: picks[i] ?? [] }]))).items;
+}
 
 export const PARTY_LEVEL = 5;
 
@@ -25,6 +38,8 @@ export const BO: PcSpec = {
   improvements: [{ level: 4, asi: { con: 1, dex: 1 } }],
   armor: 'scale-mail',
   shield: false,
+  // Чешуйчатый, два коротких меча, набор путешественника; длинный лук и 20 стрел — в наборе всегда.
+  equipment: kit('ranger', [0, 0, 1]),
   skills: ['stealth', 'survival', 'nature'],
   // С референс-карточки владельца (лист Bo): Neutral, 3'2", 38 lbs, 26 лет.
   alignment: 'Нейтральный',
@@ -42,6 +57,8 @@ export const KORRIN: PcSpec = {
   improvements: [{ level: 4, asi: { str: 2 } }],
   armor: 'chain-mail',
   shield: true,
+  // Кольчуга, боевой молот и щит, два ручных топора, набор исследователя подземелий.
+  equipment: kit('fighter', [0, 0, 1, 0], { 1: ['warhammer'] }),
   skills: ['athletics', 'perception'],
 };
 
@@ -57,6 +74,8 @@ export const LYRA: PcSpec = {
   armor: null,
   shield: false,
   mageArmor: true,
+  // Кинжал, мешочек с компонентами, набор учёного; книга заклинаний — в наборе всегда.
+  equipment: kit('wizard', [1, 0, 0]),
   skills: ['arcana', 'history'],
 };
 
@@ -70,6 +89,8 @@ export const ALDRIC: PcSpec = {
   improvements: [{ level: 4, asi: { wis: 1, str: 1 } }],
   armor: 'scale-mail',
   shield: true,
+  // Булава, чешуйчатый, лёгкий арбалет и 20 болтов, набор священника, амулет-символ; щит — в наборе всегда.
+  equipment: kit('cleric', [0, 0, 0, 0, 0], { 4: ['amulet'] }),
   skills: ['medicine', 'religion'],
   // Бога §13 не называет — Lathander (домены 5e Life, Light; Faerûnian pantheon): решение владельца 28.10.2026 (E8).
   deity: { id: 'lathander', name: 'Lathander' },

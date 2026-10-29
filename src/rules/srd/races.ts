@@ -33,6 +33,12 @@ export function isSrdRaceId(value: string): value is SrdRaceId {
   return (SRD_RACE_IDS as readonly string[]).includes(value);
 }
 
+/** Размер расы по английскому имени из компендиума; расы вне SRD — undefined. */
+export function srdRaceSize(raceName: string): SrdRace['size'] | undefined {
+  const id = raceName.toLowerCase();
+  return isSrdRaceId(id) ? SRD_RACES[id].size : undefined;
+}
+
 /** Скорость расы по английскому имени из компендиума; расы вне SRD — undefined. */
 export function srdRaceSpeed(raceName: string): number | undefined {
   const id = raceName.toLowerCase();

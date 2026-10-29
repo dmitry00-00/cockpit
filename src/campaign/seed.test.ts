@@ -64,6 +64,16 @@ describe('партия §13', () => {
     expect(a.conditions).toEqual({});
   });
 
+  it('снаряжение — стартовые наборы SRD (29.10): атаки на листе у всех четверых, доспех §13 из набора', () => {
+    const actors = seedEngine(fixed()).getState().state.actors;
+    const attacks = (id: string) => (actors[id].sheet?.attacks ?? []).map(x => `${x.name} ${x.toHit >= 0 ? '+' : ''}${x.toHit} ${x.damage}${x.disadvantage ? ' (помеха)' : ''}`);
+    expect(attacks('bo')).toEqual(['Longbow +6 1d8 + 3 (помеха)', 'Shortsword +6 1d6 + 3']);
+    expect(attacks('korrin')).toEqual(['Warhammer +6 1d8 + 3 / 1d10 + 3', 'Handaxe +6 1d6 + 3']);
+    expect(attacks('lyra')).toEqual(['Dagger +5 1d4 + 2']);
+    expect(attacks('aldric')).toEqual(['Mace +5 1d6 + 2', 'Crossbow, light +5 1d8 + 2']);
+    for (const p of PARTY) expect(p.equipment?.length, p.name).toBeGreaterThan(0);
+  });
+
   it('битый лог в хранилище не роняет стол: хранилище очищается, стор поднимается из сида, причина — в onRecover', () => {
     const persist = memoryStore();
     // Событие, которое не пройдёт validate: урон по актёру, которого в сиде нет.
