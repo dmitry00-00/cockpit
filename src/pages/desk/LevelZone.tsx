@@ -22,6 +22,7 @@ import { HEX_MILES, type LevelMap } from '../../map/levelMap';
 import { PLANET_MASKS, mapToLonLat, subsolarLon } from '../../map/planet';
 import type { TerrainGrid } from '../../map/terrain';
 import { WorldMap, type JourneyProps, type MapPinItem, type NewPlaceDraft, type TravelRoute } from '../../map/WorldMap';
+import { Icon } from '../../icons/Icon';
 import { BTN, BTN_TOGGLE } from './styles';
 
 export interface LevelZoneProps {
@@ -41,6 +42,8 @@ export interface LevelZoneProps {
   map: LevelMap | undefined;
   terrain: TerrainGrid | null;
   gazetteer: readonly GazetteerPlace[] | undefined;
+  /** Линза года канона (ROADMAP Х3): события года у мест справочника и выход из линзы; только мастеру. */
+  lens?: { year: number; marks: ReadonlyMap<string, readonly string[]>; onClear: () => void };
   planetView: 'globe' | 'map';
   onPlanetView: (v: 'globe' | 'map') => void;
   cosmologyView: 'wheel' | 'tree';
@@ -59,7 +62,7 @@ export interface LevelZoneProps {
 }
 
 export function LevelZone({
-  state, events, ladder, focus, here, dmView, combat, cardInCombat, counts, pendingIds, map, terrain, gazetteer,
+  state, events, ladder, focus, here, dmView, combat, cardInCombat, counts, pendingIds, map, terrain, gazetteer, lens,
   planetView, onPlanetView, cosmologyView, onCosmologyView, journey, onTravel, goLadder, onPin, onNewPlace, stacks, card,
 }: LevelZoneProps) {
   const shownCard = !combat || cardInCombat ? card : null;
@@ -137,7 +140,17 @@ export function LevelZone({
     ) : map ? (
     <div key={`${ladder.level}:${focus?.id ?? ''}`} data-part="level-zone" className="level-zoom flex-1 min-h-0 flex">
       <WorldMap
-        tools={planetMask ? <button type="button" title="Глобус по маске планеты" onClick={() => onPlanetView('globe')} className={BTN}>Глобус</button> : undefined}
+        tools={(
+          <>
+            {dmView && lens ? (
+              <button type="button" data-part="lens" title={`Карта и карточки справочника — канон на ${lens.year} DR; щелчок — вернуть год кампании`} onClick={lens.onClear} className={`${BTN} flex items-center gap-1 text-gd-hi shadow-[var(--bevel),inset_0_-2px_0_var(--gd)]`}>
+                Канон {lens.year} DR
+                <Icon name="cross" size={16} color="currentColor" title="Вернуть год кампании" />
+              </button>
+            ) : null}
+            {planetMask ? <button type="button" title="Глобус по маске планеты" onClick={() => onPlanetView('globe')} className={BTN}>Глобус</button> : null}
+          </>
+        )}
         passport={map.passport}
         frame={map.frame}
         frameKey={map.frameKey}
@@ -150,6 +163,7 @@ export function LevelZone({
         fog={mapFog}
         terrain={terrain}
         gazetteer={dmView ? gazetteer : undefined}
+        eventMarks={dmView && lens ? { year: lens.year, places: lens.marks } : undefined}
         className="flex-1 min-h-0"
       >
         {stacks}

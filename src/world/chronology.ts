@@ -192,3 +192,47 @@ export function snapshotExport(year: number, data: {
     })),
   };
 }
+
+/** Столбик шкалы: годы from…to и сколько в них событий (по выбранным видам). */
+export interface DensityBin { from: number; to: number; count: number }
+
+/** Шаг столбика по ширине окна: тысячелетие, век, десятилетие, год — чтобы столбиков было не больше max. */
+export function binSize(from: number, to: number, max = 60): number {
+  return [1, 10, 100, 1000, 10000].find(s => Math.ceil((to - from + 1) / s) <= max) ?? 10000;
+}
+
+/**
+ * Плотность событий на шкале: окно from…to столбиками binSize, границы — круглые (1470–1479, 1400–1499), крайние
+ * обрезаны окном. kinds — какие виды считать; нет — все, кроме изданного (оно не событие мира).
+ */
+export function densityBins(years: readonly ChronoYear[], from: number, to: number, kinds?: ReadonlySet<ChronoKind>): DensityBin[] {
+  const size = binSize(from, to);
+  const start = Math.floor(from / size) * size;
+  const bins: DensityBin[] = [];
+  for (let b = start; b <= to; b += size) bins.push({ from: Math.max(from, b), to: Math.min(to, b + size - 1), count: 0 });
+  for (const y of years) {
+    if (y.year < from || y.year > to || !y.counts) continue;
+    const n = Object.entries(y.counts).reduce((s, [k, c]) => s + (kinds ? (kinds.has(k as ChronoKind) ? c : 0) : k === 'publications' ? 0 : c), 0);
+    bins[Math.floor((y.year - start) / size)].count += n;
+  }
+  return bins;
+}
+
+/** Окно шире на ступень: год/десятилетие → век, век → эпоха, эпоха → вся хронология. */
+export function widerRange(eras: readonly CanonEra[], from: number, to: number): { from: number; to: number } {
+  const all = { from: eras[0]?.from ?? from, to: eras[eras.length - 1]?.to ?? to };
+  const span = to - from + 1;
+  if (span <= 10) {
+    const c = Math.floor(from / 100) * 100;
+    return { from: Math.max(all.from, c), to: Math.min(all.to, c + 99) };
+  }
+  const era = canonEraOf(eras, from);
+  if (span <= 100 && era && (era.from !== from || era.to !== to)) return { from: era.from, to: era.to };
+  return all;
+}
+
+/** Окно эпохи, в которой год; вне эпох — вся хронология. */
+export function rangeOfYear(eras: readonly CanonEra[], year: number): { from: number; to: number } {
+  const era = canonEraOf(eras, year);
+  return era ? { from: era.from, to: era.to } : { from: eras[0]?.from ?? year, to: eras[eras.length - 1]?.to ?? year };
+}

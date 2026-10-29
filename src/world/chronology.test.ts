@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import indexFile from '../../content/chronology/index.json';
 import {
-  CHRONO_KIND_LABEL, SNAPSHOT_SCHEMA, canonEraOf, drLabel, eventsAbout, loadEvents, orgStatus, personStatus, snapshotAt,
-  snapshotExport, type ChronoIndex,
+  CHRONO_KIND_LABEL, SNAPSHOT_SCHEMA, binSize, canonEraOf, densityBins, drLabel, eventsAbout, loadEvents, orgStatus, personStatus,
+  rangeOfYear, snapshotAt, snapshotExport, widerRange, type ChronoIndex,
 } from './chronology';
 
 const index = indexFile as unknown as ChronoIndex;
@@ -80,5 +80,19 @@ describe('хронология канона (Д5)', () => {
     expect(out.people).toEqual([{ id: 'elminster', name: 'Elminster', status: 'dead', died: 1479 }]);
     expect(out.organizations).toEqual([{ id: 'harpers', name: 'Harpers', status: 'undated' }]);
     expect(drLabel(-339)).toBe('−339 DR');
+  });
+
+  it('шкала (Х3): шаг столбика по окну, круглые границы, изданное не считается; шире — век, эпоха, всё', () => {
+    expect([binSize(1470, 1479), binSize(1358, 1489), binSize(-3000, 1357), binSize(-35000, 1599)]).toEqual([1, 10, 100, 1000]);
+    const years = [{ year: 1471, counts: { conflicts: 2, publications: 5 } }, { year: 1479, counts: { deaths: 3 } }, { year: 1482, counts: { magic: 1 } }];
+    const bins = densityBins(years, 1358, 1489);
+    expect(bins[0]).toEqual({ from: 1358, to: 1359, count: 0 });
+    expect(bins.find(b => b.from === 1470)).toEqual({ from: 1470, to: 1479, count: 5 });
+    expect(bins.at(-1)).toEqual({ from: 1480, to: 1489, count: 1 });
+    expect(densityBins(years, 1470, 1479, new Set(['publications'])).find(b => b.from === 1471)!.count).toBe(5);
+    expect(widerRange(index.eras, 1470, 1479)).toEqual({ from: 1400, to: 1499 });
+    expect(widerRange(index.eras, 1400, 1499)).toEqual({ from: 1358, to: 1489 });
+    expect(widerRange(index.eras, 1358, 1489)).toEqual({ from: -35000, to: 1599 });
+    expect(rangeOfYear(index.eras, 1492)).toEqual({ from: 1490, to: 1599 });
   });
 });

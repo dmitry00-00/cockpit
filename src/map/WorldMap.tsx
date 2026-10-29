@@ -57,6 +57,11 @@ export interface WorldMapProps {
    */
   gazetteer?: readonly GazetteerPlace[];
   /**
+   * События года канона у мест справочника (ROADMAP Х3, линза «Хроники», только мастеру): место → строки событий.
+   * Отметка — значок события с числом; щелчок — карточка места.
+   */
+  eventMarks?: { year: number; places: ReadonlyMap<string, readonly string[]> };
+  /**
    * Новое место щелчком (M8, только мастеру): точка на карте и форма — имя и уровень, из справочника под щелчком или
    * ввод; «Предложить» отдаёт черновик странице, а та кладёт во входящие предложение с патчем — мир меняется только
    * принятием. `scales` — какие уровни можно выбрать на этой карте.
@@ -275,7 +280,7 @@ function JourneyLegs({ terrain, journey }: { terrain: RouteTerrain; journey: Jou
   );
 }
 
-export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMiles, travel, fog, terrain, gazetteer, newPlace, tools, children, className = '' }: WorldMapProps) {
+export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMiles, travel, fog, terrain, gazetteer, eventMarks, newPlace, tools, children, className = '' }: WorldMapProps) {
   const rootRef = useRef<HTMLDivElement>(null);
   const hexRef = useRef<HTMLCanvasElement>(null);
   const [vp, setVp] = useState<Viewport>(FALLBACK_VP);
@@ -616,6 +621,29 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
           </button>
         );
       })}
+
+      {eventMarks && gazetteer ? gazetteer.filter(p => eventMarks.places.has(p.id)).map(p => {
+        const at = toScreen(view, vp, p);
+        if (!inside(at)) return null;
+        const lines = eventMarks.places.get(p.id)!;
+        const title = `${p.name} · ${eventMarks.year} DR: ${lines.length} ${lines.length === 1 ? 'событие' : 'событий'} — ${lines.slice(0, 3).join(' · ')}${lines.length > 3 ? ' …' : ''}`;
+        return (
+          <button
+            key={`event:${p.id}`}
+            type="button"
+            data-event-mark={p.id}
+            aria-label={`${p.name}: события ${eventMarks.year} DR — ${lines.length}`}
+            title={title}
+            onClick={() => setFound(p)}
+            className="absolute flex items-center gap-1 px-1 py-0.5 bg-cd shadow-[var(--float),inset_0_-2px_0_var(--ent-event)] cursor-pointer hover:bg-pl focus-visible:shadow-[var(--float),var(--glow-gold)]"
+            // Справа от точки места: над ней стоит пин кампании того же места, под ней — часто пин соседнего.
+            style={{ left: at.x, top: at.y, transform: 'translate(8px, -50%)' }}
+          >
+            <Icon name="ent-event" size={16} color="var(--ent-event)" title="Событие канона" />
+            <span className="type-num-12 text-tx">{lines.length}</span>
+          </button>
+        );
+      }) : null}
 
       {pins.map(pin => {
         const at = toScreen(view, vp, pin);

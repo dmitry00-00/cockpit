@@ -57,6 +57,8 @@ import { ClockBar } from './desk/ClockBar';
 import { PartyPanel } from './desk/PartyPanel';
 import { TimeView } from './desk/TimeView';
 import { PulseView } from './desk/PulseView';
+import { ChronologyView } from './desk/ChronologyView';
+import { loadEvents, type ChronoEvent } from '../world/chronology';
 import { JournalView } from './desk/JournalView';
 import { ToolsPanel } from './desk/ToolsPanel';
 /* ---------- Страница ---------- */
@@ -213,7 +215,27 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
   // Что в слоте карточки: актёр из корешка, место в фокусе лестницы или держава со стопки континента.
   const [ladderState, setLadderState] = useState<Ladder>(() => initialLadder(state));
   const [cardOf, setCardOf] = useState<CardSlot>({ kind: 'actor' });
-  const entityView = useEntity(cardOf.kind === 'entity' ? cardOf.ref : null, state);
+  // Линза года канона (ROADMAP Х3): год, выбранный в «Хронике», — карточки справочника и карта показывают канон на него.
+  // Не событие: состояние кампании не меняется; у игроков линзы нет; год кампании — линзы нет.
+  const campaignYear = harptos(state.time.sec).year;
+  const [lens, setLens] = useState<number | null>(null);
+  const lensYear = dmView && lens !== null && lens !== campaignYear ? lens : null;
+  const entityView = useEntity(cardOf.kind === 'entity' ? cardOf.ref : null, state, lensYear !== null ? eraOf(lensYear) : undefined, lensYear ?? undefined);
+  const [lensEvents, setLensEvents] = useState<readonly ChronoEvent[]>([]);
+  useEffect(() => {
+    if (lensYear === null) { setLensEvents([]); return; }
+    let live = true;
+    void loadEvents(lensYear, lensYear).then(e => { if (live) setLensEvents(e); });
+    return () => { live = false; };
+  }, [lensYear]);
+  /** События года линзы у мест справочника карты: место → строки. */
+  const eventMarks = useMemo(() => {
+    const out = new Map<string, string[]>();
+    for (const e of lensEvents) {
+      for (const l of e.links ?? []) if (l.ref?.startsWith('place:')) out.set(l.ref.slice(6), [...(out.get(l.ref.slice(6)) ?? []), e.text]);
+    }
+    return out;
+  }, [lensEvents]);
   /** Уровень планеты: глобус или плоская карта — состояние экрана, не событие. */
   const [planetView, setPlanetView] = useState<'globe' | 'map'>('globe');
   // Модель космологии на уровне «космология» — линза, не событие: Великое колесо (действует в 1492 DR) или Великое древо (1372 DR).
@@ -282,9 +304,9 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
   const places = placeChain(state);
   const scaleLabel = (sc: ScaleLevel) => (places[sc] ? `${SCALE_LABELS[sc]} · ${places[sc]}` : SCALE_LABELS[sc]);
   const stepDeltas = dmView ? (lastStep?.deltaIds ?? []).map(id => state.deltas[id]).filter(d => d?.status === 'pending') : [];
-  const views: readonly DeskView[] = dmView ? ['desk', 'time', 'pulse', 'journal'] : ['desk', 'journal'];
+  const views: readonly DeskView[] = dmView ? ['desk', 'time', 'pulse', 'chrono', 'journal'] : ['desk', 'journal'];
   // Виды «Время» и «Пульс» — экраны мастера: на столе игроков вместо них стол, а состояние вида не теряется до возврата.
-  const shownView = !dmView && (view === 'time' || view === 'pulse') ? 'desk' : view;
+  const shownView = !dmView && (view === 'time' || view === 'pulse' || view === 'chrono') ? 'desk' : view;
   const openThreads = Object.values(state.world.threads).filter(t => t.status === 'open');
   const activeId = combat ? encounter.order[encounter.turnIndex] : undefined;
   const initiative: InitiativeBarEntry[] = encounter.order.flatMap(id => {
@@ -398,6 +420,11 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
         if (playersRef.current) return;
         e.preventDefault();
         setView(v => (v === 'pulse' ? 'desk' : 'pulse'));
+      } else if (isDeskHotkey(e, 'KeyH')) {
+        // Хроника канона (ROADMAP Х3) — экран мастера.
+        if (playersRef.current) return;
+        e.preventDefault();
+        setView(v => (v === 'chrono' ? 'desk' : 'chrono'));
       } else if (isDeskHotkey(e, 'KeyT')) {
         if (playersRef.current) return;
         e.preventDefault();
@@ -1042,6 +1069,15 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
             />
           ) : shownView === 'pulse' ? (
             <PulseView state={state} mainRef={mainRef} onOpenEntity={openEntity} />
+          ) : shownView === 'chrono' ? (
+            <ChronologyView
+              mainRef={mainRef}
+              campaignYear={campaignYear}
+              year={lens ?? campaignYear}
+              onYear={y => setLens(y === campaignYear ? null : y)}
+              onOpenEntity={openEntity}
+              onShowMap={() => setView('desk')}
+            />
           ) : shownView === 'journal' ? (
             <JournalView
               mainRef={mainRef}
@@ -1148,6 +1184,7 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
                   map={map}
                   terrain={terrain}
                   gazetteer={gazetteer}
+                  lens={lensYear !== null ? { year: lensYear, marks: eventMarks, onClear: () => setLens(null) } : undefined}
                   planetView={planetView}
                   onPlanetView={setPlanetView}
                   cosmologyView={cosmologyView}

@@ -291,6 +291,25 @@ describe('справочник мест (M12)', () => {
     expect(marks()).toHaveLength(0);
   });
 
+  it('события года канона (Х3): отметка у места с числом и строками в подсказке; щелчок — карточка места; без справочника — нет', () => {
+    const marks = { year: 1479, places: new Map([['kw', ['Hillborn Dwarves recapture the Fireguard Fortress.', 'Much of the Dread Ring is destroyed.']], ['lr', ['far away']]]) };
+    render(<WorldMap passport={toril} frame={frame} frameKey="region:scn" pins={[]} gazetteer={gazetteer} eventMarks={marks} />);
+    const map = screen.getByRole('application', { name: 'Карта Toril' });
+    const mark = map.querySelector<HTMLElement>('[data-event-mark="kw"]')!;
+    expect(mark).toHaveAccessibleName('Kryptgarden Forest: события 1479 DR — 2');
+    expect(mark).toHaveAttribute('title', expect.stringContaining('Hillborn Dwarves recapture the Fireguard Fortress.'));
+    // Leilon вне окна — отметки нет.
+    expect(map.querySelector('[data-event-mark="lr"]')).toBeNull();
+    fireEvent.click(mark);
+    expect(map.querySelector('[data-part="place-info"]')).toHaveTextContent('Kryptgarden Forest');
+  });
+
+  it('без справочника (стол игроков: LevelZone не отдаёт его) — ни отметок событий, ни слоя', () => {
+    render(<WorldMap passport={toril} frame={frame} frameKey="region:scn" pins={[]} eventMarks={{ year: 1479, places: new Map([['kw', ['x']]]) }} />);
+    const map = screen.getByRole('application', { name: 'Карта Toril' });
+    expect(map.querySelector('[data-event-mark], [data-place]')).toBeNull();
+  });
+
   it('щелчок по значку — карточка ближайшего места; мимо — карточка закрывается; сдвиг — не щелчок', () => {
     const map = withGaz();
     // Центр рамки (8750, 2700) — середина окна 960×540.
