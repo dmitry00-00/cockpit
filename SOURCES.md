@@ -38,7 +38,7 @@
 
 | Источник | Что | Лицензия | Решение |
 |---|---|---|---|
-| [Forgotten Realms Wiki](https://forgottenrealms.fandom.com), дамп с S3 (`wikia_xml_dumps`) | ≈10 800 статей о местах, планах и небесных телах; божества, организации | CC BY-SA 3.0 | **берём** — в работе: `scripts/wiki-extract.py`, `scripts/world-registry.py`, карточки L3 |
+| [Forgotten Realms Wiki](https://forgottenrealms.fandom.com), дамп с S3 (`wikia_xml_dumps`) | ≈10 800 статей о местах, планах и небесных телах; божества, организации; 3068 статей-годов «N DR» | CC BY-SA 3.0 | **берём** — в работе: `scripts/wiki-extract.py`, `scripts/world-registry.py`, карточки L3; хронология — строки событий как есть, по-английски, с авторством (`content/chronology/`, 29.10) |
 | [geospatial-grimoire/forgotten-realms-wiki-parser](https://github.com/geospatial-grimoire/forgotten-realms-wiki-parser) | парсер того же дампа в Markdown | MIT | **смотрим** (свой парсер есть) |
 | [Obsidian TTRPG Atlas](https://github.com/ObsidianTTRPGProject/Obsidian-TTRPG-Atlas) | скрипты: вики → Markdown | GPL-3.0 | **смотрим** |
 | `DND.7z` от владельца (28.10, `~/Downloads/`; для проверки состава распаковывались только заметки — после решения удалены) | хранилище Obsidian по-русски: ~6000 заметок лора (≈4200 — пустые заготовки), 764 записи справочника (классы, расы, монстры, снаряжение), 476 картинок на 1,1 ГБ (183 карты, портреты, божества); среди текстов — переводы глав книг (например, храмы из Faiths & Pantheons) | не указана, переводы книг WotC | **стол** — решение владельца 28.10: хранилище для его собственного стола в Obsidian; кокпит его не использует, в продукт и репозиторий не идёт |
