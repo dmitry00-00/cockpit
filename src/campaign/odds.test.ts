@@ -49,15 +49,12 @@ describe('шансы за столом (ROADMAP 5.2–5.3)', () => {
     const attacks = sheetAttackOdds(fighter, targets);
     expect(attacks.map(a => a.name)).toEqual(['Longsword', 'Longsword · двумя руками']);
     expect(attacks[0].kind === 'attack' && attacks[0].rows[0].hit).toBeGreaterThan(0.5);
-    // Лист с заклинаниями — руками: полная книга волшебника для редактора здесь не нужна.
-    const lyra = seedState().actors.lyra;
-    const wizard = { ...lyra, sheet: { ...lyra.sheet!, spellcasting: { ability: 'int' as const, saveDc: 14, attack: 6, kind: 'spellbook' as const, maxLevel: 3, cantrips: ['acid-splash', 'fire-bolt'], spells: ['burning-hands'], always: [] } } };
-    const spells = sheetSpellOdds(wizard, targets);
-    // Acid Splash и Burning Hands — спасбросок Dexterity; Fire Bolt — атака заклинанием, не спасбросок.
-    expect(spells.map(s => s.name)).toEqual(['Acid Splash', 'Burning Hands']);
-    expect(spells[0]).toMatchObject({ kind: 'save', ability: 'dex', dc: 14 });
-    // Bandit: DEX 12 → +1; провал против DC 14 — грани 1…12.
-    expect(spells[0].kind === 'save' && spells[0].rows[0].fail).toBeCloseTo(0.6, 12);
+    // Lyra из сида (29.10 — заклинания SRD): со спасброском в тексте — пять; Fire Bolt и Magic Missile — не спасбросок.
+    const spells = sheetSpellOdds(seedState().actors.lyra, targets);
+    expect(spells.map(s => s.name)).toEqual(['Acid Splash', 'Burning Hands', 'Web', 'Hold Person', 'Fireball']);
+    expect(spells[0]).toMatchObject({ kind: 'save', ability: 'dex', dc: 15 });
+    // Bandit: DEX 12 → +1; провал против DC 15 — грани 1…13.
+    expect(spells[0].kind === 'save' && spells[0].rows[0].fail).toBeCloseTo(0.65, 12);
   });
 
   it('снаряжение сида (29.10): у Bo длинный лук с помехой — Маленький с тяжёлым; преимущество её гасит', () => {

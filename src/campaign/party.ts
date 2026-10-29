@@ -15,6 +15,11 @@
 // не называет; варианты (a)/(b) выбраны под доспех §13 и расу: Korrin — warhammer (Dwarven Combat Training) и ручные
 // топоры, Lyra — кинжал (фехтовальный, DEX лучше STR). Длинный лук Bo — обязательная часть набора следопыта; полурослик
 // Маленький, поэтому лук с помехой (build.ts, HEAVY_RULE).
+//
+// Заклинания — из списков классов SRD (решение владельца 29.10: «добавь заклинания»); число — по SRD на 5-м уровне,
+// derive.ts проверяет. Выбор — предложение под роль: Bo — разведчик (Hunter's Mark из лога сида), Lyra — боевой
+// волшебник (Mage Armor из лога сида; заговор высшего эльфа — Light), Aldric — целитель Lathander: домен Life
+// (у Lathander в 5e Life и Light, в SRD есть только Life) даёт шесть всегда подготовленных сверх восьми.
 import type { SrdClassId } from '../rules/srd';
 import { CLASS_START } from '../rules/srd/equipment';
 import { inventoryOf } from './build';
@@ -40,6 +45,7 @@ export const BO: PcSpec = {
   shield: false,
   // Чешуйчатый, два коротких меча, набор путешественника; длинный лук и 20 стрел — в наборе всегда.
   equipment: kit('ranger', [0, 0, 1]),
+  spells: ['hunters-mark', 'cure-wounds', 'goodberry', 'pass-without-trace'],
   skills: ['stealth', 'survival', 'nature'],
   // С референс-карточки владельца (лист Bo): Neutral, 3'2", 38 lbs, 26 лет.
   alignment: 'Нейтральный',
@@ -76,6 +82,13 @@ export const LYRA: PcSpec = {
   mageArmor: true,
   // Кинжал, мешочек с компонентами, набор учёного; книга заклинаний — в наборе всегда.
   equipment: kit('wizard', [1, 0, 0]),
+  choices: { 'race-cantrip': ['light'] },
+  spells: [
+    'fire-bolt', 'acid-splash', 'mage-hand', 'prestidigitation',
+    'mage-armor', 'magic-missile', 'shield', 'detect-magic', 'sleep', 'burning-hands', 'identify',
+    'misty-step', 'invisibility', 'web', 'hold-person',
+    'fireball', 'counterspell', 'fly',
+  ],
   skills: ['arcana', 'history'],
 };
 
@@ -84,6 +97,7 @@ export const ALDRIC: PcSpec = {
   name: 'Brother Aldric',
   raceId: 'celovek',
   classId: 'jrec',
+  subclassId: 'jrec-jizni',
   level: PARTY_LEVEL,
   base: { str: 12, dex: 14, con: 13, int: 8, wis: 15, cha: 10 },
   improvements: [{ level: 4, asi: { wis: 1, str: 1 } }],
@@ -91,6 +105,10 @@ export const ALDRIC: PcSpec = {
   shield: true,
   // Булава, чешуйчатый, лёгкий арбалет и 20 болтов, набор священника, амулет-символ; щит — в наборе всегда.
   equipment: kit('cleric', [0, 0, 0, 0, 0], { 4: ['amulet'] }),
+  spells: [
+    'sacred-flame', 'light', 'thaumaturgy', 'guidance',
+    'healing-word', 'shield-of-faith', 'guiding-bolt', 'command', 'aid', 'hold-person', 'spirit-guardians', 'dispel-magic',
+  ],
   skills: ['medicine', 'religion'],
   // Бога §13 не называет — Lathander (домены 5e Life, Light; Faerûnian pantheon): решение владельца 28.10.2026 (E8).
   deity: { id: 'lathander', name: 'Lathander' },

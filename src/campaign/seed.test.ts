@@ -74,6 +74,20 @@ describe('партия §13', () => {
     for (const p of PARTY) expect(p.equipment?.length, p.name).toBeGreaterThan(0);
   });
 
+  it('заклинания — списки SRD (29.10): DC и атака по листу, домен Life у Aldric — шесть всегда подготовленных', () => {
+    const actors = seedEngine(fixed()).getState().state.actors;
+    const sc = (id: string) => actors[id].sheet?.spellcasting;
+    expect(sc('korrin')).toBeUndefined();
+    expect(sc('bo')).toMatchObject({ ability: 'wis', saveDc: 13, kind: 'known', cantrips: [] });
+    expect(sc('bo')!.spells).toContain('hunters-mark');
+    expect(sc('lyra')).toMatchObject({ ability: 'int', saveDc: 15, attack: 7, kind: 'spellbook', maxLevel: 3 });
+    expect([sc('lyra')!.cantrips.length, sc('lyra')!.spells.length]).toEqual([4, 14]);
+    expect(sc('lyra')!.spells).toContain('mage-armor');
+    expect(sc('aldric')).toMatchObject({ ability: 'wis', saveDc: 14, kind: 'prepared' });
+    expect([sc('aldric')!.cantrips.length, sc('aldric')!.spells.length, sc('aldric')!.always.length]).toEqual([4, 8, 6]);
+    expect(actors.aldric.sheet?.subclassId).toBe('jrec-jizni');
+  });
+
   it('битый лог в хранилище не роняет стол: хранилище очищается, стор поднимается из сида, причина — в onRecover', () => {
     const persist = memoryStore();
     // Событие, которое не пройдёт validate: урон по актёру, которого в сиде нет.
