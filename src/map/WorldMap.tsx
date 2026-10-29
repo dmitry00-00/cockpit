@@ -13,7 +13,7 @@ import { DIFFICULT, difficultLabel, routeTerrain, type RouteTerrain, type Terrai
 import { ENCOUNTER_TYPE_LABEL, journeyLegs, supplyNeeded, type RegionTier } from '../rules/a5e/journey';
 import type { ScaleLevel } from '../engine/events';
 import type { Explored } from './fog';
-import { KIND_LABEL, placeNear, searchPlaces, wikiUrl, type GazetteerPlace } from './gazetteer';
+import { KIND_LABEL, layerPlaces, placeNear, searchPlaces, wikiUrl, type GazetteerPlace } from './gazetteer';
 import {
   clampView, fitBox, hexCenters, panBy, pathMiles, scaleBar, tilesAt, toMap, toScreen, zoomAt, zoomLevelFor,
   type MapBox, type MapPassport, type MapPoint, type MapView, type Viewport,
@@ -282,6 +282,8 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
   const [view, setView] = useState<MapView>(() => fitBox(passport, FALLBACK_VP, frame));
   const [hexOn, setHexOn] = useState(true);
   const [fogOn, setFogOn] = useState(false);
+  /** Слой «Справочник»: места с карточками маркерами (29.10, только мастеру — справочник у игроков не передаётся). */
+  const [layerOn, setLayerOn] = useState(true);
   const [tool, setTool] = useState<Tool>('none');
   const [ruler, setRuler] = useState<MapPoint[]>([]);
   /** Конец похода — пин места; пока его нет, отправиться некуда. */
@@ -487,6 +489,12 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
   const partyAt = party ? toScreen(view, vp, party) : null;
   const foundAt = found ? toScreen(view, vp, found) : null;
   const inside = (p: MapPoint) => p.x > -200 && p.y > -40 && p.x < vp.w + 200 && p.y < vp.h + 40;
+  // Слой справочника — по рамке экрана в координатах исходника; пины кампании рисуются поверх.
+  const layer = gazetteer && layerOn && tool === 'none' ? (() => {
+    const a = toMap(view, vp, { x: 0, y: 0 });
+    const b = toMap(view, vp, { x: vp.w, y: vp.h });
+    return layerPlaces(gazetteer, { x0: a.x, y0: a.y, x1: b.x, y1: b.y });
+  })() : [];
 
   return (
     <div
@@ -587,6 +595,28 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
         />
       ) : null}
 
+      {layer.map(p => {
+        const at = toScreen(view, vp, p);
+        const kind = KIND_LABEL[p.kind];
+        const title = `${p.name}${kind ? ` · ${kind}` : ''} · карточка справочника${p.approx ? ' · позиция по GIS: значок на растре не найден' : ''}`;
+        return (
+          <button
+            key={p.id}
+            type="button"
+            data-place={p.id}
+            data-approx={p.approx || undefined}
+            aria-label={title}
+            title={title}
+            onClick={() => setFound(p)}
+            className="absolute size-4 grid place-items-center -translate-x-1/2 -translate-y-1/2 cursor-pointer focus-visible:shadow-[var(--glow-gold)]"
+            style={{ left: at.x, top: at.y }}
+          >
+            {/* Форма, а не только цвет: залитый — на значке растра, полый — позиция по GIS. Имя — на растре и в подсказке. */}
+            <span className={`size-2 ${p.approx ? 'shadow-[inset_0_0_0_2px_var(--ent-loc),0_0_0_1px_var(--lo)]' : 'bg-ent-loc shadow-[0_0_0_1px_var(--lo)]'}`} />
+          </button>
+        );
+      })}
+
       {pins.map(pin => {
         const at = toScreen(view, vp, pin);
         if (!inside(at)) return null;
@@ -654,6 +684,11 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
             className={BTN}
           >
             Гексы
+          </button>
+        ) : null}
+        {gazetteer && gazetteer.length > 0 ? (
+          <button type="button" aria-pressed={layerOn} title="Справочник: места с карточками — залитый квадрат на значке растра, полый — позиция по GIS; при отдалении — сначала города; щелчок — карточка" onClick={() => setLayerOn(v => !v)} className={BTN}>
+            Справочник
           </button>
         ) : null}
         {fog && !fog.forced ? (

@@ -2,7 +2,7 @@
 // (Toril GIS: имена, классы, позиции значков растра) и <id>-cards.json (карточки по-русски из ночной разметки L3,
 // CC BY-SA 3.0 Forgotten Realms Wiki). Это справка мастера, не состояние: место из справочника становится местом
 // мира только через предложение с patch. Файлы тяжёлые — грузятся отдельным куском, когда открыта карта.
-import type { MapPoint } from './projection';
+import type { MapBox, MapPoint } from './projection';
 
 export interface PlaceCardText {
   what?: string;
@@ -87,6 +87,29 @@ export function searchPlaces(list: readonly GazetteerPlace[], query: string, lim
     .sort((a, b) => a.s - b.s || Number(!a.p.card) - Number(!b.p.card) || a.p.name.localeCompare(b.p.name))
     .slice(0, limit)
     .map(x => x.p);
+}
+
+/**
+ * Очередь класса на слое «Справочник» (29.10): поселения — первыми, затем крепости, руины и храмы, затем местность.
+ * Только порядок прореживания, не важность места в мире.
+ */
+export function kindRank(kind: string): number {
+  const k = kind.toLowerCase();
+  if (/city|capital|metropolis/.test(k)) return 0;
+  if (/town|settlement/.test(k)) return 1;
+  if (/fort|castle|keep|ruin|temple|tower|monast|tomb|mine|village|inn/.test(k)) return 2;
+  return 3;
+}
+
+/**
+ * Места слоя «Справочник» в рамке исходника: только с карточкой (наработанные ночной разметкой), в очереди класса,
+ * не больше limit — при отдалении остаются города, при приближении появляется остальное.
+ */
+export function layerPlaces(list: readonly GazetteerPlace[], box: MapBox, limit = 150): GazetteerPlace[] {
+  return list
+    .filter(p => p.card && p.x >= box.x0 && p.x <= box.x1 && p.y >= box.y0 && p.y <= box.y1)
+    .sort((a, b) => kindRank(a.kind) - kindRank(b.kind) || a.name.localeCompare(b.name))
+    .slice(0, limit);
 }
 
 /**

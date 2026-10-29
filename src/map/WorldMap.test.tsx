@@ -272,6 +272,25 @@ describe('справочник мест (M12)', () => {
     expect(map.querySelector('[data-part="place-info"]')).toBeNull();
   });
 
+  it('слой «Справочник» (29.10): маркеры мест с карточкой, полый — позиция по GIS; щелчок — карточка; кнопка и линейка прячут', () => {
+    const map = withGaz();
+    const marks = () => [...map.querySelectorAll<HTMLElement>('[data-place]')];
+    // Leilon без карточки и вне окна — не рисуется; Port Llast — на значке растра, Kryptgarden — позиция по GIS.
+    expect(marks().map(m => m.dataset.place)).toEqual(['pt', 'kw']);
+    expect(marks()[0]).toHaveAccessibleName('Port Llast · городок · карточка справочника');
+    expect(marks()[1]).toHaveAttribute('data-approx', 'true');
+    expect(marks()[1]).toHaveAttribute('title', expect.stringMatching(/^Kryptgarden Forest · .* · позиция по GIS: значок на растре не найден$/));
+    fireEvent.click(marks()[1]);
+    expect(map.querySelector('[data-part="place-info"]')).toHaveTextContent('Kryptgarden Forest');
+    const toggle = screen.getByRole('button', { name: 'Справочник' });
+    expect(toggle).toHaveAttribute('aria-pressed', 'true');
+    fireEvent.click(toggle);
+    expect(marks()).toHaveLength(0);
+    fireEvent.click(toggle);
+    fireEvent.click(screen.getByRole('button', { name: 'Линейка' }));
+    expect(marks()).toHaveLength(0);
+  });
+
   it('щелчок по значку — карточка ближайшего места; мимо — карточка закрывается; сдвиг — не щелчок', () => {
     const map = withGaz();
     // Центр рамки (8750, 2700) — середина окна 960×540.

@@ -1,7 +1,7 @@
 // Справочник мест карты: слияние GIS и карточек, поиск по имени, место под щелчком; и сами файлы данных.
 import { describe, expect, it } from 'vitest';
 import cardsFile from '../../content/maps/toril-cards.json';
-import { KIND_LABEL, fold, loadGazetteer, mergeGazetteer, placeNear, searchPlaces, type GazetteerPlace } from './gazetteer';
+import { KIND_LABEL, fold, kindRank, layerPlaces, loadGazetteer, mergeGazetteer, placeNear, searchPlaces, type GazetteerPlace } from './gazetteer';
 
 const list: GazetteerPlace[] = [
   { id: '1', name: 'Neverwinter', nameRu: 'Невервинтер', kind: 'City', x: 100, y: 100, card: { what: 'Город.' } },
@@ -32,6 +32,21 @@ describe('справочник мест', () => {
     expect(placeNear(lab, { x: 35, y: 0 }, 10, 40)?.id).toBe('l');
     expect(placeNear(lab, { x: 44, y: 0 }, 10, 40)?.id).toBe('i');
     expect(placeNear(lab, { x: 0, y: 60 }, 10, 40)).toBeUndefined();
+  });
+
+  it('слой «Справочник»: только с карточкой и в рамке; сначала города, затем городки, крепости, местность; не больше limit', () => {
+    const card = { what: 'x' };
+    const list: GazetteerPlace[] = [
+      { id: 'f', name: 'Wood', kind: 'Temperate Forest', x: 5, y: 5, card },
+      { id: 'r', name: 'Ruin', kind: 'Ruins', x: 5, y: 5, card },
+      { id: 'c', name: 'City', kind: 'City', x: 5, y: 5, card },
+      { id: 't', name: 'Town', kind: 'settlement', x: 5, y: 5, card },
+      { id: 'n', name: 'No card', kind: 'City', x: 5, y: 5 },
+      { id: 'o', name: 'Outside', kind: 'City', x: 50, y: 5, card },
+    ];
+    expect(layerPlaces(list, { x0: 0, y0: 0, x1: 10, y1: 10 }).map(p => p.id)).toEqual(['c', 't', 'r', 'f']);
+    expect(layerPlaces(list, { x0: 0, y0: 0, x1: 10, y1: 10 }, 2).map(p => p.id)).toEqual(['c', 't']);
+    expect([kindRank('Capital'), kindRank('Town'), kindRank('Fortification'), kindRank('river')]).toEqual([0, 1, 2, 3]);
   });
 
   it('слияние: карточка ложится на место GIS, место только из карточек добавляется', () => {
