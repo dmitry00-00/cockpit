@@ -15,9 +15,9 @@ describe('лист персонажа: ресурсы, сроки состоян
     const header = card.querySelector('[data-part="pc-header"]')!;
     expect(header).toHaveTextContent('Bo Tambernack5Раса: Полурослик · ЛегконогийКласс: СледопытПолурослик · Легконогий · СледопытМировоззрениеНейтральныйСкорость25 фтРост97 смВес17 кгВозраст26 лет');
     expect([...header.querySelectorAll('[data-part="emblem"] svg title')].map(t => t.textContent)).toEqual(['Раса: Полурослик · Легконогий', 'Класс: Следопыт']);
-    expect(within(card).getByTitle('Strength: +1 · спасбросок +4 (владение)')).toBeInTheDocument();
-    expect(within(card).getByTitle('Dexterity: +3 · спасбросок +6 (владение)')).toBeInTheDocument();
-    expect(within(card).getByTitle('Wisdom: +2 · спасбросок +2')).toBeInTheDocument();
+    expect(within(card).getByTitle(/^Strength: \+1 · спасбросок \+4 \(владение\)\sспасбросок \+4 = 1 \(STR 12\) \+ 3 \(владение спасброском\)$/)).toBeInTheDocument();
+    expect(within(card).getByTitle(/^Dexterity: \+3 · спасбросок \+6 \(владение\)\s/)).toBeInTheDocument();
+    expect(within(card).getByTitle(/^Wisdom: \+2 · спасбросок \+2\s/)).toBeInTheDocument();
     // У Korrin на листе нет мировоззрения и тела — строк нет, пустых подписей не бывает.
     fireEvent.click(rowOf('Korrin Battlehammer'));
     const k = cardOf('Korrin Battlehammer').querySelector('[data-part="pc-header"]')!;

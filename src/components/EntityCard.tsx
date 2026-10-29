@@ -76,6 +76,8 @@ export interface EntityStat {
   title?: string;
   /** Есть колбэк — ячейка кнопка (клик по HP открывает попап хитов); нет — просто ячейка. */
   onClick?: () => void;
+  /** Ячейка-переключатель (вывод числа открыт) — aria-pressed и утопленная грань. */
+  pressed?: boolean;
 }
 
 export interface EntityCardProps extends Omit<ComponentPropsWithRef<'section'>, 'children'> {
@@ -144,7 +146,10 @@ const TAB = [
   'focus-visible:shadow-[var(--bevel),var(--glow-gold)]',
 ].join(' ');
 
-const STAT_CELL = 'min-w-0 flex flex-col items-center px-1 py-1 bg-linear-to-b from-pl to-cd shadow-bevel';
+const STAT_BASE = 'min-w-0 flex flex-col items-center px-1 py-1 bg-linear-to-b from-pl to-cd';
+const STAT_CELL = `${STAT_BASE} shadow-bevel`;
+/** Нажатая ячейка (открыт вывод числа): утопленная грань и золотая черта снизу — как нажатая плитка IconGrid. */
+const STAT_ON = `${STAT_BASE} shadow-[var(--bevel-in),inset_0_-3px_0_var(--gd)]`;
 
 function renderBody(node: EntityCardProps['children'], tab: string | undefined): ReactNode {
   return typeof node === 'function' ? node(tab ?? '') : node;
@@ -218,7 +223,8 @@ export function EntityCard({
             type="button"
             title={s.title ?? s.label}
             onClick={s.onClick}
-            className={`${STAT_CELL} ${grow} cursor-pointer hover:from-pl hover:to-pl active:shadow-bevel-in focus-visible:shadow-[var(--bevel),var(--glow-gold)]`}
+            aria-pressed={s.pressed}
+            className={`${s.pressed ? STAT_ON : STAT_CELL} ${grow} cursor-pointer hover:from-pl hover:to-pl active:shadow-bevel-in focus-visible:shadow-[var(--bevel),var(--glow-gold)]`}
           >
             {inner}
           </button>
@@ -292,6 +298,10 @@ export interface ActorCardOptions {
   hitDice?: { available: number; total: number; die: number };
   /** Стол игроков (Q1): у монстра нет чисел — ни CR, ни хитов, ни AC; состояние словами, вкладки «Действия» нет. */
   players?: boolean;
+  /** Вывод числа листа (ROADMAP 5.4): клик по AC, ИНИЦ, PP, КХ (максимум хитов) — из чего число. Нет — ячейки не кнопки. */
+  onExplain?: (key: 'ac' | 'initiative' | 'pp' | 'hp') => void;
+  /** Какой вывод открыт — ячейка нажата. */
+  explaining?: string;
 }
 
 /**
@@ -302,7 +312,7 @@ export interface ActorCardOptions {
  * страница — карточка знает только их коды.
  */
 export function actorCardProps(actor: Actor, opts: ActorCardOptions = {}): ActorCardProps {
-  const { onHp, dmFacts = 0, initiative, hitDice, players = false } = opts;
+  const { onHp, dmFacts = 0, initiative, hitDice, players = false, onExplain, explaining } = opts;
   const dm = dmFacts > 0 ? [TAB_DM] : [];
   if (actor.kind === 'monster' && actor.monsterId) {
     const m = MONSTERS[actor.monsterId];
@@ -332,13 +342,17 @@ export function actorCardProps(actor: Actor, opts: ActorCardOptions = {}): Actor
   const sheet = actor.sheet;
   const badges: string[] = [];
   if (sheet) badges.push(`${sheet.level} ур.`, classById(sheet.classId)?.nameRu ?? sheet.classId);
+  // Вывод — только у листа: у NPC без листа числа вбиты, выводить не из чего.
+  const why = (key: 'ac' | 'initiative' | 'pp' | 'hp', title: string, what = 'из чего'): Partial<EntityStat> => (sheet && onExplain
+    ? { title: `${title} · щелчок — ${what}`, onClick: () => onExplain(key), pressed: explaining === key }
+    : { title });
   const stats: EntityStat[] = [
     hpStat(actor.hp, onHp),
-    { label: 'AC', value: String(actor.ac), title: 'Класс доспеха' },
-    { label: 'PP', value: String(actor.passivePerception), title: 'Пассивная внимательность' },
+    { label: 'AC', value: String(actor.ac), ...why('ac', 'Класс доспеха') },
+    { label: 'PP', value: String(actor.passivePerception), ...why('pp', 'Пассивная внимательность') },
   ];
-  if (initiative !== undefined) stats.splice(2, 0, { label: 'ИНИЦ', value: signedMod(initiative), title: 'Инициатива: d20 + модификатор DEX' });
-  if (hitDice) stats.push({ label: 'КХ', value: `${hitDice.available}/${hitDice.total}`, title: `Кости хитов d${hitDice.die}: осталось ${hitDice.available} из ${hitDice.total}` });
+  if (initiative !== undefined) stats.splice(2, 0, { label: 'ИНИЦ', value: signedMod(initiative), ...why('initiative', 'Инициатива: d20 + модификатор DEX') });
+  if (hitDice) stats.push({ label: 'КХ', value: `${hitDice.available}/${hitDice.total}`, ...why('hp', `Кости хитов d${hitDice.die}: осталось ${hitDice.available} из ${hitDice.total}`, `из чего максимум хитов ${actor.hp.max}`) });
   return {
     type: actor.kind === 'pc' ? 'pc' : 'npc',
     name: actor.name,

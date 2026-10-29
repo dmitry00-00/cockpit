@@ -97,6 +97,7 @@ export { EntityViewBody, GroupList, cardTypeOf, type EntityViewBodyProps } from 
 export { NeighborhoodGraph, type NeighborhoodGraphProps } from './NeighborhoodGraph';
 export { FactionGraph, edgeStyle, type FactionGraphProps } from './FactionGraph';
 export { OddsTable, faceNeeded } from './OddsTable';
+export { DerivationPanel } from './DerivationPanel';
 export { OpenEntityContext, useOpenEntity } from './openEntity';
 export { HarptosDial, PHASE_HOURS, dialPoint, type HarptosDialProps } from './HarptosDial';
 // Ресурсы персонажа пипками (решение владельца 21.09.2026): максимум и потраченное пропсами, события пишет страница.

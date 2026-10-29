@@ -79,14 +79,14 @@ export function SheetFeats({ sheet }: { sheet: Pick<CharacterSheet, 'feats'> }) 
 const damageText = (damage: string, type: string) => `${damage}${type ? ` ${DAMAGE_LABEL[type] ?? type}` : ''}`;
 
 /** Атаки оружием из снаряжения: бонус и урон уже посчитаны листом. Без владения — подпись, а не цвет. */
-export function SheetAttacks({ sheet }: { sheet: Pick<CharacterSheet, 'attacks'> }) {
+export function SheetAttacks({ sheet, hints = {} }: { sheet: Pick<CharacterSheet, 'attacks'>; hints?: Readonly<Record<string, string>> }) {
   const list = sheet.attacks ?? [];
   if (list.length === 0) return null;
   return (
     <Section title="Атаки">
       <ul className="flex flex-col gap-0.5" aria-label="Атаки листа">
         {list.map(a => (
-          <li key={a.id} className="flex items-baseline gap-2 type-body-sm" title={`${a.name}: ${signedMod(a.toHit)} к попаданию, ${damageText(a.damage, a.damageType)}${a.range ? `, дистанция ${a.range} фт` : ''}${a.proficient ? '' : ' · без владения'}${a.disadvantage ? ` · с помехой: ${a.disadvantage}` : ''}`}>
+          <li key={a.id} className="flex items-baseline gap-2 type-body-sm" title={`${a.name}: ${signedMod(a.toHit)} к попаданию, ${damageText(a.damage, a.damageType)}${a.range ? `, дистанция ${a.range} фт` : ''}${a.proficient ? '' : ' · без владения'}${a.disadvantage ? ` · с помехой: ${a.disadvantage}` : ''}${hints[a.id] ? `\nпопадание ${hints[a.id]}` : ''}`}>
             <span className="type-num-12 text-gd w-7 flex-none">{signedMod(a.toHit)}</span>
             <span className="text-tx flex-1 min-w-0 truncate">{a.name}{a.proficient ? '' : <span className="type-key text-t3"> без владения</span>}{a.disadvantage ? <span className="type-key text-t3"> с помехой</span> : ''}</span>
             <span className="type-num-12 text-t2 flex-none whitespace-nowrap">{a.damage}</span>
@@ -109,7 +109,7 @@ export function spellTitle(id: string): string {
  * Заклинания листа: Сл спасброска и бонус атаки, заговоры, заклинания по кругам; «всегда подготовленные» (домен,
  * клятва) — с пометкой. Имена — английские, как в SRD (по ним ищут в книге).
  */
-export function SheetSpells({ sheet, extra }: { sheet: Pick<CharacterSheet, 'spellcasting'>; extra?: ReactNode }) {
+export function SheetSpells({ sheet, extra, hint }: { sheet: Pick<CharacterSheet, 'spellcasting'>; extra?: ReactNode; hint?: string }) {
   const sc = sheet.spellcasting;
   if (!sc) return null;
   const leveled = [...sc.spells.map(id => ({ id, always: false })), ...sc.always.map(id => ({ id, always: true }))]
@@ -126,7 +126,7 @@ export function SheetSpells({ sheet, extra }: { sheet: Pick<CharacterSheet, 'spe
     ref: `spell:${id}` as const,
   });
   return (
-    <Section title="Заклинания" right={<span className="type-key text-t2 whitespace-nowrap" title={`Заклинательная характеристика ${ABILITIES[sc.ability].code}: Сл спасброска ${sc.saveDc}, бонус атаки ${signedMod(sc.attack)}`}>{ABILITIES[sc.ability].code} · Сл {sc.saveDc} · атака {signedMod(sc.attack)}</span>}>
+    <Section title="Заклинания" right={<span className="type-key text-t2 whitespace-nowrap" title={`Заклинательная характеристика ${ABILITIES[sc.ability].code}: Сл спасброска ${sc.saveDc}, бонус атаки ${signedMod(sc.attack)}${hint ? `\n${hint}` : ''}`}>{ABILITIES[sc.ability].code} · Сл {sc.saveDc} · атака {signedMod(sc.attack)}</span>}>
       <div className="flex flex-col gap-2" data-part="spells">
         {sc.cantrips.length > 0 ? (
           <div className="flex flex-col gap-1">

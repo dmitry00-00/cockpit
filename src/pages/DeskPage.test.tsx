@@ -32,8 +32,8 @@ describe('стол на сиде', () => {
     const badges = within(card).getAllByText(/./, { selector: '[data-part="badge"]' }).map(b => b.textContent);
     expect(badges).toEqual(['5 ур.', 'Следопыт']); // раса — строкой в обзоре, третий бейдж обрезал имя
     expect(within(card).getByText('Полурослик · Легконогий · Следопыт')).toBeInTheDocument();
-    expect(within(card).getByTitle('Класс доспеха')).toHaveTextContent('16');
-    expect(within(card).getByTitle('Пассивная внимательность')).toHaveTextContent('12');
+    expect(within(card).getByTitle('Класс доспеха · щелчок — из чего')).toHaveTextContent('16');
+    expect(within(card).getByTitle('Пассивная внимательность · щелчок — из чего')).toHaveTextContent('12');
     expect(within(card).getByRole('region', { name: 'Навыки' })).toHaveTextContent('Владение +3');
   });
 
@@ -205,8 +205,8 @@ describe('стол на сиде', () => {
     const card = cardOf('Korrin Battlehammer');
     const badges = within(card).getAllByText(/./, { selector: '[data-part="badge"]' }).map(b => b.textContent);
     expect(badges).toEqual(['5 ур.', 'Воин']);
-    expect(within(card).getByTitle('Класс доспеха')).toHaveTextContent('18');
-    expect(within(card).getByTitle('Пассивная внимательность')).toHaveTextContent('14');
+    expect(within(card).getByTitle('Класс доспеха · щелчок — из чего')).toHaveTextContent('18');
+    expect(within(card).getByTitle('Пассивная внимательность · щелчок — из чего')).toHaveTextContent('14');
 
     tab('Снаряжение');
     expect(screen.getByRole('button', { name: 'Доспех: Chain mail' })).toHaveAttribute('data-filled', 'true');
@@ -313,6 +313,29 @@ describe('стол на сиде', () => {
     fireEvent.keyDown(window, { key: 'p', code: 'KeyP' });
     expect(screen.queryByRole('region', { name: 'Шансы по противникам' })).toBeNull();
     expect(document.querySelector('[data-part="odds"]')).toBeNull();
+  });
+
+  it('дерево вывода (ROADMAP 5.4): AC 18 у Aldric — доспех 14 + DEX 2 + щит 2, строка SRD щелчком; КХ — максимум хитов; Esc закрывает', () => {
+    mount();
+    fireEvent.click(rowOf('Brother Aldric'));
+    const card = cardOf('Brother Aldric');
+    const ac = within(card).getByTitle('Класс доспеха · щелчок — из чего');
+    expect(ac).toHaveAttribute('aria-pressed', 'false');
+    fireEvent.click(ac);
+    expect(ac).toHaveAttribute('aria-pressed', 'true');
+    const panel = within(card).getByRole('region', { name: 'Из чего: AC' });
+    expect(panel).toHaveTextContent('AC 18 — из чего');
+    expect([...panel.querySelectorAll('li')].map(li => li.querySelector('summary, div')!.textContent)).toEqual([
+      '14Scale mail, среднийSRD', '+ 2DEX 15SRD', '+ 2щитSRD',
+    ]);
+    expect(panel.querySelector('li:last-child p')).toHaveTextContent('Wielding a shield increases your Armor Class by 2.');
+    // Другое число — та же панель с другим выводом; повторный щелчок — закрывает.
+    fireEvent.click(within(card).getByTitle('Кости хитов d8: осталось 5 из 5 · щелчок — из чего максимум хитов 38'));
+    expect(within(card).getByRole('region', { name: 'Из чего: Максимум хитов' })).toHaveTextContent('Максимум хитов 38 — из чего');
+    fireEvent.keyDown(window, { key: 'Escape' });
+    expect(within(card).queryByRole('region', { name: /^Из чего/ })).toBeNull();
+    // Навык и атака — выводом в подсказке.
+    expect(within(card).getByTitle(/^Медицина \(WIS\) \+6.*\s\+6 = 3 \(WIS 17\) \+ 3 \(владение навыком\)$/)).toBeInTheDocument();
   });
 
   it('кнопка «Хиты» в карточке открывает тот же попап; повторный клик по ячейке HP его не закрывает; Esc закрывает', async () => {

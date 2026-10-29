@@ -38,3 +38,4 @@ export {
   type HolyDay, type HolyDeity, type HolyRule, type HolyScope, type NextHolyDay, type Solar,
 } from './holyDays';
 export { actionOdds, monsterSaves, oddsTargetOf, sheetAttackOdds, sheetSpellOdds, type ActionOdds, type AttackRow, type OddsTarget, type SaveRow } from './odds';
+export { explain, explainText, signedTotal, type DeriveStep, type ExplainKey, type Explanation } from './explain';

@@ -1,7 +1,10 @@
 // Тела карточки стола: обзор персонажа и монстра, действия монстра, вкладка DM, обзор места и державы,
 // мелкая разметка секций. Тупые: всё — пропсами, стор не читают.
 import { useState, type ReactNode } from 'react';
-import { abilityMod, actionOdds, sheetAttackOdds, sheetSpellOdds, eraOf, harptos, poolLabel, resourcePoolsOf, sheetViewOf, type OddsTarget } from '../../campaign';
+import {
+  abilityMod, actionOdds, sheetAttackOdds, sheetSpellOdds, eraOf, explain, explainText, harptos, poolLabel, resourcePoolsOf, sheetViewOf,
+  type ExplainKey, type OddsTarget,
+} from '../../campaign';
 import {
   ConditionChip, ResourcePips, StatTile, SCALE_LABELS, chipsOf, exhaustionCommand, signedMod, toggleCommand, SKILL_LABEL, SheetAttacks, IconGrid,
   classIcon, featureIcon, raceIcon, traitIcon, AbilityScores, DataPassport, PcHeader, SkillList, type PassportData, type PcHeaderData, SheetChoices,
@@ -110,13 +113,19 @@ function ChipsRow({ actor, worldSec, onCommand, dmView }: Pick<BodyProps, 'actor
   );
 }
 
+/** Вывод числа листа строкой для подсказки (ROADMAP 5.4): «+6 = 3 (DEX 16) + 3 (владение навыком)»; Сл — без знака. */
+function hintOf(actor: Actor, key: ExplainKey): string | undefined {
+  const e = explain(actor, key);
+  return e ? explainText(e, key !== 'spellDc') : undefined;
+}
+
 /** Навыки списком по карточке владельца — в одиночной карточке две колонки под характеристиками, в оверлее 720px — второй колонкой в одну. */
 export function PcSkills({ actor, onRoll, columns = 2 }: Pick<BodyProps, 'actor' | 'onRoll'> & { columns?: 1 | 2 }) {
   const view = sheetViewOf(actor);
   if (!view) return null;
   return (
     <SkillList
-      skills={view.skills}
+      skills={view.skills.map(s => ({ ...s, hint: hintOf(actor, `skill:${s.id}`) }))}
       proficiencyBonus={view.proficiencyBonus}
       columns={columns}
       onRoll={s => onRoll(d20Formula(s.mod), `${SKILL_LABEL[s.id]} · ${actor.name}`)}
@@ -205,14 +214,14 @@ export function PcOverview({ actor, worldSec, onRoll, onCommand, tools, dmView, 
       <PcHeader data={pcHeaderData(sheet, symbol)} name={actor.name} />
       {dmView && passport ? <DataPassport passport={passport} /> : null}
       <AbilityScores
-        abilities={view.abilities}
+        abilities={view.abilities.map(a => ({ ...a, hint: `спасбросок ${hintOf(actor, `save:${a.id}`) ?? ''}` }))}
         right={tools}
         onRoll={a => onRoll(d20Formula(a.mod), `${ABILITIES[a.id].code} · ${actor.name}`)}
       />
       <PcResources actor={actor} onCommand={onCommand} dmView={dmView} />
       {skills ? <PcSkills actor={actor} onRoll={onRoll} /> : null}
-      <SheetAttacks sheet={sheet} />
-      <SheetSpells sheet={sheet} />
+      <SheetAttacks sheet={sheet} hints={Object.fromEntries((sheet.attacks ?? []).map(a => [a.id, hintOf(actor, `attack:${a.id}`) ?? '']))} />
+      <SheetSpells sheet={sheet} hint={sheet.spellcasting ? `Сл ${hintOf(actor, 'spellDc')}\nатака ${hintOf(actor, 'spellAttack')}` : undefined} />
       {dmView && enemies.length ? <PcOdds actor={actor} targets={enemies} /> : null}
       <ChipsRow actor={actor} worldSec={worldSec} onCommand={onCommand} dmView={dmView} />
       {sheet.features.length > 0 ? (

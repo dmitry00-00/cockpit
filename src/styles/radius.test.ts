@@ -7,12 +7,14 @@ import { join } from 'node:path';
 function walk(dir: string, out: string[] = []): string[] {
   for (const n of readdirSync(dir)) {
     const p = join(dir, n);
-    if (statSync(p).isDirectory()) walk(p, out);
+    // Правила SRD — данные с дословным текстом («rounded up» в правиле хитов), классов и стилей в них нет.
+    if (statSync(p).isDirectory()) { if (p !== RULES) walk(p, out); }
     else if (/\.(css|tsx?|mjs)$/.test(n) && !n.endsWith('.test.ts') && !n.endsWith('.test.tsx')) out.push(p);
   }
   return out;
 }
 const SRC = new URL('..', import.meta.url).pathname;
+const RULES = join(SRC, 'rules');
 
 describe('радиус', () => {
   const files = walk(SRC);

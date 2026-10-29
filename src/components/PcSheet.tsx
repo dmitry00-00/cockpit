@@ -18,6 +18,8 @@ export interface AbilityCell {
   mod: number;
   save: number;
   saveProficient: boolean;
+  /** Из чего спасбросок — строка дерева вывода (ROADMAP 5.4) в подсказку. */
+  hint?: string;
 }
 
 export type SkillProficiency = 'none' | 'proficient' | 'expert';
@@ -27,6 +29,8 @@ export interface SkillCell {
   ability: AbilityId;
   mod: number;
   proficiency: SkillProficiency;
+  /** Из чего модификатор — строка дерева вывода (ROADMAP 5.4) в подсказку. */
+  hint?: string;
 }
 
 const ROLL_HOVER = 'cursor-pointer enabled:hover:from-pl enabled:hover:to-pl focus-visible:shadow-[var(--bevel),var(--glow-gold)]';
@@ -47,7 +51,7 @@ export function AbilityScores({ abilities, onRoll, right }: { abilities: readonl
           <button
             key={a.id}
             type="button"
-            title={`${ABILITIES[a.id].name}: ${signedMod(a.mod)} · спасбросок ${signedMod(a.save)}${a.saveProficient ? ' (владение)' : ''}`}
+            title={`${ABILITIES[a.id].name}: ${signedMod(a.mod)} · спасбросок ${signedMod(a.save)}${a.saveProficient ? ' (владение)' : ''}${a.hint ? `\n${a.hint}` : ''}`}
             onClick={onRoll ? () => onRoll(a) : undefined}
             disabled={!onRoll}
             className={`relative flex flex-col items-center gap-0.5 pt-1.5 pb-1 bg-linear-to-b from-pl to-cd ${tileEdge(a.id, false)} ${ROLL_HOVER} disabled:cursor-default`}
@@ -120,7 +124,7 @@ export function SkillList({ skills, proficiencyBonus, onRoll, columns = 2 }: {
               <button
                 type="button"
                 aria-label={`${label} ${signedMod(s.mod)}`}
-                title={`${label} (${code}) ${signedMod(s.mod)}${prof} · бросок d20`}
+                title={`${label} (${code}) ${signedMod(s.mod)}${prof} · бросок d20${s.hint ? `\n${s.hint}` : ''}`}
                 onClick={onRoll ? () => onRoll(s) : undefined}
                 disabled={!onRoll}
                 className="w-full flex items-center gap-1.5 px-1 py-0.5 text-left enabled:cursor-pointer enabled:hover:bg-cd focus-visible:shadow-[var(--glow-gold)]"

@@ -35,6 +35,7 @@ export function sheetOf(spec: PcSpec, d: DerivedCharacter): CharacterSheet {
     traits: d.traits,
     armor: spec.armor ?? undefined,
     shield: spec.shield || undefined,
+    ...(spec.mageArmor ? { mageArmor: true } : {}),
     speed: d.speed,
     alignment: spec.alignment,
     bio: spec.bio,

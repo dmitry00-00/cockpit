@@ -18,10 +18,10 @@ import { useEffect, useMemo, useRef, useState, type ReactNode, type RefObject } 
 import {
   conModOf, cosmologyOf, currentOrder, eraOf, harptos, dayPhase, encounterCandidates, hitDiceOf, initiativeMod, moonState, nextFestival, nextHolyDayFor, partyDeitiesOf, placeChain, pcActor, placedActors,
   poolLabel, resourcePoolsOf, restCandidates, restResourcesOf, seedBattlefield, seedEngine, seedState, sortInitiative, spawnMonsters, stepTime,
-  suggestMonsterName, takeRest, travel, weatherOf, sheetViewOf, passportOf, newPlaceDelta, renownDelta, organizationFactionDelta, factionOfOrganization, oddsTargetOf, type PcSpec,
+  suggestMonsterName, takeRest, travel, weatherOf, sheetViewOf, passportOf, newPlaceDelta, renownDelta, organizationFactionDelta, factionOfOrganization, oddsTargetOf, explain, signedTotal, type PcSpec,
 } from '../campaign';
 import {
-  BattleGrid, CardStack, ConcentrationForm, ConditionGrid, EntityCard, EntityViewBody, OpenEntityContext, cardTypeOf, HpControl, InitiativeBar, Paperdoll, PlayerFrame, ScaleLadder, SpawnForm,
+  BattleGrid, CardStack, ConcentrationForm, ConditionGrid, DerivationPanel, EntityCard, EntityViewBody, OpenEntityContext, cardTypeOf, HpControl, InitiativeBar, Paperdoll, PlayerFrame, ScaleLadder, SpawnForm,
   SCALE_LABELS, SCALE_TEMPO_LABELS, TAB_OVERVIEW, actorCardProps, battleTokenOf, exhaustionCommand, factionCardProps, initiativeFormula,
   initiativeTokenOf, lastDamageOf, lastRollOf, placeCardProps, stackItemOf, toggleCommand, CompareSheet, type CompareColumn, SheetEquipment,
   dollExtrasOf, type IconRailItem, type InitiativeBarEntry, type InitiativeRow, type RestRow, type SpawnOption,
@@ -147,6 +147,10 @@ export function DeskPage({ store: given, persist: givenPersist, dmView = true }:
 /** Откуда падает попап хитов: от ячейки HP карточки или от токена (сетка, полоса инициативы). */
 type PopoverAnchor = 'card' | 'token';
 
+/** Числа полосы показателей с выводом (ROADMAP 5.4): КХ раскрывает максимум хитов — он из костей хитов. */
+type WhyKey = 'ac' | 'initiative' | 'pp' | 'hp';
+const WHY_TITLE: Readonly<Record<WhyKey, string>> = { ac: 'AC', initiative: 'Инициатива', pp: 'Пассивная Внимательность', hp: 'Максимум хитов' };
+
 /** Что показывает слот карточки: выбранного актёра, место в фокусе лестницы или державу по id. */
 /** Слот карточки: актёр, место в фокусе, фракция — свои карточки; любая другая сущность по ссылке — общая (ROADMAP 0.3). */
 type CardSlot = { kind: 'actor' } | { kind: 'place' } | { kind: 'faction'; id: string } | { kind: 'entity'; ref: EntityRef };
@@ -175,6 +179,8 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
   const [resetArmed, setResetArmed] = useState(false);
   const [hiddenRolls, setHiddenRolls] = useState(false);
   const [closedRollId, setClosedRollId] = useState<string | null>(null);
+  // Открытый вывод числа листа (ROADMAP 5.4): чей и какой; у другого актёра не показывается.
+  const [why, setWhy] = useState<{ actorId: string; key: WhyKey } | null>(null);
   const [cardInCombat, setCardInCombat] = useState(false);
   // Попапы живого стола — редактор инициативы, появление противника, начало концентрации: состояние вида.
   const [initiativeOpen, setInitiativeOpen] = useState(false);
@@ -628,7 +634,13 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
   const byBlock = new Map<string, Actor[]>();
   for (const a of Object.values(state.actors)) if (a.kind === 'monster' && !a.removed && a.monsterId) byBlock.set(a.monsterId, [...(byBlock.get(a.monsterId) ?? []), a]);
   const enemyTargets = [...byBlock].map(([id, list]) => ({ ...oddsTargetOf(list[0]), id, name: `${MONSTERS[id]?.name ?? list[0].name}${list.length > 1 ? ` ×${list.length}` : ''}` }));
-  const cardProps = actor ? actorCardProps(actor, { onHp: dmView ? openFromCard : undefined, dmFacts: dmFactsOf(actor, state.facts).length, initiative: cardView?.initiative, players: !dmView, hitDice: cardView?.hitDice }) : null;
+  const whyKey = actor && why?.actorId === actor.id ? why.key : undefined;
+  const whyOf = whyKey && actor ? explain(actor, whyKey) : undefined;
+  const closeWhy = () => setWhy(null);
+  const cardProps = actor ? actorCardProps(actor, {
+    onHp: dmView ? openFromCard : undefined, dmFacts: dmFactsOf(actor, state.facts).length, initiative: cardView?.initiative, players: !dmView, hitDice: cardView?.hitDice,
+    onExplain: key => setWhy(w => (w?.actorId === actor.id && w.key === key ? null : { actorId: actor.id, key })), explaining: whyKey,
+  }) : null;
   /**
    * Тело вкладки актёра: `column` — одиночная карточка целиком; в оверлее 720px обзор делится на две колонки —
    * навыки персонажа и действия монстра уходят вправо (`aside`), остальное — влево (`main`). В оверлее
@@ -701,7 +713,12 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
       className="max-h-full flex-none"
       // Якорь попапа хитов — нулевая строка сразу под полосой показателей: попап падает от числа HP.
       // В бою от токена якорь другой (virtualRef ниже), и этот не рисуется: якорь у попапа один.
-      beforeTabs={anchor === 'card' ? <Popover.Anchor className="h-0 flex-none" /> : null}
+      beforeTabs={(
+        <>
+          {anchor === 'card' ? <Popover.Anchor className="h-0 flex-none" /> : null}
+          {whyKey && whyOf ? <DerivationPanel title={WHY_TITLE[whyKey]} shown={whyKey === 'initiative' ? signedTotal(whyOf.total) : undefined} explanation={whyOf} onClose={closeWhy} /> : null}
+        </>
+      )}
     >
       {(current: string) => renderActorBody(current, 'column')}
     </EntityCard>

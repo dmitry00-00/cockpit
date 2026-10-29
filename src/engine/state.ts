@@ -32,6 +32,8 @@ export interface CharacterSheet {
   traits: readonly { id: string; name: string }[];
   armor?: string;
   shield?: boolean;
+  /** Mage Armor в AC листа (13 + DEX без доспеха) — дерево вывода AC (ROADMAP 5.4) знает, откуда 13. */
+  mageArmor?: boolean;
   /** Скорость ходьбы, футов — по расе SRD; лист показывает числом. */
   speed?: number;
   /** Мировоззрение словами игрока: «Нейтральный». */

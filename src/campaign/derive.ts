@@ -201,20 +201,20 @@ export const TRAIT_EFFECTS: Readonly<Record<string, { hpPerLevel?: number; skill
  * Механика умений классов и подклассов SRD, которую таблицы держат прозой: защита без доспехов, драконья
  * устойчивость, бонусное владение домена Жизни, боевой стиль «Оборона». Ключи — id классов SRD и подклассов компендиума.
  */
-const UNARMORED_DEFENSE: Partial<Record<string, { ability: AbilityId; noShield: boolean }>> = {
+export const UNARMORED_DEFENSE: Partial<Record<string, { ability: AbilityId; noShield: boolean }>> = {
   /** Barbarian, Unarmored Defense: «10 + your Dexterity modifier + your Constitution modifier. You can use a shield». */
   barbarian: { ability: 'con', noShield: false },
   /** Monk, Unarmored Defense: «wearing no armor and not wielding a shield … 10 + Dexterity modifier + Wisdom modifier». */
   monk: { ability: 'wis', noShield: true },
 };
 /** Draconic Resilience (Draconic Bloodline): +1 хит за уровень; без доспеха AC 13 + DEX. */
-const DRACONIC_SUBCLASS = 'carodey-nasledie-drakon-ey-krovi';
+export const DRACONIC_SUBCLASS = 'carodey-nasledie-drakon-ey-krovi';
 /** Life Domain, Bonus Proficiency: «you gain proficiency with heavy armor». */
 const LIFE_DOMAIN = 'jrec-jizni';
 /** Fighting Style: Defense — «While you are wearing armor, you gain a +1 bonus to AC». id — из таблицы владельца. */
-const DEFENSE_STYLE = 'oborona';
+export const DEFENSE_STYLE = 'oborona';
 /** Fighting Style: Archery — «+2 bonus to attack rolls you make with ranged weapons». */
-const ARCHERY_STYLE = 'strel-ba';
+export const ARCHERY_STYLE = 'strel-ba';
 
 /** Русские имена навыков в текстах компендиума → id SRD. Длинные — первыми, чтобы «Уход за животными» не рассыпался. */
 const SKILL_RU: readonly (readonly [string, SkillId])[] = [

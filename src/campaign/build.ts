@@ -293,6 +293,20 @@ export interface Attack {
 /** SRD 5.1, Weapon Properties (CC-BY-4.0), дословно. */
 export const HEAVY_RULE = "Heavy. Small creatures have disadvantage on attack rolls with heavy weapons. A heavy weapon's size and bulk make it too large for a Small creature to use effectively.";
 
+/**
+ * Характеристика атаки оружием: дальнобойное — DEX, фехтовальное — лучшая из STR и DEX, остальное — STR; монах с оружием
+ * монаха — лучшая из STR и DEX (Martial Arts). why — почему не по умолчанию; null — не оружие.
+ */
+export function weaponAbility(itemId: string, mods: Readonly<Record<AbilityId, number>>, srdClass?: SrdClassId): { ability: AbilityId; why?: 'finesse' | 'monk' } | null {
+  const w = ITEMS[itemId]?.weapon;
+  if (!w || !w.damage) return null;
+  if (w.range === 'ranged') return { ability: 'dex' };
+  const finesse = w.properties.includes('finesse');
+  const monk = srdClass === 'monk' && (itemId === 'shortsword' || (w.category === 'simple' && !w.properties.includes('two-handed') && !w.properties.includes('heavy')));
+  if (!finesse && !monk) return { ability: 'str' };
+  return { ability: mods.dex > mods.str ? 'dex' : 'str', why: finesse ? 'finesse' : 'monk' };
+}
+
 const dmg = (dice: string, mod: number) => (mod === 0 ? dice : `${dice} ${mod > 0 ? '+' : '−'} ${Math.abs(mod)}`);
 
 /**
@@ -309,11 +323,9 @@ export function attacksOf(
   for (const line of items) {
     const item: Item | undefined = ITEMS[line.id];
     const w = item?.weapon;
-    if (!w || !w.damage) continue;
-    const finesse = w.properties.includes('finesse');
-    const monk = ctx.srdClass === 'monk' && (line.id === 'shortsword' || (w.category === 'simple' && w.range === 'melee' && !w.properties.includes('two-handed') && !w.properties.includes('heavy')));
-    const ability: AbilityId = w.range === 'ranged' ? 'dex' : finesse || monk ? (ctx.mods.dex > ctx.mods.str ? 'dex' : 'str') : 'str';
-    const mod = ctx.mods[ability];
+    const how = weaponAbility(line.id, ctx.mods, ctx.srdClass);
+    if (!w || !w.damage || !how) continue;
+    const mod = ctx.mods[how.ability];
     const proficient = (ctx.srdClass ? classWeaponProficient(ctx.srdClass, line.id) : false) || ctx.extraWeapons.includes(line.id);
     const toHit = mod + (proficient ? ctx.proficiencyBonus : 0) + (ctx.archery && w.range === 'ranged' ? 2 : 0);
     const damage = w.versatile ? `${dmg(w.damage, mod)} / ${dmg(w.versatile, mod)}` : dmg(w.damage, mod);
