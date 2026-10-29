@@ -626,6 +626,23 @@
    ]
   },
   {
+   "id": "8943f78a-fe57-47e7-a199-53c896c67971",
+   "name": "Ammathtar",
+   "kind": "Town",
+   "x": 13090,
+   "y": 6814,
+   "card": {
+    "what": "Город в северо-восточной части Dambrath.",
+    "ruler": "Duchess",
+    "danger": "Неизвестная сила из Lluirwood уничтожила население.",
+    "summary": "Основанный людьми и халфлингами как торговый центр, Ammathtar был известен большими конюшнями. Город брал взятки с иностранных путешественников и финансировал сильную армию, но позже был уничтожен."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Ammathtar"
+   ]
+  },
+  {
    "id": "ocr:13303_6782",
    "name": "Ammathvale",
    "kind": "forest",
@@ -1382,6 +1399,24 @@
    ]
   },
   {
+   "id": "c4cc82a9-c9ae-4443-b9b0-2375ef317d76",
+   "name": "Bandit Wastes",
+   "kind": "Wastes",
+   "x": 11201,
+   "y": 6526,
+   "approx": true,
+   "card": {
+    "what": "Бесплодные земли в юго-западной Faerûn.",
+    "ruler": "Lapalgard",
+    "danger": "Монстры и отступники.",
+    "summary": "Бесплодные земли между Lapaliiya и Halruaa, к северу от гор Nathaghal. Территория кишит монстрами и отступниками, патрулируется силами из Lapalgard."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Bandit_Wastes"
+   ]
+  },
+  {
    "id": "ae723fba-c5cd-499b-a6ae-52d935832c84",
    "name": "Bathmé",
    "kind": "Town",
@@ -1629,6 +1664,23 @@
    },
    "sources": [
     "https://forgottenrealms.fandom.com/wiki/Berun's_Hill"
+   ]
+  },
+  {
+   "id": "5b69fb79-bf87-4b7b-a781-bb22f0ee3162",
+   "name": "Bezantur",
+   "kind": "City",
+   "x": 13528,
+   "y": 4478,
+   "card": {
+    "what": "Прибрежный город-порт",
+    "ruler": "Autharch",
+    "danger": "Резкий рост преступности, могущественные гильдии воров",
+    "summary": "Процветающий порт на южном побережье Thayan tharch Priador. Является религиозным центром и сердцем морской торговли Thay, известен множеством храмов различных божеств."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Bezantur"
    ]
   },
   {
@@ -2882,6 +2934,23 @@
    ]
   },
   {
+   "id": "ocr:9905_2149",
+   "name": "Citadel",
+   "kind": "fortress",
+   "x": 9905,
+   "y": 2149,
+   "label": true,
+   "card": {
+    "what": "Древний форт-комплекс",
+    "ruler": "Szass Tam",
+    "danger": "Исполнено злом, кишит секретами",
+    "summary": "Форт-комплекс в Thay, служил внутренним святилищем Szass Tam и Red Wizards. Считалось нечистым местом, кишащим злом и таящим в себе секреты."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Citadel"
+   ]
+  },
+  {
    "id": "9f06dd99-47dd-4a30-bfc5-b82efa27be6d",
    "name": "Citadel",
    "kind": "Fortification",
@@ -2946,6 +3015,24 @@
    },
    "sources": [
     "https://forgottenrealms.fandom.com/wiki/Citadel_Rashturl"
+   ]
+  },
+  {
+   "id": "a45351a2-d879-40a2-bb5c-69e9b3ad0322",
+   "name": "City of the Werecrocodiles",
+   "kind": "Town",
+   "x": 12656,
+   "y": 4924,
+   "label": true,
+   "card": {
+    "what": "Половина затопленного поселения на острове в реке Adder.",
+    "ruler": "Высокий жрец Sebek",
+    "danger": "Обитают werecrocodiles и wererats.",
+    "summary": "Поселение из неоштукатуренной глины, частично затопленное и недостроенное. Восточная часть содержит более завершенные постройки и большую пирамиду."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/City_of_the_Werecrocodiles"
    ]
   },
   {
@@ -3540,6 +3627,23 @@
    ]
   },
   {
+   "id": "e874f43e-c745-40aa-a150-b97402ce695d",
+   "name": "Darkhold",
+   "kind": "Fortification",
+   "x": 10166,
+   "y": 3793,
+   "card": {
+    "what": "Массивная крепость, высеченная в горе Grey Watcher в Far Hills.",
+    "ruler": "Zhentarim",
+    "danger": "Различные бандиты, монстры и маги. Рабство и торговля рабами.",
+    "summary": "Крепость Darkhold служила базой для Zhentarim с 14 века DR. В конце 15 века DR она стала штаб-квартирой Zhentarim, где размещается большая гарнизон, рабы и лаборатории для арканных исследований."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Darkhold"
+   ]
+  },
+  {
    "id": "881b7c20-05ed-4246-8f3e-d4db7b9162d3",
    "name": "Darluj",
    "kind": "Town",
@@ -3900,6 +4004,23 @@
    },
    "sources": [
     "https://forgottenrealms.fandom.com/wiki/Dien_Nyu"
+   ]
+  },
+  {
+   "id": "3878b365-0d5c-4401-b1a0-c9ea6ac397d0",
+   "name": "Dihliz",
+   "kind": "City",
+   "x": 15416,
+   "y": 10427,
+   "card": {
+    "what": "Мегаполис на границе цивилизации Zakharan, к северу от устья реки Nogaro.",
+    "ruler": "Emira",
+    "danger": "Коррупция из-за влияния различных сторон.",
+    "summary": "Дихлиц - важный торговый центр для экспорта древностей и риса, а также отправной пункт для экспедиций в древние руины и джунгли. Это единственный крупный город в Cities of the Ancients, не построенный на руинах других городов."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Dihliz"
    ]
   },
   {
@@ -4612,6 +4733,40 @@
    },
    "sources": [
     "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Eltabbar"
+   ]
+  },
+  {
+   "id": "ocr:13642_3839",
+   "name": "Eltabbar",
+   "kind": "region",
+   "x": 13642,
+   "y": 3839,
+   "label": true,
+   "card": {
+    "what": "Бывший город и столица Thay, расположенный на берегу озера Thaylambar.",
+    "ruler": "Red Wizards",
+    "danger": "Торговля рабами, тёмные секреты.",
+    "summary": "Eltabbar был столицей Thay и вторым по величине городом. Он служил центром торговли рабами до позднего 14 века DR и хранит тёмные секреты, предшествующие основанию маггократии."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Eltabbar"
+   ]
+  },
+  {
+   "id": "ocr:13875_4075",
+   "name": "Eltabbar",
+   "kind": "settlement",
+   "x": 13875,
+   "y": 4075,
+   "label": true,
+   "card": {
+    "what": "Бывший город и столица Thay, расположенный на берегу озера Thaylambar.",
+    "ruler": "Red Wizards",
+    "danger": "Торговля рабами, тёмные секреты.",
+    "summary": "Eltabbar был столицей Thay и вторым по величине городом. Он служил центром торговли рабами до позднего 14 века DR и хранит тёмные секреты, предшествующие основанию маггократии."
+   },
+   "sources": [
     "https://forgottenrealms.fandom.com/wiki/Eltabbar"
    ]
   },
@@ -5374,6 +5529,22 @@
    },
    "sources": [
     "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Firepeaks"
+   ]
+  },
+  {
+   "id": "ocr:15327_4024",
+   "name": "Firepeaks",
+   "kind": "settlement",
+   "x": 15327,
+   "y": 4024,
+   "label": true,
+   "card": {
+    "what": "Горный хребет",
+    "danger": "Обитают дварфы, гоблиноиды, великаны, орки и огры",
+    "summary": "Горный хребет расположен на восточном краю Great Amber Steppes в The Hordelands. Известен также как Badara-Kharshi."
+   },
+   "sources": [
     "https://forgottenrealms.fandom.com/wiki/Firepeaks"
    ]
   },
@@ -6319,6 +6490,23 @@
    ]
   },
   {
+   "id": "a1a0ef10-ba16-4f93-a1c3-b5a7af02e84f",
+   "name": "Goisho",
+   "kind": "Town",
+   "x": 21050,
+   "y": 3664,
+   "card": {
+    "what": "Поселение в королевстве Koryo.",
+    "ruler": "Koryo",
+    "danger": "Опасно из-за кражи Hu'i Wing силами Kozakuran.",
+    "summary": "Goisho расположено у подножия гор Vorkani, рядом с лесом Quang Muku и рекой Hoparatu. Ранее здесь находился храм с Hu'i Wing, магическим очагом предсказаний, пока его не украли Kozakuran и не перенесли в Karak."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Goisho"
+   ]
+  },
+  {
    "id": "ocr:14346_9797",
    "name": "Golden",
    "kind": "other",
@@ -6605,6 +6793,40 @@
    ]
   },
   {
+   "id": "ocr:15217_10411",
+   "name": "Grey Jungle",
+   "kind": "forest",
+   "x": 15217,
+   "y": 10411,
+   "label": true,
+   "card": {
+    "what": "Густой тропический лес",
+    "danger": "Встречаются гигантские тролли и юан-ти",
+    "summary": "Густой тропический лес расположен в регионе Ruined Kingdoms на востоке Zakhara. В 1367 DR здесь обитали гигантские тролли и юан-ти."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Grey_Jungle"
+   ]
+  },
+  {
+   "id": "55fb453a-9f94-4222-9128-69022b7a3107",
+   "name": "Greycloak Hills",
+   "kind": "Hills",
+   "x": 10143,
+   "y": 3288,
+   "label": true,
+   "card": {
+    "what": "Холмы на западе Anauroch, граничащие с Western Heartlands.",
+    "ruler": "Watcher Over the Hills",
+    "danger": "Древние гробницы из Fallen Kingdom, магические туманы.",
+    "summary": "Холмы были заселены лунными эльфами из Evereska в 14 веке DR. Ранее они назывались Tomb Hills и содержат древние гробницы."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Greycloak_Hills"
+   ]
+  },
+  {
    "id": "eaa16f5a-5f77-45da-8c49-081edbc194d8",
    "name": "Greypeak Mountains",
    "kind": "Hills",
@@ -6805,6 +7027,23 @@
    "sources": [
     "Toril GIS",
     "https://forgottenrealms.fandom.com/wiki/Gust_(town)"
+   ]
+  },
+  {
+   "id": "2b4a3ff6-069c-49a2-b0f0-f32bedf32fac",
+   "name": "Hafayah",
+   "kind": "City",
+   "x": 14740,
+   "y": 7867,
+   "card": {
+    "what": "Мегаполис на реке Al-Kufr в Free Cities of Zakhara.",
+    "ruler": "Prince Saba",
+    "danger": "Политическая нестабильность, интриги после отравления бывшего султана и его семьи.",
+    "summary": "Hafayah — мегаполис, известный как City of Secrets. Его жители скрытны и подозрительны к незнакомцам. Город переживает политическую нестабильность после отравления бывшего султана."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Hafayah"
    ]
   },
   {
@@ -7409,6 +7648,23 @@
    ]
   },
   {
+   "id": "4e74ad50-be8d-4f66-9570-4fa86d398c3a",
+   "name": "High Moor",
+   "kind": "Moor",
+   "x": 9699,
+   "y": 3349,
+   "approx": true,
+   "card": {
+    "what": "Большое болотистое угодье, кишащее монстрами.",
+    "danger": "Монстры",
+    "summary": "Расположено в западной части Faerûn, граничит с Serpent Hills и Misty Forest. Образовано после разрушения королевства Miyeritar в результате магии Vyshaantar Empire."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/High_Moor"
+   ]
+  },
+  {
    "id": "be094e45-5881-41e4-8e69-d3e11abed36d",
    "name": "High Moors",
    "kind": "Moor",
@@ -7438,6 +7694,22 @@
    "sources": [
     "Toril GIS",
     "https://forgottenrealms.fandom.com/wiki/Highrock"
+   ]
+  },
+  {
+   "id": "321e5293-3930-41da-9976-a44c92f4f9d0",
+   "name": "Hilbrand",
+   "kind": "City",
+   "x": 12944,
+   "y": 4391,
+   "label": true,
+   "card": {
+    "what": "Защищенный стеной портовый город",
+    "danger": "Расположен к югу от страны Aglarond",
+    "summary": "Город Tilbrand ранее назывался Hilbrand. Он расположен в Wizards' Reach, Unapproachable East."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Tilbrand"
    ]
   },
   {
@@ -8243,6 +8515,24 @@
    ]
   },
   {
+   "id": "142edafc-8c67-4241-8d03-ce61ba8dc291",
+   "name": "Impiltur",
+   "kind": "Region",
+   "x": 12403,
+   "y": 3527,
+   "approx": true,
+   "card": {
+    "what": "Богатое феодальное конфедеративное государство на побережье Easting Reach в северо-восточной Faerûn.",
+    "ruler": "Феодальные лорды",
+    "danger": "Исторически боролось с культами дьяволов.",
+    "summary": "Impiltur - государство на побережье Easting Reach, известное своими драгоценными и металлическими изделиями, магическими академиями и историей борьбы с дьявольскими культами. Расположено между Sea of Fallen Stars, горами Earthspur и Earthfast Mountains, Rawlinswood и Damara."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Impiltur"
+   ]
+  },
+  {
    "id": "19a5f622-c11a-48be-8c8d-c21d5ccb9e53",
    "name": "In'ani",
    "kind": "Town",
@@ -8460,6 +8750,23 @@
    },
    "sources": [
     "https://forgottenrealms.fandom.com/wiki/Ithmong_(Lapaliiya)"
+   ]
+  },
+  {
+   "id": "ocr:12099_4428",
+   "name": "Ixinos",
+   "kind": "other",
+   "x": 12099,
+   "y": 4428,
+   "label": true,
+   "card": {
+    "what": "Остров в Vilhon Reach.",
+    "ruler": "Королева Elissa Tarixon",
+    "danger": "Остров не принимает посетителей, кроме кораблей под управлением женщин.",
+    "summary": "Ixinos — остров в Vilhon Reach, населённый матриархальным племенем женщин. Им правит королева Elissa Tarixon, а на острове также базируется женская наёмная компания She-Wolves."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Ixinos"
    ]
   },
   {
@@ -8737,6 +9044,23 @@
    ]
   },
   {
+   "id": "2a5f3801-5d79-4e46-a6cb-aa9f519c72a8",
+   "name": "Jumlat",
+   "kind": "City",
+   "x": 14260,
+   "y": 10133,
+   "card": {
+    "what": "Переполненный мегаполис на юго-восточном побережье Pearl Cities.",
+    "ruler": "Sultan",
+    "danger": "Большое количество бедных жителей, соперничество с Gana.",
+    "summary": "Город расположен в месте встречи Golden Gulf и Crowded Sea по реке al-Fatir. Экономика основана на добыче жемчуга и торговле, а также поддерживается стражей, кавалерией и флотом."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Jumlat"
+   ]
+  },
+  {
    "id": "ocr:16043_5287",
    "name": "Jumpa River",
    "kind": "river",
@@ -8749,6 +9073,21 @@
    },
    "sources": [
     "https://forgottenrealms.fandom.com/wiki/Jumpa_River"
+   ]
+  },
+  {
+   "id": "5593bfc1-17cd-400a-b2ba-d83b527a5c71",
+   "name": "Jurash",
+   "kind": "Town",
+   "x": 14731,
+   "y": 4862,
+   "card": {
+    "what": "Небольшой город",
+    "danger": "Опасность не указана",
+    "summary": "Город Jurash расположен в Burning Lands. В нём известен священник Ishistu из Moradask, поймавший пустынного кентавра у оазиса недалеко от Sea of Salt."
+   },
+   "sources": [
+    "Toril GIS"
    ]
   },
   {
@@ -9653,6 +9992,23 @@
    "sources": [
     "Toril GIS",
     "https://forgottenrealms.fandom.com/wiki/Kushk"
+   ]
+  },
+  {
+   "id": "8a20f133-696f-4239-a50f-fe89c30b9edc",
+   "name": "Kythyss",
+   "kind": "Town",
+   "x": 8336,
+   "y": 4280,
+   "card": {
+    "what": "Небольшой прибрежный город",
+    "ruler": "Callidyrr",
+    "danger": "Зависимость от mercenaries для защиты",
+    "summary": "Kythyss - небольшой прибрежный город в Callidyrr на острове Alaron. Жители занимаются рыболовством и заготовкой древесины, а также полагаются на mercenaries для защиты."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Kythyss"
    ]
   },
   {
@@ -10663,6 +11019,41 @@
    ]
   },
   {
+   "id": "4a590b55-4d5f-457d-82cd-ee8470d65a88",
+   "name": "Lonely Moor",
+   "kind": "Moor",
+   "x": 10032,
+   "y": 3248,
+   "label": true,
+   "card": {
+    "what": "Болотистая вересковая пустошь",
+    "danger": "Обитают гноллы, багбеары и мародёры",
+    "summary": "Расположена в Western Heartlands к северо-западу от Evereska. Здесь произошла битва между Daemonfey и эльфами в 1374 DR, а также находится замок Aumvor's Castle."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Lonely_Moor"
+   ]
+  },
+  {
+   "id": "5039c7ac-25b3-4610-9ecc-73f95a362efc",
+   "name": "Lonely Tower",
+   "kind": "Fortification",
+   "x": 9748,
+   "y": 2181,
+   "approx": true,
+   "card": {
+    "what": "Белая каменная башня необычно легкой и хрупкой конструкции.",
+    "ruler": "Владелец башни",
+    "danger": "Зона вулканической породы и глубоких трещин.",
+    "summary": "Башня расположена в идеально круглой области вулканической породы. Она служит секретным убежищем и крепостью для своего владельца, находится в Moonwood, Moonlands."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Lonely_Tower"
+   ]
+  },
+  {
    "id": "ocr:8372_1929",
    "name": "Lonelywood",
    "kind": "settlement",
@@ -10721,6 +11112,23 @@
    "sources": [
     "Toril GIS",
     "https://forgottenrealms.fandom.com/wiki/Lowhill"
+   ]
+  },
+  {
+   "id": "e025f151-f991-4ce8-8ffe-b8d60e94062b",
+   "name": "Luenath",
+   "kind": "Town",
+   "x": 12589,
+   "y": 7223,
+   "card": {
+    "what": "Портовый город на берегу реки Caraguir в Bay of Dancing Dolphins.",
+    "ruler": "Merial Luenath",
+    "danger": "Пиратские и частные суда в гавани.",
+    "summary": "Luenath - второй по величине город в Dambrath. Город является зимней резиденцией богатых Crinti для наблюдения за Dance of the Dolphins."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Luenath"
    ]
   },
   {
@@ -11000,6 +11408,23 @@
    "sources": [
     "Toril GIS",
     "https://forgottenrealms.fandom.com/wiki/Magrib"
+   ]
+  },
+  {
+   "id": "6e3f485d-e85d-4611-99b1-2c6f0cafdbe4",
+   "name": "Mahabba",
+   "kind": "City",
+   "x": 15045,
+   "y": 10203,
+   "card": {
+    "what": "Крупный город в Pantheist League внутренней Zakhara.",
+    "ruler": "Caliph",
+    "danger": "Военная оккупация, подавление ересей, гнетущая атмосфера и отсутствие музыки.",
+    "summary": "Mahabba — крупный город на реке Al-Musammas, у подножия гор Al-Sayaj. Он находится в Pantheist League внутренней Zakhara и известен своей гнетущей атмосферой и отсутствием музыки."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Mahabba"
    ]
   },
   {
@@ -11832,6 +12257,41 @@
    ]
   },
   {
+   "id": "2eda64e3-cfad-4dac-af15-942909ddaf95",
+   "name": "Moonsea",
+   "kind": "Lake",
+   "x": 11750,
+   "y": 3117,
+   "label": true,
+   "card": {
+    "what": "Регион в северной Faerûn, доминируемый большим морем.",
+    "ruler": "Различные городские государства",
+    "danger": "Небезопасное место, дикий frontier.",
+    "summary": "Moonsea — регион в северной Faerûn, известный как Moonsea Lands. Он характеризуется диким frontier и конфликтами между различными общинами, расположенными между северными землями и южными торговыми державами."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Moonsea"
+   ]
+  },
+  {
+   "id": "e84247ae-0899-44fd-a787-2964d48d7f0b",
+   "name": "Moonsea",
+   "kind": "Macroregion",
+   "x": 11750,
+   "y": 3117,
+   "label": true,
+   "card": {
+    "what": "Регион в северной Faerûn, доминируемый большим пресноводным озером.",
+    "ruler": "Олигархические города-государства",
+    "danger": "Конфликты между городами-государствами, неконтролируемая дикая местность.",
+    "summary": "Moonsea — регион в северной Faerûn, известный суровым климатом и отсутствием единого правительства. Здесь расположены города-государства, часто находящиеся в конфликте, и сочетание богатых ресурсов с дикой природой."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Moonsea"
+   ]
+  },
+  {
    "id": "21aa1d72-bcfd-49d5-9016-fd10555f5f0a",
    "name": "Moonshae Isles",
    "kind": "Region",
@@ -12155,6 +12615,23 @@
    ]
   },
   {
+   "id": "05445f07-5b1c-4a03-9e83-172713e0adbe",
+   "name": "Mulmaster",
+   "kind": "City",
+   "x": 11924,
+   "y": 3139,
+   "card": {
+    "what": "Независимый город-государство на юго-восточном берегу Moonsea.",
+    "ruler": "Совет из шестнадцати, называемый Blades; High Blade",
+    "danger": "Коррупция, высокие налоги, строгий контроль магии.",
+    "summary": "Mulmaster - суровый мегаполис, известный коррупцией и строгим контролем магии. Экономика основана на рыболовстве, торговле и экспорте оружия, доспехов, кораблей и ювелирных изделий. Общество характеризуется большим неравенством богатства."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Mulmaster"
+   ]
+  },
+  {
    "id": "bdace291-f86d-44de-8e4c-05bca39b59f2",
    "name": "Mulptan",
    "kind": "Town",
@@ -12168,6 +12645,23 @@
    "sources": [
     "Toril GIS",
     "https://forgottenrealms.fandom.com/wiki/Mulptan"
+   ]
+  },
+  {
+   "id": "00939761-24a5-495d-a909-465e014f0077",
+   "name": "Mulsantir",
+   "kind": "City",
+   "x": 13575,
+   "y": 3516,
+   "card": {
+    "what": "Процветающий прибрежный город в юго-западе Rashemen.",
+    "ruler": "Fyrra or urphong",
+    "danger": "Многочисленные осады со стороны Thay.",
+    "summary": "Mulsantir расположен в конце торгового пути Golden Way на берегу реки Mulsantir. Город управляется fyrra или urphong и защищен каменными стенами и Urphong's Host. Он является важным торговым центром в регионе."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Mulsantir"
    ]
   },
   {
@@ -12672,6 +13166,24 @@
    ]
   },
   {
+   "id": "7471d42d-b058-4a6d-94ad-7383c0ab2d8f",
+   "name": "Nelanther Isles",
+   "kind": "Region",
+   "x": 8940,
+   "y": 4746,
+   "approx": true,
+   "card": {
+    "what": "Обширный архипелаг из почти тысячи островов в Trackless Sea к западу от Amn и Tethyr.",
+    "ruler": "Armed anarchy",
+    "danger": "Насилие пиратских группировок, отсутствие пресной воды на большинстве островов.",
+    "summary": "Nelanther Isles - архипелаг из почти тысячи островов в Trackless Sea. Большинство островов не пригодны для жизни из-за отсутствия пресной воды, а те, что пригодны, контролируются пиратами."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Nelanther_Isles"
+   ]
+  },
+  {
    "id": "5c8663ab-4b28-46fa-bcf9-b131101f430f",
    "name": "Neldorild",
    "kind": "City",
@@ -12889,6 +13401,24 @@
    ]
   },
   {
+   "id": "c19f3aef-17ba-43c1-a7b0-8cb1f210321d",
+   "name": "Nimbral",
+   "kind": "Island",
+   "x": 6917,
+   "y": 7714,
+   "label": true,
+   "card": {
+    "what": "Островное государство в Trackless Sea.",
+    "ruler": "Nimbral Lords",
+    "danger": "Атаки всадников на гиппогрифах и пегасах, возможно, работорговцы или пираты.",
+    "summary": "Nimbral — загадочное островное государство, известное своей изоляцией и секретностью. Оно управляется магической олигархией архимагов и защищается рыцарями на летающих существах."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Nimbral"
+   ]
+  },
+  {
    "id": "f0afea73-0334-4d59-8b8c-710c0826682e",
    "name": "Nimlith",
    "kind": "Town",
@@ -13040,6 +13570,23 @@
    },
    "sources": [
     "https://forgottenrealms.fandom.com/wiki/Nor_Takt"
+   ]
+  },
+  {
+   "id": "1d117c7f-218c-4e93-909d-202a163f7d92",
+   "name": "Nor Yudol",
+   "kind": "Lake",
+   "x": 16224,
+   "y": 5544,
+   "approx": true,
+   "card": {
+    "what": "Озеро на плато Katakoro",
+    "danger": "Западная часть отравлена",
+    "summary": "Озеро разделено на три участка: западная часть отравлена, центральная — нормальна, восточная богата минералами. Известно также как The Churned One или Evening Lake."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Nor_Yudol"
    ]
   },
   {
@@ -13379,6 +13926,22 @@
    },
    "sources": [
     "https://forgottenrealms.fandom.com/wiki/Ojimne"
+   ]
+  },
+  {
+   "id": "9fe5b6b9-cb55-486d-b459-f3a933c9c940",
+   "name": "Ojy-Do",
+   "kind": "Town",
+   "x": 20713,
+   "y": 3807,
+   "card": {
+    "what": "Город в королевстве Koryo",
+    "ruler": "Appointed governor",
+    "danger": "Один из немногих troublespots королевства около 1357 DR",
+    "summary": "Ojy-do — город в королевстве Koryo, расположенном в Kara-Tur. В 1357 DR он был одним из немногих мест, где происходили troublespots."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Ojy-do"
    ]
   },
   {
@@ -13744,6 +14307,23 @@
    "sources": [
     "Toril GIS",
     "https://forgottenrealms.fandom.com/wiki/Osker"
+   ]
+  },
+  {
+   "id": "9db28352-dcfe-475d-baae-f1b87a68a12e",
+   "name": "Oslin",
+   "kind": "Town",
+   "x": 12348,
+   "y": 5213,
+   "card": {
+    "what": "Небольшая торговая деревня на юго-восточной оконечности озера Akanamere.",
+    "ruler": "Подчиняется Akanax",
+    "danger": "Зависит от наемных mercenaries после исчезновения магических защитников.",
+    "summary": "Oslin - небольшая торговая деревня в Chessenta, расположенная среди сельскохозяйственных угодий Akanul и холмов Maerth. Она подчиняется Akanax и полагается на наемников для защиты."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Oslin"
    ]
   },
   {
@@ -14917,6 +15497,22 @@
    ]
   },
   {
+   "id": "ocr:17751_7262",
+   "name": "Razi Pass",
+   "kind": "pass",
+   "x": 17751,
+   "y": 7262,
+   "label": true,
+   "card": {
+    "what": "Перевал через горы Wu Pi Te Shao",
+    "danger": "Близость к пещерам Gua",
+    "summary": "Перевал Razi Pass проходит через горы Wu Pi Te Shao на южной границе Tabot. Он ведет в долину Kera и к горам Salju, рядом с храмом и пещерами Gua. В южной части находится деревня Dalam."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Razi_Pass"
+   ]
+  },
+  {
    "id": "ocr:14387_7716",
    "name": "Reach",
    "kind": "region",
@@ -15058,6 +15654,23 @@
    "sources": [
     "Toril GIS",
     "https://forgottenrealms.fandom.com/wiki/Regent's_Field"
+   ]
+  },
+  {
+   "id": "c57dc7eb-aa8d-4c08-8599-440ff736d962",
+   "name": "Reth",
+   "kind": "City",
+   "x": 12210,
+   "y": 4625,
+   "card": {
+    "what": "Город-государство на западном побережье Chessenta, недалеко от Akanapeaks.",
+    "ruler": "Избираемый мэр и семь сенаторов",
+    "danger": "Конфликты с Chondath и племенами орков, повреждения во время Spellplague.",
+    "summary": "Рет - один из крупнейших и могущественных городов-государств в Vilhon Reach. Его экономика основана на торговле, гладиаторских боях, рыболовстве и добыче полезных ископаемых."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Reth"
    ]
   },
   {
@@ -15502,6 +16115,22 @@
    },
    "sources": [
     "https://forgottenrealms.fandom.com/wiki/River_Rasha"
+   ]
+  },
+  {
+   "id": "ocr:14532_4874",
+   "name": "River Rauthenflow",
+   "kind": "river",
+   "x": 14532,
+   "y": 4874,
+   "label": true,
+   "card": {
+    "what": "Река в северной части Mulhorand.",
+    "danger": "Быстрый течение",
+    "summary": "Река Rauthenflow соединяет Gbor Nor в Hordelands с Alamber Sea. Известна своим быстрым течениением."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/River_Rauthenflow"
    ]
   },
   {
@@ -16134,6 +16763,23 @@
    ]
   },
   {
+   "id": "7da8bee9-2597-4d68-b07f-42dca9706298",
+   "name": "Samargol",
+   "kind": "Town",
+   "x": 8638,
+   "y": 6844,
+   "card": {
+    "what": "Столица Samarach, расположенная на восточном берегу реки Samar неподалёку от Wild Coast.",
+    "ruler": "The High Phantasmage и Council",
+    "danger": "Опасение проникновения yuan-ti, паранойя и недоверие в обществе.",
+    "summary": "Samargol — столица Samarach, тропический город с обширными торговыми доками и укреплёнными двойными стенами. Город подвержен влиянию Nimbrese иллюзионной магии, скрывающей его истинные размеры и великолепие."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Samargol"
+   ]
+  },
+  {
    "id": "b88f21c5-7a51-47cc-9e47-b9c7e1cdb63a",
    "name": "Sambar",
    "kind": "Town",
@@ -16529,6 +17175,23 @@
    ]
   },
   {
+   "id": "5e65c5db-82b1-488d-8e23-a0f1230c103a",
+   "name": "Sembia",
+   "kind": "Region",
+   "x": 11411,
+   "y": 3780,
+   "label": true,
+   "card": {
+    "what": "Богатое торговое государство-плутократия",
+    "ruler": "Торговцы",
+    "summary": "Sembia расположена на северо-западном побережье Sea of Fallen Stars в центральном Faerûn. Это процветающее государство, известное своими торговыми путями и правлением торговцев. Sembians предпочитают заниматься торговлей, а не войной."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Sembia"
+   ]
+  },
+  {
    "id": "8fd3167e-de1b-4b6e-97ec-3bfd44d5a55e",
    "name": "Semmishi",
    "kind": "Town",
@@ -16604,6 +17267,23 @@
    },
    "sources": [
     "https://forgottenrealms.fandom.com/wiki/Serpent's_Tail_Stream"
+   ]
+  },
+  {
+   "id": "ocr:11151_3663",
+   "name": "Sessrenglade",
+   "kind": "forest",
+   "x": 11151,
+   "y": 3663,
+   "label": true,
+   "card": {
+    "what": "Небольшой, но процветающий город или деревня в Sessrendale.",
+    "ruler": "The Dusk Lord",
+    "danger": "Область представляет собой опасную и нестабильную местность с участками дикой магии и мертвой магии, а также ямами, заполненными углем.",
+    "summary": "Sessrenglade был важным поселением в Sessrendale, известным своими пятью великими магами. В ходе войны он был осажден и разрушен, в результате чего местность стала опасной из-за дикой и мертвой магии. В руинах могут скрываться магические сокровища."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Sessrenglade"
    ]
   },
   {
@@ -16860,6 +17540,41 @@
    "sources": [
     "Toril GIS",
     "https://forgottenrealms.fandom.com/wiki/Shao_Mountains"
+   ]
+  },
+  {
+   "id": "b426a207-b6bc-455d-906e-6b5c78b919bb",
+   "name": "Sharawood",
+   "kind": "Temperate Forest",
+   "x": 13374,
+   "y": 6015,
+   "approx": true,
+   "card": {
+    "what": "Заколдованный лес на побережье залива Gulf of Luiren.",
+    "ruler": "Everlasting Wyrm",
+    "danger": "Монстры, нежить.",
+    "summary": "Sharawood - это лес, кишащий монстрами и нежитью. Над лесом бдительно охраняет Everlasting Wyrm, могучий драколич. Из леса вытекает небольшая река Bloodlake."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Sharawood"
+   ]
+  },
+  {
+   "id": "ocr:13874_6059",
+   "name": "Sharawood",
+   "kind": "forest",
+   "x": 13874,
+   "y": 6059,
+   "label": true,
+   "card": {
+    "what": "Заколдованный лес вдоль побережья Gulf of Luiren.",
+    "ruler": "Everlasting Wyrm",
+    "danger": "Монстры и undead.",
+    "summary": "Sharawood - это лес, кишащий монстрами и нежитью. Над лесом бдительно охраняет Everlasting Wyrm, могущественный драколич. Из леса вытекает небольшая река Bloodlake."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Sharawood"
    ]
   },
   {
@@ -17246,6 +17961,23 @@
    "sources": [
     "Toril GIS",
     "https://forgottenrealms.fandom.com/wiki/Skuld"
+   ]
+  },
+  {
+   "id": "3b531b4d-9615-428c-a7b4-2a6e52c5ee8a",
+   "name": "Small Teeth",
+   "kind": "Mountains",
+   "x": 9510,
+   "y": 4677,
+   "approx": true,
+   "card": {
+    "what": "Компактная горная цепь",
+    "danger": "Различные чудовищные расы, исторические конфликты",
+    "summary": "Горная цепь Small Teeth расположена в регионе Amn и Muranndin. В ее южных предгорьях расположены виноградники, а снег питает реки Imnestream и River Specie. Цепь содержит спящие вулканы, долины и сеть пещер и туннелей."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Small_Teeth"
    ]
   },
   {
@@ -18058,6 +18790,22 @@
    ]
   },
   {
+   "id": "5ff85e4b-6305-4452-b7f8-ac7ff8921830",
+   "name": "Sundabar",
+   "kind": "Town",
+   "x": 9720,
+   "y": 2376,
+   "card": {
+    "what": "Город, ранее известный как Citadel Sundbarr.",
+    "ruler": "Ruling Master Helm Dwarf-Friend",
+    "danger": "Опасности за пределами цивилизованных земель.",
+    "summary": "Изначально это была гномья крепость, но город развился и изменил свою демографию, экспорт и культуру. Sundabar служит бастионом севера."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Sundabar"
+   ]
+  },
+  {
    "id": "ocr:12038_2927",
    "name": "Sunderland",
    "kind": "mine",
@@ -18259,6 +19007,23 @@
    ]
   },
   {
+   "id": "12cedb36-13e9-4148-89bd-e821bcdfd6a8",
+   "name": "Surbar",
+   "kind": "City",
+   "x": 15624,
+   "y": 6316,
+   "card": {
+    "what": "Прибрежный город на заливе Golden Water.",
+    "ruler": "Барон (коррумпированный)",
+    "danger": "Пиратство",
+    "summary": "Второй по величине населенный пункт в Ulgarth, процветающий порт. Известен металлообработкой, кузнечным делом и торговлей специями. Торговля разрешена со всеми, включая пиратов."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Surbar"
+   ]
+  },
+  {
    "id": "5370623c-ac90-4499-bd5d-b85686f59825",
    "name": "Surbroar",
    "kind": "Town",
@@ -18338,6 +19103,23 @@
    "sources": [
     "Toril GIS",
     "https://forgottenrealms.fandom.com/wiki/Sword_Coast"
+   ]
+  },
+  {
+   "id": "9338fdb8-1e38-41a1-837d-5a24be21c02c",
+   "name": "Sword Mountains",
+   "kind": "Mountains",
+   "x": 8678,
+   "y": 2804,
+   "label": true,
+   "card": {
+    "what": "Горный хребет к северо-западу от Waterdeep и востоку от Mere of Dead Men.",
+    "danger": "Орки, тролли",
+    "summary": "Хребет известен запасами золота и платины в предгорьях. Входит в состав Sword Coast North, включает такие пики как Icespire Peak и Mount Sar."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Sword_Mountains"
    ]
   },
   {
@@ -18465,6 +19247,23 @@
    "sources": [
     "Toril GIS",
     "https://forgottenrealms.fandom.com/wiki/Taitung"
+   ]
+  },
+  {
+   "id": "b1c1e033-7bd7-4744-93a9-dc87fbf63eb5",
+   "name": "Tajar",
+   "kind": "City",
+   "x": 13977,
+   "y": 9750,
+   "card": {
+    "what": "Город, самый северный из Pearl Cities Zakhara.",
+    "ruler": "Sheikh",
+    "danger": "Безжалостная торговая культура, споры часто решаются насилием.",
+    "summary": "Таджар расположен на реке Al-Adib, недалеко от Golden Gulf. Это крупный торговый центр, уступающий по коммерческой значимости только Huzuz."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Tajar"
    ]
   },
   {
@@ -18636,6 +19435,23 @@
    "sources": [
     "Toril GIS",
     "https://forgottenrealms.fandom.com/wiki/Tammar"
+   ]
+  },
+  {
+   "id": "33b4bcb9-d558-4dd9-b36d-e6f8f4c4c145",
+   "name": "Tan",
+   "kind": "Ruins",
+   "x": 19600,
+   "y": 6721,
+   "card": {
+    "what": "Небольшой вулканический остров в восточной части Pirate Isles.",
+    "ruler": "Красный дракон",
+    "danger": "Вулкан с дымящимся кратером и периодическим грохотом, человеческие жертвоприношения для умиротворения вулкана.",
+    "summary": "Остров Tan расположен в Pirate Isles. На острове есть вулкан с дымящимся кратером, который местные рыбаки считают священным и приносят жертвы. На самом деле это логово красного дракона."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Tan"
    ]
   },
   {
@@ -18859,6 +19675,23 @@
    },
    "sources": [
     "https://forgottenrealms.fandom.com/wiki/Tejarn_Hills"
+   ]
+  },
+  {
+   "id": "b2dc20dc-18e4-43d8-82ee-a3ab18f5e8ef",
+   "name": "Telflamm",
+   "kind": "City",
+   "x": 12703,
+   "y": 3737,
+   "card": {
+    "what": "Окружённый стеной портовый город-государство.",
+    "ruler": "Merchant Prince, Merchants' Council, Heirarch",
+    "danger": "История пиратства и конфликтов.",
+    "summary": "Тelflamm контролирует зависимые города Nyth и Culmaster. Экономика основана на торговле по Golden Way, в городе есть оживлённый порт и Thayan Enclave. Культурное влияние Shou Lung заметно."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Telflamm"
    ]
   },
   {
@@ -20068,6 +20901,24 @@
    ]
   },
   {
+   "id": "0c024059-c47b-4e27-a52b-0431d74cfc36",
+   "name": "Tower Threespires",
+   "kind": "Fortification",
+   "x": 13242,
+   "y": 3248,
+   "label": true,
+   "card": {
+    "what": "Заброшенная башня волшебника, состоящая из трех каменных шпилей, связанных лианами.",
+    "ruler": "Druids",
+    "danger": "Demons",
+    "summary": "Башня Threespires расположена в Dunwood, на восточной границе Great Dale. Она содержит портал в Clymph Tower и охраняется друидами, поддерживающими барьер против демонов."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Tower_Threespires"
+   ]
+  },
+  {
    "id": "3f0f606b-d6c2-4289-afce-b04bf041a390",
    "name": "Trackless Sea",
    "kind": "Water/Oceanic expanse",
@@ -20287,6 +21138,23 @@
    },
    "sources": [
     "https://forgottenrealms.fandom.com/wiki/Tsetu"
+   ]
+  },
+  {
+   "id": "cfac9ff1-7139-451c-a340-4bc02e52ed8b",
+   "name": "Tsurlagol",
+   "kind": "Town",
+   "x": 12072,
+   "y": 3804,
+   "card": {
+    "what": "Процветающий портовый город на севере побережья Sea of Fallen Stars.",
+    "ruler": "Тайный совет во главе с анонимным Ven",
+    "danger": "Частые набеги, разрушения и перестройки города.",
+    "summary": "Tsurlagol - последний крупный населенный пункт на Inner Sea перед Impiltur. Город построен на руинах предыдущих городов, что привело к созданию сети туннелей и склепов. Экономика процветает благодаря открытой торговле, включая торговлю с пиратами и контрабандистами."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Tsurlagol"
    ]
   },
   {
@@ -20552,6 +21420,23 @@
    "sources": [
     "Toril GIS",
     "https://forgottenrealms.fandom.com/wiki/Tyraturos"
+   ]
+  },
+  {
+   "id": "c89a412b-4984-4547-b3a1-58999aa20945",
+   "name": "Ukurewok",
+   "kind": "Town",
+   "x": 12020,
+   "y": 1937,
+   "approx": true,
+   "card": {
+    "what": "Небольшая деревня в центральной части Nakvaligach.",
+    "danger": "kaiurit, ледяные лягушки, грызуны",
+    "summary": "Деревня Ukurewok была покинута жителями после того, как kaiurit прогнал их. Сейчас там обитают только ледяные лягушки и грызуны."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Ukurewok"
    ]
   },
   {
@@ -21152,6 +22037,24 @@
    ]
   },
   {
+   "id": "2f0148e4-ae84-4143-a070-c8024ba4bd37",
+   "name": "Vilhon Reach",
+   "kind": "Region",
+   "x": 11075,
+   "y": 4894,
+   "approx": true,
+   "card": {
+    "what": "Регион в глубине Faerûn, названный по рукаву Sea of Fallen Stars.",
+    "ruler": "Множество королевств и городов-государств",
+    "danger": "Разрушительные цунами, Spellplague, синее пламя",
+    "summary": "Vilhon Reach — регион с богатой историей, сформированный древней эльфийской магией и падением империй. Ранее здесь находились империи Jhaamdath и Aryselmalyr, уничтоженные мощным цунами. Регион пострадал от Spellplague."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Vilhon_Reach"
+   ]
+  },
+  {
    "id": "ocr:20556_8182",
    "name": "Visrana",
    "kind": "settlement",
@@ -21277,6 +22180,22 @@
    ]
   },
   {
+   "id": "5b9d0eb5-1a12-4b27-a67d-5a8f4b3b11ac",
+   "name": "Wai",
+   "kind": "City",
+   "x": 19862,
+   "y": 6799,
+   "card": {
+    "what": "Столица T'u Lung",
+    "danger": "Политическая интрига",
+    "summary": "Wai — столица T'u Lung, состоящая из фортов и пригородов между Old City и дворцовым комплексом Dakarazu Palace Compound. Город стратифицирован по социальному классу, известен политическими интригами и избытком роскошных зданий."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Wai"
+   ]
+  },
+  {
    "id": "c0fe96c6-0524-4f73-b2e3-9467e50b60d1",
    "name": "Warlock's Crypt",
    "kind": "Fortification",
@@ -21338,6 +22257,23 @@
    },
    "sources": [
     "https://forgottenrealms.fandom.com/wiki/Wave_Rocks"
+   ]
+  },
+  {
+   "id": "ocr:12104_4335",
+   "name": "Wavecrest",
+   "kind": "settlement",
+   "x": 12104,
+   "y": 4335,
+   "label": true,
+   "card": {
+    "what": "Остров в Sea of Fallen Stars.",
+    "ruler": "Emerald Enclave",
+    "danger": "Неизведанные джунгли, опасности.",
+    "summary": "Wavecrest — один из двух островов, составляющих Eyes of Silvanus. Остров защищен рифами и магией Emerald Enclave, известен своими дикими джунглями."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Wavecrest"
    ]
   },
   {
@@ -21565,6 +22501,21 @@
    ]
   },
   {
+   "id": "ed66dfe2-efff-4549-9b9b-07008c544d44",
+   "name": "White Worm",
+   "kind": "Village",
+   "x": 12142,
+   "y": 2638,
+   "card": {
+    "what": "Деревня варварского племени",
+    "danger": "Варвары враждебны к незнакомцам",
+    "summary": "Племя варваров обитает в северной Vaasa, у Great Glacier и в горах Earthspur. Они почитают albino remorhaz как тотем и ранее были союзниками лича Zhengyi."
+   },
+   "sources": [
+    "Toril GIS"
+   ]
+  },
+  {
    "id": "31b4e4a4-9f2a-4bb1-bd26-16c1b5919c89",
    "name": "Whitehorn",
    "kind": "Town",
@@ -21708,6 +22659,24 @@
    "sources": [
     "Toril GIS",
     "https://forgottenrealms.fandom.com/wiki/Wyrmbones"
+   ]
+  },
+  {
+   "id": "29dc3120-0c20-46cd-adb6-529a66839fd6",
+   "name": "Wyrmheart Mine",
+   "kind": "Mine",
+   "x": 8442,
+   "y": 6523,
+   "approx": true,
+   "card": {
+    "what": "Высокопродуктивный гномский рудник в горах Kobold, Chult.",
+    "ruler": "Clan leader",
+    "danger": "Захвачен Red Dragon и используется как логово.",
+    "summary": "Рудник Wyrmheart славится своими богатыми запасами алмазов и изумрудов. В настоящее время он захвачен Red Dragon."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Wyrmheart_Mine"
    ]
   },
   {
@@ -21988,6 +22957,23 @@
    ]
   },
   {
+   "id": "45c8da64-39f3-42c5-9b9b-37eb59436bb9",
+   "name": "Yûlash",
+   "kind": "Ruins",
+   "x": 11389,
+   "y": 3123,
+   "card": {
+    "what": "Крепостная таун, расположенная на плато между Zhentil Keep и Hillsfar.",
+    "ruler": "Совет",
+    "danger": "Часто разрушается или оккупируется из-за конфликтов между Zhentil Keep и Hillsfar.",
+    "summary": "Yûlash — крепостная таун между Zhentil Keep и Hillsfar. Она часто страдает от конфликтов этих городов, что приводит к разрушениям и оккупации. С 1337 DR ею правил совет, а таун был протекторатом Zhentil Keep."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Yûlash"
+   ]
+  },
+  {
    "id": "f1c87570-7ca7-4986-aa5e-66e815658379",
    "name": "Zabbasz",
    "kind": "Town",
@@ -22208,6 +23194,23 @@
    "sources": [
     "Toril GIS",
     "https://forgottenrealms.fandom.com/wiki/Zoundar"
+   ]
+  },
+  {
+   "id": "ocr:8831_3064",
+   "name": "Zundbridge",
+   "kind": "ruins",
+   "x": 8831,
+   "y": 3064,
+   "label": true,
+   "card": {
+    "what": "Мост, расположенный на Trade Way в северо-западной Faerûn.",
+    "ruler": "Waterdeep",
+    "danger": "Поиски каменного голема, использованного для постройки моста.",
+    "summary": "Мост Zundbridge расположен в 16 километрах к юго-востоку от Waterdeep. Он был создан волшебником Zund и простоял без ремонта более девяноста зим. Waterdeep поддерживает замок на скале над рекой, где осматривают караваны."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Zundbridge"
    ]
   },
   {

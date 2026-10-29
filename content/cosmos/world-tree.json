@@ -536,7 +536,13 @@
    "refs": [
     "Player's Guide to Faerûn, с. 141",
     "Player's Guide to Faerûn, с. 156"
-   ]
+   ],
+   "card": {
+    "what": "Домашнее планарное существо Laduguer и Deep Duerra в космологии Мирового древа.",
+    "ruler": "Laduguer и Deep Duerra",
+    "danger": "Злобный гномский бог Urdlen прорыл туннели сквозь основы планарного существования.",
+    "summary": "Hammergrim - планарное существо, дом для Laduguer и Deep Duerra. Через его основы прорыл туннели Urdlen, злобный гномский бог."
+   }
   },
   {
    "id": "nishrek",
