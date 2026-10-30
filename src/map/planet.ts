@@ -108,6 +108,32 @@ export function mapToLonLat(m: PlanetMask, size: { width: number; height: number
   return { lon: lon0 + (pt.x / size.width) * (lon1 - lon0), lat: latTop - (pt.y / size.height) * (latTop - latBot) };
 }
 
+/** Долгота и широта → пиксель исходника плоской карты (обратное mapToLonLat); вне экстента — на его край. */
+export function lonLatToMap(m: PlanetMask, size: { width: number; height: number }, ll: { lon: number; lat: number }): MapPoint {
+  const [lon0, lon1, latTop, latBot] = m.source.extent;
+  // Долгота по кругу: в оборот, где разрыв экстента поделен пополам между краями — точка в разрыве идёт к ближнему краю.
+  const from = lon0 - (360 - (lon1 - lon0)) / 2;
+  const lon = from + wrap(ll.lon - from);
+  const fx = Math.min(1, Math.max(0, (lon - lon0) / (lon1 - lon0)));
+  const fy = Math.min(1, Math.max(0, (latTop - ll.lat) / (latTop - latBot)));
+  return { x: fx * size.width, y: fy * size.height };
+}
+
+/**
+ * Масштаб плоской карты (пикселей экрана на пиксель исходника) для перехода глобус → карта без скачка (M16): у точки
+ * на широте lat глобус радиуса radiusPx кладёт градус в radiusPx·cos(lat) пикселей по обеим осям (ось без наклона —
+ * параллель горизонтальна, меридиан вертикален), а карта — в kx·s по долготе и ky·s по широте (у HandsomeRob kx ≠ ky:
+ * 102 и 90 px на градус). Масштаб — среднее геометрическое осей: по долготе карта на √(kx/ky) ≈ 6 % крупнее глобуса,
+ * по широте на столько же мельче (решение кокпита). До 30.10 cos(lat) не было: у Waterdeep (54°) карта после перехода
+ * была в 1,7 раза крупнее глобуса.
+ */
+export function mapScaleForGlobe(m: PlanetMask, size: { width: number; height: number }, radiusPx: number, lat = 0): number {
+  const [lon0, lon1, latTop, latBot] = m.source.extent;
+  const kx = size.width / (lon1 - lon0);
+  const ky = size.height / (latTop - latBot);
+  return (radiusPx * RAD * Math.cos(Math.max(-89, Math.min(89, lat)) * RAD)) / Math.sqrt(kx * ky);
+}
+
 /**
  * Подсолнечная долгота: в полдень по месту партии солнце над её долготой, за час уходит на 15° к западу.
  * Наклон оси и времена года терминатор не гнут — вертикальная граница дня, как в референсе глобуса.

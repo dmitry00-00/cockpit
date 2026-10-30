@@ -13,7 +13,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const API = 'https://api.open5e.com/v2/creatures/';
 const LIBS = {
-  bf: { doc: 'bfrd', out: 'content/bf/monsters.json', label: 'Black Flag SRD (CC-BY-4.0)',
+  bf: { doc: 'bfrd', v1: 'blackflag', out:'content/bf/monsters.json', label: 'Black Flag SRD (CC-BY-4.0)',
     attribution: 'This work includes material from the Black Flag Reference Document (https://koboldpress.com/black-flag-reference-document/) by Open Design LLC d/b/a Kobold Press, available under the Creative Commons Attribution 4.0 License (https://creativecommons.org/licenses/by/4.0/).' },
   a5e: { doc: 'a5e-mm', out: 'content/a5e/monsters.json', label: 'A5E SRD Monstrous Menagerie (CC-BY-4.0)',
     attribution: 'This work includes material taken from the A5E System Reference Document (A5ESRD) by EN Publishing and available at A5ESRD.com, based on Level Up: Advanced 5th Edition, available at www.levelup5e.com. The A5ESRD is licensed under the Creative Commons Attribution 4.0 International License.' },
@@ -88,6 +88,20 @@ function sensesOf(c) {
   return parts.join(', ');
 }
 
+/** Вводный абзац A5E, отданный как действие: «The aboleth can take 2 legendary actions», «The medusa queen has one legendary action…». */
+const LEGENDARY_HEAD = /^The .+ (?:can take|has) \w+ legendary actions?\b/;
+/** Вводные абзацы Black Flag из Open5e v1 по имени блока; у A5E — пусто (он в самом блоке). */
+const INTROS = {};
+if (lib.v1) {
+  for (let url = `https://api.open5e.com/v1/monsters/?document__slug=${lib.v1}&limit=400&format=json`; url;) {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`Open5e v1 ${lib.v1}: HTTP ${res.status}`);
+    const page = await res.json();
+    for (const c of page.results) if (c.legendary_desc) INTROS[c.name] = c.legendary_desc;
+    url = page.next;
+  }
+}
+
 const listOf = s => (s ? [s] : []);
 const byOrder = (a, b) => (a.order_in_statblock ?? 0) - (b.order_in_statblock ?? 0);
 
@@ -99,6 +113,12 @@ function monsterOf(c) {
   const speed = speedOf(c.speed ?? {});
   const legendary = kind('LEGENDARY_ACTION');
   const bonus = kind('BONUS_ACTION');
+  // Вводный абзац легендарных действий (Q13): у A5E Open5e v2 кладёт его первым «действием» — имя «The dragon can take
+  // 3 legendary actions», текст «Only one legendary action… regains…»; склеиваем точкой обратно в абзац. У Black Flag
+  // v2 его нет — он в Open5e v1 (документ blackflag, legendary_desc), по имени блока.
+  const head = legendary[0] && LEGENDARY_HEAD.test(legendary[0].name) ? legendary.shift() : null;
+  const legendaryIntro = !legendary.length ? null : head ? `${head.name}. ${head.text}` : INTROS[c.name];
+  if (legendary.length && !legendaryIntro) throw new Error(`${c.name}: нет вводного абзаца легендарных действий`);
   return {
     id,
     name: c.name,
@@ -127,7 +147,7 @@ function monsterOf(c) {
     actions: kind('ACTION'),
     reactions: kind('REACTION'),
     ...(bonus.length ? { bonusActions: bonus } : {}),
-    ...(legendary.length ? { legendary } : {}),
+    ...(legendary.length ? { legendaryIntro, legendary } : {}),
     origin: prefix,
     source: `${lib.label} · ${API}${c.key}/`,
   };

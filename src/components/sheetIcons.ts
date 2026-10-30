@@ -2,14 +2,17 @@
 // умение класса, черта и особенность расы — иконкой своего вида (атака, защита, движение, чувства…), а не своей:
 // 16×16 из примитивов не различит 400 умений. Имя всегда в тултипе — иконка его не заменяет.
 import type { IconName } from '../icons/Icon';
-import { ICONS } from '../icons/icons.generated';
-import type { AbilityId } from '../rules/srd/abilities';
+import { ICONS } from '../icons/iconSet';
+import type { AbilityId, SkillId } from '../rules/srd/abilities';
 import type { SpellSchool } from '../rules/srd/spells';
 import type { Feat, FeatEffectKind, TraitKind } from '../rules/compendium';
 
 const known = (name: string): name is IconName => name in ICONS;
 
 export const abilityIcon = (id: AbilityId): IconName => `ab-${id}` as IconName;
+/** Иконка навыка: skill-<id>, у двух длинных id — короткое имя иконки. */
+const SKILL_ICON_ID: Partial<Record<SkillId, string>> = { 'animal-handling': 'animal', 'sleight-of-hand': 'sleight' };
+export const skillIcon = (id: SkillId): IconName => `skill-${SKILL_ICON_ID[id] ?? id}` as IconName;
 export const schoolIcon = (school: SpellSchool): IconName => `school-${school}` as IconName;
 /** Класс и раса компендиума: своя иконка по id; класс или раса не из набора (хоумбрю) — «персонаж» и «особенность». */
 export const classIcon = (classId: string): IconName => (known(`cls-${classId}`) ? `cls-${classId}` : 'ent-pc') as IconName;

@@ -82,6 +82,11 @@ export const ENTRY_ICON: Readonly<Record<EventType, { icon: IconName; title: str
   RESOURCE_RESTORED: { icon: 'spell', title: 'Ресурс возвращён' },
   PARTY_TRAVELED: { icon: 'pin-road', title: 'Поход' },
   PLACE_REVEALED: { icon: 'map', title: 'Место открыто игрокам', color: 'var(--src-players)' },
+  SUPPLY_CHANGED: { icon: 'pin-camp', title: 'Припасы' },
+  KNOWLEDGE_REVEALED: { icon: 'skill-history', title: 'Партия узнала', color: 'var(--src-players)' },
+  CHARACTER_LEVELED: { icon: 'ent-pc', title: 'Новый уровень' },
+  SHEET_EDITED: { icon: 'edit', title: 'Правка листа' },
+  TOKEN_MOVED: { icon: 'move', title: 'Ход токена' },
 };
 
 /** «15 Mirtul 1492 DR, 08:00» → дата «15 Mirtul» и время «08:00»: журналу год не нужен, он один на кампанию. */

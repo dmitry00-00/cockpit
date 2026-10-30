@@ -1,0 +1,6 @@
+{
+  "properties": [
+    { "filename": "onInit.mts", "autoExecute": true, "description": "Открывает окно моста при загрузке кампании или аддона" },
+    { "filename": "public/sync.mts", "autoExecute": true, "description": "Один обмен с DM Cockpit: клетки токенов туда, хиты и состояния обратно" }
+  ]
+}

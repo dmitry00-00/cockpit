@@ -1,4 +1,4 @@
-// Страницы: рабочий стол (шаг 5) и две служебные — токены и компендиум. Переход между ними — по хэшу,
+// Страницы: рабочий стол (шаг 5) и служебные — токены, компендиум и правила кампании (Д7). Переход между ними — по хэшу,
 // не событие домена (HANDOFF §7). Пустой или незнакомый хэш открывает стол: это главный экран.
 import { useEffect, useState } from 'react';
 
@@ -6,6 +6,7 @@ export const ROUTES = [
   { id: 'desk', hash: '#/desk', label: 'Стол' },
   { id: 'tokens', hash: '#/tokens', label: 'Токены' },
   { id: 'compendium', hash: '#/compendium', label: 'Компендиум' },
+  { id: 'rules', hash: '#/rules', label: 'Правила' },
 ] as const;
 
 export type RouteId = (typeof ROUTES)[number]['id'];

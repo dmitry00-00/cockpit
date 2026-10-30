@@ -9,6 +9,7 @@ import type { EngineStore } from '../engine/store';
 import { classById } from '../rules/compendium';
 import { abilityMod, srdClassOf } from './derive';
 import { stepTime } from './simulation';
+import { eatSupply, supplyOf } from './supply';
 
 /** Короткий отдых — не меньше часа, долгий — не меньше восьми (SRD). */
 export const REST_HOURS: Readonly<Record<RestKind, number>> = { short: 1, long: 8 };
@@ -59,6 +60,11 @@ export interface RestResult {
   time: DomainEvent<'TIME_ADVANCED'>;
   proposals: WorldDelta[];
   rest: DomainEvent<'REST_TAKEN'>;
+  /**
+   * Длинный отдых съедает Supply A5E на каждого отдыхающего (29.10.2026), но только когда запас есть: на пустом партия
+   * ест не из мешка — таверна, стол хозяина, — и нехватку пишет поход (campaign/travel.ts), а не ночлег в городе.
+   */
+  supply: DomainEvent<'SUPPLY_CHANGED'> | null;
 }
 
 /**
@@ -66,7 +72,7 @@ export interface RestResult {
  * Порядок — время, потом отдых: отдых кончается в конце отрезка. Ctrl+Z снимает сначала отдых, потом время.
  */
 export function takeRest(
-  api: Pick<EngineStore, 'state' | 'advanceTime' | 'propose' | 'rest'>,
+  api: Pick<EngineStore, 'state' | 'advanceTime' | 'propose' | 'rest' | 'changeSupply'>,
   kind: RestKind,
   actorIds: readonly string[],
   hitDice: readonly RestHitDice[] = [],
@@ -74,5 +80,5 @@ export function takeRest(
 ): RestResult {
   const { event: time, proposals } = stepTime(api, 'hour', REST_HOURS[kind]);
   const rest = api.rest(kind, actorIds, hitDice, resources);
-  return { time, proposals, rest };
+  return { time, proposals, rest, supply: kind === 'long' && supplyOf(api.state) > 0 ? eatSupply(api, actorIds.length) : null };
 }

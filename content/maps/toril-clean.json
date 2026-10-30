@@ -1,0 +1,27 @@
+{
+  "id": "toril-clean",
+  "label": "Toril (без подписей)",
+  "note": "ЧЕРНОВИК, в стол не подключён. Растр HandsomeRob без подписей и значков — подложка, поверх которой подписи и места кладутся по координатам (toril-labels.json, toril-places.json). Исходник — maps/abeir toril/…-clean.tif (не в git), собран scripts/clean-map.py 30.10.2026 (маска по цвету и ореолу букв + рамки Vision + значки; заливка big-lama; линии дорог, границ и рек дорисованы по schema.json). Маска — maps/tiles/toril/clean-mask.png (клетка 4 px). Лицензия как у исходника: только стол владельца (SOURCES.md, «стол»), не публикуется. Координаты — те же пиксели, что у toril.json.",
+  "source": {
+    "file": "maps/abeir toril/HandsomeRobs_map_of_Toril-TorilMap-clean.tif",
+    "author": "HandsomeRob",
+    "extent": {
+      "lon": [
+        27,
+        327
+      ],
+      "lat": [
+        88,
+        -61
+      ]
+    }
+  },
+  "width": 30600,
+  "height": 13400,
+  "tileSize": 256,
+  "maxZoom": 7,
+  "format": "webp",
+  "quality": 82,
+  "tiles": "/maps/tiles/toril-clean",
+  "milesPerPixel": 0.37
+}

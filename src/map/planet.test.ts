@@ -1,10 +1,16 @@
 // Глобус по маске (§10): клетка маски по долготе и широте, ортографическая проекция туда и обратно, свет по
 // подсолнечной долготе, щелчок — континент по рамкам маски, пиксель плоской карты — долгота и широта по экстенту.
 import { describe, expect, it } from 'vitest';
-import { MAPS } from './maps';
-import { PLANET_MASKS, globeCells, globeHit, globeToLonLat, isLit, lonLatToGlobe, mapToLonLat, maskCell, subsolarLon } from './planet';
+import { MAPS, PLANET_MASK_IDS } from './maps';
+import { PLANET_MASKS, globeCells, globeHit, globeToLonLat, isLit, lonLatToGlobe, lonLatToMap, mapScaleForGlobe, mapToLonLat, maskCell, subsolarLon } from './planet';
 
 const toril = PLANET_MASKS.toril;
+
+describe('маски планет', () => {
+  it('список карт с маской (maps.ts, основной кусок) — те же, что маски куска глобуса', () => {
+    expect([...PLANET_MASK_IDS].sort()).toEqual(Object.keys(PLANET_MASKS).sort());
+  });
+});
 
 describe('маска Toril', () => {
   it('160×80, полюса — лёд, середина Великого моря — океан', () => {
@@ -57,5 +63,34 @@ describe('проекция', () => {
   it('щелчок: суша в рамке — континент, океан — ничего', () => {
     expect(globeHit(toril, 150, -10)).toBeNull();
     expect(globeHit(toril, 120, 45)).toMatchObject({ region: true });
+  });
+});
+
+describe('глобус ↔ плоская карта (M16)', () => {
+  const size = MAPS.toril;
+  it('точка карты → долгота и широта → та же точка; вне экстента — на край, долгота по кругу', () => {
+    const nw = { x: 8522, y: 2610 };
+    const back = lonLatToMap(toril, size, mapToLonLat(toril, size, nw));
+    expect(back.x).toBeCloseTo(nw.x, 6);
+    expect(back.y).toBeCloseTo(nw.y, 6);
+    const [lon0] = toril.source.extent;
+    expect(lonLatToMap(toril, size, { lon: lon0 + 360, lat: 0 }).x).toBeCloseTo(0, 6);
+    expect(lonLatToMap(toril, size, { lon: lon0, lat: 89.9 }).y).toBe(0);
+  });
+  it('масштаб перехода: градус у точки глобуса на широте lat (r·cos lat) — среднее геометрическое градусов карты', () => {
+    const r = 600;
+    const [lon0, lon1, latTop, latBot] = toril.source.extent;
+    const kx = size.width / (lon1 - lon0);
+    const ky = size.height / (latTop - latBot);
+    for (const lat of [0, 30, 54]) {
+      const s = mapScaleForGlobe(toril, size, r, lat);
+      const globeDeg = (r * Math.PI / 180) * Math.cos((lat * Math.PI) / 180);
+      expect(Math.sqrt(kx * s * ky * s)).toBeCloseTo(globeDeg, 6);
+      // По осям карта отличается от глобуса не больше чем на 7 % (у HandsomeRob kx/ky ≈ 1,13).
+      expect(kx * s / globeDeg).toBeLessThan(1.07);
+      expect(ky * s / globeDeg).toBeGreaterThan(0.93);
+    }
+    // Без широты — экватор.
+    expect(mapScaleForGlobe(toril, size, r)).toBe(mapScaleForGlobe(toril, size, r, 0));
   });
 });

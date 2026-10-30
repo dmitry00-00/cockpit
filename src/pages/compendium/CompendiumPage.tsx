@@ -11,14 +11,20 @@ import { DetailPane, Segmented, SourceFilter, type Detail } from './parts';
 
 // Боги — 0,5 МБ данных: матрица грузится, только когда её открыли.
 const DeityTable = lazy(() => import('./DeityTable'));
+// Державы (вид `kingdom:`, 30.10.2026) — тоже отдельным куском с данными.
+const KingdomTable = lazy(() => import('./KingdomTable'));
+// Поселения — реестр заполненности справочника карты (пользователь 30.10.2026), тоже своим куском.
+const PlaceTable = lazy(() => import('./PlaceTable'));
 
-type View = 'races' | 'classes' | 'feats' | 'deities';
+type View = 'races' | 'classes' | 'feats' | 'deities' | 'kingdoms' | 'places';
 
 const VIEWS: readonly { id: View; label: string; hint: string }[] = [
   { id: 'races', label: 'Расы × фасеты', hint: 'лист «Кратко»: что даёт раса, по колонкам' },
   { id: 'classes', label: 'Уровни × подклассы', hint: 'лист класса: ресурсы и умения по уровням' },
   { id: 'feats', label: 'Черты × эффекты', hint: 'лист «Нерасовые черты»' },
   { id: 'deities', label: 'Боги × пантеоны', hint: 'карточки {{Deity}} Forgotten Realms Wiki: поля по эпохе, служение схемой' },
+  { id: 'kingdoms', label: 'Державы', hint: 'статьи-державы Forgotten Realms Wiki: столица, правитель на год, народ, торговля, соседи' },
+  { id: 'places', label: 'Поселения', hint: 'реестр городов и поселений Toril: что заполнено, что пусто, чего нет на карте' },
 ];
 
 /** «#/compendium/classes/volsebnik» — стартовая матрица и класс из адреса; дальше адрес не трогаем. */
@@ -59,14 +65,14 @@ export function CompendiumPage() {
 
       <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
         <Segmented label="Матрица" items={VIEWS} value={view} onChange={v => { setView(v); setSelected(null); }} />
-        {view !== 'deities' && <SourceFilter value={sources} onChange={setSources} />}
+        {view !== 'deities' && view !== 'kingdoms' && view !== 'places' && <SourceFilter value={sources} onChange={setSources} />}
         {view !== 'classes' && (
           <label className="flex items-center gap-2">
             <span className="type-body-xs text-t3">поиск</span>
             <input
               value={query}
               onChange={e => setQuery(e.target.value)}
-              placeholder={view === 'races' ? 'раса или подраса' : view === 'deities' ? 'имя, титул или сфера' : 'название или текст'}
+              placeholder={view === 'races' ? 'раса или подраса' : view === 'deities' ? 'имя, титул или сфера' : view === 'kingdoms' ? 'имя, столица или регион' : view === 'places' ? 'имя или держава' : 'название или текст'}
               className="type-body-sm text-tx bg-cd shadow-bevel-in px-2 py-1 w-[220px] placeholder:text-t4"
             />
           </label>
@@ -76,6 +82,14 @@ export function CompendiumPage() {
       {view === 'deities' ? (
         <Suspense fallback={<p className="type-body-sm text-t2">Боги загружаются…</p>}>
           <DeityTable query={query} />
+        </Suspense>
+      ) : view === 'kingdoms' ? (
+        <Suspense fallback={<p className="type-body-sm text-t2">Державы загружаются…</p>}>
+          <KingdomTable query={query} />
+        </Suspense>
+      ) : view === 'places' ? (
+        <Suspense fallback={<p className="type-body-sm text-t2">Поселения загружаются…</p>}>
+          <PlaceTable query={query} />
         </Suspense>
       ) : (
         <div className="grid grid-cols-[1fr_360px] gap-4 items-start">

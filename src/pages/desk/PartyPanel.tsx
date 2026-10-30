@@ -3,9 +3,9 @@
 // оверлей поверх главной зоны. Пропсы — те же имена, что на
 // странице: компонент — перенос её разметки, состояние держит страница.
 import type { Dispatch, SetStateAction } from 'react';
-import { partySummaryOf } from '../../campaign';
+import { mouthsOf, partySummaryOf, supplyCapacity, supplyOf } from '../../campaign';
 import { PartyPortraits, PartySpine, PartyFooter } from '../../components';
-import type { Actor, State } from '../../engine';
+import type { Actor, State, SupplyReason } from '../../engine';
 import { useHpFlashes } from '../../engine/useEngine';
 import { Icon } from '../../icons/Icon';
 import type { OpenRail } from './helpers';
@@ -26,11 +26,13 @@ export interface PartyPanelProps {
   setRailParty: (on: boolean) => void;
   openRail: OpenRail;
   setOpenRail: Dispatch<SetStateAction<OpenRail>>;
+  /** Запись припасов партии руками (SUPPLY_CHANGED); съеденное пишут отдых и поход сами. */
+  onSupply?: (reason: SupplyReason, amount: number) => void;
 }
 
 export function PartyPanel({
   state, dmView, party, selectedId, open, flashes, checkedParty, setChecked, setCompareOpen, setEditorOpen,
-  railParty, setRailParty, openRail, setOpenRail,
+  railParty, setRailParty, openRail, setOpenRail, onSupply,
  }: PartyPanelProps) {
   return (
     <>
@@ -90,6 +92,7 @@ export function PartyPanel({
             onClear={() => setChecked(new Set())}
             dmView={dmView}
             renown={Object.values(state.world.factions).filter(f => f.renown !== 0).sort((a, b) => b.renown - a.renown).map(f => ({ id: f.id, name: f.name, value: f.renown }))}
+            supply={{ value: supplyOf(state), capacity: supplyCapacity(state), perDay: mouthsOf(state), ...(onSupply ? { onChange: onSupply } : {}) }}
           />
         ) : null}
       </aside>

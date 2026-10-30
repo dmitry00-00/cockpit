@@ -250,8 +250,8 @@ describe('actorCardProps', () => {
     expect(full.stats?.map(s => [s.label, s.value])).toEqual([['HP', '41/49'], ['AC', '16'], ['ИНИЦ', '+3'], ['PP', '12'], ['КХ', '4/5']]);
     expect(full.stats?.[4].title).toBe('Кости хитов d10: осталось 4 из 5');
     expect(p.stats?.[0].mark).toBe('high');
-    expect(p.tabs?.map(t => t.label)).toEqual(['Обзор', 'Состояния', 'Снаряжение']);
-    expect(actorCardProps(bo, { dmFacts: 1 }).tabs?.map(t => t.label)).toEqual(['Обзор', 'Состояния', 'Снаряжение', 'DM']);
+    expect(p.tabs?.map(t => t.label)).toEqual(['Обзор', 'Состояния', 'Снаряжение', 'Путь']);
+    expect(actorCardProps(bo, { dmFacts: 1 }).tabs?.map(t => t.label)).toEqual(['Обзор', 'Состояния', 'Снаряжение', 'Путь', 'DM']);
     expect(actorCardProps(bo, { dmFacts: 1 }).tabs?.find(t => t.label === 'DM')?.dm).toBe(true);
     expect(p.origin).toBe('dm');
     expect(raceLabel(bo.sheet!)).toBe('Полурослик · Легконогий');

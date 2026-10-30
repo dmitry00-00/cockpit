@@ -1,7 +1,8 @@
 // Поле боя мок-кампании: расстановка F2 (`reference/screens/F2-combat.png`) — клетки по 5 футов, 12 × 8.
-// Это данные сида, как места и фракции: события перемещения по сетке в двадцати одном нет (HANDOFF §7),
-// поэтому токены пока не двигаются, а шаблон и «кого задело» — заранее решённая картинка, не вычисление.
-// Актёр без клетки на сетке не рисуется — появившийся в сессии (ACTOR_SPAWNED) ставится мастером позже.
+// Это данные сида, как места и фракции: стартовая расстановка. Дальше клетку несёт актёр — TOKEN_MOVED (Q17,
+// решение владельца 29.10.2026) из MapTool или со стола; шаблон и «кого задело» — заранее решённая картинка, не вычисление.
+// Актёр без клетки на сетке не рисуется — появившийся в сессии (ACTOR_SPAWNED) ставится мастером позже; клетка за краем
+// поля (в MapTool зона больше) — тоже: сетка стола не прокручивается.
 import type { State } from '../engine/state';
 
 export interface Cell { x: number; y: number }
@@ -50,7 +51,8 @@ export function seedBattlefield(): Battlefield {
  */
 export function placedActors(state: State, field: Battlefield): { actor: State['actors'][string]; cell: Cell }[] {
   return Object.values(state.actors).flatMap(actor => {
-    const cell = field.positions[actor.id];
-    return cell && !actor.removed ? [{ actor, cell }] : [];
+    const cell = actor.cell ?? field.positions[actor.id];
+    const inside = cell && cell.x >= 0 && cell.y >= 0 && cell.x < field.cols && cell.y < field.rows;
+    return inside && !actor.removed ? [{ actor, cell }] : [];
   });
 }

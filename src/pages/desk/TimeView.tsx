@@ -3,10 +3,10 @@
 // что на странице: компонент — перенос её разметки, состояние держит страница.
 import type { RefObject } from 'react';
 import { NEAR_SCALES, dayPhase, inDays, moonState } from '../../campaign';
-import { ChangeSummary, DayPhaseStrip, MOON_ICONS, MOON_LABELS, TEMPO_LABELS, summaryGroups } from '../../components';
+import { ChangeSummary, DayPhaseStrip, MOON_ICONS, MOON_LABELS, TEMPO_LABELS, inSummaryGroup, summaryGroups } from '../../components';
 import type { EngineStoreApi, ScaleLevel, State, Tempo } from '../../engine';
 import { Icon } from '../../icons/Icon';
-import { HarptosCalendar } from './HarptosCalendar';
+import { HarptosCalendar } from '../../lazyParts';
 import { HEAD, MOON_PHASES } from './styles';
 
 export interface TimeViewProps {
@@ -24,13 +24,15 @@ export interface TimeViewProps {
   scaleLabel: (scale: ScaleLevel) => string;
   decide: (deltaId: string, verdict: 'accept' | 'reject') => unknown;
   api: ReturnType<EngineStoreApi['getState']>;
+  /** «Перейти к этому дню» из календаря — только мастеру. */
+  onGoTo?: (daySec: number) => void;
 }
 
-export function TimeView({ sec, partyDeities, mainRef, dmView, phase, moon, tempo, lastStep, stepDeltas, scaleLabel, decide, api }: TimeViewProps) {
+export function TimeView({ sec, partyDeities, mainRef, dmView, phase, moon, tempo, lastStep, stepDeltas, scaleLabel, decide, api, onGoTo }: TimeViewProps) {
   return (
     <section aria-label="Шаг времени" ref={mainRef} className="relative flex-1 min-w-0 min-h-0 flex flex-col gap-4 p-4 overflow-auto">
       <DayPhaseStrip value={phase} />
-      <HarptosCalendar sec={sec} partyDeities={partyDeities} />
+      <HarptosCalendar sec={sec} partyDeities={partyDeities} {...(onGoTo ? { onGoTo } : {})} />
       <div className="flex flex-col bg-pn shadow-bevel">
         <div className={HEAD}>
           <Icon name="scale-system" size={16} color="var(--ent-plane)" title="Небесные тела" />
@@ -63,7 +65,7 @@ export function TimeView({ sec, partyDeities, mainRef, dmView, phase, moon, temp
             ...g,
             items: g.items.map(it => ({ ...it, onAccept: () => decide(it.id, 'accept'), onReject: () => decide(it.id, 'reject') })),
           }))}
-          onAcceptAll={groupId => { for (const d of stepDeltas) if (d.scale === groupId) api.accept(d.id); }}
+          onAcceptAll={groupId => { for (const d of stepDeltas) if (inSummaryGroup(d, groupId)) api.accept(d.id); }}
         />
       </div>
       ) : null}

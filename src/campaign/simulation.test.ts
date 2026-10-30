@@ -97,7 +97,10 @@ describe('simulate — правила', () => {
     const eve = at({ year: 1492, month: 'Flamerule', day: 30, hour: 12 });
     const midsummer = simulate({ state, fromSec: eve, toSec: eve + SECONDS_PER_DAY, timeEventId: 'tf' });
     expect(midsummer.find(d => d.subject === 'Еда и ночлег · Neverwinter')).toMatchObject({ now: '+10%', cause: 'Midsummer: толпы', patch: { goods: 'food', value: 10 } });
-    const after = simulate({ state, fromSec: eve + SECONDS_PER_DAY, toSec: eve + 2 * SECONDS_PER_DAY, timeEventId: 'ta' });
+    // 1492 — год Shieldmeet: за Midsummer ещё один праздник, толпы остаются; прошёл он — цена обратно.
+    const shieldmeet = simulate({ state, fromSec: eve + SECONDS_PER_DAY, toSec: eve + 2 * SECONDS_PER_DAY, timeEventId: 'ts' });
+    expect(shieldmeet.find(d => d.subject === 'Еда и ночлег · Neverwinter')).toBeUndefined();
+    const after = simulate({ state, fromSec: eve + 2 * SECONDS_PER_DAY, toSec: eve + 3 * SECONDS_PER_DAY, timeEventId: 'ta' });
     expect(after.find(d => d.subject === 'Еда и ночлег · Neverwinter')).toMatchObject({ now: '-10%', cause: 'праздник прошёл' });
     // Каждое предложение — с причиной; кроме смены сезона словами, у каждого патч.
     for (const d of [...summer, ...midsummer, ...after]) {
@@ -229,7 +232,7 @@ describe('stepTime и патч мира', () => {
     };
     bad('b1', { kind: 'relation', id: FACTION.harpers, other: FACTION.zhentarim, value: 4 }, /от −3 до \+3/);
     bad('b2', { kind: 'relation', id: FACTION.harpers, other: FACTION.harpers, value: 1 }, /к самой себе/);
-    bad('b3', { kind: 'price', id: LOCATION.neverwinter, goods: 'spices' as never, value: 5 }, /нет такого товара/);
+    bad('b3', { kind: 'price', id: LOCATION.neverwinter, goods: 'slaves' as never, value: 5 }, /нет такого товара/);
     bad('b4', { kind: 'encounter', id: LOCATION.neverwinterWood, key: 'Werewolf', value: -1 }, /не меньше нуля/);
     bad('b5', { kind: 'newLocation', location: { id: LOCATION.neverwinter, name: 'Neverwinter', scale: 'settlement' } }, /уже есть/);
     bad('b6', { kind: 'removeLocation', id: LOCATION.swordCoastNorth }, /есть другие места/);

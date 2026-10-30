@@ -86,6 +86,34 @@
    }
   },
   {
+   "deity": "angharradh",
+   "name": "Angharradh",
+   "url": "https://forgottenrealms.fandom.com/wiki/Angharradh",
+   "pantheons": [
+    "seldarine"
+   ],
+   "editions": {
+    "3e": {
+     "text": "Cinnaelos'Cor (Shieldmeet)",
+     "rules": [
+      {
+       "festival": "Shieldmeet",
+       "label": "Cinnaelos'Cor"
+      }
+     ]
+    },
+    "2e": {
+     "text": "Cinnaelos'Cor (Shieldmeet)",
+     "rules": [
+      {
+       "festival": "Shieldmeet",
+       "label": "Cinnaelos'Cor"
+      }
+     ]
+    }
+   }
+  },
+  {
    "deity": "anubis",
    "name": "Anubis",
    "url": "https://forgottenrealms.fandom.com/wiki/Anubis",
@@ -281,6 +309,24 @@
    }
   },
   {
+   "deity": "corellon",
+   "name": "Corellon Larethian",
+   "url": "https://forgottenrealms.fandom.com/wiki/Corellon",
+   "pantheons": [
+    "seldarine"
+   ],
+   "editions": {
+    "4e": {
+     "text": "Shieldmeet",
+     "rules": [
+      {
+       "festival": "Shieldmeet"
+      }
+     ]
+    }
+   }
+  },
+  {
    "deity": "cyrrollalee",
    "name": "Cyrrollalee",
    "url": "https://forgottenrealms.fandom.com/wiki/Cyrrollalee",
@@ -325,6 +371,24 @@
        "month": "Ches",
        "day": 19,
        "solar": "spring"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "deneir",
+   "name": "Deneir",
+   "url": "https://forgottenrealms.fandom.com/wiki/Deneir",
+   "pantheons": [
+    "faerunian-pantheon"
+   ],
+   "editions": {
+    "2e": {
+     "text": "Shieldmeet",
+     "rules": [
+      {
+       "festival": "Shieldmeet"
       }
      ]
     }
@@ -461,6 +525,32 @@
    }
   },
   {
+   "deity": "helm",
+   "name": "Helm",
+   "url": "https://forgottenrealms.fandom.com/wiki/Helm",
+   "pantheons": [
+    "faerunian-pantheon"
+   ],
+   "editions": {
+    "3e": {
+     "text": "Shieldmeet",
+     "rules": [
+      {
+       "festival": "Shieldmeet"
+      }
+     ]
+    },
+    "2e": {
+     "text": "Shieldmeet",
+     "rules": [
+      {
+       "festival": "Shieldmeet"
+      }
+     ]
+    }
+   }
+  },
+  {
    "deity": "ilneval",
    "name": "Ilneval",
    "url": "https://forgottenrealms.fandom.com/wiki/Ilneval",
@@ -495,6 +585,9 @@
      "rules": [
       {
        "festival": "Feast of the Moon"
+      },
+      {
+       "festival": "Shieldmeet"
       }
      ]
     },
@@ -503,6 +596,9 @@
      "rules": [
       {
        "festival": "Feast of the Moon"
+      },
+      {
+       "festival": "Shieldmeet"
       }
      ]
     }
@@ -658,6 +754,9 @@
       },
       {
        "festival": "Midsummer"
+      },
+      {
+       "festival": "Shieldmeet"
       }
      ]
     }
@@ -715,6 +814,9 @@
      "rules": [
       {
        "festival": "Midsummer"
+      },
+      {
+       "festival": "Shieldmeet"
       }
      ]
     }
@@ -845,6 +947,26 @@
        "month": "Kythorn",
        "day": 20,
        "solar": "summer"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "deity": "selune",
+   "name": "Selûne",
+   "url": "https://forgottenrealms.fandom.com/wiki/Selûne",
+   "pantheons": [
+    "faerunian-pantheon",
+    "netherese-pantheon"
+   ],
+   "editions": {
+    "2e": {
+     "text": "Conjuring of the Second Moon (Shieldmeet); Mystery of the Night (varies)",
+     "rules": [
+      {
+       "festival": "Shieldmeet",
+       "label": "Conjuring of the Second Moon"
       }
      ]
     }
@@ -1090,7 +1212,11 @@
     },
     "": {
      "text": "The Divine Death; The True Resurrection; Shieldmeet",
-     "rules": []
+     "rules": [
+      {
+       "festival": "Shieldmeet"
+      }
+     ]
     }
    }
   },
@@ -1151,6 +1277,9 @@
      "rules": [
       {
        "festival": "Midsummer"
+      },
+      {
+       "festival": "Shieldmeet"
       }
      ]
     }

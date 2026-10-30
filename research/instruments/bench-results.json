@@ -1,0 +1,2503 @@
+{
+ "date": "2026-10-30T16:52:57.841Z",
+ "chromium": "147.0.7727.15",
+ "note": "headless, --disable-gpu, SwiftShader; цифры не годятся для GPU",
+ "runs": [
+  {
+   "profile": "mac-dpr2",
+   "rep": 0,
+   "variant": "svg-flat",
+   "renderer": "svg-flat",
+   "frames": 300,
+   "size": 400,
+   "dpr": 2,
+   "work": {
+    "p50": 0.2,
+    "p95": 0.6,
+    "max": 3.9,
+    "mean": 0.253
+   },
+   "interval": {
+    "p50": 16.7,
+    "p95": 16.8,
+    "max": 18,
+    "mean": 16.669
+   },
+   "over20ms": 0,
+   "svgNodes": 149,
+   "mountMs": 14.300000000279397,
+   "grain": true,
+   "traceMs": {
+    "Commit": 8.8,
+    "PrePaint": 13.5,
+    "Paint": 37.8,
+    "Layerize": 19.3,
+    "UpdateLayoutTree": 7.7,
+    "Layout": 20.9,
+    "FunctionCall": 88.8,
+    "RasterTask": 2905.3
+   },
+   "paints": 602,
+   "top": [
+    [
+     "RasterizerTaskImpl::RunOnWorkerThread",
+     2909.6
+    ],
+    [
+     "RasterTask",
+     2905.3
+    ],
+    [
+     "ZeroCopyRasterBuffer::Playback",
+     2902.9
+    ],
+    [
+     "DisplayItemList::Raster",
+     2897.7
+    ],
+    [
+     "ProxyMain::BeginMainFrame",
+     177.2
+    ],
+    [
+     "AsyncTask Run",
+     99.8
+    ],
+    [
+     "WebFrameWidgetImpl::BeginMainFrame",
+     98.3
+    ],
+    [
+     "Blink.Animate.UpdateTime",
+     97.5
+    ]
+   ]
+  },
+  {
+   "profile": "mac-dpr2",
+   "rep": 1,
+   "variant": "svg-flat",
+   "renderer": "svg-flat",
+   "frames": 300,
+   "size": 400,
+   "dpr": 2,
+   "work": {
+    "p50": 0.2,
+    "p95": 0.7,
+    "max": 2.5,
+    "mean": 0.285
+   },
+   "interval": {
+    "p50": 16.7,
+    "p95": 17.6,
+    "max": 17.7,
+    "mean": 16.664
+   },
+   "over20ms": 0,
+   "svgNodes": 149,
+   "mountMs": 14.5,
+   "grain": true,
+   "traceMs": {
+    "Commit": 9.2,
+    "UpdateLayoutTree": 8.8,
+    "Layout": 22.5,
+    "FunctionCall": 95.7,
+    "PrePaint": 14.9,
+    "Paint": 40,
+    "Layerize": 20.5,
+    "RasterTask": 2974.4
+   },
+   "paints": 601,
+   "top": [
+    [
+     "RasterizerTaskImpl::RunOnWorkerThread",
+     2978.8
+    ],
+    [
+     "RasterTask",
+     2974.4
+    ],
+    [
+     "ZeroCopyRasterBuffer::Playback",
+     2971.9
+    ],
+    [
+     "DisplayItemList::Raster",
+     2966.2
+    ],
+    [
+     "ProxyMain::BeginMainFrame",
+     190.2
+    ],
+    [
+     "AsyncTask Run",
+     106.8
+    ],
+    [
+     "WebFrameWidgetImpl::BeginMainFrame",
+     106
+    ],
+    [
+     "Blink.Animate.UpdateTime",
+     105.1
+    ]
+   ]
+  },
+  {
+   "profile": "mac-dpr2",
+   "rep": 2,
+   "variant": "svg-flat",
+   "renderer": "svg-flat",
+   "frames": 300,
+   "size": 400,
+   "dpr": 2,
+   "work": {
+    "p50": 0.2,
+    "p95": 0.6,
+    "max": 2,
+    "mean": 0.289
+   },
+   "interval": {
+    "p50": 16.7,
+    "p95": 17.4,
+    "max": 17.7,
+    "mean": 16.667
+   },
+   "over20ms": 0,
+   "svgNodes": 149,
+   "mountMs": 13.899999999906868,
+   "grain": true,
+   "traceMs": {
+    "UpdateLayoutTree": 9.4,
+    "Layout": 23.2,
+    "PrePaint": 15.8,
+    "Paint": 42.3,
+    "Layerize": 21.6,
+    "Commit": 9.7,
+    "FunctionCall": 99.7,
+    "RasterTask": 3038.6
+   },
+   "paints": 602,
+   "top": [
+    [
+     "RasterizerTaskImpl::RunOnWorkerThread",
+     3043.2
+    ],
+    [
+     "RasterTask",
+     3038.6
+    ],
+    [
+     "ZeroCopyRasterBuffer::Playback",
+     3036.2
+    ],
+    [
+     "DisplayItemList::Raster",
+     3030.4
+    ],
+    [
+     "ProxyMain::BeginMainFrame",
+     199.6
+    ],
+    [
+     "AsyncTask Run",
+     110.8
+    ],
+    [
+     "WebFrameWidgetImpl::BeginMainFrame",
+     110.3
+    ],
+    [
+     "Blink.Animate.UpdateTime",
+     109.4
+    ]
+   ]
+  },
+  {
+   "profile": "mac-dpr2",
+   "rep": 0,
+   "variant": "svg-flat&grain=0",
+   "renderer": "svg-flat",
+   "frames": 300,
+   "size": 400,
+   "dpr": 2,
+   "work": {
+    "p50": 0.4,
+    "p95": 0.9,
+    "max": 3.2,
+    "mean": 0.436
+   },
+   "interval": {
+    "p50": 16.7,
+    "p95": 17.6,
+    "max": 17.7,
+    "mean": 16.667
+   },
+   "over20ms": 0,
+   "svgNodes": 148,
+   "mountMs": 13.799999999813735,
+   "grain": false,
+   "traceMs": {
+    "Commit": 15.1,
+    "UpdateLayoutTree": 14.2,
+    "Layout": 35.2,
+    "FunctionCall": 150.3,
+    "PrePaint": 22.7,
+    "Paint": 59,
+    "Layerize": 27.5,
+    "RasterTask": 1898.4
+   },
+   "paints": 601,
+   "top": [
+    [
+     "RasterizerTaskImpl::RunOnWorkerThread",
+     1904.7
+    ],
+    [
+     "RasterTask",
+     1898.4
+    ],
+    [
+     "ZeroCopyRasterBuffer::Playback",
+     1894.8
+    ],
+    [
+     "DisplayItemList::Raster",
+     1886.5
+    ],
+    [
+     "ProxyMain::BeginMainFrame",
+     285.3
+    ],
+    [
+     "WebFrameWidgetImpl::BeginMainFrame",
+     163.7
+    ],
+    [
+     "AsyncTask Run",
+     163.3
+    ],
+    [
+     "Blink.Animate.UpdateTime",
+     162.7
+    ]
+   ]
+  },
+  {
+   "profile": "mac-dpr2",
+   "rep": 1,
+   "variant": "svg-flat&grain=0",
+   "renderer": "svg-flat",
+   "frames": 300,
+   "size": 400,
+   "dpr": 2,
+   "work": {
+    "p50": 0.5,
+    "p95": 0.9,
+    "max": 3.6,
+    "mean": 0.527
+   },
+   "interval": {
+    "p50": 16.7,
+    "p95": 17.4,
+    "max": 17.6,
+    "mean": 16.667
+   },
+   "over20ms": 0,
+   "svgNodes": 148,
+   "mountMs": 14,
+   "grain": false,
+   "traceMs": {
+    "UpdateLayoutTree": 17,
+    "Layout": 44.2,
+    "PrePaint": 27.8,
+    "Commit": 18.8,
+    "Paint": 75.2,
+    "Layerize": 35.3,
+    "FunctionCall": 181.4,
+    "RasterTask": 2387.5
+   },
+   "paints": 602,
+   "top": [
+    [
+     "RasterizerTaskImpl::RunOnWorkerThread",
+     2394.7
+    ],
+    [
+     "RasterTask",
+     2387.5
+    ],
+    [
+     "ZeroCopyRasterBuffer::Playback",
+     2383.5
+    ],
+    [
+     "DisplayItemList::Raster",
+     2373.7
+    ],
+    [
+     "ProxyMain::BeginMainFrame",
+     350.2
+    ],
+    [
+     "WebFrameWidgetImpl::BeginMainFrame",
+     197.9
+    ],
+    [
+     "Blink.Animate.UpdateTime",
+     196.6
+    ],
+    [
+     "AsyncTask Run",
+     196.1
+    ]
+   ]
+  },
+  {
+   "profile": "mac-dpr2",
+   "rep": 2,
+   "variant": "svg-flat&grain=0",
+   "renderer": "svg-flat",
+   "frames": 300,
+   "size": 400,
+   "dpr": 2,
+   "work": {
+    "p50": 0.5,
+    "p95": 1,
+    "max": 3.8,
+    "mean": 0.512
+   },
+   "interval": {
+    "p50": 16.7,
+    "p95": 17.6,
+    "max": 17.7,
+    "mean": 16.667
+   },
+   "over20ms": 0,
+   "svgNodes": 148,
+   "mountMs": 14,
+   "grain": false,
+   "traceMs": {
+    "Commit": 17.2,
+    "UpdateLayoutTree": 16.8,
+    "Layout": 41.2,
+    "FunctionCall": 174.5,
+    "PrePaint": 26.7,
+    "Paint": 69.4,
+    "Layerize": 32.2,
+    "RasterTask": 2079.8
+   },
+   "paints": 601,
+   "top": [
+    [
+     "RasterizerTaskImpl::RunOnWorkerThread",
+     2086.5
+    ],
+    [
+     "RasterTask",
+     2079.8
+    ],
+    [
+     "ZeroCopyRasterBuffer::Playback",
+     2076.1
+    ],
+    [
+     "DisplayItemList::Raster",
+     2066.9
+    ],
+    [
+     "ProxyMain::BeginMainFrame",
+     333.4
+    ],
+    [
+     "WebFrameWidgetImpl::BeginMainFrame",
+     190.8
+    ],
+    [
+     "Blink.Animate.UpdateTime",
+     189.6
+    ],
+    [
+     "AsyncTask Run",
+     189.2
+    ]
+   ]
+  },
+  {
+   "profile": "mac-dpr2",
+   "rep": 0,
+   "variant": "svg-layered",
+   "renderer": "svg-layered",
+   "frames": 300,
+   "size": 400,
+   "dpr": 2,
+   "work": {
+    "p50": 0.4,
+    "p95": 0.8,
+    "max": 3.5,
+    "mean": 0.397
+   },
+   "interval": {
+    "p50": 16.7,
+    "p95": 17.2,
+    "max": 17.7,
+    "mean": 16.667
+   },
+   "over20ms": 0,
+   "svgNodes": 147,
+   "mountMs": 14.200000000186265,
+   "grain": true,
+   "traceMs": {
+    "UpdateLayoutTree": 21.4,
+    "Layout": 3.3,
+    "PrePaint": 16.4,
+    "Paint": 0.8,
+    "Layerize": 30.1,
+    "Commit": 19.2,
+    "FunctionCall": 142.5,
+    "RasterTask": 8.3
+   },
+   "paints": 8,
+   "top": [
+    [
+     "ProxyMain::BeginMainFrame",
+     245.9
+    ],
+    [
+     "WebFrameWidgetImpl::BeginMainFrame",
+     160.1
+    ],
+    [
+     "Blink.Animate.UpdateTime",
+     158.8
+    ],
+    [
+     "AsyncTask Run",
+     157.9
+    ],
+    [
+     "PageAnimator::serviceScriptedAnimations",
+     157.8
+    ],
+    [
+     "FrameRequestCallbackCollection::ExecuteFrameCallbacks",
+     153.3
+    ],
+    [
+     "FireAnimationFrame",
+     152.5
+    ],
+    [
+     "FunctionCall",
+     142.5
+    ]
+   ]
+  },
+  {
+   "profile": "mac-dpr2",
+   "rep": 1,
+   "variant": "svg-layered",
+   "renderer": "svg-layered",
+   "frames": 300,
+   "size": 400,
+   "dpr": 2,
+   "work": {
+    "p50": 0.4,
+    "p95": 0.8,
+    "max": 3.8,
+    "mean": 0.404
+   },
+   "interval": {
+    "p50": 16.7,
+    "p95": 17.2,
+    "max": 17.7,
+    "mean": 16.667
+   },
+   "over20ms": 0,
+   "svgNodes": 147,
+   "mountMs": 13.699999999720603,
+   "grain": true,
+   "traceMs": {
+    "Commit": 18.3,
+    "UpdateLayoutTree": 22.6,
+    "Layout": 3.2,
+    "FunctionCall": 143.9,
+    "PrePaint": 16.6,
+    "Paint": 1.1,
+    "Layerize": 29.4,
+    "RasterTask": 8.7
+   },
+   "paints": 7,
+   "top": [
+    [
+     "ProxyMain::BeginMainFrame",
+     245
+    ],
+    [
+     "WebFrameWidgetImpl::BeginMainFrame",
+     160.3
+    ],
+    [
+     "Blink.Animate.UpdateTime",
+     159
+    ],
+    [
+     "AsyncTask Run",
+     158.3
+    ],
+    [
+     "PageAnimator::serviceScriptedAnimations",
+     157.9
+    ],
+    [
+     "FrameRequestCallbackCollection::ExecuteFrameCallbacks",
+     153.5
+    ],
+    [
+     "FireAnimationFrame",
+     152.7
+    ],
+    [
+     "FunctionCall",
+     143.9
+    ]
+   ]
+  },
+  {
+   "profile": "mac-dpr2",
+   "rep": 2,
+   "variant": "svg-layered",
+   "renderer": "svg-layered",
+   "frames": 300,
+   "size": 400,
+   "dpr": 2,
+   "work": {
+    "p50": 0.3,
+    "p95": 0.7,
+    "max": 1,
+    "mean": 0.325
+   },
+   "interval": {
+    "p50": 16.7,
+    "p95": 17.4,
+    "max": 17.7,
+    "mean": 16.664
+   },
+   "over20ms": 0,
+   "svgNodes": 147,
+   "mountMs": 14.700000000186265,
+   "grain": true,
+   "traceMs": {
+    "Commit": 15.4,
+    "UpdateLayoutTree": 19,
+    "Layout": 3.5,
+    "FunctionCall": 116.4,
+    "PrePaint": 14.1,
+    "Paint": 0.8,
+    "Layerize": 25.2,
+    "RasterTask": 8.6
+   },
+   "paints": 7,
+   "top": [
+    [
+     "ProxyMain::BeginMainFrame",
+     203.2
+    ],
+    [
+     "WebFrameWidgetImpl::BeginMainFrame",
+     131.3
+    ],
+    [
+     "AsyncTask Run",
+     130.2
+    ],
+    [
+     "Blink.Animate.UpdateTime",
+     130.2
+    ],
+    [
+     "PageAnimator::serviceScriptedAnimations",
+     129.2
+    ],
+    [
+     "FrameRequestCallbackCollection::ExecuteFrameCallbacks",
+     125.5
+    ],
+    [
+     "FireAnimationFrame",
+     124.8
+    ],
+    [
+     "FunctionCall",
+     116.4
+    ]
+   ]
+  },
+  {
+   "profile": "mac-dpr2",
+   "rep": 0,
+   "variant": "canvas-full",
+   "renderer": "canvas-full",
+   "frames": 300,
+   "size": 400,
+   "dpr": 2,
+   "work": {
+    "p50": 4.2,
+    "p95": 5.4,
+    "max": 6.5,
+    "mean": 4.074
+   },
+   "interval": {
+    "p50": 16.7,
+    "p95": 16.8,
+    "max": 17.7,
+    "mean": 16.667
+   },
+   "over20ms": 0,
+   "svgNodes": 0,
+   "mountMs": 5.399999999906868,
+   "traceMs": {
+    "UpdateLayoutTree": 0.4,
+    "Layout": 2,
+    "PrePaint": 4.2,
+    "Paint": 0.2,
+    "Layerize": 0.3,
+    "Commit": 27.2,
+    "FunctionCall": 1253.2
+   },
+   "paints": 5,
+   "top": [
+    [
+     "ProxyMain::BeginMainFrame",
+     1300.9
+    ],
+    [
+     "AsyncTask Run",
+     1262.4
+    ],
+    [
+     "WebFrameWidgetImpl::BeginMainFrame",
+     1259.2
+    ],
+    [
+     "Blink.Animate.UpdateTime",
+     1258.7
+    ],
+    [
+     "PageAnimator::serviceScriptedAnimations",
+     1258.2
+    ],
+    [
+     "FrameRequestCallbackCollection::ExecuteFrameCallbacks",
+     1256.3
+    ],
+    [
+     "FireAnimationFrame",
+     1256
+    ],
+    [
+     "FunctionCall",
+     1253.2
+    ]
+   ]
+  },
+  {
+   "profile": "mac-dpr2",
+   "rep": 1,
+   "variant": "canvas-full",
+   "renderer": "canvas-full",
+   "frames": 300,
+   "size": 400,
+   "dpr": 2,
+   "work": {
+    "p50": 2.9,
+    "p95": 3.2,
+    "max": 3.9,
+    "mean": 2.896
+   },
+   "interval": {
+    "p50": 16.7,
+    "p95": 16.8,
+    "max": 17.6,
+    "mean": 16.667
+   },
+   "over20ms": 0,
+   "svgNodes": 0,
+   "mountMs": 5.600000000093132,
+   "traceMs": {
+    "UpdateLayoutTree": 0.5,
+    "Layout": 2.2,
+    "PrePaint": 4.6,
+    "Paint": 0.1,
+    "Layerize": 0.3,
+    "Commit": 23.7,
+    "FunctionCall": 883.3
+   },
+   "paints": 5,
+   "top": [
+    [
+     "ProxyMain::BeginMainFrame",
+     926.2
+    ],
+    [
+     "AsyncTask Run",
+     892.4
+    ],
+    [
+     "WebFrameWidgetImpl::BeginMainFrame",
+     888.9
+    ],
+    [
+     "Blink.Animate.UpdateTime",
+     888.4
+    ],
+    [
+     "PageAnimator::serviceScriptedAnimations",
+     888
+    ],
+    [
+     "FrameRequestCallbackCollection::ExecuteFrameCallbacks",
+     886.6
+    ],
+    [
+     "FireAnimationFrame",
+     886.3
+    ],
+    [
+     "FunctionCall",
+     883.3
+    ]
+   ]
+  },
+  {
+   "profile": "mac-dpr2",
+   "rep": 2,
+   "variant": "canvas-full",
+   "renderer": "canvas-full",
+   "frames": 300,
+   "size": 400,
+   "dpr": 2,
+   "work": {
+    "p50": 4,
+    "p95": 5.6,
+    "max": 6.7,
+    "mean": 4.017
+   },
+   "interval": {
+    "p50": 16.7,
+    "p95": 16.8,
+    "max": 17.7,
+    "mean": 16.667
+   },
+   "over20ms": 0,
+   "svgNodes": 0,
+   "mountMs": 5.5,
+   "traceMs": {
+    "UpdateLayoutTree": 0.5,
+    "Layout": 2.3,
+    "PrePaint": 4.3,
+    "Paint": 0.1,
+    "Layerize": 0.3,
+    "Commit": 25.2,
+    "FunctionCall": 1218.4
+   },
+   "paints": 5,
+   "top": [
+    [
+     "ProxyMain::BeginMainFrame",
+     1264.5
+    ],
+    [
+     "AsyncTask Run",
+     1228.5
+    ],
+    [
+     "WebFrameWidgetImpl::BeginMainFrame",
+     1225.2
+    ],
+    [
+     "Blink.Animate.UpdateTime",
+     1224.7
+    ],
+    [
+     "PageAnimator::serviceScriptedAnimations",
+     1224.2
+    ],
+    [
+     "FrameRequestCallbackCollection::ExecuteFrameCallbacks",
+     1222.5
+    ],
+    [
+     "FireAnimationFrame",
+     1222.2
+    ],
+    [
+     "FunctionCall",
+     1218.4
+    ]
+   ]
+  },
+  {
+   "profile": "mac-dpr2",
+   "rep": 0,
+   "variant": "canvas-cached",
+   "renderer": "canvas-cached",
+   "frames": 300,
+   "size": 400,
+   "dpr": 2,
+   "work": {
+    "p50": 3.4,
+    "p95": 4.6,
+    "max": 6.6,
+    "mean": 3.38
+   },
+   "interval": {
+    "p50": 16.7,
+    "p95": 17.2,
+    "max": 17.7,
+    "mean": 16.667
+   },
+   "over20ms": 0,
+   "svgNodes": 0,
+   "mountMs": 5.600000000093132,
+   "traceMs": {
+    "UpdateLayoutTree": 0.4,
+    "Layout": 0.1,
+    "PrePaint": 5.5,
+    "Paint": 0.3,
+    "Layerize": 0.4,
+    "Commit": 34.2,
+    "FunctionCall": 1031.9
+   },
+   "paints": 4,
+   "top": [
+    [
+     "ProxyMain::BeginMainFrame",
+     1089.8
+    ],
+    [
+     "AsyncTask Run",
+     1042
+    ],
+    [
+     "WebFrameWidgetImpl::BeginMainFrame",
+     1039.9
+    ],
+    [
+     "Blink.Animate.UpdateTime",
+     1039.2
+    ],
+    [
+     "PageAnimator::serviceScriptedAnimations",
+     1038.6
+    ],
+    [
+     "FrameRequestCallbackCollection::ExecuteFrameCallbacks",
+     1036.2
+    ],
+    [
+     "FireAnimationFrame",
+     1035.7
+    ],
+    [
+     "FunctionCall",
+     1031.9
+    ]
+   ]
+  },
+  {
+   "profile": "mac-dpr2",
+   "rep": 1,
+   "variant": "canvas-cached",
+   "renderer": "canvas-cached",
+   "frames": 300,
+   "size": 400,
+   "dpr": 2,
+   "work": {
+    "p50": 3.7,
+    "p95": 5.2,
+    "max": 6.4,
+    "mean": 3.667
+   },
+   "interval": {
+    "p50": 16.7,
+    "p95": 17.2,
+    "max": 17.7,
+    "mean": 16.669
+   },
+   "over20ms": 0,
+   "svgNodes": 0,
+   "mountMs": 5.300000000279397,
+   "traceMs": {
+    "UpdateLayoutTree": 0.4,
+    "Layout": 0.1,
+    "PrePaint": 5.1,
+    "Paint": 0.3,
+    "Layerize": 0.4,
+    "Commit": 33.7,
+    "FunctionCall": 1117.9
+   },
+   "paints": 4,
+   "top": [
+    [
+     "ProxyMain::BeginMainFrame",
+     1175.1
+    ],
+    [
+     "AsyncTask Run",
+     1128.2
+    ],
+    [
+     "WebFrameWidgetImpl::BeginMainFrame",
+     1126.1
+    ],
+    [
+     "Blink.Animate.UpdateTime",
+     1125.4
+    ],
+    [
+     "PageAnimator::serviceScriptedAnimations",
+     1124.8
+    ],
+    [
+     "FrameRequestCallbackCollection::ExecuteFrameCallbacks",
+     1122.5
+    ],
+    [
+     "FireAnimationFrame",
+     1122
+    ],
+    [
+     "FunctionCall",
+     1117.9
+    ]
+   ]
+  },
+  {
+   "profile": "mac-dpr2",
+   "rep": 2,
+   "variant": "canvas-cached",
+   "renderer": "canvas-cached",
+   "frames": 300,
+   "size": 400,
+   "dpr": 2,
+   "work": {
+    "p50": 3.6,
+    "p95": 4.8,
+    "max": 8.2,
+    "mean": 3.594
+   },
+   "interval": {
+    "p50": 16.7,
+    "p95": 17.2,
+    "max": 17.6,
+    "mean": 16.669
+   },
+   "over20ms": 0,
+   "svgNodes": 0,
+   "mountMs": 5.400000000372529,
+   "traceMs": {
+    "UpdateLayoutTree": 0.4,
+    "Layout": 0.1,
+    "Commit": 30.2,
+    "PrePaint": 4.5,
+    "Paint": 0.1,
+    "Layerize": 0.3,
+    "FunctionCall": 1091.5
+   },
+   "paints": 3,
+   "top": [
+    [
+     "ProxyMain::BeginMainFrame",
+     1142.7
+    ],
+    [
+     "AsyncTask Run",
+     1101.2
+    ],
+    [
+     "WebFrameWidgetImpl::BeginMainFrame",
+     1099.1
+    ],
+    [
+     "Blink.Animate.UpdateTime",
+     1098.5
+    ],
+    [
+     "PageAnimator::serviceScriptedAnimations",
+     1097.9
+    ],
+    [
+     "FrameRequestCallbackCollection::ExecuteFrameCallbacks",
+     1095.9
+    ],
+    [
+     "FireAnimationFrame",
+     1095.4
+    ],
+    [
+     "FunctionCall",
+     1091.5
+    ]
+   ]
+  },
+  {
+   "profile": "mac-dpr2",
+   "rep": 0,
+   "variant": "webgl",
+   "renderer": "webgl",
+   "frames": 300,
+   "size": 400,
+   "dpr": 2,
+   "work": {
+    "p50": 0,
+    "p95": 0.1,
+    "max": 0.1,
+    "mean": 0.012
+   },
+   "interval": {
+    "p50": 16.7,
+    "p95": 16.8,
+    "max": 33.3,
+    "mean": 16.723
+   },
+   "over20ms": 1,
+   "svgNodes": 0,
+   "glRenderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)",
+   "mountMs": 5.300000000279397,
+   "traceMs": {
+    "UpdateLayoutTree": 0.4,
+    "Layout": 0.1,
+    "PrePaint": 5.5,
+    "Paint": 0,
+    "Layerize": 0.3,
+    "Commit": 1403.4,
+    "GPUTask": 1261.7,
+    "FunctionCall": 13
+   },
+   "paints": 2,
+   "top": [
+    [
+     "ProxyMain::BeginMainFrame",
+     1439.1
+    ],
+    [
+     "Commit",
+     1403.4
+    ],
+    [
+     "LayerTreeHost::DoUpdateLayers",
+     1397.8
+    ],
+    [
+     "GLES2::ReadPixels",
+     1297.4
+    ],
+    [
+     "ImplementationBase::WaitForCmd",
+     1277.4
+    ],
+    [
+     "CommandBufferHelper::Finish",
+     1277.2
+    ],
+    [
+     "CommandBufferProxyImpl::WaitForGetOffset",
+     1274.7
+    ],
+    [
+     "Scheduler::RunTask",
+     1262.5
+    ]
+   ]
+  },
+  {
+   "profile": "mac-dpr2",
+   "rep": 1,
+   "variant": "webgl",
+   "renderer": "webgl",
+   "frames": 300,
+   "size": 400,
+   "dpr": 2,
+   "work": {
+    "p50": 0,
+    "p95": 0.1,
+    "max": 0.2,
+    "mean": 0.015
+   },
+   "interval": {
+    "p50": 16.7,
+    "p95": 16.9,
+    "max": 17.7,
+    "mean": 16.667
+   },
+   "over20ms": 0,
+   "svgNodes": 0,
+   "glRenderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)",
+   "mountMs": 5.300000000279397,
+   "traceMs": {
+    "Commit": 1534.8,
+    "UpdateLayoutTree": 0.4,
+    "Layout": 0.1,
+    "GPUTask": 1369.1,
+    "PrePaint": 5.7,
+    "Paint": 0,
+    "Layerize": 0.3,
+    "FunctionCall": 13.3
+   },
+   "paints": 1,
+   "top": [
+    [
+     "ProxyMain::BeginMainFrame",
+     1573.7
+    ],
+    [
+     "Commit",
+     1534.8
+    ],
+    [
+     "LayerTreeHost::DoUpdateLayers",
+     1529.3
+    ],
+    [
+     "GLES2::ReadPixels",
+     1408.3
+    ],
+    [
+     "ImplementationBase::WaitForCmd",
+     1386.7
+    ],
+    [
+     "CommandBufferHelper::Finish",
+     1386.5
+    ],
+    [
+     "CommandBufferProxyImpl::WaitForGetOffset",
+     1383.5
+    ],
+    [
+     "Scheduler::RunTask",
+     1370.2
+    ]
+   ]
+  },
+  {
+   "profile": "mac-dpr2",
+   "rep": 2,
+   "variant": "webgl",
+   "renderer": "webgl",
+   "frames": 300,
+   "size": 400,
+   "dpr": 2,
+   "work": {
+    "p50": 0,
+    "p95": 0.1,
+    "max": 0.2,
+    "mean": 0.015
+   },
+   "interval": {
+    "p50": 16.7,
+    "p95": 16.8,
+    "max": 17.6,
+    "mean": 16.667
+   },
+   "over20ms": 0,
+   "svgNodes": 0,
+   "glRenderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)",
+   "mountMs": 5.100000000093132,
+   "traceMs": {
+    "UpdateLayoutTree": 0.4,
+    "Layout": 0.1,
+    "PrePaint": 5.6,
+    "Paint": 0,
+    "Layerize": 0.4,
+    "Commit": 1442.8,
+    "GPUTask": 1294.8,
+    "FunctionCall": 13.3
+   },
+   "paints": 2,
+   "top": [
+    [
+     "ProxyMain::BeginMainFrame",
+     1480.1
+    ],
+    [
+     "Commit",
+     1442.8
+    ],
+    [
+     "LayerTreeHost::DoUpdateLayers",
+     1437.1
+    ],
+    [
+     "GLES2::ReadPixels",
+     1331.2
+    ],
+    [
+     "ImplementationBase::WaitForCmd",
+     1310.9
+    ],
+    [
+     "CommandBufferHelper::Finish",
+     1310.7
+    ],
+    [
+     "CommandBufferProxyImpl::WaitForGetOffset",
+     1308.2
+    ],
+    [
+     "Scheduler::RunTask",
+     1295.6
+    ]
+   ]
+  },
+  {
+   "profile": "win-dpr1.25-cpu4x",
+   "rep": 0,
+   "variant": "svg-flat",
+   "renderer": "svg-flat",
+   "frames": 300,
+   "size": 400,
+   "dpr": 1.25,
+   "work": {
+    "p50": 0.2,
+    "p95": 0.8,
+    "max": 2.8,
+    "mean": 0.244
+   },
+   "interval": {
+    "p50": 16.7,
+    "p95": 17.6,
+    "max": 17.7,
+    "mean": 16.667
+   },
+   "over20ms": 0,
+   "svgNodes": 149,
+   "mountMs": 56.299999999813735,
+   "grain": true,
+   "traceMs": {
+    "Commit": 9.3,
+    "UpdateLayoutTree": 10,
+    "Layout": 34.7,
+    "PrePaint": 17.8,
+    "Paint": 54.7,
+    "Layerize": 28.7,
+    "FunctionCall": 85.7,
+    "RasterTask": 1433.9
+   },
+   "paints": 604,
+   "top": [
+    [
+     "RasterizerTaskImpl::RunOnWorkerThread",
+     1437.4
+    ],
+    [
+     "RasterTask",
+     1433.9
+    ],
+    [
+     "ZeroCopyRasterBuffer::Playback",
+     1432.1
+    ],
+    [
+     "DisplayItemList::Raster",
+     1428.6
+    ],
+    [
+     "ProxyMain::BeginMainFrame",
+     201.1
+    ],
+    [
+     "AsyncTask Run",
+     115.9
+    ],
+    [
+     "WebFrameWidgetImpl::UpdateLifecycle",
+     96.1
+    ],
+    [
+     "WebFrameWidgetImpl::BeginMainFrame",
+     94.2
+    ]
+   ]
+  },
+  {
+   "profile": "win-dpr1.25-cpu4x",
+   "rep": 1,
+   "variant": "svg-flat",
+   "renderer": "svg-flat",
+   "frames": 300,
+   "size": 400,
+   "dpr": 1.25,
+   "work": {
+    "p50": 0.1,
+    "p95": 0.8,
+    "max": 2.7,
+    "mean": 0.254
+   },
+   "interval": {
+    "p50": 16.7,
+    "p95": 17.6,
+    "max": 17.7,
+    "mean": 16.668
+   },
+   "over20ms": 0,
+   "svgNodes": 149,
+   "mountMs": 57.1999999997206,
+   "grain": true,
+   "traceMs": {
+    "Commit": 10.6,
+    "UpdateLayoutTree": 13.4,
+    "Layout": 37.2,
+    "PrePaint": 19.3,
+    "Paint": 56.4,
+    "Layerize": 27,
+    "FunctionCall": 84,
+    "RasterTask": 1444
+   },
+   "paints": 604,
+   "top": [
+    [
+     "RasterizerTaskImpl::RunOnWorkerThread",
+     1447.2
+    ],
+    [
+     "RasterTask",
+     1444
+    ],
+    [
+     "ZeroCopyRasterBuffer::Playback",
+     1442.2
+    ],
+    [
+     "DisplayItemList::Raster",
+     1438.7
+    ],
+    [
+     "ProxyMain::BeginMainFrame",
+     197
+    ],
+    [
+     "AsyncTask Run",
+     113
+    ],
+    [
+     "WebFrameWidgetImpl::UpdateLifecycle",
+     92.6
+    ],
+    [
+     "WebFrameWidgetImpl::BeginMainFrame",
+     91.1
+    ]
+   ]
+  },
+  {
+   "profile": "win-dpr1.25-cpu4x",
+   "rep": 2,
+   "variant": "svg-flat",
+   "renderer": "svg-flat",
+   "frames": 300,
+   "size": 400,
+   "dpr": 1.25,
+   "work": {
+    "p50": 0.2,
+    "p95": 0.8,
+    "max": 2.9,
+    "mean": 0.296
+   },
+   "interval": {
+    "p50": 16.7,
+    "p95": 17.6,
+    "max": 18.2,
+    "mean": 16.67
+   },
+   "over20ms": 0,
+   "svgNodes": 149,
+   "mountMs": 57,
+   "grain": true,
+   "traceMs": {
+    "UpdateLayoutTree": 14.1,
+    "Layout": 37.9,
+    "PrePaint": 23.7,
+    "Paint": 69.2,
+    "Layerize": 33.9,
+    "Commit": 13.9,
+    "FunctionCall": 99.7,
+    "RasterTask": 1469.5
+   },
+   "paints": 602,
+   "top": [
+    [
+     "RasterizerTaskImpl::RunOnWorkerThread",
+     1473.1
+    ],
+    [
+     "RasterTask",
+     1469.5
+    ],
+    [
+     "ZeroCopyRasterBuffer::Playback",
+     1467.6
+    ],
+    [
+     "DisplayItemList::Raster",
+     1463.8
+    ],
+    [
+     "ProxyMain::BeginMainFrame",
+     247.1
+    ],
+    [
+     "AsyncTask Run",
+     130.1
+    ],
+    [
+     "WebFrameWidgetImpl::UpdateLifecycle",
+     121.1
+    ],
+    [
+     "WebFrameWidgetImpl::BeginMainFrame",
+     108.4
+    ]
+   ]
+  },
+  {
+   "profile": "win-dpr1.25-cpu4x",
+   "rep": 0,
+   "variant": "svg-flat&grain=0",
+   "renderer": "svg-flat",
+   "frames": 300,
+   "size": 400,
+   "dpr": 1.25,
+   "work": {
+    "p50": 0.2,
+    "p95": 0.8,
+    "max": 2.9,
+    "mean": 0.279
+   },
+   "interval": {
+    "p50": 16.7,
+    "p95": 17.6,
+    "max": 17.7,
+    "mean": 16.67
+   },
+   "over20ms": 0,
+   "svgNodes": 148,
+   "mountMs": 59.89999999990687,
+   "grain": false,
+   "traceMs": {
+    "Commit": 12.2,
+    "UpdateLayoutTree": 10.3,
+    "Layout": 41,
+    "PrePaint": 18.8,
+    "Paint": 54.5,
+    "Layerize": 30.5,
+    "FunctionCall": 98,
+    "RasterTask": 703.8
+   },
+   "paints": 604,
+   "top": [
+    [
+     "RasterizerTaskImpl::RunOnWorkerThread",
+     707.3
+    ],
+    [
+     "RasterTask",
+     703.8
+    ],
+    [
+     "ZeroCopyRasterBuffer::Playback",
+     702.1
+    ],
+    [
+     "DisplayItemList::Raster",
+     698.5
+    ],
+    [
+     "ProxyMain::BeginMainFrame",
+     218.1
+    ],
+    [
+     "AsyncTask Run",
+     128.5
+    ],
+    [
+     "WebFrameWidgetImpl::BeginMainFrame",
+     106
+    ],
+    [
+     "Blink.Animate.UpdateTime",
+     105.2
+    ]
+   ]
+  },
+  {
+   "profile": "win-dpr1.25-cpu4x",
+   "rep": 1,
+   "variant": "svg-flat&grain=0",
+   "renderer": "svg-flat",
+   "frames": 300,
+   "size": 400,
+   "dpr": 1.25,
+   "work": {
+    "p50": 0.2,
+    "p95": 1,
+    "max": 2.7,
+    "mean": 0.36
+   },
+   "interval": {
+    "p50": 16.7,
+    "p95": 17.5,
+    "max": 17.7,
+    "mean": 16.667
+   },
+   "over20ms": 0,
+   "svgNodes": 148,
+   "mountMs": 57.40000000037253,
+   "grain": false,
+   "traceMs": {
+    "Commit": 15.4,
+    "UpdateLayoutTree": 15.7,
+    "Layout": 45.2,
+    "PrePaint": 28,
+    "Paint": 65.1,
+    "Layerize": 28.9,
+    "FunctionCall": 120.7,
+    "RasterTask": 755.5
+   },
+   "paints": 604,
+   "top": [
+    [
+     "RasterizerTaskImpl::RunOnWorkerThread",
+     759.4
+    ],
+    [
+     "RasterTask",
+     755.5
+    ],
+    [
+     "ZeroCopyRasterBuffer::Playback",
+     753.6
+    ],
+    [
+     "DisplayItemList::Raster",
+     749.5
+    ],
+    [
+     "ProxyMain::BeginMainFrame",
+     267.1
+    ],
+    [
+     "AsyncTask Run",
+     152
+    ],
+    [
+     "WebFrameWidgetImpl::BeginMainFrame",
+     128.4
+    ],
+    [
+     "Blink.Animate.UpdateTime",
+     128.1
+    ]
+   ]
+  },
+  {
+   "profile": "win-dpr1.25-cpu4x",
+   "rep": 2,
+   "variant": "svg-flat&grain=0",
+   "renderer": "svg-flat",
+   "frames": 300,
+   "size": 400,
+   "dpr": 1.25,
+   "work": {
+    "p50": 0.7,
+    "p95": 1.3,
+    "max": 3.8,
+    "mean": 0.731
+   },
+   "interval": {
+    "p50": 16.7,
+    "p95": 17.5,
+    "max": 17.7,
+    "mean": 16.667
+   },
+   "over20ms": 0,
+   "svgNodes": 148,
+   "mountMs": 64,
+   "grain": false,
+   "traceMs": {
+    "UpdateLayoutTree": 34.2,
+    "Layout": 76.8,
+    "PrePaint": 45.3,
+    "Paint": 96.1,
+    "Layerize": 43.5,
+    "Commit": 17,
+    "FunctionCall": 241.3,
+    "RasterTask": 787.4
+   },
+   "paints": 602,
+   "top": [
+    [
+     "RasterizerTaskImpl::RunOnWorkerThread",
+     791.8
+    ],
+    [
+     "RasterTask",
+     787.4
+    ],
+    [
+     "ZeroCopyRasterBuffer::Playback",
+     785.1
+    ],
+    [
+     "DisplayItemList::Raster",
+     780.3
+    ],
+    [
+     "ProxyMain::BeginMainFrame",
+     476
+    ],
+    [
+     "AsyncTask Run",
+     283.7
+    ],
+    [
+     "WebFrameWidgetImpl::BeginMainFrame",
+     262.5
+    ],
+    [
+     "Blink.Animate.UpdateTime",
+     261.6
+    ]
+   ]
+  },
+  {
+   "profile": "win-dpr1.25-cpu4x",
+   "rep": 0,
+   "variant": "svg-layered",
+   "renderer": "svg-layered",
+   "frames": 300,
+   "size": 400,
+   "dpr": 1.25,
+   "work": {
+    "p50": 0.3,
+    "p95": 0.9,
+    "max": 3.5,
+    "mean": 0.378
+   },
+   "interval": {
+    "p50": 16.7,
+    "p95": 17.6,
+    "max": 17.7,
+    "mean": 16.666
+   },
+   "over20ms": 0,
+   "svgNodes": 147,
+   "mountMs": 66.39999999990687,
+   "grain": true,
+   "traceMs": {
+    "Commit": 19.6,
+    "UpdateLayoutTree": 30.2,
+    "Layout": 17.4,
+    "PrePaint": 27.7,
+    "Paint": 4,
+    "Layerize": 36,
+    "FunctionCall": 131,
+    "RasterTask": 8.9
+   },
+   "paints": 10,
+   "top": [
+    [
+     "ProxyMain::BeginMainFrame",
+     254.1
+    ],
+    [
+     "AsyncTask Run",
+     167.7
+    ],
+    [
+     "WebFrameWidgetImpl::BeginMainFrame",
+     142.8
+    ],
+    [
+     "Blink.Animate.UpdateTime",
+     141.8
+    ],
+    [
+     "PageAnimator::serviceScriptedAnimations",
+     141.1
+    ],
+    [
+     "FrameRequestCallbackCollection::ExecuteFrameCallbacks",
+     139.5
+    ],
+    [
+     "FireAnimationFrame",
+     138.5
+    ],
+    [
+     "FunctionCall",
+     131
+    ]
+   ]
+  },
+  {
+   "profile": "win-dpr1.25-cpu4x",
+   "rep": 1,
+   "variant": "svg-layered",
+   "renderer": "svg-layered",
+   "frames": 300,
+   "size": 400,
+   "dpr": 1.25,
+   "work": {
+    "p50": 0.1,
+    "p95": 0.5,
+    "max": 2.9,
+    "mean": 0.137
+   },
+   "interval": {
+    "p50": 16.7,
+    "p95": 17.6,
+    "max": 17.7,
+    "mean": 16.665
+   },
+   "over20ms": 0,
+   "svgNodes": 147,
+   "mountMs": 55,
+   "grain": true,
+   "traceMs": {
+    "Commit": 8,
+    "UpdateLayoutTree": 9.3,
+    "Layout": 13.2,
+    "PrePaint": 6,
+    "Paint": 2.7,
+    "Layerize": 13,
+    "FunctionCall": 46.5,
+    "RasterTask": 9.2
+   },
+   "paints": 10,
+   "top": [
+    [
+     "ProxyMain::BeginMainFrame",
+     90
+    ],
+    [
+     "AsyncTask Run",
+     75.5
+    ],
+    [
+     "WebFrameWidgetImpl::BeginMainFrame",
+     50.8
+    ],
+    [
+     "Blink.Animate.UpdateTime",
+     50.6
+    ],
+    [
+     "PageAnimator::serviceScriptedAnimations",
+     50.4
+    ],
+    [
+     "FrameRequestCallbackCollection::ExecuteFrameCallbacks",
+     49.3
+    ],
+    [
+     "FireAnimationFrame",
+     49
+    ],
+    [
+     "FunctionCall",
+     46.5
+    ]
+   ]
+  },
+  {
+   "profile": "win-dpr1.25-cpu4x",
+   "rep": 2,
+   "variant": "svg-layered",
+   "renderer": "svg-layered",
+   "frames": 300,
+   "size": 400,
+   "dpr": 1.25,
+   "work": {
+    "p50": 0.1,
+    "p95": 0.5,
+    "max": 2.5,
+    "mean": 0.144
+   },
+   "interval": {
+    "p50": 16.7,
+    "p95": 17.6,
+    "max": 17.7,
+    "mean": 16.668
+   },
+   "over20ms": 0,
+   "svgNodes": 147,
+   "mountMs": 55.39999999990687,
+   "grain": true,
+   "traceMs": {
+    "Commit": 9.2,
+    "UpdateLayoutTree": 9.3,
+    "Layout": 13,
+    "PrePaint": 10.1,
+    "Paint": 0.4,
+    "Layerize": 15.5,
+    "FunctionCall": 49,
+    "RasterTask": 9
+   },
+   "paints": 8,
+   "top": [
+    [
+     "ProxyMain::BeginMainFrame",
+     99.1
+    ],
+    [
+     "AsyncTask Run",
+     77.7
+    ],
+    [
+     "WebFrameWidgetImpl::BeginMainFrame",
+     54.6
+    ],
+    [
+     "Blink.Animate.UpdateTime",
+     54.4
+    ],
+    [
+     "PageAnimator::serviceScriptedAnimations",
+     53.6
+    ],
+    [
+     "FrameRequestCallbackCollection::ExecuteFrameCallbacks",
+     52.6
+    ],
+    [
+     "FireAnimationFrame",
+     52
+    ],
+    [
+     "FunctionCall",
+     49
+    ]
+   ]
+  },
+  {
+   "profile": "win-dpr1.25-cpu4x",
+   "rep": 0,
+   "variant": "canvas-full",
+   "renderer": "canvas-full",
+   "frames": 300,
+   "size": 400,
+   "dpr": 1.25,
+   "work": {
+    "p50": 6.1,
+    "p95": 7.5,
+    "max": 9.7,
+    "mean": 6.225
+   },
+   "interval": {
+    "p50": 16.6,
+    "p95": 17.5,
+    "max": 17.7,
+    "mean": 16.665
+   },
+   "over20ms": 0,
+   "svgNodes": 0,
+   "mountMs": 21.799999999813735,
+   "traceMs": {
+    "UpdateLayoutTree": 1.8,
+    "Layout": 7.4,
+    "PrePaint": 7.1,
+    "Paint": 0.1,
+    "Layerize": 0.5,
+    "Commit": 30.3,
+    "FunctionCall": 1898.5
+   },
+   "paints": 7,
+   "top": [
+    [
+     "ProxyMain::BeginMainFrame",
+     1965.4
+    ],
+    [
+     "AsyncTask Run",
+     1928.5
+    ],
+    [
+     "WebFrameWidgetImpl::BeginMainFrame",
+     1904.9
+    ],
+    [
+     "Blink.Animate.UpdateTime",
+     1904.6
+    ],
+    [
+     "PageAnimator::serviceScriptedAnimations",
+     1904.4
+    ],
+    [
+     "FrameRequestCallbackCollection::ExecuteFrameCallbacks",
+     1903
+    ],
+    [
+     "FireAnimationFrame",
+     1902.7
+    ],
+    [
+     "FunctionCall",
+     1898.5
+    ]
+   ]
+  },
+  {
+   "profile": "win-dpr1.25-cpu4x",
+   "rep": 1,
+   "variant": "canvas-full",
+   "renderer": "canvas-full",
+   "frames": 300,
+   "size": 400,
+   "dpr": 1.25,
+   "work": {
+    "p50": 6.1,
+    "p95": 7.5,
+    "max": 9.5,
+    "mean": 6.256
+   },
+   "interval": {
+    "p50": 16.7,
+    "p95": 17.5,
+    "max": 17.7,
+    "mean": 16.665
+   },
+   "over20ms": 0,
+   "svgNodes": 0,
+   "mountMs": 20.100000000093132,
+   "traceMs": {
+    "UpdateLayoutTree": 1.3,
+    "Layout": 8,
+    "PrePaint": 9.3,
+    "Paint": 0.1,
+    "Layerize": 0.8,
+    "Commit": 31.4,
+    "FunctionCall": 1906
+   },
+   "paints": 7,
+   "top": [
+    [
+     "ProxyMain::BeginMainFrame",
+     1979.3
+    ],
+    [
+     "AsyncTask Run",
+     1938.8
+    ],
+    [
+     "WebFrameWidgetImpl::BeginMainFrame",
+     1915.9
+    ],
+    [
+     "Blink.Animate.UpdateTime",
+     1914.8
+    ],
+    [
+     "PageAnimator::serviceScriptedAnimations",
+     1914.5
+    ],
+    [
+     "FrameRequestCallbackCollection::ExecuteFrameCallbacks",
+     1911.9
+    ],
+    [
+     "FireAnimationFrame",
+     1911.7
+    ],
+    [
+     "FunctionCall",
+     1906
+    ]
+   ]
+  },
+  {
+   "profile": "win-dpr1.25-cpu4x",
+   "rep": 2,
+   "variant": "canvas-full",
+   "renderer": "canvas-full",
+   "frames": 300,
+   "size": 400,
+   "dpr": 1.25,
+   "work": {
+    "p50": 6,
+    "p95": 7.5,
+    "max": 9.4,
+    "mean": 6.162
+   },
+   "interval": {
+    "p50": 16.7,
+    "p95": 17.5,
+    "max": 17.7,
+    "mean": 16.668
+   },
+   "over20ms": 0,
+   "svgNodes": 0,
+   "mountMs": 21.600000000093132,
+   "traceMs": {
+    "UpdateLayoutTree": 2.1,
+    "Layout": 7.6,
+    "PrePaint": 8.3,
+    "Paint": 0.8,
+    "Layerize": 1,
+    "Commit": 33.5,
+    "FunctionCall": 1876.2
+   },
+   "paints": 5,
+   "top": [
+    [
+     "ProxyMain::BeginMainFrame",
+     1955.8
+    ],
+    [
+     "AsyncTask Run",
+     1907.2
+    ],
+    [
+     "WebFrameWidgetImpl::BeginMainFrame",
+     1886.3
+    ],
+    [
+     "Blink.Animate.UpdateTime",
+     1886.1
+    ],
+    [
+     "PageAnimator::serviceScriptedAnimations",
+     1885.8
+    ],
+    [
+     "FrameRequestCallbackCollection::ExecuteFrameCallbacks",
+     1881.8
+    ],
+    [
+     "FireAnimationFrame",
+     1881.6
+    ],
+    [
+     "FunctionCall",
+     1876.2
+    ]
+   ]
+  },
+  {
+   "profile": "win-dpr1.25-cpu4x",
+   "rep": 0,
+   "variant": "canvas-cached",
+   "renderer": "canvas-cached",
+   "frames": 300,
+   "size": 400,
+   "dpr": 1.25,
+   "work": {
+    "p50": 2.3,
+    "p95": 2.7,
+    "max": 4.2,
+    "mean": 2.3
+   },
+   "interval": {
+    "p50": 16.7,
+    "p95": 17.5,
+    "max": 17.7,
+    "mean": 16.665
+   },
+   "over20ms": 0,
+   "svgNodes": 0,
+   "mountMs": 21.09999999962747,
+   "traceMs": {
+    "Commit": 25.6,
+    "UpdateLayoutTree": 1.6,
+    "Layout": 0.7,
+    "PrePaint": 4.9,
+    "Paint": 0.1,
+    "Layerize": 0.8,
+    "FunctionCall": 701.3
+   },
+   "paints": 5,
+   "top": [
+    [
+     "ProxyMain::BeginMainFrame",
+     752.8
+    ],
+    [
+     "AsyncTask Run",
+     731.2
+    ],
+    [
+     "WebFrameWidgetImpl::BeginMainFrame",
+     707.3
+    ],
+    [
+     "Blink.Animate.UpdateTime",
+     706.8
+    ],
+    [
+     "PageAnimator::serviceScriptedAnimations",
+     706.5
+    ],
+    [
+     "FrameRequestCallbackCollection::ExecuteFrameCallbacks",
+     705.2
+    ],
+    [
+     "FireAnimationFrame",
+     704.9
+    ],
+    [
+     "FunctionCall",
+     701.3
+    ]
+   ]
+  },
+  {
+   "profile": "win-dpr1.25-cpu4x",
+   "rep": 1,
+   "variant": "canvas-cached",
+   "renderer": "canvas-cached",
+   "frames": 300,
+   "size": 400,
+   "dpr": 1.25,
+   "work": {
+    "p50": 2.3,
+    "p95": 3.3,
+    "max": 3.7,
+    "mean": 2.384
+   },
+   "interval": {
+    "p50": 16.7,
+    "p95": 17.6,
+    "max": 17.7,
+    "mean": 16.667
+   },
+   "over20ms": 0,
+   "svgNodes": 0,
+   "mountMs": 21.700000000186265,
+   "traceMs": {
+    "Commit": 24.3,
+    "UpdateLayoutTree": 1.6,
+    "Layout": 0.8,
+    "PrePaint": 6.4,
+    "Paint": 0.1,
+    "Layerize": 1,
+    "FunctionCall": 725
+   },
+   "paints": 5,
+   "top": [
+    [
+     "ProxyMain::BeginMainFrame",
+     778.9
+    ],
+    [
+     "AsyncTask Run",
+     755
+    ],
+    [
+     "WebFrameWidgetImpl::BeginMainFrame",
+     731.6
+    ],
+    [
+     "Blink.Animate.UpdateTime",
+     731.3
+    ],
+    [
+     "PageAnimator::serviceScriptedAnimations",
+     731.1
+    ],
+    [
+     "FrameRequestCallbackCollection::ExecuteFrameCallbacks",
+     728.4
+    ],
+    [
+     "FireAnimationFrame",
+     727.8
+    ],
+    [
+     "FunctionCall",
+     725
+    ]
+   ]
+  },
+  {
+   "profile": "win-dpr1.25-cpu4x",
+   "rep": 2,
+   "variant": "canvas-cached",
+   "renderer": "canvas-cached",
+   "frames": 300,
+   "size": 400,
+   "dpr": 1.25,
+   "work": {
+    "p50": 2.3,
+    "p95": 2.7,
+    "max": 3.2,
+    "mean": 2.3
+   },
+   "interval": {
+    "p50": 16.7,
+    "p95": 17.5,
+    "max": 17.7,
+    "mean": 16.667
+   },
+   "over20ms": 0,
+   "svgNodes": 0,
+   "mountMs": 20.899999999906868,
+   "traceMs": {
+    "UpdateLayoutTree": 2.3,
+    "Layout": 0.3,
+    "PrePaint": 5.8,
+    "Paint": 0.2,
+    "Layerize": 0.2,
+    "Commit": 23.1,
+    "FunctionCall": 699
+   },
+   "paints": 4,
+   "top": [
+    [
+     "ProxyMain::BeginMainFrame",
+     745.3
+    ],
+    [
+     "AsyncTask Run",
+     727.6
+    ],
+    [
+     "WebFrameWidgetImpl::BeginMainFrame",
+     703.5
+    ],
+    [
+     "Blink.Animate.UpdateTime",
+     703.3
+    ],
+    [
+     "PageAnimator::serviceScriptedAnimations",
+     702.7
+    ],
+    [
+     "FrameRequestCallbackCollection::ExecuteFrameCallbacks",
+     701.5
+    ],
+    [
+     "FireAnimationFrame",
+     701.3
+    ],
+    [
+     "FunctionCall",
+     699
+    ]
+   ]
+  },
+  {
+   "profile": "win-dpr1.25-cpu4x",
+   "rep": 0,
+   "variant": "webgl",
+   "renderer": "webgl",
+   "frames": 300,
+   "size": 400,
+   "dpr": 1.25,
+   "work": {
+    "p50": 0,
+    "p95": 0.1,
+    "max": 0.2,
+    "mean": 0.01
+   },
+   "interval": {
+    "p50": 16.7,
+    "p95": 17.6,
+    "max": 17.7,
+    "mean": 16.667
+   },
+   "over20ms": 0,
+   "svgNodes": 0,
+   "glRenderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)",
+   "mountMs": 21.200000000186265,
+   "traceMs": {
+    "Commit": 572.6,
+    "UpdateLayoutTree": 1.9,
+    "Layout": 0.1,
+    "PrePaint": 3.4,
+    "Paint": 0.5,
+    "Layerize": 0.3,
+    "GPUTask": 412.4,
+    "FunctionCall": 8
+   },
+   "paints": 3,
+   "top": [
+    [
+     "ProxyMain::BeginMainFrame",
+     597.6
+    ],
+    [
+     "Commit",
+     572.6
+    ],
+    [
+     "LayerTreeHost::DoUpdateLayers",
+     564.7
+    ],
+    [
+     "GLES2::ReadPixels",
+     507.8
+    ],
+    [
+     "ImplementationBase::WaitForCmd",
+     491.6
+    ],
+    [
+     "CommandBufferHelper::Finish",
+     491.4
+    ],
+    [
+     "CommandBufferProxyImpl::WaitForGetOffset",
+     485.9
+    ],
+    [
+     "Scheduler::RunTask",
+     412.9
+    ]
+   ]
+  },
+  {
+   "profile": "win-dpr1.25-cpu4x",
+   "rep": 1,
+   "variant": "webgl",
+   "renderer": "webgl",
+   "frames": 300,
+   "size": 400,
+   "dpr": 1.25,
+   "work": {
+    "p50": 0,
+    "p95": 0.1,
+    "max": 0.5,
+    "mean": 0.011
+   },
+   "interval": {
+    "p50": 16.7,
+    "p95": 17.5,
+    "max": 17.7,
+    "mean": 16.667
+   },
+   "over20ms": 0,
+   "svgNodes": 0,
+   "glRenderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)",
+   "mountMs": 23,
+   "traceMs": {
+    "Commit": 568.6,
+    "UpdateLayoutTree": 1.9,
+    "Layout": 0.8,
+    "PrePaint": 3.6,
+    "Paint": 0,
+    "Layerize": 0.5,
+    "GPUTask": 415.2,
+    "FunctionCall": 9.6
+   },
+   "paints": 3,
+   "top": [
+    [
+     "ProxyMain::BeginMainFrame",
+     598.7
+    ],
+    [
+     "Commit",
+     568.6
+    ],
+    [
+     "LayerTreeHost::DoUpdateLayers",
+     561.2
+    ],
+    [
+     "GLES2::ReadPixels",
+     498.5
+    ],
+    [
+     "ImplementationBase::WaitForCmd",
+     490.3
+    ],
+    [
+     "CommandBufferHelper::Finish",
+     490.1
+    ],
+    [
+     "CommandBufferProxyImpl::WaitForGetOffset",
+     487.1
+    ],
+    [
+     "Scheduler::RunTask",
+     415.7
+    ]
+   ]
+  },
+  {
+   "profile": "win-dpr1.25-cpu4x",
+   "rep": 2,
+   "variant": "webgl",
+   "renderer": "webgl",
+   "frames": 300,
+   "size": 400,
+   "dpr": 1.25,
+   "work": {
+    "p50": 0,
+    "p95": 0.1,
+    "max": 0.5,
+    "mean": 0.017
+   },
+   "interval": {
+    "p50": 16.7,
+    "p95": 17.5,
+    "max": 17.7,
+    "mean": 16.665
+   },
+   "over20ms": 0,
+   "svgNodes": 0,
+   "glRenderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (LLVM 10.0.0) (0x0000C0DE)), SwiftShader driver)",
+   "mountMs": 21.5,
+   "traceMs": {
+    "Commit": 568.9,
+    "UpdateLayoutTree": 1.2,
+    "Layout": 1.3,
+    "PrePaint": 3.9,
+    "Paint": 0,
+    "Layerize": 0.6,
+    "GPUTask": 421.9,
+    "FunctionCall": 11.8
+   },
+   "paints": 3,
+   "top": [
+    [
+     "ProxyMain::BeginMainFrame",
+     602.2
+    ],
+    [
+     "Commit",
+     568.9
+    ],
+    [
+     "LayerTreeHost::DoUpdateLayers",
+     563.6
+    ],
+    [
+     "GLES2::ReadPixels",
+     507.5
+    ],
+    [
+     "ImplementationBase::WaitForCmd",
+     496.2
+    ],
+    [
+     "CommandBufferHelper::Finish",
+     495.9
+    ],
+    [
+     "CommandBufferProxyImpl::WaitForGetOffset",
+     494
+    ],
+    [
+     "Scheduler::RunTask",
+     422.3
+    ]
+   ]
+  }
+ ]
+}

@@ -4,7 +4,8 @@
 // путь как цепочка регионов с уровнем опасности, DC занятий в пути по уровню, хотя бы одна встреча на регион,
 // таблицы встреч d100, погода d20 на регион и припасы (Supply). Тексты правил — дословно в content/a5e/journey.json.
 // С 28.10.2026 (ROADMAP 0.5) данные — отдельный кусок: loadJourney() заполняет те же экспорты; до загрузки они пусты.
-import type { TerrainCode } from '../../map/terrain';
+import type { MapPoint } from '../../map/projection';
+import { nearRoad, terrainAt, type RouteOverlay, type SettlementMark, type TerrainCode, type TerrainGrid } from '../../map/terrain';
 import { DIFFICULT_TERRAIN_FACTOR, TRAVEL_PACES, type TravelPaceId } from '../srd/travel';
 
 export type RegionTier = 0 | 1 | 2 | 3 | 4;
@@ -114,31 +115,87 @@ export interface JourneyLeg {
 }
 
 /**
+ * Open Roads, Fast Travel: «Adventurers move one mile per hour faster when traveling along open roads». Темп SRD — мили в
+ * час и в день; на дороге час даёт на милю больше, поэтому миля дороги стоит mph / (mph + 1) мили темпа: обычным
+ * темпом 32 мили дороги — день, как 24 мили без дороги.
+ */
+export function roadMilesAsPace(miles: number, pace: TravelPaceId): number {
+  const mph = TRAVEL_PACES[pace].milesPerHour;
+  return (miles * mph) / (mph + 1);
+}
+
+/**
+ * Поселения справочника карты → регион A5E и круг вокруг значка, где путь идёт им. Регион — как у сцены места
+ * (campaign/scene.ts REGION_OF_KIND): Urban Township — «from mighty sprawling cities to smaller bustling towns», Country
+ * Shire — «small villages and rural communities, often surrounded by a patchwork of farms». Радиус — решение кокпита:
+ * город — 2 мили, городок — миля, деревня с полями вокруг — 3 мили.
+ */
+export const SETTLEMENT_REGION: Readonly<Record<string, { region: string; miles: number }>> = {
+  City: { region: 'urban-township', miles: 2 },
+  Town: { region: 'urban-township', miles: 1 },
+  Village: { region: 'country-shire', miles: 3 },
+};
+
+/** Значки справочника — круги поселений на пути; места «по GIS» (на растре не найдены) не идут. */
+export function settlementMarks(places: readonly (MapPoint & { kind: string; approx?: boolean })[], milesPerPixel: number): SettlementMark[] {
+  return places.flatMap(p => {
+    const s = SETTLEMENT_REGION[p.kind];
+    return s && !p.approx ? [{ x: p.x, y: p.y, r: s.miles / milesPerPixel, region: s.region }] : [];
+  });
+}
+
+/**
+ * Регион A5E точки карты — тем же порядком, что путь (routeTerrain): круг поселения, затем дорога, затем класс
+ * местности. Нужен слоям карты (ROADMAP 6.4): где какая таблица встреч и погоды.
+ */
+export function regionAt(grid: TerrainGrid, p: MapPoint, overlay: RouteOverlay = {}): string | undefined {
+  const town = overlay.settlements?.find(s => Math.hypot(s.x - p.x, s.y - p.y) <= s.r);
+  if (town) return town.region;
+  if (overlay.roads && nearRoad(overlay.roads, p)) return 'open-roads';
+  const c = terrainAt(grid, p);
+  return c ? REGION_OF_TERRAIN[c] ?? undefined : undefined;
+}
+
+/** Подпись броска погоды региона в логе (DICE_ROLLED): по ней слой «Погода» находит бросок дня. */
+export const weatherRollLabel = (regionName: string): string => `Погода · ${regionName}`;
+
+/** Поход под землёй — весь путь одним регионом: «a stretch of underground caverns» (A5E, Regions). */
+export const UNDERGROUND_REGION = 'underland-realm';
+
+/**
  * Путь по клеткам местности → отрезки по регионам A5E в порядке убывания миль. Мили — из routeTerrain; классы,
- * которые ложатся в один регион (равнина и холмы), складываются. Отрезки короче полумили не показываются.
+ * которые ложатся в один регион (равнина и холмы), складываются. over — мили, что легли не на местность: дорога
+ * (Open Roads, дни — с Fast Travel), поселения, Подземье; трудной местности в них нет. Отрезки короче полумили не
+ * показываются.
  */
 export function journeyLegs(miles: Partial<Record<TerrainCode, number>>, pace: TravelPaceId, tier: RegionTier,
-  difficult: ReadonlySet<TerrainCode>): JourneyLeg[] {
+  difficult: ReadonlySet<TerrainCode>, over: Partial<Record<string, number>> = {}): JourneyLeg[] {
   const by = new Map<string, { miles: number; rough: number }>();
-  for (const [code, m] of Object.entries(miles) as [TerrainCode, number][]) {
-    const id = REGION_OF_TERRAIN[code];
-    if (!id || !m) continue;
+  const add = (id: string, m: number, rough: number) => {
     const cur = by.get(id) ?? { miles: 0, rough: 0 };
     cur.miles += m;
-    if (difficult.has(code)) cur.rough += m;
+    cur.rough += rough;
     by.set(id, cur);
+  };
+  for (const [code, m] of Object.entries(miles) as [TerrainCode, number][]) {
+    const id = REGION_OF_TERRAIN[code];
+    if (id && m) add(id, m, difficult.has(code) ? m : 0);
   }
+  for (const [id, m] of Object.entries(over)) if (m && JOURNEY_REGIONS[id]) add(id, m, 0);
   const perDay = TRAVEL_PACES[pace].milesPerDay;
   return [...by.entries()]
     .filter(([, v]) => v.miles >= 0.5)
     .sort((a, b) => b[1].miles - a[1].miles)
-    .map(([id, v]) => ({
-      region: JOURNEY_REGIONS[id],
-      miles: Math.round(v.miles * 10) / 10,
-      days: Math.round(((v.miles + v.rough * (DIFFICULT_TERRAIN_FACTOR - 1)) / perDay) * 10) / 10,
-      dc: activityDc(tier),
-      minEncounters: 1 as const,
-    }));
+    .map(([id, v]) => {
+      const paced = id === 'open-roads' ? roadMilesAsPace(v.miles, pace) : v.miles + v.rough * (DIFFICULT_TERRAIN_FACTOR - 1);
+      return {
+        region: JOURNEY_REGIONS[id],
+        miles: Math.round(v.miles * 10) / 10,
+        days: Math.round((paced / perDay) * 10) / 10,
+        dc: activityDc(tier),
+        minEncounters: 1 as const,
+      };
+    });
 }
 
 /**
@@ -160,6 +217,67 @@ export function weatherAt(regionId: string, roll: number, winter = false): strin
   const total = Math.min(25, roll + (winter ? 5 : 0));
   return JOURNEY_REGIONS[regionId]?.weather.find(w => total >= w.from && total <= w.to)?.weather ?? null;
 }
+
+/** Как регион меняет занятие: из поля «Journey Activities» блока региона. */
+export type ActivityModKind = 'advantage' | 'disadvantage' | 'expertise' | 'impossible' | 'auto-success' | 'auto-failure';
+export interface ActivityMod {
+  kind: ActivityModKind;
+  /** Фраза поля дословно — за столом читают её. */
+  text: string;
+  /** В фразе условие («if your deity…», «on the open sea»): мастер решает, действует ли. */
+  conditional: boolean;
+}
+
+// Имена занятий в тексте регионов: «Hide Tracks» — то же, что Cover Tracks; «Busking» — Busk.
+const ACTIVITY_WORDS: readonly [RegExp, string][] = [
+  [/hunt and gather/i, 'hunt-and-gather'], [/gather components/i, 'gather-components'], [/befriend animal/i, 'befriend-animal'],
+  [/(?:hide|cover) tracks/i, 'cover-tracks'], [/\bbusk(?:ing)?\b/i, 'busk'], [/\bchronicle\b/i, 'chronicle'], [/\bcook\b/i, 'cook'],
+  [/\bentertain\b/i, 'entertain'], [/\bgossip\b/i, 'gossip'], [/\bharvest(?:ed)?\b/i, 'harvest'], [/\bpray\b/i, 'pray'],
+  [/\brob\b/i, 'rob'], [/\bscout\b/i, 'scout'], [/\btrack\b/i, 'track'],
+];
+
+/**
+ * Поле «Journey Activities» региона → поправки занятий: преимущество, помеха, кость компетентности, «нельзя»,
+ * автоуспех и автопровал. Разбор по фразам; занятие без имени в фразе («tracks left in the snow») не угадывается —
+ * мастер видит фразу дословно. Первая поправка фразы на занятие главнее («advantage … to Scout, but disadvantage …»
+ * режется на две фразы по «, but»).
+ */
+export function regionActivityMods(region: Pick<JourneyRegion, 'fields'>): Record<string, ActivityMod> {
+  const out: Record<string, ActivityMod> = {};
+  const text = region.fields['Journey Activities'] ?? '';
+  for (const sentence of text.split(/(?<=\.)\s+/).map(s => s.trim()).filter(Boolean)) {
+    // Условие — у всего предложения: «…on the open sea automatically succeed, and those made to Track automatically fail».
+    const conditional = /\bif\b|open sea|coastline/i.test(sentence);
+    for (const c of sentence.split(/,\s+but\s+|,\s+and\s+those\s+/i)) {
+      const kind: ActivityModKind | null = /not possible/i.test(c) ? 'impossible'
+        : /automatically succeed/i.test(c) ? 'auto-success'
+          : /automatically fail/i.test(c) ? 'auto-failure'
+            : /expertise die/i.test(c) ? 'expertise'
+              : /disadvantage/i.test(c) ? 'disadvantage'
+                : /advantage/i.test(c) ? 'advantage' : null;
+      if (!kind) continue;
+      let rest = c;
+      for (const [re, id] of ACTIVITY_WORDS) {
+        if (!re.test(rest)) continue;
+        rest = rest.replace(re, ' ');
+        out[id] ??= { kind, text: sentence, conditional };
+      }
+    }
+  }
+  return out;
+}
+
+/** Исход проверки занятия: успех — DC и выше. Критический исход A5E SRD порогом не задаёт — при натуральных 20 и 1
+ *  кокпит только предлагает его мастеру (`maybeCritical`), сам не выбирает. */
+export function activityResult(natural: number, total: number, dc: number): { success: boolean; maybeCritical?: 'success' | 'failure' } {
+  const success = total >= dc;
+  const maybeCritical = natural === 20 ? 'success' as const : natural === 1 ? 'failure' as const : undefined;
+  return maybeCritical ? { success, maybeCritical } : { success };
+}
+
+/** «…add 5 to the roll, unless the region is in a notably warm or tropical clime» — какие регионы тёплые, решение
+ *  кокпита по описаниям A5E: пустыня и адский край. */
+export const WARM_REGIONS: ReadonlySet<string> = new Set(['parched-sands', 'fiery-hellscape']);
 
 /** Подписи видов встреч за столом. */
 export const ENCOUNTER_TYPE_LABEL: Readonly<Record<EncounterType, string>> = {

@@ -174,6 +174,47 @@ if [[ -f maps/tiles/toril/done.json && ! -f maps/tiles/toril/terrain.png && -x .
   step "Местность карты"
   .venv/bin/python scripts/terrain-from-map.py content/maps/toril.json --optional || echo "местность не посчитана — поход по галочке мастера"
 fi
+# Дороги для похода (scripts/roads-from-map.py, ROADMAP 6.3) — пунктир растра с полного уровня, ~25 секунд; без них путь
+# идёт регионами местности, Open Roads нет. Пересчёт и тогда, когда скрипт или справочник мест новее файла (M16,
+# 30.10: до того на других установках оставался старый roads.png — без перемычек и со бликами гор).
+roads_png=maps/tiles/toril/roads.png
+if [[ -f maps/tiles/toril/done.json && -x .venv/bin/python ]] && \
+   [[ ! -f $roads_png || scripts/roads-from-map.py -nt $roads_png || content/maps/toril-places.json -nt $roads_png || content/maps/toril-cards.json -nt $roads_png ]]; then
+  step "Дороги карты"
+  .venv/bin/python scripts/roads-from-map.py content/maps/toril.json --optional || echo "дороги не посчитаны — поход без Open Roads"
+fi
+# Границы держав для схемы (scripts/borders-from-map.py, TASKS M16) — бордовый штрих-пунктир растра с полного уровня,
+# ~25 секунд; без них схема без границ. Пересчёт, когда скрипт или скрипты, чьи функции он берёт, новее файла.
+borders_png=maps/tiles/toril/borders.png
+if [[ -f maps/tiles/toril/done.json && -x .venv/bin/python ]] && \
+   [[ ! -f $borders_png || scripts/borders-from-map.py -nt $borders_png || scripts/roads-from-map.py -nt $borders_png || scripts/schema-from-grids.py -nt $borders_png ]]; then
+  step "Границы карты"
+  .venv/bin/python scripts/borders-from-map.py content/maps/toril.json --optional || echo "границы не посчитаны — схема без границ"
+fi
+# Схема карты (scripts/schema-from-grids.py, TASKS M16) — берег и реки по тайлам, регионы, границы и дороги из сеток
+# выше, около минуты; без неё карта открывается растром. Пересчёт, когда любая из её сеток или скрипт новее файла.
+schema_json=maps/tiles/toril/schema.json
+if [[ -f maps/tiles/toril/terrain.png && -x .venv/bin/python ]] && \
+   [[ ! -f $schema_json || scripts/schema-from-grids.py -nt $schema_json || maps/tiles/toril/terrain.png -nt $schema_json || $roads_png -nt $schema_json || $borders_png -nt $schema_json || content/maps/toril-places.json -nt $schema_json ]]; then
+  step "Схема карты"
+  .venv/bin/python scripts/schema-from-grids.py content/maps/toril.json --optional || echo "схема не собрана — карта растром"
+fi
+# Граф мира (scripts/graph-from-grids.py, SIMULATION.md С2) — поселения и связи по дорогам, воде и напрямик для процессов
+# мира, секунды; без него процессы без путей. Пересчёт, когда скрипт, сетки, схема или справочник мест новее файла.
+graph_json=maps/tiles/toril/graph.json
+if [[ -f $roads_png && -f maps/tiles/toril/terrain.png && -x .venv/bin/python ]] && \
+   [[ ! -f $graph_json || scripts/graph-from-grids.py -nt $graph_json || $roads_png -nt $graph_json || maps/tiles/toril/terrain.png -nt $graph_json || $schema_json -nt $graph_json || content/maps/toril-places.json -nt $graph_json ]]; then
+  step "Граф мира"
+  .venv/bin/python scripts/graph-from-grids.py content/maps/toril.json --optional || echo "граф мира не собран — процессы без путей"
+fi
+# Планы городов (M10): паспорт с "plan" — свой растр в maps/plans/ (в git не идёт: права у издателя); нет растра —
+# поселение на карте мира, как раньше. tile-map.py режет один раз (done.json).
+if [[ -x .venv/bin/python ]]; then
+  for p in content/maps/*.json(N); do
+    grep -q '"plan"' "$p" || continue
+    .venv/bin/python scripts/tile-map.py "$p" --optional || echo "план $p не нарезан — поселение на карте мира"
+  done
+fi
 
 if [[ $MODE == start ]]; then
   local -a host=(); (( LAN )) && host=(--host)

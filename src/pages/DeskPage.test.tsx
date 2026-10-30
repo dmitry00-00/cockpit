@@ -219,7 +219,7 @@ describe('стол на сиде', () => {
     // В сиде dm-факт один и про локацию: у Bo секретов нет — и вкладки нет (пустая секция не показывается).
     const { unmount } = mount();
     expect(screen.queryByRole('tab', { name: 'DM' })).toBeNull();
-    expect(screen.getAllByRole('tab').map(t => t.textContent)).toEqual(['Обзор', 'Состояния', 'Снаряжение']);
+    expect(screen.getAllByRole('tab').map(t => t.textContent)).toEqual(['Обзор', 'Состояния', 'Снаряжение', 'Путь']);
     unmount();
 
     const withSecret = seedState();
@@ -400,7 +400,7 @@ describe('проекции стола', () => {
     expect(bo.stats?.[2].value).toBe('+3');
     expect(bo.stats?.[4].value).toBe('5/5');
     expect(bo.badges).toEqual(['5 ур.', 'Следопыт']);
-    expect(bo.tabs?.map(t => t.id)).toEqual(['overview', 'conditions', 'gear']);
+    expect(bo.tabs?.map(t => t.id)).toEqual(['overview', 'conditions', 'gear', 'path']);
     const captain = actorCardProps(state.actors.captain, { dmFacts: 0 });
     expect(captain.badges).toEqual(['CR 2', 'Medium']);
     expect(captain.stats?.map(s => s.label)).toEqual(['HP', 'AC', 'SPD']);
@@ -444,7 +444,7 @@ describe('файл сессии', () => {
     other.getState().damage('bo', 8);
     const file = new File([serializeLog(other.getState().events)], 'вчера.json', { type: 'application/json' });
     const persist = memoryStore();
-    render(<DeskPage store={seedEngine({ persist, ...fixed() })} persist={persist} />);
+    render(<DeskPage cardFace="sheet" store={seedEngine({ persist, ...fixed() })} persist={persist} />);
     expect(within(rowOf('Bo Tambernack')).getByText('41/49')).toBeInTheDocument();
 
     await act(async () => {

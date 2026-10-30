@@ -10,6 +10,7 @@ import { abilityMod, srdClassOf } from './derive';
 import { initiativeMod } from './encounter';
 import { resourcePoolsOf } from './resources';
 import { hitDiceOf } from './rest';
+import { CAPABILITY_LABEL, partyGaps, type Capability } from './path';
 
 /** Владение навыком: компетентность удваивает бонус мастерства. */
 export type Proficiency = 'none' | 'proficient' | 'expert';
@@ -162,6 +163,8 @@ export interface PartySummary {
   leaders: SkillLeader[];
   /** Пробелы листов: поле → чьи листы без него. Пусто — секции нет. */
   gaps: { field: string; names: string[] }[];
+  /** Возможности партии по уровням (Д8): лечение, тёмное зрение, ловушки — у кого сейчас, у кого с какого уровня придёт. */
+  capabilities: { id: Capability; label: string; covered: boolean; who: string }[];
 }
 
 const isSlot = (id: string) => id.startsWith('slot-') || id === 'pact-slots';
@@ -197,6 +200,13 @@ export function partySummaryOf(actors: readonly Actor[]): PartySummary {
     hp: actors.reduce((s, a) => ({ current: s.current + a.hp.current, max: s.max + a.hp.max }), { current: 0, max: 0 }),
     hitDice: { available: hdAvail, total: hdTotal },
     ...(slotsMax > 0 ? { slots: { available: slotsAvail, max: slotsMax } } : {}),
+    capabilities: partyGaps(actors).map(g => ({
+      id: g.capability,
+      label: CAPABILITY_LABEL[g.capability],
+      covered: g.covered,
+      who: g.covered ? g.who.filter(w => w.now).map(w => w.name).join(', ')
+        : g.who.length ? g.who.map(w => `${w.name} с ${w.from}-го`).join(', ') : 'ни у кого',
+    })),
     leaders,
     gaps: [...gapMap].map(([field, names]) => ({ field, names })),
   };

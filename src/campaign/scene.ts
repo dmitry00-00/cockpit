@@ -15,12 +15,13 @@ import { SEASON_LABELS, TENDAY, harptos, moonState, seasonOf } from './calendar'
 import { eraOf } from './era';
 import { holyDaysOn, holyWhat, isAnnual } from './holyDays';
 import { priceRowOf } from './pulse';
+import { TENSION_LABEL, tensionsAt, type Tension } from './tensions';
 import { weatherLabel, weatherOf } from './weather';
 
-export type SceneSectionId = 'now' | 'faith' | 'powers' | 'people' | 'market' | 'around' | 'threads' | 'chronicle';
+export type SceneSectionId = 'now' | 'faith' | 'powers' | 'people' | 'market' | 'around' | 'threads' | 'tensions' | 'chronicle';
 
 export const SCENE_TITLE: Readonly<Record<SceneSectionId, string>> = {
-  now: 'Сейчас', faith: 'Вера', powers: 'Силы', people: 'Люди', market: 'Рынок', around: 'Округа', threads: 'Нити', chronicle: 'Канон места',
+  now: 'Сейчас', faith: 'Вера', powers: 'Силы', people: 'Люди', market: 'Рынок', around: 'Округа', threads: 'Нити', tensions: 'Напряжения', chronicle: 'Канон места',
 };
 
 export interface SceneLink { label: string; ref: EntityRef }
@@ -67,6 +68,8 @@ export interface SceneOptions {
   players?: boolean;
   /** Уровень опасности A5E; по умолчанию — ступень партии. */
   tier?: RegionTier;
+  /** Напряжения кампании (campaign/tensions.ts) — сцена берёт свои, по месту; игрокам не передаются. */
+  tensions?: readonly Tension[];
 }
 
 const DAY = SECONDS_PER_DAY;
@@ -114,7 +117,7 @@ function subtree(locations: State['world']['locations'], id: string): Set<string
 }
 
 const patchPlace = (p: WorldPatch | undefined): string | undefined =>
-  p && (p.kind === 'location' || p.kind === 'price' || p.kind === 'encounter') ? p.id : undefined;
+  p && (p.kind === 'location' || p.kind === 'price' || p.kind === 'stock' || p.kind === 'encounter') ? p.id : undefined;
 
 export function sceneOf(state: State, at: SceneAt, sec: number, canon?: SceneCanon, opts: SceneOptions = {}): Scene {
   const { players = false } = opts;
@@ -269,6 +272,13 @@ export function sceneOf(state: State, at: SceneAt, sec: number, canon?: SceneCan
       for (const t of dlt.threadIds ?? (threads[dlt.causeId] ? [dlt.causeId] : [])) note(t, `ждёт решения: ${dlt.subject}`);
     }
     add('threads', [...byThread].filter(([t]) => threads[t]?.status === 'open').map(([t, texts]) => ({ label: threads[t].name, ref: ref('thread', t), note: texts.join('; ') })));
+  }
+
+  // Напряжения места (Д3, ROADMAP 7.2): только мастеру; строка — стороны, вид и вес, ссылка — на первую сторону.
+  if (!players && opts.tensions) {
+    const placeRef = location?.ref?.startsWith('place:') ? location.ref.slice(6) : undefined;
+    const mine = tensionsAt(opts.tensions, { placeId: at.place ?? placeRef, locationId: location?.id });
+    add('tensions', mine.map(t => ({ label: t.title, ref: t.sides[0].ref, note: `${TENSION_LABEL[t.kind]} · фактов ${t.weight}` })));
   }
 
   // Канон места: последние события хронологии о нём до года сцены, по-английски, как в вики.

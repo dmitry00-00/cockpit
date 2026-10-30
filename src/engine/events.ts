@@ -7,7 +7,12 @@
 import type { ConditionId } from '../rules/srd/conditions';
 import type { TravelPaceId } from '../rules/srd/travel';
 import type { ResourceId } from '../rules/srd/resources';
-import type { Actor, WorldDelta, WorldPatch } from './state';
+import type { SkillId } from '../rules/srd/abilities';
+import type { EntityRef } from '../entities/ref';
+import type { Actor, CharacterSheet, KnownFact, WorldDelta, WorldPatch } from './state';
+
+/** Что меняет повышение и правка листа: лист, хиты, AC, пассивное внимание. */
+export interface SheetSnapshot { sheet: CharacterSheet; hp: { current: number; max: number }; ac: number; passivePerception: number }
 
 export type ScaleLevel =
   | 'cosmology' | 'plane' | 'system' | 'planet' | 'continent'
@@ -106,6 +111,64 @@ export interface PartyTraveled {
 /** Место открыто игрокам (решение владельца 27.10.2026): туман знаний вокруг него снят и на столе игроков. */
 export interface PlaceRevealed { locationId: string }
 
+/**
+ * Общий запас партии — Supply A5E (решение владельца 29.10.2026): еда и вода одним числом на всю партию. «1 Supply …
+ * sustain a Small-or Medium-sized creature for a day», съедается на каждом длинном отдыхе; не съел — уровень усталости
+ * (A5E fatigue — ставит мастер, состояние не из SRD). `amount` — сколько, без знака: направление даёт причина.
+ * `shortfall` — сколько не хватило на еду (только у «съедено»; тогда `amount` может быть нулём).
+ */
+export type SupplyReason = 'bought' | 'foraged' | 'found' | 'eaten' | 'lost';
+export const SUPPLY_REASONS: readonly SupplyReason[] = ['bought', 'foraged', 'found', 'eaten', 'lost'];
+/** Причины, по которым припасы убывают. */
+export const SUPPLY_SPENDS: ReadonlySet<SupplyReason> = new Set(['eaten', 'lost']);
+export interface SupplyChanged { reason: SupplyReason; amount: number; shortfall?: number }
+
+/**
+ * Токен актёра на сетке боя переместился (Q17, решение владельца 29.10.2026): клетка до и после, откуда пришло —
+ * мост к столу VTT (MapTool, `onTokenMove`) или мастер. Клетки — как у сетки VTT; клетка «до» — снимком, чтобы журнал
+ * и отмена не зависели от расстановки сида.
+ */
+export type TokenMoveSource = 'maptool' | 'dm';
+export interface GridCell { x: number; y: number }
+export interface TokenMoved { actorId: string; from?: GridCell; to: GridCell; source: TokenMoveSource }
+
+/**
+ * Партия узнала факт карточки (Д6, решение владельца 29.10.2026): ссылка на сущность, строка её паспорта снимком
+ * (запись не зависит от справочника и куска мира), кто узнал и проверкой ли. Без `check` — волей мастера; с проверкой
+ * — навык SRD, Сл (правило стола: таблица типичных DC SRD) и итог броска, не ниже Сл: неудача ничего не открывает.
+ */
+export interface KnowledgeCheck { skill: SkillId; dc: number; total: number }
+
+/**
+ * Персонаж поднял уровень (Q10, решение владельца 29.10.2026): лист после повышения снимком (реплей не зависит от
+ * компендиума), новый максимум хитов, AC и пассивное внимание; как получены хиты — средним SRD или броском кости.
+ * Отмена возвращает уровень, хиты и ресурсы: максимум ресурсов выводится из листа.
+ */
+export interface CharacterLeveled {
+  actorId: string;
+  sheet: CharacterSheet;
+  hpMax: number;
+  ac: number;
+  passivePerception: number;
+  hp: { method: 'average' | 'roll'; value: number };
+  /** Что дал уровень словами — для журнала: умения, подкласс, увеличение. */
+  gained: readonly string[];
+}
+
+/** Поля паспорта листа, которые правятся вне механики (Q10, Q20): мировоззрение, божество, рост, вес, возраст. */
+export type SheetPatch = Partial<Pick<CharacterSheet, 'alignment' | 'deity' | 'bio'>>;
+/** Правка листа вне механики — с причиной, она в журнале. */
+export interface SheetEdited { actorId: string; patch: SheetPatch; reason: string }
+export interface KnowledgeRevealed {
+  ref: EntityRef;
+  /** Имя сущности как на карточке — для тетради и журнала. */
+  name: string;
+  fact: { label: string; value: string };
+  /** Кто узнал — актёр партии; нет — партия целиком. */
+  by?: string;
+  check?: KnowledgeCheck;
+}
+
 export interface PayloadByType {
   DAMAGE_APPLIED: DamageApplied;
   HEALING_APPLIED: HealingApplied;
@@ -133,6 +196,11 @@ export interface PayloadByType {
   RESOURCE_RESTORED: ResourceRestored;
   PARTY_TRAVELED: PartyTraveled;
   PLACE_REVEALED: PlaceRevealed;
+  SUPPLY_CHANGED: SupplyChanged;
+  KNOWLEDGE_REVEALED: KnowledgeRevealed;
+  CHARACTER_LEVELED: CharacterLeveled;
+  SHEET_EDITED: SheetEdited;
+  TOKEN_MOVED: TokenMoved;
 }
 
 export type EventType = keyof PayloadByType;
@@ -148,6 +216,8 @@ export const EVENT_TYPES = Object.freeze([
   'REST_TAKEN', 'RESOURCE_SPENT', 'RESOURCE_RESTORED',
   // решение владельца 27.10.2026
   'PARTY_TRAVELED', 'PLACE_REVEALED',
+  // решение владельца 29.10.2026
+  'SUPPLY_CHANGED', 'KNOWLEDGE_REVEALED', 'CHARACTER_LEVELED', 'SHEET_EDITED', 'TOKEN_MOVED',
 ] as const satisfies readonly EventType[]);
 
 /** Обратимость и попадание в журнал — колонки таблицы HANDOFF §7. */
@@ -178,6 +248,11 @@ export const EVENT_META: Readonly<Record<EventType, { reversible: boolean; journ
   RESOURCE_RESTORED: { reversible: true, journal: true },
   PARTY_TRAVELED: { reversible: true, journal: true },
   PLACE_REVEALED: { reversible: true, journal: true },
+  SUPPLY_CHANGED: { reversible: true, journal: true },
+  KNOWLEDGE_REVEALED: { reversible: true, journal: true },
+  CHARACTER_LEVELED: { reversible: true, journal: true },
+  SHEET_EDITED: { reversible: true, journal: true },
+  TOKEN_MOVED: { reversible: true, journal: true },
 };
 
 /** Команда — то, что просит интерфейс. Событие — то, что легло в лог. */
@@ -219,6 +294,13 @@ export type Effect =
   | { kind: 'resource'; actorId: string; resourceId: ResourceId; before: number; after: number }
   | { kind: 'travel'; actors: readonly { actorId: string; before?: string; after?: string }[] }
   | { kind: 'place'; locationId: string; before: boolean; after: boolean }
+  | { kind: 'supply'; before: number; after: number }
+  /** Клетка токена на сетке боя: до (нет — не стоял) и после. */
+  | { kind: 'cell'; actorId: string; before?: GridCell; after?: GridCell }
+  /** Лист актёра снимком до и после: повышение уровня и правка листа. */
+  | { kind: 'sheet'; actorId: string; before: SheetSnapshot; after: SheetSnapshot }
+  /** Знание партии: факт `label` о `ref` — был ли он в тетради до события и после. */
+  | { kind: 'knowledge'; ref: EntityRef; name: string; label: string; before: KnownFact | null; after: KnownFact | null }
   | { kind: 'none' };
 
 export interface HpSnapshot { current: number; temp: number }

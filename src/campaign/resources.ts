@@ -6,7 +6,7 @@
 import type { Actor } from '../engine/state';
 import type { RestKind, RestResource } from '../engine/events';
 import { ABILITY_IDS, type AbilityId } from '../rules/srd/abilities';
-import { RESOURCES, featureResources, restoreOn, type Resource, type ResourceId } from '../rules/srd/resources';
+import { RESOURCES, featureResources, restoreOn, type Resource, type ResourceId, type RestoreOn } from '../rules/srd/resources';
 import { classById, type ClassLevel } from '../rules/compendium';
 import { abilityMod, srdClassOf } from './derive';
 
@@ -14,8 +14,8 @@ export interface ResourcePool extends Resource {
   max: number;
   spent: number;
   available: number;
-  /** Отдых, который вернёт ресурс на этом уровне (вдохновение барда с 5-го — короткий). */
-  restoresOn: RestKind;
+  /** Отдых, который вернёт ресурс на этом уровне (вдохновение барда с 5-го — короткий); у листа turn не бывает. */
+  restoresOn: RestoreOn;
 }
 
 /** Колонки листов классов, которые тратятся; остальные (известные заклинания, урон ярости, скрытая атака) — справочные. */

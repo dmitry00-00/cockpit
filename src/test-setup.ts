@@ -1,6 +1,9 @@
 import '@testing-library/jest-dom/vitest';
 import { afterEach } from 'vitest';
 import { cleanup } from '@testing-library/react';
+import { loadTexts } from './rules/texts';
+import { loadSrdMonsters } from './rules/srd/monsters';
+import { preloadParts } from './lazyParts';
 
 // globals: false — RTL сам не подписывается на afterEach, без этого рендеры копятся между тестами.
 afterEach(cleanup);
@@ -22,3 +25,7 @@ if (typeof HTMLCanvasElement !== 'undefined') {
     return null;
   } as typeof HTMLCanvasElement.prototype.getContext;
 }
+
+// Тексты справочников и блоки SRD сверх сида — отдельные куски (ROADMAP 0.5); тесты получают их до первого теста,
+// деления для них нет. Black Flag и A5E — по-прежнему по loadMonsterLibraries() в самих тестах.
+await Promise.all([loadTexts(), loadSrdMonsters(), preloadParts()]);

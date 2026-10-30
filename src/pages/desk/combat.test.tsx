@@ -2,6 +2,8 @@
 import { act, fireEvent, screen, waitFor, within } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { mount, rowOf, cardOf, hpOf, lastEvent, damageViaPopover, bar, grid, tokenIn, activeIn, startCombat } from './testkit';
+import { monsterActor } from '../../campaign';
+import { loadMonsterLibraries } from '../../rules/srd/monsters';
 
 afterEach(() => { vi.useRealTimers(); vi.restoreAllMocks(); });
 
@@ -332,5 +334,50 @@ describe('система предлагает, мастер решает: кон
     expect(lastEvent(store)).toMatchObject({ type: 'CONCENTRATION_ENDED', payload: { actorId: 'bo', reason: 'unconscious' } });
     expect(within(dialog).queryByRole('group', { name: 'Концентрация без сознания' })).toBeNull();
     expect(reminders()).toBeNull();
+  });
+});
+
+/* ---------- Легендарные действия на полосе (Q13): пипки из блока, трата вариантом, возврат в начале своего хода ---------- */
+
+describe('легендарные действия на полосе инициативы', () => {
+  /** Сид и Adult Red Dragon в бою после Korrin: Korrin 18, дракон 17, Bo 15. */
+  async function dragonFight(dmView?: boolean) {
+    await loadMonsterLibraries();
+    const view = mount(undefined, dmView);
+    act(() => {
+      view.store.getState().spawn(monsterActor('dragon', 'adult-red-dragon'));
+      view.store.getState().startEncounter([{ actorId: 'korrin', initiative: 18 }, { actorId: 'dragon', initiative: 17 }, { actorId: 'bo', initiative: 15 }]);
+    });
+    return view;
+  }
+  const pips = () => bar().querySelector<HTMLButtonElement>('[data-legendary="dragon"]');
+
+  it('у дракона — 3 пипки из блока; вариант «Wing Attack» тратит 2 (RESOURCE_SPENT); на ходу дракона — RESOURCE_RESTORED; Ctrl+Z — сначала возврат', async () => {
+    const { store } = await dragonFight();
+    expect(pips()).toHaveAttribute('title', 'Легендарные действия: 3 из 3 · варианты');
+    expect(bar().querySelector('[data-legendary="captain"]')).toBeNull();
+    fireEvent.click(pips()!);
+    const pop = within(bar()).getByRole('dialog', { name: 'Легендарные действия: Adult Red Dragon' });
+    expect(pop).toHaveTextContent('The dragon regains spent legendary actions at the start of its turn.');
+    expect(pop).toHaveTextContent('Wing Attack (Costs 2 Actions)');
+    fireEvent.click(within(pop).getByRole('button', { name: 'Потратить 2' }));
+    expect(lastEvent(store)).toMatchObject({ type: 'RESOURCE_SPENT', payload: { actorId: 'dragon', resourceId: 'legendary-actions', amount: 2, max: 3 } });
+    expect(pips()).toHaveAttribute('title', 'Легендарные действия: 1 из 3 · варианты');
+    fireEvent.click(within(bar()).getByRole('button', { name: 'Ход' }));
+    expect(store.getState().events.slice(-2).map(e => e.type)).toEqual(['TURN_ADVANCED', 'RESOURCE_RESTORED']);
+    expect(pips()).toHaveAttribute('title', 'Легендарные действия: 3 из 3 · варианты');
+    // Space на ходу Bo — дракону возвращать нечего.
+    fireEvent.keyDown(window, { key: ' ', code: 'Space' });
+    expect(lastEvent(store).type).toBe('TURN_ADVANCED');
+    fireEvent.keyDown(window, { key: 'z', code: 'KeyZ', ctrlKey: true });
+    fireEvent.keyDown(window, { key: 'z', code: 'KeyZ', ctrlKey: true });
+    expect(pips()).toHaveAttribute('title', 'Легендарные действия: 1 из 3 · варианты');
+    expect(activeIn(bar())).toBe('dragon');
+  });
+
+  it('на столе игроков пипок нет: у монстра нет блока (Q1)', async () => {
+    await dragonFight(false);
+    expect(tokenIn(bar(), 'dragon')).not.toBeNull();
+    expect(pips()).toBeNull();
   });
 });

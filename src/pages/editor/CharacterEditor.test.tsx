@@ -10,10 +10,10 @@ const EMOJI = /\p{Extended_Pictographic}/u;
 
 afterEach(cleanup);
 
-function mount(taken: string[] = []) {
+function mount(taken: string[] = [], face: 'card' | 'sheet' = 'sheet') {
   const onCreate = vi.fn<(spec: PcSpec) => void>();
   const onClose = vi.fn();
-  render(<CharacterEditor takenIds={new Set(taken)} onCreate={onCreate} onClose={onClose} />);
+  render(<CharacterEditor takenIds={new Set(taken)} onCreate={onCreate} onClose={onClose} initialFace={face} />);
   return { onCreate, onClose };
 }
 
@@ -217,5 +217,66 @@ describe('экран создания персонажа', () => {
     expect(screen.getByTitle('id актёра в состоянии')).toHaveTextContent('bo-3');
     fireEvent.click(screen.getByRole('button', { name: 'Закрыть' }));
     expect(onClose).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('редактор-карточка (образец владельца dnd-character-editor.jsx, 30.10.2026)', () => {
+  const ecard = () => within(editor()).getByRole('article', { name: 'Карта персонажа: редактор' });
+  const numbers = () => within(ecard()).getByRole('group', { name: 'Числа листа' });
+
+  it('по умолчанию справа карта: числа мягкого вывода, имя на корешке — то же поле черновика, что в шаге «Имя»', () => {
+    mount([], 'card');
+    // Человек-воин 1-го: 12 хитов, КД 12, d10, +2 — те же числа, что даёт лист.
+    expect(numbers()).toHaveTextContent('КД12');
+    expect(numbers()).toHaveTextContent('Хиты12');
+    expect(numbers()).toHaveTextContent('Костьd10');
+    fireEvent.change(within(ecard()).getByRole('textbox', { name: 'Имя на карте' }), { target: { value: 'Sildar' } });
+    expect(screen.getByRole('textbox', { name: 'Имя' })).toHaveValue('Sildar');
+    expect(within(ecard()).getByText('Sildar')).toBeInTheDocument();
+    fireEvent.click(within(editor()).getByRole('tab', { name: 'Лист' }));
+    expect(within(editor()).queryByRole('article', { name: 'Карта персонажа: редактор' })).toBeNull();
+  });
+
+  it('раса и класс — со списка на корешке; point buy «−» и «+» на карте тратит те же 27 очков; итог — база + раса', () => {
+    mount([], 'card');
+    fireEvent.click(within(ecard()).getByRole('button', { name: 'Раса' }));
+    fireEvent.click(within(screen.getByRole('dialog', { name: 'Раса' })).getByRole('button', { name: /^Полурослик/ }));
+    fireEvent.click(within(ecard()).getByRole('button', { name: 'Класс' }));
+    fireEvent.click(within(screen.getByRole('dialog', { name: 'Класс' })).getByRole('button', { name: /^Следопыт/ }));
+    expect(within(editor()).getAllByRole('banner')[0]).toHaveTextContent(/Полурослик · .* · Следопыт/);
+    expect(within(ecard()).getByRole('button', { name: 'Раса' }).title).toContain('Полурослик');
+    expect(numbers()).toHaveTextContent('Костьd10');
+    goto('Характеристики');
+    fireEvent.click(option('Способ', 'Point buy'));
+    const pts = within(ecard()).getByRole('group', { name: 'Очки характеристик на карте' });
+    const dex = pts.querySelector<HTMLElement>('[data-ability="dex"]')!;
+    const before = Number(dex.querySelector('[data-part="base"]')!.textContent);
+    // Point buy начинается с раскладки на все 27 очков: «+» выключен, «−» возвращает очко.
+    expect(within(dex).getByRole('button', { name: 'Ловкость выше на карте' })).toBeDisabled();
+    fireEvent.click(within(dex).getByRole('button', { name: 'Ловкость ниже на карте' }));
+    expect(Number(dex.querySelector('[data-part="base"]')!.textContent)).toBe(before - 1);
+    expect(within(ecard()).getByText(/^осталось [1-9]\d* из 27$/)).toBeInTheDocument();
+    // Полурослик: +2 DEX — итог на карте и в шаге одинаковы.
+    expect(Number(dex.querySelector('[data-part="final"]')!.textContent)).toBe(before + 1);
+    expect(group('Очки характеристик').querySelector('[data-ability="dex"] [data-part="final"]')!.textContent).toBe(String(before + 1));
+  });
+
+  it('предыстория строкой со списком; навыки на карте — отметка «П» у предыстории, выбор класса до лимита, «выбрать ещё N»', () => {
+    mount([], 'card');
+    fireEvent.click(within(ecard()).getByRole('button', { name: 'Предыстория' }));
+    fireEvent.click(within(screen.getByRole('dialog', { name: 'Предыстории' })).getByRole('button', { name: /^Солдат/ }));
+    const skills = within(ecard()).getByRole('group', { name: 'Навыки на карте' });
+    const athletics = skills.querySelector<HTMLElement>('[data-skill="athletics"]')!;
+    expect(athletics.title).toContain('предыстория');
+    expect(athletics).toHaveTextContent('П');
+    expect(within(ecard()).getByText(/^выбрать ещё 2$/)).toBeInTheDocument();
+    fireEvent.click(skills.querySelector<HTMLElement>('[data-skill="perception"]')!);
+    fireEvent.click(skills.querySelector<HTMLElement>('[data-skill="survival"]')!);
+    expect(within(ecard()).getByText('класс: 2 из 2')).toBeInTheDocument();
+    expect(skills.querySelector<HTMLElement>('[data-skill="history"]')).toBeDisabled();
+    // Тот же черновик: в шаге «Навыки» выбор виден.
+    goto('Навыки');
+    expect(pressed(within(group('Навыки')).getByTitle(/^Внимательность/))).toBe(true);
+    expect(EMOJI.test(ecard().textContent ?? '')).toBe(false);
   });
 });

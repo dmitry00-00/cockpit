@@ -3,6 +3,8 @@
 // Цвет тела — стихия из карточки вики через токены местности (вода — море, земля — пустыня, воздух — лёд), солнце —
 // золото. Тупой компонент: день и что можно открыть ниже по лестнице даёт страница.
 import { useState, type ReactNode } from 'react';
+import { useOpenEntity } from '../components/openEntity';
+import { ref } from '../entities/ref';
 import {
   BODY_TYPE_LABEL, ELEMENT_LABEL, REALMSPACE, milesLabel, moonsOf, nearestApproach, orbitAngle, planetsOf, sunOf,
   type CelestialBody, type StarSystem,
@@ -35,6 +37,7 @@ const SPAN = 730;
 export function Planetarium({ system = REALMSPACE, day, focus = 'toril', canOpen, onOpen, children, className = '' }: PlanetariumProps) {
   const [ahead, setAhead] = useState(0);
   const [picked, setPicked] = useState(focus);
+  const openEntity = useOpenEntity();
   const planets = planetsOf(system);
   const sun = sunOf(system);
   const t = day + ahead;
@@ -125,6 +128,11 @@ export function Planetarium({ system = REALMSPACE, day, focus = 'toril', canOpen
           <a href={body.url} target="_blank" rel="noreferrer" title={`${system.attribution}. ${system.note}`} className="type-body-sm text-t3 underline hover:text-tx">
             {body.refs[0] ?? 'вики'}
           </a>
+          {openEntity ? (
+            <button type="button" onClick={() => openEntity(ref('body', body.id))} title={`Общая карточка: ${body.name}`} className="type-num-12 uppercase px-2 py-1 bg-cd shadow-bevel text-t2 cursor-pointer hover:text-tx focus-visible:shadow-[var(--bevel),var(--glow-gold)]">
+              Карточка
+            </button>
+          ) : null}
           {onOpen && canOpen?.(body) ? (
             <button type="button" onClick={() => onOpen(body)} className="type-num-12 uppercase px-2 py-1 bg-cd shadow-bevel text-t2 cursor-pointer hover:text-tx focus-visible:shadow-[var(--bevel),var(--glow-gold)]">
               {`Спуститься: ${body.name}`}

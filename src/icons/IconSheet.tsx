@@ -3,7 +3,7 @@
 
 import type { CSSProperties } from 'react';
 import { Icon } from './Icon';
-import { ICON_NAMES, type IconName } from './icons.generated';
+import { ICON_NAMES, type IconName } from './iconSet';
 
 interface Group {
   title: string;

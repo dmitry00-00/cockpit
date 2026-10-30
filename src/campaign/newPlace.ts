@@ -19,12 +19,18 @@ const SCALE_WORD: Partial<Record<ScaleLevel, string>> = { continent: 'конти
 const slug = (name: string) =>
   name.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9а-яё]+/g, '-').replace(/^-|-$/g, '') || 'mesto';
 
-export function newPlaceDelta(state: State, input: NewPlaceInput, parent: Location): WorldDelta {
-  if (!SCALE_LEVELS.includes(input.scale)) throw new Error(`нет такого уровня: ${input.scale}`);
+/** Свободный id места по имени: `loc-<имя>`, с номером при совпадении с местом мира или ждущим предложением. */
+export function freeLocationId(state: State, name: string): string {
   const proposed = new Set(Object.values(state.deltas).flatMap(d => (d.patch?.kind === 'newLocation' ? [d.patch.location.id] : [])));
-  const base = `loc-${slug(input.name)}`;
+  const base = `loc-${slug(name)}`;
   let id = base;
   for (let n = 2; state.world.locations[id] || proposed.has(id); n++) id = `${base}-${n}`;
+  return id;
+}
+
+export function newPlaceDelta(state: State, input: NewPlaceInput, parent: Location): WorldDelta {
+  if (!SCALE_LEVELS.includes(input.scale)) throw new Error(`нет такого уровня: ${input.scale}`);
+  const id = freeLocationId(state, input.name);
   let deltaId = `d-new-${id}`;
   for (let n = 2; state.deltas[deltaId]; n++) deltaId = `d-new-${id}-${n}`;
   const location: Location = {

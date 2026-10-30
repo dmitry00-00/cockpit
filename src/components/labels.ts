@@ -36,9 +36,12 @@ export const SKILL_LABEL: Readonly<Record<SkillId, string>> = {
 /** Навыки в порядке характеристик SRD (STR, DEX, CON, INT, WIS, CHA): цветная грань плитки группирует их сама. */
 export const SKILLS_BY_ABILITY: readonly SkillId[] = ABILITY_IDS.flatMap(ab => SKILL_IDS.filter(id => SKILLS[id].ability === ab));
 
-/** Товары цен мест (ROADMAP 3.3): разделы таблиц снаряжения SRD — словами стола. */
+/** Товары цен мест (ROADMAP 3.3, С3): разделы таблиц снаряжения SRD и грузы торговли — словами стола. Подписи разделов
+ *  шире прежних (решение пользователя 30.10.2026): к ним сводится экспорт держав. */
 export const GOODS_LABEL: Readonly<Record<GoodsId, string>> = {
-  weapons: 'оружие', armor: 'доспехи', gear: 'снаряжение', food: 'еда и ночлег', mounts: 'верховые и повозки', potions: 'зелья',
+  weapons: 'оружие', armor: 'доспехи', gear: 'ремесло и снаряжение', food: 'еда и ночлег', mounts: 'верховые, скот и повозки',
+  potions: 'зелья и магия', wine: 'вино и напитки', cloth: 'ткани и кожи', timber: 'лес', metal: 'руда и металл',
+  precious: 'драгоценности', spices: 'пряности и снадобья',
 };
 
 /** Отношение фракций −3…+3 словами: число со знаком стоит рядом, цвет не единственный носитель смысла. */

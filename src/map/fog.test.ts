@@ -46,4 +46,16 @@ describe('туман знаний', () => {
     log.dispatch({ type: 'PARTY_TRAVELED', payload: { ...route, map: 'planetos' } });
     expect(exploredOf(log.state, log.entries, toril).paths).toEqual([]);
   });
+
+  it('план города (M10) открыт целиком, пока партия в городе; ушла и город не открыт — закрыт', () => {
+    const plan = MAPS.neverwinter;
+    const s = seedState();
+    const all = exploredOf(s, [], plan);
+    expect(all.circles).toEqual([{ x: 720, y: 507.5, r: Math.hypot(1440, 1015) / 2 }]);
+    const away = { ...s, actors: Object.fromEntries(Object.entries(s.actors).map(([id, a]) => [id, s.party.includes(id) ? { ...a, locationId: LOCATION.oldOwlWell } : a])) };
+    expect(exploredOf(away, [], plan).circles).toEqual([]);
+    const revealed = { ...away, world: { ...away.world, locations: { ...away.world.locations, [LOCATION.neverwinter]: { ...away.world.locations[LOCATION.neverwinter], revealed: true } } } };
+    expect(exploredOf(revealed, [], plan).circles).toHaveLength(1);
+  });
 });
+

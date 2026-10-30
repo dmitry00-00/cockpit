@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>DM Cockpit</title>
+<style>
+  body { margin: 8px; font: 12px/1.4 sans-serif; color: #ddd; background: #1d1d1f; }
+  b { font-weight: 600; }
+  .off { color: #e58c7a; }
+  .on { color: #9fd49a; }
+</style>
+</head>
+<body>
+<!-- Окно моста к DM Cockpit (Q17): раз в секунду зовёт макрос sync@lib:net.dmcockpit.bridge и показывает итог.
+     Сеть — в макросе (REST.post), окно только держит такт и номер последнего применённого вида. -->
+<div id="state">DM Cockpit: подключение…</div>
+<div id="detail"></div>
+<script>
+  let rev = '';
+  const state = document.getElementById('state');
+  const detail = document.getElementById('detail');
+  function show(ok, text, more) {
+    state.className = ok ? 'on' : 'off';
+    state.textContent = text;
+    detail.textContent = more;
+  }
+  function tick() {
+    const x = new XMLHttpRequest();
+    x.open('POST', 'macro:sync@lib:net.dmcockpit.bridge', true);
+    x.onreadystatechange = () => {
+      if (x.readyState !== 4) return;
+      try {
+        const r = JSON.parse(x.responseText);
+        if (r.ok) {
+          rev = r.rev;
+          show(true, 'DM Cockpit: на связи', `токенов на карте: ${r.tokens}${r.applied ? ` · обновлено: ${r.applied}` : ''}`);
+        } else {
+          show(false, 'DM Cockpit: нет связи', String(r.error));
+        }
+      } catch (e) {
+        show(false, 'DM Cockpit: ошибка макроса', String(x.responseText).slice(0, 200));
+      }
+      setTimeout(tick, 1000);
+    };
+    x.send(JSON.stringify({ rev }));
+  }
+  tick();
+</script>
+</body>
+</html>

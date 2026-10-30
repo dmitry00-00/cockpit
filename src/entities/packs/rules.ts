@@ -65,7 +65,7 @@ export const PACK: Pack = tablePack({
     const r = RESOURCES[id];
     return {
       ref: ref('resource', id), kind: 'resource', name: r.label,
-      subtitle: r.restore === 'long' ? 'возвращает долгий отдых' : 'возвращает короткий отдых',
+      subtitle: r.restore === 'long' ? 'возвращает долгий отдых' : r.restore === 'short' ? 'возвращает короткий отдых' : 'возвращается в начале своего хода',
       source: srd(r.source), facts: [], sections: [], links: [],
     };
   }),
@@ -116,6 +116,9 @@ export const PACK: Pack = tablePack({
       ['AC', `${m.ac.value}${m.ac.source ? ` (${m.ac.source})` : ''}`],
       ['HP', `${m.hp.average}${m.hp.formula ? ` (${m.hp.formula})` : ''}`],
       ['Скорость', m.speedText],
+      ['Уязвимости', m.damageVulnerabilities.length ? m.damageVulnerabilities.join(', ') : undefined],
+      ['Сопротивления', m.damageResistances.length ? m.damageResistances.join(', ') : undefined],
+      ['Иммунитеты к урону', m.damageImmunities.length ? m.damageImmunities.join(', ') : undefined],
       ['Чувства', m.senses],
       ['Языки', m.languages],
     ]),

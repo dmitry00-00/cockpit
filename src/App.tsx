@@ -1,13 +1,17 @@
 import type { ComponentType } from 'react';
 import { DeskPage } from './pages/DeskPage';
-import { TokensPage } from './pages/TokensPage';
-import { CompendiumPage } from './pages/compendium/CompendiumPage';
+import { DeskLease } from './pages/desk/DeskLease';
+// Служебные страницы — ленивыми кусками (ROADMAP 0.5); стол — в основном.
+import { CompendiumPage, RulesPage, TokensPage } from './lazyParts';
 import { ROUTES, useHashRoute, type RouteId } from './routes';
+import { useTextsReady } from './rules/texts';
 
 const PAGES: Readonly<Record<RouteId, ComponentType>> = {
-  desk: DeskPage,
+  // Стол пишет журнал — одна вкладка на браузер (И2): вторая не монтирует его.
+  desk: () => <DeskLease><DeskPage /></DeskLease>,
   tokens: TokensPage,
   compendium: CompendiumPage,
+  rules: RulesPage,
 };
 
 /**
@@ -17,6 +21,8 @@ const PAGES: Readonly<Record<RouteId, ComponentType>> = {
  */
 export function App() {
   const route = useHashRoute();
+  // Тексты справочников догружаются отдельно (ROADMAP 0.5): по загрузке страница перерисовывается целиком — тексты в тех же объектах.
+  const texts = useTextsReady();
   const Page = PAGES[route];
   return (
     <div className="h-full flex flex-col overflow-auto">
@@ -32,7 +38,7 @@ export function App() {
           </a>
         ))}
       </nav>
-      <Page />
+      <Page key={texts ? 'texts' : 'core'} />
     </div>
   );
 }

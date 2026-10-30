@@ -3,7 +3,7 @@
 import { describe, expect, it } from 'vitest';
 import { MAPS } from './maps';
 import {
-  MAX_OVERZOOM, clampView, fitBox, hexCenters, levelSize, milesBetween, panBy, pathMiles, scaleBar, scaleBounds, tilesAt, toMap, toScreen,
+  FEET_PER_MILE, MAX_OVERZOOM, clampView, fitBox, hexCenters, levelSize, milesBetween, panBy, pathMiles, scaleBar, scaleBounds, tilesAt, toMap, toScreen,
   wholeMap, zoomAt, zoomLevelFor, type Viewport,
 } from './projection';
 
@@ -126,6 +126,14 @@ describe('мили, линейка, гексы', () => {
   it('масштабная линейка — круглое число миль не длиннее 120 px', () => {
     expect(scaleBar(toril, 1)).toEqual({ miles: 50, px: 100 });
     expect(scaleBar(toril, 0.05)).toEqual({ miles: 1000, px: 100 });
+  });
+
+  it('план города (M10) — в футах: 3,58 фута на пиксель, линейка — 200 футов; 1000 футов на плане — 279 px', () => {
+    const plan = MAPS.neverwinter;
+    const bar = scaleBar(plan, 1);
+    expect(Math.round(bar.miles * FEET_PER_MILE)).toBe(200);
+    expect(bar.px).toBe(56);
+    expect(Math.round(1000 / FEET_PER_MILE / plan.milesPerPixel)).toBe(279);
   });
 
   it('гексы: шаг — hexMiles, радиус на экране растёт с приближением', () => {

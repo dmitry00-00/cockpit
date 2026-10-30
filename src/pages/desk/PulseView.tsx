@@ -1,14 +1,15 @@
 // Вид «Пульс мира» главной зоны (F5, Q8): что происходит без партии. Календарь на три десятидневки, фракции и их
 // отношения, боги партии, индексы цен поселений, веса встреч. Только мастеру: на столе игроков вида нет. «Требует
 // решения» — входящие правой колонки, здесь не повторяются (факт живёт в одном месте); ждущее значение стоит рядом
-// с нынешним бирюзой симуляции. Данные — проекция pulseOf(state), сам вид ничего не меняет.
-import type { ReactNode, RefObject } from 'react';
+// с нынешним бирюзой симуляции. Данные — проекция pulseOf(state), сам вид ничего не меняет. Напряжения (Д3, 7.2) —
+// по весу; по умолчанию — кампании (место кампании или сторона — её фракция), «весь мир» — переключателем вида.
+import { useState, type ReactNode, type RefObject } from 'react';
 import {
-  PULSE_DAYS, TENDAY, eraOf, formatHarptos, harptos, holyList, inDays, nextHolyDay, pulseOf,
-  type PulseEventKind, type PulsePriceCell,
+  PULSE_DAYS, TENDAY, eraOf, formatHarptos, harptos, holyList, inDays, nextHolyDay, pricedGoods, pulseOf, tensionThreadState,
+  type PulseEventKind, type PulsePriceCell, type Tension,
 } from '../../campaign';
-import { FactionGraph, GOODS_LABEL, MOON_ICONS, signed } from '../../components';
-import { GOODS, SECONDS_PER_DAY, type State } from '../../engine';
+import { FactionGraph, GOODS_LABEL, MOON_ICONS, TensionList, signed } from '../../components';
+import { SECONDS_PER_DAY, type State } from '../../engine';
 import { ref, type EntityRef } from '../../entities';
 import { Icon } from '../../icons/Icon';
 import type { IconName } from '../../icons/icons.generated';
@@ -49,10 +50,23 @@ export interface PulseViewProps {
   state: State;
   mainRef: RefObject<HTMLElement | null>;
   onOpenEntity: (ref: EntityRef) => void;
+  /** Напряжения; null — справочник мира ещё грузится. */
+  tensions?: readonly Tension[] | null;
+  onThread?: (t: Tension) => void;
+  /** Ветки «что если» (Д4) — панель страницы: сторы веток живут на ней, вид их только показывает. */
+  branches?: ReactNode;
 }
 
-export function PulseView({ state, mainRef, onOpenEntity }: PulseViewProps) {
+const SCOPE_BTN = 'type-num-12 uppercase px-2 py-0.5 bg-cd shadow-bevel text-t2 cursor-pointer aria-pressed:text-gd-hi aria-pressed:shadow-bevel-in focus-visible:shadow-[var(--bevel),var(--glow-gold)]';
+
+/** Напряжение кампании: стоит в её месте или одна из сторон — её фракция. */
+const ofCampaign = (t: Tension) => t.locationId !== undefined || t.sides.some(s => s.ref.startsWith('faction:'));
+
+export function PulseView({ state, mainRef, onOpenEntity, tensions, onThread, branches }: PulseViewProps) {
+  const [world, setWorld] = useState(false);
   const pulse = pulseOf(state);
+  const priced = pricedGoods(pulse.prices);
+  const shownTensions = tensions ? (world ? tensions : tensions.filter(ofCampaign)) : null;
   const today = Math.floor(state.time.sec / SECONDS_PER_DAY) * SECONDS_PER_DAY;
   const era = eraOf(harptos(today).year);
   const dayLabel = (sec: number) => formatHarptos(sec).replace(/,.*$/, '').replace(/ \d+ DR$/, '');
@@ -113,6 +127,24 @@ export function PulseView({ state, mainRef, onOpenEntity }: PulseViewProps) {
         ) : null}
       </div>
 
+      {branches ? (
+        <Panel icon="threads" color="var(--src-sim)" title="Ветки «что если»" note="копия мира в памяти — основная линия не меняется, игрокам не видна" part="pulse-branches">
+          {branches}
+        </Panel>
+      ) : null}
+
+      {tensions === undefined ? null : (
+        <Panel icon="pulse" color="var(--fx-debuff-hi)" title="Напряжения" note={shownTensions ? `${shownTensions.length} · по весу — сколько фактов держат` : 'справочник мира грузится'} part="pulse-tensions">
+          <div role="group" aria-label="Охват напряжений" className="flex items-center gap-1">
+            <button type="button" aria-pressed={!world} onClick={() => setWorld(false)} className={SCOPE_BTN} title="Места кампании и её фракции">кампания</button>
+            <button type="button" aria-pressed={world} onClick={() => setWorld(true)} className={SCOPE_BTN} title="Все напряжения справочника в год кампании">весь мир{tensions ? ` · ${tensions.length}` : ''}</button>
+          </div>
+          {shownTensions ? (
+            <TensionList tensions={shownTensions} onOpen={onOpenEntity} {...(onThread ? { onThread } : {})} threadState={t => tensionThreadState(state, t)} className="max-h-[28rem] overflow-auto" />
+          ) : null}
+        </Panel>
+      )}
+
       <div className="grid grid-cols-[minmax(0,3fr)_minmax(0,2fr)] gap-4 items-start">
         {pulse.prices.length > 0 ? (
           <Panel icon="pin-shop" color="var(--t2)" title="Цены" note="индекс: 100 — базовая" part="pulse-prices">
@@ -122,7 +154,7 @@ export function PulseView({ state, mainRef, onOpenEntity }: PulseViewProps) {
                   <tr>
                     <th className="text-left px-2 py-1 type-key text-t2 font-normal">Поселение</th>
                     <th className="text-right px-2 py-1 type-key text-t2 font-normal" title="Надбавка места ко всему">общий</th>
-                    {GOODS.map(g => <th key={g} className="text-right px-2 py-1 type-key text-t2 font-normal">{GOODS_LABEL[g]}</th>)}
+                    {priced.map(g => <th key={g} className="text-right px-2 py-1 type-key text-t2 font-normal">{GOODS_LABEL[g]}</th>)}
                   </tr>
                 </thead>
                 <tbody>
@@ -130,7 +162,7 @@ export function PulseView({ state, mainRef, onOpenEntity }: PulseViewProps) {
                     <tr key={r.id} data-place={r.id}>
                       <th scope="row" className="text-left px-2 py-1 type-body text-tx font-normal" style={{ boxShadow: 'inset 0 -1px 0 var(--lo)' }}>{r.name}</th>
                       <td className="text-right px-2 py-1" style={{ boxShadow: 'inset 0 -1px 0 var(--lo)' }}><PriceCell cell={r.all} /></td>
-                      {GOODS.map(g => <td key={g} data-goods={g} className="text-right px-2 py-1" style={{ boxShadow: 'inset 0 -1px 0 var(--lo)' }}><PriceCell cell={r.goods[g]} /></td>)}
+                      {priced.map(g => <td key={g} data-goods={g} className="text-right px-2 py-1" style={{ boxShadow: 'inset 0 -1px 0 var(--lo)' }}><PriceCell cell={r.goods[g]} /></td>)}
                     </tr>
                   ))}
                 </tbody>

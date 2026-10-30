@@ -132,6 +132,35 @@ export class EventLog {
     } else this.undone.length = 0;
   }
 
+  /**
+   * Ветка «что если» (Д4): события ветки, открытой с этого лога на длине `baseLength`, ложатся в лог как есть — с теми
+   * же id, на них ссылаются причины предложений и компенсации. Основная линия ушла вперёд — нельзя: ветка считалась от
+   * другого мира. Сначала реплей на копии: не применилось одно — не ложится ни одно.
+   */
+  adopt(events: readonly DomainEvent[], baseLength: number): void {
+    if (this.events.length !== baseLength) throw new EngineError(`основная линия ушла вперёд: ветка от ${baseLength} событий, в логе ${this.events.length}`);
+    for (const e of events) if (this.byId.has(e.id)) throw new EngineError(`событие ${e.id} уже в логе`);
+    // Компенсации ветки ссылаются только на события ветки: её лог начинался пустым — проба идёт на пустом логе.
+    const trial = new EventLog(this.current, []);
+    events.forEach((e, i) => trial.replayOne({ ...e, seq: i }));
+    for (const e of events) this.replayOne({ ...e, seq: this.events.length });
+  }
+
+  /**
+   * Стол на прошлый день (Д5, бывшая 5.4): начало лога, после которого мировое время ещё не дальше `endSec`. Срез по
+   * seq всегда связен: компенсация ссылается только на более раннее событие. Шаг времени за `endSec` — уже не этот день.
+   */
+  static prefixUntil(initial: State, events: readonly DomainEvent[], endSec: number): DomainEvent[] {
+    const log = new EventLog(initial, []);
+    let n = 0;
+    for (const e of events) {
+      log.replayOne(e);
+      if (log.current.time.sec > endSec) break;
+      n++;
+    }
+    return events.slice(0, n);
+  }
+
   /** Проверка связности: каждая компенсация ссылается на более раннее событие, seq непрерывны. */
   static check(events: readonly DomainEvent[]): void {
     const seen = new Set<string>();

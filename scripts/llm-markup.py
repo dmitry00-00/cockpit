@@ -11,7 +11,9 @@
 #   L1 — класс подписи растра без пары в GIS (реестр: raster_only). Сначала правила (значок, цвет, капитель, слово
 #        в имени), модель — только для остатка, пакетами через /v1/classify шлюза.
 #   L2 — расстояния из текстов вики: в каждом предложении с милями, лигами или днями пути — пары «место A — место B —
-#        число, единица, способ пути». Очередь — предложения выжимки вики (scripts/wiki-extract.py), id «wiki:<статья>#<n>».
+#        число, единица, способ пути» и отдельно протяжённость одного места (extents: длина, ширина, глубина, высота,
+#        радиус). Очередь — предложения выжимки вики (scripts/wiki-extract.py), id «wiki:<статья>#<n>». Пара, которую
+#        режут правила scripts/l2-eval.py или чьего числа нет в тексте, — review с причинами в поле rules.
 #   L3 — карточка места по-русски: что это, кто правит, чем опасно — только из описания GIS и статьи вики (поля карточки,
 #        вступление). Нет ни того, ни другого — нет карточки (status no_input), модель не сочиняет. Имена в ответе, которых
 #        нет во входе, — status review. Текст вики — CC BY-SA: у карточки source и license.
@@ -32,14 +34,17 @@ GATEWAY = 'http://127.0.0.1:8711'
 CONSUMER = 'cockpit'
 HEAVY = ['vitest', 'vite.js build', 'tsc -b', 'map_ocr.py', 'gazetteer-from-map', 'terrain-from-map', 'tile-map.py', 'map-registry.py']
 
+# Залив, архипелаг, риф, полуостров, мост и ледник — владелец, 29.10.2026: при разборе L1 глазами их не хватило (заливы
+# шли в море, архипелаги в остров, рифы — в «прочее», полуострова — в область, мосты — в дорогу).
 CLASSES = ['settlement', 'fortress', 'ruins', 'temple', 'mine', 'mountain', 'hills', 'forest', 'swamp', 'desert',
-           'lake', 'river', 'sea', 'island', 'pass', 'region', 'road', 'other']
-L1_SYN = {'ford': 'river', 'marsh': 'swamp', 'marshes': 'swamp', 'bog': 'swamp', 'bay': 'sea', 'gulf': 'sea', 'ocean': 'sea',
+           'lake', 'river', 'sea', 'island', 'pass', 'region', 'road', 'other', 'bay', 'archipelago', 'reef', 'peninsula', 'bridge', 'glacier']
+L1_SYN = {'ford': 'river', 'marsh': 'swamp', 'marshes': 'swamp', 'bog': 'swamp', 'gulf': 'bay', 'cove': 'bay', 'ocean': 'sea',
+          'islands': 'archipelago', 'isles': 'archipelago',
           'city': 'settlement', 'town': 'settlement', 'village': 'settlement', 'castle': 'fortress', 'keep': 'fortress',
           'tower': 'fortress', 'shrine': 'temple', 'peak': 'mountain', 'mountains': 'mountain', 'wood': 'forest',
           'jungle': 'forest', 'plains': 'region', 'valley': 'region', 'kingdom': 'region', 'country': 'region',
           # Эхо местности из запроса (TERRAIN): под «water» лежат и острова, и рифы, и заливы — класса не знаем.
-          'water': 'other', 'ice': 'region', 'terrain': 'region', 'cave': 'other', 'bridge': 'road'}
+          'water': 'other', 'ice': 'region', 'terrain': 'region', 'cave': 'other', 'bridge': 'bridge', 'glaciers': 'glacier'}
 TERRAIN = {'o': 'water', 'g': 'plains', 'h': 'hills', 'f': 'forest', 'm': 'mountains', 's': 'swamp', 'd': 'desert', 'i': 'ice', 'u': 'unmapped'}
 
 
@@ -88,6 +93,8 @@ def loads(text):
 # ---------- L1: класс подписи ----------
 
 WORDS = [
+    # Раньше гор и лесов: «… Peninsula» называет сам полуостров, а «Mountains of the Peninsula» — горы на нём.
+    (r'(?<!of the )\bpeninsula\b', 'peninsula'),
     (r'\b(mountains?|mts?\.?|peaks?|range|spires?|mount|crags?)\b', 'mountain'),
     (r'\b(hills?|downs|heights?|ridge|highlands?|uplands?|escarpment|plateau|mesa)\b', 'hills'),
     (r'\b(wood|woods|forest|jungle|grove|weald|thicket)\b', 'forest'),
@@ -95,8 +102,14 @@ WORDS = [
     (r'\b(desert|sands?|dunes?|wastes?|barrens?|salt flats?)\b', 'desert'),
     (r'\b(lake|loch|pond|pool|tarn|lagoon|lac)\b', 'lake'),
     (r'\b(river|stream|creek|brook|falls|rapids)\b', 'river'),
-    (r'\b(sea|ocean|bay|gulf|strait|sound|channel|bight|cove|harbou?r|shoals?)\b', 'sea'),
-    (r'\b(isle|island|islands|isles|atoll|archipelago)\b', 'island'),
+    # Порядок важен: первое совпадение решает, поэтому залив раньше моря и архипелаг раньше острова.
+    (r'\b(reefs?)\b', 'reef'),
+    (r'\b(bridges?)\b', 'bridge'),
+    (r'\b(glaciers?)\b', 'glacier'),
+    (r'\b(bay|gulf|bight|cove|harbou?r)\b', 'bay'),
+    (r'\b(sea|ocean|strait|sound|channel|shoals?)\b', 'sea'),
+    (r'\b(islands|isles|archipelago)\b', 'archipelago'),
+    (r'\b(isle|island|atoll)\b', 'island'),
     (r'\b(pass|gap|gorge|canyon|vale|valley|dale)\b', 'pass'),
     (r'\b(road|way|trail|route|highway)\b', 'road'),
     (r'\b(castle|keep|fort|citadel|tower|hold|stronghold|garrison|fortress|bastion)\b', 'fortress'),
@@ -104,6 +117,10 @@ WORDS = [
     (r'\b(temple|shrine|abbey|monastery|priory|cloister|church|sanctuary|seminary)\b', 'temple'),
     (r'\b(mines?|delve|quarry)\b', 'mine'),
 ]
+# Слова, которые бывают в имени поселения («Blackfeather Bridge», «Chan Lu Bridge» — деревни): у подписи со значком
+# поселения решает значок.
+ICON_FIRST = {'bridge', 'glacier'}
+SETTLEMENT_ICONS = {'village', 'city', 'capital'}
 ICON_CLASS = {'village': 'settlement', 'city': 'settlement', 'capital': 'settlement', 'keep': 'fortress', 'ruins': 'ruins',
               'temple': 'temple', 'mine': 'mine', 'peak': 'mountain', 'well': 'lake', 'site': 'fortress'}
 
@@ -124,8 +141,11 @@ def ink_kind(ink):
 def rule_class(e):
     """Класс без модели и почему: значок у подписи, слово в имени, капитель (страны — красные, моря — синие)."""
     t = e['name'].lower()
+    icon = (e.get('icon') or {}).get('kind')
     for pat, cls in WORDS:
         if re.search(pat, t):
+            if cls in ICON_FIRST and icon in SETTLEMENT_ICONS:
+                return ICON_CLASS[icon], f'значок {icon}'
             return cls, f'слово в имени'
     if e.get('icon') and e['icon']['kind'] in ICON_CLASS:
         return ICON_CLASS[e['icon']['kind']], f"значок {e['icon']['kind']}"
@@ -160,7 +180,9 @@ L1_PROMPT = (
     'You classify labels of a fantasy world map (Forgotten Realms, Toril). For each item decide what the label names. '
     f'Allowed kinds: {", ".join(CLASSES)}. '
     'settlement = city, town or village; fortress = castle, keep, tower, inn or other building; region = country, kingdom, '
-    'land or named area; other = not a place or OCR garbage. Use the facts given: the icon next to the label, ink colour '
+    'land or named area; bay = bay, gulf, cove or harbour (water partly enclosed by land); sea = open sea, ocean, strait '
+    'or channel; archipelago = a group of islands (Isles, Islands); island = a single island; reef = a reef or a named group of rocks in the sea; peninsula = land almost surrounded by water; bridge = a named bridge; glacier = a glacier or ice field; '
+    'other = not a place or OCR garbage. Use the facts given: the icon next to the label, ink colour '
     '(blue ink names water, red capitals name countries and regions), terrain under the label and the neighbouring labels. '
     'Items are numbered [1], [2], …. Answer only JSON: {"results": [{"id": <item number>, "kind": "<kind>", "confidence": 0..1}]} '
     '— one result per item, in order.'
@@ -279,18 +301,94 @@ def wants_l3(e, wiki, entries, _taken={}):
 
 # ---------- L2: расстояния из вики ----------
 
+# L2, второй вариант — владелец, 29.10.2026, после разбора 215 строк глазами (отклонено 163): «сотни миль» без числа,
+# концы без собственного имени, размер или глубина одного места вместо пути, длительность процесса в днях; модель писала
+# «it» буквально. Размер и глубина — не мусор, а свой вид факта: поле extents рядом с pairs.
 L2_PROMPT = (
-    'You extract travel distances between places from a sentence of the Forgotten Realms wiki. The sentence comes from the '
-    'article named in "Article". For every distance stated between two named places return a pair; "it" or the town itself '
-    'means the article subject. Do not compute or guess: only distances written in the sentence. Units: mile, league, day, '
-    'hour, tenday. Route: road name if the distance is along a road or river, "direct" if as the crow flies, "" if unknown. '
-    'Answer only JSON: {"pairs": [{"from": "...", "to": "...", "value": number, "unit": "mile", "approx": true|false, '
-    '"route": "...", "mode": "foot|horse|ship|caravan|"}]}. No distances — {"pairs": []}.'
+    'You extract travel distances between two named places from one sentence of the Forgotten Realms wiki. The sentence '
+    'comes from the article named in "Article". Rules. (1) Both ends of a pair are proper names of places (towns, cities, '
+    'forests, mountains, rivers, regions, roads, buildings with a name) written in the sentence or the article title. When '
+    'the sentence means the article subject ("it", "the town", "the city", "the tower"), write the article title, never '
+    '"it". An unnamed end ("a small river", "the village", "the edge of the forest", "the mine\'s entrance") — no pair. '
+    '(2) Only a distance or travel time written in the sentence with a number. "Hundreds of miles", "several days", '
+    '"for tendays" without a number — no pair. Do not compute or guess. (3) Travel time counts only for travelling between '
+    'the two places ("a three-day ride from A to B"). How long something lasted, a delivery time, how long a search or '
+    'a siege took — no pair. (4) The size of one place — length, width, depth below the surface, height, radius ("ten '
+    'miles wide", "five miles beneath", "for twenty miles around") — is not a pair: put it into "extents" with the named '
+    'place. Units: mile, league, kilometer, day, hour, tenday. Route: road name if the distance is along a road or river, '
+    '"direct" if as the crow flies, "" if unknown. Answer only JSON: {"pairs": [{"from": "...", "to": "...", "value": '
+    'number, "unit": "mile", "approx": true|false, "route": "...", "mode": "foot|horse|ship|caravan|"}], "extents": '
+    '[{"place": "...", "value": number, "max": number|null, "unit": "mile", "dimension": "length|width|depth|height|radius", '
+    '"approx": true|false}]}. Nothing of this — {"pairs": [], "extents": []}.'
 )
+L2_PROMPT_ID = 'L2v2'
+DIMENSIONS = {'length', 'width', 'depth', 'height', 'radius'}
+WORD_NUM = {'a': 1, 'an': 1, 'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6, 'seven': 7, 'eight': 8,
+            'nine': 9, 'ten': 10, 'eleven': 11, 'twelve': 12, 'fifteen': 15, 'twenty': 20, 'thirty': 30, 'forty': 40,
+            'fifty': 50, 'sixty': 60, 'hundred': 100, 'half': 0.5, 'tenday': 10}
+
+
+def l2_rules():
+    """Правила отсева пар — один модуль со сверкой scripts/l2-eval.py (там же их точность на решениях мастера)."""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location('l2eval', os.path.join(ROOT, 'scripts/l2-eval.py'))
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
+
+
+def number_in(value, text):
+    """Число пары стоит в предложении цифрами или словом: «225» из «about 225 miles», 3 из «a three-day ride»."""
+    flat = text.replace(',', '').lower()
+    v = value if isinstance(value, (int, float)) else None
+    if v is None:
+        return False
+    lit = str(int(v)) if float(v).is_integer() else str(v)
+    if re.search(rf'\b{re.escape(lit)}\b', flat):
+        return True
+    return any(n == v and re.search(rf'\b{w}\b', flat) for w, n in WORD_NUM.items())
+
+
+def l2_row(page, d, model, rules):
+    row = {'id': None, 'task': 'L2', 'article': page['title'], 'text': d['text'], 'links': d['links'], 'url': page['url'],
+           'license': 'CC BY-SA 3.0 (Forgotten Realms Wiki)', 'prompt': L2_PROMPT_ID, 'at': datetime.now().isoformat(timespec='seconds')}
+    try:
+        res = loads(chat(model, L2_PROMPT, f"Article: {page['title']}\nSentence: {d['text']}", max_tokens=600))
+    except Exception as ex:
+        res, row['error'] = None, str(ex)[:200]
+    if res is None or not isinstance(res.get('pairs'), list):
+        row['status'] = 'failed'
+        return row
+    title = page['title']
+    fix = lambda e: title if str(e).strip().lower() in ('it', 'the town', 'the city') else str(e).strip()
+    pairs = [{**p, 'from': fix(p['from']), 'to': fix(p['to']), 'unit': rules.UNITS.get(str(p.get('unit', '')).lower(), p.get('unit'))}
+             for p in res['pairs'] if isinstance(p, dict) and p.get('from') and p.get('to') and isinstance(p.get('value'), (int, float))]
+    extents = [{**x, 'place': fix(x['place']), 'unit': rules.UNITS.get(str(x.get('unit', '')).lower(), x.get('unit'))}
+               for x in (res.get('extents') or []) if isinstance(x, dict) and x.get('place') and isinstance(x.get('value'), (int, float))
+               and x.get('dimension') in DIMENSIONS]
+    # Пара места с самим собой — протяжённость, а не путь: уходит в extents, если модель не положила её туда сама.
+    for p in [p for p in pairs if p['from'].lower() == p['to'].lower()]:
+        pairs.remove(p)
+        if not any(x['place'].lower() == p['from'].lower() and x['value'] == p['value'] for x in extents):
+            extents.append({'place': p['from'], 'value': p['value'], 'max': None, 'unit': p['unit'], 'dimension': 'length', 'approx': p.get('approx', False), 'from_pair': True})
+    # Протяжённость — те же требования, что к паре: имя места, число из текста, не «сотни миль».
+    extents = [x for x in extents if rules.named(x['place']) and number_in(x['value'], d['text']) and not rules.VAGUE.search(d['text'])]
+    flags = {}
+    for i, p in enumerate(pairs):
+        why = rules.reasons(d['text'], p, title)
+        if not number_in(p['value'], d['text']):
+            why.append('числа нет в тексте')
+        if why:
+            flags[i] = why
+    row.update(status='review' if flags else 'done', pairs=pairs, extents=extents, model=model)
+    if flags:
+        row['rules'] = {str(i): w for i, w in flags.items()}
+    return row
 
 
 def run_l2(wiki, model, out, until, limit, done):
     pages, _ = wiki
+    rules = l2_rules()
     todo = [(f"wiki:{t}#{i}", p, d) for t, p in pages.items() for i, d in enumerate(p.get('dist', []))]
     todo = [x for x in todo if x[0] not in done]
     if limit:
@@ -301,19 +399,8 @@ def run_l2(wiki, model, out, until, limit, done):
             if past(until):
                 print('L2: время вышло', file=sys.stderr)
                 return
-            row = {'id': wid, 'task': 'L2', 'article': page['title'], 'text': d['text'], 'links': d['links'], 'url': page['url'],
-                   'license': 'CC BY-SA 3.0 (Forgotten Realms Wiki)', 'at': datetime.now().isoformat(timespec='seconds')}
-            try:
-                res = loads(chat(model, L2_PROMPT, f"Article: {page['title']}\nSentence: {d['text']}", max_tokens=500))
-            except Exception as ex:
-                res, row['error'] = None, str(ex)[:200]
-            if res is None or not isinstance(res.get('pairs'), list):
-                row['status'] = 'failed'
-            else:
-                pairs = [p for p in res['pairs'] if isinstance(p, dict) and p.get('from') and p.get('to') and isinstance(p.get('value'), (int, float))]
-                # Число в паре должно стоять в предложении: «225» из «about 225 miles» — да, посчитанное моделью — нет.
-                bad = [p for p in pairs if not re.search(rf"\b{re.escape(str(p['value']).rstrip('0').rstrip('.') if isinstance(p['value'], float) else str(p['value']))}\b", d['text'].replace(',', ''))]
-                row.update(status='review' if bad else 'done', pairs=pairs, model=model)
+            row = l2_row(page, d, model, rules)
+            row['id'] = wid
             f.write(json.dumps(row, ensure_ascii=False) + '\n')
             f.flush()
             n += 1

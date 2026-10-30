@@ -1,6 +1,6 @@
 // Святые дни (E4): правила импорта ложатся на календарь Харптоса, редакция — по эпохе, ближайший — только годовой.
 import { describe, expect, it } from 'vitest';
-import { FESTIVALS, MONTHS, secOf } from './calendar';
+import { FESTIVALS, MONTHS, SHIELDMEET, secOf } from './calendar';
 import { HOLY_DEITIES, holyDaysOn, holyLabel, holyList, holyRulesAt, nextHolyDay, nextHolyDayFor, partyDeitiesOf } from './holyDays';
 import { seedState } from './seed';
 
@@ -13,7 +13,7 @@ describe('данные', () => {
     for (const h of HOLY_DEITIES) for (const [ed, v] of Object.entries(h.editions)) for (const r of v!.rules) {
       const where = `${h.deity} ${ed} ${JSON.stringify(r)}`;
       expect([r.festival, r.month, r.monthly, r.moon].filter(x => x !== undefined), where).toHaveLength(1);
-      if (r.festival) expect(FESTIVALS, where).toContain(r.festival);
+      if (r.festival) expect([...FESTIVALS, SHIELDMEET], where).toContain(r.festival);
       if (r.month) {
         expect(MONTHS, where).toContain(r.month);
         expect(r.day, where).toBeGreaterThanOrEqual(1);

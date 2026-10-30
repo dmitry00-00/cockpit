@@ -28,7 +28,7 @@ export { SRD_CLASS_IDS, SRD_CLASSES, HIT_POINTS_RULE, ASI_RULE, ABILITY_SCORE_CA
 export { ARMOR_IDS, ARMOR, SHIELD, MEDIUM_ARMOR_DEX_CAP, ARMOR_RULES, MAGE_ARMOR, isArmorId, type Armor, type ArmorCategory, type ArmorId } from './armor';
 // Магические предметы — не реэкспортом: модуль импортируют напрямую, чтобы 270 КБ данных ехали отдельным куском (ROADMAP 0.5).
 export type { MagicItem, MagicItemRarity } from './magicItems';
-export { MONSTER_IDS, MONSTERS, MONSTER_LIST, MONSTERS_SOURCE, MONSTER_LIBRARIES, MONSTER_ORIGIN_LABEL, SRD_MONSTER_IDS, isMonsterId, loadMonsterLibraries, monsterLibrariesLoaded, monsterOrigin, needsMonsterLibraries, type Monster, type MonsterLibrary, type MonsterAction, type MonsterAttack, type MonsterId, type MonsterOrigin } from './monsters';
+export { MONSTER_IDS, MONSTERS, MONSTER_LIST, MONSTERS_SOURCE, MONSTER_LIBRARIES, MONSTER_ORIGIN_LABEL, SRD_MONSTER_IDS, isMonsterId, loadMonsterLibraries, loadSrdMonsters, monsterLibrariesLoaded, monsterOrigin, needsMonsterLibraries, type Monster, type MonsterLibrary, type MonsterAction, type MonsterAttack, type MonsterId, type MonsterOrigin } from './monsters';
 export {
   RESOURCES,
   RESOURCE_IDS,
@@ -39,6 +39,8 @@ export {
   type FeatureResource,
   type Resource,
   type ResourceId,
+  type RestoreOn,
 } from './resources';
+export { legendaryCost, legendaryCount, legendaryOf, type LegendaryActions, type LegendaryOption } from './legendary';
 export { SRD_RACES, SRD_RACE_IDS, isSrdRaceId, srdRaceSpeed, type SrdRace, type SrdRaceId } from './races';
 export { DIFFICULT_TERRAIN_FACTOR, TRAVEL_PACE_IDS, TRAVEL_PACES, travelDays, type TravelPace, type TravelPaceId } from './travel';

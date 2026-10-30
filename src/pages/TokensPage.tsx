@@ -15,7 +15,7 @@ const COLOR_GROUPS: readonly { title: string; test: (n: string) => boolean }[] =
   { title: 'Эффекты', test: n => n.startsWith('fx-') },
   { title: 'Полоса хитов', test: n => n.startsWith('hp-') },
   { title: 'Происхождение факта', test: n => n.startsWith('src-') || n.startsWith('st-') },
-  { title: 'Местность глобуса', test: n => n.startsWith('terrain-') },
+  { title: 'Местность и схема карты', test: n => n.startsWith('terrain-') || n.startsWith('map-') },
   { title: 'Небо циферблата', test: n => n.startsWith('sky-') },
 ];
 

@@ -7,8 +7,8 @@
 # плана Колеса или перенаправлению на них. Пантеоны — из поля pantheon и категорий «… pantheon».
 #
 # Святые дни (E4) разбираются в правила календаря: праздник Харптоса, дата месяца, равноденствие и солнцестояние (даты —
-# статья Calendar of Harptos), дни каждого месяца, полнолуние и новолуние. Что не разобралось (Shieldmeet — календарь
-# его не ведёт, «Starfall», «varies»), остаётся только текстом карточки. Правила — отдельным маленьким файлом: календарь
+# статья Calendar of Harptos), дни каждого месяца, полнолуние и новолуние, Shieldmeet (с 29.10.2026 календарь его ведёт).
+# Что не разобралось («Starfall», «varies»), остаётся только текстом карточки. Правила — отдельным маленьким файлом: календарь
 # на столе читает их сразу, а не из куска богов.
 #
 # Запуск: .venv/bin/python -I scripts/import-deities.py <dump.xml>
@@ -47,9 +47,9 @@ TREE_ALIASES = {'Layers of the Abyss': 'abyss'}
 PANTHEON_ALIASES = {'Orcish pantheon': 'Orc pantheon', 'Norse Pantheon': 'Norse pantheon'}
 
 MONTH_NAMES = ['Hammer', 'Alturiak', 'Ches', 'Tarsakh', 'Mirtul', 'Kythorn', 'Flamerule', 'Eleasis', 'Eleint', 'Marpenoth', 'Uktar', 'Nightal']
-# Праздники Харптоса, которые ведёт календарь стола; Shieldmeet не ведёт (src/campaign/calendar.ts).
+# Праздники Харптоса, которые ведёт календарь стола (src/campaign/calendar.ts); Shieldmeet — раз в четыре года.
 FESTIVAL_WORDS = [('Feast of the Moon', 'Feast of the Moon'), ('Highharvestide', 'Highharvestide'), ('Higharvestide', 'Highharvestide'),
-                  ('Midwinter', 'Midwinter'), ('Greengrass', 'Greengrass'), ('Midsummer', 'Midsummer')]
+                  ('Midwinter', 'Midwinter'), ('Greengrass', 'Greengrass'), ('Midsummer', 'Midsummer'), ('Shieldmeet', 'Shieldmeet')]
 # Calendar of Harptos (FR Wiki): Spring Equinox on Ches 19, Summer Solstice on Kythorn 20, Autumn Equinox on Eleint 21,
 # Winter Solstice on Nightal 20.
 SOLAR = {'spring': ('Ches', 19), 'summer': ('Kythorn', 20), 'autumn': ('Eleint', 21), 'winter': ('Nightal', 20)}

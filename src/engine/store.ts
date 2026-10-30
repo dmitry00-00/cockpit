@@ -2,7 +2,7 @@
 import { create } from 'zustand';
 import { EventLog, type EventLogOptions } from './log';
 import { EngineError } from './reduce';
-import { TEMPO_SECONDS, type PartyTraveled, type ActorRemoveReason, type Command, type ConcentrationEndReason, type DomainEvent, type EventType, type InitiativeEntry, type RestHitDice, type RestKind, type RestResource, type ScaleLevel, type Tempo } from './events';
+import { TEMPO_SECONDS, type PartyTraveled, type ActorRemoveReason, type Command, type ConcentrationEndReason, type DomainEvent, type EventType, type InitiativeEntry, type RestHitDice, type RestKind, type RestResource, type ScaleLevel, type SupplyReason, type KnowledgeRevealed, type CharacterLeveled, type SheetPatch, type Tempo, type GridCell, type TokenMoveSource } from './events';
 import type { ResourceId } from '../rules/srd/resources';
 import { roll, type RollOptions } from './dice';
 import { undoToast, redoToast } from './journal';
@@ -16,6 +16,8 @@ export interface EngineStore {
   canRedo: boolean;
   /** Тост живёт до следующего действия, а не по таймеру. */
   toast: string | null;
+  /** Последнее сохранение лога не удалось (квота браузера): сессия живёт только в памяти, пока мастер не сохранит файл. */
+  saveFailed: boolean;
   dispatch<T extends EventType>(cmd: Extract<Command, { type: T }>): DomainEvent<T>;
   undo(): void;
   redo(): void;
@@ -24,8 +26,11 @@ export interface EngineStore {
   heal(targetId: string, amount: number, sourceId?: string): void;
   tempHp(targetId: string, amount: number, sourceId?: string): void;
   rollDice(formula: string, opts?: RollOptions): DomainEvent<'DICE_ROLLED'>;
-  /** Шаг времени; возвращает событие — его id становится причиной предложений симуляции. */
-  advanceTime(tempo: Tempo, steps?: number): DomainEvent<'TIME_ADVANCED'>;
+  /**
+   * Шаг времени; возвращает событие — его id становится причиной предложений симуляции. toSec — конец шага по
+   * календарю, когда он не кратен темпу (год с Shieldmeet: та же дата через год — 366 суток); его считает кампания.
+   */
+  advanceTime(tempo: Tempo, steps?: number, toSec?: number): DomainEvent<'TIME_ADVANCED'>;
   /** Следующий ход по порядку; бой не начат — ничего не происходит (сначала startEncounter). */
   nextTurn(): void;
   /**
@@ -56,10 +61,22 @@ export interface EngineStore {
   travel(payload: PartyTraveled): DomainEvent<'PARTY_TRAVELED'>;
   /** Место открыто игрокам: туман знаний вокруг него снят и на их столе. */
   revealPlace(locationId: string): void;
+  /** Общий запас партии (SUPPLY_CHANGED): причина задаёт направление; shortfall — не хватило на еду. */
+  changeSupply(reason: SupplyReason, amount: number, shortfall?: number): DomainEvent<'SUPPLY_CHANGED'>;
+  /** Партия узнала факт карточки (KNOWLEDGE_REVEALED, Д6): волей мастера или проверкой не ниже Сл. */
+  revealKnowledge(p: KnowledgeRevealed): DomainEvent<'KNOWLEDGE_REVEALED'>;
+  /** Новый уровень (CHARACTER_LEVELED, Q10): лист после повышения снимком — его считает campaign/levelUp.ts. */
+  levelUp(p: CharacterLeveled): DomainEvent<'CHARACTER_LEVELED'>;
+  /** Правка паспорта листа вне механики (SHEET_EDITED, Q10) — с причиной. */
+  editSheet(actorId: string, patch: SheetPatch, reason: string): DomainEvent<'SHEET_EDITED'>;
+  /** Токен сменил клетку (TOKEN_MOVED, Q17): ход в MapTool или перестановка мастером на столе. */
+  moveToken(actorId: string, to: GridCell, source: TokenMoveSource, from?: GridCell): DomainEvent<'TOKEN_MOVED'>;
   /** Заметка мастера; возвращает событие — его id годится как causeId для дельты. */
   /** visible — заметка видна игрокам; по умолчанию секретна (Q1). */
   note(text: string, threadIds: readonly string[], scale: ScaleLevel, visible?: boolean): DomainEvent<'NOTE_ADDED'>;
   dismissToast(): void;
+  /** Ветка «что если» оставлена (Д4): её события — в лог с теми же id; основная линия не должна была уйти вперёд. */
+  adopt(events: readonly DomainEvent[], baseLength: number): void;
 }
 
 /** Какой вариант даст переброс: следующий после текущего по кругу, пропуская совпадающий с тем, что стоит сейчас. */
@@ -94,8 +111,8 @@ export function createEngineStore(initial: State, opts: CreateEngineOptions = {}
     // events — снимок, а не сам массив лога: лог дописывается на месте, и без копии подписчик на events
     // не узнал бы о новом событии; у DICE_ROLLED и state тот же (immer без правок) — ни один селектор не сработал бы.
     const sync = (toast: string | null) => {
-      opts.persist?.save(log.entries);
-      set({ state: log.state, events: [...log.entries], canUndo: log.peekUndo() !== null, canRedo: log.peekRedo() !== null, toast });
+      const saveFailed = opts.persist?.save(log.entries) === false;
+      set({ state: log.state, events: [...log.entries], canUndo: log.peekUndo() !== null, canRedo: log.peekRedo() !== null, toast, saveFailed });
     };
     const dispatch = <T extends EventType>(cmd: Extract<Command, { type: T }>) => {
       const e = log.dispatch(cmd);
@@ -108,6 +125,7 @@ export function createEngineStore(initial: State, opts: CreateEngineOptions = {}
       canUndo: log.peekUndo() !== null,
       canRedo: log.peekRedo() !== null,
       toast: null,
+      saveFailed: false,
       dispatch,
       undo() {
         const info = log.undo();
@@ -121,9 +139,9 @@ export function createEngineStore(initial: State, opts: CreateEngineOptions = {}
       heal: (targetId, amount, sourceId) => { dispatch({ type: 'HEALING_APPLIED', payload: { targetId, amount, sourceId } }); },
       tempHp: (targetId, amount, sourceId) => { dispatch({ type: 'TEMP_HP_GRANTED', payload: { targetId, amount, sourceId } }); },
       rollDice: (formula, rollOpts) => dispatch({ type: 'DICE_ROLLED', payload: roll(formula, rollOpts) }),
-      advanceTime(tempo, steps = 1) {
+      advanceTime(tempo, steps = 1, calendarTo) {
         const fromSec = get().state.time.sec;
-        const toSec = fromSec + steps * TEMPO_SECONDS[tempo];
+        const toSec = calendarTo ?? fromSec + steps * TEMPO_SECONDS[tempo];
         return dispatch({ type: 'TIME_ADVANCED', payload: { tempo, steps, fromDay: dayOf(fromSec), toDay: dayOf(toSec), fromSec, toSec } });
       },
       nextTurn() {
@@ -169,8 +187,17 @@ export function createEngineStore(initial: State, opts: CreateEngineOptions = {}
       reveal: factId => { dispatch({ type: 'FACT_REVEALED', payload: { factId, audience: 'players' } }); },
       travel: payload => dispatch({ type: 'PARTY_TRAVELED', payload }),
       revealPlace: locationId => { dispatch({ type: 'PLACE_REVEALED', payload: { locationId } }); },
+      revealKnowledge: p => dispatch({ type: 'KNOWLEDGE_REVEALED', payload: p }),
+      levelUp: p => dispatch({ type: 'CHARACTER_LEVELED', payload: p }),
+      editSheet: (actorId, patch, reason) => dispatch({ type: 'SHEET_EDITED', payload: { actorId, patch, reason } }),
+      moveToken: (actorId, to, source, from) => dispatch({ type: 'TOKEN_MOVED', payload: from ? { actorId, from, to, source } : { actorId, to, source } }),
+      changeSupply: (reason, amount, shortfall) => dispatch({ type: 'SUPPLY_CHANGED', payload: shortfall ? { reason, amount, shortfall } : { reason, amount } }),
       note: (text, threadIds, scale, visible) => dispatch({ type: 'NOTE_ADDED', payload: { text, threadIds, scale, ...(visible ? { visible: true } : {}) } }),
       dismissToast: () => set({ toast: null }),
+      adopt(events, baseLength) {
+        log.adopt(events, baseLength);
+        sync(`Ветка оставлена: ${events.length} ${events.length % 10 === 1 && events.length % 100 !== 11 ? 'событие' : 'событий'} в журнале`);
+      },
     };
   });
 }

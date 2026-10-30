@@ -1,12 +1,30 @@
 // Шаг времени (F6) и отдых / новая сессия.
 import { fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { seedEngine, seedState } from '../../campaign';
+import { harptos, seedEngine, seedState } from '../../campaign';
 import { createEngineStore, memoryStore } from '../../engine';
 import { DeskPage } from '../DeskPage';
 import { fixed, mount, rowOf, cardOf, hpOf, lastEvent, damageViaPopover, startCombat, inbox, deltaCard, tempoGroup, timeView, step } from './testkit';
 
 afterEach(() => { vi.useRealTimers(); vi.restoreAllMocks(); });
+
+/* ---------- «Перейти к этому дню» (Д5): будущий день календаря — шаг днями до него ---------- */
+
+describe('календарь: перейти к дню', () => {
+  it('будущий день — кнопка; клик — TIME_ADVANCED днями до него, время суток то же; прошлый и сегодняшний — не кнопки', () => {
+    const { store } = mount();
+    step();
+    const cal = within(timeView()).getByRole('region', { name: 'Календарь Харптоса' });
+    const before = store.getState().state.time.sec;
+    const now = harptos(before);
+    const month = within(cal).getByRole('table', { name: `${now.month} ${now.year} DR` });
+    expect(within(month).queryByRole('button', { name: String(now.day) })).toBeNull();
+    expect(within(month).queryByRole('button', { name: String(now.day - 1) })).toBeNull();
+    fireEvent.click(within(month).getByRole('button', { name: String(now.day + 5) }));
+    expect([...store.getState().events].reverse().find(e => e.type === 'TIME_ADVANCED')).toMatchObject({ payload: { tempo: 'day', steps: 5 } });
+    expect(harptos(store.getState().state.time.sec)).toMatchObject({ day: now.day + 5, hour: now.hour, minute: now.minute });
+  });
+});
 
 /* ---------- Шаг времени (шаг 8): сценарий F6 — темп, фаза суток, небесные тела, сводка, решения, отмена ---------- */
 
@@ -166,7 +184,7 @@ describe('отдых и новая сессия', () => {
   it('«Новая сессия» — в два клика: «Оставить» ничего не трогает; «Стереть» чистит хранилище и поднимает сид заново — Bo снова 41/49, журнал сида', () => {
     const persist = memoryStore();
     const store = seedEngine({ persist, ...fixed() });
-    render(<DeskPage store={store} persist={persist} />);
+    render(<DeskPage cardFace="sheet" store={store} persist={persist} />);
     damageViaPopover(cardOf('Bo Tambernack'), 8);
     fireEvent.keyDown(window, { key: 'Escape', code: 'Escape' });
     expect(within(rowOf('Bo Tambernack')).getByText('33/49')).toBeInTheDocument();

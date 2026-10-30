@@ -1,6 +1,6 @@
 // Состояние — проекция лога. Здесь только форма; менять его может лишь reduce.ts.
 import type { EntityRef } from '../entities/ref';
-import type { AbilityId } from '../rules/srd/abilities';
+import type { AbilityId, SkillId } from '../rules/srd/abilities';
 import type { ConditionId } from '../rules/srd/conditions';
 import type { MonsterId } from '../rules/srd/monsters';
 import type { ResourceId } from '../rules/srd/resources';
@@ -99,6 +99,8 @@ export interface Actor {
   removed?: boolean;
   /** Где актёр, если отделился от партии. */
   locationId?: string;
+  /** Клетка на сетке боя (TOKEN_MOVED); нет — расстановка сида или не стоит на сетке. */
+  cell?: { x: number; y: number };
   /** У персонажа игрока — лист, у монстра — блок статов SRD по id. Карточка читает отсюда. */
   sheet?: CharacterSheet;
   monsterId?: MonsterId;
@@ -128,6 +130,8 @@ export type WorldPatch =
   | { kind: 'relation'; id: string; other: string; value: number }
   // Надбавка к цене товара в месте, в процентах; 0 — базовая.
   | { kind: 'price'; id: string; goods: GoodsId; value: number }
+  // Запас товара в месте (С3): число в единицах товара; null — запас на равновесии, поля нет.
+  | { kind: 'stock'; id: string; goods: GoodsId; value: number | null }
   // Вес встречи в месте: множитель к её доле в таблице, 1 — как в таблице, 0 — не встречается.
   | { kind: 'encounter'; id: string; key: string; value: number }
   // Новое место (M8, ROADMAP 3.5) и обратное ему — снимок «было» при откате принятия.
@@ -135,7 +139,15 @@ export type WorldPatch =
   | { kind: 'removeLocation'; id: string }
   // Организация справочника становится фракцией кампании (E10, E5) — и обратное, снимок для отката.
   | { kind: 'newFaction'; faction: Faction }
-  | { kind: 'removeFaction'; id: string };
+  | { kind: 'removeFaction'; id: string }
+  // Новая нить из напряжения (Д3, ROADMAP 7.3) — и обратное ей, снимок для отката принятия.
+  | { kind: 'newThread'; thread: Thread }
+  | { kind: 'removeThread'; id: string }
+  // Процессы мира (SIMULATION.md С1, решение пользователя 30.10.2026): процесс целиком — завести или обновить, и
+  // обратное — снимок для отката; составной патч — стадия процесса и её последствия одним принятием.
+  | { kind: 'process'; process: Process }
+  | { kind: 'removeProcess'; id: string }
+  | { kind: 'batch'; patches: readonly WorldPatch[] };
 
 /** Предложение симуляции: пока мастер не решил, в мире стоит `was`, а `now` живёт только здесь. */
 export interface WorldDelta {
@@ -153,6 +165,8 @@ export interface WorldDelta {
   threadIds?: readonly string[];
   /** Что меняется в мире при принятии; у вариантов переброса свой патч не ведётся — переброс меняет слова. */
   patch?: WorldPatch;
+  /** Вдали от партии (процессы мира, решение пользователя 30.10.2026): в сводке шага — свёрнутой группой «Сводка мира». */
+  far?: boolean;
 }
 
 export interface Fact {
@@ -177,6 +191,9 @@ export interface Location {
   pricePercent?: number;
   /** Надбавка к цене отдельных товаров, в процентах (ROADMAP 3.3); нет товара — базовая. */
   prices?: Partial<Record<GoodsId, number>>;
+  /** Запас товара (С3): еда — в днях на жителя (A5E Supply), остальное — 0–10, 5 — норма. Нет товара — запас на
+   *  равновесии места (world/econ.ts), поле заводит только торговля. */
+  stock?: Partial<Record<GoodsId, number>>;
   /** Веса встреч: ключ — кто встречается, латиницей («Werewolf»), значение — множитель к доле в таблице; нет — ×1. */
   encounters?: Record<string, number>;
   /** Место справочника карты (`place:…`) — его карточка даёт богов, церкви, организации и жителей по вики. */
@@ -205,7 +222,7 @@ export interface Faction {
   influencePercent?: number;
   trend?: number;
   goal?: string;
-  /** Организация справочника (`organization:…`): глава, база, боги, союзники и враги по вики (ROADMAP 3.3). */
+  /** Организация или держава справочника (`organization:…`, `kingdom:…`): её карточка по вики (ROADMAP 3.3, TASKS К). */
   ref?: EntityRef;
   /** Отношения с другими фракциями −3…+3, симметрично: у обеих сторон одно число; нет — 0. */
   relations?: Record<string, number>;
@@ -213,9 +230,15 @@ export interface Faction {
 
 /**
  * Товары для цен мест (ROADMAP 3.3): разделы таблиц снаряжения SRD 5.1 (Weapons, Armor, Adventuring Gear, Mounts and
- * Vehicles, Food Drink and Lodging) и зелья. Короткий закрытый список: симуляция двигает цену раздела, а не вещи.
+ * Vehicles, Food Drink and Lodging) и зелья — то, что покупает партия. Короткий закрытый список: симуляция двигает цену
+ * раздела, а не вещи.
  */
-export const GOODS = ['weapons', 'armor', 'gear', 'food', 'mounts', 'potions'] as const;
+export const SRD_GOODS = ['weapons', 'armor', 'gear', 'food', 'mounts', 'potions'] as const;
+/**
+ * Двенадцать товаров торговли (SIMULATION.md С3, решение пользователя 30.10.2026): разделы SRD и шесть грузов, к
+ * которым сводятся экспорт и импорт держав вики (scripts/econ-from-wiki.py). Порядок — сначала разделы SRD.
+ */
+export const GOODS = [...SRD_GOODS, 'wine', 'cloth', 'timber', 'metal', 'precious', 'spices'] as const;
 export type GoodsId = (typeof GOODS)[number];
 
 /** Нить сюжета: открыта когда-то, последнее внимание — тогда-то; «без внимания N дней» считается от времени сида. */
@@ -236,6 +259,33 @@ export interface World {
   locations: Record<string, Location>;
   factions: Record<string, Faction>;
   threads: Record<string, Thread>;
+  /** Процессы мира (SIMULATION.md): войны, караваны, голод…; нет в старых файлах сессии — пусто. */
+  processes?: Record<string, Process>;
+}
+
+/**
+ * Процесс мира — машина стадий (SIMULATION.md): вид из реестра `campaign/processes.ts`, стадия, участники, такт.
+ * Двигается только принятым предложением: стадия и последствия — патчем `batch`. Кончившийся остаётся историей.
+ */
+export interface Process {
+  id: string;
+  /** Вид из реестра процессов: «war», «caravan»… */
+  kind: string;
+  name: string;
+  scale: ScaleLevel;
+  stage: string;
+  /** Участники — ссылки справочника («kingdom:cormyr») или id фракций и мест кампании. */
+  parties: readonly string[];
+  /** Где идёт: id места кампании, если есть. */
+  at?: string;
+  startedSec: number;
+  /** Секунда следующего такта; такт — шаг вида процесса. */
+  nextSec: number;
+  /** Счётчики процесса — числа правил стола: сила сторон, дни в пути… */
+  vars: Readonly<Record<string, number>>;
+  ended?: boolean;
+  /** Причина начала: нить, факт, событие канона. */
+  causeId?: string;
 }
 
 export interface State {
@@ -246,7 +296,21 @@ export interface State {
   deltas: Record<string, WorldDelta>;
   facts: Record<string, Fact>;
   world: World;
+  /** Общий запас партии, Supply A5E (SUPPLY_CHANGED); нет поля — ноль (сессии до 29.10.2026). */
+  supply?: number;
+  /** Тетрадь партии (KNOWLEDGE_REVEALED, Д6): что игроки знают о сущностях справочника; ключ — ссылка. */
+  knowledge?: Record<EntityRef, KnownEntity>;
 }
+
+/** Строка тетради: факт карточки снимком, когда узнали (секунды мира), кто и какой проверкой. */
+export interface KnownFact {
+  label: string;
+  value: string;
+  sec: number;
+  by?: string;
+  check?: { skill: SkillId; dc: number; total: number };
+}
+export interface KnownEntity { ref: EntityRef; name: string; facts: KnownFact[] }
 
 export const SECONDS_PER_DAY = 86_400;
 

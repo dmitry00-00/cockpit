@@ -1,0 +1,123 @@
+{
+ "patchCost": [
+  {
+   "places": 50,
+   "factions": 0,
+   "decidedDeltas": 0,
+   "msPerPatch": 0.01024
+  },
+  {
+   "places": 200,
+   "factions": 0,
+   "decidedDeltas": 0,
+   "msPerPatch": 0.02004
+  },
+  {
+   "places": 820,
+   "factions": 0,
+   "decidedDeltas": 0,
+   "msPerPatch": 0.14664
+  },
+  {
+   "places": 820,
+   "factions": 442,
+   "decidedDeltas": 0,
+   "msPerPatch": 0.15531999999999999
+  },
+  {
+   "places": 2000,
+   "factions": 442,
+   "decidedDeltas": 0,
+   "msPerPatch": 0.30754000000000004
+  },
+  {
+   "places": 820,
+   "factions": 442,
+   "decidedDeltas": 20000,
+   "msPerPatch": 0.18611000000000003
+  }
+ ],
+ "lostUpdate": {
+  "before": 5,
+  "war": -3,
+  "caravan": 2,
+  "expected": 4,
+  "after": 2,
+  "proposals": [
+   "caravan · caravan",
+   "war · war"
+  ]
+ },
+ "logGrowth": [
+  {
+   "years": 1,
+   "processes": 30,
+   "tempo": "tenday",
+   "compact": false,
+   "events": 2196,
+   "deltasInState": 1080,
+   "logMB": 2.17,
+   "serializeMs": 4.83,
+   "replayMs": 446,
+   "simMsTotal": 141,
+   "dispatchMsTotal": 471,
+   "persistMsIfEveryDispatch": 5305
+  },
+  {
+   "years": 1,
+   "processes": 30,
+   "tempo": "month",
+   "compact": false,
+   "events": 732,
+   "deltasInState": 360,
+   "logMB": 1.19,
+   "serializeMs": 2.31,
+   "replayMs": 173,
+   "simMsTotal": 78,
+   "dispatchMsTotal": 170,
+   "persistMsIfEveryDispatch": 844
+  },
+  {
+   "years": 1,
+   "processes": 30,
+   "tempo": "month",
+   "compact": true,
+   "events": 732,
+   "deltasInState": 360,
+   "logMB": 0.72,
+   "serializeMs": 1.35,
+   "replayMs": 89,
+   "simMsTotal": 78,
+   "dispatchMsTotal": 87,
+   "persistMsIfEveryDispatch": 496
+  },
+  {
+   "years": 5,
+   "processes": 30,
+   "tempo": "month",
+   "compact": false,
+   "events": 3660,
+   "deltasInState": 1800,
+   "logMB": 5.97,
+   "serializeMs": 12.36,
+   "replayMs": 1348,
+   "simMsTotal": 504,
+   "dispatchMsTotal": 1303,
+   "persistMsIfEveryDispatch": 22614
+  },
+  {
+   "years": 5,
+   "processes": 30,
+   "tempo": "month",
+   "compact": true,
+   "events": 3660,
+   "deltasInState": 1800,
+   "logMB": 3.65,
+   "serializeMs": 7.35,
+   "replayMs": 929,
+   "simMsTotal": 515,
+   "dispatchMsTotal": 888,
+   "persistMsIfEveryDispatch": 13450
+  }
+ ]
+}

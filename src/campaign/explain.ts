@@ -4,6 +4,7 @@
 // разница отдельным шагом с пометкой mismatch, а не тихой подгонкой. Чистые функции, без React.
 import type { Actor } from '../engine';
 import { classById } from '../rules/compendium';
+import type { LayerId } from '../rules/layers';
 import { ABILITIES, ABILITY_IDS, SKILLS, type AbilityId, type SkillId } from '../rules/srd/abilities';
 import { ARMOR, ARMOR_RULES, MAGE_ARMOR, MEDIUM_ARMOR_DEX_CAP, SHIELD, isArmorId } from '../rules/srd/armor';
 import { ITEMS } from '../rules/srd/equipment';
@@ -19,6 +20,8 @@ export interface DeriveStep {
   label: string;
   value: number;
   rule?: string;
+  /** Слой правил (Д7): строка SRD — «srd», черта из таблицы владельца без строки SRD — «owner»; у расхождения слоя нет. */
+  layer?: LayerId;
   /** Шаг — не правило, а расхождение с числом листа. */
   mismatch?: true;
 }
@@ -40,8 +43,9 @@ const modStep = (ab: AbilityId, score: number): DeriveStep => ({ label: `${code(
 /** Шаги → вывод; сумма не сошлась с числом листа — разница отдельным шагом. */
 function close(steps: DeriveStep[], shown?: number): Explanation {
   const sum = steps.reduce((s, x) => s + x.value, 0);
-  if (shown !== undefined && shown !== sum) steps.push({ label: 'не из правил листа', value: shown - sum, mismatch: true });
-  return { total: shown ?? sum, steps };
+  const layered: DeriveStep[] = steps.map(x => ({ ...x, layer: x.layer ?? (x.rule ? 'srd' : 'owner') }));
+  if (shown !== undefined && shown !== sum) layered.push({ label: 'не из правил листа', value: shown - sum, mismatch: true });
+  return { total: shown ?? sum, steps: layered };
 }
 
 function acSteps(actor: Actor): DeriveStep[] {
@@ -161,6 +165,9 @@ export function explain(actor: Actor, key: ExplainKey): Explanation | undefined 
   const steps = attackSteps(actor, id);
   return steps ? close(steps, sheet.attacks!.find(a => a.id === id)!.toHit) : undefined;
 }
+
+/** AC по правилам над листом — сумма шагов вывода; повышение уровня пересчитывает им AC нового листа. */
+export const sheetAc = (actor: Actor): number => acSteps(actor).reduce((n, x) => n + x.value, 0);
 
 /** Итог со знаком, как модификатор на листе: «+4», «−1». */
 export const signedTotal = (n: number) => (n < 0 ? `−${-n}` : `+${n}`);

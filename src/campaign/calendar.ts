@@ -1,11 +1,13 @@
 // Календарь Харптоса: «15 Mirtul 1492 DR, утро» — число секунд и обратно, фаза суток, сезон и Selûne (шаг 8).
-// Без Shieldmeet и без погоды. Эпоха: sec = 0 — 1 Hammer 1492 DR 00:00. Год — 12 месяцев по 30 дней и пять
-// вставных праздников, 365 дней; с TEMPO_SECONDS.year (365 суток) сходится, с TEMPO_SECONDS.season (90) —
-// только приближённо.
+// Без погоды. Эпоха: sec = 0 — 1 Hammer 1492 DR 00:00. Год — 12 месяцев по 30 дней и пять вставных праздников,
+// 365 дней; раз в четыре года (год DR кратен 4, 1492 — такой) после Midsummer — Shieldmeet, 366 дней (решение
+// владельца 29.10.2026). С TEMPO_SECONDS.year (365 суток) сходится только в обычный год, с TEMPO_SECONDS.season (90) —
+// приближённо.
 import { SECONDS_PER_DAY } from '../engine/state';
 
 export const EPOCH_YEAR = 1492;
 export const DAYS_PER_MONTH = 30;
+/** Обычный год; год Shieldmeet — на день длиннее (daysInYear). */
 export const DAYS_PER_YEAR = 365;
 
 export const MONTHS = [
@@ -14,11 +16,17 @@ export const MONTHS = [
 ] as const;
 export type MonthName = (typeof MONTHS)[number];
 
+/** Ежегодные праздники; Shieldmeet — раз в четыре года, отдельно (SHIELDMEET). */
 export const FESTIVALS = ['Midwinter', 'Greengrass', 'Midsummer', 'Highharvestide', 'Feast of the Moon'] as const;
-export type FestivalName = (typeof FESTIVALS)[number];
+export const SHIELDMEET = 'Shieldmeet';
+export type FestivalName = (typeof FESTIVALS)[number] | typeof SHIELDMEET;
 
-/** После какого месяца (индекс) стоит праздник. Shieldmeet (раз в четыре года после Midsummer) не ведём. */
-const FESTIVAL_AFTER_MONTH: Readonly<Record<FestivalName, number>> = {
+/** Год Shieldmeet: год DR кратен четырём (FR Wiki, Calendar of Harptos; 1492 DR — такой). */
+export const isShieldmeetYear = (year: number): boolean => ((year % 4) + 4) % 4 === 0;
+export const daysInYear = (year: number): number => DAYS_PER_YEAR + (isShieldmeetYear(year) ? 1 : 0);
+
+/** После какого месяца (индекс) стоит ежегодный праздник; Shieldmeet — сразу за Midsummer в свой год. */
+const FESTIVAL_AFTER_MONTH: Readonly<Record<(typeof FESTIVALS)[number], number>> = {
   'Midwinter': 0,
   'Greengrass': 3,
   'Midsummer': 6,
@@ -38,31 +46,51 @@ export interface HarptosDate {
   minute: number;
 }
 
-/** Порядок дней в году: месяц, за ним его праздник, если есть. Строится один раз. */
+/** Порядок дней в году: месяц, за ним его праздник, если есть; в год Shieldmeet — он за Midsummer. Два варианта, строятся один раз. */
 interface YearSlot { month: MonthName | null; festival: FestivalName | null; days: number }
-const YEAR_LAYOUT: readonly YearSlot[] = MONTHS.flatMap((month, i) => {
+const layout = (shieldmeet: boolean): readonly YearSlot[] => MONTHS.flatMap((month, i) => {
   const slots: YearSlot[] = [{ month, festival: null, days: DAYS_PER_MONTH }];
   const festival = FESTIVALS.find(f => FESTIVAL_AFTER_MONTH[f] === i);
   if (festival) slots.push({ month: null, festival, days: 1 });
+  if (shieldmeet && festival === 'Midsummer') slots.push({ month: null, festival: SHIELDMEET, days: 1 });
   return slots;
 });
+const COMMON_YEAR = layout(false);
+const SHIELDMEET_YEAR = layout(true);
+const yearLayout = (year: number) => (isShieldmeetYear(year) ? SHIELDMEET_YEAR : COMMON_YEAR);
 
 const floorDiv = (a: number, b: number) => Math.floor(a / b);
 const mod = (a: number, b: number) => ((a % b) + b) % b;
+/** Годов Shieldmeet в [a, b): кратных четырём. */
+const shieldmeetsBetween = (a: number, b: number) => floorDiv(b - 1, 4) - floorDiv(a - 1, 4);
+
+/** Первый день года — дней от эпохи (1 Hammer 1492 DR); до эпохи — отрицательный. */
+export const yearStartDay = (year: number): number => (year - EPOCH_YEAR) * DAYS_PER_YEAR + shieldmeetsBetween(EPOCH_YEAR, year);
+/** Начало года, секунды от эпохи. */
+export const yearStartSec = (year: number): number => yearStartDay(year) * SECONDS_PER_DAY;
+/** Тот же день и час в другом году — для линзы года: у праздника и дня месяца одно место в году, Shieldmeet → Midsummer. */
+export function sameDayIn(sec: number, year: number): number {
+  const d = harptos(sec);
+  const input: HarptosInput = d.festival === SHIELDMEET && !isShieldmeetYear(year) ? { year, festival: 'Midsummer', hour: d.hour, minute: d.minute }
+    : d.festival ? { year, festival: d.festival, hour: d.hour, minute: d.minute } : { year, month: d.month!, day: d.day, hour: d.hour, minute: d.minute };
+  return secOf(input) + (mod(sec, 60));
+}
 
 /** Секунды от эпохи → дата Харптоса. Отрицательные секунды — годы до эпохи, считаются той же сеткой. */
 export function harptos(sec: number): HarptosDate {
   const dayIndex = floorDiv(sec, SECONDS_PER_DAY);
   const secOfDay = mod(sec, SECONDS_PER_DAY);
-  const year = EPOCH_YEAR + floorDiv(dayIndex, DAYS_PER_YEAR);
-  let dayOfYear = mod(dayIndex, DAYS_PER_YEAR);
-  for (const slot of YEAR_LAYOUT) {
+  let year = EPOCH_YEAR + floorDiv(dayIndex, DAYS_PER_YEAR);
+  while (yearStartDay(year) > dayIndex) year--;
+  while (yearStartDay(year + 1) <= dayIndex) year++;
+  let dayOfYear = dayIndex - yearStartDay(year);
+  for (const slot of yearLayout(year)) {
     if (dayOfYear < slot.days) {
       return { year, month: slot.month, festival: slot.festival, day: dayOfYear + 1, hour: Math.floor(secOfDay / 3600), minute: Math.floor((secOfDay % 3600) / 60) };
     }
     dayOfYear -= slot.days;
   }
-  throw new Error(`день ${dayOfYear} вне года из ${DAYS_PER_YEAR} дней`);
+  throw new Error(`день ${dayOfYear} вне года ${year}`);
 }
 
 export type HarptosInput =
@@ -71,9 +99,10 @@ export type HarptosInput =
 
 /** Дата Харптоса → секунды от эпохи. Обратная к harptos(); день вне 1–30 — ошибка, а не перенос. */
 export function secOf(input: HarptosInput): number {
+  if ('festival' in input && input.festival === SHIELDMEET && !isShieldmeetYear(input.year)) throw new Error(`в ${input.year} DR нет Shieldmeet: он раз в четыре года`);
   let dayOfYear = 0;
   let found = false;
-  for (const slot of YEAR_LAYOUT) {
+  for (const slot of yearLayout(input.year)) {
     if ('festival' in input ? slot.festival === input.festival : slot.month === input.month) {
       if ('month' in input) {
         if (!Number.isInteger(input.day) || input.day < 1 || input.day > DAYS_PER_MONTH) throw new Error(`день ${input.day} вне месяца ${input.month}`);
@@ -87,7 +116,7 @@ export function secOf(input: HarptosInput): number {
   if (!found) throw new Error('нет такого месяца или праздника');
   const hour = input.hour ?? 0, minute = input.minute ?? 0;
   if (hour < 0 || hour > 23 || minute < 0 || minute > 59) throw new Error(`время ${hour}:${minute} вне суток`);
-  return ((input.year - EPOCH_YEAR) * DAYS_PER_YEAR + dayOfYear) * SECONDS_PER_DAY + hour * 3600 + minute * 60;
+  return (yearStartDay(input.year) + dayOfYear) * SECONDS_PER_DAY + hour * 3600 + minute * 60;
 }
 
 const two = (n: number) => String(n).padStart(2, '0');
@@ -118,7 +147,7 @@ export const SEASON_LABELS: Readonly<Record<Season, string>> = { winter: 'зим
 /** Сезон по месяцу: Hammer–Ches зима, Tarsakh–Kythorn весна, Flamerule–Eleint лето, Marpenoth–Nightal осень; праздник — к сезону перед ним. */
 export function seasonOf(sec: number): Season {
   const d = harptos(sec);
-  const month = d.month ?? (d.festival === 'Midwinter' ? 'Hammer' : d.festival === 'Greengrass' ? 'Tarsakh' : d.festival === 'Midsummer' ? 'Flamerule' : d.festival === 'Highharvestide' ? 'Eleint' : 'Uktar');
+  const month = d.month ?? (d.festival === 'Midwinter' ? 'Hammer' : d.festival === 'Greengrass' ? 'Tarsakh' : d.festival === 'Midsummer' || d.festival === SHIELDMEET ? 'Flamerule' : d.festival === 'Highharvestide' ? 'Eleint' : 'Uktar');
   const i = MONTHS.indexOf(month);
   return i < 3 ? 'winter' : i < 6 ? 'spring' : i < 9 ? 'summer' : 'autumn';
 }
@@ -180,7 +209,8 @@ export interface NextFestival { festival: FestivalName; sec: number; days: numbe
 export function nextFestival(sec: number): NextFestival {
   const today = floorDiv(sec, SECONDS_PER_DAY) * SECONDS_PER_DAY;
   const { year } = harptos(sec);
-  const candidates = [year, year + 1].flatMap(y => FESTIVALS.map(festival => ({ festival, sec: secOf({ year: y, festival }) })));
+  const candidates = [year, year + 1].flatMap(y => [...FESTIVALS, ...(isShieldmeetYear(y) ? [SHIELDMEET] as const : [])]
+    .map((festival: FestivalName) => ({ festival, sec: secOf({ year: y, festival }) })));
   const next = candidates.filter(c => c.sec >= today).sort((a, b) => a.sec - b.sec)[0];
   return { ...next, days: floorDiv(next.sec - today, SECONDS_PER_DAY) };
 }
@@ -201,22 +231,28 @@ export interface YearSlotView {
 
 /** Год по порядку: двенадцать месяцев и пять праздников между ними — для сетки года. */
 export function yearSlots(year: number): YearSlotView[] {
-  let sec = (year - EPOCH_YEAR) * DAYS_PER_YEAR * SECONDS_PER_DAY;
-  return YEAR_LAYOUT.map(slot => {
+  let sec = yearStartSec(year);
+  return yearLayout(year).map(slot => {
     const view = { month: slot.month, festival: slot.festival, startSec: sec, days: slot.days, season: seasonOf(sec) };
     sec += slot.days * SECONDS_PER_DAY;
     return view;
   });
 }
 
-/** Месяц перед праздником: в праздник календарь показывает его. */
+/** Месяц перед праздником: в праздник календарь показывает его. Shieldmeet — за Midsummer, месяц тот же. */
 export function monthBefore(festival: FestivalName): MonthName {
-  return MONTHS[FESTIVAL_AFTER_MONTH[festival]];
+  return MONTHS[FESTIVAL_AFTER_MONTH[festival === SHIELDMEET ? 'Midsummer' : festival]];
 }
 
-/** Праздник сразу после месяца — или null. */
+/** Ежегодный праздник сразу после месяца — или null (Shieldmeet — festivalsAfter). */
 export function festivalAfter(month: MonthName): FestivalName | null {
   return FESTIVALS.find(f => FESTIVAL_AFTER_MONTH[f] === MONTHS.indexOf(month)) ?? null;
+}
+
+/** Все праздники после месяца в этот год: за Flamerule в год Shieldmeet — Midsummer и Shieldmeet. */
+export function festivalsAfter(month: MonthName, year: number): FestivalName[] {
+  const f = festivalAfter(month);
+  return f ? [f, ...(f === 'Midsummer' && isShieldmeetYear(year) ? [SHIELDMEET] as const : [])] : [];
 }
 
 export interface MonthDay {

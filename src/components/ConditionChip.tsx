@@ -24,6 +24,8 @@ export interface ConditionChipProps {
   tip?: string;
   /** Кнопка снятия. Нет колбэка — нет кнопки: концентрацию и эффекты снять нечем (HANDOFF §7). */
   onRemove?: () => void;
+  /** Щелчок по подписи — общая карточка (ROADMAP 0.3): состояние SRD или заклинание. Нет — подпись текстом. */
+  onOpen?: () => void;
   /**
    * Чип с тултипом по умолчанию в порядке табуляции — тултип SRD открывается и с клавиатуры. false —
    * для места внутри кнопки или другого интерактива, где вложенный фокусируемый элемент запрещён ARIA
@@ -44,16 +46,18 @@ const KIND_CLASS: Readonly<Record<ChipKind, string>> = {
   conc: 'text-src-sim shadow-[var(--bevel),inset_0_-2px_0_var(--src-sim)] focus-visible:shadow-[var(--bevel),inset_0_-2px_0_var(--src-sim),var(--glow-gold)]',
 };
 
-export function ConditionChip({ label, icon, kind = 'debuff', timer, level, tip, onRemove, focusable = true, className = '' }: ConditionChipProps) {
+export function ConditionChip({ label, icon, kind = 'debuff', timer, level, tip, onRemove, onOpen, focusable = true, className = '' }: ConditionChipProps) {
   // Нативного title у чипа нет: текст SRD показывает Radix-тултип, второй тултип поверх него не нужен.
   const chip = (
     <span
       data-kind={kind}
-      tabIndex={tip && focusable ? 0 : undefined}
+      tabIndex={tip && focusable && !onOpen ? 0 : undefined}
       className={`inline-flex items-center whitespace-nowrap max-w-full gap-1 px-1.5 pt-px pb-0.5 type-body-sm bg-linear-to-b from-pl to-cd ${KIND_CLASS[kind]} ${tip ? 'cursor-help' : ''} ${className}`}
     >
       <Icon name={icon} size={16} color="currentColor" title={label} />
-      <span className="truncate">{label}</span>
+      {onOpen
+        ? <button type="button" aria-label={`Карточка: ${label}`} onClick={onOpen} className="truncate cursor-pointer underline decoration-t3 underline-offset-2 hover:text-tx focus-visible:shadow-glow-gold">{label}</button>
+        : <span className="truncate">{label}</span>}
       {level !== undefined && (
         <span className="type-key text-t2 flex-none" title="Уровень истощения">{level}</span>
       )}

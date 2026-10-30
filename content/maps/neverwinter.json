@@ -1,0 +1,23 @@
+{
+  "id": "neverwinter",
+  "label": "Neverwinter",
+  "note": "План города (M10): уровень поселения Neverwinter показывает его вместо карты мира. Растр в репозиторий не идёт (© Wizards of the Coast, art by Mike Schley — только для стола владельца): maps/plans/neverwinter/, копия и ИСТОЧНИК.txt — /Volumes/внешний/datasets/neverwinter-plan-2026-10-29/. Тайлы режет scripts/tile-map.py в maps/tiles/neverwinter/.",
+  "plan": {
+    "place": "place:7e243b80-8918-42fa-b60e-03cec8bdb184",
+    "note": "Чей это план: место справочника карты мира (ref места кампании). Neverwinter 1492 DR — после восстановления, с провалом (Chasm)."
+  },
+  "source": {
+    "file": "maps/plans/neverwinter/Neverwinter-Map-Horizontal.webp",
+    "author": "Mike Schley (© Wizards of the Coast)"
+  },
+  "width": 1440,
+  "height": 1015,
+  "tileSize": 256,
+  "maxZoom": 3,
+  "format": "webp",
+  "quality": 86,
+  "tiles": "/maps/tiles/neverwinter",
+  "milesPerPixel": 0.000679,
+  "units": "feet",
+  "calibration": "Линейка плана: 0…1000 футов = 279 px исходника → 3,58 фута на пиксель (0,000679 мили). Город в стенах ≈ 4 100 футов с запада на восток — около 0,8 мили."
+}

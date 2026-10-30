@@ -90,6 +90,39 @@ export async function loadEvents(from: number, to: number): Promise<ChronoEvent[
   return parts.flat().filter(e => e.year >= from && e.year <= to);
 }
 
+// Слой статей (scripts/import-chronology-articles.py, 30.10.2026): летописи списком, карточки Conflict и Event, предложения
+// разделов History держав — сверх статей-годов. Свой индекс и десять кусков; `same` — id совпадающего события статей-годов.
+export interface ArticleEvent extends Omit<ChronoEvent, 'kind'> {
+  kind?: ChronoKind;
+  /** Конец конфликта, если вики даёт отрезок. */
+  to?: number;
+  same?: string;
+  /** Откуда строка: статья, раздел, способ (timeline · history · conflict · event). */
+  src: { title: string; section?: string; how: string };
+}
+
+const ARTICLE_CHUNKS: readonly (() => Promise<{ default: unknown }>)[] = [
+  () => import('../../content/chronology/articles/0.json'), () => import('../../content/chronology/articles/1.json'),
+  () => import('../../content/chronology/articles/2.json'), () => import('../../content/chronology/articles/3.json'),
+  () => import('../../content/chronology/articles/4.json'), () => import('../../content/chronology/articles/5.json'),
+  () => import('../../content/chronology/articles/6.json'), () => import('../../content/chronology/articles/7.json'),
+  () => import('../../content/chronology/articles/8.json'), () => import('../../content/chronology/articles/9.json'),
+];
+
+let articleIndex: Promise<{ chunks: readonly { n: number; from: number; to: number }[] }> | null = null;
+const articleCache = new Map<number, Promise<readonly ArticleEvent[]>>();
+
+/** События слоя статей за годы from…to включительно — только нужные куски. */
+export async function loadArticleEvents(from: number, to: number): Promise<ArticleEvent[]> {
+  articleIndex ??= import('../../content/chronology/articles/index.json').then(m => m.default as unknown as { chunks: { n: number; from: number; to: number }[] });
+  const idx = await articleIndex;
+  const parts = await Promise.all(idx.chunks.filter(c => c.to >= from && c.from <= to).map(c => {
+    if (!articleCache.has(c.n)) articleCache.set(c.n, ARTICLE_CHUNKS[c.n]().then(m => (m.default as { events: ArticleEvent[] }).events));
+    return articleCache.get(c.n)!;
+  }));
+  return parts.flat().filter(e => e.year >= from && e.year <= to);
+}
+
 /** Эпоха канона года; до первой и после последней — undefined. */
 export function canonEraOf(eras: readonly CanonEra[], year: number): CanonEra | undefined {
   return eras.find(e => year >= e.from && year <= e.to);

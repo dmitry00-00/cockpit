@@ -6,8 +6,9 @@
 import { SECONDS_PER_DAY, type Location, type State, type WorldDelta } from '../engine/state';
 import { TEMPO_SECONDS, type DomainEvent, type Tempo } from '../engine/events';
 import type { EngineStore } from '../engine/store';
-import { SEASON_LABELS, fullMoonsBetween, harptos, seasonOf, type Season } from './calendar';
+import { SEASON_LABELS, fullMoonsBetween, harptos, sameDayIn, seasonOf, type Season } from './calendar';
 import { LOCATION, THREAD } from './world';
+import { simulateProcesses } from './processes';
 
 export interface SimulationInput {
   state: State;
@@ -230,8 +231,11 @@ export const NEAR_SCALES: readonly WorldDelta['scale'][] = ['region', 'settlemen
  */
 export function stepTime(api: Pick<EngineStore, 'state' | 'advanceTime' | 'propose'>, tempo: Tempo, steps = 1): { event: DomainEvent<'TIME_ADVANCED'>; proposals: WorldDelta[] } {
   const before = api.state;
-  const event = api.advanceTime(tempo, steps);
-  const proposals = simulate({ state: before, fromSec: event.payload.fromSec, toSec: event.payload.toSec, timeEventId: event.id });
+  // Год — по календарю: та же дата через год, в год Shieldmeet это 366 суток, а не TEMPO_SECONDS.year.
+  const event = tempo === 'year' ? api.advanceTime(tempo, steps, sameDayIn(before.time.sec, harptos(before.time.sec).year + steps)) : api.advanceTime(tempo, steps);
+  const input = { state: before, fromSec: event.payload.fromSec, toSec: event.payload.toSec, timeEventId: event.id };
+  // Правила модели мира и процессы мира (SIMULATION.md) — одним списком: сводка шага — это они все.
+  const proposals = [...simulate(input), ...simulateProcesses(input)];
   for (const delta of proposals) api.propose(delta);
   return { event, proposals };
 }

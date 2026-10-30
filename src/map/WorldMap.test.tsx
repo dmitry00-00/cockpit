@@ -5,9 +5,10 @@ import { beforeAll, describe, expect, it, vi } from 'vitest';
 import { MAPS } from './maps';
 import { loadJourney } from '../rules/a5e/journey';
 import { travelDaysOver } from '../rules/srd/travel';
-import { TERRAIN_CODES, routeTerrain, type TerrainGrid } from './terrain';
+import { TERRAIN_CODES, routeTerrain, type RoadGrid, type TerrainGrid } from './terrain';
 import { WorldMap, milesLabel, rulerSummary, type MapPinItem } from './WorldMap';
 import type { GazetteerPlace } from './gazetteer';
+import { OpenEntityContext } from '../components/openEntity';
 
 // Мили и дни в проверках — на фиксированном 0,5 мили на пиксель: калибровка паспорта уточняется отдельно (projection.test.ts).
 const toril = { ...MAPS.toril, milesPerPixel: 0.5 };
@@ -191,6 +192,98 @@ describe('поход по карте местности', () => {
   });
 });
 
+describe('поход: дороги, поселения, Подземье (ROADMAP 6.3)', () => {
+  // Равнина; дорога — прямая Neverwinter → Old Owl Well по клеткам 4 px; Neverwinter — город справочника.
+  const W = 1100;
+  const H = 340;
+  const grid: TerrainGrid = { w: W, h: H, cell: 8, data: new Uint8Array(W * H).fill(TERRAIN_CODES.indexOf('f')) };
+  const roads: RoadGrid = { w: 2200, h: 680, cell: 4, data: new Uint8Array(2200 * 680) };
+  const [a, b] = [{ x: 8522, y: 2610 }, { x: 8700, y: 2668 }];
+  for (let t = 0; t <= 1; t += 0.002) roads.data[Math.floor((a.y + (b.y - a.y) * t) / 4) * 2200 + Math.floor((a.x + (b.x - a.x) * t) / 4)] = 1;
+  const gazetteer: GazetteerPlace[] = [{ id: 'g-nw', name: 'Neverwinter', kind: 'City', x: 8522, y: 2610 }];
+  const underdark = [{ id: 'nd', name: 'Northdark', kind: 'Domain', rings: [[8000, 2000, 9000, 2000, 9000, 3000, 8000, 3000]] }];
+
+  it('по дороге — Open Roads, быстрее на милю в час; город на старте — Urban Township; под землёй — Underland Realm', async () => {
+    await loadJourney();
+    const onGo = vi.fn();
+    render(<WorldMap passport={toril} frame={frame} frameKey="k" pins={pins} terrain={grid} roads={roads} gazetteer={gazetteer} underdark={underdark}
+      travel={{ from: a, onGo, journey: { tier: 1, members: 4, onEncounter: vi.fn() } }} />);
+    fireEvent.click(screen.getByRole('button', { name: 'Поход' }));
+    fireEvent.click(screen.getByRole('button', { name: /Old Owl Well/ }));
+    const panel = screen.getByRole('group', { name: 'Поход' });
+    expect(panel.querySelector('[data-part="route-road"]')).toHaveTextContent(/^по дороге: \d+(,\d)? мил[ьи] — на милю в час быстрее$/);
+    expect(panel.querySelector('[data-part="route-terrain"]')).toHaveTextContent('трудной местности на пути нет');
+    const legs = panel.querySelector('[data-part="journey"]')!;
+    expect(legs).toHaveTextContent(/Open Roads · \d+(,\d)? мил[ьи] · DC 12/);
+    expect(legs).toHaveTextContent(/Urban Township · 2 мили · DC 12/);
+    expect(legs).not.toHaveTextContent('Tangled Forest');
+    // 93,6 мили: 2 по городу, остальное — дорогой, 32 мили в день обычным темпом.
+    const days = Math.round(((2 + (93.6 - 2) * 0.75) / 24) * 10) / 10;
+    expect(within(panel).getByRole('button', { name: new RegExp(`^обычный · ${String(days).replace('.', ',')} дн$`) })).toBeInTheDocument();
+
+    fireEvent.click(within(panel).getByRole('checkbox', { name: 'под землёй — Underland Realm' }));
+    expect(panel.querySelector('[data-part="route-road"]')).toBeNull();
+    expect(panel.querySelector('[data-part="route-underdark"]')).toHaveTextContent('под путём: Northdark');
+    expect([...panel.querySelector('[data-part="journey"]')!.children].map(c => c.textContent?.split(' · ')[0])).toEqual(['Underland Realm', expect.stringMatching(/^припасы/)]);
+    fireEvent.click(within(panel).getByRole('button', { name: /^обычный · 3,9 дн$/ }));
+    expect(onGo).toHaveBeenCalledWith(expect.objectContaining({ days: 3.9 }));
+    expect(onGo.mock.calls[0][0].difficultMiles).toBeUndefined();
+  });
+
+  it('линейка с дорогой: «по дороге N», дни уже с ней', () => {
+    const rt = routeTerrain(grid, toril, [a, b], { roads });
+    expect(rulerSummary(93.6, rt)).toMatch(/^93,6 мили · по дороге 94 · дней пути: быстрый 2,5 · обычный 2,9 · медленный 3,5$/);
+  });
+});
+
+describe('слои карты: опасность и погода (ROADMAP 6.4)', () => {
+  // Окно у Neverwinter: на западе — море, восток — лес.
+  const W = 1300;
+  const H = 400;
+  const grid: TerrainGrid = { w: W, h: H, cell: 8, data: new Uint8Array(W * H).map((_, i) => TERRAIN_CODES.indexOf((i % W) * 8 >= 8560 ? 'f' : 'o')) };
+  const wolfPins: MapPinItem[] = [{ ...pins[1], id: 'wood', name: 'Neverwinter Wood', encounters: [{ key: 'Werewolf', weight: 1, pending: 2 }] }];
+
+  it('мастеру: «Опасность» — регионы окна с уровнем и DC, «встреча» по региону, веса встреч на пине; «Погода» — бросок дня или «бросить»', async () => {
+    await loadJourney();
+    const onEncounter = vi.fn();
+    const onRoll = vi.fn();
+    const today = new Map([['tangled-forest', { roll: 12, winter: false, weather: 'overcast', hidden: false }]]);
+    render(<WorldMap passport={toril} frame={frame} frameKey="k" pins={wolfPins} terrain={grid}
+      layers={{ danger: { tier: 1, onEncounter }, weather: { today, onRoll } }} />);
+    expect(document.querySelector('[data-part="pin-danger"]')).toBeNull();
+    fireEvent.click(screen.getByRole('button', { name: 'Опасность' }));
+    const danger = await screen.findByRole('group', { name: 'Опасность' });
+    expect(danger).toHaveTextContent('Опасность · уровень 1 · DC занятий 12');
+    expect([...danger.querySelectorAll('[data-region]')].map(r => r.getAttribute('data-region')).sort()).toEqual(['restless-sea', 'tangled-forest']);
+    fireEvent.click(within(danger.querySelector('[data-region="tangled-forest"]') as HTMLElement).getByRole('button', { name: 'встреча' }));
+    expect(onEncounter).toHaveBeenCalledWith('tangled-forest');
+    const badge = document.querySelector('[data-pin="wood"] [data-part="pin-danger"]')!;
+    expect(badge).toHaveTextContent('×1→2');
+    expect(badge).toHaveAttribute('title', 'Встречи: Werewolf ×1 → ×2 (ждёт)');
+
+    fireEvent.click(screen.getByRole('button', { name: 'Погода' }));
+    expect(screen.queryByRole('group', { name: 'Опасность' })).toBeNull();
+    const weather = screen.getByRole('group', { name: 'Погода' });
+    expect(weather.querySelector('[data-region="tangled-forest"]')).toHaveTextContent('overcast');
+    fireEvent.click(within(weather.querySelector('[data-region="restless-sea"]') as HTMLElement).getByRole('button', { name: 'бросить' }));
+    expect(onRoll).toHaveBeenCalledWith('restless-sea');
+    expect(document.querySelector('[data-part="pin-danger"]')).toBeNull();
+  });
+
+  it('игрокам: опасности нет, погода — без кнопки броска и только под открытым туманом', async () => {
+    await loadJourney();
+    const explored = { circles: [{ x: 8700, y: 2668, r: 30 }], paths: [], sight: 30 };
+    render(<WorldMap passport={toril} frame={frame} frameKey="k" pins={pins} terrain={grid} fog={{ explored, forced: true }}
+      layers={{ weather: { today: new Map() } }} />);
+    expect(screen.queryByRole('button', { name: 'Опасность' })).toBeNull();
+    fireEvent.click(screen.getByRole('button', { name: 'Погода' }));
+    const weather = await screen.findByRole('group', { name: 'Погода' });
+    expect([...weather.querySelectorAll('[data-region]')].map(r => r.getAttribute('data-region'))).toEqual(['tangled-forest']);
+    expect(weather).toHaveTextContent('не брошено');
+    expect(within(weather).queryByRole('button')).toBeNull();
+  });
+});
+
 describe('туман знаний и факты', () => {
   const explored = { circles: [{ x: 8522, y: 2610, r: 24 }], paths: [[{ x: 8522, y: 2610 }, { x: 8700, y: 2668 }]], sight: 24 };
 
@@ -270,6 +363,19 @@ describe('справочник мест (M12)', () => {
     expect(box).toHaveValue('');
     fireEvent.keyDown(map, { key: 'Escape' });
     expect(map.querySelector('[data-part="place-info"]')).toBeNull();
+  });
+
+  it('«Карточка» (ROADMAP 0.3): карточка места под щелчком открывает общую карточку place:id; без входа страницы кнопки нет', () => {
+    const open = vi.fn();
+    render(<OpenEntityContext.Provider value={open}><WorldMap passport={toril} frame={frame} frameKey="region:card" pins={[]} gazetteer={gazetteer} /></OpenEntityContext.Provider>);
+    const map = screen.getByRole('application', { name: 'Карта Toril' });
+    fireEvent.click(map.querySelector<HTMLElement>('[data-place="pt"]')!);
+    fireEvent.click(within(map.querySelector<HTMLElement>('[data-part="place-info"]')!).getByRole('button', { name: 'Карточка' }));
+    expect(open).toHaveBeenCalledWith('place:pt');
+    cleanup();
+    const plain = withGaz();
+    fireEvent.click(plain.querySelector<HTMLElement>('[data-place="pt"]')!);
+    expect(within(plain.querySelector<HTMLElement>('[data-part="place-info"]')!).queryByRole('button', { name: 'Карточка' })).toBeNull();
   });
 
   it('«Сейчас здесь» (Д2): кнопка в карточке места под щелчком отдаёт id места; без колбэка кнопки нет', () => {
@@ -378,5 +484,45 @@ describe('справочник мест (M12)', () => {
     expect(map.querySelector<HTMLElement>('[data-part="found"]')!.style).toMatchObject({ left: '480px', top: '270px' });
     expect(info).toHaveTextContent('Опасность: Claugiyliamatar.');
     expect(info).not.toHaveTextContent('Toril GIS ·');
+  });
+
+  it('схема (M16): карта открывается схемой без тайлов, «Карта» — растр, «Схема» — обратно; без схемы переключателя нет', () => {
+    const schema = { land: [[8300, 2250, 9200, 2250, 9200, 3150, 8300, 3150]], regions: { f: [[8400, 2400, 8600, 2400, 8600, 2600]] }, roads: [[8400, 2600, 8700, 2668]] };
+    const { unmount } = render(<WorldMap passport={toril} frame={frame} frameKey="region:scn" pins={pins} schema={schema} />);
+    const map = screen.getByRole('application', { name: 'Карта Toril' });
+    const look = within(map).getByRole('group', { name: 'Вид карты' });
+    expect(within(look).getByRole('button', { name: 'Схема' })).toHaveAttribute('aria-pressed', 'true');
+    expect(map.querySelector('[data-part="schema"]')).not.toBeNull();
+    // Без WebGL2 (jsdom) подложка — Canvas2D, канвас WebGL2 спрятан (M18).
+    expect(map.querySelector('[data-part="schema"]')).toHaveAttribute('data-renderer', 'canvas');
+    expect(map.querySelector('[data-part="schema-gl"]')).toHaveAttribute('hidden');
+    expect(map.querySelectorAll('[data-tile]')).toHaveLength(0);
+    // Легенда схемы — только то, что в схеме есть: равнина (подложка), лес, вода, берег, дорога; гор нет.
+    const legend = within(map).getByRole('list', { name: 'Легенда схемы' });
+    expect(within(legend).getAllByRole('listitem').map(li => li.textContent)).toEqual(['равнина', 'лес', 'вода', 'берег', 'дорога']);
+    fireEvent.click(within(map).getByRole('button', { name: 'Легенда' }));
+    expect(within(map).queryByRole('list', { name: 'Легенда схемы' })).toBeNull();
+    fireEvent.click(within(look).getByRole('button', { name: 'Карта' }));
+    expect(map.querySelector('[data-part="schema"]')).toBeNull();
+    expect(map.querySelectorAll('[data-tile]').length).toBeGreaterThan(0);
+    fireEvent.click(within(look).getByRole('button', { name: 'Схема' }));
+    expect(map.querySelectorAll('[data-tile]')).toHaveLength(0);
+    unmount();
+    const { map: plain } = ui();
+    expect(within(plain).queryByRole('group', { name: 'Вид карты' })).toBeNull();
+  });
+
+  it('колесо дальше целой карты — onZoomOut (с плоской карты планеты — на глобус, M16); старт с глобуса — заданный вид', () => {
+    const onZoomOut = vi.fn();
+    const whole = { x0: 0, y0: 0, x1: toril.width, y1: toril.height };
+    const { unmount } = render(<WorldMap passport={toril} frame={whole} frameKey="planet" pins={[]} onZoomOut={onZoomOut} />);
+    const map = screen.getByRole('application', { name: 'Карта Toril' });
+    fireEvent.wheel(map, { deltaY: 100 });
+    expect(onZoomOut).toHaveBeenCalledTimes(1);
+    unmount();
+    render(<WorldMap passport={toril} frame={whole} frameKey="planet" pins={[]} start={{ x: 8522, y: 2610, scale: 0.2 }} onZoomOut={onZoomOut} />);
+    const started = screen.getByRole('application', { name: 'Карта Toril' });
+    fireEvent.wheel(started, { deltaY: 100 });
+    expect(onZoomOut).toHaveBeenCalledTimes(1);
   });
 });

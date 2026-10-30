@@ -25,7 +25,21 @@ describe('setup: Mac и Windows', () => {
       expect(text, name).toMatch(/tile-map\.py.*toril\.json.*--optional/);
       expect(text, name).toMatch(/done\.json/);
       expect(text, name).toMatch(/terrain-from-map\.py.*toril\.json.*--optional/);
+      // Дороги и схема (M16) — пересчёт и тогда, когда скрипт новее готового файла, а не только когда файла нет.
+      expect(text, name).toMatch(/roads-from-map\.py.*toril\.json.*--optional/);
+      expect(text, name).toMatch(/schema-from-grids\.py.*toril\.json.*--optional/);
+      expect(text, name).toMatch(/graph-from-grids\.py.*toril\.json.*--optional/);
     }
+    expect(mac).toMatch(/roads-from-map\.py -nt \$roads_png/);
+    expect(mac).toMatch(/schema-from-grids\.py -nt \$schema_json/);
+    expect(ps).toMatch(/Test-Stale \$roadsPng/);
+    expect(ps).toMatch(/Test-Stale \$schemaJson/);
+    expect(mac).toMatch(/borders-from-map\.py -nt \$borders_png/);
+    expect(mac).toMatch(/\$borders_png -nt \$schema_json/);
+    expect(ps).toMatch(/Test-Stale \$bordersPng/);
+    expect(ps).toMatch(/Test-Stale \$schemaJson[^\n]*\$bordersPng/);
+    expect(mac).toMatch(/graph-from-grids\.py -nt \$graph_json/);
+    expect(ps).toMatch(/Test-Stale \$graphJson/);
   });
 
   it('закрепляют одну версию Node.js', () => {

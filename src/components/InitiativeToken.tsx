@@ -92,7 +92,7 @@ export function TokenHpStrip({ hp }: { hp: HpTriple }) {
   );
 }
 
-/** Актёр → токен. Тип из kind; легендарных действий у блоков SRD в проекте нет — undefined. На столе игроков у монстра нет хитов (Q1). */
+/** Актёр → токен. Тип из kind; легендарные действия блока полоса показывает колонкой рядом (Q13, campaign/legendary.ts) — здесь undefined. На столе игроков у монстра нет хитов (Q1). */
 export function initiativeTokenOf(actor: Actor, initiative: number, opts: { players?: boolean } = {}): Omit<InitiativeTokenProps, 'active' | 'selected' | 'onOpen' | 'className'> {
   return {
     id: actor.id,

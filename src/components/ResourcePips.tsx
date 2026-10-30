@@ -14,8 +14,8 @@ export interface ResourcePipsProps {
   max: number;
   spent: number;
   kind: ResourcePipsKind;
-  /** Отдых, который вернёт ресурс — в тултипе: «короткий отдых» / «долгий отдых». */
-  restoresOn?: 'short' | 'long';
+  /** Отдых, который вернёт ресурс — в тултипе: «короткий отдых» / «долгий отдых» / «начало своего хода». */
+  restoresOn?: 'short' | 'long' | 'turn';
   onSpend?: (amount: number) => void;
   onRestore?: (amount: number) => void;
   className?: string;
@@ -24,7 +24,7 @@ export interface ResourcePipsProps {
 /** Больше — уже не пипки, а число: строка карточки не резиновая. */
 export const PIPS_MAX = 12;
 
-const REST_LABEL: Readonly<Record<'short' | 'long', string>> = { short: 'короткий отдых', long: 'долгий отдых' };
+const REST_LABEL: Readonly<Record<'short' | 'long' | 'turn', string>> = { short: 'короткий отдых', long: 'долгий отдых', turn: 'начало своего хода' };
 
 const PIP_ON = 'bg-gd shadow-bevel';
 const PIP_OFF = 'bg-wl shadow-bevel-in';

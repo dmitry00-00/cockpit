@@ -48,4 +48,12 @@ describe('seedBattlefield', () => {
     store.getState().undo();
     expect(placedActors(store.getState().state, field)).toHaveLength(8);
   });
+
+  it('клетка актёра (TOKEN_MOVED) главнее расстановки сида; клетка за краем поля — токен не рисуется', () => {
+    const store = seedEngine();
+    store.getState().moveToken('korrin', { x: 4, y: 3 }, 'maptool');
+    expect(placedActors(store.getState().state, field).find(p => p.actor.id === 'korrin')?.cell).toEqual({ x: 4, y: 3 });
+    store.getState().moveToken('korrin', { x: 20, y: 3 }, 'maptool');
+    expect(placedActors(store.getState().state, field).map(p => p.actor.id)).not.toContain('korrin');
+  });
 });

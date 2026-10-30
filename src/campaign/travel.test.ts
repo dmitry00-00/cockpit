@@ -1,5 +1,5 @@
 // Поход по карте: дни пути → шаг времени днями (неполный день — тоже день) с предложениями мира за этот отрезок,
-// затем PARTY_TRAVELED; Ctrl+Z снимает поход, потом время — как у отдыха.
+// затем PARTY_TRAVELED и Supply A5E за эти дни на каждого (SUPPLY_CHANGED); Ctrl+Z снимает припасы, поход, потом время.
 import { describe, expect, it } from 'vitest';
 import { createEngineStore, partyPlaceId } from '../engine';
 import { travel, travelCalendarDays } from './travel';
@@ -24,7 +24,10 @@ describe('поход', () => {
     expect(r.time.payload).toMatchObject({ tempo: 'day', steps: 4 });
     expect(s.time.sec - t0).toBe(4 * 86_400);
     expect(partyPlaceId(s)).toBe(LOCATION.oldOwlWell);
-    expect(store.getState().events.at(-1)?.type).toBe('PARTY_TRAVELED');
+    expect(store.getState().events.slice(-2).map(e => e.type)).toEqual(['PARTY_TRAVELED', 'SUPPLY_CHANGED']);
+    // В сиде мешок пуст: четыре ночи на четверых — съедено 0, не хватило 16.
+    expect(r.supply?.payload).toEqual({ reason: 'eaten', amount: 0, shortfall: 16 });
+    store.getState().undo();
     store.getState().undo();
     s = store.getState().state;
     expect(partyPlaceId(s)).toBe(from);
@@ -32,5 +35,14 @@ describe('поход', () => {
     store.getState().undo();
     // Отмена шага времени снимает и его; предложения симуляции необратимы и остаются в логе как были.
     expect(store.getState().state.time.sec).toBe(t0);
+  });
+
+  it('припасы: съедено календарные дни × рты; хватает — без «не хватило»', () => {
+    const store = createEngineStore(seedState(), { persist: { load: () => seedLog(), save: () => {}, clear: () => {} } });
+    store.getState().changeSupply('bought', 20);
+    const api = store.getState();
+    const r = travel(api, { fromId: partyPlaceId(api.state), toId: LOCATION.oldOwlWell, map: 'toril', points: [{ x: 8522, y: 2610 }, { x: 8700, y: 2668 }], miles: 50, pace: 'normal', days: 2.1 });
+    expect(r.supply?.payload).toEqual({ reason: 'eaten', amount: 12 });
+    expect(store.getState().state.supply).toBe(8);
   });
 });

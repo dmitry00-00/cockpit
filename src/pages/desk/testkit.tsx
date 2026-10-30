@@ -15,9 +15,12 @@ export function fixed() {
   return { clock: { now: () => t++ }, ids: { next: () => `e${++n}` } };
 }
 
-/** Стор теста — сид с памятью вместо localStorage: jsdom-хранилище на страницу не влияет. */
-export function mount(store: EngineStoreApi = seedEngine({ persist: memoryStore(), ...fixed() }), dmView?: boolean) {
-  const view = render(<DeskPage store={store} dmView={dmView} />);
+/**
+ * Стор теста — сид с памятью вместо localStorage: jsdom-хранилище на страницу не влияет. Персонаж открывается листом
+ * целиком: тесты стола проверяют лист, карта на лице (Д9) — свои тесты, `face: 'card'`.
+ */
+export function mount(store: EngineStoreApi = seedEngine({ persist: memoryStore(), ...fixed() }), dmView?: boolean, face: 'card' | 'sheet' = 'sheet') {
+  const view = render(<DeskPage store={store} dmView={dmView} cardFace={face} />);
   return { store, ...view };
 }
 

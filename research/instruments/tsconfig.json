@@ -1,0 +1,6 @@
+{
+  "//": "И5: проверка типов песочницы — npx tsc -p research/instruments/tsconfig.json; tsc -b приложения её не видит",
+  "extends": "../../tsconfig.app.json",
+  "compilerOptions": { "noEmit": true, "types": ["vitest/globals", "@testing-library/jest-dom", "node"] },
+  "include": ["./*.ts", "./*.tsx", "../../src/raw.d.ts"]
+}

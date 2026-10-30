@@ -1,0 +1,119 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>DM World — карточный интерфейс</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#1a1118;--cd:#2a2030;--pn:#1e1626;--br:#8b6b3a;--bd:#5a4630;--tx:#e8d5b0;--t2:#a89478;--t3:#8a7a62;--gd:#d4a843;--pf:'Press Start 2P',ui-monospace,Menlo,monospace;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:light){:root:not([data-theme=dark]){--bg:#e8dcc0;--cd:#f4ead2;--pn:#ddcfae;--tx:#2a1e14;--t2:#4a3a28;--t3:#6d5b42;--gd:#8a5a00}}
+*{box-sizing:border-box}html,body{height:100%;margin:0;background:var(--bg);color:var(--tx);font:8px/1.7 var(--pf)}
+#app{display:grid;grid-template-columns:44px 1fr 310px;grid-template-rows:34px 1fr 28px;height:100%}
+#top,#bot{grid-column:1/4;display:flex;align-items:center;gap:12px;padding:0 10px;background:var(--pn);border:0 solid var(--br);border-bottom-width:2px}
+#bot{border-bottom-width:0;border-top-width:2px}
+#rail{background:var(--pn);display:flex;flex-direction:column;gap:6px;padding:6px 4px;border-right:2px solid var(--br)}
+#rail button{width:34px;height:34px;font-size:16px;background:var(--cd);border:2px solid var(--bd);cursor:pointer;color:var(--tx);padding:0}#rail .on{border-color:var(--gd)}
+#main{overflow:auto;padding:8px}#dock{overflow:auto;padding:6px;border-left:2px solid var(--br);background:var(--pn);display:flex;flex-direction:column;gap:4px}
+.cx{border:2px solid var(--bd);border-left:4px solid var(--c);background:var(--cd)}.cx.on{border-color:var(--c)}
+.sp{display:flex;align-items:center;gap:6px;padding:5px 6px;cursor:pointer;min-height:32px}.sp b{flex:1;color:var(--gd);font-weight:400;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pt{font-size:16px}.tg{font-size:11px}.x{color:var(--t3);cursor:pointer}
+.kv{font-size:6px;color:var(--t2);background:rgba(0,0,0,.25);padding:1px 3px;white-space:nowrap}
+.sub{padding:0 6px 4px;color:var(--t2);font-size:7px}.sr{display:flex;gap:3px;padding:0 6px 4px;flex-wrap:wrap}.sr div{background:rgba(0,0,0,.25);padding:2px 5px;text-align:center}.sr i{display:block;font-style:normal;font-size:5px;color:var(--t3)}
+.br{display:flex;align-items:center;gap:4px;padding:2px 6px}.br i{width:46px;font-style:normal;font-size:6px;color:var(--t3)}.br em{font-style:normal;font-size:6px;width:38px;text-align:right}
+.tr{flex:1;height:7px;background:rgba(0,0,0,.4);border:1px solid var(--bd)}.tr u{display:block;height:100%}
+.tabs{display:flex;border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);margin-top:4px}.tabs a{flex:1;text-align:center;padding:4px;cursor:pointer;font-size:12px;opacity:.5}.tabs a.on{opacity:1;background:var(--pn);box-shadow:inset 0 -2px var(--gd)}
+.rw{display:flex;gap:6px;padding:4px 6px;border-bottom:1px solid rgba(128,128,128,.15)}.rw i{width:60px;flex-shrink:0;font-style:normal;color:var(--t3);font-size:6px}.rw span{color:var(--t2);font-size:7px;line-height:1.9}
+.ch{display:inline-block;margin:1px;padding:0 4px;border:1px solid var(--c,var(--bd));color:var(--tx);cursor:pointer;background:rgba(0,0,0,.2);font-size:7px}.ch.on{background:var(--c);color:#000}
+.bt{background:var(--cd);border:2px solid var(--bd);color:var(--tx);font:7px var(--pf);padding:4px 7px;cursor:pointer}.bt.on{border-color:var(--gd);color:var(--gd)}.bt:disabled{opacity:.4}
+.act{padding:6px;display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+canvas{width:100%;display:block;image-rendering:pixelated;border:2px solid var(--br);cursor:crosshair}
+.st{padding:3px 0;color:var(--t2);font-size:7px}.pp{display:flex;gap:4px;flex-wrap:wrap;align-items:center;margin-top:6px}.pc{flex:1;min-width:88px;display:flex;gap:4px;align-items:center;background:var(--cd);border:1px solid var(--bd);padding:3px 5px;cursor:pointer}.pc b{font-weight:400;font-size:6px}
+.rbn{display:flex;gap:4px;align-items:flex-end;padding:6px;background:var(--pn);border:1px solid var(--bd);margin-top:6px}.rc{width:52px;cursor:pointer;text-align:center;font-size:6px;color:var(--t3);border:2px solid transparent;padding:2px}.rc.on{border-color:var(--gd);color:var(--gd)}
+.sg{display:flex;flex-direction:column-reverse;height:46px}.sg s{display:block}.lg{flex:1;font-size:7px;color:var(--t2)}
+#bw{position:relative}#bf{position:absolute;left:0;top:0;pointer-events:none;border-color:transparent}
+.ib{display:flex;gap:3px;margin-top:6px;flex-wrap:wrap}.ic{width:46px;text-align:center;background:var(--cd);border:2px solid var(--bd);padding:2px;cursor:pointer;font-size:12px}.ic b{display:block;font-size:6px;font-weight:400}.ic.cur{border-color:var(--gd)}.ic.dead{opacity:.35}
+.in{width:100%;background:var(--pn);border:2px solid var(--bd);color:var(--tx);font:8px var(--pf);padding:6px;margin-bottom:6px}.fs{margin-bottom:6px}
+.fl{display:flex;align-items:center;gap:8px;padding:5px 8px;margin:2px 0;background:var(--cd);border:1px solid var(--bd);border-left:4px solid var(--c);cursor:pointer}.fl:hover{border-color:var(--c)}.ft{font-size:18px}.fn{flex:1}.fn b{display:block;font-weight:400;color:var(--gd)}.fn i{font-style:normal;color:var(--t3);font-size:6px}.em{color:var(--t3);padding:8px}
+@media(max-width:820px){#app{grid-template-columns:40px 1fr;grid-template-rows:34px 1fr 38vh 28px}#top,#bot{grid-column:1/3}#dock{grid-column:1/3;border-left:0;border-top:2px solid var(--br)}}
+</style></head><body>
+<div id="app"><div id="top"></div><nav id="rail"></nav><main id="main"></main><aside id="dock"></aside><div id="bot"></div></div>
+<script>
+const $=i=>document.getElementById(i),GW=14,GH=8,CW=40,TW=16,TH=10;
+const T={pc:['🧑','PC','#d4a843'],monster:['👹','Монстр','#c0392b'],deity:['🙏','Божество','#b07cd8'],org:['👥','Организация','#8e44ad'],realm:['👑','Королевство','#2980b9'],event:['⚡','Событие','#e67e22'],place:['🏰','Место','#3a9ad9'],quest:['📜','Квест','#1abc9c'],rumor:['🗣','Слух','#95a5a6'],relic:['💎','Реликвия','#27ae60']};
+const hb=(v,m,c)=>[v,m,c||'#4a2'],rl4=(a,b,c,d)=>({Военное:hb(a,20,'#c0392b'),Экономика:hb(b,20,'#d4a843'),Лояльность:hb(c,20,'#27ae60'),Стабильность:hb(d,20,'#2980b9')});
+const E={ // данные-заглушки для прототипа
+bo:{t:'pc',n:'Bo Tambernack',i:'🏹',sub:'Halfling Ranger 5',s:{AC:15,PP:14},b:{HP:hb(38,42)},tabs:{'🎒':[['Лук','+7 · 1d8+5'],['Рационы','5']],'📖':[['Фракции','@harpers 5 · @lords 12'],['Покровитель','@mielikki'],['Реликвия','@rel1']]}},
+korrin:{t:'pc',n:'Korrin',i:'🛡',sub:'Dwarf Fighter 5',s:{AC:18,PP:11},b:{HP:hb(52,52)},tabs:{'🎒':[['Молот','+8 · 1d8+5']]}},
+lyra:{t:'pc',n:'Lyra',i:'🧙',sub:'Elf Wizard 5',s:{AC:15,PP:13},b:{HP:hb(28,28)},tabs:{'✨':[['Слоты','4/3/2'],['Концентрация','—']]}},
+aldric:{t:'pc',n:'Aldric',i:'⛪',sub:'Human Cleric 5',s:{AC:18,PP:14},b:{HP:hb(41,41)},tabs:{'✨':[['Домен','Жизнь']]}},
+bcap:{t:'monster',n:'Капитан бандитов',i:'🥷',sub:'CR 2 · гуманоид',s:{AC:15},b:{HP:hb(45,65,'#c33')},tabs:{'⚔':[['Мультиатака','2× меч +5 · 1d6+3'],['Реакция','Парирование +2 AC']]}},
+band:{t:'monster',n:'Бандит',i:'🗡',sub:'CR 1/8',s:{AC:12},b:{HP:hb(11,11,'#c33')},tabs:{'⚔':[['Меч','+3 · 1d6+1']]}},
+mielikki:{t:'deity',n:'Mielikki',i:'🦄',sub:'Богиня лесов · ранг 9',s:{Ранг:9,Символ:'единорог'},b:{Влияние:hb(62,100,'#b07cd8')},tabs:{'📜':[['Портфолио','леса, рейнджеры'],['Домены','Природа, Жизнь']],'✨':[['Дары','дальнее чувство · аватар'],['Воля','защита дикой природы']],'🌍':[['Паства','@tri @nwc'],['Союз','@harpers'],['Соперник','@zhent']]}},
+harpers:{t:'org',n:'Харперы',i:'🌙',sub:'Тайная сеть',s:{Реноун:5},b:{Влияние:hb(40,100,'#8e44ad')},tabs:{'🎯':[['Цель','сдержать @zhent'],['Цель','защита лесов']],'👥':[['Члены','@bo (агент)']],'⚖':[['Союз','@lords'],['Вражда','@zhent']]}},
+lords:{t:'org',n:'Lords’ Alliance',i:'🛡',sub:'Союз правителей',s:{Реноун:12},b:{Влияние:hb(55,100,'#8e44ad')},tabs:{'🎯':[['Цель','торговые пути'],['Заказ','@q1']],'⚖':[['Союз','@wd @nw @cor']]}},
+zhent:{t:'org',n:'Жентарим',i:'🐍',sub:'Теневая сеть · враждебны',s:{Реноун:0},b:{Влияние:hb(48,100,'#8e44ad')},tabs:{'🎯':[['Цель','контроль караванов'],['Операция','@ev1']],'⚖':[['Вражда','@harpers @lords']]}},
+nw:{t:'realm',n:'Невервинтер',i:'🌃',sub:'Город-государство',s:{Столица:'Nw'},b:rl4(8,12,14,10),tabs:{'🏛':[['Столица','@nwc'],['Союзы','@lords']],'📅':[['Эпоха','восстановление после Чумы']]}},
+wd:{t:'realm',n:'Глубоководье',i:'🌆',sub:'Город-государство',s:{Столица:'Wd'},b:rl4(12,18,12,13),tabs:{'🏛':[['Столица','@wdc'],['Союзы','@lords']]}},
+cor:{t:'realm',n:'Кормир',i:'🦁',sub:'Королевство',s:{Тип:'монархия'},b:rl4(16,14,15,12),tabs:{'🏛':[['Союзы','@lords'],['Граница','торговый тракт @tri']]}},
+ev1:{t:'event',n:'Пропавший караван',i:'📦',sub:'День 12 · тракт',s:{Риск:'средний'},tabs:{'🔗':[['Затронуты','@zhent @wd'],['Квест','@q1']],'❓':[['A','спасти груз → стабильность Глубоководья'],['B','игнорировать → влияние @zhent']]},ef:[['zhent','Влияние',8],['wd','Стабильность',-2]]},
+ev2:{t:'event',n:'Возрождение города',i:'🌅',sub:'эпоха 1492',s:{Риск:'низкий'},tabs:{'🔗':[['Затронуты','@nw @cor']]},ef:[['nw','Лояльность',3],['cor','Экономика',-2]]},
+nwc:{t:'place',n:'Невервинтер',i:'🏰',sub:'Город · 🌃',s:{Нас:'~20к'},tabs:{'🏪':[['Услуги','кузня, храм'],['Власть','@nw']],'👥':[['Орг.','@harpers']]},at:[4,1]},
+wdc:{t:'place',n:'Глубоководье',i:'🏯',sub:'Метрополия',s:{Нас:'~1M'},tabs:{'🏪':[['Власть','@wd'],['Орг.','@lords @zhent']]},at:[5,4]},
+tri:{t:'place',n:'Трибоар',i:'🍺',sub:'Деревня · тракт',s:{Нас:'~700'},tabs:{'🏪':[['Таверна','слухи: @r1 @r2'],['Квест','@q1']]},at:[9,3]},
+q1:{t:'quest',n:'Пропавший караван',i:'📜',sub:'Заказчик @lords',s:{Награда:'300зм'},b:{Прогресс:hb(1,4,'#1abc9c')},tabs:{'📍':[['Где','@tri'],['Шаги','след → засада → груз'],['Событие','@ev1']]}},
+q2:{t:'quest',n:'Old Owl Well',i:'🦉',sub:'Расследование',s:{Награда:'?'},b:{Прогресс:hb(0,3,'#1abc9c')},tabs:{'📍':[['Подсказка','@r1']]}},
+r1:{t:'rumor',n:'Некромант у колодца',i:'💀',sub:'таверна Трибоара',s:{Правда:'60%'},b:{Слух:hb(3,10,'#95a5a6')},tabs:{'🔗':[['Источник','@tri'],['Ведёт к','@q2']]}},
+r2:{t:'rumor',n:'Единорог в чаще',i:'🦄',sub:'лесные егеря',s:{Правда:'80%'},b:{Слух:hb(5,10,'#95a5a6')},tabs:{'🔗':[['Связь','@mielikki']]}},
+rel1:{t:'relic',n:'Лук Мелликки',i:'💎',sub:'Rare · настройка',s:{Бонус:'+1'},tabs:{'✨':[['Эффект','+1 к атаке; метка зверя'],['Связь','@mielikki']]}}};
+const TER='wwfffff..mmmmm'+'wwwfffff.mmmmm'+'wwwff..ff..mmm'+'wwww.......mm.'+'wwww..ff....mm'+'wwwww.ff....ss'+'wwwwww....sss.'+'wwwwwww..sss..';
+const TC={w:'#1d3b5a',f:'#24502e','.':'#4f5d30',m:'#6b6258',s:'#3e4a3a'},TN={w:'море',f:'лес','.':'равнина',m:'горы',s:'болото'},RC={nw:'#2980b9',wd:'#27ae60',cor:'#c0392b',zhent:'#8e44ad'};
+const ERAS=[{y:1357,n:'торговые пути',r:[['nw',3,0,6,1],['wd',4,3,7,5],['cor',8,3,11,6]]},{y:1372,n:'рост Жентарим',r:[['nw',3,0,6,1],['wd',4,3,8,5],['cor',8,3,11,6],['zhent',9,0,12,2]]},{y:1385,n:'лихолетье',r:[['wd',4,3,7,5],['cor',9,3,11,6],['zhent',8,0,12,2]]},{y:1492,n:'восстановление',r:[['nw',3,0,5,1],['wd',4,3,8,5],['cor',9,3,12,6],['zhent',10,0,12,1]]}];
+const OWN=ERAS.map(er=>{const o=Array(GW*GH).fill('');er.r.forEach(([id,a,b,c,d])=>{for(let y=b;y<=d;y++)for(let x=a;x<=c;x++)if(TER[y*GW+x]!='w')o[y*GW+x]=id});return o});
+const TK=[{k:'bo',e:'bo',i:'🏹',n:'Bo',x:2,y:4,h:38,m:42,p:1,in:17},{k:'korrin',e:'korrin',i:'🛡',n:'Korrin',x:2,y:5,h:52,m:52,p:1,in:19},{k:'lyra',e:'lyra',i:'🧙',n:'Lyra',x:1,y:6,h:28,m:28,p:1,in:12},{k:'aldric',e:'aldric',i:'⛪',n:'Aldric',x:1,y:3,h:41,m:41,p:1,in:10},{k:'bc',e:'bcap',i:'🥷',n:'Капитан',x:12,y:5,h:45,m:65,in:15},{k:'b1',e:'band',i:'🗡',n:'Бандит',x:11,y:3,h:11,m:11,in:8},{k:'b2',e:'band',i:'🗡',n:'Бандит',x:11,y:7,h:8,m:11,in:5},{k:'b3',e:'band',i:'🗡',n:'Бандит',x:13,y:4,h:0,m:11,in:4}];
+const WL=new Set(['7,2','7,3','7,4','7,6','7,7','7,8']),DF=new Set(['10,5','10,6','11,5']),MO=['Hammer','Alturiak','Ches','Tarsakh','Mirtul','Kythorn','Flamerule','Eleasis','Eleint','Marpenoth','Uktar','Nightal'];
+const S={scr:'world',era:3,sel:null,party:{x:6,y:4},dest:null,pace:24,acc:0,day:0,rat:20,turn:0,fog:1,deck:['bo'],focus:'bo',ft:0,q:'',log:[],tab:{}};
+const chip=id=>E[id]?`<a class="ch" style="--c:${T[E[id].t][2]}" onclick="op('${id}')">${E[id].i} ${E[id].n}</a>`:id,rich=s=>String(s).replace(/@(\w+)/g,(_,i)=>chip(i));
+const dt=()=>{let m=4,d=15+S.day;while(d>30){d-=30;m=(m+1)%12}return d+' '+MO[m]+' 1492 DR'};
+function card(id){const e=E[id],[ic,tn,c]=T[e.t],on=S.focus==id,tk=Object.keys(e.tabs||{}).concat('🔗'),cur=tk.includes(S.tab[id])?S.tab[id]:tk[0];
+let h=`<div class="cx${on?' on':''}" style="--c:${c}"><div class="sp" onclick="foc('${id}')"><span class="pt">${e.i}</span><b>${e.n}</b>${on?'':Object.entries(e.s||{}).slice(0,2).map(([k,v])=>`<span class="kv">${k} ${v}</span>`).join('')}<span class="tg" title="${tn}">${ic}</span><span class="x" onclick="event.stopPropagation();cl('${id}')">×</span></div>`;
+if(!on)return h+'</div>';
+h+=`<div class="sub">${e.sub||''}</div><div class="sr">${Object.entries(e.s||{}).map(([k,v])=>`<div><i>${k}</i>${v}</div>`).join('')}</div>`+Object.entries(e.b||{}).map(([k,[v,m,col]])=>`<div class="br"><i>${k}</i><div class="tr"><u style="width:${100*v/m}%;background:${col}"></u></div><em>${v}/${m}</em></div>`).join('')+`<div class="tabs">${tk.map(k=>`<a class="${k==cur?'on':''}" onclick="S.tab['${id}']='${k}';rd()">${k}</a>`).join('')}</div>`;
+const rows=cur=='🔗'?[['←',Object.keys(E).filter(x=>new RegExp('@'+id+'\\b').test(JSON.stringify(E[x].tabs))).map(chip).join('')||'—']]:e.tabs[cur];
+h+=rows.map(([k,v])=>`<div class="rw"><i>${k}</i><span>${rich(v)}</span></div>`).join('');
+if(e.ef)h+=`<div class="act"><button class="bt" onclick="ap('${id}')" ${e.done?'disabled':''}>⚡ ${e.done?'Применено':'Применить'}</button>${e.ef.map(([t,k,d])=>`<span class="kv">${E[t].i} ${k} ${d>0?'+':''}${d}</span>`).join('')}</div>`;
+return h+'</div>'}
+function rd(){$('dock').innerHTML=S.deck.map(card).join('')||'<p class="em">🗂 Пусто. Кликни пин, токен или файл в 📚</p>'}
+function op(id){S.deck=[id,...S.deck.filter(x=>x!=id)].slice(0,8);S.focus=id;rd()}
+function cl(id){S.deck=S.deck.filter(x=>x!=id);if(S.focus==id)S.focus=S.deck[0];rd()}
+function foc(id){S.focus=S.focus==id?null:id;rd()}
+function ap(id){const e=E[id];if(e.done)return;const ch=e.ef.map(([t,k,d])=>{const b=E[t].b[k],o=b[0];b[0]=Math.max(0,Math.min(b[1],o+d));return[t,k,o,b[0]]});e.done=1;S.log.push({id,ch});rd();rb()}
+function un(){const l=S.log.pop();if(!l)return;l.ch.forEach(([t,k,o])=>E[t].b[k][0]=o);E[l.id].done=0;rd();rb()}
+function rb(){const l=S.log[S.log.length-1];$('top').innerHTML=`<b style="color:var(--gd)">🐉 DM·WORLD</b><span>🗓 ${dt()}</span><span>🍖 ${S.rat}</span><span>🕰 ${ERAS[S.era].y}</span>`;$('bot').innerHTML=l?`<span>⚡ ${E[l.id].n}: ${l.ch.map(([t,k,o,n])=>E[t].i+' '+k+' '+o+'→'+n).join(' · ')}</span><button class="bt" onclick="un()">↶</button>`:'<span>📜 журнал событий пуст</span>'}
+function cell(ev,c,W,H){const r=c.getBoundingClientRect();return[Math.floor((ev.clientX-r.left)/r.width*W),Math.floor((ev.clientY-r.top)/r.height*H)]}
+function dw(){const c=$('wc');if(!c)return;const x=c.getContext('2d'),o=OWN[S.era];x.clearRect(0,0,560,320);
+for(let i=0;i<GW*GH;i++){const a=i%GW*CW,b=(i/GW|0)*CW;x.fillStyle=TC[TER[i]];x.fillRect(a,b,CW,CW);if(o[i]){x.globalAlpha=.5;x.fillStyle=RC[o[i]];x.fillRect(a,b,CW,CW);x.globalAlpha=1}x.strokeStyle='rgba(0,0,0,.25)';x.strokeRect(a+.5,b+.5,CW,CW)}
+x.font='20px serif';x.textAlign='center';x.textBaseline='middle';Object.values(E).forEach(e=>{if(e.at)x.fillText(e.i,e.at[0]*CW+20,e.at[1]*CW+20)});
+if(S.dest)x.fillText('✖',S.dest[0]*CW+20,S.dest[1]*CW+20);x.strokeStyle='#d4a843';x.lineWidth=3;x.strokeRect(S.party.x*CW+2,S.party.y*CW+2,CW-4,CW-4);x.lineWidth=1;x.fillText('🏹',S.party.x*CW+20,S.party.y*CW+20)}
+function wclk(ev){const[a,b]=cell(ev,$('wc'),GW,GH),p=Object.keys(E).find(k=>E[k].at&&E[k].at[0]==a&&E[k].at[1]==b);if(p)return op(p);if(TER[b*GW+a]=='w')return;S.dest=[a,b];dw()}
+function whv(ev){const[a,b]=cell(ev,$('wc'),GW,GH),i=b*GW+a,o=OWN[S.era][i];$('st').textContent=(TN[TER[i]]||'')+(o?' · '+E[o].n:'')+' · 24 мили/клетка'}
+function day(){const p=S.party;S.acc+=S.pace/24;while(S.acc>=1){S.acc--;const d=S.dest;if(!d||(d[0]==p.x&&d[1]==p.y))break;const dx=Math.sign(d[0]-p.x),dy=Math.sign(d[1]-p.y);let nx=p.x+dx,ny=p.y+dy;if(TER[ny*GW+nx]=='w'){if(dx&&TER[p.y*GW+nx]!='w')ny=p.y;else if(dy&&TER[ny*GW+p.x]!='w')nx=p.x;else{S.acc=0;break}}p.x=nx;p.y=ny}S.day++;S.rat=Math.max(0,S.rat-4);dw();rp();rb()}
+function rp(){const el=$('pp');if(!el)return;el.innerHTML=['bo','korrin','lyra','aldric'].map(id=>{const e=E[id],[v,m,c]=e.b.HP;return`<div class="pc" onclick="op('${id}')"><span>${e.i}</span><b>${e.n.split(' ')[0]}</b><div class="tr"><u style="width:${100*v/m}%;background:${c}"></u></div></div>`}).join('')+`<span>🍖 ${S.rat}</span>`+[18,24,30].map(v=>`<button class="bt${S.pace==v?' on':''}" onclick="S.pace=${v};rp()">${v==18?'🐢':v==24?'🚶':'🏃'} ${v}</button>`).join('')+'<button class="bt" onclick="day()">▶ день</button>'}
+function rr(){const ids=['nw','wd','cor','zhent'],cnt=OWN.map(o=>ids.map(id=>o.filter(v=>v==id).length)),mx=Math.max(...cnt.map(a=>a.reduce((s,v)=>s+v,0)));$('rbn').innerHTML=ERAS.map((er,i)=>`<div class="rc${S.era==i?' on':''}" onclick="S.era=${i};dw();rr();rb()"><div class="sg">${ids.map((id,j)=>`<s style="height:${46*cnt[i][j]/mx}px;background:${RC[id]}"></s>`).join('')}</div>${er.y}</div>`).join('')+`<div class="lg">${ids.map(chip).join('')}<br>${ERAS[S.era].y} — ${ERAS[S.era].n}</div>`}
+function bdn(ev){const[a,b]=cell(ev,$('bc'),TW,TH),t=TK.find(k=>k.x==a&&k.y==b);S.sel=t?t.k:null;S.drag=t?t.k:null;db();bi()}
+function bmv(ev){const[a,b]=cell(ev,$('bc'),TW,TH);S.hv=[a,b];if(S.drag){const t=TK.find(k=>k.k==S.drag);if(!TK.some(k=>k!=t&&k.x==a&&k.y==b)&&!WL.has(a+','+b)){t.x=a;t.y=b}}db()}
+function db(){const c=$('bc');if(!c)return;const x=c.getContext('2d'),C=36;x.clearRect(0,0,576,360);
+for(let j=0;j<TH;j++)for(let i=0;i<TW;i++){const k=i+','+j;x.fillStyle=WL.has(k)?'#5a4630':(i+j)%2?'#2a2030':'#241a2c';x.fillRect(i*C,j*C,C,C);if(DF.has(k)){x.fillStyle='rgba(212,168,67,.2)';x.fillRect(i*C,j*C,C,C)}}
+x.font='20px serif';x.textAlign='center';x.textBaseline='middle';
+TK.forEach(t=>{if(S.fog&&!t.p&&!TK.some(q=>q.p&&Math.hypot(q.x-t.x,q.y-t.y)<=5.5))return;x.fillStyle=t.p?'rgba(212,168,67,.25)':'rgba(192,57,43,.3)';x.fillRect(t.x*C+1,t.y*C+1,C-2,C-2);if(S.sel==t.k){x.strokeStyle='#fff';x.strokeRect(t.x*C+2,t.y*C+2,C-4,C-4)}x.globalAlpha=t.h?1:.3;x.fillText(t.i,t.x*C+18,t.y*C+16);x.globalAlpha=1;x.fillStyle=t.h/t.m>.5?'#4a2':t.h/t.m>.25?'#ca2':'#c33';x.fillRect(t.x*C+3,t.y*C+C-7,(C-6)*t.h/t.m,4)});
+const s=TK.find(k=>k.k==S.sel);if(s&&S.hv){x.strokeStyle='#d4a843';x.beginPath();x.moveTo(s.x*C+18,s.y*C+18);x.lineTo(S.hv[0]*C+18,S.hv[1]*C+18);x.stroke();x.fillStyle='#d4a843';x.font='10px monospace';x.fillText(5*Math.max(Math.abs(S.hv[0]-s.x),Math.abs(S.hv[1]-s.y))+' ft',S.hv[0]*C+18,S.hv[1]*C-4)}
+const f=$('bf').getContext('2d');f.globalCompositeOperation='source-over';f.clearRect(0,0,576,360);if(S.fog){f.fillStyle='rgba(8,4,12,.9)';f.fillRect(0,0,576,360);f.globalCompositeOperation='destination-out';TK.filter(t=>t.p).forEach(t=>{const g=f.createRadialGradient(t.x*C+18,t.y*C+18,C*3,t.x*C+18,t.y*C+18,C*5.5);g.addColorStop(0,'#000');g.addColorStop(1,'rgba(0,0,0,0)');f.fillStyle=g;f.beginPath();f.arc(t.x*C+18,t.y*C+18,C*5.5,0,7);f.fill()})}}
+function bi(){const el=$('bi');if(!el)return;const o=[...TK].sort((a,b)=>b.in-a.in),cur=o[S.turn%o.length],s=TK.find(k=>k.k==S.sel);
+el.innerHTML=`<div class="ib">${o.map(t=>`<div class="ic${t==cur?' cur':''}${t.h?'':' dead'}" onclick="S.sel='${t.k}';db();bi()">${t.i}<b>${t.in}</b><div class="tr"><u style="width:${100*t.h/t.m}%;background:${t.p?'#4a2':'#c33'}"></u></div></div>`).join('')}</div><div class="pp"><button class="bt" onclick="S.turn++;bi()">⏭ R${Math.floor(S.turn/o.length)+1}</button><button class="bt${S.fog?' on':''}" onclick="S.fog=!S.fog;db();bi()">🌫</button>${s?`<span>${s.i} ${s.n} ${s.h}/${s.m}</span>`+[-5,-1,1,5].map(d=>`<button class="bt" onclick="hp(${d})">${d>0?'+':''}${d}</button>`).join('')+`<button class="bt" onclick="op('${s.e}')">🗂</button>`:'<span>клик — выбор · тяни — перемещение</span>'}</div>`}
+function hp(d){const t=TK.find(k=>k.k==S.sel);if(!t)return;t.h=Math.max(0,Math.min(t.m,t.h+d));if(t.p)E[t.e].b.HP[0]=t.h;db();bi();rd()}
+function fr(id){const e=E[id],[ic,tn,c]=T[e.t];return`<div class="fl" style="--c:${c}" onclick="op('${id}')"><span class="ft">${e.i}</span><span class="fn"><b>${e.n}</b><i>${ic} ${tn} · ${e.sub}</i></span><span class="kv">🔗 ${(JSON.stringify(e.tabs).match(/@\w+/g)||[]).length}</span></div>`}
+function rl(){const q=S.q.toLowerCase();$('fl').innerHTML=Object.keys(E).filter(id=>(!S.ft||E[id].t==S.ft)&&(E[id].n+E[id].sub).toLowerCase().includes(q)).map(fr).join('')||'<p class="em">—</p>'}
+function rm(){const m=$('main');
+if(S.scr=='world'){m.innerHTML='<canvas id="wc" width="560" height="320" onclick="wclk(event)" onmousemove="whv(event)"></canvas><div id="st" class="st">клик — цель маршрута · пины — карточки</div><div class="rbn" id="rbn"></div><div class="pp" id="pp"></div>';dw();rr();rp()}
+else if(S.scr=='battle'){m.innerHTML='<div id="bw"><canvas id="bc" width="576" height="360" onpointerdown="bdn(event)" onpointermove="bmv(event)" onpointerup="S.drag=null"></canvas><canvas id="bf" width="576" height="360"></canvas></div><div id="bi"></div>';db();bi()}
+else{m.innerHTML=`<input class="in" placeholder="🔍" value="${S.q}" oninput="S.q=this.value;rl()"><div class="fs">${Object.entries(T).map(([k,[ic,n,c]])=>`<a class="ch${S.ft==k?' on':''}" style="--c:${c}" onclick="S.ft=S.ft=='${k}'?0:'${k}';rm()">${ic} ${n}</a>`).join('')}</div><div id="fl"></div>`;rl()}}
+function go(s){S.scr=s;location.hash=s;ren()}
+function ren(){$('rail').innerHTML=[['world','🌍'],['battle','⚔'],['book','📚']].map(([s,i])=>`<button class="${S.scr==s?'on':''}" onclick="go('${s}')">${i}</button>`).join('');rb();rm();rd()}
+onhashchange=()=>{const h=location.hash.slice(1);if(['world','battle','book'].includes(h)&&h!=S.scr){S.scr=h;ren()}};
+{const h=location.hash.slice(1);if(['world','battle','book'].includes(h))S.scr=h}ren();
+</script></body></html>

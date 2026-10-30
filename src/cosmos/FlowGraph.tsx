@@ -3,6 +3,8 @@
 // путь известен, обратный нет, точки — связь названа без подробностей. У ребра — дни пути, у узла — пути из него и
 // в него с книгой. Тупой компонент: какую сферу подсветить и что открывать ниже по лестнице, даёт страница.
 import { useState, type ReactNode } from 'react';
+import { useOpenEntity } from '../components/openEntity';
+import { ref } from '../entities/ref';
 import { LAYOUT, PHLOGISTON, WAY_LABEL, daysLabel, flowsOf, type Flow, type Phlogiston, type Sphere } from './phlogiston';
 
 export interface FlowGraphProps {
@@ -35,6 +37,7 @@ function dash(f: Flow): string | undefined {
 
 export function FlowGraph({ data = PHLOGISTON, current = 'realmspace', canOpen, onOpen, plane, children, className = '' }: FlowGraphProps) {
   const [picked, setPicked] = useState(current);
+  const openEntity = useOpenEntity();
   const name = (id: string) => data.spheres.find(s => s.id === id)?.name ?? id;
   const sphere = data.spheres.find(s => s.id === picked) ?? data.spheres[0];
   const { out, in: inn } = flowsOf(data, sphere.id);
@@ -120,6 +123,11 @@ export function FlowGraph({ data = PHLOGISTON, current = 'realmspace', canOpen, 
           <div className="flex flex-wrap items-center gap-3">
             <span className="type-body text-tx">{sphere.name}</span>
             {sphere.url ? <a href={sphere.url} target="_blank" rel="noreferrer" className="type-body-sm text-t3 underline hover:text-tx">вики</a> : null}
+            {openEntity ? (
+              <button type="button" onClick={() => openEntity(ref('sphere', sphere.id))} title={`Общая карточка: ${sphere.name}`} className="type-num-12 uppercase px-2 py-1 bg-cd shadow-bevel text-t2 cursor-pointer hover:text-tx focus-visible:shadow-[var(--bevel),var(--glow-gold)]">
+                Карточка
+              </button>
+            ) : null}
             {onOpen && canOpen?.(sphere) ? (
               <button type="button" onClick={() => onOpen(sphere)} className="type-num-12 uppercase px-2 py-1 bg-cd shadow-bevel text-t2 cursor-pointer hover:text-tx focus-visible:shadow-[var(--bevel),var(--glow-gold)]">
                 {`Спуститься: ${sphere.name}`}

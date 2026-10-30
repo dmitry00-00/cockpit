@@ -22,7 +22,7 @@ export {
 export {
   EntityCard, ENTITY, ORIGIN, cardShadow, visibleTabs, hpStat, actorCardProps, raceLabel,
   placeCardProps, factionCardProps, placeEntityType, populationLabel, priceLabel, DANGER_LABELS,
-  TAB_OVERVIEW, TAB_CONDITIONS, TAB_GEAR, TAB_ACTIONS, TAB_NOW, TAB_DM,
+  TAB_OVERVIEW, TAB_CONDITIONS, TAB_GEAR, TAB_PATH, TAB_ACTIONS, TAB_NOW, TAB_DM,
   type EntityCardProps, type EntityCardTab, type EntityStat, type EntityType, type Origin, type StatTone, type ActorCardProps, type ActorCardOptions,
   type PlaceCardProps, type PlaceCardOptions,
 } from './EntityCard';
@@ -37,7 +37,7 @@ export {
   InitiativeToken, TokenHpStrip, initiativeTokenOf, initiativeTokenTitle, initiativeTokenDescription, initiativeTokenShadow, tokenHpPct,
   type InitiativeTokenProps,
 } from './InitiativeToken';
-export { InitiativeBar, type InitiativeBarProps, type InitiativeBarEntry } from './InitiativeBar';
+export { InitiativeBar, type InitiativeBarProps, type InitiativeBarEntry, type InitiativeLegendary } from './InitiativeBar';
 export {
   BattleGrid, battleTokenOf, battleTokenTitle, battleTokenDescription, battleTokenShadow, conePoints,
   BATTLE_CELL_DEFAULT, TOKEN_CONDITIONS_MAX,
@@ -70,7 +70,7 @@ export {
 export { CelestialBar, MOON_PHASES, MOON_LABELS, MOON_ICONS, type CelestialBarProps, type MoonPhase } from './CelestialBar';
 export { DayPhaseStrip, DAY_PHASES, DAY_PHASE_LABELS, DAY_PHASE_ICONS, type DayPhaseStripProps, type DayPhase } from './DayPhaseStrip';
 export {
-  ChangeSummary, summaryGroups,
+  ChangeSummary, summaryGroups, inSummaryGroup, FAR_GROUP,
   type ChangeSummaryProps, type ChangeSummaryGroup, type ChangeSummaryItem,
 } from './ChangeSummary';
 
@@ -88,8 +88,15 @@ export {
   type InitiativeEditorProps, type InitiativeRow,
 } from './InitiativeEditor';
 export { SpawnForm, parseCount, filterOptions, type SpawnFormProps, type SpawnOption } from './SpawnForm';
-export { ConcentrationForm, CONCENTRATION_DURATIONS, durationLabel, type ConcentrationFormProps, type ConcentrationOption } from './ConcentrationForm';
+// Сама форма — только через lazyParts: статический реэкспорт держал её в основном куске.
+export { CONCENTRATION_DURATIONS, durationLabel, type ConcentrationOption } from './concentration';
+export type { ConcentrationFormProps } from './ConcentrationForm';
+export { CharacterPathView } from './CharacterPathView';
+export { LevelUpForm, type LevelUpFormProps } from './LevelUpForm';
+export { KnowledgeCheck, KnowledgeCheckForm, SkillVoices, type KnowledgeCheckProps, type KnowledgeMember } from './KnowledgeCheck';
 export { RestForm, REST_LABELS, parseDice, parseHealed, diceFormula, type RestFormProps, type RestRow } from './RestForm';
+export { TensionList, type TensionListProps } from './TensionList';
+export { JourneyActivities, ACTIVITY_LABEL, OUTCOME_LABEL, bestSkill, type ActivityMember, type ActivityOutcome, type ActivityRoll, type JourneyActivitiesProps, type RollMode } from './JourneyActivities';
 // F9 — планшет: свёрнутая боковая панель — полоса иконок 40px; что свёрнуто и раскрыто — состояние страницы.
 export { IconRail, type IconRailProps, type IconRailItem } from './IconRail';
 export { PartyPortraits, type PartyPortraitsProps } from './PartyPortraits';
@@ -111,7 +118,7 @@ export { SheetChoices, SheetFeats, SheetAttacks, SheetSpells, SheetEquipment, do
 
 // Лист по бумажной карточке владельца и поверхности из макетов 27.10.2026: паспорт данных, подвал партии со сводкой
 // выборки, лист сравнения. Тупые: числа — из campaign/sheetView.ts.
-export { AbilityScores, SkillList, ProficiencyMark, DataPassport, PcHeader, bySkillLabel, type AbilityCell, type SkillCell, type SkillProficiency, type PassportData, type PcHeaderData } from './PcSheet';
+export { AbilityScores, SkillList, ProficiencyMark, DataPassport, PcHeader, type PassportField, bySkillLabel, type AbilityCell, type SkillCell, type SkillProficiency, type PassportData, type PcHeaderData } from './PcSheet';
 export { PartyFooter, type PartyFooterProps, type PartySummaryData } from './PartyFooter';
 export { CompareSheet, bestOf, type CompareSheetProps, type CompareColumn } from './CompareSheet';
 export { SceneView, SCENE_ROWS_SHOWN, type SceneViewProps } from './SceneView';

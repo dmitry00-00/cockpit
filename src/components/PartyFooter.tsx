@@ -3,7 +3,9 @@
 // действия над выбором («Сравнить», «Снять»). Док считается по всей выборке (выбранные, иначе вся партия), а не
 // по видимой части: лучший и худший в групповой проверке, запас костей хитов и ячеек, пробелы листов.
 // Тупой: сводку считает campaign/sheetView.ts (partySummaryOf), открыт ли док — его собственное состояние вида.
+// Припасы (Supply A5E, 29.10.2026) — общий запас партии: число, сколько унесут по Силе, расход в день; запись — пропсом.
 import { useState, type ReactNode } from 'react';
+import type { SupplyReason } from '../engine/events';
 import type { SkillId } from '../rules/srd/abilities';
 import { SKILL_LABEL } from './labels';
 import { signedMod } from './StatTile';
@@ -16,6 +18,8 @@ export interface PartySummaryData {
   slots?: { available: number; max: number };
   leaders: readonly { skill: SkillId; best: { name: string; mod: number }; worst: { name: string; mod: number } }[];
   gaps: readonly { field: string; names: readonly string[] }[];
+  /** Возможности партии по уровням (Д8): есть сейчас — кто; нет — у кого с какого уровня придёт или «ни у кого». */
+  capabilities?: readonly { id: string; label: string; covered: boolean; who: string }[];
 }
 
 export interface PartyFooterProps {
@@ -33,6 +37,40 @@ export interface PartyFooterProps {
   renown?: readonly { id: string; name: string; value: number }[];
   /** Док раскрыт на старте (для проверок и снимков). */
   defaultOpen?: boolean;
+  /** Общий запас партии: сколько есть, сколько унесут (null — не у всех есть лист), сколько едят в день; onChange — запись. */
+  supply?: { value: number; capacity: number | null; perDay: number; onChange?: (reason: SupplyReason, amount: number) => void };
+}
+
+/** Причины, которые мастер пишет руками; «съедено» пишут отдых и поход сами. */
+const SUPPLY_MANUAL: readonly { id: SupplyReason; label: string }[] = [
+  { id: 'bought', label: '+ куплено' }, { id: 'found', label: '+ найдено' }, { id: 'foraged', label: '+ добыто' }, { id: 'lost', label: '− потеряно' },
+];
+
+function SupplyRow({ supply }: { supply: NonNullable<PartyFooterProps['supply']> }) {
+  const [amount, setAmount] = useState('1');
+  const [reason, setReason] = useState<SupplyReason>('bought');
+  const n = Number(amount);
+  const ok = Number.isInteger(n) && n > 0 && (reason !== 'lost' || n <= supply.value);
+  const over = supply.capacity !== null && supply.value > supply.capacity;
+  return (
+    <>
+      <dt className="text-t2" title="Supply A5E: еда и вода на одного Small или Medium на день; съедается на длинном отдыхе">Припасы</dt>
+      <dd className={`type-num-12 ${over ? 'text-fx-debuff-hi' : 'text-tx'}`} title={supply.capacity === null ? 'Сколько унесут — не у всех есть лист' : `Унесут ${supply.capacity}: Сила каждого (A5E)${over ? ' — сверх сил' : ''}`}>
+        {supply.value}{supply.capacity === null ? '' : `/${supply.capacity}`}
+      </dd>
+      <dt className="text-t2">Хватит на</dt>
+      <dd className="type-num-12 text-tx" title={`Едят ${supply.perDay} в день`}>{supply.perDay > 0 ? Math.floor(supply.value / supply.perDay) : '—'} дн</dd>
+      {supply.onChange ? (
+        <div className="col-span-2 flex items-center gap-1 pt-1">
+          <input aria-label="Сколько припасов" inputMode="numeric" value={amount} onChange={e => setAmount(e.target.value.replace(/\D/g, '').slice(0, 3))} className="w-10 h-7 px-1 type-num-12 text-tx bg-wl shadow-bevel-in focus-visible:shadow-[var(--bevel-in),var(--glow-gold)]" />
+          <select aria-label="Причина" value={reason} onChange={e => setReason(e.target.value as SupplyReason)} className="h-7 px-1 type-body-sm text-tx bg-wl shadow-bevel-in focus-visible:shadow-[var(--bevel-in),var(--glow-gold)]">
+            {SUPPLY_MANUAL.map(r => <option key={r.id} value={r.id}>{r.label}</option>)}
+          </select>
+          <button type="button" className={BTN} disabled={!ok} onClick={() => { supply.onChange!(reason, n); setAmount('1'); }} title={reason === 'bought' ? 'A5E: базовый паёк — 5 sp за 1 Supply; деньги — на листе' : 'Записать в журнал'}>Записать</button>
+        </div>
+      ) : null}
+    </>
+  );
 }
 
 const BTN = 'type-num-12 uppercase px-2 py-1 bg-cd shadow-bevel text-t2 cursor-pointer enabled:hover:text-tx enabled:active:shadow-bevel-in focus-visible:shadow-[var(--bevel),var(--glow-gold)] disabled:cursor-default disabled:opacity-(--op-disabled)';
@@ -49,7 +87,7 @@ function DockSection({ title, children }: { title: string; children: ReactNode }
   );
 }
 
-export function PartyFooter({ total, selected, summary, onCompare, onClear, dmView = true, renown = [], defaultOpen = false }: PartyFooterProps) {
+export function PartyFooter({ total, selected, summary, onCompare, onClear, dmView = true, renown = [], defaultOpen = false, supply }: PartyFooterProps) {
   const [dock, setDock] = useState(defaultOpen);
   const scope = selected > 0 ? `выбранных ${selected}` : `партии ${total}`;
   return (
@@ -83,6 +121,18 @@ export function PartyFooter({ total, selected, summary, onCompare, onClear, dmVi
               </dl>
             </DockSection>
           ) : null}
+          {summary.capabilities?.length ? (
+            <DockSection title="Возможности">
+              <ul className="flex flex-col" aria-label="Возможности партии">
+                {summary.capabilities.map(c => (
+                  <li key={c.id} data-capability={c.id} data-covered={c.covered || undefined} className="grid grid-cols-[auto_1fr] gap-x-2 type-body-sm" title={c.covered ? `${c.label}: есть — ${c.who}` : `${c.label}: в партии сейчас нет; ${c.who === 'ни у кого' ? 'по пути классов не придёт' : `придёт: ${c.who}`}`}>
+                    <span className={c.covered ? 'text-t2' : 'text-fx-debuff-hi'}>{c.covered ? c.label : `нет: ${c.label.toLowerCase()}`}</span>
+                    <span className="text-tx truncate text-right">{c.who}</span>
+                  </li>
+                ))}
+              </ul>
+            </DockSection>
+          ) : null}
           <DockSection title="Запас">
             <dl className="grid grid-cols-[1fr_auto] gap-x-2 type-body-sm">
               <dt className="text-t2">Кости хитов</dt>
@@ -93,6 +143,7 @@ export function PartyFooter({ total, selected, summary, onCompare, onClear, dmVi
                   <dd className="type-num-12 text-tx">{summary.slots.available}/{summary.slots.max}</dd>
                 </>
               ) : null}
+              {supply ? <SupplyRow supply={supply} /> : null}
             </dl>
           </DockSection>
           {dmView && summary.gaps.length > 0 ? (
@@ -118,7 +169,7 @@ export function PartyFooter({ total, selected, summary, onCompare, onClear, dmVi
       ) : (
         <div className="flex items-center gap-1.5 px-2 py-1.5" data-part="party-rest">
           <span className="type-num-12 text-t2 flex-1 min-w-0 truncate" title={`Партия: ${summary.count}, ${levelText(summary.levels)}, хиты ${summary.hp.current} из ${summary.hp.max}`}>
-            {levelText(summary.levels)} · HP {summary.hp.current}/{summary.hp.max}
+            {levelText(summary.levels)} · HP {summary.hp.current}/{summary.hp.max}{supply ? ` · припасы ${supply.value}` : ''}
           </span>
         </div>
       )}

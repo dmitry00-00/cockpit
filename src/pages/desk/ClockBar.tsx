@@ -4,12 +4,12 @@
 import { Popover } from 'radix-ui';
 import { dayPhase, formatHarptos, harptos, inDays, moonState, partyDeitiesOf, weatherLabel, weatherOf } from '../../campaign';
 import {
-  CelestialBar, HarptosDial, InitiativeEditor, RestForm, TimeTempo, DAY_PHASE_LABELS, type InitiativeRow, type RestRow,
+  CelestialBar, HarptosDial, InitiativeEditor, TimeTempo, DAY_PHASE_LABELS, type InitiativeRow, type RestRow,
 } from '../../components';
 import type { InitiativeEntry, RestHitDice, RestKind, State, Tempo } from '../../engine';
 import { Icon } from '../../icons/Icon';
 import { SIZES } from '../../styles/tokens.generated';
-import { HarptosCalendar } from './HarptosCalendar';
+import { HarptosCalendar, RestForm } from '../../lazyParts';
 import { shortHarptos } from './helpers';
 import { BTN, SKY_ICON, VIEW_ICON, VIEW_LABEL, VIEW_TITLE, type DeskView } from './styles';
 

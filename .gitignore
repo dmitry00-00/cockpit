@@ -15,3 +15,5 @@ maps/gis/
 maps/ocr/
 maps/world/
 maps/llm/
+maps/plans/
+maptool/*.mtlib

@@ -2,26 +2,27 @@
 // Великое колесо или Великое древо космологии, схема течений и карточка плана — что есть у уровня. Корешки и
 // карточка страницы лежат поверх слева. Ключ — уровень и фокус: переход — одна анимация приближения на 200 мс.
 // Вид (глобус или карта, колесо или древо) держит страница: он переживает смену вида главной зоны.
-import type { ReactNode } from 'react';
-import { eraOf, harptos } from '../../campaign';
+import { useState, type ReactNode } from 'react';
+import { eraOf, harptos, tensionsAt, type InfluenceMarks, type Tension } from '../../campaign';
 import { SCALE_LABELS, placeEntityType } from '../../components';
 import { SCALE_LEVELS, SECONDS_PER_DAY, jumpTo, selectPlace, type Ladder, type Location, type State } from '../../engine';
-import { FlowGraph } from '../../cosmos/FlowGraph';
-import { GreatWheel } from '../../cosmos/GreatWheel';
+// Схемы космоса — ленивыми кусками (ROADMAP 0.5): нужны только на уровнях системы, плана и космологии.
+import { FlowGraph, GreatWheel, PlanetGlobe, Planetarium, WorldMap, WorldTree } from '../../lazyParts';
 import { PlaneInfo } from '../../cosmos/PlaneInfo';
-import { Planetarium } from '../../cosmos/Planetarium';
 import { PHLOGISTON, sphereByName } from '../../cosmos/phlogiston';
 import { COSMOLOGY_NAMES, planeOfLocation } from '../../cosmos/planes';
 import { useRealms } from '../../cosmos/realms';
 import { REALMSPACE } from '../../cosmos/realmspace';
-import { WorldTree } from '../../cosmos/WorldTree';
 import { exploredOf } from '../../map/fog';
 import type { GazetteerPlace } from '../../map/gazetteer';
-import { Globe } from '../../map/Globe';
 import { HEX_MILES, type LevelMap } from '../../map/levelMap';
-import { PLANET_MASKS, mapToLonLat, subsolarLon } from '../../map/planet';
-import type { TerrainGrid } from '../../map/terrain';
-import { WorldMap, type JourneyProps, type MapPinItem, type NewPlaceDraft, type TravelRoute } from '../../map/WorldMap';
+import { PLANET_MASK_IDS } from '../../map/maps';
+import { placeDangerOf, regionWeatherOf } from '../../campaign/mapLayers';
+import type { RoadGrid, TerrainGrid } from '../../map/terrain';
+import type { MapSchema } from '../../map/schema';
+import type { MapPoint, MapView } from '../../map/projection';
+import type { UnderdarkRegion } from '../../map/underdark';
+import type { JourneyProps, MapPinItem, NewPlaceDraft, TravelRoute } from '../../map/WorldMap';
 import { Icon } from '../../icons/Icon';
 import { BTN, BTN_TOGGLE } from './styles';
 
@@ -41,6 +42,10 @@ export interface LevelZoneProps {
   /** Карта уровня — её считает страница: поход и данные карты нужны ей самой. */
   map: LevelMap | undefined;
   terrain: TerrainGrid | null;
+  roads: RoadGrid | null;
+  /** Векторная схема карты (M16): есть — карта открывается схемой. */
+  schema: MapSchema | null;
+  underdark: readonly UnderdarkRegion[] | undefined;
   gazetteer: readonly GazetteerPlace[] | undefined;
   /** Линза года канона (ROADMAP Х3): события года у мест справочника и выход из линзы; только мастеру. */
   lens?: { year: number; marks: ReadonlyMap<string, readonly string[]>; onClear: () => void };
@@ -48,6 +53,8 @@ export interface LevelZoneProps {
   onScene?: (placeId: string) => void;
   planetView: 'globe' | 'map';
   onPlanetView: (v: 'globe' | 'map') => void;
+  /** Поселение с планом (M10): план или карта мира — переключатель, состояние экрана. */
+  onCityView?: (v: 'plan' | 'map') => void;
   cosmologyView: 'wheel' | 'tree';
   onCosmologyView: (v: 'wheel' | 'tree') => void;
   /** Поход A5E; нет — данные похода ещё грузятся (ROADMAP 0.5), панель регионов не рисуется. */
@@ -57,17 +64,29 @@ export interface LevelZoneProps {
   onPin: (id: string) => void;
   /** Новое место щелчком по карте (M8) — только мастеру: черновик и место фокуса, куда оно встанет. */
   onNewPlace?: (draft: NewPlaceDraft, parent: Location) => void;
+  /** Напряжения (Д3): значок на пине места — только мастеру. */
+  tensions?: readonly Tension[] | null;
+  /** Слой влияния (7.4): базы фракций кампании и места напряжений — только мастеру. */
+  influence?: InfluenceMarks;
   /** Корешки «Здесь», державы, противники. */
   stacks: ReactNode;
   /** Карточка в слоте: в бою — только по кнопке. */
   card: ReactNode;
 }
 
+/** Напряжения места с пином кампании уже на пине — слой влияния их не повторяет (базы фракций остаются). */
+function influenceWithoutPins(m: InfluenceMarks, places: readonly Location[]): InfluenceMarks {
+  const pinned = new Set(places.flatMap(l => (l.ref?.startsWith('place:') ? [l.ref.slice(6)] : [])));
+  return { bases: m.bases, tensions: new Map([...m.tensions].filter(([id]) => !pinned.has(id))) };
+}
+
 export function LevelZone({
-  state, events, ladder, focus, here, dmView, combat, cardInCombat, counts, pendingIds, map, terrain, gazetteer, lens, onScene,
-  planetView, onPlanetView, cosmologyView, onCosmologyView, journey, onTravel, goLadder, onPin, onNewPlace, stacks, card,
+  state, events, ladder, focus, here, dmView, combat, cardInCombat, counts, pendingIds, map, terrain, roads, schema, underdark, gazetteer, lens, onScene,
+  planetView, onPlanetView, onCityView, cosmologyView, onCosmologyView, journey, onTravel, goLadder, onPin, onNewPlace, tensions, influence, stacks, card,
 }: LevelZoneProps) {
   const shownCard = !combat || cardInCombat ? card : null;
+  // Слой «Опасность» (6.4): веса встреч мест — секрет мастера, игрокам их нет.
+  const danger = dmView ? placeDangerOf(state) : undefined;
   const mapPins: MapPinItem[] = (map?.places ?? []).map(l => ({
     id: l.id,
     name: l.name,
@@ -82,6 +101,8 @@ export function LevelZone({
     facts: Object.values(state.facts)
       .filter(f => f.subjectId === l.id && (dmView || f.visibility === 'players'))
       .map(f => ({ id: f.id, text: f.text, secret: f.visibility !== 'players' })),
+    ...(danger?.get(l.id) ? { encounters: danger.get(l.id) } : {}),
+    ...(dmView && tensions ? { tensions: tensionsAt(tensions, { locationId: l.id, ...(l.ref?.startsWith('place:') ? { placeId: l.ref.slice(6) } : {}) }).map(t => t.title) } : {}),
   }));
   // Ждущие новые места (M8) — пины симуляции: место ещё не в мире, только в предложении; щелчок по ним никуда не ведёт.
   const proposed: MapPinItem[] = dmView && map ? Object.values(state.deltas).flatMap(d => {
@@ -99,8 +120,12 @@ export function LevelZone({
     : [];
   const mapFog = map ? { explored: exploredOf(state, events, map.passport), forced: !dmView } : undefined;
   // Уровень планеты — глобус по маске (§10), если у карты она есть; плоская карта — переключателем.
-  const planetMask = map && ladder.level === 'planet' ? PLANET_MASKS[map.passport.id] : undefined;
-  const globeOn = planetMask !== undefined && planetView === 'globe';
+  const hasGlobe = !!map && ladder.level === 'planet' && PLANET_MASK_IDS.has(map.passport.id);
+  const globeOn = hasGlobe && planetView === 'globe';
+  // Колесо между глобусом и плоской картой планеты (M16): с глобуса — карта в той же точке и с тем же градусом на экране,
+  // с целой карты дальше — глобус над её центром. Состояние вида, не событие.
+  const [mapStart, setMapStart] = useState<MapView | undefined>(undefined);
+  const [globeFocus, setGlobeFocus] = useState<MapPoint | undefined>(undefined);
   // Уровни без карты: система — планетарий (F4.3), план — схема течений флогистона (F4.2), если данные о них есть.
   const systemOn = ladder.level === 'system' && focus?.name === REALMSPACE.sphere.name;
   const planeSphere = ladder.level === 'plane' ? here.map(l => sphereByName(PHLOGISTON, l.name)).find(Boolean) : undefined;
@@ -116,31 +141,29 @@ export function LevelZone({
     const place = here.find(l => l.name === name);
     if (place) goLadder(jumpTo(state, selectPlace(state, ladder, place.id), place.scale));
   };
-  const lonLat = (pt: { x: number; y: number }) => mapToLonLat(planetMask!, map!.passport, pt);
-  const partyLonLat = planetMask && map?.party ? lonLat(map.party) : undefined;
     return globeOn ? (
     <div key={`${ladder.level}:${focus?.id ?? ''}:globe`} data-part="level-zone" className="level-zoom flex-1 min-h-0 flex">
-      <Globe
-        mask={planetMask}
-        rot={partyLonLat?.lon ?? 0}
-        sun={subsolarLon(partyLonLat?.lon ?? 0, state.time.sec)}
-        markers={[
-          ...mapPins.map(p => ({ id: p.id, label: p.name, type: p.type, icon: p.icon, ...lonLat(p) })),
-          ...(partyLonLat ? [{ id: 'party', label: 'Партия', type: 'pc' as const, ...partyLonLat }] : []),
-        ]}
+      <PlanetGlobe
+        passport={map!.passport}
+        points={mapPins.map(p => ({ id: p.id, label: p.name, type: p.type, icon: p.icon, x: p.x, y: p.y }))}
+        party={map!.party}
+        sec={state.time.sec}
+        focusAt={globeFocus}
+        schema={schema}
+        onZoomIn={({ point, scale }) => { setMapStart({ ...point, scale }); onPlanetView('map'); }}
         onPick={hit => {
           const place = hit.region ? here.find(l => l.name === hit.label) : undefined;
           if (place) goLadder(jumpTo(state, selectPlace(state, ladder, place.id), place.scale));
         }}
-        tools={<button type="button" title="Плоская карта планеты" onClick={() => onPlanetView('map')} className={BTN}>Карта</button>}
+        tools={<button type="button" title="Плоская карта планеты" onClick={() => { setMapStart(undefined); onPlanetView('map'); }} className={BTN}>Карта</button>}
         className="flex-1 min-h-0"
       >
         {stacks}
         {shownCard}
-      </Globe>
+      </PlanetGlobe>
     </div>
     ) : map ? (
-    <div key={`${ladder.level}:${focus?.id ?? ''}`} data-part="level-zone" className="level-zoom flex-1 min-h-0 flex">
+    <div key={`${ladder.level}:${focus?.id ?? ''}${map.plan ? ':plan' : ''}`} data-part="level-zone" className="level-zoom flex-1 min-h-0 flex">
       <WorldMap
         tools={(
           <>
@@ -150,7 +173,12 @@ export function LevelZone({
                 <Icon name="cross" size={16} color="currentColor" title="Вернуть год кампании" />
               </button>
             ) : null}
-            {planetMask ? <button type="button" title="Глобус по маске планеты" onClick={() => onPlanetView('globe')} className={BTN}>Глобус</button> : null}
+            {hasGlobe ? <button type="button" title="Глобус по маске планеты" onClick={() => { setGlobeFocus(undefined); onPlanetView('globe'); }} className={BTN}>Глобус</button> : null}
+            {map.plan !== undefined && onCityView ? (
+              map.plan
+                ? <button type="button" title="Поселение на карте мира: окрестности, поход" onClick={() => onCityView('map')} className={BTN}>Карта мира</button>
+                : <button type="button" title="План города" onClick={() => onCityView('plan')} className={BTN}>План</button>
+            ) : null}
           </>
         )}
         passport={map.passport}
@@ -164,8 +192,18 @@ export function LevelZone({
         travel={dmView && !combat && map.party ? { from: map.party, onGo: onTravel, ...(journey ? { journey } : {}) } : undefined}
         fog={mapFog}
         terrain={terrain}
+        roads={roads}
+        schema={schema}
+        start={hasGlobe ? mapStart : undefined}
+        onZoomOut={hasGlobe ? v => { setGlobeFocus({ x: v.x, y: v.y }); onPlanetView('globe'); } : undefined}
+        underdark={underdark}
+        layers={journey ? {
+          ...(dmView ? { danger: { tier: journey.tier, onEncounter: journey.onEncounter } } : {}),
+          weather: { today: regionWeatherOf(events, state.time.sec, !dmView), ...(dmView && journey.onWeather ? { onRoll: journey.onWeather } : {}) },
+        } : undefined}
         gazetteer={dmView ? gazetteer : undefined}
         eventMarks={dmView && lens ? { year: lens.year, places: lens.marks } : undefined}
+        influence={dmView && influence ? influenceWithoutPins(influence, map?.places ?? []) : undefined}
         onScene={dmView ? onScene : undefined}
         className="flex-1 min-h-0"
       >

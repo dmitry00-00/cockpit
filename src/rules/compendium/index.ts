@@ -1,15 +1,20 @@
 // Загрузка компендиума из content/compendium/*.json (пишет scripts/import-compendium.py).
-import racesJson from '../../../content/compendium/races.json';
-import featsJson from '../../../content/compendium/feats.json';
-import classesJson from '../../../content/compendium/classes.json';
+// Ядро без текстов (ROADMAP 0.5): тексты умений, черт и черт рас догружает rules/texts.ts в эти же объекты. Ядро —
+// своими кусками вне основного (TASKS Q18): await на верхнем уровне, модуль исполняется, когда они пришли.
 import type { CharacterClass, CompendiumMeta, Feat, Race, Source } from './schema';
+
+const [racesJson, featsJson, classesJson] = await Promise.all([
+  import('../../../content/compendium/races.json?split=core'),
+  import('../../../content/compendium/feats.json?split=core'),
+  import('../../../content/compendium/classes.json?split=core'),
+]).then(ms => ms.map(m => m.default));
 
 export * from './schema';
 
-export const RACES = racesJson.races as unknown as readonly Race[];
-export const FEATS = featsJson.feats as unknown as readonly Feat[];
-export const CLASSES = classesJson.classes as unknown as readonly CharacterClass[];
-export const COMPENDIUM_META = racesJson.meta as CompendiumMeta;
+export const RACES = (racesJson as { races: readonly Race[] }).races;
+export const FEATS = (featsJson as { feats: readonly Feat[] }).feats;
+export const CLASSES = (classesJson as { classes: readonly CharacterClass[] }).classes;
+export const COMPENDIUM_META = (racesJson as { meta: CompendiumMeta }).meta;
 
 /** Фильтр по источнику: «только SRD» — одна строка. */
 export const bySource = <T extends { source: Source }>(items: readonly T[], allowed: readonly Source[]) =>

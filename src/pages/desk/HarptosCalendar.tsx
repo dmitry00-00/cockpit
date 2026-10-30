@@ -4,9 +4,10 @@
 // событие: время двигает только шаг. Открывается из мини-циферблата полосы часов и стоит на вкладке «Время».
 // Святые дни богов (E4): отметка на дне, список дней месяца, «каждый месяц» и лунные одной строкой, ближайший — в
 // сводке; боги партии (с листов, E8), Faerûn или все пантеоны — переключатель вида. Имя бога открывает его карточку, если стол дал вход.
+// «Перейти к этому дню» (Д5): у мастера будущий день и праздник — кнопкой, шаг времени днями до него (симуляция предлагает).
 import { useState } from 'react';
 import {
-  DAYS_PER_YEAR, HOLY_DEITIES, MONTHS, SEASON_LABELS, TENDAY, dayPhase, eraOf, festivalAfter, harptos, holyDaysOn, holyList, holyRulesAt, holyWhat, inHolyScope,
+  HOLY_DEITIES, MONTHS, SEASON_LABELS, SHIELDMEET, TENDAY, dayPhase, daysInYear, eraOf, festivalsAfter, harptos, holyDaysOn, holyList, holyRulesAt, holyWhat, inHolyScope,
   inDays, isAnnual, monthBefore, monthDays, moonState, nextFestival, nextHolyDay, seasonOf, yearSlots, type HolyDay, type HolyScope, type MonthName,
 } from '../../campaign';
 import { useOpenEntity } from '../../components/openEntity';
@@ -20,6 +21,8 @@ export interface HarptosCalendarProps {
   sec: number;
   /** Боги с листов партии (E8): их святые дни — переключателем «партия», он же по умолчанию. */
   partyDeities?: ReadonlySet<string>;
+  /** Нет — дни не кнопки (игрокам, во всплывающем календаре полосы часов). Аргумент — начало дня. */
+  onGoTo?: (daySec: number) => void;
   className?: string;
 }
 
@@ -54,7 +57,7 @@ const SKY_SWATCH: Readonly<Record<(typeof DAY_PHASES)[number], string>> = {
   morning: 'bg-sky-dawn', day: 'bg-sky-day', evening: 'bg-sky-dusk', night: 'bg-sky-night',
 };
 
-export function HarptosCalendar({ sec, partyDeities, className = '' }: HarptosCalendarProps) {
+export function HarptosCalendar({ sec, partyDeities, onGoTo, className = '' }: HarptosCalendarProps) {
   const now = harptos(sec);
   const phase = dayPhase(sec);
   const moon = moonState(sec);
@@ -93,8 +96,9 @@ export function HarptosCalendar({ sec, partyDeities, className = '' }: HarptosCa
       </span>
     ) : <span className="text-tx">{ids.map(([, n]) => n).join(', ')}</span>;
   };
-  const after = festivalAfter(shown.month);
-  const afterSec = after ? yearSlots(shown.year).find(s => s.festival === after)!.startSec : null;
+  // Праздники после месяца: за Flamerule в год Shieldmeet — два дня подряд.
+  const slots = yearSlots(shown.year);
+  const afterDays = festivalsAfter(shown.month, shown.year).map(f => ({ festival: f, sec: slots.find(x => x.festival === f)!.startSec }));
   const dayOfYear = Math.floor((today - yearSlots(now.year)[0].startSec) / SECONDS_PER_DAY) + 1;
 
   return (
@@ -122,7 +126,7 @@ export function HarptosCalendar({ sec, partyDeities, className = '' }: HarptosCa
               </>
             ) : null}
             <dt className="text-t2">Сезон</dt>
-            <dd className="text-tx">{SEASON_LABELS[seasonOf(sec)]} · день года <span className="type-num-12">{dayOfYear}/{DAYS_PER_YEAR}</span></dd>
+            <dd className="text-tx">{SEASON_LABELS[seasonOf(sec)]} · день года <span className="type-num-12">{dayOfYear}/{daysInYear(now.year)}</span></dd>
             <dt className="text-t2">Selûne</dt>
             <dd className="flex items-center gap-1 text-tx">
               <Icon name={MOON_ICONS[moon.phase]} size={16} color="var(--src-canon)" title={MOON_LABELS[moon.phase]} />
@@ -183,7 +187,11 @@ export function HarptosCalendar({ sec, partyDeities, className = '' }: HarptosCa
                       title={`${d.day} ${shown.month} ${shown.year} DR · ${MOON_LABELS[d.moon]}${holy.length ? ` · святой день: ${holyList(holy, 6)}` : ''}`}
                       className={`relative h-9 w-10 align-top px-1 pt-0.5 bg-cd ${on ? 'shadow-[var(--bevel),var(--glow-gold)]' : 'shadow-bevel'}`}
                     >
-                      <span className={`type-num-12 ${on ? 'text-gd-hi' : past ? 'text-t3' : 'text-tx'}`}>{d.day}</span>
+                      {onGoTo && d.sec > today ? (
+                        <button type="button" onClick={() => onGoTo(d.sec)} title={`Перейти к ${d.day} ${shown.month} ${shown.year} DR — шаг времени, ${inDays((d.sec - today) / SECONDS_PER_DAY)}`} className="absolute inset-0 text-left px-1 pt-0.5 type-num-12 text-tx cursor-pointer hover:text-gd-hi focus-visible:shadow-[var(--glow-gold)]">{d.day}</button>
+                      ) : (
+                        <span className={`type-num-12 ${on ? 'text-gd-hi' : past ? 'text-t3' : 'text-tx'}`}>{d.day}</span>
+                      )}
                       {holy.length ? (
                         <span className="absolute right-0 top-0 flex" data-holy={holy.length}>
                           <Icon name="ent-deity" size={16} color="var(--ent-deity)" title="Святой день" />
@@ -201,18 +209,22 @@ export function HarptosCalendar({ sec, partyDeities, className = '' }: HarptosCa
             ))}
           </tbody>
         </table>
-        {after && afterSec !== null ? (
+        {afterDays.map(({ festival: after, sec: afterSec }) => (
           <div
+            key={after}
             aria-current={afterSec === today ? 'date' : undefined}
             className={`flex items-center gap-2 px-2 py-1 bg-cd type-body-sm ${afterSec === today ? 'shadow-[var(--bevel),var(--glow-gold)] text-gd-hi' : 'shadow-bevel text-tx'}`}
             data-part="festival"
           >
             <Icon name="ent-event" size={16} color="var(--ent-event)" title="Праздник" />
             <span className="type-h-17">{after}</span>
-            <span className="text-t2">— праздник после {shown.month}, вне десятидневок</span>
+            <span className="text-t2">{after === SHIELDMEET ? '— раз в четыре года, после Midsummer' : `— праздник после ${shown.month}, вне десятидневок`}</span>
             {holyOf(afterSec).length ? <span className="text-t2" data-part="festival-holy">· святые дни: {gods(holyOf(afterSec))}</span> : null}
+            {onGoTo && afterSec > today ? (
+              <button type="button" onClick={() => onGoTo(afterSec)} title={`Перейти к ${after} — шаг времени, ${inDays((afterSec - today) / SECONDS_PER_DAY)}`} className={`${BTN} ml-auto`}>Перейти</button>
+            ) : null}
           </div>
-        ) : null}
+        ))}
         {holyMonth.length || repeats ? (
           <ul aria-label={`Святые дни: ${shown.month}`} className="flex flex-col gap-0.5 type-body-sm text-t2" data-part="holy">
             {holyMonth.map(({ d, holy }) => (

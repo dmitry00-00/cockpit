@@ -4,7 +4,6 @@
 import type { SceneCanon } from '../campaign/scene';
 import { loadGazetteer } from '../map/gazetteer';
 import { loadJourney } from '../rules/a5e/journey';
-import { eventsAbout, loadEvents } from './chronology';
 import { loadOrgMembers, loadOrganizations, loadPlaceFaiths, type Organization } from './organizations';
 import { loadResidents } from './people';
 
@@ -31,9 +30,11 @@ function indexes() {
 
 /** Справочник места карты `placeId` для сцены года `year`. */
 export async function loadSceneCanon(placeId: string, year: number): Promise<SceneCanon> {
+  // Хронология — своим куском (основной не больше 500 КБ).
+  const chrono = await import('./chronology');
   const [places, orgs, faiths, residents, idx, deities, events] = await Promise.all([
     loadGazetteer('toril'), loadOrganizations(), loadPlaceFaiths(), loadResidents(), indexes(), import('../cosmos/deities'),
-    loadEvents(year - SCENE_CANON_YEARS, year), loadJourney(),
+    chrono.loadEvents(year - SCENE_CANON_YEARS, year), loadJourney(),
   ]);
   const place = places.find(p => p.id === placeId);
   return {
@@ -45,6 +46,6 @@ export async function loadSceneCanon(placeId: string, year: number): Promise<Sce
     deityName: id => deities.deityById(id)?.name,
     ...(residents[placeId] ? { residents: residents[placeId] } : {}),
     orgsOf: id => idx.orgsOf.get(id) ?? [],
-    events: eventsAbout(events, `place:${placeId}`),
+    events: chrono.eventsAbout(events, `place:${placeId}`),
   };
 }

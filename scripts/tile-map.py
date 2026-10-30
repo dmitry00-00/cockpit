@@ -10,6 +10,7 @@
 #
 # Читает исходник через gdal_translate полосами по одному ряду тайлов: полосовой TIFF на 817 МБ так не
 # поднимается в память целиком (у Toril это 1,2 ГБ RGB). GDAL ищется в PATH, затем в Postgres.app.
+# Небольшие растры (планы городов, M10: WebP, PNG, JPEG — GDAL Postgres.app WebP не читает) режутся через Pillow в памяти.
 # Требуется Pillow с WebP: `zsh setup-python.command` ставит его в ./.venv.
 import json, math, os, shutil, subprocess, sys, tempfile
 from PIL import Image
@@ -21,6 +22,8 @@ GDAL_DIRS = ['/Applications/Postgres.app/Contents/Versions/latest/bin', '/opt/ho
 
 
 OPTIONAL = '--optional' in sys.argv
+# Форматы, которые читаются целиком через Pillow: растр в память помещается, GDAL не нужен.
+SMALL_FORMATS = ('.webp', '.png', '.jpg', '.jpeg')
 
 
 def die(msg):
@@ -57,7 +60,12 @@ def main(argv):
     if os.path.exists(done) and '--force' not in argv:
         print(f'тайлы уже нарезаны: {out} (--force — заново)')
         return
-    gt = gdal_translate()
+    small = os.path.splitext(src)[1].lower() in SMALL_FORMATS
+    if small:
+        whole = Image.open(src).convert('RGB')
+        if whole.size != (w, h):
+            die(f'исходник {whole.size[0]}×{whole.size[1]}, а в паспорте {w}×{h}')
+    gt = None if small else gdal_translate()
     quality = passport.get('quality', 82)
     count = 0
     with tempfile.TemporaryDirectory(prefix='tile-map-') as tmp:
@@ -71,9 +79,12 @@ def main(argv):
                 y0 = y * size * k
                 sh = min(size * k, h - y0)
                 oh = min(size, hz - y * size)
-                subprocess.run([gt, '-q', '-of', 'GTiff', '-srcwin', '0', str(y0), str(w), str(sh), '-outsize', str(wz), str(oh),
-                                '-r', 'average', src, strip_path], check=True)
-                strip = Image.open(strip_path).convert('RGB')
+                if small:
+                    strip = whole.crop((0, y0, w, y0 + sh)).resize((wz, oh), Image.Resampling.BOX)
+                else:
+                    subprocess.run([gt, '-q', '-of', 'GTiff', '-srcwin', '0', str(y0), str(w), str(sh), '-outsize', str(wz), str(oh),
+                                    '-r', 'average', src, strip_path], check=True)
+                    strip = Image.open(strip_path).convert('RGB')
                 for x in range(cols):
                     tw = min(size, wz - x * size)
                     strip.crop((x * size, 0, x * size + tw, oh)).save(os.path.join(out, str(z), f'{x}_{y}.webp'), 'WEBP', quality=quality, method=4)

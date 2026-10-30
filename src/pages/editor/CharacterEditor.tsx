@@ -1,7 +1,8 @@
 // Экран создания персонажа: карточка персонажа, которая заполняется по шагам. Слева — шаги (имя → раса → класс →
 // божество → характеристики → предыстория и навыки → умения класса → заклинания → снаряжение), у каждого — «осталось N»;
-// в середине — выбор текущего шага; справа — та же карточка, что на столе (EntityCard и секции листа), живая:
-// числа считает deriveDraft по черновику после каждого клика, несделанное видно в ней же как «осталось выбрать».
+// в середине — выбор текущего шага; справа — редактор-карточка по образцу владельца (EditorCard, 30.10.2026): имя,
+// раса, класс, point buy, предыстория и навыки правятся прямо на карте; переключатель «Лист» — та же карточка, что на
+// столе (EntityCard и секции листа), живая: числа считает deriveDraft по черновику после каждого клика.
 // Шаги идут по порядку, но всё обратимо: любой шаг открывается кликом, смена расы или класса сбрасывает только то,
 // что от них зависит. Что предлагать — из таблиц владельца (компендиум) и SRD (campaign/build.ts); ничего не вшито.
 // Результат — ACTOR_SPAWNED полным снимком (пишет страница); сам редактор событий не знает.
@@ -32,6 +33,7 @@ import { FEATS, type Feat } from '../../rules/compendium';
 import { CLASS_START } from '../../rules/srd/equipment';
 import { BTN, BTN_MAIN, Field, INPUT, LINK, Left, OPT, OPT_OFF, OPT_ON, Option, STEP, Section } from './parts';
 import { DeityStep } from './DeityStep';
+import { EditorCard } from './EditorCard';
 import type { Era } from '../../campaign/era';
 
 export interface CharacterEditorProps {
@@ -41,6 +43,8 @@ export interface CharacterEditorProps {
   onClose: () => void;
   /** Эпоха кампании — подписи богов в шаге «Божество»; по умолчанию 5e (1492 DR). */
   era?: Era;
+  /** Что справа при открытии: редактор-карточка (по умолчанию) или лист целиком. */
+  initialFace?: 'card' | 'sheet';
   className?: string;
 }
 
@@ -61,13 +65,14 @@ const ALIGNMENTS = [
 type StepId = 'name' | 'race' | 'class' | 'deity' | 'abilities' | 'skills' | 'features' | 'spells' | 'gear';
 interface Step { id: StepId; label: string; left: number }
 
-export function CharacterEditor({ takenIds, onCreate, onClose, era = '5e', className = '' }: CharacterEditorProps) {
+export function CharacterEditor({ takenIds, onCreate, onClose, era = '5e', initialFace = 'card', className = '' }: CharacterEditorProps) {
   const [draft, setDraft] = useState<Draft>(initialDraft);
   const [sources, setSources] = useState<Source[]>(['srd', 'book', 'hb']);
   const [raceQuery, setRaceQuery] = useState('');
   const [spellQuery, setSpellQuery] = useState('');
   const [peek, setPeek] = useState<string | null>(null);
   const [step, setStep] = useState<StepId>('name');
+  const [face, setFace] = useState<'card' | 'sheet'>(initialFace);
   const patch = (p: Partial<Draft>) => setDraft(d => ({ ...d, ...p }));
 
   const race = raceById(draft.raceId);
@@ -658,7 +663,26 @@ export function CharacterEditor({ takenIds, onCreate, onClose, era = '5e', class
         </div>
 
         <aside aria-label="Лист" className="min-h-0 flex flex-col bg-pn" data-part="sheet">
-          {card}
+          <div role="tablist" aria-label="Вид справа" className="flex-none grid grid-cols-2 bg-bg shadow-[inset_0_-2px_0_var(--br)]">
+            {([['card', 'Карта', 'Редактор-карточка: правка прямо на карте'], ['sheet', 'Лист', 'Лист целиком, как на столе']] as const).map(([f, label, title]) => (
+              <button key={f} type="button" role="tab" aria-selected={face === f} title={title} onClick={() => setFace(f)} className={`py-1 type-key uppercase cursor-pointer focus-visible:shadow-[var(--glow-gold)] ${face === f ? 'text-gd-hi bg-cd shadow-[inset_0_-2px_0_var(--gd)]' : 'text-t2 hover:text-tx'}`}>{label}</button>
+            ))}
+          </div>
+          {face === 'card' ? (
+            <div className="min-h-0 flex-1 overflow-y-auto flex justify-center p-2">
+              <EditorCard
+                draft={draft}
+                setDraft={setDraft}
+                derived={derived}
+                races={races}
+                classes={classes}
+                backgrounds={backgrounds}
+                skillChoice={skillChoice}
+                bgSkills={bgSkills}
+                asiLabel={r => asiLabel(r.asi, r.asiChoice) || 'бонусы у подрас'}
+              />
+            </div>
+          ) : card}
         </aside>
       </div>
 

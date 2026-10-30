@@ -3,10 +3,11 @@
 // фокусировки и инструменты; стартовое снаряжение классов — обязательное и выборы «(a) … or (b) …» с текстом SRD
 // дословно; владение оружием по классу; известные заговоры и заклинания по уровням; умения с выбором (избранный
 // враг, исследователь природы, предок дракона). Имена — английские, как в SRD (по ним ищут в книгах).
-import raw from '../../../content/srd/equipment.json';
 import type { AbilityId } from './abilities';
 import type { ArmorId } from './armor';
 import type { SrdClassId } from './classes';
+
+const raw = (await import('../../../content/srd/equipment.json')).default;
 
 export type ItemKind = 'weapon' | 'armor' | 'shield' | 'pack' | 'tool' | 'focus' | 'gear';
 

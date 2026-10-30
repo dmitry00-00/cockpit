@@ -1,7 +1,7 @@
 // Лестница масштабов и её уровни: карта мира, справочник мест, глобус, космос.
 import { act, fireEvent, screen, waitFor, within } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { secOf, seedState } from '../../campaign';
+import { referenceFactionDelta, secOf, seedState } from '../../campaign';
 import { createEngineStore, memoryStore, type DomainEvent } from '../../engine';
 import { loadGazetteer } from '../../map/gazetteer';
 import {
@@ -63,6 +63,24 @@ describe('лестница масштабов', () => {
     for (const lvl of ['plane', 'system', 'planet', 'continent', 'region', 'settlement', 'building']) { down(); expect(currentStep()).toBe(lvl); }
     expect(cardOf('Южные ворота')).toBeInTheDocument();
     expect(store.getState().events.length).toBe(before); // навигация — не событие
+  });
+
+  it('план города (M10): поселение Neverwinter — тайлы плана, линейка в футах; «Карта мира» — Toril с походом, «План» — обратно; событий нет', () => {
+    const { store } = mount();
+    const before = store.getState().events.length;
+    down();
+    const map = () => screen.getByRole('application', { name: /^Карта / });
+    expect(map()).toHaveAccessibleName('Карта Neverwinter');
+    expect(map().querySelector('img[src^="/maps/tiles/neverwinter/"]')).not.toBeNull();
+    expect(map().querySelector('[data-part="scale-bar"]')).toHaveTextContent(/футов$/);
+    expect(screen.queryByRole('button', { name: 'Поход' })).toBeNull();
+    const toolbar = () => screen.getByRole('toolbar', { name: 'Карта' });
+    fireEvent.click(within(toolbar()).getByRole('button', { name: 'Карта мира' }));
+    expect(map()).toHaveAccessibleName('Карта Toril');
+    expect(within(toolbar()).getByRole('button', { name: 'Поход' })).toBeInTheDocument();
+    fireEvent.click(within(toolbar()).getByRole('button', { name: 'План' }));
+    expect(map()).toHaveAccessibleName('Карта Neverwinter');
+    expect(store.getState().events.length).toBe(before);
   });
 
   it('крошка — прыжок на уровень с сохранением пути; «Здесь» — выбор места: подрегион занимает уровень региона, `[` и `]` возвращают к нему', () => {
@@ -142,6 +160,23 @@ describe('лестница масштабов', () => {
     expect(enclave.querySelector('[data-part="org-campaign"]')).toHaveTextContent('В кампанииEmerald Enclaveизвестность партии 0');
   // Карточка организации — кусок мира по требованию: под полным прогоном импорт дольше пяти секунд.
   }, 20000);
+
+  it('держава (TASKS К): Silverymoon — фракцией кампании, в «Державах» и с карточкой по вики; союзник Luruar — «В кампанию фракцией» тем же путём', async () => {
+    const { store } = mount();
+    const add = referenceFactionDelta(store.getState().state, 'kingdom', { id: 'silverymoon', name: 'Silverymoon' });
+    act(() => { store.getState().propose(add); store.getState().accept(add.id); });
+    fireEvent.click(stepOf('continent'));
+    fireEvent.click(within(screen.getByRole('group', { name: 'Державы' })).getByRole('button', { name: /Silverymoon/ }));
+    fireEvent.click(within(cardOf('Silverymoon')).getByRole('button', { name: 'Silverymoon' }));
+    const realm = await screen.findByRole('region', { name: 'Silverymoon' }, { timeout: 10000 });
+    await waitFor(() => expect(realm.querySelector('[data-part="org-campaign"]')).toHaveTextContent('В кампанииSilverymoonизвестность партии 0'), { timeout: 10000 });
+    fireEvent.click(within(realm).getByRole('button', { name: /^Союзники/ }));
+    fireEvent.click(within(within(realm).getByRole('list', { name: 'Союзники' })).getByRole('button', { name: /Luruar/ }));
+    const luruar = await screen.findByRole('region', { name: /Luruar/ }, { timeout: 10000 });
+    fireEvent.click(await within(luruar).findByRole('button', { name: 'В кампанию фракцией' }));
+    expect(lastEvent(store)).toMatchObject({ type: 'WORLD_DELTA_PROPOSED', payload: { delta: { causeId: 'kingdom:luruar', patch: { faction: { ref: 'kingdom:luruar' } } } } });
+  // Державы — кусок мира по требованию, как организации.
+  }, 30000);
 
   it('бой — ступень лестницы: «Начать бой» ведёт на неё (сетка), `[` поднимает к зданию при живой полосе, `]` возвращает сетку; конец боя уводит со ступени, отмена конца — обратно', () => {
     const { store } = mount();
@@ -263,7 +298,7 @@ describe('карта мира (27.10.2026)', () => {
     expect(store.getState().events.length).toBe(before);
   });
 
-  it('поход к Old Owl Well: время на дни пути вперёд, PARTY_TRAVELED, запись в журнале; Ctrl+Z снимает поход', () => {
+  it('поход к Old Owl Well: время на дни пути вперёд, PARTY_TRAVELED, припасы за дни пути; Ctrl+Z снимает припасы, потом поход', () => {
     const { store } = mount();
     const t0 = store.getState().state.time.sec;
     fireEvent.click(within(map()).getByRole('button', { name: 'Поход' }));
@@ -273,6 +308,9 @@ describe('карта мира (27.10.2026)', () => {
     expect(travel).toHaveLength(1);
     expect(travel[0].payload).toMatchObject({ fromId: 'loc-neverwinter', toId: 'loc-old-owl-well', map: 'toril', pace: 'normal' });
     expect(store.getState().state.time.sec).toBeGreaterThan(t0);
+    expect(store.getState().state.actors.bo.locationId).toBe('loc-old-owl-well');
+    expect(store.getState().events.at(-1)).toMatchObject({ type: 'SUPPLY_CHANGED', payload: { reason: 'eaten' } });
+    act(() => store.getState().undo());
     expect(store.getState().state.actors.bo.locationId).toBe('loc-old-owl-well');
     act(() => store.getState().undo());
     expect(store.getState().state.actors.bo.locationId).not.toBe('loc-old-owl-well');

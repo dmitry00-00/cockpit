@@ -29,5 +29,18 @@
     "url": "/maps/tiles/toril/terrain.png",
     "cell": 8,
     "note": "Местность по цвету растра: scripts/terrain-from-map.py (после tile-map.py), класс на клетку 8×8 px исходника."
+  },
+  "roads": {
+    "url": "/maps/tiles/toril/roads.png",
+    "cell": 4,
+    "note": "Дороги — пунктир растра по цвету: scripts/roads-from-map.py (после terrain-from-map.py), клетка 4×4 px исходника, 255 — дорога. Для региона похода Open Roads (ROADMAP 6.3)."
+  },
+  "schema": {
+    "url": "/maps/tiles/toril/schema.json",
+    "note": "Векторная схема (TASKS M16): scripts/schema-from-grids.py из terrain.png и roads.png — суша, регионы местности кольцами, дороги линиями; координаты — пиксели исходника."
+  },
+  "graph": {
+    "url": "/maps/tiles/toril/graph.json",
+    "note": "SIMULATION.md С2, scripts/graph-from-grids.py"
   }
 }

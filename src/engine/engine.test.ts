@@ -2,7 +2,7 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { EventLog } from './log';
 import { emptyState, type State } from './state';
-import { EVENT_TYPES, EVENT_META, TEMPO_SECONDS } from './events';
+import { EVENT_TYPES, EVENT_META, TEMPO_SECONDS, type PayloadByType } from './events';
 import { EngineError, apply } from './reduce';
 import { journalEntries, describe as describeEvent } from './journal';
 import { parseFormula, roll, d20Outcome } from './dice';
@@ -36,9 +36,14 @@ function seed(): State {
 }
 
 describe('список событий', () => {
-  it('13 из пакета плюс 8 по решению владельца 19.09.2026, 3 от 21.09.2026 и 2 от 27.10.2026; у каждого — обратимость и журнал', () => {
-    expect(EVENT_TYPES).toHaveLength(26);
-    expect(EVENT_TYPES.slice(13)).toEqual(['ENCOUNTER_STARTED', 'ENCOUNTER_ENDED', 'INITIATIVE_SET', 'CONCENTRATION_STARTED', 'CONCENTRATION_ENDED', 'ACTOR_SPAWNED', 'ACTOR_REMOVED', 'WORLD_DELTA_PROPOSED', 'REST_TAKEN', 'RESOURCE_SPENT', 'RESOURCE_RESTORED', 'PARTY_TRAVELED', 'PLACE_REVEALED']);
+  it('13 из пакета плюс 8 по решению владельца 19.09.2026, 3 от 21.09.2026, 2 от 27.10.2026 и 5 от 29.10.2026; у каждого — обратимость и журнал', () => {
+    expect(EVENT_TYPES).toHaveLength(31);
+    expect(EVENT_TYPES.slice(13)).toEqual(['ENCOUNTER_STARTED', 'ENCOUNTER_ENDED', 'INITIATIVE_SET', 'CONCENTRATION_STARTED', 'CONCENTRATION_ENDED', 'ACTOR_SPAWNED', 'ACTOR_REMOVED', 'WORLD_DELTA_PROPOSED', 'REST_TAKEN', 'RESOURCE_SPENT', 'RESOURCE_RESTORED', 'PARTY_TRAVELED', 'PLACE_REVEALED', 'SUPPLY_CHANGED', 'KNOWLEDGE_REVEALED', 'CHARACTER_LEVELED', 'SHEET_EDITED', 'TOKEN_MOVED']);
+    expect(EVENT_META.CHARACTER_LEVELED).toEqual({ reversible: true, journal: true });
+    expect(EVENT_META.SHEET_EDITED).toEqual({ reversible: true, journal: true });
+    expect(EVENT_META.TOKEN_MOVED).toEqual({ reversible: true, journal: true });
+    expect(EVENT_META.SUPPLY_CHANGED).toEqual({ reversible: true, journal: true });
+    expect(EVENT_META.KNOWLEDGE_REVEALED).toEqual({ reversible: true, journal: true });
     expect(EVENT_META.PARTY_TRAVELED).toEqual({ reversible: true, journal: true });
     expect(EVENT_META.PLACE_REVEALED).toEqual({ reversible: true, journal: true });
     expect(EVENT_META.REST_TAKEN).toEqual({ reversible: true, journal: true });
@@ -316,6 +321,93 @@ describe('поход и открытие места (решение владел
   });
 });
 
+describe('знание партии (KNOWLEDGE_REVEALED, решение владельца 29.10.2026)', () => {
+  let log: EventLog;
+  beforeEach(() => { log = new EventLog(seed(), [], fixed()); });
+  const reveal = (extra: Partial<PayloadByType['KNOWLEDGE_REVEALED']> = {}) =>
+    log.dispatch({ type: 'KNOWLEDGE_REVEALED', payload: { ref: 'deity:lathander', name: 'Lathander', fact: { label: 'Сфера', value: 'Dawn' }, ...extra } });
+
+  it('строка в тетради снимком: когда, кто, проверка; отмена убирает, повтор возвращает; журнал — игрокам', () => {
+    reveal({ by: 'bo', check: { skill: 'religion', dc: 15, total: 17 } });
+    expect(log.state.knowledge?.['deity:lathander']).toEqual({
+      ref: 'deity:lathander', name: 'Lathander', facts: [{ label: 'Сфера', value: 'Dawn', sec: log.state.time.sec, by: 'bo', check: { skill: 'religion', dc: 15, total: 17 } }],
+    });
+    reveal({ fact: { label: 'Символ', value: 'Sunrise' } });
+    expect(log.state.knowledge?.['deity:lathander'].facts.map(f => f.label)).toEqual(['Сфера', 'Символ']);
+    const entries = journalEntries(log.entries, log.state);
+    expect(entries.map(e => e.text)).toEqual([
+      'Партия узнала: Lathander — Сфера: Dawn · Bo Tambernack, Religion 17 против Сл 15',
+      'Партия узнала: Lathander — Символ: Sunrise · волей мастера',
+    ]);
+    expect(entries.every(e => e.origin === 'players' && !e.secret)).toBe(true);
+    log.undo();
+    log.undo();
+    expect(log.state.knowledge).toBeUndefined();
+    log.redo();
+    expect(log.state.knowledge?.['deity:lathander']).toMatchObject({ name: 'Lathander', facts: [{ label: 'Сфера' }] });
+  });
+
+  it('проверки: уже знают; неудача не открывает; нет актёра, навыка, ссылки; не прошедшее в лог не попадает', () => {
+    reveal();
+    expect(() => reveal()).toThrow(/уже знает/);
+    expect(() => reveal({ fact: { label: 'Символ', value: 'S' }, check: { skill: 'religion', dc: 15, total: 12 } })).toThrow(/12 против Сл 15 — факт не открыт/);
+    expect(() => reveal({ fact: { label: 'Символ', value: 'S' }, by: 'nobody' })).toThrow(/нет актёра/);
+    expect(() => reveal({ fact: { label: 'Символ', value: 'S' }, check: { skill: 'cooking', dc: 10, total: 12 } as never })).toThrow(/нет навыка/);
+    expect(() => reveal({ ref: 'nonsense' as never })).toThrow(/не ссылка/);
+    expect(() => reveal({ fact: { label: 'Символ', value: ' ' } })).toThrow(EngineError);
+    expect(log.entries.filter(e => e.type === 'KNOWLEDGE_REVEALED')).toHaveLength(1);
+  });
+});
+
+describe('припасы партии (решение владельца 29.10.2026)', () => {
+  let log: EventLog;
+  beforeEach(() => { log = new EventLog(seed(), [], fixed()); });
+  const supply = (reason: 'bought' | 'foraged' | 'found' | 'eaten' | 'lost', amount: number, shortfall?: number) =>
+    log.dispatch({ type: 'SUPPLY_CHANGED', payload: shortfall ? { reason, amount, shortfall } : { reason, amount } });
+
+  it('общий запас: прибавка и трата по причине, нет поля — ноль; отмена и повтор точны; журнал — остаток из следа', () => {
+    expect(log.state.supply).toBeUndefined();
+    supply('bought', 10);
+    supply('eaten', 4);
+    supply('lost', 1);
+    expect(log.state.supply).toBe(5);
+    log.undo();
+    expect(log.state.supply).toBe(6);
+    log.redo();
+    expect(log.state.supply).toBe(5);
+    const texts = journalEntries(log.entries, log.state).map(e => e.text);
+    expect(texts).toContain('Припасы +10, куплено (осталось 10)');
+    expect(texts).toContain('Припасы −4, съедено (осталось 6)');
+    expect(journalEntries(log.entries, log.state)[0].scale).toBe('region');
+  });
+
+  it('нехватка: съедено сколько было, «не хватило» — в том же событии, и при пустом мешке тоже', () => {
+    supply('bought', 2);
+    supply('eaten', 2, 2);
+    supply('eaten', 0, 4);
+    expect(log.state.supply).toBe(0);
+    const last = journalEntries(log.entries, log.state).find(e => e.text.startsWith('Припасы −0'));
+    expect(last?.text).toBe('Припасы −0, съедено (осталось 0) · не хватило 4: без Supply на длинном отдыхе — уровень усталости (A5E)');
+  });
+
+  it('проверки: не больше, чем есть; целое больше нуля; «не хватило» — только у съеденного; не прошедшее в лог не попадает', () => {
+    supply('bought', 3);
+    expect(() => supply('lost', 4)).toThrow(/припасов 3, а списывается 4/);
+    expect(() => supply('bought', 0)).toThrow(EngineError);
+    expect(() => supply('bought', 1.5)).toThrow(EngineError);
+    expect(() => supply('found', 1, 2)).toThrow(/только у съеденного/);
+    expect(() => log.dispatch({ type: 'SUPPLY_CHANGED', payload: { reason: 'stolen', amount: 1 } as never })).toThrow(/нет такой причины/);
+    expect(log.entries.filter(e => e.type === 'SUPPLY_CHANGED')).toHaveLength(1);
+  });
+
+  it('реплей лога с припасами даёт то же состояние', () => {
+    supply('bought', 7);
+    supply('eaten', 3, 1);
+    log.undo();
+    expect(new EventLog(seed(), log.entries, fixed()).state).toEqual(log.state);
+  });
+});
+
 describe('ресурсы персонажа (решение владельца 21.09.2026)', () => {
   let log: EventLog;
   beforeEach(() => { log = new EventLog(seed(), [], fixed()); });
@@ -528,12 +620,42 @@ describe('журнал — проекция', () => {
       RESOURCE_SPENT: { actorId: 'bo', resourceId: 'slot-1', amount: 1, max: 4 }, RESOURCE_RESTORED: { actorId: 'bo', resourceId: 'ki', amount: 2, max: 5 },
       PARTY_TRAVELED: { toId: 'nw', map: 'toril', points: [{ x: 0, y: 0 }, { x: 1, y: 1 }], miles: 1, pace: 'normal', days: 0.1 },
       PLACE_REVEALED: { locationId: 'nw' },
+      SUPPLY_CHANGED: { reason: 'eaten', amount: 2, shortfall: 2 },
+      KNOWLEDGE_REVEALED: { ref: 'organization:zhentarim', name: 'Zhentarim', fact: { label: 'Девиз', value: 'x' } },
+      CHARACTER_LEVELED: { actorId: 'bo', sheet: { level: 6 }, hpMax: 50, ac: 15, passivePerception: 12, hp: { method: 'average', value: 6 }, gained: [] },
+      SHEET_EDITED: { actorId: 'bo', patch: { alignment: 'Н' }, reason: 'игрок' },
+      TOKEN_MOVED: { actorId: 'bo', to: { x: 3, y: 4 }, source: 'maptool' },
     };
     for (const t of EVENT_TYPES) {
       const text = describeEvent({ id: 'x', seq: 0, at: 0, worldSec: 0, type: t, payload: samples[t] as never }, s);
       expect(text.length, t).toBeGreaterThan(3);
       expect(text).not.toMatch(/\p{Extended_Pictographic}/u);
     }
+  });
+});
+
+describe('TOKEN_MOVED — ход токена (Q17)', () => {
+  it('клетка ставится, первый ход берёт «откуда» у MapTool, отмена возвращает прежнюю', () => {
+    const st = createEngineStore(seed(), { ...fixed() });
+    st.getState().moveToken('korrin', { x: 4, y: 3 }, 'maptool', { x: 2, y: 2 });
+    expect(st.getState().state.actors.korrin.cell).toEqual({ x: 4, y: 3 });
+    st.getState().moveToken('korrin', { x: -1, y: 3 }, 'dm');
+    expect(st.getState().state.actors.korrin.cell).toEqual({ x: -1, y: 3 });
+    const j = journalEntries(st.getState().events, st.getState().state);
+    expect(j.map(e => e.text)).toEqual(['Korrin Battlehammer: клетка (2, 2) → (4, 3) · MapTool', 'Korrin Battlehammer: клетка (4, 3) → (-1, 3)']);
+    st.getState().undo();
+    expect(st.getState().state.actors.korrin.cell).toEqual({ x: 4, y: 3 });
+    // Первый ход знал «откуда» только со слов MapTool — отмена ставит токен туда, где он стоял в MapTool.
+    st.getState().undo();
+    expect(st.getState().state.actors.korrin.cell).toEqual({ x: 2, y: 2 });
+  });
+  it('нет актёра, дробная клетка, чужой источник и ход на ту же клетку — ошибка', () => {
+    const log = new EventLog(seed(), [], fixed());
+    expect(() => log.dispatch({ type: 'TOKEN_MOVED', payload: { actorId: 'nobody', to: { x: 1, y: 1 }, source: 'maptool' } })).toThrow(/нет актёра/);
+    expect(() => log.dispatch({ type: 'TOKEN_MOVED', payload: { actorId: 'bo', to: { x: 1.5, y: 1 }, source: 'maptool' } })).toThrow(/пара целых/);
+    expect(() => log.dispatch({ type: 'TOKEN_MOVED', payload: { actorId: 'bo', to: { x: 1, y: 1 }, source: 'roll20' as never } })).toThrow(/источник/);
+    log.dispatch({ type: 'TOKEN_MOVED', payload: { actorId: 'bo', to: { x: 1, y: 1 }, source: 'maptool' } });
+    expect(() => log.dispatch({ type: 'TOKEN_MOVED', payload: { actorId: 'bo', to: { x: 1, y: 1 }, source: 'maptool' } })).toThrow(/уже на клетке/);
   });
 });
 

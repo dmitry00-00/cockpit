@@ -41,6 +41,12 @@ const FIXES = {
   'spider': m => { m.senses = 'darkvision 30 ft., passive Perception 10'; },
   // Swarm of Ravens: «Skills Perception +5», «Senses passive Perception 15».
   'swarm-of-ravens': m => { m.skills.perception = 5; },
+  // XP — по таблице Experience Points by Challenge Rating (SRD 5.1, «Challenge»): CR 1/4 — 50, 1/2 — 100, 1 — 200.
+  // API отдаёт половину у четырёх блоков (И4, research/generation-conversion.md, 30.10.2026).
+  'brass-dragon-wyrmling': m => { m.xp = 200; },
+  'deep-gnome-svirfneblin': m => { m.xp = 100; },
+  'dretch': m => { m.xp = 50; },
+  'riding-horse': m => { m.xp = 50; },
 };
 const SENSE_ORDER = ['blindsight', 'darkvision', 'tremorsense', 'truesight'];
 
@@ -142,10 +148,34 @@ function monsterOf(m) {
     traits: (m.special_abilities ?? []).map(actionOf),
     actions: (m.actions ?? []).map(actionOf),
     reactions: (m.reactions ?? []).map(actionOf),
-    // Легендарные действия драконов и прочих; вводный абзац («can take 3 legendary actions…») API в блоке не отдаёт.
-    ...(m.legendary_actions?.length ? { legendary: m.legendary_actions.map(actionOf) } : {}),
+    // Легендарные действия драконов и прочих; вводный абзац («can take 3 legendary actions…») API в блоке не отдаёт —
+    // он из Open5e (INTROS ниже). Из него стол берёт число действий и когда они возвращаются (Q13).
+    ...(m.legendary_actions?.length ? { legendaryIntro: introOf(m.index), legendary: m.legendary_actions.map(actionOf) } : {}),
     source: `SRD 5.1 (CC-BY-4.0) · ${API}/${m.index}`,
   };
+}
+
+/**
+ * Вводные абзацы легендарных действий SRD 5.1 — Open5e, документ wotc-srd, поле legendary_desc (тот же SRD 5.1,
+ * CC-BY-4.0): «The dragon can take 3 legendary actions, choosing from the options below. … The dragon regains spent
+ * legendary actions at the start of its turn.» Ключ — slug Open5e, он совпадает с index dnd5eapi, кроме форм вампира.
+ */
+const OPEN5E_SRD = 'https://api.open5e.com/v1/monsters/?document__slug=wotc-srd&limit=400&format=json';
+/** Три формы вампира в dnd5eapi — один блок Vampire в SRD 5.1 и Open5e. */
+const INTRO_SLUG = { 'vampire-bat': 'vampire', 'vampire-mist': 'vampire', 'vampire-vampire': 'vampire' };
+const INTROS = {};
+for (let url = OPEN5E_SRD; url;) {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Open5e wotc-srd: HTTP ${res.status}`);
+  const page = await res.json();
+  for (const c of page.results) if (c.legendary_desc) INTROS[c.slug] = c.legendary_desc;
+  url = page.next;
+}
+/** Блок с легендарными действиями без вводного абзаца — ошибка импорта: без него у стола нет числа действий. */
+function introOf(index) {
+  const intro = INTROS[INTRO_SLUG[index] ?? index];
+  if (!intro) throw new Error(`${index}: нет вводного абзаца легендарных действий в Open5e wotc-srd`);
+  return intro;
 }
 
 async function fetchMonster(index) {

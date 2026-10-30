@@ -48,4 +48,24 @@ describe('карта уровня', () => {
     for (const l of Object.values(s.world.locations)) delete l.geo;
     expect(levelMap(s, initialLadder(s))).toBeUndefined();
   });
+
+  it('поселение с планом (M10): Neverwinter — план города целиком рамкой; места на плане — пины; карта мира — переключателем', () => {
+    const ladder = jumpTo(state, selectPlace(state, initialLadder(state), LOCATION.neverwinter), 'settlement');
+    const m = levelMap(state, ladder)!;
+    expect(m.passport.id).toBe('neverwinter');
+    expect(m.passport.units).toBe('feet');
+    expect(m.frame).toEqual({ x0: 0, y0: 0, x1: 1440, y1: 1015 });
+    expect(m.plan).toBe(true);
+    // Партия стоит в Neverwinter без точки на плане — знака нет; Южные ворота без координат плана — не пин.
+    expect(m.party).toBeUndefined();
+    expect(m.places).toEqual([]);
+    const gate = { ...state.world.locations[LOCATION.southGate], geo: { map: 'neverwinter', x: 455, y: 905 } };
+    const withGate = { ...state, world: { ...state.world, locations: { ...state.world.locations, [gate.id]: gate } } };
+    expect(levelMap(withGate, ladder)!.places.map(l => l.id)).toEqual([LOCATION.southGate]);
+    const world = levelMap(state, ladder, { plan: false })!;
+    expect([world.passport.id, world.plan]).toEqual(['toril', false]);
+    // Регион и места без плана — как раньше, без переключателя.
+    expect(levelMap(state, initialLadder(state))!.plan).toBeUndefined();
+  });
 });
+

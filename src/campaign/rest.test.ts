@@ -58,3 +58,18 @@ describe('takeRest', () => {
     expect(store.getState().state.time.sec).toBe(t0 + 3600);
   });
 });
+
+describe('takeRest и припасы (29.10.2026)', () => {
+  const store = () => createEngineStore(seedState(), { persist: { load: () => seedLog(), save: () => {}, clear: () => {} } });
+
+  it('долгий отдых с припасами — по 1 на отдыхающего; короткий — ничего; пустой мешок — ничего (ночлег не из мешка)', () => {
+    const s = store();
+    expect(takeRest(s.getState(), 'long', ['bo', 'korrin']).supply).toBeNull();
+    s.getState().changeSupply('bought', 3);
+    expect(takeRest(s.getState(), 'short', ['bo', 'korrin']).supply).toBeNull();
+    const long = takeRest(s.getState(), 'long', ['bo', 'korrin', 'lyra', 'aldric']);
+    expect(long.supply?.payload).toEqual({ reason: 'eaten', amount: 3, shortfall: 1 });
+    expect(s.getState().state.supply).toBe(0);
+    expect(s.getState().events.slice(-3).map(e => e.type)).toEqual(['TIME_ADVANCED', 'REST_TAKEN', 'SUPPLY_CHANGED']);
+  });
+});

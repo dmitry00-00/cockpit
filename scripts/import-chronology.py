@@ -1,7 +1,8 @@
 # Хронология канона (DESIGN Д5, решение владельца 29.10.2026): статьи-годы Forgotten Realms Wiki («1479 DR», CC BY-SA 3.0)
 # → события по годам. Строки — английские, как в вики (решение владельца 29.10: «английские строки вики как есть»), без
 # сносок; к каждой — дата Харптоса, если вики её пишет («'''2 Mirtul:'''», «[[Hammer (month)|Hammer]]:»), вид раздела
-# ({{Yearbox/in-conflicts}} → conflicts), ссылки на сущности справочника (NPC, организации, места карты, божества) и
+# ({{Yearbox/in-conflicts}} → conflicts), ссылки на сущности справочника (NPC, организации, места карты, божества,
+# державы content/world/kingdoms.json — import-kingdoms.py идёт первым) и
 # источники-сноски. Своего не добавляем: нет даты — нет даты, нет ссылки — только заголовок статьи.
 #
 # Выход: content/chronology/index.json — годы (имя в Roll of years, эпоха, счётчики по видам), эпохи, куски;
@@ -129,11 +130,8 @@ def eras_of(years):
     return eras
 
 
-def main():
-    if len(sys.argv) != 2:
-        sys.exit('usage: import-chronology.py <dump.xml>')
-    pages, redirects = scan(sys.argv[1])
-    follow = pp.follower(redirects)
+def ref_resolver(follow):
+    """Ссылка вики → «вид:id» справочника (NPC, организация, божество, место карты, держава) или None."""
     place, deity = pp.place_resolver(follow), pp.deity_resolver(follow)
     person_of_title = {}
     for path in glob.glob(os.path.join(ROOT, 'content', 'world', 'people', '*.json')):
@@ -141,15 +139,33 @@ def main():
             person_of_title.update({p['title']: p['id'] for p in json.load(fh)['people']})
     with open(os.path.join(ROOT, 'content', 'world', 'organizations.json'), encoding='utf-8') as fh:
         org_of_title = {o['title']: o['id'] for o in json.load(fh)['organizations']}
+    # Державы (вид kingdom:, решение пользователя 30.10.2026) — последними: держава, которая уже место справочника карты
+    # (Cormyr, Waterdeep), остаётся place: — по нему линза года ставит пины и сцена берёт канон места; kingdom: получают
+    # ссылки, которые раньше не разрешались. Файла нет (import-kingdoms.py не запускался) — без держав.
+    kingdom_path = os.path.join(ROOT, 'content', 'world', 'kingdoms.json')
+    kingdom_of_title = {}
+    if os.path.exists(kingdom_path):
+        with open(kingdom_path, encoding='utf-8') as fh:
+            kingdom_of_title = {k['title']: k['id'] for k in json.load(fh)['kingdoms']}
 
     def ref_of(link):
         t = follow(link)
         for kind, of in (('person', lambda x: person_of_title.get(x)), ('organization', lambda x: org_of_title.get(x)),
-                         ('deity', deity), ('place', place)):
+                         ('deity', deity), ('place', place), ('kingdom', lambda x: kingdom_of_title.get(x))):
             hit = of(t) or of(link)
             if hit:
                 return f'{kind}:{hit}'
         return None
+
+    return ref_of
+
+
+def main():
+    if len(sys.argv) != 2:
+        sys.exit('usage: import-chronology.py <dump.xml>')
+    pages, redirects = scan(sys.argv[1])
+    follow = pp.follower(redirects)
+    ref_of = ref_resolver(follow)
 
     years, events = [], []
     for title, text in pages.items():

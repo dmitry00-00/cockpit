@@ -1,0 +1,23 @@
+{
+ "windows": 1296,
+ "lama_windows": 632,
+ "mask_px": 10312074,
+ "hint": {
+  "rivers": 16116,
+  "roads": 8633,
+  "borders": 9315
+ },
+ "post": {
+  "rivers": 83,
+  "roads": 105,
+  "borders": 0
+ },
+ "resumed_from": 6912,
+ "seconds": 2454,
+ "mask_share": 0.0251,
+ "remask": {
+  "restored_px": 20959809,
+  "mask_px": 10312074,
+  "seconds": 102
+ }
+}

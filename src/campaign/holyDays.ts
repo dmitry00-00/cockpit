@@ -2,10 +2,13 @@
 // (CC BY-SA 3.0) — праздник Харптоса, дата месяца, равноденствие и солнцестояние, дни каждого месяца, полнолуние и
 // новолуние. Разбор — scripts/import-deities.py, файл маленький (около 20 КБ) и едет в основном куске: календарь и
 // «Мир спокоен» читают его сразу. Редакция — по эпохе, как у полей бога: своя, потом старшие, новее — никогда.
-import raw from '../../content/cosmos/holy-days.json';
 import { DAYS_PER_YEAR, harptos, moonState, type FestivalName, type MonthName } from './calendar';
+/** Ближайший годовой святой день ищется на год вперёд — с днём Shieldmeet. */
+const SCAN_DAYS = DAYS_PER_YEAR + 1;
 import { EDITION_ORDER, type Era } from './era';
 import { SECONDS_PER_DAY, type State } from '../engine/state';
+
+const raw = (await import('../../content/cosmos/holy-days.json')).default;
 
 type Edition = '5eR' | '5e' | '4e' | '3e' | '2e' | '1e' | '';
 export type Solar = 'spring' | 'summer' | 'autumn' | 'winter';
@@ -110,7 +113,7 @@ export function nextHolyDayFor(sec: number, era: Era, partyDeities: ReadonlySet<
  */
 export function nextHolyDay(sec: number, era: Era, scope: HolyScope = 'faerun'): NextHolyDay | undefined {
   const today = Math.floor(sec / SECONDS_PER_DAY) * SECONDS_PER_DAY;
-  for (let i = 0; i < DAYS_PER_YEAR; i++) {
+  for (let i = 0; i < SCAN_DAYS; i++) {
     const day = today + i * SECONDS_PER_DAY;
     const holy = holyDaysOn(day, era, scope).filter(h => isAnnual(h.rule));
     if (holy.length) return { sec: day, days: i, holy };

@@ -5,8 +5,10 @@ import { castDraft, current, produce } from 'immer';
 import { EXHAUSTION_MAX_LEVEL, isConditionId } from '../rules/srd/conditions';
 import { RESOURCES, isResourceId } from '../rules/srd/resources';
 import { TRAVEL_PACES } from '../rules/srd/travel';
-import type { ConditionSnapshot, DomainEvent, Effect, EncounterSnapshot, HpSnapshot, InitiativeEntry, PayloadByType, RestSnapshot } from './events';
-import { GOODS, type Actor, type State, type WorldPatch } from './state';
+import { isSkillId } from '../rules/srd/abilities';
+import { isEntityRef, type EntityRef } from '../entities/ref';
+import { SUPPLY_REASONS, SUPPLY_SPENDS, type SheetPatch, type SheetSnapshot, type ConditionSnapshot, type DomainEvent, type Effect, type EncounterSnapshot, type HpSnapshot, type InitiativeEntry, type GridCell, type PayloadByType, type RestSnapshot } from './events';
+import { GOODS, type Actor, type KnownFact, type State, type WorldPatch } from './state';
 
 export class EngineError extends Error {
   constructor(message: string) {
@@ -295,11 +297,68 @@ export function validate(state: State, event: Pick<DomainEvent, 'type' | 'payloa
       if (!Number.isFinite(p.days) || p.days <= 0) throw new EngineError(`поход: дней пути больше нуля, получено ${p.days}`);
       return;
     }
+    case 'SUPPLY_CHANGED': {
+      const p = event.payload as PayloadByType['SUPPLY_CHANGED'];
+      if (!SUPPLY_REASONS.includes(p.reason)) throw new EngineError(`припасы: нет такой причины ${String(p.reason)}`);
+      const short = p.shortfall ?? 0;
+      if (!Number.isInteger(short) || short < 0) throw new EngineError(`припасы: «не хватило» — целое не меньше нуля, получено ${p.shortfall}`);
+      if (short > 0 && p.reason !== 'eaten') throw new EngineError('припасы: «не хватило» бывает только у съеденного');
+      if (!Number.isInteger(p.amount) || p.amount < 0 || (p.amount === 0 && short === 0)) throw new EngineError(`припасы: сколько — целое больше нуля, получено ${p.amount}`);
+      const have = state.supply ?? 0;
+      if (SUPPLY_SPENDS.has(p.reason) && p.amount > have) throw new EngineError(`припасов ${have}, а списывается ${p.amount}`);
+      return;
+    }
     case 'PLACE_REVEALED': {
       const p = event.payload as PayloadByType['PLACE_REVEALED'];
       const l = state.world.locations[p.locationId];
       if (!l) throw new EngineError(`нет места ${p.locationId}`);
       if (l.revealed) throw new EngineError(`${l.name} уже открыто игрокам`);
+      return;
+    }
+    case 'CHARACTER_LEVELED': {
+      const p = event.payload as PayloadByType['CHARACTER_LEVELED'];
+      const a = state.actors[p.actorId];
+      if (!a) throw new EngineError(`нет актёра ${p.actorId}`);
+      if (!a.sheet) throw new EngineError(`${a.name}: без листа уровень не поднять`);
+      if (p.sheet.level !== a.sheet.level + 1 || p.sheet.level > 20) throw new EngineError(`${a.name}: уровень ${a.sheet.level} → ${p.sheet.level} — повышение на один, не выше 20-го`);
+      if (p.sheet.classId !== a.sheet.classId || p.sheet.raceId !== a.sheet.raceId) throw new EngineError(`${a.name}: повышение не меняет класс и расу`);
+      if (!Number.isInteger(p.hpMax) || p.hpMax <= a.hp.max) throw new EngineError(`${a.name}: максимум хитов после повышения ${p.hpMax} — не больше прежнего ${a.hp.max}`);
+      if (!Number.isInteger(p.ac) || !Number.isInteger(p.passivePerception)) throw new EngineError(`${a.name}: AC и пассивное внимание — целые`);
+      return;
+    }
+    case 'SHEET_EDITED': {
+      const p = event.payload as PayloadByType['SHEET_EDITED'];
+      const a = state.actors[p.actorId];
+      if (!a) throw new EngineError(`нет актёра ${p.actorId}`);
+      if (!a.sheet) throw new EngineError(`${a.name}: листа нет — править нечего`);
+      if (!p.reason?.trim()) throw new EngineError('правка листа: нужна причина — она в журнале');
+      const keys = Object.keys(p.patch ?? {});
+      if (keys.length === 0 || keys.some(k => !SHEET_PATCH_KEYS.includes(k as keyof SheetPatch))) throw new EngineError(`правка листа: поля ${keys.join(', ') || 'нет'} — правятся только ${SHEET_PATCH_KEYS.join(', ')}`);
+      return;
+    }
+    case 'TOKEN_MOVED': {
+      const p = event.payload as PayloadByType['TOKEN_MOVED'];
+      const a = state.actors[p.actorId];
+      if (!a) throw new EngineError(`нет актёра ${p.actorId}`);
+      if (p.source !== 'maptool' && p.source !== 'dm') throw new EngineError(`ход токена: источник ${String(p.source)} — только maptool или dm`);
+      // Клетки MapTool бывают и отрицательными: карта зоны растёт во все стороны от начала.
+      const isCell = (c: unknown) => !!c && Number.isInteger((c as GridCell).x) && Number.isInteger((c as GridCell).y);
+      if (!isCell(p.to) || (p.from !== undefined && !isCell(p.from))) throw new EngineError(`${a.name}: клетка — пара целых x, y`);
+      if (a.cell && a.cell.x === p.to.x && a.cell.y === p.to.y) throw new EngineError(`${a.name}: уже на клетке (${p.to.x}, ${p.to.y})`);
+      return;
+    }
+    case 'KNOWLEDGE_REVEALED': {
+      const p = event.payload as PayloadByType['KNOWLEDGE_REVEALED'];
+      if (!isEntityRef(p.ref)) throw new EngineError(`знание: не ссылка ${String(p.ref)}`);
+      if (!p.name?.trim() || !p.fact?.label?.trim() || !p.fact.value?.trim()) throw new EngineError('знание: нужны имя сущности, строка и её значение');
+      if (state.knowledge?.[p.ref]?.facts.some(f => f.label === p.fact.label)) throw new EngineError(`${p.name}: «${p.fact.label}» партия уже знает`);
+      if (p.by !== undefined && !state.actors[p.by]) throw new EngineError(`знание: нет актёра ${p.by}`);
+      if (p.check) {
+        const c = p.check;
+        if (!isSkillId(c.skill)) throw new EngineError(`знание: нет навыка ${String(c.skill)}`);
+        if (!Number.isInteger(c.dc) || c.dc < 1 || !Number.isInteger(c.total)) throw new EngineError('знание: Сл и итог — целые числа');
+        if (c.total < c.dc) throw new EngineError(`проверка не прошла: ${c.total} против Сл ${c.dc} — факт не открыт`);
+      }
       return;
     }
     case 'DICE_ROLLED':
@@ -330,6 +389,13 @@ function checkPatch(state: State, patch: WorldPatch): void {
       if (!GOODS.includes(patch.goods)) throw new EngineError(`нет такого товара: ${String(patch.goods)}`);
       if (!Number.isFinite(patch.value) || patch.value <= -100) throw new EngineError(`надбавка к цене больше −100%, получено ${patch.value}`);
       return;
+    case 'stock':
+      if (!locations[patch.id]) throw missing('location', patch.id);
+      if (!GOODS.includes(patch.goods)) throw new EngineError(`нет такого товара: ${String(patch.goods)}`);
+      if (patch.value !== null && !(Number.isFinite(patch.value) && patch.value >= 0 && (patch.goods === 'food' || patch.value <= 10))) {
+        throw new EngineError(`запас — от 0 (еда — дней, остальное — до 10), получено ${patch.value}`);
+      }
+      return;
     case 'encounter':
       if (!locations[patch.id]) throw missing('location', patch.id);
       if (!patch.key.trim()) throw new EngineError('вес встречи без того, кто встречается');
@@ -356,6 +422,32 @@ function checkPatch(state: State, patch: WorldPatch): void {
     case 'removeFaction':
       if (!factions[patch.id]) throw missing('faction', patch.id);
       return;
+    case 'newThread': {
+      const t = patch.thread;
+      if (!t?.id || !t.name?.trim()) throw new EngineError('новая нить без id или имени');
+      if (threads[t.id]) throw new EngineError(`нить ${t.id} уже есть`);
+      return;
+    }
+    case 'removeThread':
+      if (!threads[patch.id]) throw missing('thread', patch.id);
+      return;
+    case 'process': {
+      const pr = patch.process;
+      if (!pr?.id || !pr.kind || !pr.name?.trim() || !pr.stage) throw new EngineError('процесс без id, вида, имени или стадии');
+      if (!Number.isFinite(pr.nextSec) || !Number.isFinite(pr.startedSec)) throw new EngineError(`процесс ${pr.id}: такт и начало — секунды`);
+      if (Object.values(pr.vars ?? {}).some(v => !Number.isFinite(v))) throw new EngineError(`процесс ${pr.id}: счётчики — числа`);
+      return;
+    }
+    case 'removeProcess':
+      if (!state.world.processes?.[patch.id]) throw missing('process', patch.id);
+      return;
+    case 'batch': {
+      // Части проверяются по порядку — каждая против мира после предыдущих: «завести процесс и сразу сдвинуть цены».
+      if (patch.patches.some(x => x.kind === 'batch')) throw new EngineError('составной патч внутри составного не ведётся');
+      let s = state;
+      for (const x of patch.patches) { checkPatch(s, x); s = produce(s, d => writePatch(d, x)); }
+      return;
+    }
   }
 }
 
@@ -371,12 +463,28 @@ function readPatch(state: State, patch: WorldPatch): WorldPatch {
     case 'thread': return { ...patch, status: threads[patch.id].status };
     case 'relation': return { ...patch, value: factions[patch.id].relations?.[patch.other] ?? 0 };
     case 'price': return { ...patch, value: locations[patch.id].prices?.[patch.goods] ?? 0 };
+    case 'stock': return { ...patch, value: locations[patch.id].stock?.[patch.goods] ?? null };
     case 'encounter': return { ...patch, value: locations[patch.id].encounters?.[patch.key] ?? 1 };
     // До нового места его не было — откат убирает его; убранное место возвращается целиком.
     case 'newLocation': return { kind: 'removeLocation', id: patch.location.id };
     case 'removeLocation': return { kind: 'newLocation', location: structuredClone(locations[patch.id]) };
     case 'newFaction': return { kind: 'removeFaction', id: patch.faction.id };
     case 'removeFaction': return { kind: 'newFaction', faction: structuredClone(factions[patch.id]) };
+    case 'newThread': return { kind: 'removeThread', id: patch.thread.id };
+    case 'removeThread': return { kind: 'newThread', thread: structuredClone(threads[patch.id]) };
+    case 'process': {
+      const was = state.world.processes?.[patch.process.id];
+      return was ? { kind: 'process', process: structuredClone(was) } : { kind: 'removeProcess', id: patch.process.id };
+    }
+    case 'removeProcess': return { kind: 'process', process: structuredClone(state.world.processes![patch.id]) };
+    case 'batch': {
+      // Снимок «было» — по ходу применения частей, откат — в обратном порядке: так возвращаются и поле, которое
+      // две части пишут подряд, и процесс, заведённый и сдвинутый одним принятием.
+      const back: WorldPatch[] = [];
+      let s = state;
+      for (const x of patch.patches) { back.unshift(readPatch(s, x)); s = produce(s, d => writePatch(d, x)); }
+      return { kind: 'batch', patches: back };
+    }
   }
 }
 
@@ -400,20 +508,38 @@ function writePatch(draft: State, patch: WorldPatch): void {
     case 'price': {
       const prices = { ...locations[patch.id].prices };
       if (patch.value === 0) delete prices[patch.goods]; else prices[patch.goods] = patch.value;
-      locations[patch.id].prices = prices;
+      // Пусто — поля нет, как до первой надбавки: откат возвращает запись точно.
+      if (Object.keys(prices).length) locations[patch.id].prices = prices; else delete locations[patch.id].prices;
+      return;
+    }
+    case 'stock': {
+      const stock = { ...locations[patch.id].stock };
+      if (patch.value === null) delete stock[patch.goods]; else stock[patch.goods] = patch.value;
+      if (Object.keys(stock).length) locations[patch.id].stock = stock; else delete locations[patch.id].stock;
       return;
     }
     case 'encounter': {
       const enc = { ...locations[patch.id].encounters };
       if (patch.value === 1) delete enc[patch.key]; else enc[patch.key] = patch.value;
-      locations[patch.id].encounters = enc;
+      if (Object.keys(enc).length) locations[patch.id].encounters = enc; else delete locations[patch.id].encounters;
       return;
     }
     case 'newLocation': locations[patch.location.id] = castDraft(structuredClone(patch.location)); return;
     case 'removeLocation': delete locations[patch.id]; return;
     case 'newFaction': factions[patch.faction.id] = castDraft(structuredClone(patch.faction)); return;
     case 'removeFaction': delete factions[patch.id]; return;
+    case 'newThread': threads[patch.thread.id] = castDraft(structuredClone(patch.thread)); return;
+    case 'removeThread': delete threads[patch.id]; return;
+    case 'process': (draft.world.processes ??= {})[patch.process.id] = castDraft(structuredClone(patch.process)); return;
+    case 'removeProcess': if (draft.world.processes) delete draft.world.processes[patch.id]; return;
+    case 'batch': for (const x of patch.patches) writePatch(draft, x); return;
   }
+}
+
+/** Патч мира вне лога: симуляция прогоняет такты процесса на рабочей копии (процессы видят свои же последствия). */
+export function applyWorldPatch(state: State, patch: WorldPatch): State {
+  checkPatch(state, patch);
+  return produce(state, d => writePatch(d, patch));
 }
 
 /** Применяет событие; для компенсаций — восстанавливает записанный след. */
@@ -551,10 +677,53 @@ export function apply(state: State, event: DomainEvent): { state: State; effect:
         effect = { kind: 'travel', actors };
         break;
       }
+      case 'SUPPLY_CHANGED': {
+        const p = event.payload as PayloadByType['SUPPLY_CHANGED'];
+        const before = state.supply ?? 0;
+        const after = SUPPLY_SPENDS.has(p.reason) ? before - p.amount : before + p.amount;
+        draft.supply = after;
+        effect = { kind: 'supply', before, after };
+        break;
+      }
       case 'PLACE_REVEALED': {
         const p = event.payload as PayloadByType['PLACE_REVEALED'];
         draft.world.locations[p.locationId].revealed = true;
         effect = { kind: 'place', locationId: p.locationId, before: false, after: true };
+        break;
+      }
+      case 'CHARACTER_LEVELED': {
+        const p = event.payload as PayloadByType['CHARACTER_LEVELED'];
+        const a = state.actors[p.actorId];
+        const before = sheetSnap(a);
+        // Прибавка к максимуму прибавляется и к нынешним хитам: персонаж не теряет хиты оттого, что вырос (правило стола).
+        const after: SheetSnapshot = { sheet: structuredClone(p.sheet), hp: { current: a.hp.current + (p.hpMax - a.hp.max), max: p.hpMax }, ac: p.ac, passivePerception: p.passivePerception };
+        putSheet(draft.actors[p.actorId], after);
+        effect = { kind: 'sheet', actorId: p.actorId, before, after };
+        break;
+      }
+      case 'SHEET_EDITED': {
+        const p = event.payload as PayloadByType['SHEET_EDITED'];
+        const a = state.actors[p.actorId];
+        const before = sheetSnap(a);
+        const after: SheetSnapshot = { ...before, sheet: { ...structuredClone(before.sheet), ...structuredClone(p.patch) } };
+        putSheet(draft.actors[p.actorId], after);
+        effect = { kind: 'sheet', actorId: p.actorId, before, after };
+        break;
+      }
+      case 'TOKEN_MOVED': {
+        const p = event.payload as PayloadByType['TOKEN_MOVED'];
+        // Откуда — со стола, если он знает клетку; иначе со слов MapTool (первый ход после расстановки сида).
+        const known = state.actors[p.actorId].cell ?? p.from;
+        const before = known ? { x: known.x, y: known.y } : undefined;
+        draft.actors[p.actorId].cell = { x: p.to.x, y: p.to.y };
+        effect = { kind: 'cell', actorId: p.actorId, before, after: { x: p.to.x, y: p.to.y } };
+        break;
+      }
+      case 'KNOWLEDGE_REVEALED': {
+        const p = event.payload as PayloadByType['KNOWLEDGE_REVEALED'];
+        const known: KnownFact = { label: p.fact.label, value: p.fact.value, sec: state.time.sec, ...(p.by ? { by: p.by } : {}), ...(p.check ? { check: { ...p.check } } : {}) };
+        putKnown(draft, p.ref, p.name, p.fact.label, known);
+        effect = { kind: 'knowledge', ref: p.ref, name: p.name, label: p.fact.label, before: null, after: known };
         break;
       }
       case 'DICE_ROLLED':
@@ -775,6 +944,9 @@ export function applyEffect(state: State, effect: Effect): State {
         }
         return;
       }
+      case 'supply':
+        draft.supply = effect.after;
+        return;
       case 'place': {
         const l = draft.world.locations[effect.locationId];
         if (!l) throw new EngineError(`нет места ${effect.locationId}`);
@@ -782,11 +954,49 @@ export function applyEffect(state: State, effect: Effect): State {
         else delete l.revealed;
         return;
       }
+      case 'knowledge':
+        putKnown(draft, effect.ref, effect.name, effect.label, effect.after);
+        return;
+      case 'sheet': {
+        const a = draft.actors[effect.actorId];
+        if (!a) throw new EngineError(`нет актёра ${effect.actorId}`);
+        putSheet(a, effect.after);
+        return;
+      }
+      case 'cell': {
+        const a = draft.actors[effect.actorId];
+        if (!a) throw new EngineError(`нет актёра ${effect.actorId}`);
+        if (effect.after) a.cell = { x: effect.after.x, y: effect.after.y };
+        else delete a.cell;
+        return;
+      }
       case 'note':
       case 'none':
         return;
     }
   });
+}
+
+const SHEET_PATCH_KEYS: readonly (keyof SheetPatch)[] = ['alignment', 'deity', 'bio'];
+
+const sheetSnap = (a: Actor): SheetSnapshot => ({ sheet: structuredClone(a.sheet!), hp: { current: a.hp.current, max: a.hp.max }, ac: a.ac, passivePerception: a.passivePerception });
+
+function putSheet(a: Actor, s: SheetSnapshot): void {
+  a.sheet = castDraft(structuredClone(s.sheet));
+  a.hp.current = s.hp.current;
+  a.hp.max = s.hp.max;
+  a.ac = s.ac;
+  a.passivePerception = s.passivePerception;
+}
+
+/** Строка тетради: положить, заменить или убрать (null); сущность без строк из тетради уходит. */
+function putKnown(draft: State, ref: EntityRef, name: string, label: string, fact: KnownFact | null): void {
+  const book = (draft.knowledge ??= {});
+  const entity = (book[ref] ??= { ref, name, facts: [] });
+  entity.facts = entity.facts.filter(f => f.label !== label);
+  if (fact) entity.facts.push(fact);
+  if (entity.facts.length === 0) delete book[ref];
+  if (Object.keys(book).length === 0) delete draft.knowledge;
 }
 
 /** След наоборот: after ↔ before. Для заметки и броска откатывать нечего — след тот же. */
@@ -811,6 +1021,10 @@ export function invert(effect: Effect): Effect {
     case 'resource': return { ...effect, before: effect.after, after: effect.before };
     case 'travel': return { ...effect, actors: effect.actors.map(t => ({ actorId: t.actorId, before: t.after, after: t.before })) };
     case 'place': return { ...effect, before: effect.after, after: effect.before };
+    case 'supply': return { ...effect, before: effect.after, after: effect.before };
+    case 'knowledge': return { ...effect, before: effect.after, after: effect.before };
+    case 'sheet': return { ...effect, before: effect.after, after: effect.before };
+    case 'cell': return { ...effect, before: effect.after, after: effect.before };
     case 'note':
     case 'none':
       return effect;

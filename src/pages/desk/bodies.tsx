@@ -8,16 +8,18 @@ import {
 import {
   ConditionChip, ResourcePips, StatTile, SCALE_LABELS, chipsOf, exhaustionCommand, signedMod, toggleCommand, SKILL_LABEL, SheetAttacks, IconGrid,
   classIcon, featureIcon, raceIcon, traitIcon, AbilityScores, DataPassport, PcHeader, SkillList, type PassportData, type PcHeaderData, SheetChoices,
-  SheetFeats, SheetSpells, GroupList, GOODS_LABEL, RELATION_LABEL, signed, OddsTable,
+  SheetFeats, SheetSpells, GroupList, GOODS_LABEL, RELATION_LABEL, signed, OddsTable, type IconGridItem,
 } from '../../components';
-import { GOODS, plural, type Actor, type Command, type Faction, type Location, type State } from '../../engine';
+import { GOODS, plural, type Actor, type Command, type Faction, type JournalEntry, type Location, type State } from '../../engine';
 import { ref, type EntityRef } from '../../entities';
 import { useEntity } from '../../entities/useEntity';
+import { useOpenEntity } from '../../components/openEntity';
+import { SPELLS } from '../../rules/srd/spells';
 import { useWikiPlace } from '../../world/useWikiPlace';
 import { Icon } from '../../icons/Icon';
-import { classById, raceById } from '../../rules/compendium';
+import { backgroundById, classById, raceById } from '../../rules/compendium';
 import { ABILITIES, ABILITY_IDS, MONSTERS, type AbilityId, type ConditionId, type MonsterAction, type SkillId } from '../../rules/srd';
-import { d20Formula, dmFactsAbout, playerFactsAbout } from './helpers';
+import { d20Formula, dmFactsAbout, playerFactsAbout, shortHarptos } from './helpers';
 import { ROLL_MODES, ROLL_MODE_LABEL, type RollMode } from '../../rules/srd/odds';
 import { BTN, OPT, OPT_OFF, OPT_ON } from './styles';
 
@@ -51,6 +53,71 @@ function traitRef(raceId: string, subraceId: string | undefined, traitId: string
   if (!race) return undefined;
   if (race.traits.some(t => t.id === traitId)) return ref('trait', raceId, traitId);
   return subraceId && race.subraces.find(s => s.id === subraceId)?.traits.some(t => t.id === traitId) ? ref('trait', raceId, subraceId, traitId) : undefined;
+}
+
+type Sheet = NonNullable<Actor['sheet']>;
+
+/** Умения класса листа пунктами ряда иконок: имя, уровень, текст из компендиума, ссылка. Общие у «Листа» и карты персонажа. */
+export function classFeatureItems(sheet: Sheet): IconGridItem[] {
+  return sheet.features.map(f => {
+    const text = featureText(sheet.classId, f.id, sheet.subclassId);
+    const r = featureRef(sheet.classId, f.id, sheet.subclassId);
+    return { key: `${f.level}:${f.id}`, icon: featureIcon(f.name, text), name: f.name, meta: `${f.level} ур.`, text, ...(r ? { ref: r } : {}) };
+  });
+}
+
+/** Черты расы листа пунктами ряда иконок. */
+export function raceTraitItems(sheet: Sheet): IconGridItem[] {
+  return sheet.traits.map(t => {
+    const trait = raceTrait(sheet.raceId, sheet.subraceId, t.id);
+    const r = traitRef(sheet.raceId, sheet.subraceId, t.id);
+    return { key: t.id, icon: trait ? traitIcon(trait.kind, trait.name, trait.text) : 'kind-other', name: t.name, text: trait?.text ?? '', ...(r ? { ref: r } : {}) };
+  });
+}
+
+/** Вкладка «Заклинания» карты персонажа: та же секция, что в «Листе», с подсказками вывода Сл и атаки. */
+export function PcSpells({ actor }: { actor: Actor }) {
+  const sheet = actor.sheet;
+  if (!sheet?.spellcasting) return null;
+  return <SheetSpells sheet={sheet} hint={`Сл ${hintOf(actor, 'spellDc')}\nатака ${hintOf(actor, 'spellAttack')}`} />;
+}
+
+/** Хроника персонажа — записи журнала, где он назван: последние сверху, не больше max. */
+export function chronicleOf(actor: Actor, entries: readonly JournalEntry[], max = 12): JournalEntry[] {
+  return entries.filter(e => !e.undone && !e.compensation && e.text.includes(actor.name)).slice(-max).reverse();
+}
+
+/**
+ * Вкладка «История» карты персонажа (образец владельца, 30.10.2026): предыстория листа с её навыками и хроника —
+ * записи журнала о нём. Черт характера на листе нет — их и здесь нет; пустая секция не показывается.
+ */
+export function PcLore({ actor, entries }: { actor: Actor; entries: readonly JournalEntry[] }) {
+  const bg = actor.sheet?.backgroundId ? backgroundById(actor.sheet.backgroundId) : undefined;
+  const chronicle = chronicleOf(actor, entries);
+  if (!bg && chronicle.length === 0) return null;
+  return (
+    <>
+      {bg ? (
+        <Section title="Предыстория">
+          <p className="type-body-sm text-gd">{bg.nameRu} <span className="text-t2">· {bg.name}</span></p>
+          <p className="type-body-xs text-t2">Навыки: {bg.skills.map(s => SKILL_LABEL[s]).join(', ')}</p>
+        </Section>
+      ) : null}
+      {chronicle.length > 0 ? (
+        <Section title="Хроника">
+          <ol className="flex flex-col gap-1" aria-label="Хроника персонажа">
+            {chronicle.map(e => (
+              <li key={e.id} className="flex gap-2">
+                <span aria-hidden className="flex-none mt-1 size-1.5 bg-gd" />
+                <span className="flex-none w-16 type-num-12 text-gd">{shortHarptos(e.worldSec)}</span>
+                <span className="type-body-xs text-t2 min-w-0">{e.text}</span>
+              </li>
+            ))}
+          </ol>
+        </Section>
+      ) : null}
+    </>
+  );
 }
 
 function Section({ title, right, children }: { title: string; right?: ReactNode; children: ReactNode }) {
@@ -91,9 +158,20 @@ export interface BodyProps {
   dmView: boolean;
 }
 
+/** Заклинание SRD по имени на чипе (концентрация, эффект) — для карточки; не нашлось — чип без входа. */
+const SPELL_BY_NAME: ReadonlyMap<string, string> = new Map(Object.values(SPELLS).map(s => [s.name.toLowerCase(), s.id]));
+
 function ChipsRow({ actor, worldSec, onCommand, dmView }: Pick<BodyProps, 'actor' | 'worldSec' | 'onCommand' | 'dmView'>) {
+  const openEntity = useOpenEntity();
   const chips = chipsOf(actor, worldSec);
   if (chips.length === 0) return null;
+  // Чип — вход в общую карточку (ROADMAP 0.3): состояние SRD — его карточка, концентрация и эффект — заклинание по имени.
+  const openOf = (id: ConditionId | 'concentration' | 'effect', label: string): (() => void) | undefined => {
+    if (!openEntity) return undefined;
+    if (id !== 'concentration' && id !== 'effect') return () => openEntity(ref('condition', id));
+    const spell = SPELL_BY_NAME.get(label.toLowerCase());
+    return spell ? () => openEntity(ref('spell', spell)) : undefined;
+  };
   // Снять можно состояние SRD и концентрацию (CONCENTRATION_ENDED, решение мастера); у эффектов события нет — данные сида.
   const removeOf = (id: ConditionId | 'concentration'): (() => void) => () => onCommand(
     id === 'concentration'
@@ -106,7 +184,7 @@ function ChipsRow({ actor, worldSec, onCommand, dmView }: Pick<BodyProps, 'actor
     <Section title="Состояния и эффекты">
       <div className="flex flex-wrap gap-1" data-part="chips">
         {chips.map(({ key, id, ...chip }) => (
-          <ConditionChip key={key} {...chip} onRemove={id === 'effect' || !dmView ? undefined : removeOf(id)} />
+          <ConditionChip key={key} {...chip} onRemove={id === 'effect' || !dmView ? undefined : removeOf(id)} onOpen={openOf(id, chip.label)} />
         ))}
       </div>
     </Section>
@@ -134,7 +212,7 @@ export function PcSkills({ actor, onRoll, columns = 2 }: Pick<BodyProps, 'actor'
 }
 
 /** Данные шапки листа: «Полурослик · Легконогий · Следопыт», мировоззрение, скорость, рост · вес · возраст. Чего нет — поля нет. */
-function pcHeaderData(sheet: NonNullable<Actor['sheet']>, deitySymbol?: string): PcHeaderData {
+export function pcHeaderData(sheet: NonNullable<Actor['sheet']>, deitySymbol?: string): PcHeaderData {
   const race = raceById(sheet.raceId);
   const sub = race?.subraces.find(x => x.id === sheet.subraceId);
   const cls = classById(sheet.classId);
@@ -212,7 +290,15 @@ export function PcOverview({ actor, worldSec, onRoll, onCommand, tools, dmView, 
   return (
     <>
       <PcHeader data={pcHeaderData(sheet, symbol)} name={actor.name} />
-      {dmView && passport ? <DataPassport passport={passport} /> : null}
+      {dmView && passport ? (
+        <DataPassport
+          passport={passport}
+          onFill={(field, value, reason) => onCommand({
+            type: 'SHEET_EDITED',
+            payload: { actorId: actor.id, reason, patch: field === 'alignment' ? { alignment: value } : { bio: { ...sheet.bio, [field]: field === 'age' ? Number(value) : value } } },
+          })}
+        />
+      ) : null}
       <AbilityScores
         abilities={view.abilities.map(a => ({ ...a, hint: `спасбросок ${hintOf(actor, `save:${a.id}`) ?? ''}` }))}
         right={tools}
@@ -226,28 +312,14 @@ export function PcOverview({ actor, worldSec, onRoll, onCommand, tools, dmView, 
       <ChipsRow actor={actor} worldSec={worldSec} onCommand={onCommand} dmView={dmView} />
       {sheet.features.length > 0 ? (
         <Section title={`Умения класса${cls ? ` · ${cls.nameRu}` : ''}`}>
-          <IconGrid
-            label="Умения класса"
-            items={sheet.features.map(f => {
-              const text = featureText(sheet.classId, f.id, sheet.subclassId);
-              const r = featureRef(sheet.classId, f.id, sheet.subclassId);
-              return { key: `${f.level}:${f.id}`, icon: featureIcon(f.name, text), name: f.name, meta: `${f.level} ур.`, text, ...(r ? { ref: r } : {}) };
-            })}
-          />
+          <IconGrid label="Умения класса" items={classFeatureItems(sheet)} />
         </Section>
       ) : null}
       <SheetChoices sheet={sheet} />
       <SheetFeats sheet={sheet} />
       {sheet.traits.length > 0 ? (
         <Section title="Черты расы">
-          <IconGrid
-            label="Черты расы"
-            items={sheet.traits.map(t => {
-              const trait = raceTrait(sheet.raceId, sheet.subraceId, t.id);
-              const r = traitRef(sheet.raceId, sheet.subraceId, t.id);
-              return { key: t.id, icon: trait ? traitIcon(trait.kind, trait.name, trait.text) : 'kind-other', name: t.name, text: trait?.text ?? '', ...(r ? { ref: r } : {}) };
-            })}
-          />
+          <IconGrid label="Черты расы" items={raceTraitItems(sheet)} />
         </Section>
       ) : null}
     </>
@@ -530,7 +602,7 @@ export function FactionOverview({ faction, factions, pending, onOpenEntity, onRe
       {faction.ref && onOpenEntity ? (
         <div className="flex items-baseline gap-3">
           <span className="type-num-12 uppercase text-t2 w-24 flex-none">По вики</span>
-          <TextLink title="Карточка организации: глава, база, боги, союзники и враги" onClick={() => onOpenEntity(faction.ref!)}>{faction.name}</TextLink>
+          <TextLink title={faction.ref.startsWith('kingdom:') ? 'Карточка державы: столица, правитель, вера, связи' : 'Карточка организации: глава, база, боги, союзники и враги'} onClick={() => onOpenEntity(faction.ref!)}>{faction.name}</TextLink>
         </div>
       ) : null}
       {relations.length > 0 ? (
@@ -554,7 +626,7 @@ export function FactionOverview({ faction, factions, pending, onOpenEntity, onRe
 }
 
 /**
- * Организация справочника и кампания (E10): уже фракция — её известность партии и ссылка на карточку фракции;
+ * Организация или держава справочника и кампания (E10, TASKS К): уже фракция — её известность партии и ссылка на карточку фракции;
  * нет — мастеру кнопка «В кампанию фракцией» (предложение во входящие). Игрокам — только известность.
  */
 export function OrgCampaignLine({ faction, dm, pendingAdd, onOpenFaction, onAdd }: {
@@ -577,7 +649,7 @@ export function OrgCampaignLine({ faction, dm, pendingAdd, onOpenFaction, onAdd 
   if (!dm) return null;
   return (
     <div className="flex items-center gap-2" data-part="org-campaign">
-      <button type="button" disabled={pendingAdd} onClick={onAdd} title="Предложить: организация становится фракцией кампании с известностью 0 — во входящие" className={BTN}>В кампанию фракцией</button>
+      <button type="button" disabled={pendingAdd} onClick={onAdd} title="Предложить: становится фракцией кампании с известностью 0 — во входящие" className={BTN}>В кампанию фракцией</button>
       {pendingAdd ? <span className="type-body-sm text-src-sim">ждёт решения</span> : null}
     </div>
   );

@@ -3,7 +3,7 @@
 // с меткой владения и характеристикой в скобках, «Владение +N» в шапке навыков. И паспорт данных: откуда лист
 // и чего в нём нет — одной моноширинной строкой, чтобы мастер видел, можно ли верить записи, до первого скролла.
 // Тупые: числа считает campaign/sheetView.ts, страница передаёт их пропсами; клик — бросок через onRoll.
-import type { ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
 import type { EntityRef } from '../entities/ref';
 import { Icon, type IconName } from '../icons/Icon';
 import { useOpenEntity } from './openEntity';
@@ -148,24 +148,53 @@ export interface PassportData {
   missing: readonly string[];
 }
 
+/** Поля паспорта, которые заполняются со слов игрока (SHEET_EDITED, Q20): подпись пробела → поле. */
+export type PassportField = 'alignment' | 'height' | 'weight' | 'age';
+const FILLABLE: Readonly<Record<string, readonly PassportField[]>> = {
+  'мировоззрение': ['alignment'], 'рост': ['height'], 'вес': ['weight'], 'возраст': ['age'], 'рост, вес, возраст': ['height', 'weight', 'age'],
+};
+const FIELD_LABEL: Readonly<Record<PassportField, string>> = { alignment: 'мировоззрение', height: 'рост', weight: 'вес', age: 'возраст' };
+const FIELD = 'h-6 px-1 type-body-sm text-tx bg-wl shadow-bevel-in focus-visible:shadow-[var(--bevel-in),var(--glow-gold)]';
+
 /**
  * Паспорт данных листа (только стол мастера): «сид кампании · раса книга · класс SRD · заклинаний 6» и тревога
- * «нет: мировоззрение» — словом «нет», а не одним цветом.
+ * «нет: мировоззрение» — словом «нет», а не одним цветом. С onFill пробел — кнопка: значение со слов игрока и причина,
+ * запись — правка листа в журнал (Q10).
  */
-export function DataPassport({ passport }: { passport: PassportData }) {
+export function DataPassport({ passport, onFill }: { passport: PassportData; onFill?: (field: PassportField, value: string, reason: string) => void }) {
   const all = [passport.origin, ...passport.parts];
+  const [field, setField] = useState<PassportField | null>(null);
+  const [value, setValue] = useState('');
+  const [reason, setReason] = useState('со слов игрока');
+  const fields = passport.missing.flatMap(m => FILLABLE[m] ?? []);
+  const rest = passport.missing.filter(m => !FILLABLE[m]);
+  const ok = value.trim() !== '' && reason.trim() !== '' && (field !== 'age' || /^\d+$/.test(value.trim()));
   return (
-    <p aria-label="Паспорт данных" data-part="passport" className="flex flex-wrap items-center gap-x-1.5 gap-y-0.5 type-key text-t2">
-      <Icon name="src-dm" size={16} color="var(--t2)" title="Откуда запись" />
-      {all.map((p, i) => (
-        <span key={p} className="whitespace-nowrap">{i > 0 ? <span aria-hidden className="text-t3">· </span> : null}{p}</span>
-      ))}
-      {passport.missing.length > 0 ? (
-        <span className="whitespace-nowrap text-fx-debuff-hi" title="Чего нет на листе: заполняется в редакторе или со слов игрока">
-          <span aria-hidden className="text-t3">· </span>нет: {passport.missing.join(', ')}
-        </span>
+    <div className="flex flex-col gap-1">
+      <p aria-label="Паспорт данных" data-part="passport" className="flex flex-wrap items-center gap-x-1.5 gap-y-0.5 type-key text-t2">
+        <Icon name="src-dm" size={16} color="var(--t2)" title="Откуда запись" />
+        {all.map((p, i) => (
+          <span key={p} className="whitespace-nowrap">{i > 0 ? <span aria-hidden className="text-t3">· </span> : null}{p}</span>
+        ))}
+        {passport.missing.length > 0 ? (
+          <span className="whitespace-nowrap text-fx-debuff-hi" title="Чего нет на листе: заполняется в редакторе или со слов игрока">
+            <span aria-hidden className="text-t3">· </span>нет:{' '}
+            {onFill ? fields.map((f, i) => (
+              <span key={f}>{i > 0 ? ', ' : ''}<button type="button" onClick={() => { setField(f); setValue(''); }} title={`Заполнить «${FIELD_LABEL[f]}» — правка листа с причиной в журнал`} className="underline decoration-t3 cursor-pointer hover:text-tx">{FIELD_LABEL[f]}</button></span>
+            )) : passport.missing.join(', ')}
+            {onFill && rest.length ? `${fields.length ? ', ' : ''}${rest.join(', ')}` : null}
+          </span>
+        ) : null}
+      </p>
+      {onFill && field ? (
+        <form aria-label={`Заполнить: ${FIELD_LABEL[field]}`} className="flex flex-wrap items-center gap-1.5" onSubmit={e => { e.preventDefault(); if (ok) { onFill(field, value.trim(), reason.trim()); setField(null); } }}>
+          <input aria-label={FIELD_LABEL[field]} value={value} onChange={e => setValue(e.target.value)} placeholder={FIELD_LABEL[field]} className={`${FIELD} w-40`} />
+          <input aria-label="Причина" value={reason} onChange={e => setReason(e.target.value)} className={`${FIELD} w-40`} />
+          <button type="submit" disabled={!ok} className="type-num-12 uppercase px-2 py-0.5 bg-cd shadow-bevel text-t2 cursor-pointer enabled:hover:text-tx disabled:opacity-(--op-disabled)">Записать</button>
+          <button type="button" onClick={() => setField(null)} className="type-num-12 uppercase px-2 py-0.5 bg-cd shadow-bevel text-t2 cursor-pointer hover:text-tx">Отмена</button>
+        </form>
       ) : null}
-    </p>
+    </div>
   );
 }
 

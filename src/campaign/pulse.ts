@@ -2,7 +2,7 @@
 // десятидневки вперёд (праздники, Selûne, святые дни богов партии, смена сезона, остывание нитей), фракции и их
 // отношения, индексы цен поселений по товарам, веса встреч. Значение, которое ждёт решения, идёт рядом с нынешним
 // (`pending`), а не вместо него: симуляция не выглядит свершившимся фактом (CLAUDE.md «Правила экрана»).
-import { GOODS, SECONDS_PER_DAY, type GoodsId, type Location, type State, type WorldPatch } from '../engine/state';
+import { GOODS, SRD_GOODS, SECONDS_PER_DAY, type GoodsId, type Location, type State, type WorldPatch } from '../engine/state';
 import { SEASON_LABELS, harptos, moonState, seasonOf } from './calendar';
 import { eraOf } from './era';
 import { holyDaysOn, holyList, isAnnual, partyDeitiesOf } from './holyDays';
@@ -102,6 +102,27 @@ export function priceRowOf(l: Location, patches: readonly WorldPatch[]): PulsePr
   return { id: l.id, name: l.name, all: { index: 100 + base, ...(pendingBase !== undefined ? { pending: 100 + pendingBase } : {}) }, goods };
 }
 
+/** Колонки таблицы цен: разделы SRD — всегда (их покупает партия), грузы торговли — если у кого-то своя цена или ждущая. */
+export const pricedGoods = (rows: readonly PulsePriceRow[]): GoodsId[] =>
+  GOODS.filter(g => (SRD_GOODS as readonly GoodsId[]).includes(g) || rows.some(r => r.goods[g].index !== r.all.index || r.goods[g].pending !== undefined));
+
+/** Веса встреч мест кампании и ждущие их изменения — для «Пульса» и слоя «Опасность» карты (ROADMAP 6.4). */
+export function encounterRowsOf(state: State): PulseEncounterRow[] {
+  const patches = pendingPatches(state);
+  return Object.values(state.world.locations).flatMap(l => {
+    const keys = new Set([
+      ...Object.keys(l.encounters ?? {}),
+      ...patches.flatMap(p => (p.kind === 'encounter' && p.id === l.id ? [p.key] : [])),
+    ]);
+    if (!keys.size) return [];
+    const entries = [...keys].sort().map(key => {
+      const p = patches.find(x => x.kind === 'encounter' && x.id === l.id && x.key === key);
+      return { key, weight: l.encounters?.[key] ?? 1, ...(p && p.kind === 'encounter' ? { pending: p.value } : {}) };
+    });
+    return [{ id: l.id, name: l.name, entries }];
+  });
+}
+
 export function pulseOf(state: State, days = PULSE_DAYS): Pulse {
   const patches = pendingPatches(state);
   const { factions, locations } = state.world;
@@ -119,18 +140,7 @@ export function pulseOf(state: State, days = PULSE_DAYS): Pulse {
 
   const prices: PulsePriceRow[] = Object.values(locations).filter(l => l.scale === 'settlement').map(l => priceRowOf(l, patches));
 
-  const encounters: PulseEncounterRow[] = Object.values(locations).flatMap(l => {
-    const keys = new Set([
-      ...Object.keys(l.encounters ?? {}),
-      ...patches.flatMap(p => (p.kind === 'encounter' && p.id === l.id ? [p.key] : [])),
-    ]);
-    if (!keys.size) return [];
-    const entries = [...keys].sort().map(key => {
-      const p = patches.find(x => x.kind === 'encounter' && x.id === l.id && x.key === key);
-      return { key, weight: l.encounters?.[key] ?? 1, ...(p && p.kind === 'encounter' ? { pending: p.value } : {}) };
-    });
-    return [{ id: l.id, name: l.name, entries }];
-  });
+  const encounters = encounterRowsOf(state);
 
   const gods = [...partyDeitiesOf(state)].map(([id, worshippers]) => {
     const name = state.party.map(a => state.actors[a]?.sheet?.deity).find(d => d?.id === id)?.name ?? id;

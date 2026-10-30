@@ -9,8 +9,8 @@ from collections import Counter
 # Цвет метки атласа → допустимые классы L1 (воды и болота — одним цветом, область и остров — тоже).
 COLOR = {
     'FF0000': {'settlement'}, 'FF8080': {'settlement'}, '6600CC': {'ruins'}, 'CC99FF': {'fortress'}, '9999FF': {'fortress'},
-    'FF8000': {'mountain', 'hills'}, '33CC33': {'forest'}, '58ACFA': {'lake', 'river', 'sea', 'swamp'},
-    'FFFFFF': {'region', 'island', 'hills', 'desert', 'pass'}, 'CCCCCC': {'region'},
+    'FF8000': {'mountain', 'hills'}, '33CC33': {'forest'}, '58ACFA': {'lake', 'river', 'sea', 'bay', 'reef', 'swamp'},
+    'FFFFFF': {'region', 'island', 'archipelago', 'peninsula', 'hills', 'desert', 'pass'}, 'CCCCCC': {'region'},
 }
 
 

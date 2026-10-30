@@ -2,8 +2,8 @@
 // выбывшие — нет), устойчивая сортировка по убыванию, свободные id и имена новичков, `count` штук одного блока.
 import { describe, expect, it } from 'vitest';
 import { createEngineStore } from '../engine';
-import { MONSTERS } from '../rules/srd/monsters';
-import { currentOrder, encounterCandidates, initiativeMod, nextActorId, sortInitiative, spawnMonsters, suggestMonsterName } from './encounter';
+import { MONSTERS, loadMonsterLibraries } from '../rules/srd/monsters';
+import { currentOrder, encounterCandidates, encounterMonsterId, initiativeMod, nextActorId, sortInitiative, spawnMonsters, suggestMonsterName } from './encounter';
 import { seedState } from './seed';
 
 describe('initiativeMod', () => {
@@ -75,5 +75,14 @@ describe('появление противников', () => {
     const [bandit] = spawnMonsters(store.getState().state, 'bandit', 'Bandit', 1);
     store.getState().spawn(bandit);
     expect(store.getState().state.actors['bandit-4']).toMatchObject({ name: 'Bandit', hp: { current: 11 } });
+  });
+});
+
+describe('встреча A5E → блок (ROADMAP 0.5, M15)', () => {
+  it('имя таблицы без регистра; сначала блок A5E, потом SRD; нет блока — undefined', async () => {
+    await loadMonsterLibraries();
+    expect(encounterMonsterId('Bandit captain')).toBe('a5e-bandit-captain');
+    expect(encounterMonsterId('Gelatinous cube')).toBe('a5e-gelatinous-cube');
+    expect(encounterMonsterId('Travel scenery')).toBeUndefined();
   });
 });

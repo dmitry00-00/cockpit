@@ -8,7 +8,9 @@
 // scripts/import-open5e-monsters.mjs; id с приставкой «bf-» и «a5e-», у блока origin. «Только SRD» — фильтр по origin.
 // С 28.10.2026 (ROADMAP 0.5) библиотеки грузятся отдельными кусками: в старте только SRD, Black Flag и A5E (2,2 МБ)
 // дописываются в те же MONSTERS, MONSTER_IDS и MONSTER_LIST после loadMonsterLibraries().
-import raw from '../../../content/srd/monsters.json';
+// В основном куске — блоки сида без текстов (ROADMAP 0.5): тексты догружает rules/texts.ts в эти же объекты, остальные
+// блоки SRD — loadSrdMonsters() целиком. Список блоков сида — в строке импорта (её читает плагин сборки) и в loadSrdMonsters.
+import raw from '../../../content/srd/monsters.json?split=core&ids=bandit,bandit-captain';
 import type { AbilityId, SkillId } from './abilities';
 
 export interface MonsterAttack {
@@ -62,6 +64,12 @@ export interface Monster {
   reactions: readonly MonsterAction[];
   /** Бонусные действия — у блоков Black Flag и A5E; в SRD 5.1 их нет. */
   bonusActions?: readonly MonsterAction[];
+  /**
+   * Вводный абзац легендарных действий дословно: сколько их, когда и когда они возвращаются («The dragon can take
+   * 3 legendary actions… regains spent legendary actions at the start of its turn»). Есть у каждого блока с legendary;
+   * число и правило полосы инициативы из него разбирает legendary.ts.
+   */
+  legendaryIntro?: string;
   /** Легендарные действия: имя со стоимостью «(Costs 2 Actions)». */
   legendary?: readonly MonsterAction[];
   /** Библиотека: SRD 5.1, Black Flag SRD, A5E SRD; нет поля — SRD. */
@@ -85,8 +93,9 @@ const DATA = raw as unknown as Library;
 const registry: Record<MonsterId, Monster> = { ...DATA.monsters };
 export const MONSTERS: Readonly<Record<MonsterId, Monster>> = registry;
 
-/** Блоки SRD 5.1 в порядке импортёра: сначала стартовые (люди и NPC, гоблиноиды, звери, ликантропы, нежить, великаны). */
-export const SRD_MONSTER_IDS: readonly MonsterId[] = Object.keys(DATA.monsters);
+/** Блоки SRD 5.1 в порядке импортёра (сначала стартовые: люди и NPC, гоблиноиды, звери…); до loadSrdMonsters() — только блоки сида. */
+const srdIds: MonsterId[] = Object.keys(DATA.monsters);
+export const SRD_MONSTER_IDS: readonly MonsterId[] = srdIds;
 
 /** Все загруженные блоки: SRD, затем Black Flag и A5E по имени — так же в списке «Добавить». */
 const ids: MonsterId[] = Object.keys(registry);
@@ -106,11 +115,31 @@ export interface MonsterLibrary { origin: Exclude<MonsterOrigin, 'srd'>; source:
 const libraries: MonsterLibrary[] = [];
 export const MONSTER_LIBRARIES: readonly MonsterLibrary[] = libraries;
 
+const relist = () => {
+  ids.splice(0, ids.length, ...srdIds, ...Object.keys(registry).filter(id => !srdIds.includes(id)));
+  list.splice(0, list.length, ...ids.map(id => registry[id]));
+};
+
+let srdLoading: Promise<void> | null = null;
+let srdLoaded = false;
+
+/** Догрузить остальные блоки SRD (с текстами) в реестр; повторный вызов — тот же промис. */
+export function loadSrdMonsters(): Promise<void> {
+  srdLoading ??= import('../../../content/srd/monsters.json?split=full&except=bandit,bandit-captain').then(m => {
+    const { monsters: rest, order } = m.default as Library & { order: MonsterId[] };
+    Object.assign(registry, rest);
+    srdIds.splice(0, srdIds.length, ...order);
+    relist();
+    srdLoaded = true;
+  });
+  return srdLoading;
+}
+
 let loading: Promise<void> | null = null;
 
-/** Догрузить Black Flag и A5E в реестр; повторный вызов — тот же промис. */
+/** Догрузить остальные блоки SRD, Black Flag и A5E в реестр; повторный вызов — тот же промис. */
 export function loadMonsterLibraries(): Promise<void> {
-  loading ??= Promise.all([
+  loading ??= loadSrdMonsters().then(() => Promise.all([
     import('../../../content/bf/monsters.json').then(m => ['bf', m.default] as const),
     import('../../../content/a5e/monsters.json').then(m => ['a5e', m.default] as const),
   ]).then(libs => {
@@ -119,17 +148,16 @@ export function loadMonsterLibraries(): Promise<void> {
       Object.assign(registry, lib.monsters);
       libraries.push({ origin, source: lib.source, fetchedAt: lib.fetchedAt, attribution: lib.attribution ?? '' });
     }
-    ids.splice(0, ids.length, ...Object.keys(registry));
-    list.splice(0, list.length, ...ids.map(id => registry[id]));
-  });
+    relist();
+  }));
   return loading;
 }
 
-export const monsterLibrariesLoaded = (): boolean => libraries.length > 0;
+export const monsterLibrariesLoaded = (): boolean => srdLoaded && libraries.length > 0;
 
-/** Блок из библиотеки, которая ещё не загружена: id с приставкой «bf-»/«a5e-», а в реестре его нет. */
+/** Блок, которого в реестре ещё нет: остальные SRD, Black Flag или A5E не загружены — стол подождёт их. */
 export const needsMonsterLibraries = (monsterIds: readonly (MonsterId | undefined)[]): boolean =>
-  monsterIds.some(id => id !== undefined && !Object.hasOwn(registry, id) && /^(bf|a5e)-/.test(id));
+  monsterIds.some(id => id !== undefined && !Object.hasOwn(registry, id));
 
 export function isMonsterId(value: string): value is MonsterId {
   return Object.hasOwn(MONSTERS, value);

@@ -3,8 +3,10 @@
 // дословно, на английском (имена — по ним ищут в книгах; русские имена — открытый вопрос владельцу). Списки классов —
 // поле classes; заклинания подклассов SRD (Life, Devotion, Land, Fiend) — subclassSpells с уровнем класса.
 // Здесь только форма и доступ: JSON руками не правится.
-import raw from '../../../content/srd/spells.json';
+// Ядро без текстов (ROADMAP 0.5): text и higherLevel догружает rules/texts.ts в эти же объекты.
 import type { SrdClassId } from './classes';
+
+const raw = (await import('../../../content/srd/spells.json?split=core')).default;
 
 export type SpellSchool =
   | 'abjuration' | 'conjuration' | 'divination' | 'enchantment' | 'evocation' | 'illusion' | 'necromancy' | 'transmutation';

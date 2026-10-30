@@ -2,10 +2,11 @@
 // компенсация наследует правило исходного события и читается как «Отменено: …». Нити, масштаб, секреты,
 // упоминания и каскады (шаг 7) — тоже проекция: считаются из лога и состояния при каждом чтении, в записи
 // ничего не хранится. Фильтр журнала — состояние вида, поэтому filterJournal — чистая функция над записями.
+import { SKILLS, type SkillId } from '../rules/srd/abilities';
 import { CONDITIONS } from '../rules/srd/conditions';
 import { RESOURCES } from '../rules/srd/resources';
 import { TRAVEL_PACES } from '../rules/srd/travel';
-import { EVENT_META, SCALE_LEVELS, TEMPO_SECONDS, type DomainEvent, type PayloadByType, type ScaleLevel, type Tempo } from './events';
+import { EVENT_META, SCALE_LEVELS, SUPPLY_SPENDS, TEMPO_SECONDS, type DomainEvent, type PayloadByType, type ScaleLevel, type SupplyReason, type Tempo } from './events';
 import type { Fact, State, WorldDelta } from './state';
 
 /** Кусок текста записи: обычный, @упоминание сущности (открывает карточку), #нить (фильтр). */
@@ -209,10 +210,59 @@ export function describe(event: DomainEvent, state: State): string {
       const p = event.payload as PayloadByType['PLACE_REVEALED'];
       return `Открыто игрокам: ${state.world.locations[p.locationId]?.name ?? p.locationId}`;
     }
+    case 'SUPPLY_CHANGED': {
+      const p = event.payload as PayloadByType['SUPPLY_CHANGED'];
+      // Остаток — из следа события, чтобы запись не зависела от текущего запаса.
+      const after = event.effect?.kind === 'supply' ? event.effect.after : undefined;
+      const sign = SUPPLY_SPENDS.has(p.reason) ? '−' : '+';
+      const short = p.shortfall ? ` · не хватило ${p.shortfall}: без Supply на длинном отдыхе — уровень усталости (A5E)` : '';
+      return `Припасы ${sign}${p.amount}, ${SUPPLY_REASON_LABEL[p.reason]}${after === undefined ? '' : ` (осталось ${after})`}${short}`;
+    }
+    case 'KNOWLEDGE_REVEALED': {
+      const p = event.payload as PayloadByType['KNOWLEDGE_REVEALED'];
+      return `Партия узнала: ${p.name} — ${p.fact.label}: ${p.fact.value} · ${knowledgeHow(p, name)}`;
+    }
+    case 'CHARACTER_LEVELED': {
+      const p = event.payload as PayloadByType['CHARACTER_LEVELED'];
+      const how = p.hp.method === 'roll' ? `бросок ${p.hp.value}` : `среднее ${p.hp.value}`;
+      return `${name(p.actorId)} — ${p.sheet.level}-й уровень: максимум хитов ${p.hpMax} (${how})${p.gained.length ? ` · ${p.gained.join(', ')}` : ''}`;
+    }
+    case 'SHEET_EDITED': {
+      const p = event.payload as PayloadByType['SHEET_EDITED'];
+      const fields = Object.entries(p.patch).map(([k, v]) => `${SHEET_FIELD_LABEL[k as keyof typeof SHEET_FIELD_LABEL] ?? k}: ${sheetValue(v)}`);
+      return `Лист ${name(p.actorId)}: ${fields.join(', ')} · причина: ${p.reason}`;
+    }
+    case 'TOKEN_MOVED': {
+      const p = event.payload as PayloadByType['TOKEN_MOVED'];
+      // Откуда — из следа: первый ход после расстановки сида знает только то, что сказал MapTool.
+      const before = event.effect?.kind === 'cell' ? event.effect.before : p.from;
+      const cell = (c: { x: number; y: number }) => `(${c.x}, ${c.y})`;
+      return `${name(p.actorId)}: клетка ${before ? `${cell(before)} → ` : ''}${cell(p.to)}${p.source === 'maptool' ? ' · MapTool' : ''}`;
+    }
   }
 }
 
+/** Поля паспорта листа словами журнала. */
+const SHEET_FIELD_LABEL = { alignment: 'мировоззрение', deity: 'божество', bio: 'рост, вес, возраст' } as const;
+function sheetValue(v: unknown): string {
+  if (v === undefined || v === null) return '—';
+  if (typeof v !== 'object') return String(v);
+  if ('name' in v) return String((v as { name: string }).name);
+  return Object.values(v as Record<string, unknown>).filter(x => x !== undefined && x !== '').join(', ') || '—';
+}
+
+/** Кто и как узнал: «Bo Tambernack, History 17 против Сл 15» или «волей мастера» — для журнала и тетради. */
+export function knowledgeHow(p: { by?: string; check?: { skill: SkillId; dc: number; total: number } }, name: (id: string) => string): string {
+  const who = p.by ? name(p.by) : 'партия';
+  return p.check ? `${who}, ${SKILLS[p.check.skill]?.name ?? p.check.skill} ${p.check.total} против Сл ${p.check.dc}` : `${p.by ? `${who}, ` : ''}волей мастера`;
+}
+
 const MILES: readonly [string, string, string] = ['миля', 'мили', 'миль'];
+
+/** Причины изменения припасов словами журнала и формы. */
+export const SUPPLY_REASON_LABEL: Readonly<Record<SupplyReason, string>> = {
+  bought: 'куплено', foraged: 'добыто в пути', found: 'найдено', eaten: 'съедено', lost: 'потеряно',
+};
 const DAYS: readonly [string, string, string] = ['день', 'дня', 'дней'];
 
 const HIT_DICE: readonly [string, string, string] = ['кость', 'кости', 'костей'];
@@ -242,7 +292,7 @@ export function undoneIds(events: readonly DomainEvent[]): Set<string> {
 /** События боя: внутри начатого боя их масштаб — «бой»; вне боя (урон в дороге, бросок у костра) масштаба нет. */
 const COMBAT_TYPES: ReadonlySet<DomainEvent['type']> = new Set([
   'DAMAGE_APPLIED', 'HEALING_APPLIED', 'TEMP_HP_GRANTED', 'CONDITION_ADDED', 'CONDITION_REMOVED', 'DICE_ROLLED',
-  'CONCENTRATION_STARTED', 'CONCENTRATION_ENDED', 'ACTOR_SPAWNED', 'ACTOR_REMOVED',
+  'CONCENTRATION_STARTED', 'CONCENTRATION_ENDED', 'ACTOR_SPAWNED', 'ACTOR_REMOVED', 'TOKEN_MOVED',
 ]);
 const ENCOUNTER_TYPES: ReadonlySet<DomainEvent['type']> = new Set(['ENCOUNTER_STARTED', 'ENCOUNTER_ENDED', 'INITIATIVE_SET', 'TURN_ADVANCED']);
 
@@ -320,8 +370,12 @@ export function journalEntries(events: readonly DomainEvent[], state: State): Jo
         break;
       }
       case 'PARTY_TRAVELED':
-        // Поход — дни пути по карте: уровень региона, как у темпа «день».
+      case 'SUPPLY_CHANGED':
+        // Поход — дни пути по карте: уровень региона, как у темпа «день»; припасы — его часть.
         entry.scale = 'region';
+        break;
+      case 'KNOWLEDGE_REVEALED':
+        entry.origin = 'players';
         break;
       case 'PLACE_REVEALED': {
         const p = e.payload as PayloadByType['PLACE_REVEALED'];

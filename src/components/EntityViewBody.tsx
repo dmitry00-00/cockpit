@@ -2,8 +2,8 @@
 // секциями — дословно, схема окрестности (служение бога), связи кнопками (щелчок открывает карточку связи), длинные
 // списки связей (жители места) — свёрнутыми группами с числом, источник с лицензией внизу. Тупой: представление и
 // колбэк — пропсами; тексты не переписываются и не переводятся.
-import { useState } from 'react';
-import type { EntityGroup, EntityKind, EntityView } from '../entities';
+import { useState, type ReactNode } from 'react';
+import type { EntityFact, EntityGroup, EntityKind, EntityView } from '../entities';
 import { Icon } from '../icons/Icon';
 import { NeighborhoodGraph } from './NeighborhoodGraph';
 import type { EntityType } from './EntityCard';
@@ -17,7 +17,8 @@ export function cardTypeOf(kind: EntityKind): EntityType {
     case 'body': return 'planet';
     case 'deity': case 'pantheon': return 'deity';
     case 'place': case 'location': return 'location';
-    case 'faction': case 'organization': return 'faction';
+    // Держава — грань фракции: она и станет фракцией кампании, когда мастер возьмёт её в игру.
+    case 'faction': case 'organization': case 'kingdom': return 'faction';
     case 'actor': case 'person': return 'npc';
     case 'thread': return 'event';
     default: return 'rule';
@@ -54,10 +55,12 @@ export interface EntityViewBodyProps {
   view: EntityView;
   /** Открыть связь; без колбэка связи — текстом. */
   onOpen?: (ref: EntityView['ref']) => void;
+  /** Что стоит у строки паспорта после значения: у мастера — «Узнать» или отметка, что игроки знают (Д6). */
+  factAction?: (fact: EntityFact) => ReactNode;
   className?: string;
 }
 
-export function EntityViewBody({ view, onOpen, className = '' }: EntityViewBodyProps) {
+export function EntityViewBody({ view, onOpen, factAction, className = '' }: EntityViewBodyProps) {
   return (
     <div className={`flex flex-col gap-3 ${className}`} data-ref={view.ref}>
       {view.subtitle ? <p className="type-body-sm text-t2">{view.subtitle}</p> : null}
@@ -67,7 +70,7 @@ export function EntityViewBody({ view, onOpen, className = '' }: EntityViewBodyP
           {view.facts.map(f => (
             <div key={f.label} className="contents">
               <dt className="text-t2">{f.label}</dt>
-              <dd className="text-tx break-words [overflow-wrap:anywhere]">{f.value}</dd>
+              <dd className="text-tx break-words [overflow-wrap:anywhere]">{f.value}{factAction?.(f)}</dd>
             </div>
           ))}
         </dl>

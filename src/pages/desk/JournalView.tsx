@@ -1,10 +1,12 @@
 // Вид «Журнал» главной зоны (F7): фильтр по нитям и уровням, заметка мастера, напоминания о секретах («открыть
 // игрокам?») и записи с каскадами по causeId. Заметка и напоминания — только мастеру. Пропсы — те же имена, что на
-// странице: компонент — перенос её разметки, состояние держит страница.
+// странице: компонент — перенос её разметки, состояние держит страница. Хроника по дням (Д5): записи под заголовком
+// дня мира; у мастера в прошлом дне — «Стол на этот день» (реплей лога до конца дня).
+import { formatHarptos } from '../../campaign';
 import type { Dispatch, RefObject, SetStateAction } from 'react';
 import { JournalCascade, JournalEntry, JournalReminder, ThreadFilter, toggleIn, type JournalEntryProps } from '../../components';
 import {
-  cascadeOf, journalScales, type EngineStoreApi, type JournalEntry as JournalRecord, type ScaleLevel, type State, type ThreadSummary,
+  SECONDS_PER_DAY, cascadeOf, dayOf, journalScales, type EngineStoreApi, type JournalEntry as JournalRecord, type ScaleLevel, type State, type ThreadSummary,
 } from '../../engine';
 import { Icon } from '../../icons/Icon';
 import { BTN } from './styles';
@@ -30,12 +32,17 @@ export interface JournalViewProps {
   setLaterFacts: Dispatch<SetStateAction<string[]>>;
   entryProps: (entry: JournalRecord) => JournalEntryProps;
   api: ReturnType<EngineStoreApi['getState']>;
+  /** Нет — кнопки «Стол на этот день» нет (игрокам и на самом столе прошлого дня). */
+  onViewPast?: (endSec: number) => void;
 }
 
 export function JournalView({
   mainRef, state, dmView, allEntries, filtered, threads, filterThreads, setFilterThreads, filterScales,
-  setFilterScales, noteDraft, setNoteDraft, noteForPlayers, setNoteForPlayers, addNote, reminders, setLaterFacts, entryProps, api,
+  setFilterScales, noteDraft, setNoteDraft, noteForPlayers, setNoteForPlayers, addNote, reminders, setLaterFacts, entryProps, api, onViewPast,
  }: JournalViewProps) {
+  const today = dayOf(state.time.sec);
+  const perDay = new Map<number, number>();
+  for (const e of filtered) perDay.set(dayOf(e.worldSec), (perDay.get(dayOf(e.worldSec)) ?? 0) + 1);
   return (
     <section aria-label="Журнал сессии" ref={mainRef} className="relative flex-1 min-w-0 min-h-0 flex flex-col">
       <div className="flex flex-col gap-2 px-4 pt-3 pb-2 shadow-[inset_0_-1px_0_var(--lo)]">
@@ -88,14 +95,25 @@ export function JournalView({
           />
         ))}
         <ol aria-label="Записи журнала сессии" className="flex flex-col">
-          {filtered.map(entry => {
+          {filtered.flatMap((entry, i) => {
             const cascade = cascadeOf(entry, allEntries, state);
-            return (
+            const day = dayOf(entry.worldSec);
+            const head = i === 0 || dayOf(filtered[i - 1].worldSec) !== day ? (
+              <li key={`day-${day}`} data-day={day} className="flex items-center gap-3 pt-3 pb-1 shadow-[inset_0_-1px_0_var(--lo)]">
+                <span className="type-h-15 text-tx">{formatHarptos(day * SECONDS_PER_DAY).replace(/,.*$/, '')}</span>
+                <span className="type-key text-t2">записей: {perDay.get(day)}</span>
+                {onViewPast && day < today ? (
+                  <button type="button" onClick={() => onViewPast((day + 1) * SECONDS_PER_DAY - 1)} className={`${BTN} ml-auto`} title="Стол, каким он был в конце этого дня: реплей журнала, только просмотр">Стол на этот день</button>
+                ) : null}
+              </li>
+            ) : null;
+            const row = (
               <li key={entry.id} data-undone={entry.undone || undefined} className="flex flex-col">
                 <JournalEntry {...entryProps(entry)} />
                 {cascade.length > 0 ? <JournalCascade steps={cascade} className="mb-2" /> : null}
               </li>
             );
+            return head ? [head, row] : [row];
           })}
         </ol>
       </div>

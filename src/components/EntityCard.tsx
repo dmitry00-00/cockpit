@@ -279,6 +279,7 @@ export type ActorCardProps = Pick<EntityCardProps, 'type' | 'name' | 'badges' | 
 export const TAB_OVERVIEW: EntityCardTab = { id: 'overview', label: 'Обзор', title: 'Характеристики, навыки, умения' };
 export const TAB_CONDITIONS: EntityCardTab = { id: 'conditions', label: 'Состояния', title: 'Состояния SRD; истощение — уровнями' };
 export const TAB_GEAR: EntityCardTab = { id: 'gear', label: 'Снаряжение', title: 'Экипировка' };
+export const TAB_PATH: EntityCardTab = { id: 'path', label: 'Путь', title: '20 уровней класса: что когда приходит; следующий уровень' };
 export const TAB_ACTIONS: EntityCardTab = { id: 'actions', label: 'Действия', title: 'Действия из блока SRD' };
 /** Место как сцена (Д2): что здесь в этот день — календарь, вера, силы, люди, рынок, округа, нити. */
 export const TAB_NOW: EntityCardTab = { id: 'now', label: 'Сейчас', title: 'Что здесь сейчас: день, вера, силы, люди, рынок, округа, нити' };
@@ -360,7 +361,7 @@ export function actorCardProps(actor: Actor, opts: ActorCardOptions = {}): Actor
     name: actor.name,
     badges,
     stats,
-    tabs: sheet ? [TAB_OVERVIEW, TAB_CONDITIONS, TAB_GEAR, ...dm] : [TAB_OVERVIEW, TAB_CONDITIONS, ...dm],
+    tabs: sheet ? [TAB_OVERVIEW, TAB_CONDITIONS, TAB_GEAR, TAB_PATH, ...dm] : [TAB_OVERVIEW, TAB_CONDITIONS, ...dm],
     origin: 'dm',
   };
 }

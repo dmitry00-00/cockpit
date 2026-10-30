@@ -1,8 +1,8 @@
 // Общая карточка по ссылке (ROADMAP 0.3): умение, черта, заклинание с листа открываются одной карточкой с
 // источником; связи в ней открывают следующие карточки; щелчок по персонажу партии возвращает его карточку.
-import { fireEvent, screen, within } from '@testing-library/react';
+import { act, fireEvent, screen, within } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { mount, rowOf } from './testkit';
+import { cardOf, mount, rowOf } from './testkit';
 
 afterEach(() => { vi.useRealTimers(); vi.restoreAllMocks(); });
 
@@ -45,3 +45,36 @@ describe('общая карточка по ссылке', () => {
     expect(card).toHaveTextContent('CC-BY-4.0');
   });
 });
+
+/* ---------- Остаток 0.3: чип состояния, карточка места на карте, тела и сферы космоса ведут в общую карточку ---------- */
+
+describe('общая карточка: чипы и космос (ROADMAP 0.3)', () => {
+  const toLevel = (lvl: string) => fireEvent.click(screen.getByRole('navigation', { name: 'Лестница масштабов' }).querySelector(`[data-scale="${lvl}"]`)!);
+
+  it('чип состояния — карточка состояния SRD с источником; чип концентрации — карточка заклинания', async () => {
+    const { store } = mount();
+    act(() => { store.getState().dispatch({ type: 'CONDITION_ADDED', payload: { targetId: 'bo', conditionId: 'prone' } }); });
+    const chips = cardOf('Bo Tambernack').querySelector('[data-part="chips"]') as HTMLElement;
+    fireEvent.click(within(chips).getByRole('button', { name: 'Карточка: Сбит с ног' }));
+    const prone = await screen.findByRole('region', { name: 'Prone' });
+    expect(prone).toHaveTextContent('Состояние');
+    expect(prone.querySelector('[data-part="source"]')!.textContent).toMatch(/SRD/);
+    fireEvent.click(rowOf('Bo Tambernack'));
+    fireEvent.click(within(cardOf('Bo Tambernack').querySelector('[data-part="chips"]') as HTMLElement).getByRole('button', { name: "Карточка: Hunter's Mark" }));
+    expect(await screen.findByRole('region', { name: "Hunter's Mark" })).toHaveTextContent('Заклинание');
+  });
+
+  it('планетарий: «Карточка» тела — Selûne небесным телом; Флогистон: «Карточка» сферы; событий нет', async () => {
+    const { store } = mount();
+    const before = store.getState().events.length;
+    toLevel('system');
+    fireEvent.click(screen.getByRole('img', { name: /^Планетарий Realmspace/ }).querySelector('[data-body="selune"]')!);
+    fireEvent.click(within(document.querySelector('[data-part="body-info"]') as HTMLElement).getByRole('button', { name: 'Карточка' }));
+    expect(await screen.findByRole('region', { name: 'Selûne' }, { timeout: 10000 })).toHaveTextContent('Небесное тело');
+    toLevel('plane');
+    fireEvent.click(within(document.querySelector('[data-part="sphere-info"]') as HTMLElement).getByRole('button', { name: 'Карточка' }));
+    expect(await screen.findByRole('region', { name: 'Realmspace' }, { timeout: 10000 })).toHaveTextContent('Хрустальная сфера');
+    expect(store.getState().events.length).toBe(before);
+  }, 20000);
+});
+

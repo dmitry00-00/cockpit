@@ -3,7 +3,8 @@ import type { DomainEvent } from './events';
 
 export interface EventStore {
   load(): DomainEvent[] | null;
-  save(events: readonly DomainEvent[]): void;
+  /** false — не сохранилось (квота, приватный режим): стор поднимает saveFailed, стол говорит мастеру. */
+  save(events: readonly DomainEvent[]): boolean | void;
   clear(): void;
 }
 
@@ -44,7 +45,8 @@ export function localStorageStore(key: string, storage: Pick<Storage, 'getItem' 
       }
     },
     save(events) {
-      try { storage.setItem(key, serializeLog(events)); } catch { /* квота или приватный режим: сессия живёт в памяти */ }
+      // Квота или приватный режим: сессия живёт в памяти, но молча это не проходит (И2, 30.10.2026) — стол предложит файл.
+      try { storage.setItem(key, serializeLog(events)); return true; } catch { return false; }
     },
     clear() {
       try { storage.removeItem(key); } catch { /* нечего чистить */ }
@@ -56,7 +58,7 @@ export function memoryStore(): EventStore {
   let saved: DomainEvent[] | null = null;
   return {
     load: () => (saved ? saved.map(e => ({ ...e })) : null),
-    save: events => { saved = events.map(e => ({ ...e })); },
+    save: events => { saved = events.map(e => ({ ...e })); return true; },
     clear: () => { saved = null; },
   };
 }

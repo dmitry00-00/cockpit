@@ -4,18 +4,24 @@
 // Тайлы — <img> с прямоугольником в целых пикселях экрана (projection.tilesAt): на растровой пирамиде
 // канвас ничего не добавляет, а DOM-картинки браузер кэширует и декодирует сам. Под тайлами текущего
 // уровня лежит уровень на два мельче — пока грузятся крупные, карта не мигает пустотой.
-import { useCallback, useEffect, useLayoutEffect, useRef, useState, type KeyboardEvent, type PointerEvent, type ReactNode, type WheelEvent } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type KeyboardEvent, type PointerEvent, type ReactNode, type WheelEvent } from 'react';
 import { ENTITY, type EntityType } from '../components/EntityCard';
+import { useOpenEntity } from '../components/openEntity';
 import { Icon } from '../icons/Icon';
 import type { IconName } from '../icons/icons.generated';
 import { TRAVEL_PACE_IDS, TRAVEL_PACES, travelDays, travelDaysOver, type TravelPaceId } from '../rules/srd/travel';
-import { DIFFICULT, difficultLabel, routeTerrain, type RouteTerrain, type TerrainGrid } from './terrain';
-import { ENCOUNTER_TYPE_LABEL, journeyLegs, supplyNeeded, type RegionTier } from '../rules/a5e/journey';
+import { DIFFICULT, difficultLabel, routeTerrain, type RoadGrid, type RouteTerrain, type TerrainGrid } from './terrain';
+import { ENCOUNTER_TYPE_LABEL, JOURNEY_REGIONS, UNDERGROUND_REGION, journeyLegs, roadMilesAsPace, settlementMarks, supplyNeeded, type RegionTier } from '../rules/a5e/journey';
+import { underdarkAlong, type UnderdarkRegion } from './underdark';
+import { RegionLayer, SchemaLayer } from '../lazyParts';
+import type { MapSchema } from './schema';
+import type { LabelHit } from './schemaLabels';
+import type { DangerLayer, WeatherLayer } from './RegionLayer';
 import type { ScaleLevel } from '../engine/events';
 import type { Explored } from './fog';
 import { KIND_LABEL, layerPlaces, placeNear, searchPlaces, wikiUrl, type GazetteerPlace } from './gazetteer';
 import {
-  clampView, fitBox, hexCenters, panBy, pathMiles, scaleBar, tilesAt, toMap, toScreen, zoomAt, zoomLevelFor,
+  FEET_PER_MILE, clampView, fitBox, hexCenters, panBy, pathMiles, scaleBar, scaleBounds, tilesAt, toMap, toScreen, zoomAt, zoomLevelFor,
   type MapBox, type MapPassport, type MapPoint, type MapView, type Viewport,
 } from './projection';
 
@@ -32,6 +38,10 @@ export interface MapPinItem extends MapPoint {
   pending?: boolean;
   /** Факты о месте: секрет мастера — перечёркнутый глаз, открытое игрокам — слух. Игрокам страница секретов не даёт. */
   facts?: readonly { id: string; text: string; secret: boolean }[];
+  /** Напряжения места (Д3) — заголовки; только мастеру, игрокам страница их не даёт. */
+  tensions?: readonly string[];
+  /** Веса встреч места (слой «Опасность», 6.4) — только мастеру; pending — ждущее предложение симуляции. */
+  encounters?: readonly { key: string; weight: number; pending?: number }[];
 }
 
 export interface WorldMapProps {
@@ -51,6 +61,24 @@ export interface WorldMapProps {
   travel?: { from: MapPoint; onGo: (route: TravelRoute) => void; journey?: JourneyProps };
   /** Сетка местности (src/map/terrain.ts): есть — линейка и поход сами считают мили по трудной местности. */
   terrain?: TerrainGrid | null;
+  /** Дороги растра (ROADMAP 6.3): есть — путь вдоль пунктира идёт регионом Open Roads, быстрее на милю в час (A5E). */
+  roads?: RoadGrid | null;
+  /** Подземье Toril GIS (6.3): поход «под землёй» называет владения под путём. */
+  underdark?: readonly UnderdarkRegion[];
+  /**
+   * Векторная схема карты (TASKS M16): есть — карта открывается схемой (регионы, береговая линия, дороги), растр —
+   * кнопкой «Карта», как режимы Google Maps. Режим — состояние экрана, не событие.
+   */
+  schema?: MapSchema | null;
+  /** Вид на старте рамки вместо вписывания: переход с глобуса колесом (M16) — та же точка, тот же градус на экране. */
+  start?: MapView;
+  /** Колесо «дальше» на целой карте — вернуться выше (с плоской карты планеты — на глобус, M16). */
+  onZoomOut?: (at: MapView) => void;
+  /**
+   * Слои по регионам A5E (ROADMAP 6.4) — линзы, не события; нужны сетка местности. «Опасность» — только мастеру:
+   * подкраска регионов, уровень и DC, веса встреч на пинах; «Погода» — d20 регионов на этот день из лога.
+   */
+  layers?: { danger?: DangerLayer; weather?: WeatherLayer };
   /**
    * Справочник мест (M12, только мастеру): поиск по имени ведёт карту к месту, щелчок по значку растра — карточка
    * места. Справка, не состояние: ничего не пишет в журнал.
@@ -61,6 +89,11 @@ export interface WorldMapProps {
    * Отметка — значок события с числом; щелчок — карточка места.
    */
   eventMarks?: { year: number; places: ReadonlyMap<string, readonly string[]> };
+  /**
+   * Слой «Влияние» (Д3, ROADMAP 7.4), только мастеру: базы фракций кампании — места их организаций по вики, кольцом с
+   * именами; места напряжений — значком с числом. Зон в милях нет: их радиуса не дают ни вики, ни кампания.
+   */
+  influence?: { bases: ReadonlyMap<string, readonly string[]>; tensions: ReadonlyMap<string, readonly string[]> };
   /** Место справочника — сцена «Сейчас здесь» (Д2, ROADMAP 6.2): кнопка в карточке места под щелчком. */
   onScene?: (placeId: string) => void;
   /**
@@ -77,13 +110,21 @@ export interface WorldMapProps {
 }
 
 /**
- * Поход по A5E (src/rules/a5e/journey.ts): уровень опасности регионов и сколько ртов кормить; «встреча» — страница
- * бросает d100 по таблице региона и пишет итог в журнал.
+ * Поход по A5E (src/rules/a5e/journey.ts): уровень опасности регионов и сколько ртов кормить; «встреча» и «погода» —
+ * страница бросает d100 и d20 по таблицам региона и пишет итог в журнал; «занятия» — форма страницы под регионом.
  */
 export interface JourneyProps {
   tier: RegionTier;
   members: number;
   onEncounter: (regionId: string) => void;
+  onWeather?: (regionId: string) => void;
+  /** Форма «Занятия в пути» для региона (components/JourneyActivities) — её собирает страница: партия, броски; days —
+   *  дни пути по региону (A5E: «1 Supply per day spent doing this journey activity»). */
+  activities?: (regionId: string, dc: number, days: number) => ReactNode;
+  /** Общий запас партии сейчас — рядом с расходом пути; нет — только расход. */
+  supply?: number;
+  /** Последний бросок встречи (ROADMAP 0.5, M15): итог строкой под регионом; onAppear — блок нашёлся, «Появился» открывает «Добавить» с ним. */
+  encounter?: { regionId: string; text: string; onAppear?: () => void };
 }
 
 /** Черновик нового места (M8): точка исходника, имя, уровень; из справочника — ещё ссылка на его место. */
@@ -134,6 +175,18 @@ const BTN = 'type-num-12 uppercase whitespace-nowrap px-2 py-1 bg-cd shadow-beve
 
 const fmt = (n: number, digits = 1) => n.toLocaleString('ru-RU', { maximumFractionDigits: digits });
 
+/** 1 фут, 2 фута, 5 футов, 500 футов — целыми. */
+export function feetLabel(feet: number): string {
+  const n = Math.round(feet);
+  const m10 = n % 10;
+  const m100 = n % 100;
+  const word = m10 === 1 && m100 !== 11 ? 'фут' : m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14) ? 'фута' : 'футов';
+  return `${fmt(n, 0)} ${word}`;
+}
+
+/** Расстояние в единицах карты: план города (M10) — футами, остальное — милями. */
+export const distanceLabel = (p: MapPassport, miles: number): string => (p.units === 'feet' ? feetLabel(miles * FEET_PER_MILE) : milesLabel(miles));
+
 /** 1 миля, 2 мили, 5 миль, 2,5 мили. */
 export function milesLabel(miles: number): string {
   const n = Math.round(miles * 10) / 10;
@@ -150,9 +203,16 @@ export function milesLabel(miles: number): string {
  */
 export function rulerSummary(miles: number, rt?: RouteTerrain): string {
   const rough = rt?.difficult ?? 0;
-  const days = TRAVEL_PACE_IDS.map(id => `${TRAVEL_PACES[id].label} ${fmt(travelDaysOver(miles, rough, id))}`);
+  const days = TRAVEL_PACE_IDS.map(id => `${TRAVEL_PACES[id].label} ${fmt(routeDays(miles, rt, id))}`);
+  const road = rt && rt.road >= 0.5 ? ` · по дороге ${fmt(rt.road, 0)}` : '';
   const terrain = rough >= 0.5 ? ` · трудная ${fmt(rough, 0)} (${difficultLabel(rt!)})` : '';
-  return `${milesLabel(miles)}${terrain} · дней пути: ${days.join(' · ')}`;
+  return `${milesLabel(miles)}${road}${terrain} · дней пути: ${days.join(' · ')}`;
+}
+
+/** Дни пути по местности: трудная миля за две (SRD), миля дороги — быстрее на милю в час (A5E Open Roads, Fast Travel). */
+export function routeDays(miles: number, rt: RouteTerrain | undefined, pace: TravelPaceId): number {
+  if (!rt) return travelDays(miles, pace, false);
+  return travelDaysOver(miles - rt.road + roadMilesAsPace(rt.road, pace), rt.difficult, pace);
 }
 
 function hexPath(ctx: CanvasRenderingContext2D, c: MapPoint, r: number) {
@@ -226,6 +286,8 @@ function PlaceSearch({ places, onPick }: { places: readonly GazetteerPlace[]; on
 /** Карточка места справочника: что это, кто правит, чем опасно, коротко — и откуда текст. */
 function PlaceInfo({ place, onClose, onScene }: { place: GazetteerPlace; onClose: () => void; onScene?: (id: string) => void }) {
   const c = place.card;
+  // Общая карточка места справочника (ROADMAP 0.3): боги, церкви, организации, жители по вики — если страница дала вход.
+  const openEntity = useOpenEntity();
   const url = wikiUrl(place);
   const gis = !place.sources || place.sources.includes('Toril GIS');
   return (
@@ -233,8 +295,9 @@ function PlaceInfo({ place, onClose, onScene }: { place: GazetteerPlace; onClose
       <div className="flex items-baseline gap-2">
         <span className="type-h-17 text-tx truncate" title={place.name}>{place.name}</span>
         {KIND_LABEL[place.kind] ? <span className="type-body-sm text-t2 flex-none">{KIND_LABEL[place.kind]}</span> : null}
-        {onScene ? <button type="button" title="Карточка места на вкладке «Сейчас»: день, вера, силы, люди, округа" onClick={() => onScene(place.id)} className={`${BTN} ml-auto flex-none`}>Сейчас здесь</button> : null}
-        <button type="button" title="Закрыть · Esc" onClick={onClose} className={`${BTN} ${onScene ? '' : 'ml-auto '}flex-none`}>Закрыть</button>
+        {openEntity ? <button type="button" title="Общая карточка места по вики: боги, церкви, организации, жители" onClick={() => openEntity(`place:${place.id}`)} className={`${BTN} ml-auto flex-none`}>Карточка</button> : null}
+        {onScene ? <button type="button" title="Карточка места на вкладке «Сейчас»: день, вера, силы, люди, округа" onClick={() => onScene(place.id)} className={`${BTN} ${openEntity ? '' : 'ml-auto '}flex-none`}>Сейчас здесь</button> : null}
+        <button type="button" title="Закрыть · Esc" onClick={onClose} className={`${BTN} ${onScene || openEntity ? '' : 'ml-auto '}flex-none`}>Закрыть</button>
       </div>
       {place.approx ? <span className="type-body-sm text-t3">Позиция по Toril GIS: на растре место не подписано</span> : null}
       {c?.what ? <p className="type-body text-tx">{c.what}</p> : null}
@@ -254,36 +317,63 @@ function PlaceInfo({ place, onClose, onScene }: { place: GazetteerPlace; onClose
   );
 }
 
-/** Регионы пути по A5E: мили, DC занятий, кнопка встречи; припасы — на весь путь обычным темпом. */
-function JourneyLegs({ terrain, journey }: { terrain: RouteTerrain; journey: JourneyProps }) {
-  const legs = journeyLegs(terrain.miles, 'normal', journey.tier, DIFFICULT);
+/** Регионы пути по A5E: мили, DC занятий, встреча, погода и занятия; припасы — на весь путь обычным темпом. */
+/** days — дни пути обычным темпом, как у кнопки «обычный» и у похода: по ним партия и съест припасы (campaign/travel.ts). */
+/** under — мили под землёй: весь путь — Underland Realm, местность и дороги поверхности не в счёт. */
+function JourneyLegs({ terrain, under, journey, days }: { terrain?: RouteTerrain; under?: number; journey: JourneyProps; days: number }) {
+  const [busy, setBusy] = useState<string | null>(null);
+  const legs = under !== undefined
+    ? journeyLegs({}, 'normal', journey.tier, DIFFICULT, { [UNDERGROUND_REGION]: under })
+    : terrain ? journeyLegs(terrain.miles, 'normal', journey.tier, DIFFICULT, { 'open-roads': terrain.road, ...terrain.settled }) : [];
   if (legs.length === 0) return null;
-  const days = legs.reduce((s, l) => s + l.days, 0);
+  const need = supplyNeeded(days, { small: journey.members });
   return (
     <div data-part="journey" className="flex flex-col gap-0.5" title={`A5E: путь — цепочка регионов; в каждом хотя бы одна встреча. Уровень опасности ${journey.tier}`}>
       {legs.map(l => (
-        <span key={l.region.id} className="flex items-center gap-2">
-          <span className="truncate" title={`${l.region.description}${l.region.fields['Journey Activities'] ? `\n\nЗанятия в пути: ${l.region.fields['Journey Activities']}` : ''}`}>
-            {l.region.name} · {milesLabel(l.miles)} · DC {l.dc}
+        <div key={l.region.id} className="flex flex-col gap-1">
+          <span className="flex items-center gap-2">
+            <span className="truncate" title={`${l.region.description}${l.region.fields['Journey Activities'] ? `\n\nЗанятия в пути: ${l.region.fields['Journey Activities']}` : ''}`}>
+              {l.region.name} · {milesLabel(l.miles)} · DC {l.dc}
+            </span>
+            <button
+              type="button"
+              title={`Бросить d100 по таблице встреч ${l.region.name}, уровень ${journey.tier}: ${Object.values(ENCOUNTER_TYPE_LABEL).join(', ')}`}
+              onClick={() => journey.onEncounter(l.region.id)}
+              className={BTN}
+            >
+              встреча
+            </button>
+            {journey.onWeather ? (
+              <button type="button" title={`Погода в ${l.region.name}: d20 по таблице региона, зимой +5 (A5E) — описательная, на героев не влияет`} onClick={() => journey.onWeather!(l.region.id)} className={BTN}>
+                погода
+              </button>
+            ) : null}
+            {journey.activities ? (
+              <button type="button" aria-expanded={busy === l.region.id} title="Кто чем занят в пути: проверка в начале региона, DC по опасности, исходы A5E" onClick={() => setBusy(busy === l.region.id ? null : l.region.id)} className={BTN}>
+                занятия
+              </button>
+            ) : null}
           </span>
-          <button
-            type="button"
-            title={`Бросить d100 по таблице встреч ${l.region.name}, уровень ${journey.tier}: ${Object.values(ENCOUNTER_TYPE_LABEL).join(', ')}`}
-            onClick={() => journey.onEncounter(l.region.id)}
-            className={BTN}
-          >
-            встреча
-          </button>
-        </span>
+          {journey.encounter?.regionId === l.region.id ? (
+            <span className="flex items-center gap-2 pl-2" data-part="encounter-result">
+              <span className="text-tx truncate">{journey.encounter.text}</span>
+              {journey.encounter.onAppear ? (
+                <button type="button" title="Блок встречи — в форму «Добавить»: имя, сколько штук" onClick={journey.encounter.onAppear} className={BTN}>Появился</button>
+              ) : null}
+            </span>
+          ) : null}
+          {busy === l.region.id && journey.activities ? journey.activities(l.region.id, l.dc, l.days) : null}
+        </div>
       ))}
       <span className="text-t2" title="A5E Supply: 1 в день на Small или Medium, 2 — на Large; съедается на длинном отдыхе">
-        припасы обычным темпом: {supplyNeeded(days, { small: journey.members })}
+        припасы обычным темпом: {need}
+        {journey.supply !== undefined ? ` · есть ${journey.supply}${journey.supply < need ? `, не хватит ${need - journey.supply}` : ''}` : ''}
       </span>
     </div>
   );
 }
 
-export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMiles, travel, fog, terrain, gazetteer, eventMarks, onScene, newPlace, tools, children, className = '' }: WorldMapProps) {
+export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMiles, travel, fog, terrain, roads, underdark, schema, start, onZoomOut, layers, gazetteer, eventMarks, influence, onScene, newPlace, tools, children, className = '' }: WorldMapProps) {
   const rootRef = useRef<HTMLDivElement>(null);
   const hexRef = useRef<HTMLCanvasElement>(null);
   const [vp, setVp] = useState<Viewport>(FALLBACK_VP);
@@ -292,12 +382,21 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
   const [fogOn, setFogOn] = useState(false);
   /** Слой «Справочник»: места с карточками маркерами (29.10, только мастеру — справочник у игроков не передаётся). */
   const [layerOn, setLayerOn] = useState(true);
+  /** Слой «Влияние» — по кнопке: значков напряжений на карте мира около сотни. */
+  const [influenceOn, setInfluenceOn] = useState(false);
+  /** Слой по регионам A5E (6.4): один за раз — подкраска у них общая. */
+  const [regionLayer, setRegionLayer] = useState<'danger' | 'weather' | null>(null);
+  /** Вид подложки (M16): схема — по умолчанию, когда она есть; растр — кнопкой «Карта». */
+  const [look, setLook] = useState<'schema' | 'raster'>('schema');
+  const schemaOn = !!schema && look === 'schema';
   const [tool, setTool] = useState<Tool>('none');
   const [ruler, setRuler] = useState<MapPoint[]>([]);
   /** Конец похода — пин места; пока его нет, отправиться некуда. */
   const [dest, setDest] = useState<{ id: string; name: string } | null>(null);
   /** Путь по трудной местности — отмечает мастер: лес, горы, болото, лёд (SRD Difficult Terrain). */
   const [rough, setRough] = useState(false);
+  /** Поход под землёй — отмечает мастер: на растре Подземья нет, путь по поверхности — проекция туннелей. */
+  const [underground, setUnderground] = useState(false);
   const [missing, setMissing] = useState(false);
   /** Место справочника под карточкой: найдено поиском или щелчком по значку. */
   const [found, setFound] = useState<GazetteerPlace | null>(null);
@@ -308,6 +407,11 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
   /** Мастер двигал карту после вписывания — размер окна и панелей вид больше не сбрасывают. */
   const touched = useRef(false);
   const panelsRef = useRef<HTMLDivElement>(null);
+  const openEntity = useOpenEntity();
+  /** Щелчковые подписи схемы в этом кадре (державы) и та, что под указателем, — для курсора. */
+  const labelHits = useRef<readonly LabelHit[]>([]);
+  const [overLabel, setOverLabel] = useState<string | null>(null);
+  const labelAt = (pt: MapPoint) => (openEntity ? labelHits.current.find(h => pt.x >= h.box.x0 && pt.x <= h.box.x1 && pt.y >= h.box.y0 && pt.y <= h.box.y1) : undefined);
 
   // Размер окна — из ResizeObserver; без него (jsdom) остаётся запасной.
   useLayoutEffect(() => {
@@ -344,6 +448,12 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
       setRuler([]);
       setDest(null);
       setFound(null);
+      // Переход с глобуса: вид задан, вписывать не надо — дальше только держать в границах.
+      if (start) {
+        touched.current = true;
+        setView(clampView(passport, vp, start));
+        return;
+      }
     }
     setView(v => (touched.current ? clampView(passport, vp, v) : fit()));
   }, [fitKey, vp, inset, passport]);
@@ -351,7 +461,8 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
   const dpr = typeof window !== 'undefined' ? window.devicePixelRatio || 1 : 1;
   const z = zoomLevelFor(passport, view.scale, dpr);
   const under = Math.max(0, z - 2);
-  const tiles = [...(under < z ? tilesAt(passport, vp, view, under) : []), ...tilesAt(passport, vp, view, z)];
+  // В режиме «Схема» тайлы не грузятся вовсе: подложка — векторная.
+  const tiles = schemaOn ? [] : [...(under < z ? tilesAt(passport, vp, view, under) : []), ...tilesAt(passport, vp, view, z)];
   const overzoom = view.scale > 1;
 
   const hex = hexMiles && hexOn ? hexCenters(passport, vp, view, hexMiles) : null;
@@ -399,6 +510,11 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
   };
   const onPointerMove = (e: PointerEvent<HTMLDivElement>) => {
     const d = drag.current;
+    if (!d && tool === 'none') {
+      // Над кнопкой (значок места, панель) щелчок уйдёт ей, а не подписи под ней.
+      const name = (e.target as HTMLElement).closest('button, [data-part="map-ui"]') ? null : labelAt(local(e))?.name ?? null;
+      if (name !== overLabel) setOverLabel(name);
+    }
     if (!d || d.id !== e.pointerId) return;
     const dx = e.clientX - d.x;
     const dy = e.clientY - d.y;
@@ -424,6 +540,9 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
       const pt = toMap(view, vp, local(e));
       setRuler(r => [...r, pt]);
       setDest(null);
+    } else if (labelAt(local(e))) {
+      // Подпись державы на схеме — её карточка (подпись — плашка в пикселях экрана из последнего кадра схемы).
+      openEntity!(labelAt(local(e))!.ref);
     } else if (gazetteer) {
       setFound(placeNear(gazetteer, toMap(view, vp, local(e)), PICK_PX / view.scale, PICK_LABEL_PX / view.scale) ?? null);
     }
@@ -435,6 +554,11 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
   };
   const onWheel = (e: WheelEvent<HTMLDivElement>) => {
     if ((e.target as HTMLElement).closest('[data-part="map-ui"]')) return;
+    // Карта уже целиком в окне, а колесо — ещё дальше: выше уровнем (глобус).
+    if (onZoomOut && e.deltaY > 0 && view.scale <= scaleBounds(passport, vp).min * 1.001) {
+      onZoomOut(view);
+      return;
+    }
     zoomBy(Math.exp(-e.deltaY * 0.0015), local(e));
   };
   const onKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
@@ -462,10 +586,17 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
   const route = tool === 'travel' && travel ? [travel.from, ...ruler] : ruler;
   const rulerPts = route.map(p => toScreen(view, vp, p));
   const rulerMiles = pathMiles(passport, route);
-  const rulerTerrain = terrain && route.length > 1 ? routeTerrain(terrain, passport, route) : undefined;
+  // Поселения справочника на пути (6.3): круги значков City, Town, Village — регионы A5E внутри.
+  const settlements = useMemo(() => (gazetteer ? settlementMarks(gazetteer, passport.milesPerPixel) : []), [gazetteer, passport.milesPerPixel]);
+  const overlay = useMemo(() => ({ roads, settlements }), [roads, settlements]);
+  const regionOn = regionLayer && layers?.[regionLayer] ? regionLayer : null;
+  const rulerTerrain = terrain && route.length > 1 ? routeTerrain(terrain, passport, route, overlay) : undefined;
+  // Под землёй местность и дороги поверхности не в счёт: путь — по туннелям под ней.
+  const surface = underground ? undefined : rulerTerrain;
   // Галочка «весь путь трудный» — поверх сетки: мастер знает про бурелом, которого на карте нет.
-  const roughMiles = rough ? rulerMiles : rulerTerrain?.difficult ?? 0;
-  const daysAt = (pace: TravelPaceId) => (rough || !rulerTerrain ? travelDays(rulerMiles, pace, rough) : travelDaysOver(rulerMiles, roughMiles, pace));
+  const roughMiles = rough ? rulerMiles : surface?.difficult ?? 0;
+  const daysAt = (pace: TravelPaceId) => (rough || !surface ? travelDays(rulerMiles, pace, rough) : routeDays(rulerMiles, surface, pace));
+  const below = underground && underdark && route.length > 1 ? underdarkAlong(underdark, route) : [];
   const pickTool = (t: Tool) => {
     setTool(cur => (cur === t ? 'none' : t));
     setRuler([]);
@@ -487,10 +618,11 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
       miles: Math.round(rulerMiles * 10) / 10,
       pace,
       days: daysAt(pace),
-      ...(rough ? { difficult: true } : rulerTerrain && roughMiles >= 0.5 ? { difficultMiles: Math.round(roughMiles * 10) / 10 } : {}),
+      ...(rough ? { difficult: true } : surface && roughMiles >= 0.5 ? { difficultMiles: Math.round(roughMiles * 10) / 10 } : {}),
     });
     setTool('none');
     setRough(false);
+    setUnderground(false);
     setRuler([]);
     setDest(null);
   };
@@ -512,6 +644,7 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
       aria-label={`Карта ${passport.label}`}
       tabIndex={0}
       data-part="world-map"
+      title={overLabel ? `${overLabel} — карточка державы` : undefined}
       data-zoom={z}
       onPointerDown={onPointerDown}
       onPointerMove={onPointerMove}
@@ -520,7 +653,7 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
       onWheel={onWheel}
       onDoubleClick={e => !(e.target as HTMLElement).closest('button, [data-part="map-ui"]') && zoomBy(2, local(e))}
       onKeyDown={onKeyDown}
-      className={`relative overflow-hidden bg-wl select-none touch-none outline-none focus-visible:shadow-[inset_0_0_0_2px_var(--gd)] ${tool !== 'none' ? 'cursor-crosshair' : 'cursor-grab active:cursor-grabbing'} ${className}`}
+      className={`relative overflow-hidden bg-wl select-none touch-none outline-none focus-visible:shadow-[inset_0_0_0_2px_var(--gd)] ${tool !== 'none' ? 'cursor-crosshair' : overLabel ? 'cursor-pointer' : 'cursor-grab active:cursor-grabbing'} ${className}`}
     >
       <div aria-hidden="true" className="absolute inset-0" style={{ imageRendering: overzoom ? 'pixelated' : undefined }}>
         {tiles.map(t => (
@@ -536,6 +669,7 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
           />
         ))}
       </div>
+      {schemaOn ? <SchemaLayer schema={schema} vp={vp} view={view} mapId={passport.id} pins={pins} legend={!regionOn} onHits={h => (labelHits.current = h)} /> : null}
       {fog && (fog.forced || fogOn) ? (
         // Туман — тёмная заливка с прорезями: круги открытых мест и коридоры пройденных путей шириной в обзор.
         <svg aria-hidden="true" data-part="fog" data-forced={fog.forced || undefined} className="absolute inset-0 size-full pointer-events-none">
@@ -563,6 +697,10 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
         </svg>
       ) : null}
       {hexVisible ? <canvas ref={hexRef} aria-hidden="true" data-part="hex" className="absolute inset-0 size-full pointer-events-none" /> : null}
+      {regionOn && terrain ? (
+        <RegionLayer kind={regionOn} grid={terrain} overlay={overlay} vp={vp} view={view} explored={fog?.forced ? fog.explored : undefined}
+          danger={layers?.danger} weather={layers?.weather} />
+      ) : null}
       {rulerPts.length > 0 ? (
         <svg aria-hidden="true" className="absolute inset-0 size-full pointer-events-none" data-part="ruler-path">
           {/* Переменные CSS — через style: в атрибуты SVG браузер их не подставляет. */}
@@ -648,6 +786,40 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
         );
       }) : null}
 
+      {influence && influenceOn && gazetteer ? gazetteer.filter(p => influence.bases.has(p.id) || influence.tensions.has(p.id)).map(p => {
+        const at = toScreen(view, vp, p);
+        if (!inside(at)) return null;
+        const bases = influence.bases.get(p.id) ?? [];
+        const lines = influence.tensions.get(p.id) ?? [];
+        const title = [bases.length ? `${p.name} · база: ${bases.join(', ')} (по вики)` : p.name, ...(lines.length ? [`напряжения: ${lines.join('; ')}`] : [])].join(' · ');
+        return (
+          <button
+            key={`influence:${p.id}`}
+            type="button"
+            data-influence={p.id}
+            aria-label={title}
+            title={title}
+            onClick={() => setFound(p)}
+            className="absolute flex items-center gap-1 cursor-pointer focus-visible:shadow-[var(--glow-gold)]"
+            // Слева от точки места: справа — метки событий хроники, сверху — пин кампании.
+            style={{ left: at.x, top: at.y, transform: 'translate(calc(-100% - 8px), -50%)' }}
+          >
+            {lines.length ? (
+              <span className="flex items-center gap-0.5 px-1 py-0.5 bg-cd shadow-[var(--float),inset_0_-2px_0_var(--fx-debuff-hi)]">
+                <Icon name="pulse" size={16} color="var(--fx-debuff-hi)" title="Напряжения" />
+                <span className="type-num-12 text-tx">{lines.length}</span>
+              </span>
+            ) : null}
+            {bases.length ? (
+              <span className="flex items-center gap-1 px-1 py-0.5 bg-cd shadow-[var(--float),inset_0_-2px_0_var(--ent-faction)]">
+                <Icon name="ent-faction" size={16} color="var(--ent-faction)" title="База фракции кампании" />
+                <span className="type-body-xs text-tx whitespace-nowrap">{bases.join(', ')}</span>
+              </span>
+            ) : null}
+          </button>
+        );
+      }) : null}
+
       {pins.map(pin => {
         const at = toScreen(view, vp, pin);
         if (!inside(at)) return null;
@@ -680,6 +852,21 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
             <span aria-hidden="true" data-part="pin-point" className="absolute left-1/2 -bottom-[9px] size-1.5 -translate-x-1/2 shadow-[0_0_0_1px_var(--lo)]" style={{ background: ent.color }} />
             <Icon name={pin.icon ?? ent.icon} size={16} color={ent.color} title={ent.label} />
             <span className={`type-body-sm truncate ${pin.selected ? 'text-gd-hi' : 'text-tx'}`}>{pin.name}</span>
+            {regionOn === 'danger' && pin.encounters?.length ? (
+              <span
+                data-part="pin-danger"
+                className="flex-none type-num-12 text-ab-str-hi"
+                title={`Встречи: ${pin.encounters.map(e => `${e.key} ×${e.weight}${e.pending !== undefined ? ` → ×${e.pending} (ждёт)` : ''}`).join('; ')}`}
+              >
+                ×{Math.max(...pin.encounters.map(e => e.weight))}{pin.encounters.some(e => e.pending !== undefined) ? `→${Math.max(...pin.encounters.map(e => e.pending ?? e.weight))}` : ''}
+              </span>
+            ) : null}
+            {pin.tensions?.length ? (
+              <span data-part="pin-tensions" className="flex-none flex items-center gap-0.5" title={`Напряжения: ${pin.tensions.join('; ')}`}>
+                <Icon name="pulse" size={16} color="var(--fx-debuff-hi)" title="Напряжения" />
+                <span className="type-num-12 text-fx-debuff-hi">{pin.tensions.length}</span>
+              </span>
+            ) : null}
             {(pin.facts ?? []).map(f => (
               <Icon
                 key={f.id}
@@ -695,10 +882,17 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
         );
       })}
 
-      {children ? <div ref={panelsRef} data-part="map-ui" className="absolute left-0 top-0 bottom-0 p-4 flex items-start gap-4 pointer-events-none [&>*]:pointer-events-auto">{children}</div> : null}
+      {/* Панели стола (стопки, карточка) — под панелью карты: сверху отступ на её высоту, иначе кнопки закрывают верхнюю кромку карточки. */}
+      {children ? <div ref={panelsRef} data-part="map-ui" className="absolute left-0 top-0 bottom-0 p-4 pt-12 flex items-start gap-4 pointer-events-none [&>*]:pointer-events-auto">{children}</div> : null}
 
       <div data-part="map-ui" className="absolute right-3 top-3 flex items-center gap-1 cursor-default" role="toolbar" aria-label="Карта">
         {gazetteer && gazetteer.length > 0 ? <PlaceSearch places={gazetteer} onPick={showPlace} /> : null}
+        {schema ? (
+          <span role="group" aria-label="Вид карты" className="flex">
+            <button type="button" aria-pressed={schemaOn} title="Схема: регионы местности, береговая линия и дороги — векторная разметка по сетке растра, чёткая на любом приближении" onClick={() => setLook('schema')} className={BTN}>Схема</button>
+            <button type="button" aria-pressed={!schemaOn} title={`Карта: растр ${passport.label} — тайлы исходника`} onClick={() => setLook('raster')} className={BTN}>Карта</button>
+          </span>
+        ) : null}
         {tools}
         <button type="button" title="Отдалить · −" aria-label="Отдалить" onClick={() => zoomBy(1 / 1.5)} className={BTN}>−</button>
         <button type="button" title="Приблизить · +" aria-label="Приблизить" onClick={() => zoomBy(1.5)} className={BTN}>+</button>
@@ -715,6 +909,21 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
             className={BTN}
           >
             Гексы
+          </button>
+        ) : null}
+        {influence && gazetteer && gazetteer.length > 0 && (influence.bases.size > 0 || influence.tensions.size > 0) ? (
+          <button type="button" aria-pressed={influenceOn} title={`Влияние: базы фракций кампании по вики (${influence.bases.size}) и места напряжений (${influence.tensions.size}); щелчок — карточка места`} onClick={() => setInfluenceOn(v => !v)} className={BTN}>
+            Влияние
+          </button>
+        ) : null}
+        {terrain && layers?.danger ? (
+          <button type="button" aria-pressed={regionOn === 'danger'} title="Опасность: регионы A5E под окном (где какая таблица встреч), уровень и DC занятий, веса встреч мест кампании на пинах" onClick={() => setRegionLayer(v => (v === 'danger' ? null : 'danger'))} className={BTN}>
+            Опасность
+          </button>
+        ) : null}
+        {terrain && layers?.weather ? (
+          <button type="button" aria-pressed={regionOn === 'weather'} title="Погода: регионы A5E под окном и их погода сегодня — d20 региона из журнала" onClick={() => setRegionLayer(v => (v === 'weather' ? null : 'weather'))} className={BTN}>
+            Погода
           </button>
         ) : null}
         {gazetteer && gazetteer.length > 0 ? (
@@ -745,7 +954,7 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
       <div data-part="map-ui" style={{ left: inset + 12 }} className="absolute bottom-3 flex flex-col items-start gap-1 cursor-default pointer-events-none">
         {tool === 'ruler' ? (
           <div data-part="ruler" className="px-2 py-1 bg-cd shadow-float type-body-sm text-tx pointer-events-auto">
-            {ruler.length < 2 ? 'Щелчками по карте отметьте путь' : rulerSummary(rulerMiles, rulerTerrain)}
+            {ruler.length < 2 ? 'Щелчками по карте отметьте путь' : passport.units === 'feet' ? distanceLabel(passport, rulerMiles) : rulerSummary(rulerMiles, rulerTerrain)}
           </div>
         ) : null}
         {tool === 'place' && newPlace ? (
@@ -785,15 +994,29 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
                 <span>
                   {party?.label ?? 'Партия'} → {dest.name} · {milesLabel(rulerMiles)}
                 </span>
-                {rulerTerrain && !rough ? (
+                {surface && !rough ? (
                   <span data-part="route-terrain" className="text-t2" title="По карте местности: лес, болото, горы и лёд — трудная местность SRD, каждая миля идёт за две">
-                    {rulerTerrain.difficult >= 0.5 ? `трудная местность: ${milesLabel(rulerTerrain.difficult)} (${difficultLabel(rulerTerrain)})` : 'трудной местности на пути нет'}
+                    {surface.difficult >= 0.5 ? `трудная местность: ${milesLabel(surface.difficult)} (${difficultLabel(surface)})` : 'трудной местности на пути нет'}
                   </span>
                 ) : null}
-                {rulerTerrain && travel?.journey ? <JourneyLegs terrain={rulerTerrain} journey={travel.journey} /> : null}
+                {surface && surface.road >= 0.5 ? (
+                  <span data-part="route-road" className="text-t2" title={`Дороги — пунктир растра. ${JOURNEY_REGIONS['open-roads']?.fields['Fast Travel'] ?? ''} Трудной местностью дорога не считается (решение кокпита)`}>
+                    по дороге: {milesLabel(surface.road)} — на милю в час быстрее
+                  </span>
+                ) : null}
+                {underground ? (
+                  <span data-part="route-underdark" className="text-t2" title="Владения Подземья под путём — по Toril GIS (Fan Content), привязка к растру ошибается на десятки миль">
+                    {below.length ? `под путём: ${below.map(r => r.name).join(', ')}` : 'под путём владений Подземья по Toril GIS нет'}
+                  </span>
+                ) : null}
+                {travel?.journey && (surface || underground) ? <JourneyLegs terrain={surface} under={underground ? rulerMiles : undefined} journey={travel.journey} days={daysAt('normal')} /> : null}
                 <label className="flex items-center gap-2 cursor-pointer" title="SRD: густой лес, болото, руины, крутые горы и лёд — трудная местность, по ней вдвое медленнее">
                   <input type="checkbox" checked={rough} onChange={e => setRough(e.target.checked)} className="accent-[var(--gd)]" />
-                  <span>{rulerTerrain ? 'весь путь трудный — вдвое медленнее' : 'трудная местность — вдвое медленнее'}</span>
+                  <span>{surface ? 'весь путь трудный — вдвое медленнее' : 'трудная местность — вдвое медленнее'}</span>
+                </label>
+                <label className="flex items-center gap-2 cursor-pointer" title="A5E Underland Realm: путь по туннелям Подземья; местность и дороги поверхности не в счёт">
+                  <input type="checkbox" checked={underground} onChange={e => setUnderground(e.target.checked)} className="accent-[var(--gd)]" />
+                  <span>под землёй — Underland Realm</span>
                 </label>
                 <span className="flex items-center gap-1">
                   {TRAVEL_PACE_IDS.map(id => (
@@ -814,15 +1037,15 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
             )}
           </div>
         ) : null}
-        <div data-part="scale-bar" className="flex items-center gap-2 px-2 py-1 bg-cd shadow-float" title={`Калибровка карты: ${fmt(passport.milesPerPixel, 2)} мили на пиксель исходника`}>
+        <div data-part="scale-bar" className="flex items-center gap-2 px-2 py-1 bg-cd shadow-float" title={passport.units === 'feet' ? `Калибровка плана: ${fmt(passport.milesPerPixel * FEET_PER_MILE, 2)} фута на пиксель исходника` : `Калибровка карты: ${fmt(passport.milesPerPixel, 2)} мили на пиксель исходника`}>
           <span aria-hidden="true" className="h-1.5 bg-tx shadow-[inset_0_-1px_0_var(--lo)]" style={{ width: bar.px }} />
-          <span className="type-num-12 text-tx">{milesLabel(bar.miles)}</span>
+          <span className="type-num-12 text-tx">{distanceLabel(passport, bar.miles)}</span>
         </div>
       </div>
 
       {found ? <div data-part="map-ui"><PlaceInfo place={found} onClose={() => setFound(null)} {...(onScene ? { onScene } : {})} /></div> : null}
 
-      {missing ? (
+      {missing && !schemaOn ? (
         <div role="status" className="absolute inset-x-0 top-1/3 mx-auto w-fit max-w-[90%] px-4 py-3 bg-cd shadow-float type-body text-tx">
           Тайлы карты {passport.label} не нарезаны. В корне проекта: <span className="type-num-12">.venv/bin/python scripts/tile-map.py content/maps/{passport.id}.json</span>
         </div>

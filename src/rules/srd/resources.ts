@@ -5,6 +5,8 @@
 // даёт (второе дыхание, всплеск действий, божественный канал, дикий облик, наложение рук…) — эти формулы здесь.
 // Восстановление — по SRD: короткий отдых возвращает то, что умение так и называет («after a short or long
 // rest»), долгий — всё. Вдохновение барда до 5-го уровня — долгий, с 5-го (Font of Inspiration) — короткий.
+// С 29.10.2026 (Q13) здесь же легендарные действия монстра: те же события, максимум — из вводного абзаца блока
+// (rules/srd/legendary.ts), возврат — не отдых, а начало своего хода.
 import type { AbilityId } from './abilities';
 import type { SrdClassId } from './classes';
 
@@ -13,23 +15,27 @@ export const RESOURCE_IDS = [
   'pact-slots', 'rage', 'ki', 'sorcery',
   'second-wind', 'action-surge', 'indomitable', 'bardic-inspiration', 'channel-divinity', 'wild-shape',
   'lay-on-hands', 'divine-sense', 'arcane-recovery',
+  'legendary-actions',
 ] as const;
 
 export type ResourceId = (typeof RESOURCE_IDS)[number];
 
 export type RestKindOf = 'short' | 'long';
 
+/** Что возвращает ресурс целиком: отдых или, у легендарных действий, начало своего хода. */
+export type RestoreOn = RestKindOf | 'turn';
+
 export interface Resource {
   id: ResourceId;
   label: string;
-  /** Отдых, который возвращает ресурс целиком (SRD). */
-  restore: RestKindOf;
+  /** Отдых, который возвращает ресурс целиком (SRD); turn — начало своего хода (легендарные действия). */
+  restore: RestoreOn;
   /** slots — ячейки заклинаний кругом; uses — применения умения; pool — запас (хиты наложения рук). */
   kind: 'slots' | 'uses' | 'pool';
   /** Круг ячеек — у slot-N; у ячеек договора круг растёт с уровнем и берётся из таблицы. */
   slotLevel?: number;
-  /** Откуда максимум: table — колонка листа класса в компендиуме; feature — текст умения SRD (формула ниже). */
-  maxFrom: 'table' | 'feature';
+  /** Откуда максимум: table — колонка листа класса в компендиуме; feature — текст умения SRD (формула ниже); block — вводный абзац блока монстра. */
+  maxFrom: 'table' | 'feature' | 'block';
   source: string;
 }
 
@@ -59,6 +65,7 @@ export const RESOURCES: Readonly<Record<ResourceId, Resource>> = {
   'lay-on-hands': { id: 'lay-on-hands', label: 'Наложение рук', restore: 'long', kind: 'pool', maxFrom: 'feature', source: 'SRD 5.1, Paladin: Lay on Hands — pool of hit points equal to five times paladin level, long rest' },
   'divine-sense': { id: 'divine-sense', label: 'Божественное чувство', restore: 'long', kind: 'uses', maxFrom: 'feature', source: 'SRD 5.1, Paladin: Divine Sense — 1 + Charisma modifier times, long rest' },
   'arcane-recovery': { id: 'arcane-recovery', label: 'Магическое восстановление', restore: 'long', kind: 'uses', maxFrom: 'feature', source: 'SRD 5.1, Wizard: Arcane Recovery — once per day, after a short rest' },
+  'legendary-actions': { id: 'legendary-actions', label: 'Легендарные действия', restore: 'turn', kind: 'uses', maxFrom: 'block', source: 'SRD 5.1, Legendary Creatures: Legendary Actions — «A creature regains its spent legendary actions at the start of its turn»' },
 };
 
 export function isResourceId(value: string): value is ResourceId {
@@ -71,7 +78,7 @@ export function slotLevelOf(id: ResourceId): number | undefined {
 }
 
 /** Отдых, который возвращает ресурс на этом уровне: вдохновение барда с 5-го — короткий. */
-export function restoreOn(id: ResourceId, level: number): RestKindOf {
+export function restoreOn(id: ResourceId, level: number): RestoreOn {
   if (id === 'bardic-inspiration' && level >= 5) return 'short';
   return RESOURCES[id].restore;
 }

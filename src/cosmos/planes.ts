@@ -3,8 +3,10 @@
 // внутренними планами. Факты — карточки {{Plane}} Forgotten Realms Wiki (CC BY-SA 3.0, см. LICENSE.md), импорт —
 // scripts/import-planes.py. Место плана на кольце — его сетка мировоззрения: закон слева, хаос справа, добро сверху,
 // зло снизу; раскладка своя.
-import raw from '../../content/cosmos/great-wheel.json';
-import treeRaw from '../../content/cosmos/world-tree.json';
+const [raw, treeRaw] = await Promise.all([
+  import('../../content/cosmos/great-wheel.json'),
+  import('../../content/cosmos/world-tree.json'),
+]).then(ms => ms.map(m => m.default));
 
 export type PlaneKind = 'outer' | 'realm' | 'transitive' | 'material' | 'parallel' | 'inner' | 'energy'
   /** Великое древо: небесные, нейтральные, дьявольские и вне Древа. */

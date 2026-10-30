@@ -17,6 +17,16 @@ export interface MapPassport {
   milesPerPixel: number;
   /** Сетка местности рядом с тайлами (src/map/terrain.ts): картинка и пикселей исходника в клетке. */
   terrain?: { url: string; cell: number };
+  /** Дороги растра рядом с тайлами (scripts/roads-from-map.py): картинка и пикселей исходника в клетке. */
+  roads?: { url: string; cell: number };
+  /** Векторная схема (TASKS M16, scripts/schema-from-grids.py): регионы местности, береговая линия и дороги — стартовый вид карты. */
+  schema?: { url: string };
+  /** Граф мира (SIMULATION.md С2, scripts/graph-from-grids.py): поселения и связи для процессов мира. */
+  graph?: { url: string };
+  /** План места (M10): карта — план города или здания; place — ссылка места справочника (`place:…`), чей это план. */
+  plan?: { place: string };
+  /** В чём мерить линейку и масштаб: план города — футы; по умолчанию мили. */
+  units?: 'feet';
 }
 
 /** Точка на карте: пиксели исходника. */
@@ -128,6 +138,8 @@ export interface TileRect {
   top: number;
   width: number;
   height: number;
+  /** Тот же тайл в пикселях исходника — для подложки WebGL2 (M18): там проекция в шейдере, без округления. */
+  box: MapBox;
 }
 
 /** Тайлы уровня z, которые попадают в окно, с их местом на экране. */
@@ -144,11 +156,12 @@ export function tilesAt(p: MapPassport, vp: Viewport, v: MapView, z: number): Ti
   const out: TileRect[] = [];
   for (let ty = cy0; ty <= cy1; ty++) {
     for (let tx = cx0; tx <= cx1; tx++) {
-      const a = toScreen(v, vp, { x: tx * span, y: ty * span });
-      const b = toScreen(v, vp, { x: Math.min(p.width, (tx + 1) * span), y: Math.min(p.height, (ty + 1) * span) });
+      const box = { x0: tx * span, y0: ty * span, x1: Math.min(p.width, (tx + 1) * span), y1: Math.min(p.height, (ty + 1) * span) };
+      const a = toScreen(v, vp, { x: box.x0, y: box.y0 });
+      const b = toScreen(v, vp, { x: box.x1, y: box.y1 });
       const left = Math.round(a.x);
       const top = Math.round(a.y);
-      out.push({ key: `${z}/${tx}_${ty}`, z, url: `${p.tiles}/${z}/${tx}_${ty}.${p.format}`, left, top, width: Math.round(b.x) - left, height: Math.round(b.y) - top });
+      out.push({ key: `${z}/${tx}_${ty}`, z, url: `${p.tiles}/${z}/${tx}_${ty}.${p.format}`, left, top, width: Math.round(b.x) - left, height: Math.round(b.y) - top, box });
     }
   }
   return out;
@@ -168,12 +181,17 @@ export function pathMiles(p: MapPassport, pts: readonly MapPoint[]): number {
 
 /** Длина масштабной линейки: круглое число миль (1, 2, 5 × 10ⁿ), которое на экране не длиннее maxPx. */
 export function scaleBar(p: MapPassport, scale: number, maxPx = 120): { miles: number; px: number } {
-  const milesPerScreenPx = p.milesPerPixel / scale;
-  const limit = maxPx * milesPerScreenPx;
+  // План города (M10) меряется в футах: круглое число — в футах, отдаём его милями.
+  const per = p.units === 'feet' ? FEET_PER_MILE : 1;
+  const unitsPerScreenPx = (p.milesPerPixel * per) / scale;
+  const limit = maxPx * unitsPerScreenPx;
   const pow = 10 ** Math.floor(Math.log10(limit));
-  const miles = [5, 2, 1].map(m => m * pow).find(m => m <= limit) ?? pow;
-  return { miles, px: Math.round(miles / milesPerScreenPx) };
+  const value = [5, 2, 1].map(m => m * pow).find(m => m <= limit) ?? pow;
+  return { miles: value / per, px: Math.round(value / unitsPerScreenPx) };
 }
+
+/** SRD: «1 mile = 5,280 feet» — миля в футах. */
+export const FEET_PER_MILE = 5280;
 
 /**
  * Центры гексов (остриём вверх) с шагом hexMiles, попадающие в окно. Сетка привязана к пикселю (0, 0)

@@ -101,6 +101,72 @@ describe('InitiativeBar', () => {
     expect(tokens()[1]).toHaveAttribute('title', 'Bo Tambernack · инициатива 15 · хиты 41/49');
   });
 
+  describe('легендарные действия (Q13)', () => {
+    const DRAGON: InitiativeBarEntry = {
+      id: 'dragon', name: 'Adult Red Dragon', type: 'monster', initiative: 12, hp: { current: 256, max: 256, temp: 0 },
+      legendaryActions: {
+        max: 3, spent: 1,
+        intro: 'The dragon can take 3 legendary actions, choosing from the options below.',
+        options: [
+          { name: 'Detect', text: 'The dragon makes a Wisdom (Perception) check.', cost: 1 },
+          { name: 'Wing Attack (Costs 2 Actions)', text: 'The dragon beats its wings.', cost: 2 },
+        ],
+      },
+    };
+    const pipsBtn = () => bar().querySelector('[data-legendary="dragon"]') as HTMLButtonElement | null;
+
+    it('колонка пипок справа от токена: есть — gd, потрачено — утоплено; число в имени и тултипе; без колбэков — колонки нет', () => {
+      const { rerender } = render(<InitiativeBar round={1} entries={[DRAGON]} onNextTurn={() => {}} onLegendarySpend={() => {}} />);
+      const btn = pipsBtn()!;
+      expect(btn).toHaveAttribute('title', 'Легендарные действия: 2 из 3 · варианты');
+      expect(btn).toHaveAccessibleName('Легендарные действия: 2 из 3 · варианты: Adult Red Dragon');
+      expect(Array.from(btn.children).map(p => (p as HTMLElement).dataset.on)).toEqual(['true', 'true', 'false']);
+      expect(btn.previousElementSibling).toHaveAttribute('data-actor', 'dragon');
+      expect(tokens()).toHaveLength(1);
+      rerender(<InitiativeBar round={1} entries={[DRAGON]} onNextTurn={() => {}} />);
+      expect(pipsBtn()).toBeNull();
+    });
+
+    it('щелчок — варианты над полосой дословно; «Потратить 2» при двух оставшихся зовёт onLegendarySpend и закрывает; дороже остатка — недоступно', () => {
+      const onSpend = vi.fn();
+      const onRestore = vi.fn();
+      const { rerender } = render(<InitiativeBar round={1} entries={[DRAGON]} onNextTurn={() => {}} onLegendarySpend={onSpend} onLegendaryRestore={onRestore} />);
+      fireEvent.click(pipsBtn()!);
+      const pop = within(bar()).getByRole('dialog', { name: 'Легендарные действия: Adult Red Dragon' });
+      expect(pop).toHaveClass('absolute', 'bottom-full', 'shadow-float', 'bg-pn');
+      expect(pop).toHaveTextContent('The dragon can take 3 legendary actions, choosing from the options below.');
+      expect(pop).toHaveTextContent('The dragon beats its wings.');
+      expect(pop).toHaveTextContent('2 из 3');
+      fireEvent.click(within(pop).getByRole('button', { name: 'Вернуть одно' }));
+      expect(onRestore).toHaveBeenCalledWith('dragon', 1);
+      fireEvent.click(within(pop).getByRole('button', { name: 'Потратить 2' }));
+      expect(onSpend).toHaveBeenCalledWith('dragon', 2);
+      expect(within(bar()).queryByRole('dialog')).toBeNull();
+      // Осталось одно — вариант за два недоступен; ничего не потрачено — «Вернуть одно» нет.
+      rerender(<InitiativeBar round={1} entries={[{ ...DRAGON, legendaryActions: { ...DRAGON.legendaryActions!, spent: 2 } }]} onNextTurn={() => {}} onLegendarySpend={onSpend} onLegendaryRestore={onRestore} />);
+      fireEvent.click(pipsBtn()!);
+      expect(within(bar()).getByRole('button', { name: 'Потратить 2' })).toBeDisabled();
+      expect(within(bar()).getByRole('button', { name: 'Потратить 1' })).toBeEnabled();
+      rerender(<InitiativeBar round={1} entries={[{ ...DRAGON, legendaryActions: { ...DRAGON.legendaryActions!, spent: 0 } }]} onNextTurn={() => {}} onLegendarySpend={onSpend} onLegendaryRestore={onRestore} />);
+      expect(within(bar()).queryByRole('button', { name: 'Вернуть одно' })).toBeNull();
+    });
+
+    it('Esc и повторный щелчок закрывают варианты; Esc дальше полосы не уходит', () => {
+      const onWindowKey = vi.fn();
+      window.addEventListener('keydown', onWindowKey);
+      render(<InitiativeBar round={1} entries={[DRAGON]} onNextTurn={() => {}} onLegendarySpend={() => {}} />);
+      fireEvent.click(pipsBtn()!);
+      expect(pipsBtn()).toHaveAttribute('aria-expanded', 'true');
+      fireEvent.keyDown(pipsBtn()!, { key: 'Escape' });
+      expect(within(bar()).queryByRole('dialog')).toBeNull();
+      expect(onWindowKey).not.toHaveBeenCalled();
+      fireEvent.click(pipsBtn()!);
+      fireEvent.click(pipsBtn()!);
+      expect(within(bar()).queryByRole('dialog')).toBeNull();
+      window.removeEventListener('keydown', onWindowKey);
+    });
+  });
+
   it('сторож: t3 текстом на плите не ставится; hex-цветов в классах нет; пустой ряд — список без токенов', () => {
     render(<InitiativeBar round={1} entries={[]} onNextTurn={() => {}} />);
     for (const el of [bar(), ...bar().querySelectorAll('*')]) {

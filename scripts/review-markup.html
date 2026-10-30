@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Разбор разметки</title>
+<link rel="stylesheet" href="/tokens.css">
+<link rel="stylesheet" href="/fonts/forum/400.css">
+<link rel="stylesheet" href="/fonts/pt-sans/400.css">
+<link rel="stylesheet" href="/fonts/pt-sans/700.css">
+<link rel="stylesheet" href="/fonts/ibm-plex-mono/400.css">
+<style>
+  * { box-sizing: border-box; border-radius: 0; }
+  html, body { margin: 0; height: 100%; background: var(--bg); color: var(--tx); font-family: var(--font-text); font-size: 15px; line-height: 21px; }
+  body { display: grid; grid-template-rows: auto 1fr auto; height: 100vh; overflow: hidden; }
+  button, input, select { font: inherit; color: var(--tx); }
+  :focus-visible { outline: 2px solid var(--gd); outline-offset: 1px; }
+  .display { font-family: var(--font-display); font-weight: 400; }
+  .mono { font-family: var(--font-mono); }
+  .t2 { color: var(--t2); } .t3 { color: var(--t3); } .gd { color: var(--gd); }
+
+  header { background: var(--pl); box-shadow: var(--bevel); display: flex; align-items: center; gap: 24px; padding: 8px 16px; }
+  header h1 { margin: 0; font-size: 20px; line-height: 26px; }
+  .tabs { display: flex; gap: 4px; }
+  .tab { background: var(--cd); box-shadow: var(--bevel); border: 0; padding: 4px 12px; cursor: pointer; }
+  .tab[aria-selected="true"] { background: var(--wl); box-shadow: var(--bevel-in); color: var(--gd); }
+  header .grow { flex: 1; }
+
+  main { display: grid; grid-template-columns: 300px 1fr; min-height: 0; }
+  nav { background: var(--pn); box-shadow: var(--bevel); overflow-y: auto; min-height: 0; }
+  nav button { display: grid; grid-template-columns: 1fr auto; gap: 8px; width: 100%; text-align: left; background: none; border: 0;
+    box-shadow: inset 0 -1px 0 var(--lo); padding: 6px 12px; cursor: pointer; }
+  nav button:hover { background: var(--cd); }
+  nav button[aria-current="true"] { background: var(--cd); box-shadow: inset 3px 0 0 var(--gd), inset 0 -1px 0 var(--lo); }
+  nav .nm { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  nav .st { font-family: var(--font-mono); font-size: 13px; color: var(--t3); }
+  nav .st.done { color: var(--gd); }
+
+  section.card { overflow-y: auto; padding: 16px 24px; min-height: 0; }
+  .head { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+  .head h2 { margin: 0; font-size: 28px; line-height: 34px; }
+  .why { margin: 4px 0 12px; color: var(--t2); }
+  .facts { display: flex; gap: 16px; flex-wrap: wrap; color: var(--t2); margin-bottom: 12px; }
+  .facts b { color: var(--tx); font-weight: 400; }
+
+  .maps { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+  .mapbox { background: var(--wl); box-shadow: var(--bevel-in); padding: 4px; }
+  .mapbox .cap { font-size: 13px; color: var(--t3); padding: 2px 4px 4px; }
+  .map { position: relative; overflow: hidden; height: 320px; }
+  .map img { position: absolute; image-rendering: auto; }
+  .map .box { position: absolute; box-shadow: 0 0 0 2px var(--gd), 0 0 0 4px var(--lo); pointer-events: none; }
+
+  .answers { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+  .ans { background: var(--cd); box-shadow: var(--bevel); padding: 8px 12px; }
+  .ans .who { font-size: 13px; color: var(--t3); }
+  .ans .val { font-size: 17px; }
+  .ans.chosen { box-shadow: var(--bevel), inset 0 0 0 2px var(--gd); }
+
+  .btn { background: var(--pl); box-shadow: var(--bevel); border: 0; padding: 6px 12px; cursor: pointer; display: inline-flex; gap: 8px; align-items: baseline; }
+  .btn:hover { box-shadow: var(--bevel), inset 0 0 0 1px var(--bl); }
+  .btn:active { box-shadow: var(--bevel-in); }
+  .btn .key { font-family: var(--font-mono); font-size: 12px; color: var(--t2); }
+  .btn.on { background: var(--wl); box-shadow: var(--bevel-in); color: var(--gd); }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+  .classes { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin-bottom: 12px; }
+  .classes .btn { justify-content: space-between; }
+
+  .sentence { font-size: 17px; line-height: 26px; background: var(--cd); box-shadow: var(--bevel); padding: 12px 16px; margin-bottom: 12px; max-width: 980px; }
+  .sentence .num { color: var(--gd); }
+  .sentence .lk { color: var(--t2); text-decoration: underline dotted; text-underline-offset: 3px; }
+  .sentence.ru { background: var(--pn); }
+  .sentence.ru .who { font-size: 13px; line-height: 18px; color: var(--t3); margin-bottom: 4px; }
+  a { color: var(--gd); }
+  table { border-collapse: collapse; width: 100%; }
+  th { text-align: left; font-weight: 400; font-size: 13px; color: var(--t3); padding: 2px 6px; }
+  td { padding: 2px 6px; vertical-align: top; }
+  td.diff { color: var(--gd); }
+  .empty { color: var(--t3); }
+
+  .editor { background: var(--pn); box-shadow: var(--bevel); padding: 12px; margin-bottom: 12px; max-width: 1180px; }
+  .editor input[type=text], .editor input[type=number], .editor select { background: var(--wl); box-shadow: var(--bevel-in); border: 0; padding: 4px 6px; width: 100%; }
+  .editor input[type=number] { width: 80px; }
+  .editor td { padding: 3px 4px; }
+
+  footer { background: var(--pn); box-shadow: var(--bevel); padding: 6px 16px; display: flex; gap: 24px; color: var(--t3); font-size: 13px; }
+  footer .key { font-family: var(--font-mono); font-size: 12px; color: var(--t2); }
+  .find { position: sticky; top: 0; background: var(--pn); padding: 8px; box-shadow: inset 0 -1px 0 var(--lo); z-index: 2; }
+  .find input, .namefix input, .parts input, .parts select { background: var(--wl); box-shadow: var(--bevel-in); border: 0; padding: 4px 6px; width: 100%; }
+  #results button .st { color: var(--t2); }
+  .namefix { display: grid; grid-template-columns: auto minmax(200px, 420px) auto; gap: 12px; align-items: center; margin-bottom: 12px; }
+  .namefix .lbl { color: var(--t2); }
+  .near { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; align-items: baseline; }
+  .near .lbl { color: var(--t2); margin-right: 4px; }
+  .map .nb { position: absolute; box-shadow: 0 0 0 1px var(--t2); pointer-events: none; }
+  .map .nb.on { box-shadow: 0 0 0 2px var(--gd); }
+  .parts { background: var(--pn); box-shadow: var(--bevel); padding: 12px; margin-bottom: 12px; max-width: 760px; }
+  .parts td { padding: 3px 4px; }
+  .toast { position: fixed; right: 16px; bottom: 40px; background: var(--pl); box-shadow: var(--float); padding: 8px 12px; display: none; }
+</style>
+</head>
+<body>
+<header>
+  <h1 class="display">Разбор разметки</h1>
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" data-task="l1"></button>
+    <button class="tab" role="tab" data-task="l2"></button>
+  </div>
+  <div class="grow"></div>
+  <div class="t2" id="total"></div>
+</header>
+<main>
+  <nav aria-label="Строки на проверку">
+    <div class="find"><input id="find" type="text" placeholder="Найти подпись — и готовую" autocomplete="off" title="Поиск по всем подписям L1 · /"></div>
+    <div id="results"></div>
+    <div id="list"></div>
+  </nav>
+  <section class="card" id="card"></section>
+</main>
+<footer id="keys"></footer>
+<div class="toast" id="toast"></div>
+
+<script>
+// Состояние страницы: очередь с сервера, решения (id → решение), вкладка и текущий индекс.
+const RU_CLASS = { settlement: 'поселение', fortress: 'крепость', ruins: 'руины', temple: 'храм', mine: 'шахта', mountain: 'гора',
+  hills: 'холмы', forest: 'лес', swamp: 'болото', desert: 'пустыня', lake: 'озеро', river: 'река', sea: 'море', island: 'остров',
+  pass: 'перевал', region: 'область', road: 'дорога', other: 'прочее', bay: 'залив', archipelago: 'архипелаг', reef: 'риф', peninsula: 'полуостров', bridge: 'мост', glacier: 'ледник' };
+const CLASS_KEYS = 'QWERTYUIOPASDFGHJKLZXCVB';
+const NEAR_PX = 320;  // соседи для склейки — в этом радиусе от центра подписи, пиксели исходника
+const RU_UNIT = { mile: 'миля', league: 'лига', day: 'день', hour: 'час', tenday: 'десятидневка' };
+const RU_UNIT_N = { mile: ['миля', 'мили', 'миль'], league: ['лига', 'лиги', 'лиг'], day: ['день', 'дня', 'дней'],
+  hour: ['час', 'часа', 'часов'], tenday: ['десятидневка', 'десятидневки', 'десятидневок'] };
+function unitN(unit, n) {
+  const f = RU_UNIT_N[unit]; if (!f) return unit;
+  if (!Number.isInteger(n)) return f[1];
+  const a = Math.abs(n) % 100, b = a % 10;
+  return a > 10 && a < 20 ? f[2] : b === 1 ? f[0] : b >= 2 && b <= 4 ? f[1] : f[2];
+}
+const RU_MODE = { foot: 'пешком', horse: 'верхом', ship: 'по воде', caravan: 'караваном', '': 'не сказано' };
+const RU_COLOR = { blue: 'синий', black: 'чёрный', red: 'красный', brown: 'коричневый', green: 'зелёный', white: 'белый' };
+const RU_TERRAIN = { o: 'вода', g: 'равнина', h: 'холмы', f: 'лес', m: 'горы', s: 'болото', d: 'пустыня', i: 'лёд', u: 'не размечено' };
+const MAX_Z = 7, TILE = 256;
+
+let Q = null, D = {}, task = 'l1', idx = 0, editing = null, draft = null;
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const items = () => Q[task];
+const cur = () => items()[idx];
+const inQueue = (r) => task !== 'l1' || r.status === 'review';
+// Кто кого поглотил при склейке: id соседа → id подписи, частью которой он стал.
+function absorbedBy() { const m = {}; for (const d of Object.values(D)) for (const a of d.absorb || []) m[a] = d.id; return m; }
+const isOpen = (r, ab = absorbedBy()) => inQueue(r) && !D[r.id] && !ab[r.id];
+const allL1 = () => [...Q.l1, ...Q.l1_all.filter((o) => !Q.l1.some((r) => r.id === o.id))];
+
+async function load() {
+  Q = await (await fetch('/api/queue')).json();
+  D = Q.decisions;
+  const first = items().findIndex((r) => isOpen(r));
+  idx = first < 0 ? 0 : first;
+  render();
+}
+
+async function decide(body) {
+  const r = await fetch('/api/decide', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+  if (!r.ok) { toast('Сервер не принял решение — проверьте поля'); return false; }
+  if (body.action === 'reopen') delete D[body.id]; else D[body.id] = { ...body, at: new Date().toISOString() };
+  return true;
+}
+
+function toast(t) {
+  const el = $('#toast'); el.textContent = t; el.style.display = 'block';
+  clearTimeout(toast.h); toast.h = setTimeout(() => (el.style.display = 'none'), 2200);
+}
+
+function nextOpen() {
+  const n = items().length, ab = absorbedBy();
+  for (let k = 1; k <= n; k++) { const j = (idx + k) % n; if (isOpen(items()[j], ab)) { idx = j; return; } }
+  toast('Во вкладке всё решено');
+}
+
+// ---------- шапка, список, подвал ----------
+function render() {
+  const ab = absorbedBy();
+  const queued = (t) => Q[t].filter((r) => t !== 'l1' || r.status === 'review');
+  const done = (t) => queued(t).filter((r) => D[r.id] || (t === 'l1' && ab[r.id])).length;
+  document.querySelectorAll('.tab').forEach((b) => {
+    const t = b.dataset.task;
+    b.textContent = `${t === 'l1' ? 'L1 · класс подписи' : 'L2 · расстояния'}  ${done(t)} / ${queued(t).length}`;
+    b.setAttribute('aria-selected', String(t === task));
+  });
+  $('#total').innerHTML = `решено <span class="mono gd">${done('l1') + done('l2')}</span> из <span class="mono">${queued('l1').length + queued('l2').length}</span>`;
+  $('#list').innerHTML = items().map((r, i) => {
+    const d = D[r.id];
+    let st, nm;
+    if (task === 'l1') {
+      st = ab[r.id] ? 'часть подписи' : !d ? (r.status === 'review' ? 'проверить' : 'поиск') : RU_CLASS[d.kind] + (d.name || d.split ? ' · имя' : '');
+      nm = (d && (d.split ? d.split.map((p) => p.name).join(' + ') : d.name)) || r.name;
+    } else {
+      st = !d ? 'проверить' : d.pairs.length ? `пар: ${d.pairs.length}` : 'нет расстояния';
+      nm = `${r.article} · ${r.id.split('#')[1]}`;
+    }
+    return `<button data-i="${i}" aria-current="${i === idx}" title="${esc(nm)}"><span class="nm">${esc(nm)}</span><span class="st${d || ab[r.id] ? ' done' : ''}">${esc(st)}</span></button>`;
+  }).join('');
+  const sel = $('#list').children[idx]; if (sel) sel.scrollIntoView({ block: 'nearest' });
+  (task === 'l1' ? renderL1 : renderL2)();
+  $('#keys').innerHTML = (task === 'l1'
+    ? ['1 · ответ A', '2 · ответ B', 'Q…B · класс', 'N · имя', '/ · поиск', '↑ ↓ · строка', 'Enter · следующая нерешённая', 'Backspace · снять решение']
+    : editing ? ['Ctrl+Enter · сохранить', 'Esc · отмена'] : ['1 · пары A', '2 · пары B', '0 · нет расстояния', 'E · править', '↑ ↓ · строка', 'Enter · следующая нерешённая', 'Backspace · снять решение'])
+    .map((s) => { const [k, t] = s.split(' · '); return `<span><span class="key">${esc(k)}</span> ${esc(t)}</span>`; }).join('')
+    + `<span class="grow" style="flex:1"></span><span>в L1/L2.jsonl: <span class="key">.venv/bin/python scripts/review-markup.py --apply</span></span>`;
+}
+
+// ---------- поиск по всем подписям L1 ----------
+function renderResults() {
+  const q = $('#find').value.trim().toLowerCase();
+  if (q.length < 2) { $('#results').innerHTML = ''; return; }
+  const hits = allL1().filter((r) => r.name.toLowerCase().includes(q) || (r.name_ocr || '').toLowerCase().includes(q)).slice(0, 12);
+  $('#results').innerHTML = hits.length ? hits.map((r) =>
+    `<button data-found="${esc(r.id)}" title="${esc(r.id)}"><span class="nm">${esc(r.name)}</span><span class="st">${esc(RU_CLASS[r.kind] || r.kind || '')} · ${esc(r.status)}</span></button>`).join('')
+    : '<p class="empty" style="padding:6px 12px;margin:0">не найдено</p>';
+}
+function openFound(id) {
+  let i = Q.l1.findIndex((r) => r.id === id);
+  if (i < 0) { Q.l1.push(Q.l1_all.find((r) => r.id === id)); i = Q.l1.length - 1; }
+  task = 'l1'; idx = i; editing = null; draft = null;
+  $('#find').value = ''; $('#find').blur(); renderResults(); render();
+}
+
+// ---------- L1: класс подписи ----------
+function mapView(el, z, cx, cy, box, nbs = []) {
+  // Кусок растра вокруг (cx, cy) в пикселях исходника на уровне z; box — рамка в пикселях исходника, nbs — рамки соседей.
+  const s = 2 ** (z - MAX_Z), w = el.clientWidth, h = el.clientHeight;
+  const ox = cx * s - w / 2, oy = cy * s - h / 2;
+  const x0 = Math.max(0, Math.floor(ox / TILE)), y0 = Math.max(0, Math.floor(oy / TILE));
+  const x1 = Math.floor((ox + w) / TILE), y1 = Math.floor((oy + h) / TILE);
+  let html = '';
+  for (let ty = y0; ty <= y1; ty++) for (let tx = x0; tx <= x1; tx++)
+    html += `<img alt="" src="/tiles/${z}/${tx}_${ty}.webp" style="left:${tx * TILE - ox}px;top:${ty * TILE - oy}px" onerror="this.remove()">`;
+  const rect = (bx, cls) => { const b = bx.map((v) => v * s);
+    return `<div class="${cls}" style="left:${b[0] - ox}px;top:${b[1] - oy}px;width:${Math.max(6, b[2])}px;height:${Math.max(6, b[3])}px"></div>`; };
+  for (const n of nbs) html += rect(n.box, n.on ? 'nb on' : 'nb');
+  html += rect(box, 'box');
+  el.innerHTML = html;
+}
+
+// x, y подписи в toril-rest.json — центр (gazetteer-from-map.py, rest_of).
+const boxOf = (L) => { const w = L.w || 200, h = L.lh || 24; return [L.x - w / 2, L.y - h / 2, w, h]; };
+function neighbours(r) {
+  const L = r.label; if (L.x == null) return [];
+  return allL1().filter((o) => o.id !== r.id && !o.id.includes('#') && o.label.x != null && o.status !== 'merged')
+    .map((o) => ({ o, dist: Math.round(Math.hypot(o.label.x - L.x, o.label.y - L.y)) }))
+    .filter((n) => n.dist < NEAR_PX).sort((a, b) => a.dist - b.dist).slice(0, 10);
+}
+
+function readDraft() {
+  const nm = $('#nm'); if (nm) draft.name = nm.value;
+  document.querySelectorAll('#card .parts [data-part]').forEach((el) => { draft.split[+el.dataset.part][el.dataset.f] = el.value; });
+}
+
+function renderL1() {
+  const r = cur(); if (!r) { $('#card').innerHTML = '<p class="empty">Строк на проверку нет.</p>'; return; }
+  const d = D[r.id], L = r.label, ab = absorbedBy();
+  if (!draft || draft.id !== r.id)
+    draft = { id: r.id, name: d?.name ?? r.name, absorb: new Set(d?.absorb || []), split: d?.split ? d.split.map((p) => ({ ...p })) : null };
+  const near = neighbours(r);
+  const said = r.a.said && r.a.said !== r.a.kind ? ` <span class="t3">(сказала «${esc(r.a.said)}»)</span>` : '';
+  const why = ab[r.id] ? `Эта подпись — часть «${esc((D[ab[r.id]] || {}).name || ab[r.id])}»: решение у той строки.`
+    : r.status === 'review' ? 'Подпись растра без пары в Toril GIS. Две модели назвали разный класс — нужен ваш.'
+    : `Готовая строка, открыта поиском: сейчас ${esc(RU_CLASS[r.kind] || r.kind)} (${esc(r.how || r.status)}). Решение заменит её.`;
+  const ocr = r.name_ocr || r.name;
+  let html = `
+    <div class="head"><h2 class="display">${esc(draft.split ? draft.split.map((p) => p.name).join(' + ') : draft.name)}</h2><span class="mono t3">${esc(r.id)}</span></div>
+    <p class="why">${why}</p>
+    <div class="facts">
+      <span>цвет букв <b>${esc(RU_COLOR[L.color] || L.color || '—')}</b></span>
+      <span>капитель <b class="mono">${L.caps != null ? Math.round(L.caps * 100) + '%' : '—'}</b></span>
+      <span>вразрядку <b>${L.spaced ? 'да' : 'нет'}</b></span>
+      <span>местность под подписью <b>${esc(RU_TERRAIN[L.terrain] || '—')}</b></span>
+    </div>
+    <div class="maps">
+      <div class="mapbox"><div class="cap">Вблизи, 1 : 1 · золотым — эта подпись и отмеченные части, тонко — соседи</div><div class="map" id="m1"></div></div>
+      <div class="mapbox"><div class="cap">Окрестность, 1 : 8</div><div class="map" id="m2"></div></div>
+    </div>
+    <div class="namefix"><span class="lbl">Имя на карте</span>
+      <input id="nm" type="text" value="${esc(draft.name)}" title="Как написано на карте целиком · N"${draft.split ? ' disabled' : ''}>
+      <span class="t3">OCR прочёл: «${esc(ocr)}»</span></div>`;
+  if (near.length) html += `<div class="near"><span class="lbl">Рядом — отметьте части этой подписи:</span>${near.map(({ o, dist }) =>
+    `<button class="btn${draft.absorb.has(o.id) ? ' on' : ''}" data-near="${esc(o.id)}" title="${esc(o.id)} · ${esc(RU_CLASS[o.kind] || o.kind)}">${esc(o.name)}<span class="key">${dist} px</span></button>`).join('')}</div>`;
+  if (draft.split) html += `<div class="parts"><div class="t2" style="margin-bottom:6px">OCR склеил несколько подписей — по одной на строку; первая остаётся этой строкой.</div>
+    <table>${draft.split.map((p, i) => `<tr><td style="width:60%"><input type="text" data-part="${i}" data-f="name" value="${esc(p.name)}"></td>
+      <td><select data-part="${i}" data-f="kind">${Q.classes.map((c) => `<option value="${c}"${c === p.kind ? ' selected' : ''}>${RU_CLASS[c]}</option>`).join('')}</select></td>
+      <td>${i > 1 ? `<button class="btn" data-part-del="${i}">убрать</button>` : ''}</td></tr>`).join('')}</table>
+    <div class="row" style="margin:8px 0 0"><button class="btn" data-part-add>Добавить часть</button>
+      <button class="btn" data-split-save>Сохранить разделение</button><button class="btn" data-split-cancel>Не разделять</button></div></div>`;
+  if (r.status === 'review') html += `
+    <div class="answers">
+      <div class="ans${d && d.kind === r.a.kind ? ' chosen' : ''}"><div class="who">A · ${esc(r.a.model)}</div><div class="val">${esc(RU_CLASS[r.a.kind] || r.a.kind)}${said}</div></div>
+      <div class="ans${d && d.kind === r.b.kind ? ' chosen' : ''}"><div class="who">B · ${esc(r.b.model || 'второго мнения нет')}</div><div class="val">${esc(RU_CLASS[r.b.kind] || r.b.kind || '—')}</div></div>
+    </div>`;
+  html += `<div class="row">
+      ${r.status === 'review' ? `<button class="btn" data-pick="${esc(r.a.kind)}"><span class="key">1</span>Взять A: ${esc(RU_CLASS[r.a.kind])}</button>
+      ${r.b.kind ? `<button class="btn" data-pick="${esc(r.b.kind)}"><span class="key">2</span>Взять B: ${esc(RU_CLASS[r.b.kind])}</button>` : ''}` : ''}
+      ${draft.split ? '' : `<button class="btn" data-split>Разделить</button>`}
+      ${d ? `<button class="btn" data-reopen><span class="key">Backspace</span>Снять решение</button>` : ''}
+    </div>`;
+  if (!draft.split) html += `<div class="classes">${Q.classes.map((c, i) =>
+    `<button class="btn${d && d.kind === c ? ' on' : ''}" data-pick="${c}" title="${c} · ${CLASS_KEYS[i]}">${esc(RU_CLASS[c])}<span class="key">${CLASS_KEYS[i]}</span></button>`).join('')}</div>`;
+  $('#card').innerHTML = html;
+  const nbs = near.map(({ o }) => ({ box: boxOf(o.label), on: draft.absorb.has(o.id) }));
+  mapView($('#m1'), 7, L.x, L.y, boxOf(L), nbs);
+  mapView($('#m2'), 4, L.x, L.y, boxOf(L));
+}
+
+function toggleNear(id) {
+  readDraft();
+  const r = cur(), auto = draft.name === composeName(r, draft.absorb);
+  if (draft.absorb.has(id)) draft.absorb.delete(id); else draft.absorb.add(id);
+  if (auto) draft.name = composeName(r, draft.absorb);  // имя ещё не правили руками — собрать из частей по строкам карты
+  render();
+}
+function composeName(r, absorb) {
+  const parts = [r, ...allL1().filter((o) => absorb.has(o.id))];
+  return parts.sort((a, b) => (a.label.y - b.label.y) || (a.label.x - b.label.x)).map((o) => o.name).join(' ');
+}
+
+// ---------- L2: расстояния ----------
+const NUM_WORDS = 'one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|fifteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred|thousand|half|a few|several|dozen';
+function markSentence(text, links) {
+  let html = esc(text);
+  const names = [...new Set(links)].filter((l) => l.length > 2).sort((a, b) => b.length - a.length);
+  for (const n of names) html = html.split(esc(n)).join(`\u0001${esc(n)}\u0002`);
+  html = html.replace(new RegExp(`\\b((?:\\d[\\d,.]*|${NUM_WORDS})(?:[\\s-]+(?:\\d[\\d,.]*|${NUM_WORDS}))*)(?=[\\s-]+(?:miles?|leagues?|days?|hours?|tendays?|nights?)\\b)`, 'gi'),
+    '<span class="num">$1</span>');
+  return html.replace(/\u0001/g, '<span class="lk">').replace(/\u0002/g, '</span>');
+}
+
+const pairKey = (p) => `${String(p.from).toLowerCase()}|${String(p.to).toLowerCase()}|${p.value}|${String(p.unit).replace(/s$/, '')}`;
+function pairsTable(pairs, other) {
+  if (!pairs || !pairs.length) return '<p class="empty">пар нет</p>';
+  const ok = new Set((other || []).map(pairKey));
+  return `<table><tr><th>откуда</th><th>куда</th><th>сколько</th><th>путь</th><th>как</th></tr>${pairs.map((p) => {
+    const c = ok.has(pairKey(p)) ? '' : ' class="diff"';
+    return `<tr><td${c}>${esc(p.from)}</td><td${c}>${esc(p.to)}</td><td class="mono">${p.approx ? '≈ ' : ''}${esc(p.value)} ${esc(unitN(String(p.unit).replace(/s$/, ''), Number(p.value)))}</td><td>${esc(p.route || '—')}</td><td>${esc(RU_MODE[p.mode ?? ''] ?? p.mode)}</td></tr>`;
+  }).join('')}</table>`;
+}
+
+function clean(p) {
+  const unit = String(p.unit || 'mile').replace(/s$/, '');
+  return { from: String(p.from || '').trim(), to: String(p.to || '').trim(), value: Number(p.value) || 0,
+    unit: Q.units.includes(unit) ? unit : 'mile', approx: !!p.approx, route: String(p.route || ''), mode: Q.modes.includes(p.mode ?? '') ? (p.mode ?? '') : '' };
+}
+
+function renderL2() {
+  const r = cur(); if (!r) { $('#card').innerHTML = '<p class="empty">Строк на проверку нет.</p>'; return; }
+  const d = D[r.id];
+  let html = `
+    <div class="head"><h2 class="display">${esc(r.article)}</h2><span class="mono t3">${esc(r.id)}</span>
+      <a href="${esc(r.url)}" target="_blank" rel="noopener">статья вики</a></div>
+    <p class="why">Число пары не стоит в предложении цифрами (часто — словами), и модели ответили по-разному. Нужны пары, как они сказаны в тексте: ничего не считать.</p>
+    <div class="sentence">${markSentence(r.text, [r.article, ...r.links])}</div>
+    ${r.ru ? `<div class="sentence ru"><div class="who">Перевод переводчиком macOS — чтобы читать; пары ставятся по оригиналу${r.ru.lost ? ` · <span class="gd">потерялось имя: ${esc(r.ru.lost.join(', '))}</span>` : ''}</div>${markSentence(r.ru.ru, [r.article, ...r.links])}</div>` : ''}`;
+  if (editing) {
+    const names = [...new Set([r.article, ...r.links])];
+    html += `<div class="editor"><datalist id="names">${names.map((n) => `<option value="${esc(n)}">`).join('')}</datalist>
+      <table><tr><th>откуда</th><th>куда</th><th>число</th><th>единица</th><th>около</th><th>путь (дорога, «direct» или пусто)</th><th>как</th><th></th></tr>
+      ${editing.map((p, i) => `<tr data-row="${i}">
+        <td><input type="text" list="names" data-f="from" value="${esc(p.from)}"></td>
+        <td><input type="text" list="names" data-f="to" value="${esc(p.to)}"></td>
+        <td><input type="number" min="0" step="any" data-f="value" value="${esc(p.value)}"></td>
+        <td><select data-f="unit">${Q.units.map((u) => `<option value="${u}"${u === p.unit ? ' selected' : ''}>${RU_UNIT[u]}</option>`).join('')}</select></td>
+        <td><input type="checkbox" data-f="approx"${p.approx ? ' checked' : ''}></td>
+        <td><input type="text" data-f="route" value="${esc(p.route)}"></td>
+        <td><select data-f="mode">${Q.modes.map((m) => `<option value="${m}"${m === p.mode ? ' selected' : ''}>${RU_MODE[m]}</option>`).join('')}</select></td>
+        <td><button class="btn" data-del="${i}" title="Убрать пару">убрать</button></td></tr>`).join('')}
+      </table>
+      <div class="row" style="margin:8px 0 0"><button class="btn" data-add>Добавить пару</button>
+        <button class="btn" data-save><span class="key">Ctrl+Enter</span>Сохранить</button>
+        <button class="btn" data-cancel><span class="key">Esc</span>Отмена</button></div></div>`;
+  } else if (d) {
+    html += `<div class="ans chosen" style="margin-bottom:12px"><div class="who">Ваше решение</div>${d.pairs.length ? pairsTable(d.pairs, d.pairs) : '<p class="empty">расстояния в предложении нет</p>'}</div>`;
+  }
+  html += `
+    <div class="answers">
+      <div class="ans"><div class="who">A · ${esc(r.a.model)}</div>${pairsTable(r.a.pairs, r.b.pairs)}</div>
+      <div class="ans"><div class="who">B · ${esc(r.b.model)}</div>${pairsTable(r.b.pairs, r.a.pairs)}</div>
+    </div>
+    <p class="t3" style="margin-top:-4px">Золотым — то, в чём модели расходятся.</p>`;
+  if (!editing) html += `
+    <div class="row">
+      <button class="btn" data-take="a"><span class="key">1</span>Взять пары A</button>
+      <button class="btn" data-take="b"><span class="key">2</span>Взять пары B</button>
+      <button class="btn" data-none><span class="key">0</span>Нет расстояния</button>
+      <button class="btn" data-edit><span class="key">E</span>Править</button>
+      ${d ? `<button class="btn" data-reopen><span class="key">Backspace</span>Снять решение</button>` : ''}
+    </div>`;
+  $('#card').innerHTML = html;
+  if (editing) { const f = $('#card .editor input'); if (f) f.focus(); }
+}
+
+function readEditor() {
+  document.querySelectorAll('#card .editor tr[data-row]').forEach((tr) => {
+    const p = editing[+tr.dataset.row];
+    tr.querySelectorAll('[data-f]').forEach((el) => {
+      const f = el.dataset.f;
+      p[f] = f === 'approx' ? el.checked : f === 'value' ? Number(el.value) : el.value;
+    });
+  });
+}
+
+// ---------- действия ----------
+async function pickClass(kind) {
+  readDraft();
+  const r = cur(), body = { id: r.id, task: 'L1', kind }, name = draft.name.trim();
+  if (!name) { toast('Имя на карте не может быть пустым'); return; }
+  if (name !== r.name) body.name = name;
+  if (draft.absorb.size) body.absorb = [...draft.absorb];
+  if (!(await decide(body))) return;
+  draft = null; nextOpen(); render();
+}
+async function saveSplit() {
+  readDraft();
+  const parts = draft.split.map((p) => ({ name: p.name.trim(), kind: p.kind }));
+  if (parts.some((p) => !p.name)) { toast('У каждой части — имя'); return; }
+  const body = { id: cur().id, task: 'L1', kind: parts[0].kind, split: parts };
+  if (draft.absorb.size) body.absorb = [...draft.absorb];
+  if (!(await decide(body))) return;
+  draft = null; nextOpen(); render();
+}
+async function setPairs(pairs) {
+  if (!(await decide({ id: cur().id, task: 'L2', pairs: pairs.map(clean) }))) return;
+  editing = null; nextOpen(); render();
+}
+async function reopen() {
+  if (!D[cur().id]) return;
+  await decide({ id: cur().id, task: task.toUpperCase(), action: 'reopen' }); render();
+}
+function startEdit() {
+  const r = cur(), d = D[r.id];
+  const base = d ? d.pairs : (r.a.pairs.length ? r.a.pairs : r.b.pairs);
+  editing = (base.length ? base : [{ from: r.article, to: '', value: 0, unit: 'mile' }]).map(clean);
+  render();
+}
+async function saveEdit() {
+  readEditor();
+  const bad = editing.find((p) => !p.from.trim() || !p.to.trim() || !(p.value > 0));
+  if (bad) { toast('У каждой пары — откуда, куда и число больше нуля'); return; }
+  await setPairs(editing);
+}
+
+document.addEventListener('click', (e) => {
+  const t = e.target.closest('button'); if (!t) return;
+  if (t.classList.contains('tab')) { task = t.dataset.task; editing = null; draft = null; const f = items().findIndex((r) => isOpen(r)); idx = f < 0 ? 0 : f; return render(); }
+  if (t.dataset.i != null) { idx = +t.dataset.i; editing = null; draft = null; return render(); }
+  if (t.dataset.found) return openFound(t.dataset.found);
+  if (t.dataset.pick) return pickClass(t.dataset.pick);
+  if (t.dataset.near) return toggleNear(t.dataset.near);
+  if (t.hasAttribute('data-split')) {
+    readDraft();
+    const words = draft.name.split(/O(?=[A-Z])|\s+[oO°•]\s+/);  // «Ahn BayODilapan»: значок поселения OCR читает буквой O
+    const kind = D[cur().id]?.kind || cur().kind;
+    draft.split = (words.length > 1 ? words : [draft.name, '']).map((n) => ({ name: n.trim(), kind }));
+    return render();
+  }
+  if (t.hasAttribute('data-part-add')) { readDraft(); draft.split.push({ name: '', kind: draft.split[0].kind }); return render(); }
+  if (t.dataset.partDel != null) { readDraft(); draft.split.splice(+t.dataset.partDel, 1); return render(); }
+  if (t.hasAttribute('data-split-save')) return saveSplit();
+  if (t.hasAttribute('data-split-cancel')) { draft.split = null; return render(); }
+  if (t.dataset.take) return setPairs(cur()[t.dataset.take].pairs);
+  if (t.hasAttribute('data-none')) return setPairs([]);
+  if (t.hasAttribute('data-edit')) return startEdit();
+  if (t.hasAttribute('data-reopen')) return reopen();
+  if (t.hasAttribute('data-add')) { readEditor(); editing.push({ from: cur().article, to: '', value: 0, unit: 'mile', approx: false, route: '', mode: '' }); return render(); }
+  if (t.dataset.del != null) { readEditor(); editing.splice(+t.dataset.del, 1); return render(); }
+  if (t.hasAttribute('data-save')) return saveEdit();
+  if (t.hasAttribute('data-cancel')) { editing = null; return render(); }
+});
+
+document.addEventListener('keydown', (e) => {
+  if (!Q || e.metaKey || e.altKey) return;
+  if (editing) {
+    if (e.key === 'Escape') { editing = null; render(); }
+    else if (e.key === 'Enter' && e.ctrlKey) { e.preventDefault(); saveEdit(); }
+    return;
+  }
+  const tag = document.activeElement?.tagName;
+  if (['INPUT', 'SELECT', 'TEXTAREA'].includes(tag)) {
+    // Enter в имени — готово, дальше клавиша класса; Enter в поиске — первая находка; Esc — выйти из поля.
+    const id = document.activeElement.id;
+    if (e.key === 'Escape' || (e.key === 'Enter' && id === 'nm')) { if (id === 'nm') readDraft(); document.activeElement.blur(); e.preventDefault(); }
+    else if (e.key === 'Enter' && id === 'find') { const b = $('#results button'); if (b) openFound(b.dataset.found); e.preventDefault(); }
+    return;
+  }
+  if (e.ctrlKey) return;
+  const k = e.key.toUpperCase(), r = cur();
+  if (e.key === '/') { e.preventDefault(); $('#find').focus(); return; }
+  if (task === 'l1' && k === 'N' && $('#nm') && !$('#nm').disabled) { e.preventDefault(); $('#nm').focus(); $('#nm').select(); return; }
+  if (e.key === 'ArrowDown') { idx = Math.min(items().length - 1, idx + 1); render(); }
+  else if (e.key === 'ArrowUp') { idx = Math.max(0, idx - 1); render(); }
+  else if (e.key === 'Enter') { nextOpen(); render(); }
+  else if (e.key === 'Backspace') reopen();
+  else if (!r) return;
+  else if (task === 'l1') {
+    if (k === '1') pickClass(r.a.kind);
+    else if (k === '2' && r.b.kind) pickClass(r.b.kind);
+    else if (CLASS_KEYS.includes(k) && k.length === 1) pickClass(Q.classes[CLASS_KEYS.indexOf(k)]);
+    else return;
+  } else {
+    if (k === '1') setPairs(r.a.pairs);
+    else if (k === '2') setPairs(r.b.pairs);
+    else if (k === '0') setPairs([]);
+    else if (k === 'E') { e.preventDefault(); startEdit(); }
+    else return;
+  }
+  e.preventDefault();
+});
+
+window.addEventListener('resize', () => task === 'l1' && Q && renderL1());
+$('#find').addEventListener('input', renderResults);
+load();
+</script>
+</body>
+</html>

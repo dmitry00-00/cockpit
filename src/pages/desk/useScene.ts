@@ -1,7 +1,7 @@
 // Сцена места для вкладки «Сейчас» (Д2, ROADMAP 6.2): справочник места (вики, хронология, поход A5E) грузится куском
 // только мастеру; до загрузки сцена уже есть — из состояния кампании (календарь, рынок, округа, нити).
 import { useEffect, useMemo, useState } from 'react';
-import { harptos, sceneOf, type Scene, type SceneAt, type SceneCanon } from '../../campaign';
+import { harptos, sceneOf, type Scene, type SceneAt, type SceneCanon, type Tension } from '../../campaign';
 import type { State } from '../../engine/state';
 import { parseRef } from '../../entities';
 import { loadSceneCanon } from '../../world/sceneCanon';
@@ -10,7 +10,7 @@ import { useWikiPlace } from '../../world/useWikiPlace';
 const NO_LOCATION = { name: '' };
 
 /** Сцена в `sec`: место кампании (`location`) или место справочника карты (`place`); null — сцены нет. */
-export function useScene(state: State, at: SceneAt | null, sec: number, dm: boolean): { scene: Scene | null; loading: boolean } {
+export function useScene(state: State, at: SceneAt | null, sec: number, dm: boolean, tensions?: readonly Tension[] | null): { scene: Scene | null; loading: boolean } {
   const location = at?.location ? state.world.locations[at.location] : undefined;
   // Место кампании без ссылки на справочник — по имени, как обзор места.
   const wiki = useWikiPlace(location ?? NO_LOCATION, dm && !!location);
@@ -28,8 +28,8 @@ export function useScene(state: State, at: SceneAt | null, sec: number, dm: bool
   const { location: locId, place } = at ?? {};
   const on = at !== null;
   const scene = useMemo(
-    () => (on ? sceneOf(state, { location: locId, place }, sec, ready, { players: !dm }) : null),
-    [state, on, locId, place, sec, ready, dm],
+    () => (on ? sceneOf(state, { location: locId, place }, sec, ready, { players: !dm, ...(tensions ? { tensions } : {}) }) : null),
+    [state, on, locId, place, sec, ready, dm, tensions],
   );
   return { scene, loading: dm && !!key && !ready };
 }

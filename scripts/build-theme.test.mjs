@@ -34,13 +34,19 @@ describe('build-theme', () => {
     for (const k of Object.keys(tokens.type.families)) expect(css).toContain(`--font-${k}: `);
   });
 
-  it('все стили типографики — утилиты type-* с кеглем не ниже 12px', () => {
+  // Нижний кегль — 12px; у пиксельного Press Start 2P глиф во весь кегль (заглавная 7 из 8 px — как у 10–11px
+  // гарнитуры с обычными метриками), поэтому ему — 8px, и только кратно 4 px: на экране с плотностью 2 пиксель глифа целый.
+  it('все стили типографики — утилиты type-* с кеглем не ниже 12px (пиксельный — не ниже 8px и кратно 4)', () => {
     const { css } = buildTheme(tokens);
-    const styles = tokens.type.groups.flatMap(g => g.styles);
+    const styles = tokens.type.groups.flatMap(g => g.styles.map(st => ({ ...st, family: g.family })));
     expect(styles.length).toBeGreaterThanOrEqual(12);
     for (const st of styles) {
       expect(css).toMatch(new RegExp(`@utility type-${st.name} \\{[^}]*font-size: ${st.fontSize};`));
-      expect(parseInt(st.fontSize, 10)).toBeGreaterThanOrEqual(12);
+      const px = parseInt(st.fontSize, 10);
+      if (st.family === 'pixel') {
+        expect(px, st.name).toBeGreaterThanOrEqual(8);
+        expect(px % 4, st.name).toBe(0);
+      } else expect(px, st.name).toBeGreaterThanOrEqual(12);
     }
   });
 

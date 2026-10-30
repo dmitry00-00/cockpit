@@ -1,8 +1,13 @@
 // Дерево вывода числа листа (ROADMAP 5.4, DESIGN Д1): «AC 18 = 14 доспех + 2 DEX + 2 щит», под шагом — строка SRD,
-// откуда он (раскрывается щелчком). Тупой: шаги — пропсами из campaign/explain.ts. Esc и крестик закрывают.
+// откуда он (раскрывается щелчком). У шага — метка слоя правил (Д7): SRD или таблицы владельца. Тупой: шаги — пропсами
+// из campaign/explain.ts. Esc и крестик закрывают.
 import { useEffect } from 'react';
 import type { Explanation } from '../campaign/explain';
 import { Icon } from '../icons/Icon';
+import { LAYERS, type LayerId } from '../rules/layers';
+
+const LayerTag = ({ layer }: { layer?: LayerId }) =>
+  layer ? <span className="type-key text-t2 flex-none" data-layer={layer} title={LAYERS[layer].cite}>{LAYERS[layer].label}</span> : null;
 
 const term = (n: number, first: boolean) => (first ? (n < 0 ? `−${-n}` : String(n)) : n < 0 ? `− ${-n}` : `+ ${n}`);
 
@@ -29,7 +34,7 @@ export function DerivationPanel({ title, shown, explanation, onClose }: { title:
                 <summary className="flex items-baseline gap-2 cursor-pointer list-none [&::-webkit-details-marker]:hidden" title="Строка SRD — щелчком">
                   <span className="type-num-12 text-gd w-8 flex-none text-right">{term(s.value, i === 0)}</span>
                   <span className="type-body-sm text-tx flex-1 min-w-0">{s.label}</span>
-                  <span className="type-key text-t2 flex-none">SRD</span>
+                  <LayerTag layer={s.layer} />
                 </summary>
                 <p className="type-body-sm text-t2 pl-10 break-words [overflow-wrap:anywhere]" lang="en">{s.rule}</p>
               </details>
@@ -37,6 +42,7 @@ export function DerivationPanel({ title, shown, explanation, onClose }: { title:
               <div className="flex items-baseline gap-2">
                 <span className="type-num-12 text-gd w-8 flex-none text-right">{term(s.value, i === 0)}</span>
                 <span className="type-body-sm text-tx flex-1 min-w-0">{s.label}{s.mismatch ? ' — расходится с правилами SRD, смотри лист' : ''}</span>
+                <LayerTag layer={s.layer} />
               </div>
             )}
           </li>

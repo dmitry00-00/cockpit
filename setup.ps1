@@ -236,6 +236,42 @@ if ((Test-Path (Join-Path $Root 'maps\tiles\toril\done.json')) -and -not (Test-P
   & $pyT (Join-Path $Root 'scripts\terrain-from-map.py') (Join-Path $Root 'content\maps\toril.json') --optional
   if ($LASTEXITCODE -ne 0) { Write-Host 'местность не посчитана — поход по галочке мастера' }
 }
+# Дороги для похода (scripts\roads-from-map.py) и схема карты (scripts\schema-from-grids.py, TASKS M16) — как на Mac:
+# пересчёт, когда файла нет или скрипт, сетка или справочник мест новее него.
+function Test-Stale([string]$Out, [string[]]$From) {
+  if (-not (Test-Path $Out)) { return $true }
+  $t = (Get-Item $Out).LastWriteTime
+  foreach ($f in $From) { if ((Test-Path $f) -and (Get-Item $f).LastWriteTime -gt $t) { return $true } }
+  return $false
+}
+$roadsPng = Join-Path $Root 'maps\tiles\toril\roads.png'
+$placesJson = Join-Path $Root 'content\maps\toril-places.json'
+if ((Test-Path (Join-Path $Root 'maps\tiles\toril\done.json')) -and (Test-Path $pyT) -and (Test-Stale $roadsPng @((Join-Path $Root 'scripts\roads-from-map.py'), $placesJson, (Join-Path $Root 'content\maps\toril-cards.json')))) {
+  Step 'Дороги карты'
+  & $pyT (Join-Path $Root 'scripts\roads-from-map.py') (Join-Path $Root 'content\maps\toril.json') --optional
+  if ($LASTEXITCODE -ne 0) { Write-Host 'дороги не посчитаны — поход без Open Roads' }
+}
+# Границы держав для схемы (scripts\borders-from-map.py) — как на Mac: пересчёт, когда файла нет или скрипт новее.
+$bordersPng = Join-Path $Root 'maps\tiles\toril\borders.png'
+if ((Test-Path (Join-Path $Root 'maps\tiles\toril\done.json')) -and (Test-Path $pyT) -and (Test-Stale $bordersPng @((Join-Path $Root 'scripts\borders-from-map.py'), (Join-Path $Root 'scripts\roads-from-map.py'), (Join-Path $Root 'scripts\schema-from-grids.py')))) {
+  Step 'Границы карты'
+  & $pyT (Join-Path $Root 'scripts\borders-from-map.py') (Join-Path $Root 'content\maps\toril.json') --optional
+  if ($LASTEXITCODE -ne 0) { Write-Host 'границы не посчитаны — схема без границ' }
+}
+$terrainPng = Join-Path $Root 'maps\tiles\toril\terrain.png'
+$schemaJson = Join-Path $Root 'maps\tiles\toril\schema.json'
+if ((Test-Path $terrainPng) -and (Test-Path $pyT) -and (Test-Stale $schemaJson @((Join-Path $Root 'scripts\schema-from-grids.py'), $terrainPng, $roadsPng, $bordersPng, $placesJson))) {
+  Step 'Схема карты'
+  & $pyT (Join-Path $Root 'scripts\schema-from-grids.py') (Join-Path $Root 'content\maps\toril.json') --optional
+  if ($LASTEXITCODE -ne 0) { Write-Host 'схема не собрана — карта растром' }
+}
+# Граф мира (scripts\graph-from-grids.py, SIMULATION.md С2) — как на Mac.
+$graphJson = Join-Path $Root 'maps\tiles\toril\graph.json'
+if ((Test-Path $roadsPng) -and (Test-Path $terrainPng) -and (Test-Path $pyT) -and (Test-Stale $graphJson @((Join-Path $Root 'scripts\graph-from-grids.py'), $roadsPng, $terrainPng, $schemaJson, $placesJson))) {
+  Step 'Граф мира'
+  & $pyT (Join-Path $Root 'scripts\graph-from-grids.py') (Join-Path $Root 'content\maps\toril.json') --optional
+  if ($LASTEXITCODE -ne 0) { Write-Host 'граф мира не собран — процессы без путей' }
+}
 
 if ($Start) {
   $hostArgs = @()

@@ -1,0 +1,289 @@
+{"id": "ocr:12020_2169", "task": "L1", "kind": "river", "at": "2026-10-29T15:05:57"}
+{"id": "ocr:11730_2157", "task": "L1", "kind": "sea", "at": "2026-10-29T15:06:31"}
+{"id": "ocr:7821_2165", "task": "L1", "kind": "mountain", "at": "2026-10-29T15:06:43"}
+{"id": "ocr:8288_2234", "task": "L1", "kind": "river", "at": "2026-10-29T15:06:50"}
+{"id": "ocr:7331_2493", "task": "L1", "kind": "island", "at": "2026-10-29T15:07:23"}
+{"id": "ocr:10383_2537", "task": "L1", "kind": "other", "at": "2026-10-29T15:07:42"}
+{"id": "ocr:7854_2656", "task": "L1", "kind": "island", "at": "2026-10-29T15:07:46"}
+{"id": "ocr:8180_3060", "task": "L1", "kind": "island", "at": "2026-10-29T15:08:11"}
+{"id": "ocr:8755_3156", "task": "L1", "kind": "other", "at": "2026-10-29T15:08:32"}
+{"id": "ocr:15173_3395", "task": "L1", "kind": "sea", "at": "2026-10-29T15:08:51"}
+{"id": "ocr:12387_3404", "task": "L1", "kind": "river", "at": "2026-10-29T15:09:11"}
+{"id": "ocr:12568_3475", "task": "L1", "kind": "river", "at": "2026-10-29T15:09:21"}
+{"id": "ocr:8432_3485", "task": "L1", "kind": "island", "at": "2026-10-29T15:09:26"}
+{"id": "ocr:7311_3636", "task": "L1", "kind": "island", "at": "2026-10-29T15:09:30"}
+{"id": "ocr:19260_3681", "task": "L1", "kind": "island", "at": "2026-10-29T15:09:37"}
+{"id": "ocr:6425_3713", "task": "L1", "kind": "island", "at": "2026-10-29T15:09:40"}
+{"id": "ocr:20591_3760", "task": "L1", "kind": "sea", "at": "2026-10-29T15:10:48"}
+{"id": "ocr:12399_3784", "task": "L1", "kind": "region", "at": "2026-10-29T15:11:02"}
+{"id": "wiki:Abbey of the Sword#0", "task": "L2", "pairs": [{"from": "Abbey of the Sword", "to": "Essembra", "value": 5, "unit": "mile", "approx": false, "route": "", "mode": "foot"}], "at": "2026-10-29T15:14:32"}
+{"id": "ocr:8358_3932", "task": "L1", "kind": "bay", "at": "2026-10-29T15:15:12"}
+{"id": "ocr:7974_3943", "task": "L1", "kind": "mountain", "at": "2026-10-29T15:15:21"}
+{"id": "ocr:20251_4020", "task": "L1", "kind": "sea", "at": "2026-10-29T15:15:32"}
+{"id": "ocr:12547_4028", "task": "L1", "kind": "reef", "at": "2026-10-29T15:16:39"}
+{"id": "ocr:12049_4182", "task": "L1", "kind": "sea", "at": "2026-10-29T15:16:46"}
+{"id": "ocr:12403_4367", "task": "L1", "kind": "island", "at": "2026-10-29T15:17:07"}
+{"id": "ocr:7936_4386", "task": "L1", "kind": "other", "at": "2026-10-29T15:17:18"}
+{"id": "ocr:9729_4390", "task": "L1", "kind": "fortress", "at": "2026-10-29T15:17:39"}
+{"id": "ocr:20612_4441", "task": "L1", "kind": "sea", "at": "2026-10-29T15:17:49"}
+{"id": "ocr:12099_4428", "task": "L1", "kind": "island", "at": "2026-10-29T15:17:58"}
+{"id": "ocr:21024_4518", "task": "L1", "kind": "island", "at": "2026-10-29T15:18:01"}
+{"id": "ocr:8158_4556", "task": "L1", "kind": "peninsula", "at": "2026-10-29T15:19:17"}
+{"id": "ocr:5237_4706", "task": "L1", "kind": "region", "at": "2026-10-29T15:20:08"}
+{"id": "ocr:16181_5590", "task": "L1", "kind": "region", "at": "2026-10-29T15:26:30"}
+{"id": "ocr:14729_6339", "task": "L1", "kind": "island", "at": "2026-10-29T15:26:35"}
+{"id": "ocr:14062_6389", "task": "L1", "kind": "settlement", "at": "2026-10-29T15:26:50"}
+{"id": "ocr:19889_6563", "task": "L1", "kind": "region", "at": "2026-10-29T15:27:51"}
+{"id": "ocr:20631_6470", "task": "L1", "kind": "reef", "at": "2026-10-29T15:27:55"}
+{"id": "ocr:4021_6615", "task": "L1", "kind": "settlement", "at": "2026-10-29T15:28:05"}
+{"id": "ocr:10034_6863", "task": "L1", "kind": "sea", "at": "2026-10-29T15:28:44"}
+{"id": "ocr:14734_6830", "task": "L1", "kind": "island", "at": "2026-10-29T15:28:52"}
+{"id": "ocr:4756_7129", "task": "L1", "kind": "archipelago", "at": "2026-10-29T15:28:58"}
+{"id": "ocr:4494_7095", "task": "L1", "kind": "bay", "at": "2026-10-29T15:29:24"}
+{"id": "ocr:7926_7385", "task": "L1", "kind": "archipelago", "at": "2026-10-29T15:29:30"}
+{"id": "ocr:10704_7574", "task": "L1", "kind": "archipelago", "at": "2026-10-29T15:29:33"}
+{"id": "ocr:14224_7600", "task": "L1", "kind": "archipelago", "at": "2026-10-29T15:29:35"}
+{"id": "ocr:14437_7770", "task": "L1", "kind": "archipelago", "at": "2026-10-29T15:29:39"}
+{"id": "ocr:20101_7850", "task": "L1", "kind": "sea", "at": "2026-10-29T15:29:43"}
+{"id": "ocr:14038_7852", "task": "L1", "kind": "archipelago", "at": "2026-10-29T15:29:47"}
+{"id": "ocr:14180_7868", "task": "L1", "kind": "island", "at": "2026-10-29T15:29:51"}
+{"id": "ocr:18191_7950", "task": "L1", "kind": "lake", "at": "2026-10-29T15:29:59"}
+{"id": "ocr:19717_8026", "task": "L1", "kind": "lake", "at": "2026-10-29T15:30:27"}
+{"id": "ocr:19154_8184", "task": "L1", "kind": "lake", "at": "2026-10-29T15:30:46"}
+{"id": "ocr:13813_8333", "task": "L1", "kind": "island", "at": "2026-10-29T15:31:43"}
+{"id": "ocr:5535_8370", "task": "L1", "kind": "archipelago", "at": "2026-10-29T15:31:47"}
+{"id": "ocr:5990_8625", "task": "L1", "kind": "island", "at": "2026-10-29T15:31:53"}
+{"id": "ocr:5765_8767", "task": "L1", "kind": "archipelago", "at": "2026-10-29T15:32:00"}
+{"id": "ocr:14346_9797", "task": "L1", "kind": "bay", "at": "2026-10-29T15:32:05"}
+{"id": "ocr:14330_9879", "task": "L1", "kind": "island", "at": "2026-10-29T15:32:09"}
+{"id": "ocr:14509_9953", "task": "L1", "kind": "island", "at": "2026-10-29T15:32:10"}
+{"id": "ocr:14546_10290", "task": "L1", "kind": "island", "at": "2026-10-29T15:32:12"}
+{"id": "ocr:15492_10351", "task": "L1", "kind": "other", "at": "2026-10-29T15:32:17"}
+{"id": "ocr:14234_10379", "task": "L1", "kind": "archipelago", "at": "2026-10-29T15:32:24"}
+{"id": "ocr:14609_10385", "task": "L1", "kind": "island", "at": "2026-10-29T15:32:26"}
+{"id": "ocr:14322_10569", "task": "L1", "kind": "island", "at": "2026-10-29T15:32:27"}
+{"id": "wiki:Kara-Tur#0", "task": "L2", "pairs": [{"from": "Kara-Tur", "to": "Faerûn", "value": 100, "unit": "mile", "approx": true, "route": "", "mode": ""}], "at": "2026-10-29T16:01:50"}
+{"id": "ocr:18103_5416", "task": "L1", "kind": "bridge", "at": "2026-10-29T16:16:29"}
+{"id": "wiki:Sword Coast#0", "task": "L2", "pairs": [], "at": "2026-10-29T16:18:36"}
+{"id": "wiki:Elven Court#0", "task": "L2", "pairs": [{"from": "Elventree", "to": "oak grove", "value": 50, "unit": "mile", "approx": false, "route": "", "mode": ""}], "at": "2026-10-29T16:23:10"}
+{"id": "wiki:Forgotten Forest#0", "task": "L2", "pairs": [{"from": "Graypeak Mountains", "to": "Evereska's Shaeradim", "value": 40, "unit": "mile", "approx": false, "route": "", "mode": "foot"}], "at": "2026-10-29T16:42:33"}
+{"id": "wiki:Pirate Isles#0", "task": "L2", "pairs": [], "at": "2026-10-29T16:43:05"}
+{"id": "wiki:Marching Mountains#1", "task": "L2", "pairs": [], "at": "2026-10-29T16:43:16"}
+{"id": "wiki:Targos#1", "task": "L2", "pairs": [{"from": "Targos", "to": "Luskan", "value": 21, "unit": "day", "approx": true, "route": "Ten Trail", "mode": "caravan"}], "at": "2026-10-29T16:43:35"}
+{"id": "wiki:Pirate Isles#0", "task": "L2", "pairs": [{"from": "Fangrocks", "to": "Fangrocks", "value": 10, "unit": "mile", "approx": false, "route": "", "mode": ""}], "at": "2026-10-29T16:44:20"}
+{"id": "wiki:Dragonmere#1", "task": "L2", "pairs": [{"from": "Urmlaspyr", "to": "Westgate", "value": 10, "unit": "mile", "approx": false, "route": "", "mode": ""}], "at": "2026-10-29T16:45:09"}
+{"id": "wiki:Hethmeir's Highboots#0", "task": "L2", "pairs": [], "at": "2026-10-29T16:45:17"}
+{"id": "wiki:Stag-Horned Flagon#0", "task": "L2", "pairs": [{"from": "the metropolis", "to": "the village", "value": 3, "unit": "day", "approx": true, "route": "", "mode": "horse"}], "at": "2026-10-29T16:46:06"}
+{"id": "wiki:Thar#0", "task": "L2", "pairs": [{"from": "Thar", "to": "Thar", "value": 100, "unit": "mile", "approx": true, "route": "", "mode": "foot"}], "at": "2026-10-29T16:46:20"}
+{"id": "wiki:Red Stag Inn (Dynnegall)#0", "task": "L2", "pairs": [{"from": "it", "to": "Caer Moray", "value": 3, "unit": "day", "approx": false, "route": "", "mode": "horse"}], "at": "2026-10-29T16:48:29"}
+{"id": "wiki:Red Stag Inn (Dynnegall)#0", "task": "L2", "pairs": [{"from": "Caer Moray", "to": "Dynnegall", "value": 3, "unit": "day", "approx": false, "route": "", "mode": ""}], "at": "2026-10-29T16:48:36"}
+{"id": "wiki:Remichispace#0", "task": "L2", "pairs": [], "at": "2026-10-29T16:49:26"}
+{"id": "wiki:Al-Malih River#0", "task": "L2", "pairs": [], "at": "2026-10-29T16:49:35"}
+{"id": "wiki:Al-Malih River#1", "task": "L2", "pairs": [], "at": "2026-10-29T16:49:40"}
+{"id": "wiki:Vishap's Spine#0", "task": "L2", "pairs": [], "at": "2026-10-29T16:49:56"}
+{"id": "wiki:Al-Iltifat River#0", "task": "L2", "pairs": [], "at": "2026-10-29T16:52:54"}
+{"id": "wiki:Al-Tariq Channel#0", "task": "L2", "pairs": [], "at": "2026-10-29T16:53:16"}
+{"id": "wiki:River Talar#0", "task": "L2", "pairs": [], "at": "2026-10-29T16:53:26"}
+{"id": "wiki:Shadowfell#0", "task": "L2", "pairs": [], "at": "2026-10-29T16:53:56"}
+{"id": "wiki:Falx#1", "task": "L2", "pairs": [], "at": "2026-10-29T16:54:12"}
+{"id": "wiki:Kadan River#0", "task": "L2", "pairs": [], "at": "2026-10-29T16:54:21"}
+{"id": "wiki:Kressilacc#0", "task": "L2", "pairs": [], "at": "2026-10-29T16:54:27"}
+{"id": "wiki:Hellgate Keep#1", "task": "L2", "pairs": [], "at": "2026-10-29T16:54:41"}
+{"id": "wiki:Al-Akara Mountains#0", "task": "L2", "pairs": [], "at": "2026-10-29T16:54:47"}
+{"id": "wiki:Lake of Steam#0", "task": "L2", "pairs": [], "at": "2026-10-29T16:54:53"}
+{"id": "wiki:Map House (Waterdeep)#0", "task": "L2", "pairs": [], "at": "2026-10-29T16:55:00"}
+{"id": "wiki:The Bear God's Barrow#0", "task": "L2", "pairs": [{"from": "The Bear God's Barrow", "to": "Mulsantir city gates", "value": 1, "unit": "day", "approx": false, "route": "", "mode": "foot"}], "at": "2026-10-29T16:55:22"}
+{"id": "wiki:The Gateway (Zakhara)#0", "task": "L2", "pairs": [], "at": "2026-10-29T16:59:50"}
+{"id": "wiki:Dynnegall#0", "task": "L2", "pairs": [{"from": "Dynnegall", "to": "Caer Moray", "value": 3, "unit": "day", "approx": false, "route": "Shannyth River Valley", "mode": "foot"}], "at": "2026-10-29T17:00:42"}
+{"id": "wiki:Dynnegall#0", "task": "L2", "pairs": [{"from": "Lac Dynnegall", "to": "Caer Moray", "value": 3, "unit": "day", "approx": false, "route": "Shannyth River Valley", "mode": "foot"}], "at": "2026-10-29T17:00:58"}
+{"id": "wiki:Aspenheight Gap#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:01:37"}
+{"id": "wiki:South Road (Amn)#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:01:55"}
+{"id": "wiki:Cold Vale#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:02:19"}
+{"id": "wiki:Old Shanatar#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:02:24"}
+{"id": "wiki:Luiren#2", "task": "L2", "pairs": [], "at": "2026-10-29T17:02:27"}
+{"id": "wiki:Eryndlyn#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:02:31"}
+{"id": "wiki:Splendarrllur#0", "task": "L2", "pairs": [{"from": "Myth Lharast", "to": "Gem Road", "value": 5, "unit": "mile", "approx": false, "route": "direct", "mode": "foot"}], "at": "2026-10-29T17:02:50"}
+{"id": "wiki:Fork Road#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:11:25"}
+{"id": "wiki:Lhuvenhead#0", "task": "L2", "pairs": [{"from": "Lhuvenhead", "to": "Everlund", "value": 40, "unit": "mile", "approx": false, "route": "River Rauvin", "mode": ""}], "at": "2026-10-29T17:11:47"}
+{"id": "wiki:Lhuvenhead#0", "task": "L2", "pairs": [{"from": "Sundabar", "to": "Everlund", "value": 40, "unit": "mile", "approx": false, "route": "River Rauvin", "mode": ""}], "at": "2026-10-29T17:11:53"}
+{"id": "wiki:Wormwrithings#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:12:12"}
+{"id": "wiki:Middledark#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:12:21"}
+{"id": "wiki:Middledark#0", "task": "L2", "pairs": [{"from": "Middledark", "to": "Toril", "value": 3, "unit": "mile", "approx": true, "route": "", "mode": ""}], "at": "2026-10-29T17:12:32"}
+{"id": "wiki:Waymoot#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:12:41"}
+{"id": "wiki:Elysium#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:12:54"}
+{"id": "wiki:Darklake#2", "task": "L2", "pairs": [{"from": "Darklake", "to": "Mantol-Derith to Gracklstugh", "value": 2, "unit": "day", "approx": true, "route": "direct", "mode": "ship"}], "at": "2026-10-29T17:13:17"}
+{"id": "wiki:Darklake#2", "task": "L2", "pairs": [{"from": "Mantol-Derith", "to": "Mantol-Derith", "value": 2, "unit": "day", "approx": true, "route": "direct", "mode": "ship"}], "at": "2026-10-29T17:13:45"}
+{"id": "wiki:Darklake#3", "task": "L2", "pairs": [], "at": "2026-10-29T17:13:54"}
+{"id": "wiki:Calim Desert#2", "task": "L2", "pairs": [{"from": "Calimport", "to": "Caverns of the Serpent Mother", "value": 12, "unit": "mile", "approx": false, "route": "", "mode": "foot"}], "at": "2026-10-29T17:14:08"}
+{"id": "wiki:Trollbridge#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:14:14"}
+{"id": "wiki:Blaskaltar#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:18:22"}
+{"id": "wiki:Deep Imaskar#1", "task": "L2", "pairs": [], "at": "2026-10-29T17:18:27"}
+{"id": "wiki:Sharksbane Wall#1", "task": "L2", "pairs": [], "at": "2026-10-29T17:18:38"}
+{"id": "wiki:Iruladoon#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:18:50"}
+{"id": "wiki:Dagger Hills#0", "task": "L2", "pairs": [{"from": "Castle Daggerdale", "to": "White Crag", "value": 15, "unit": "mile", "approx": false, "route": "", "mode": ""}], "at": "2026-10-29T17:19:30"}
+{"id": "wiki:Ethereal plane#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:19:41"}
+{"id": "wiki:Ethereal plane#1", "task": "L2", "pairs": [], "at": "2026-10-29T17:20:13"}
+{"id": "wiki:Watchwall#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:20:27"}
+{"id": "wiki:Oryndoll#1", "task": "L2", "pairs": [], "at": "2026-10-29T17:20:33"}
+{"id": "wiki:Oryndoll#2", "task": "L2", "pairs": [], "at": "2026-10-29T17:20:37"}
+{"id": "wiki:Helmsport#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:20:40"}
+{"id": "wiki:Helmsport#1", "task": "L2", "pairs": [], "at": "2026-10-29T17:21:10"}
+{"id": "wiki:Helmsport#2", "task": "L2", "pairs": [], "at": "2026-10-29T17:21:34"}
+{"id": "wiki:Ixtzul#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:21:54"}
+{"id": "wiki:Hades#2", "task": "L2", "pairs": [], "at": "2026-10-29T17:22:08"}
+{"id": "wiki:Myth Nantar#0", "task": "L2", "pairs": [{"from": "Myth Nantar", "to": "Whamite Isles", "value": 40, "unit": "mile", "approx": true, "route": "", "mode": ""}, {"from": "Myth Nantar", "to": "Voalidru", "value": 64, "unit": "mile", "approx": false, "route": "", "mode": ""}], "at": "2026-10-29T17:22:30"}
+{"id": "wiki:Myth Nantar#1", "task": "L2", "pairs": [], "at": "2026-10-29T17:22:46"}
+{"id": "wiki:Dura's Vale#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:22:50"}
+{"id": "wiki:Loudwater#1", "task": "L2", "pairs": [], "at": "2026-10-29T17:22:53"}
+{"id": "wiki:The Wizard's Hand#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:23:00"}
+{"id": "wiki:Trade Way#0", "task": "L2", "pairs": [{"from": "Daggerford", "to": "the Way Inn", "value": 2, "unit": "day", "approx": true, "route": "Trade Way", "mode": "horse"}], "at": "2026-10-29T17:23:32"}
+{"id": "wiki:Minauthkeep#0", "task": "L2", "pairs": [{"from": "Minauthkeep", "to": "a small river", "value": 1, "unit": "day", "approx": false, "route": "", "mode": ""}, {"from": "a small river", "to": "a portal in Cormanthor leading to the Labyrinth", "value": 5, "unit": "day", "approx": false, "route": "", "mode": ""}], "at": "2026-10-29T17:24:20"}
+{"id": "wiki:Plain of Horses#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:24:32"}
+{"id": "wiki:Plain of Horses#1", "task": "L2", "pairs": [], "at": "2026-10-29T17:24:42"}
+{"id": "wiki:Mindulgulph Castle#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:24:56"}
+{"id": "wiki:Fort Agis#0", "task": "L2", "pairs": [{"from": "Fort Agis", "to": "Memnon", "value": 2, "unit": "mile", "approx": false, "route": "", "mode": "foot"}], "at": "2026-10-29T17:25:20"}
+{"id": "wiki:Flaming Tower#0", "task": "L2", "pairs": [{"from": "Flaming Tower", "to": "Dagger Falls", "value": 15, "unit": "mile", "approx": false, "route": "", "mode": ""}], "at": "2026-10-29T17:25:34"}
+{"id": "wiki:Rivershire#0", "task": "L2", "pairs": [{"from": "Lhestyn's Hearth", "to": "the capital", "value": 12, "unit": "mile", "approx": false, "route": "", "mode": "foot"}], "at": "2026-10-29T17:26:07"}
+{"id": "wiki:Quasi-Elemental Plane of Radiance#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:26:19"}
+{"id": "wiki:Mbala#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:26:24"}
+{"id": "wiki:Kossuth's Eyes#0", "task": "L2", "pairs": [{"from": "Kossuth's Eyes", "to": "Xandar", "value": 2, "unit": "mile", "approx": false, "route": "direct", "mode": "foot"}], "at": "2026-10-29T17:26:46"}
+{"id": "wiki:Zarif#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:26:51"}
+{"id": "wiki:Utter East#1", "task": "L2", "pairs": [], "at": "2026-10-29T17:27:09"}
+{"id": "wiki:Fallen Giant Rift#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:27:15"}
+{"id": "wiki:Mountains of the Lizard's Tongue#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:27:18"}
+{"id": "wiki:Range of the Marching Camels#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:29:16"}
+{"id": "wiki:Amnurflow#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:29:21"}
+{"id": "wiki:Comassur Creek#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:29:36"}
+{"id": "wiki:Halfaxe Trail#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:29:45"}
+{"id": "wiki:Yellow Serpent Border Cliffs#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:29:53"}
+{"id": "wiki:Landrise#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:29:55"}
+{"id": "wiki:Great Anvil#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:30:00"}
+{"id": "wiki:The Knife#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:30:24"}
+{"id": "wiki:Watchful Turtle#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:30:33"}
+{"id": "wiki:Counting House (Baldur's Gate)#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:30:48"}
+{"id": "wiki:Wildlands Rest#0", "task": "L2", "pairs": [{"from": "Wildlands Rest", "to": "Deadsnows road", "value": 5, "unit": "mile", "approx": false, "route": "", "mode": ""}], "at": "2026-10-29T17:31:49"}
+{"id": "wiki:Wildlands Rest#0", "task": "L2", "pairs": [{"from": "Wildlands Rest", "to": "the Fork", "value": 5, "unit": "mile", "approx": false, "route": "", "mode": ""}], "at": "2026-10-29T17:32:04"}
+{"id": "wiki:Sundabar Vale#1", "task": "L2", "pairs": [], "at": "2026-10-29T17:32:11"}
+{"id": "wiki:Sundabar Vale#2", "task": "L2", "pairs": [], "at": "2026-10-29T17:32:23"}
+{"id": "wiki:Vault of the Sages#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:32:36"}
+{"id": "wiki:Moonwyvern Inn#0", "task": "L2", "pairs": [{"from": "Silverymoon", "to": "Moonwyvern Inn", "value": 1, "unit": "day", "approx": false, "route": "", "mode": "horse"}, {"from": "Silverymoon", "to": "Moonwyvern Inn", "value": 3, "unit": "day", "approx": true, "route": "", "mode": "foot"}], "at": "2026-10-29T17:32:56"}
+{"id": "wiki:Dragon Wood#0", "task": "L2", "pairs": [{"from": "Everlund", "to": "Dragon Wood", "value": 5, "unit": "day", "approx": true, "route": "Silverwood and the eastern Evermoors", "mode": ""}], "at": "2026-10-29T17:33:11"}
+{"id": "wiki:Dragon Wood#1", "task": "L2", "pairs": [], "at": "2026-10-29T17:33:15"}
+{"id": "wiki:Ul'sahab#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:33:42"}
+{"id": "wiki:Khin-Oin#0", "task": "L2", "pairs": [], "at": "2026-10-29T17:33:50"}
+{"id": "wiki:Cursrah#1", "task": "L2", "pairs": [], "at": "2026-10-29T18:11:11"}
+{"id": "wiki:Hammerlar's Fine Floors and Housework#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:11:17"}
+{"id": "wiki:Hammerlar's Fine Floors and Housework#1", "task": "L2", "pairs": [], "at": "2026-10-29T18:11:21"}
+{"id": "wiki:High Flagon#0", "task": "L2", "pairs": [{"from": "High Flagon", "to": "North Gate of Waterdeep", "value": 2, "unit": "mile", "approx": false, "route": "Long Road", "mode": "foot"}], "at": "2026-10-29T18:11:36"}
+{"id": "wiki:Aloum Lyndren#0", "task": "L2", "pairs": [{"from": "the road", "to": "Gnaw Rocks", "value": 2, "unit": "mile", "approx": false, "route": "", "mode": "foot"}], "at": "2026-10-29T18:11:53"}
+{"id": "wiki:Malbolge#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:13:09"}
+{"id": "wiki:Stygia#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:13:31"}
+{"id": "wiki:Stygia#1", "task": "L2", "pairs": [], "at": "2026-10-29T18:13:42"}
+{"id": "wiki:Twilight Tor#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:13:55"}
+{"id": "wiki:Dynloch Pass#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:14:11"}
+{"id": "wiki:Jahaka Bay#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:14:17"}
+{"id": "wiki:Dimswart Manor#0", "task": "L2", "pairs": [{"from": "Dimswart Manor", "to": "Suzail", "value": 0.5, "unit": "day", "approx": false, "route": "", "mode": "foot"}, {"from": "Dimswart Manor", "to": "Storm Horns", "value": 2, "unit": "day", "approx": false, "route": "", "mode": "foot"}], "at": "2026-10-29T18:14:42"}
+{"id": "wiki:Dimswart Manor#0", "task": "L2", "pairs": [{"from": "Dimswart Manor", "to": "Suzail", "value": 0.5, "unit": "day", "approx": false, "route": "", "mode": "horse"}, {"from": "Dimswart Manor", "to": "Storm Horns", "value": 2, "unit": "day", "approx": false, "route": "", "mode": "horse"}], "at": "2026-10-29T18:14:55"}
+{"id": "wiki:Cloak Wood mine#0", "task": "L2", "pairs": [{"from": "edge of the forest", "to": "mine's entrance", "value": 2, "unit": "day", "approx": true, "route": "", "mode": "foot"}], "at": "2026-10-29T18:15:07"}
+{"id": "wiki:Moander's Road#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:15:14"}
+{"id": "wiki:Lone Tree#0", "task": "L2", "pairs": [{"from": "Lone Tree", "to": "Lonelywood", "value": 2, "unit": "day", "approx": true, "route": "", "mode": "foot"}], "at": "2026-10-29T18:15:33"}
+{"id": "wiki:Hayatura Road#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:15:42"}
+{"id": "wiki:Sanrach Mountains#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:15:46"}
+{"id": "wiki:Uppuk River#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:15:48"}
+{"id": "wiki:Angalpuk#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:15:51"}
+{"id": "wiki:Fendrick's Fine Foods#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:15:55"}
+{"id": "wiki:Mulptan#0", "task": "L2", "pairs": [{"from": "Mulptan", "to": "Immilmar", "value": 5, "unit": "day", "approx": true, "route": "", "mode": "horse"}, {"from": "Mulptan", "to": "Falls of Erech", "value": 5, "unit": "day", "approx": true, "route": "", "mode": "horse"}, {"from": "Mulptan", "to": "Ring of Blue Fire", "value": 3, "unit": "day", "approx": true, "route": "", "mode": "horse"}], "at": "2026-10-29T18:17:01"}
+{"id": "wiki:Mulptan#0", "task": "L2", "pairs": [{"from": "Mulptan", "to": "Immilmar", "value": 1, "unit": "day", "approx": true, "route": "", "mode": "horse"}, {"from": "Mulptan", "to": "Falls of Erech", "value": 5, "unit": "day", "approx": true, "route": "", "mode": "horse"}, {"from": "Mulptan", "to": "Ring of Blue Fire", "value": 3, "unit": "day", "approx": true, "route": "", "mode": "horse"}], "at": "2026-10-29T18:17:13"}
+{"id": "wiki:Ring of Blue Fire#0", "task": "L2", "pairs": [{"from": "Endless Wastes", "to": "Mulptan", "value": 3, "unit": "day", "approx": false, "route": "", "mode": "horse"}], "at": "2026-10-29T18:17:57"}
+{"id": "wiki:Shedaklah#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:18:16"}
+{"id": "wiki:Kitcher's Folly#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:18:42"}
+{"id": "wiki:Temple of Ubtao#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:18:50"}
+{"id": "wiki:Columns of the Sky#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:18:53"}
+{"id": "wiki:Garden of the Cursed#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:18:56"}
+{"id": "wiki:Lonely Barrens#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:19:11"}
+{"id": "wiki:Monastery of St. Ulrach#0", "task": "L2", "pairs": [{"from": "Monastery of St. Ulrach", "to": "Loudwater", "value": 2, "unit": "day", "approx": true, "route": "", "mode": "horse"}], "at": "2026-10-29T18:20:16"}
+{"id": "wiki:Wild Hills#0", "task": "L2", "pairs": [{"from": "Wild Hills", "to": "Daggerford", "value": 8, "unit": "hour", "approx": false, "route": "", "mode": "foot"}], "at": "2026-10-29T18:20:27"}
+{"id": "wiki:Springbrook Shallows#0", "task": "L2", "pairs": [{"from": "Grandlore Forest", "to": "Springbrook Shallows", "value": 7, "unit": "mile", "approx": false, "route": "river", "mode": "ship"}], "at": "2026-10-29T18:20:57"}
+{"id": "wiki:Temple of the Forgotten God#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:21:09"}
+{"id": "wiki:Fools Finger#0", "task": "L2", "pairs": [{"from": "Fools Finger", "to": "Shining Falls", "value": 3, "unit": "day", "approx": true, "route": "direct", "mode": "foot"}], "at": "2026-10-29T18:21:27"}
+{"id": "wiki:Khalid's Wall#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:21:33"}
+{"id": "wiki:New Waterdeep#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:21:39"}
+{"id": "wiki:Cicada Spring#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:21:49"}
+{"id": "wiki:Aqueduct of Axalt#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:21:59"}
+{"id": "wiki:Dragon's Teeth Lagoon#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:22:03"}
+{"id": "wiki:Horn Cliffs#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:22:14"}
+{"id": "wiki:Field-Gates#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:22:19"}
+{"id": "wiki:Herald's Horn#0", "task": "L2", "pairs": [{"from": "Herald's Horn", "to": "Skuldask Road", "value": 1, "unit": "day", "approx": true, "route": "", "mode": "foot"}, {"from": "Herald's Horn", "to": "Reaching Woods", "value": 10, "unit": "day", "approx": true, "route": "", "mode": "foot"}], "at": "2026-10-29T18:23:00"}
+{"id": "wiki:Waymoot of Assamboryl#0", "task": "L2", "pairs": [{"from": "Waymoot of Assamboryl", "to": "Druindar's Rock", "value": 2, "unit": "day", "approx": true, "route": "", "mode": ""}, {"from": "Waymoot of Assamboryl", "to": "Six Thorns", "value": 1, "unit": "day", "approx": true, "route": "", "mode": ""}], "at": "2026-10-29T18:23:17"}
+{"id": "wiki:Six Thorns#0", "task": "L2", "pairs": [{"from": "Six Thorns", "to": "Druindar's Rock", "value": 3, "unit": "day", "approx": true, "route": "", "mode": ""}, {"from": "Six Thorns", "to": "Assamboryl", "value": 1, "unit": "day", "approx": true, "route": "", "mode": ""}], "at": "2026-10-29T18:23:24"}
+{"id": "wiki:Shavinar#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:23:31"}
+{"id": "wiki:Shavinar#1", "task": "L2", "pairs": [], "at": "2026-10-29T18:23:37"}
+{"id": "wiki:Shavinar#2", "task": "L2", "pairs": [], "at": "2026-10-29T18:23:41"}
+{"id": "wiki:Krabbellor Silversmiths#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:23:45"}
+{"id": "wiki:Sea of Dlurg#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:23:58"}
+{"id": "wiki:Starshadow Vale#0", "task": "L2", "pairs": [{"from": "Secomber", "to": "Starshadow Vale", "value": 3, "unit": "day", "approx": false, "route": "", "mode": ""}], "at": "2026-10-29T18:24:30"}
+{"id": "wiki:Hidden Hollow#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:24:56"}
+{"id": "wiki:Citadel Amnur#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:25:05"}
+{"id": "wiki:Grymforge#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:25:10"}
+{"id": "wiki:Hillfort Torbold#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:25:23"}
+{"id": "wiki:Road of Jackals#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:25:27"}
+{"id": "wiki:Great Trade Road#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:25:37"}
+{"id": "wiki:Quaylin's Home for Wayward Boys#1", "task": "L2", "pairs": [], "at": "2026-10-29T18:25:43"}
+{"id": "wiki:Stag Steads#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:25:46"}
+{"id": "wiki:Gull Rocks#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:25:49"}
+{"id": "wiki:Flymm's Cobblers#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:25:51"}
+{"id": "wiki:Kolthunral#1", "task": "L2", "pairs": [], "at": "2026-10-29T18:25:55"}
+{"id": "wiki:Tethyamar Mining Outpost#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:26:01"}
+{"id": "wiki:Nellie Thursday Home for Experienced Adventurers#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:26:06"}
+{"id": "wiki:The Eagle's Eyrie#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:26:13"}
+{"id": "wiki:Backroad#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:26:16"}
+{"id": "wiki:Dornsar Leathers#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:26:22"}
+{"id": "wiki:Tower of Holy Revelry#1", "task": "L2", "pairs": [], "at": "2026-10-29T18:26:26"}
+{"id": "wiki:Tower of Holy Revelry#3", "task": "L2", "pairs": [], "at": "2026-10-29T18:26:36"}
+{"id": "wiki:Fidius' Grand Emporium of Gaming#1", "task": "L2", "pairs": [{"from": "Ravens Bluff", "to": "weretiger village", "value": 2, "unit": "day", "approx": false, "route": "direct", "mode": "horse"}], "at": "2026-10-29T18:27:00"}
+{"id": "wiki:Ill Eagle Inn#1", "task": "L2", "pairs": [], "at": "2026-10-29T18:27:04"}
+{"id": "wiki:Drunken Drow#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:27:10"}
+{"id": "wiki:Menzoberranzan#3", "task": "L2", "pairs": [], "at": "2026-10-29T18:27:18"}
+{"id": "wiki:Menzoberranzan#6", "task": "L2", "pairs": [], "at": "2026-10-29T18:27:22"}
+{"id": "wiki:Daggerford#1", "task": "L2", "pairs": [], "at": "2026-10-29T18:27:31"}
+{"id": "wiki:Maerimydra#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:27:39"}
+{"id": "wiki:Nine Hells#2", "task": "L2", "pairs": [], "at": "2026-10-29T18:27:45"}
+{"id": "wiki:Silverymoon#1", "task": "L2", "pairs": [], "at": "2026-10-29T18:27:47"}
+{"id": "wiki:Silverymoon#2", "task": "L2", "pairs": [{"from": "Silverymoon", "to": "Yartar", "value": 10, "unit": "day", "approx": true, "route": "Evermoor Way", "mode": "caravan"}, {"from": "Silverymoon", "to": "Triboar", "value": 20, "unit": "day", "approx": true, "route": "Evermoor Way", "mode": "caravan"}], "at": "2026-10-29T18:28:18"}
+{"id": "wiki:Silverymoon#3", "task": "L2", "pairs": [{"from": "Silverymoon", "to": "Yartar", "value": 8, "unit": "day", "approx": true, "route": "", "mode": "horse"}, {"from": "Silverymoon", "to": "Triboar", "value": 8, "unit": "day", "approx": true, "route": "", "mode": "horse"}], "at": "2026-10-29T18:28:35"}
+{"id": "wiki:Silverymoon#4", "task": "L2", "pairs": [{"from": "Silverymoon", "to": "Yartar", "value": 2, "unit": "tenday", "approx": false, "route": "Evermoor Way", "mode": "foot"}, {"from": "Silverymoon", "to": "Yartar", "value": 2, "unit": "day", "approx": false, "route": "Evermoor Way", "mode": "foot"}, {"from": "Silverymoon", "to": "Yartar", "value": 12, "unit": "hour", "approx": false, "route": "Evermoor Way", "mode": "foot"}, {"from": "Silverymoon", "to": "Triboar", "value": 1, "unit": "tenday", "approx": true, "route": "Evermoor Way", "mode": "foot"}, {"from": "Silverymoon", "to": "Triboar", "value": 2, "unit": "tenday", "approx": false, "route": "Evermoor Way", "mode": "foot"}, {"from": "Silverymoon", "to": "Triboar", "value": 5, "unit": "day", "approx": false, "route": "Evermoor Way", "mode": "foot"}], "at": "2026-10-29T18:29:08"}
+{"id": "wiki:Silverymoon#6", "task": "L2", "pairs": [], "at": "2026-10-29T18:29:34"}
+{"id": "wiki:Silverymoon#7", "task": "L2", "pairs": [{"from": "Silverymoon", "to": "Nesmé", "value": 8, "unit": "day", "approx": true, "route": "River Rauvin", "mode": "ship"}], "at": "2026-10-29T18:29:53"}
+{"id": "wiki:Silverymoon#8", "task": "L2", "pairs": [{"from": "Silverymoon", "to": "Yartar", "value": 10, "unit": "day", "approx": true, "route": "river", "mode": "ship"}, {"from": "Silverymoon", "to": "Yartar", "value": 5, "unit": "day", "approx": true, "route": "", "mode": "caravan"}], "at": "2026-10-29T18:30:14"}
+{"id": "wiki:Silverymoon#9", "task": "L2", "pairs": [], "at": "2026-10-29T18:30:35"}
+{"id": "wiki:Silverymoon#10", "task": "L2", "pairs": [{"from": "Silverymoon", "to": "Zundbridge", "value": 1, "unit": "tenday", "approx": false, "route": "", "mode": "ship"}, {"from": "Silverymoon", "to": "Zundbridge", "value": 8, "unit": "day", "approx": false, "route": "", "mode": "ship"}, {"from": "Silverymoon", "to": "Zundbridge", "value": 16, "unit": "hour", "approx": false, "route": "", "mode": "ship"}], "at": "2026-10-29T18:31:31"}
+{"id": "wiki:Cormanthor#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:31:47"}
+{"id": "wiki:Tears of Selûne#3", "task": "L2", "pairs": [], "at": "2026-10-29T18:31:51"}
+{"id": "wiki:Calimport#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:31:54"}
+{"id": "wiki:Sea of Fallen Stars#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:32:01"}
+{"id": "wiki:River Ashaba#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:32:03"}
+{"id": "wiki:Darromar#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:32:09"}
+{"id": "wiki:High Road#1", "task": "L2", "pairs": [], "at": "2026-10-29T18:32:40"}
+{"id": "wiki:Forest of Tethir#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:33:25"}
+{"id": "wiki:Realmspace#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:33:30"}
+{"id": "wiki:Realmspace#1", "task": "L2", "pairs": [], "at": "2026-10-29T18:33:34"}
+{"id": "wiki:Valley of Khedrun#0", "task": "L2", "pairs": [{"from": "Valley of Khedrun", "to": "Mirabar", "value": 100, "unit": "mile", "approx": false, "route": "", "mode": ""}], "at": "2026-10-29T18:33:44"}
+{"id": "wiki:Troll Mountains (Amn)#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:33:47"}
+{"id": "wiki:Castle Crag#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:34:01"}
+{"id": "wiki:Rat Hills#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:34:04"}
+{"id": "wiki:Selgaunt#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:34:09"}
+{"id": "wiki:Earth#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:34:16"}
+{"id": "wiki:Thaymount#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:34:23"}
+{"id": "wiki:World Tree cosmology#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:34:27"}
+{"id": "wiki:Gracklstugh#0", "task": "L2", "pairs": [{"from": "Gracklstugh", "to": "Evermoors", "value": 5, "unit": "mile", "approx": false, "route": "", "mode": "foot"}], "at": "2026-10-29T18:34:41"}
+{"id": "wiki:Volothamp#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:34:48"}
+{"id": "wiki:Lake of Shadows#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:34:57"}
+{"id": "wiki:Al-Zulma River#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:34:59"}
+{"id": "wiki:Al-Yatir River#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:35:26"}
+{"id": "wiki:Maskyr's Eye#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:35:35"}
+{"id": "wiki:Maskyr's Eye#1", "task": "L2", "pairs": [], "at": "2026-10-29T18:35:48"}
+{"id": "wiki:Delzimmer#2", "task": "L2", "pairs": [], "at": "2026-10-29T18:35:52"}
+{"id": "wiki:Mosstone#1", "task": "L2", "pairs": [], "at": "2026-10-29T18:35:55"}
+{"id": "wiki:Mosstone#1", "task": "L2", "pairs": [], "at": "2026-10-29T18:35:55"}
+{"id": "wiki:River Soshenstar#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:35:59"}
+{"id": "wiki:Mount Abbalayat#0", "task": "L2", "pairs": [], "at": "2026-10-29T18:36:01"}

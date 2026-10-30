@@ -194,7 +194,7 @@ const UNDO = () => fireEvent.keyDown(window, { key: 'z', code: 'KeyZ', ctrlKey: 
 /** Radix (Popover, Tooltip) дорисовывает портал в микротасках и таймерах. */
 const settle = () => act(async () => { await new Promise(r => setTimeout(r, 0)); });
 
-const mount = (store: EngineStoreApi, dmView?: boolean) => render(<DeskPage store={store} dmView={dmView} />);
+const mount = (store: EngineStoreApi, dmView?: boolean) => render(<DeskPage cardFace="sheet" store={store} dmView={dmView} />);
 const clickTab = (name: string) => {
   const t = screen.getByRole('tab', { name });
   fireEvent.mouseDown(t);

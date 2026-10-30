@@ -3,7 +3,7 @@
 // не должны превращаться в 256 <rect> каждая. Никаких Tailwind-классов: только пропсы и inline size.
 
 import type { CSSProperties } from 'react';
-import { ICONS, IPAL, type IconName } from './icons.generated';
+import { ICONS, IPAL, type IconName } from './iconSet';
 import { paletteFor, type Palette } from './palette';
 
 export type { IconName };

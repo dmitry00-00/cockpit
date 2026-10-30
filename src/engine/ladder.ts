@@ -229,6 +229,11 @@ export function patchTargets(patch: WorldPatch): string[] {
     case 'relation': return [patch.id, patch.other];
     case 'newLocation': return patch.location.parentId ? [patch.location.parentId] : [];
     case 'newFaction': return [];
+    case 'newThread': return [];
+    // Процесс трогает место, где идёт, и участников-записи кампании (ссылки справочника — не записи стола).
+    case 'process': return [...new Set([...(patch.process.at ? [patch.process.at] : []), ...patch.process.parties.filter(x => !x.includes(':'))])];
+    case 'removeProcess': return [];
+    case 'batch': return [...new Set(patch.patches.flatMap(patchTargets))];
     default: return [patch.id];
   }
 }

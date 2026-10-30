@@ -1,6 +1,6 @@
 // Известность партии (E10): сдвиг — предложением с патчем renown; организация справочника — фракцией по «Принять».
 import { describe, expect, it } from 'vitest';
-import { factionOfOrganization, organizationFactionDelta, renownDelta } from './renown';
+import { factionOf, referenceFactionDelta, renownDelta } from './renown';
 import { seedEngine } from './seed';
 import { FACTION } from './world';
 
@@ -27,14 +27,26 @@ describe('известность партии', () => {
   it('Church of Tyr — фракцией кампании: известность 0 и ссылка на организацию; уже фракция находится по ссылке; Ctrl+Z убирает', () => {
     const store = seedEngine(fixed());
     const api = () => store.getState();
-    expect(factionOfOrganization(api().state, 'lords-alliance')?.id).toBe(FACTION.lordsAlliance);
-    expect(factionOfOrganization(api().state, 'church-of-tyr')).toBeUndefined();
-    const d = organizationFactionDelta(api().state, { id: 'church-of-tyr', name: 'Church of Tyr' });
+    expect(factionOf(api().state, 'organization:lords-alliance')?.id).toBe(FACTION.lordsAlliance);
+    expect(factionOf(api().state, 'organization:church-of-tyr')).toBeUndefined();
+    const d = referenceFactionDelta(api().state, 'organization', { id: 'church-of-tyr', name: 'Church of Tyr' });
     expect(d).toMatchObject({ subject: 'Новая фракция · Church of Tyr', patch: { kind: 'newFaction', faction: { id: 'fac-church-of-tyr', name: 'Church of Tyr', renown: 0, ref: 'organization:church-of-tyr' } } });
     api().propose(d);
     api().accept(d.id);
-    expect(factionOfOrganization(api().state, 'church-of-tyr')?.id).toBe('fac-church-of-tyr');
+    expect(factionOf(api().state, 'organization:church-of-tyr')?.id).toBe('fac-church-of-tyr');
     api().undo();
     expect(api().state.world.factions['fac-church-of-tyr']).toBeUndefined();
+  });
+
+  it('Cormyr — фракцией кампании тем же путём: ссылка kingdom:, причина — справочник держав; id организации того же имени не занят', () => {
+    const store = seedEngine(fixed());
+    const api = () => store.getState();
+    const d = referenceFactionDelta(api().state, 'kingdom', { id: 'cormyr', name: 'Cormyr' });
+    expect(d).toMatchObject({ cause: 'мастер добавил из справочника держав', causeId: 'kingdom:cormyr', patch: { faction: { id: 'fac-cormyr', ref: 'kingdom:cormyr', renown: 0 } } });
+    api().propose(d);
+    api().accept(d.id);
+    expect(factionOf(api().state, 'kingdom:cormyr')?.name).toBe('Cormyr');
+    // Второй раз — уже занятый id получает номер, а не перезаписывает фракцию.
+    expect(referenceFactionDelta(api().state, 'organization', { id: 'cormyr', name: 'Cormyr guild' }).patch).toMatchObject({ faction: { id: 'fac-cormyr-2' } });
   });
 });

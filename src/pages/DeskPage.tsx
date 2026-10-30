@@ -16,38 +16,47 @@ import './DeskPage.css';
 import { Dialog, Popover, ToggleGroup } from 'radix-ui';
 import { useEffect, useMemo, useRef, useState, type ReactNode, type RefObject } from 'react';
 import {
-  conModOf, cosmologyOf, currentOrder, eraOf, harptos, dayPhase, encounterCandidates, hitDiceOf, initiativeMod, moonState, nextFestival, nextHolyDayFor, partyDeitiesOf, placeChain, pcActor, placedActors,
+  conModOf, cosmologyOf, formatHarptos, pathOf, nextLevelText, levelUp, levelUpPlan, type LevelUpPlan, KNOWLEDGE_DC, KNOWLEDGE_RULE, KNOWLEDGE_SKILLS, isLore, knowledgeSkillOf, knownFacts, knownLine, passiveVoices, playersEntityView, currentOrder, eraOf, harptos, dayPhase, encounterCandidates, hitDiceOf, initiativeMod, moonState, nextFestival, nextHolyDayFor, partyDeitiesOf, placeChain, pcActor, placedActors,
   poolLabel, resourcePoolsOf, restCandidates, restResourcesOf, seedBattlefield, seedEngine, seedState, sortInitiative, spawnMonsters, stepTime,
-  suggestMonsterName, takeRest, travel, DAYS_PER_YEAR, weatherOf, sheetViewOf, passportOf, newPlaceDelta, renownDelta, organizationFactionDelta, factionOfOrganization, oddsTargetOf, explain, signedTotal, concentrationSpellsOf, type PcSpec,
+  suggestMonsterName, encounterMonsterId, LEGENDARY_RESOURCE, legendaryTrackOf, regainLegendary, takeRest, travel, supplyOf, tensionThreadDelta, sameDayIn, weatherOf, seasonOf, sheetViewOf, passportOf, newPlaceDelta, renownDelta, referenceFactionDelta, factionOf, oddsTargetOf, explain, signedTotal, concentrationSpellsOf, type PcSpec,
 } from '../campaign';
 import {
-  BattleGrid, CardStack, ConcentrationForm, ConditionGrid, DerivationPanel, EntityCard, EntityViewBody, OpenEntityContext, cardTypeOf, HpControl, InitiativeBar, Paperdoll, PlayerFrame, ScaleLadder, SpawnForm,
+  BattleGrid, CardStack, ConditionGrid, DerivationPanel, EntityCard, EntityViewBody, OpenEntityContext, cardTypeOf, HpControl, InitiativeBar, JourneyActivities, Paperdoll, PlayerFrame, ScaleLadder, type ActivityMember, type RollMode, OUTCOME_LABEL,
   SCALE_LABELS, SCALE_TEMPO_LABELS, TAB_NOW, TAB_OVERVIEW, SceneView, actorCardProps, battleTokenOf, exhaustionCommand, factionCardProps, initiativeFormula,
-  initiativeTokenOf, lastDamageOf, lastRollOf, placeCardProps, stackItemOf, toggleCommand, CompareSheet, type CompareColumn, SheetEquipment,
-  dollExtrasOf, type IconRailItem, type InitiativeBarEntry, type InitiativeRow, type RestRow, type SpawnOption,
+  initiativeTokenOf, lastDamageOf, lastRollOf, placeCardProps, stackItemOf, toggleCommand, type CompareColumn, SheetEquipment,
+  dollExtrasOf, KnowledgeCheck, SkillVoices, CharacterPathView, type KnowledgeMember, type IconRailItem, type InitiativeBarEntry, type InitiativeRow, type RestRow, type SpawnOption,
 } from '../components';
 import {
-  LEVEL_TEMPO, SCALE_LEVELS, SECONDS_PER_DAY, childrenOf, createEngineStore, filterJournal, focusOf, initialLadder, journalEntries, jumpTo, ladderLevels,
+  EventLog, LEVEL_TEMPO, SCALE_LEVELS, SECONDS_PER_DAY, childrenOf, createEngineStore, filterJournal, focusOf, initialLadder, journalEntries, jumpTo, ladderLevels,
   localStorageStore, memoryStore, parseLog, serializeLog, type EventStore, moveLevel, normalizeLadder, partyPlaceId, pendingFor, pendingTargets,
   placeCounts, plural, selectPlace, threadSummaries, type Actor, type Command, type EngineStoreApi, type InitiativeEntry,
   type JournalEntry as JournalRecord, type Ladder, type RestHitDice, type RestKind, type ScaleLevel, type Tempo,
 } from '../engine';
 import { useEngine, useHpFlashes, useUndoKeys } from '../engine/useEngine';
-import { KIND_LABEL, isEntityRef, parseRef, ref, type EntityRef, type EntityView } from '../entities';
+import { KIND_LABEL, isEntityRef, parseRef, ref, type EntityFact, type EntityRef, type EntityView } from '../entities';
 import { useEntity } from '../entities/useEntity';
 import { Icon } from '../icons/Icon';
 import { classById } from '../rules/compendium';
-import { CharacterEditor } from './editor/CharacterEditor';
+// Экран создания — ленивым куском (ROADMAP 0.5): догружается после первой отрисовки, до открытия редактора.
+import { BranchPanel, CharacterCard, CharacterEditor, ChronologyView, CompareSheet, ConcentrationForm, JournalView, LevelUpForm, PulseView, SpawnForm, TimeView } from '../lazyParts';
 import { levelMap } from '../map/levelMap';
-import { type JourneyProps, type TravelRoute } from '../map/WorldMap';
-import { ENCOUNTER_TYPE_LABEL, JOURNEY_REGIONS, encounterAt, journeyLoaded, loadJourney, tierOfLevel } from '../rules/a5e/journey';
+import type { JourneyProps, TravelRoute } from '../map/WorldMap';
+import {
+  ENCOUNTER_TYPE_LABEL, JOURNEY_ACTIVITIES, JOURNEY_REGIONS, WARM_REGIONS, encounterAt, journeyLoaded, loadJourney, regionActivityMods, tierOfLevel, weatherAt, weatherRollLabel,
+} from '../rules/a5e/journey';
 import { LevelZone } from './desk/LevelZone';
 import { useMapData } from './desk/useMapData';
+import { useMapToolBridge } from './desk/useMapToolBridge';
+import { MapToolChip } from './desk/MapToolChip';
 import { useScene } from './desk/useScene';
+import { suggestNpcName } from './desk/npcName';
 import {
   MONSTER_IDS, MONSTER_ORIGIN_LABEL, MONSTERS, loadMonsterLibraries, monsterLibrariesLoaded, monsterOrigin, needsMonsterLibraries, type MonsterId,
 } from '../rules/srd';
-import { type BodyProps, DmTab, FactionOverview, MonsterActions, MonsterOverview, MonsterSeen, OrgCampaignLine, PcOverview, PcSkills, PlaceOverview } from './desk/bodies';
+import { type BodyProps, DmTab, FactionOverview, MonsterActions, MonsterOverview, MonsterSeen, OrgCampaignLine, PcLore, PcOverview, PcSkills, PcSpells, PlaceOverview, chronicleOf, classFeatureItems, pcHeaderData, raceTraitItems } from './desk/bodies';
+import { characterCardProps } from '../campaign/characterCard';
+import { SKILL_LABEL } from '../components/labels';
+import { ABILITIES } from '../rules/srd/abilities';
 import {
   type OpenRail, BATTLE_CELL, DESK_HASH, DESK_LOG_KEY, JOURNAL_TAIL, NARROW_QUERY, NEW_PC_HASH, concentrationRemindersOf, conditionRemindersOf,
   d20Formula, deskDollItems, dmFactsAbout, dmFactsOf, factionItems, hereItems, isDeskHotkey, isNarrow, journalEntryProps, ladderSteps,
@@ -56,11 +65,10 @@ import { downloadText, readText, sessionFileName } from './desk/session';
 import { BTN, BTN_HEAD, CONDITION_DURATIONS, HEAD, OPT, OPT_OFF, OPT_ON, type DeskView } from './desk/styles';
 import { ClockBar } from './desk/ClockBar';
 import { PartyPanel } from './desk/PartyPanel';
-import { TimeView } from './desk/TimeView';
-import { PulseView } from './desk/PulseView';
-import { ChronologyView } from './desk/ChronologyView';
-import { loadEvents, type ChronoEvent } from '../world/chronology';
-import { JournalView } from './desk/JournalView';
+import { useTensions } from './desk/useTensions';
+import { useBranches } from './desk/useBranches';
+import type { ChronoEvent } from '../world/chronology';
+import { NotebookView } from './desk/NotebookView';
 import { ToolsPanel } from './desk/ToolsPanel';
 /* ---------- Страница ---------- */
 
@@ -71,11 +79,16 @@ export interface DeskPageProps {
   persist?: EventStore;
   /** Стол мастера. false — стол игроков с самого начала (как после `P`): секретов в DOM нет. */
   dmView?: boolean;
+  /** Чем открывается персонаж с листом (Д9): картой на лице или листом целиком; дальше — кнопками «Лист» / «Карта». */
+  cardFace?: CardFace;
 }
+
+type CardFace = 'card' | 'sheet';
 
 interface DeskProps {
   store: EngineStoreApi;
   dmView: boolean;
+  cardFace: CardFace;
   /** Сохранённый лог не поднялся или файл не открылся — первая заметка мастеру. */
   recoverNote: string | null;
   /** «Новая сессия»: стереть журнал и собрать стол из сида заново. */
@@ -83,6 +96,10 @@ interface DeskProps {
   /** «Сохранить» — журнал сессии файлом; «Открыть…» — стол из файла (проверяется реплеем до подмены). */
   onExport: () => void;
   onImport: (file: File) => void;
+  /** «Стол на этот день» из хроники журнала (Д5): реплей лога до конца дня — отдельным стором в памяти. */
+  onViewPast?: (endSec: number) => void;
+  /** Стол прошлого дня: плашка сверху и «Вернуться»; что сделано здесь, в сессию не попадает. */
+  past?: { label: string; onExit: () => void };
 }
 
 /**
@@ -91,7 +108,7 @@ interface DeskProps {
  * молча. «Новая сессия» — не событие (нечего отменять: журнала больше нет): хранилище чистится, стор поднимается
  * из сида, стол перемонтируется целиком — выбор, лестница и фильтры начинаются заново.
  */
-export function DeskPage({ store: given, persist: givenPersist, dmView = true }: DeskPageProps) {
+export function DeskPage({ store: given, persist: givenPersist, dmView = true, cardFace = 'card' }: DeskPageProps) {
   const persist = useRef<EventStore>(givenPersist ?? localStorageStore(DESK_LOG_KEY));
   const recovered = useRef<string | null>(null);
   const make = () => seedEngine({ persist: persist.current, onRecover: r => { recovered.current = r; } });
@@ -102,6 +119,13 @@ export function DeskPage({ store: given, persist: givenPersist, dmView = true }:
     setSession(s => ({ n: s.n + 1, store: make(), note: null }));
   };
   const exportLog = () => downloadText(sessionFileName(), serializeLog(session.store.getState().events));
+  // Стол на прошлый день (Д5): начало лога до конца дня — реплеем на сиде в памяти, только просмотр.
+  const [past, setPast] = useState<{ sec: number; store: EngineStoreApi } | null>(null);
+  const viewPast = (endSec: number) => {
+    const mem = memoryStore();
+    mem.save(EventLog.prefixUntil(seedState(), session.store.getState().events, endSec));
+    setPast({ sec: endSec, store: createEngineStore(seedState(), { persist: mem }) });
+  };
   /**
    * Файл сессии: разобрать, прогнать реплеем на сиде в памяти — и только если лог связный, положить в хранилище
    * и пересобрать стол. Битый файл текущую сессию не трогает: причина уходит заметкой мастеру.
@@ -113,9 +137,15 @@ export function DeskPage({ store: given, persist: givenPersist, dmView = true }:
       const trial = memoryStore();
       trial.save(events);
       createEngineStore(seedState(), { persist: trial });
-      persist.current.save(events);
+      const opened = `Открыт файл ${file.name}: ${events.length} ${plural(events.length, ['событие', 'события', 'событий'])}.`;
       recovered.current = null;
-      setSession(s => ({ n: s.n + 1, store: make(), note: `Открыт файл ${file.name}: ${events.length} ${plural(events.length, ['событие', 'события', 'событий'])}.` }));
+      // Браузер не принял лог (квота): стол из файла живёт в памяти — иначе make() поднял бы старую сессию из хранилища.
+      if (persist.current.save(events) === false) {
+        const fromFile: EventStore = { load: () => trial.load(), save: e => persist.current.save(e), clear: () => persist.current.clear() };
+        setSession(s => ({ n: s.n + 1, store: createEngineStore(seedState(), { persist: fromFile }), note: `${opened} В браузер он не сохранился — место кончилось; сохраняйте сессию файлом.` }));
+        return;
+      }
+      setSession(s => ({ n: s.n + 1, store: make(), note: opened }));
       return;
     } catch (err) {
       note = `Файл ${file.name} не открылся: ${err instanceof Error ? err.message : String(err)}. Сессия осталась прежней.`;
@@ -134,11 +164,28 @@ export function DeskPage({ store: given, persist: givenPersist, dmView = true }:
   if (!libsReady && needsMonsterLibraries(Object.values(session.store.getState().state.actors).map(a => a.monsterId))) {
     return <p role="status" className="p-4 type-body text-t2">Загружаются библиотеки монстров Black Flag и A5E…</p>;
   }
+  if (past) {
+    return (
+      <Desk
+        key={`past-${past.sec}`}
+        store={past.store}
+        dmView={dmView}
+        cardFace={cardFace}
+        recoverNote={null}
+        onReset={() => setPast(null)}
+        onExport={() => downloadText(sessionFileName(), serializeLog(past.store.getState().events))}
+        onImport={() => {}}
+        past={{ label: formatHarptos(past.sec).replace(/,.*$/, ''), onExit: () => setPast(null) }}
+      />
+    );
+  }
   return (
     <Desk
       key={session.n}
+      onViewPast={viewPast}
       store={session.store}
       dmView={dmView}
+      cardFace={cardFace}
       recoverNote={session.note ?? (recovered.current ? 'Сохранённая сессия не открылась — стол собран заново из сида.' : null)}
       onReset={reset}
       onExport={exportLog}
@@ -160,7 +207,7 @@ const WHY_TITLE: Readonly<Record<WhyKey, string>> = { ac: 'AC', initiative: 'И�
 /** Слот карточки: актёр, место в фокусе, фракция — свои карточки; любая другая сущность по ссылке — общая (ROADMAP 0.3). */
 type CardSlot = { kind: 'actor' } | { kind: 'place' } | { kind: 'faction'; id: string } | { kind: 'entity'; ref: EntityRef };
 
-function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImport }: DeskProps) {
+function Desk({ store, dmView: dmViewProp, cardFace, recoverNote, onReset, onExport, onImport, onViewPast, past }: DeskProps) {
   // Режим «глазами игроков» — состояние вида, не событие: P переключает, рамка обозначает, модель фильтрует.
   // Всё, чего игрокам видеть нельзя, в DOM не попадает (CLAUDE.md «Правила экрана»), а не приглушается.
   const [playersView, setPlayersView] = useState(!dmViewProp);
@@ -168,6 +215,7 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
   const state = useEngine(store, s => s.state);
   const events = useEngine(store, s => s.events);
   const toast = useEngine(store, s => s.toast);
+  const saveFailed = useEngine(store, s => s.saveFailed);
   const canUndo = useEngine(store, s => s.canUndo);
   const canRedo = useEngine(store, s => s.canRedo);
   useUndoKeys(store, !playersView);
@@ -190,6 +238,9 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
   // Попапы живого стола — редактор инициативы, появление противника, начало концентрации: состояние вида.
   const [initiativeOpen, setInitiativeOpen] = useState(false);
   const [spawnOpen, setSpawnOpen] = useState(false);
+  // Встреча A5E (M15): итог последнего броска под регионом и блок для «Появился» — состояние вида, не событие.
+  const [lastEncounter, setLastEncounter] = useState<{ regionId: string; text: string; monsterId?: MonsterId } | null>(null);
+  const [spawnPick, setSpawnPick] = useState<string | undefined>(undefined);
   const [concentrationOpen, setConcentrationOpen] = useState(false);
   const [restOpen, setRestOpen] = useState(false);
   /** Срок следующего состояния из сетки, секунд мирового времени; 0 — пока мастер не снимет. */
@@ -228,7 +279,8 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
   useEffect(() => {
     if (lensYear === null) { setLensEvents([]); return; }
     let live = true;
-    void loadEvents(lensYear, lensYear).then(e => { if (live) setLensEvents(e); });
+    // Хронология — своим куском: основной не больше 500 КБ.
+    void import('../world/chronology').then(m => m.loadEvents(lensYear, lensYear)).then(e => { if (live) setLensEvents(e); });
     return () => { live = false; };
   }, [lensYear]);
   /** События года линзы у мест справочника карты: место → строки. */
@@ -241,6 +293,8 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
   }, [lensEvents]);
   /** Уровень планеты: глобус или плоская карта — состояние экрана, не событие. */
   const [planetView, setPlanetView] = useState<'globe' | 'map'>('globe');
+  /** Поселение с планом (M10): по умолчанию план; карта мира — для похода и окрестностей. */
+  const [cityView, setCityView] = useState<'plan' | 'map'>('plan');
   // Модель космологии на уровне «космология» — линза, не событие: Великое колесо (действует в 1492 DR) или Великое древо (1372 DR).
   // Линза космологии по умолчанию — от года кампании (ROADMAP 0.6): 1372 DR — Древо, 1492 DR — Колесо.
   const [cosmologyView, setCosmologyView] = useState<'wheel' | 'tree'>(() => cosmologyOf(harptos(state.time.sec).year));
@@ -282,7 +336,7 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
   const barRef = useRef<HTMLDivElement>(null);
   // Якорь попапа от токена — сам элемент токена: Radix меряет его через virtualRef, DOM-обёртка не нужна.
   const tokenAnchor = useRef<HTMLElement | null>(null);
-  // Поле боя — данные сида (расстановка F2); событий перемещения нет, поэтому оно не в State и не меняется.
+  // Поле боя — данные сида (расстановка F2): стены, шаблон, стартовые клетки; дальше клетку несёт актёр (TOKEN_MOVED).
   const [field] = useState(seedBattlefield);
 
   const actor: Actor | undefined = state.actors[selectedId];
@@ -307,16 +361,23 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
   const places = placeChain(state);
   const scaleLabel = (sc: ScaleLevel) => (places[sc] ? `${SCALE_LABELS[sc]} · ${places[sc]}` : SCALE_LABELS[sc]);
   const stepDeltas = dmView ? (lastStep?.deltaIds ?? []).map(id => state.deltas[id]).filter(d => d?.status === 'pending') : [];
-  const views: readonly DeskView[] = dmView ? ['desk', 'time', 'pulse', 'chrono', 'journal'] : ['desk', 'journal'];
+  // Тетрадь (Д6) — когда партия что-то узнала: пустого вида нет.
+  const hasNotebook = Object.keys(state.knowledge ?? {}).length > 0;
+  const views: readonly DeskView[] = [...(dmView ? ['desk', 'time', 'pulse', 'chrono', 'journal'] as const : ['desk', 'journal'] as const), ...(hasNotebook ? ['notebook'] as const : [])];
   // Виды «Время» и «Пульс» — экраны мастера: на столе игроков вместо них стол, а состояние вида не теряется до возврата.
-  const shownView = !dmView && (view === 'time' || view === 'pulse' || view === 'chrono') ? 'desk' : view;
+  const shownView = (!dmView && (view === 'time' || view === 'pulse' || view === 'chrono')) || (view === 'notebook' && !hasNotebook) ? 'desk' : view;
   const openThreads = Object.values(state.world.threads).filter(t => t.status === 'open');
   const activeId = combat ? encounter.order[encounter.turnIndex] : undefined;
   const initiative: InitiativeBarEntry[] = encounter.order.flatMap(id => {
     const a = state.actors[id];
-    return a ? [initiativeTokenOf(a, a.initiative ?? 0, { players: !dmView })] : [];
+    if (!a) return [];
+    // Легендарные действия блока (Q13) — только мастеру: на столе игроков у монстра нет блока (Q1).
+    const legendaryActions = dmView ? legendaryTrackOf(a) : null;
+    return [{ ...initiativeTokenOf(a, a.initiative ?? 0, { players: !dmView }), ...(legendaryActions ? { legendaryActions } : {}) }];
   });
   const tokens = placedActors(state, field).map(({ actor: a, cell }) => battleTokenOf(a, cell, { players: !dmView }));
+  // Мост к MapTool (Q17): клетки оттуда — событиями, хиты и состояния — туда. Прошлый день только смотрят.
+  const maptool = useMapToolBridge(past ? null : store, state, field.positions);
   const lastRoll = lastRollOf(events);
   // Скрытый бросок на столе игроков не показывается — ни карточкой, ни строкой истории.
   const shownRoll = lastRoll && lastRoll.id !== closedRollId && (dmView || !lastRoll.roll.hidden) ? lastRoll : null;
@@ -330,16 +391,21 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
   // грузится, только когда вкладка открыта. Год сцены — линза «Хроники»: тот же день в выбранном году.
   const entityPlace = cardOf.kind === 'entity' && parseRef(cardOf.ref)?.kind === 'place' ? parseRef(cardOf.ref)!.id : undefined;
   const sceneAt = tab !== TAB_NOW.id ? null : cardOf.kind === 'place' && focus ? { location: focus.id } : entityPlace ? { place: entityPlace } : null;
-  const sceneSec = state.time.sec + (lensYear !== null ? (lensYear - campaignYear) * DAYS_PER_YEAR * SECONDS_PER_DAY : 0);
-  const { scene, loading: sceneLoading } = useScene(state, sceneAt, sceneSec, dmView);
+  const sceneSec = lensYear !== null && lensYear !== campaignYear ? sameDayIn(state.time.sec, lensYear) : state.time.sec;
+  // Карта уровня (планета, континент, регион, поселение), если у места есть координаты и паспорт карты.
+  const map = combat && ladder.level === 'battle' ? undefined : levelMap(state, ladder, { plan: cityView === 'plan' });
+  // Напряжения (Д3, ROADMAP 7.2): справочник мира — куском, когда мастеру он нужен: «Пульс», карта уровня, сцена места.
+  const tensionData = useTensions(state, dmView && (shownView === 'pulse' || map !== undefined || sceneAt !== null));
+  const tensions = tensionData?.list ?? null;
+  // Ветки «что если» (Д4) — сторы в памяти страницы; видны только в «Пульсе» мастера.
+  const branchApi = useBranches(store);
+  const { scene, loading: sceneLoading } = useScene(state, sceneAt, sceneSec, dmView, tensions);
   const steps = ladderSteps(state, ladder);
   const here = focus ? childrenOf(state, focus.id) : [];
   // Цели ждущих предложений пульсируют только у мастера: на столе игроков симуляции нет вовсе.
   const pendingIds = dmView ? pendingTargets(state) : new Set<string>();
   const visibleFacts = Object.values(state.facts).filter(f => dmView || f.visibility === 'players');
   const counts = placeCounts(allEntries, state, visibleFacts);
-  // Карта уровня (планета, континент, регион, поселение), если у места есть координаты и паспорт карты.
-  const map = combat && ladder.level === 'battle' ? undefined : levelMap(state, ladder);
   const factions = Object.values(state.world.factions);
   const faction = cardOf.kind === 'faction' ? state.world.factions[cardOf.id] : undefined;
   // ВЫБРАНО на уровне: место пути ниже фокуса — куда `]` спустится.
@@ -416,6 +482,7 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
         if (playersRef.current || !s.state.encounter.active) return;
         e.preventDefault();
         s.nextTurn();
+        regainLegendary(store.getState());
       } else if (isDeskHotkey(e, 'KeyR')) {
         const last = lastRollOf(store.getState().events);
         if (playersRef.current || !last) return;
@@ -424,6 +491,11 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
       } else if (isDeskHotkey(e, 'KeyJ')) {
         e.preventDefault();
         setView(v => (v === 'journal' ? 'desk' : 'journal'));
+      } else if (isDeskHotkey(e, 'KeyN')) {
+        // Тетрадь партии (Д6): у мастера и у игроков; пока пуста — вида нет, клавиша ничего не делает.
+        if (!Object.keys(store.getState().state.knowledge ?? {}).length) return;
+        e.preventDefault();
+        setView(v => (v === 'notebook' ? 'desk' : 'notebook'));
       } else if (isDeskHotkey(e, 'KeyW')) {
         // Пульс мира (F5) — экран мастера: у игроков вида нет.
         if (playersRef.current) return;
@@ -490,6 +562,13 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
     setLastStep({ eventId: event.id, deltaIds: proposals.map(d => d.id) });
     setView('time');
   };
+  /** «Перейти к этому дню» (Д5): шаг днями до выбранного дня — тот же шаг времени, время суток то же. */
+  const goToDay = (daySec: number) => {
+    const n = Math.round((daySec - Math.floor(state.time.sec / SECONDS_PER_DAY) * SECONDS_PER_DAY) / SECONDS_PER_DAY);
+    if (n <= 0) return;
+    const { event, proposals } = stepTime(store.getState(), 'day', n);
+    setLastStep({ eventId: event.id, deltaIds: proposals.map(d => d.id) });
+  };
   const decide = (deltaId: string, verdict: 'accept' | 'reject') => (verdict === 'accept' ? api.accept(deltaId) : api.reject(deltaId));
   /** Бросок для редактора инициативы и новичков: DICE_ROLLED в лог (скрытость — как у прочих бросков мастера), итог — числом. */
   const rollTotal = (formula: string, label: string) => api.rollDice(formula, { label, hidden: hiddenRolls }).payload.total;
@@ -497,13 +576,31 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
   /** Порядок из редактора: до боя — ENCOUNTER_STARTED с ним, в бою — INITIATIVE_SET (ход остаётся у того, чей был). */
   const applyInitiative = (order: InitiativeEntry[]) => {
     if (combat) api.setInitiative(order);
-    else api.startEncounter(order);
+    else {
+      api.startEncounter(order);
+      // Первый ход боя — тоже начало хода: легендарному существу возвращается потраченное в прошлом бою (Q13).
+      regainLegendary(store.getState());
+    }
     setInitiativeOpen(false);
+  };
+  /** Легендарное действие с полосы (Q13): RESOURCE_SPENT на стоимость варианта; максимум — из абзаца блока. */
+  const legendaryMax = (id: string) => {
+    const a = store.getState().state.actors[id];
+    return a ? legendaryTrackOf(a)?.max : undefined;
+  };
+  const spendLegendary = (id: string, amount: number) => {
+    const max = legendaryMax(id);
+    if (max !== undefined) api.spendResource(id, LEGENDARY_RESOURCE, max, amount);
+  };
+  const restoreLegendary = (id: string, amount: number) => {
+    const max = legendaryMax(id);
+    if (max !== undefined) api.restoreResource(id, LEGENDARY_RESOURCE, max, amount);
   };
   const spawnOptions: SpawnOption[] = MONSTER_IDS.map(id => {
     const m = MONSTERS[id];
-    return { id, name: m.name, cr: m.cr, ac: m.ac.value, hp: m.hp.average, origin: MONSTER_ORIGIN_LABEL[monsterOrigin(m)], suggested: suggestMonsterName(state, id) };
+    return { id, name: m.name, cr: m.cr, ac: m.ac.value, hp: m.hp.average, origin: MONSTER_ORIGIN_LABEL[monsterOrigin(m)], suggested: suggestMonsterName(state, id), humanoid: /humanoid/i.test(m.type) };
   });
+  const suggestName = (monsterId: string) => suggestNpcName(store.getState().state, MONSTERS[monsterId as MonsterId].type);
   /**
    * Противник появился: ACTOR_SPAWNED на каждого снимком; в бою — бросок инициативы каждому и INITIATIVE_SET
    * с прежними бросками остальных (порядок — снимком целиком, §7). Первый новичок — в слоте карточки.
@@ -516,6 +613,7 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
       api.setInitiative(sortInitiative([...currentOrder(store.getState().state), ...fresh]));
     }
     setSpawnOpen(false);
+    setSpawnPick(undefined);
     open(actors[0].id);
   };
   const startConcentration = (spell: string, durationSec?: number) => {
@@ -575,7 +673,7 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
     }
   };
   /** Поход по карте — дни пути шагом времени (с предложениями мира за эти дни) и PARTY_TRAVELED; сводка — как после отдыха. */
-  const { terrain, gazetteer } = useMapData(map);
+  const { terrain, roads, underdark, gazetteer, schema } = useMapData(map);
 
   /**
    * Поход по A5E: уровень опасности — ступень партии по старшему уровню; встреча — d100 в лог (DICE_ROLLED) и итог
@@ -599,6 +697,55 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
       const row = encounterAt(regionId, journeyTier, roll);
       const what = row ? `${row.name}${row.giant && roll % 2 === 1 ? ' (giant)' : ''} — ${ENCOUNTER_TYPE_LABEL[row.type]}` : 'дыра таблицы, бросьте ещё раз';
       api.note(`${region.name}, уровень ${journeyTier}: d100 = ${roll} → ${what}`, [], 'region');
+      setLastEncounter({ regionId, text: `d100 = ${roll} → ${what}`, ...(row?.type === 'monster' ? { monsterId: encounterMonsterId(row.name) } : {}) });
+    },
+    ...(lastEncounter ? {
+      encounter: {
+        regionId: lastEncounter.regionId,
+        text: lastEncounter.text,
+        ...(lastEncounter.monsterId ? { onAppear: () => { setSpawnPick(lastEncounter.monsterId); setSpawnOpen(true); } } : {}),
+      },
+    } : {}),
+    // «Roll a d20 for weather once for each region. In the winter season, add 5 to the roll, unless … warm» (A5E).
+    onWeather: regionId => {
+      const region = JOURNEY_REGIONS[regionId];
+      const winter = seasonOf(state.time.sec) === 'winter' && !WARM_REGIONS.has(regionId);
+      const roll = rollTotal('1d20', weatherRollLabel(region.name));
+      api.note(`${region.name}: погода d20 = ${roll}${winter ? ' +5 (зима)' : ''} → ${weatherAt(regionId, roll, winter) ?? '—'}`, [], 'region');
+    },
+    supply: supplyOf(state),
+    activities: (regionId, dc, days) => {
+      const region = JOURNEY_REGIONS[regionId];
+      const members: ActivityMember[] = party.map(a => ({
+        id: a.id, name: a.name,
+        skills: Object.fromEntries((sheetViewOf(a)?.skills ?? []).map(sk => [sk.id, sk.mod])),
+      }));
+      // Преимущество и помеха — два броска d20 в журнале, засчитывается лучший или худший.
+      const onRoll = (label: string, mod: number, mode: RollMode) => {
+        const formula = `1d20${mod ? (mod > 0 ? `+${mod}` : `${mod}`) : ''}`;
+        const rolls = (mode === 'normal' ? [1] : [1, 2]).map(i => api.rollDice(formula, { label: mode === 'normal' ? label : `${label} · ${mode === 'advantage' ? 'преимущество' : 'помеха'} ${i}/2`, hidden: hiddenRolls }).payload);
+        const pick = rolls.reduce((a, b) => (mode === 'disadvantage' ? (b.dice[0] < a.dice[0] ? b : a) : (b.dice[0] > a.dice[0] ? b : a)));
+        return { natural: pick.dice[0], total: pick.total };
+      };
+      return (
+        <JourneyActivities
+          regionName={region.name}
+          regionNote={region.fields['Journey Activities']}
+          dc={dc}
+          activities={JOURNEY_ACTIVITIES}
+          mods={regionActivityMods(region)}
+          members={members}
+          onRoll={onRoll}
+          onOutcome={(who, a, outcome, line) => {
+            api.note(`${region.name} · ${a.name} · ${who}: ${OUTCOME_LABEL[outcome]}${line ? ` — ${line}` : ''}`, [], 'region');
+            // «The adventurer gains 1 Supply per day spent doing this journey activity», критический — вдвое (A5E). Ядовитый
+            // припас критического провала — не еда: в запас не идёт, усталость ставит мастер.
+            if (a.id === 'hunt-and-gather' && (outcome === 'success' || outcome === 'criticalSuccess')) {
+              api.changeSupply('foraged', Math.ceil(days) * (outcome === 'criticalSuccess' ? 2 : 1));
+            }
+          }}
+        />
+      );
     },
   };
   const onTravel = (route: TravelRoute) => {
@@ -673,6 +820,9 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
   const whyKey = actor && why?.actorId === actor.id ? why.key : undefined;
   const whyOf = whyKey && actor ? explain(actor, whyKey) : undefined;
   const closeWhy = () => setWhy(null);
+  // Персонаж с листом (Д9): карта 63 × 88 на лице, «Лист» — полная карточка; выбор держится, пока стол открыт.
+  const [face, setFace] = useState<CardFace>(cardFace);
+  const pcCard = actor?.sheet && face === 'card' ? characterCardProps(actor, pcHeaderData(actor.sheet), state.time.sec) : undefined;
   const cardProps = actor ? actorCardProps(actor, {
     onHp: dmView ? openFromCard : undefined, dmFacts: dmFactsOf(actor, state.facts).length, initiative: cardView?.initiative, players: !dmView, hitDice: cardView?.hitDice,
     onExplain: key => setWhy(w => (w?.actorId === actor.id && w.key === key ? null : { actorId: actor.id, key })), explaining: whyKey,
@@ -682,6 +832,7 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
    * навыки персонажа и действия монстра уходят вправо (`aside`), остальное — влево (`main`). В оверлее
    * инструментов нет: хиты и концентрация правятся из одиночной карточки, оверлей — для чтения.
    */
+  const [levelError, setLevelError] = useState<string | null>(null);
   const renderActorBody = (current: string, column: 'column' | 'main' | 'aside'): ReactNode => {
     if (!actor) return null;
     const body: BodyProps = { actor, worldSec: state.time.sec, onRoll, onCommand, tools: dmView && column === 'column' ? cardTools : null, dmView };
@@ -731,13 +882,55 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
             {actor.sheet ? <SheetEquipment sheet={actor.sheet} /> : null}
           </>
         );
+      case 'path': {
+        const path = actor.sheet ? pathOf(actor.sheet) : undefined;
+        if (!path) return null;
+        // Повышение (Q10) — у мастера и только у персонажа партии; повысить нельзя (20-й, класс без SRD) — формы нет.
+        let plan: LevelUpPlan | null = null;
+        try { plan = dmView && actor.kind === 'pc' ? levelUpPlan(actor) : null; } catch { plan = null; }
+        return (
+          <>
+            {plan ? (
+              <LevelUpForm
+                key={`${actor.id}-${actor.sheet!.level}`}
+                plan={plan}
+                abilities={actor.sheet!.abilities}
+                onRoll={rollTotal}
+                error={levelError}
+                onLevelUp={choice => {
+                  try { api.levelUp(levelUp(actor, choice)); setLevelError(null); } catch (err) { setLevelError(err instanceof Error ? err.message : String(err)); }
+                }}
+              />
+            ) : null}
+            <CharacterPathView path={path} next={nextLevelText(path)} />
+          </>
+        );
+      }
       case 'dm':
         return <DmTab subjectId={actor.id} facts={state.facts} />;
       default:
         return null;
     }
   };
-  const actorCard = actor && cardProps ? (
+  const actorCard = actor && pcCard ? (
+    <div ref={cardRef as React.RefObject<HTMLDivElement>} role="region" aria-label={actor.name} className="flex flex-col flex-none max-h-full">
+      {anchor === 'card' ? <Popover.Anchor className="h-0 flex-none" /> : null}
+      <CharacterCard
+        card={pcCard}
+        features={[...classFeatureItems(actor.sheet!), ...raceTraitItems(actor.sheet!).map(t => ({ ...t, meta: 'раса' }))]}
+        onHp={dmView ? openFromCard : undefined}
+        {...(dmView ? { onDamage: (n: number) => api.damage(actor.id, n), onHeal: (n: number) => api.heal(actor.id, n), conditions: renderActorBody('conditions', 'column') } : {})}
+        onRollAbility={a => onRoll(d20Formula(a.mod), `${ABILITIES[a.id].code} · ${actor.name}`)}
+        onRollSkill={sk => onRoll(d20Formula(sk.mod), `${SKILL_LABEL[sk.id]} · ${actor.name}`)}
+        onInitiative={() => onRoll(d20Formula(pcCard.initiative), `Инициатива · ${actor.name}`)}
+        gear={renderActorBody('gear', 'column')}
+        // Пустая вкладка не показывается: «Заклинания» — у заклинателя, «История» — когда есть предыстория или хроника.
+        {...(actor.sheet?.spellcasting ? { spells: <PcSpells actor={actor} /> } : {})}
+        {...(actor.sheet?.backgroundId || chronicleOf(actor, allEntries).length > 0 ? { lore: <PcLore actor={actor} entries={allEntries} /> } : {})}
+        onSheet={() => setFace('sheet')}
+      />
+    </div>
+  ) : actor && cardProps ? (
     <EntityCard
       {...cardProps}
       // Вкладка «Состояния» — тумблеры мастера; игрокам состояния видны чипами в обзоре.
@@ -752,6 +945,11 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
       beforeTabs={(
         <>
           {anchor === 'card' ? <Popover.Anchor className="h-0 flex-none" /> : null}
+          {actor.sheet ? (
+            <div className="flex justify-end px-2 pt-1 flex-none">
+              <button type="button" title="Карта персонажа 63 × 88: сводка на кромках, лист на лице без прокрутки" onClick={() => setFace('card')} className={BTN}>Карта</button>
+            </div>
+          ) : null}
           {whyKey && whyOf ? <DerivationPanel title={WHY_TITLE[whyKey]} shown={whyKey === 'initiative' ? signedTotal(whyOf.total) : undefined} explanation={whyOf} onClose={closeWhy} /> : null}
         </>
       )}
@@ -791,21 +989,49 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
       {(current: string) => (current === 'overview' ? <FactionOverview faction={faction} factions={state.world.factions} pending={dmView ? pendingFor(state, faction.id) : []} onOpenEntity={openEntity} onRenown={dmView ? step => api.propose(renownDelta(state, faction.id, step)) : undefined} /> : null)}
     </EntityCard>
   ) : null;
-  // Организация справочника и кампания (E10): фракция с известностью или кнопка «В кампанию фракцией».
+  // Организация или держава справочника и кампания (E10, TASKS К): фракция с известностью или кнопка «В кампанию фракцией».
   const orgLine = (view: EntityView, onOpen: (r: EntityRef) => void) => {
-    if (view.kind !== 'organization') return null;
-    const orgId = parseRef(view.ref)!.id;
+    if (view.kind !== 'organization' && view.kind !== 'kingdom') return null;
     const pendingAdd = Object.values(state.deltas).some(d => d.status === 'pending' && d.patch?.kind === 'newFaction' && d.patch.faction.ref === view.ref);
     return (
       <OrgCampaignLine
-        faction={factionOfOrganization(state, orgId)}
+        faction={factionOf(state, view.ref)}
         dm={dmView}
         pendingAdd={pendingAdd}
         onOpenFaction={id => onOpen(ref('faction', id))}
-        onAdd={() => api.propose(organizationFactionDelta(state, { id: orgId, name: view.name }))}
+        onAdd={() => api.propose(referenceFactionDelta(state, view.kind as 'organization' | 'kingdom', { id: parseRef(view.ref)!.id, name: view.name }))}
       />
     );
   };
+  // Знание как ресурс (Д6): у мастера строка паспорта сущности мира — «Узнать» (проверка или воля мастера), узнанная —
+  // отметкой с датой и кем; у игроков карточка — их тетрадь: только узнанное.
+  const knowledgeMembers: KnowledgeMember[] = party.filter(a => !a.removed && a.sheet).map(a => ({ id: a.id, name: a.name, mods: Object.fromEntries((sheetViewOf(a)?.skills ?? []).map(sk => [sk.id, sk.mod])) }));
+  const factAction = (view: EntityView) => (f: EntityFact) => {
+    if (!dmView || !isLore(view)) return null;
+    const known = knownFacts(state, view.ref).get(f.label);
+    if (known) return <span className="inline-flex align-middle ml-1" data-known={f.label}><Icon name="src-players" size={16} color="var(--src-players)" title={`Известно игрокам: ${knownLine(known, state)}`} /></span>;
+    return (
+      <KnowledgeCheck
+        fact={f}
+        members={knowledgeMembers}
+        skills={KNOWLEDGE_SKILLS}
+        skill={knowledgeSkillOf(view)}
+        dc={KNOWLEDGE_DC}
+        rule={KNOWLEDGE_RULE}
+        onRoll={rollTotal}
+        onReveal={p => api.revealKnowledge({ ref: view.ref, name: view.name, fact: { label: f.label, value: f.value }, ...p })}
+      />
+    );
+  };
+  // Голоса навыков (Д13): кто из партии знает о сущности мира без броска — строка только мастеру, пока не всё узнано.
+  const voicesLine = (view: EntityView) => {
+    if (!dmView || !isLore(view) || !knowledgeMembers.length) return null;
+    const known = knownFacts(state, view.ref);
+    if (!view.facts.length || view.facts.every(f => known.has(f.label))) return null;
+    const skill = knowledgeSkillOf(view);
+    return <SkillVoices skill={skill} dc={KNOWLEDGE_DC} {...passiveVoices(knowledgeMembers, skill, KNOWLEDGE_DC)} />;
+  };
+  const shownEntity = entityView && entityView !== 'loading' && !dmView ? playersEntityView(entityView, state) : entityView;
   const entityCard = cardOf.kind === 'entity' && entityView ? (
     <EntityCard
       key={cardOf.ref}
@@ -819,7 +1045,7 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
     >
       {(current: string) => (entityView === 'loading' ? <p className="type-body-sm text-t2">Справочник загружается…</p>
         : entityPlace && current === TAB_NOW.id && scene ? <SceneView scene={scene} onOpen={openEntity} loading={sceneLoading} />
-          : <>{orgLine(entityView, openEntity)}<EntityViewBody view={entityView} onOpen={openEntity} /></>)}
+          : <>{orgLine(entityView, openEntity)}{voicesLine(entityView)}<EntityViewBody view={shownEntity as EntityView} onOpen={openEntity} factAction={factAction(entityView)} /></>)}
     </EntityCard>
   ) : null;
   const card = cardOf.kind === 'actor' ? actorCard : cardOf.kind === 'place' ? placeCard : cardOf.kind === 'entity' ? entityCard : factionCard;
@@ -861,7 +1087,7 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
     >
       {(current: string) => (entityPlace && current === TAB_NOW.id && scene
         ? <SceneView scene={scene} onOpen={r => { setCardOverlay(false); openEntity(r); }} loading={sceneLoading} />
-        : <>{orgLine(entityView, r => { setCardOverlay(false); openEntity(r); })}<EntityViewBody view={entityView} onOpen={r => { setCardOverlay(false); openEntity(r); }} /></>)}
+        : <>{orgLine(entityView, r => { setCardOverlay(false); openEntity(r); })}<EntityViewBody view={shownEntity as EntityView} onOpen={r => { setCardOverlay(false); openEntity(r); }} factAction={factAction(entityView)} /></>)}
     </EntityCard>
   ) : faction ? (
     <EntityCard {...factionCardProps(faction, { pending: pendingIds.has(faction.id) })} overlay activeTab={tab} onTab={setTab} dmView={dmView} className="max-h-full">
@@ -1019,6 +1245,19 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
     <OpenEntityContext.Provider value={openEntity}>
     <PlayerFrame on={playersView}>
     <main aria-label={playersView ? 'Стол игроков' : 'Стол'} data-view={playersView ? 'players' : 'dm'} className="flex-1 min-h-0 flex flex-col">
+      {past ? (
+        <div role="status" data-part="past-view" className="flex-none flex items-center gap-3 px-4 py-1.5 bg-cd shadow-[inset_0_-2px_0_var(--src-sim)] type-body-sm text-tx">
+          <span>Стол на {past.label} — реплей журнала до конца дня; что сделано здесь, в сессию не попадает</span>
+          <button type="button" onClick={past.onExit} className="ml-auto type-num-12 uppercase px-2 py-1 bg-cd shadow-bevel text-gd-hi cursor-pointer focus-visible:shadow-[var(--bevel),var(--glow-gold)]">Вернуться к сегодня</button>
+        </div>
+      ) : null}
+      {saveFailed && !past && !playersView ? (
+        // Квота браузера кончилась (И2, 30.10.2026): сессия живёт только в памяти — перезагрузка её потеряет.
+        <div role="alert" data-part="save-failed" className="flex-none flex items-center gap-3 px-4 py-1.5 bg-cd shadow-[inset_0_-2px_0_var(--st-conflict)] type-body-sm text-tx">
+          <span>Журнал больше не сохраняется в браузере: место кончилось или запись запрещена. Перезагрузка вкладки потеряет сессию — сохраните её файлом.</span>
+          <button type="button" onClick={onExport} className="ml-auto type-num-12 uppercase px-2 py-1 bg-cd shadow-bevel text-gd-hi cursor-pointer focus-visible:shadow-[var(--bevel),var(--glow-gold)]">Сохранить файлом</button>
+        </div>
+      ) : null}
       <ClockBar
         railParty={railParty}
         state={state}
@@ -1063,6 +1302,7 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
           setRailParty={setRailParty}
           openRail={openRail}
           setOpenRail={setOpenRail}
+          onSupply={(reason, amount) => { api.changeSupply(reason, amount); }}
         />
 
         {/* Popover.Root — вокруг всей главной зоны: якорь один, но живёт то в карточке, то на токене. */}
@@ -1082,9 +1322,13 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
               scaleLabel={scaleLabel}
               decide={decide}
               api={api}
+              {...(dmView ? { onGoTo: goToDay } : {})}
             />
           ) : shownView === 'pulse' ? (
-            <PulseView state={state} mainRef={mainRef} onOpenEntity={openEntity} />
+            <PulseView
+              state={state} mainRef={mainRef} onOpenEntity={openEntity} tensions={tensions} onThread={t => api.propose(tensionThreadDelta(state, t))}
+              branches={<BranchPanel main={state} branches={branchApi.branches} onOpen={branchApi.open} onKeep={branchApi.keep} onDrop={branchApi.drop} fresh={branchApi.fresh} />}
+            />
           ) : shownView === 'chrono' ? (
             <ChronologyView
               mainRef={mainRef}
@@ -1094,6 +1338,8 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
               onOpenEntity={openEntity}
               onShowMap={() => setView('desk')}
             />
+          ) : shownView === 'notebook' ? (
+            <NotebookView mainRef={mainRef} state={state} onOpen={openEntity} />
           ) : shownView === 'journal' ? (
             <JournalView
               mainRef={mainRef}
@@ -1115,6 +1361,7 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
               setLaterFacts={setLaterFacts}
               entryProps={entryProps}
               api={api}
+              {...(onViewPast && dmView ? { onViewPast } : {})}
             />
           ) : (
             // Главная зона (§4): лестница масштабов и под ней уровень — сетка на ступени боя, карточки на остальных
@@ -1127,6 +1374,7 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
                     <Icon name="scale-battle" size={16} color="var(--t2)" title="Масштаб: бой" />
                     <span>Поле боя</span>
                     <span className="type-key text-t2 normal-case" title="Клетка — 5 футов">{field.cols} × {field.rows} клеток по 5 футов</span>
+                    {maptool && dmView && <MapToolChip link={maptool} />}
                   </>
                 ) : (
                   <>
@@ -1143,13 +1391,13 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
                       <button type="button" title={`Развернуть карточку: ${overlayName ?? ''} в две колонки поверх стола${dmView ? ' · Esc закрывает' : ''}`} onClick={() => setCardOverlay(true)} className={BTN}>Развернуть</button>
                     ) : null}
                     {dmView ? (
-                      <Popover.Root open={spawnOpen} onOpenChange={setSpawnOpen}>
+                      <Popover.Root open={spawnOpen} onOpenChange={o => { setSpawnOpen(o); if (!o) setSpawnPick(undefined); }}>
                         <Popover.Trigger asChild>
                           <button type="button" title="Добавить противника из блока SRD; в бою — сразу в порядок инициативы" className={BTN}>Добавить</button>
                         </Popover.Trigger>
                         <Popover.Portal>
                           <Popover.Content side="bottom" align="end" sideOffset={4} collisionPadding={8} aria-label="Добавить противника" className="z-20 outline-none">
-                            <SpawnForm options={spawnOptions} onSpawn={onSpawn} />
+                            <SpawnForm key={spawnPick ?? 'any'} options={spawnOptions} onSpawn={onSpawn} suggestName={suggestName} {...(spawnPick ? { initial: spawnPick } : {})} />
                           </Popover.Content>
                         </Popover.Portal>
                       </Popover.Root>
@@ -1199,11 +1447,15 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
                   pendingIds={pendingIds}
                   map={map}
                   terrain={terrain}
+                  roads={roads}
+                  schema={schema}
+                  underdark={underdark}
                   gazetteer={gazetteer}
                   lens={lensYear !== null ? { year: lensYear, marks: eventMarks, onClear: () => setLens(null) } : undefined}
                   onScene={id => { showCard({ kind: 'entity', ref: ref('place', id) }); setTab(TAB_NOW.id); }}
                   planetView={planetView}
                   onPlanetView={setPlanetView}
+                  onCityView={setCityView}
                   cosmologyView={cosmologyView}
                   onCosmologyView={setCosmologyView}
                   journey={journeyReady ? journey : undefined}
@@ -1211,6 +1463,8 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
                   goLadder={goLadder}
                   onPin={id => goLadder(selectPlace(state, ladder, id))}
                   onNewPlace={(d, parent) => map && api.propose(newPlaceDelta(state, { ...d, map: map.passport.id }, parent))}
+                  tensions={tensions}
+                  influence={tensionData?.influence}
                   stacks={levelStacks}
                   card={card}
                 />
@@ -1274,8 +1528,10 @@ function Desk({ store, dmView: dmViewProp, recoverNote, onReset, onExport, onImp
             activeId={activeId}
             selectedId={selectedId}
             onOpen={openFromToken(barRef)}
-            onNextTurn={dmView ? () => api.nextTurn() : undefined}
+            onNextTurn={dmView ? () => { api.nextTurn(); regainLegendary(store.getState()); } : undefined}
             onEnd={dmView ? () => api.endEncounter() : undefined}
+            onLegendarySpend={dmView ? spendLegendary : undefined}
+            onLegendaryRestore={dmView ? restoreLegendary : undefined}
           />
         </div>
       ) : null}

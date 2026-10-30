@@ -1,0 +1,9 @@
+{
+  "name": "DM Cockpit Bridge",
+  "version": "0.1.0",
+  "namespace": "net.dmcockpit.bridge",
+  "authors": ["DM Cockpit"],
+  "shortDescription": "Мост к DM Cockpit: ходы токенов уходят на стол мастера, хиты и состояния приходят на токены",
+  "description": "Раз в секунду шлёт клетки токенов текущей карты на сервер DM Cockpit (http://localhost:5180) и рисует на токенах хиты и состояния со стола. Нужна настройка Preferences → Application → Allow External Macro Access.",
+  "allowsUriAccess": true
+}

@@ -2,7 +2,7 @@
 // открыл кнопкой (PLACE_REVEALED). Проекция лога и состояния, своего события у тумана нет: пройденное выводится
 // из PARTY_TRAVELED, что не отменены. На столе игроков туман включён всегда, у мастера — слоем по кнопке.
 import { undoneIds } from '../engine/journal';
-import { partyPlaceId } from '../engine/ladder';
+import { ancestorsOf, partyPlaceId } from '../engine/ladder';
 import type { DomainEvent, PayloadByType } from '../engine/events';
 import type { State } from '../engine/state';
 import { geoOf } from './levelMap';
@@ -45,5 +45,23 @@ export function exploredOf(state: State, events: readonly DomainEvent[], passpor
   const at = partyPlaceId(state);
   const g = at ? geoOf(state, at) : undefined;
   if (g?.map === passport.id && !circles.some(c => c.x === g.x && c.y === g.y && c.r >= sight)) circles.push({ x: g.x, y: g.y, r: sight });
+  // План города (M10) открыт целиком, если город открыт игрокам или партия в нём: обзор в 12 миль шире любого плана.
+  const city = passport.plan ? Object.values(state.world.locations).find(l => l.ref === passport.plan!.place) : undefined;
+  if (city && (city.revealed || (at && (at === city.id || ancestorsOf(state, at).some(a => a.id === city.id))))) {
+    circles.push({ x: passport.width / 2, y: passport.height / 2, r: Math.hypot(passport.width, passport.height) / 2 });
+  }
   return { circles, paths, sight };
+}
+
+/** Точка открыта игрокам: в открытом круге или в коридоре обзора пройденного пути. */
+export function isExplored(ex: Explored, p: MapPoint): boolean {
+  if (ex.circles.some(c => Math.hypot(c.x - p.x, c.y - p.y) <= c.r)) return true;
+  return ex.paths.some(path => path.some((b, i) => {
+    if (i === 0) return path.length === 1 && Math.hypot(b.x - p.x, b.y - p.y) <= ex.sight;
+    const a = path[i - 1];
+    const dx = b.x - a.x;
+    const dy = b.y - a.y;
+    const t = dx || dy ? Math.max(0, Math.min(1, ((p.x - a.x) * dx + (p.y - a.y) * dy) / (dx * dx + dy * dy))) : 0;
+    return Math.hypot(a.x + dx * t - p.x, a.y + dy * t - p.y) <= ex.sight;
+  }));
 }

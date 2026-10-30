@@ -1,0 +1,37 @@
+{
+ "nodes": 820,
+ "A_coreAsIs": {
+  "proposals": 820,
+  "patchesPerProposal": 37,
+  "simMs": 2842,
+  "acceptAllMs": 5593,
+  "logMB": {
+   "proposed": 3.11,
+   "accepted": 6.05
+  }
+ },
+ "B_stepWorld": {
+  "patchesWritten": 59040,
+  "patchesAfterCompact": 1640,
+  "simMs": 32,
+  "commitOneProduceMs": 3,
+  "coreBatchCheck200PartsMs": 27,
+  "logMB": 0.27,
+  "sample": {
+   "food": 50.5
+  }
+ },
+ "C_foldedTick": {
+  "simMs": 4.43
+ },
+ "pendingSubject": [
+  {
+   "decidedDeltas": 0,
+   "oneTenday820ProcessesMs": 89
+  },
+  {
+   "decidedDeltas": 20000,
+   "oneTenday820ProcessesMs": 2229
+  }
+ ]
+}

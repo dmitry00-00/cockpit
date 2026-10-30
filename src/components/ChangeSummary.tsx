@@ -53,15 +53,23 @@ export function summaryGroups(
   near: readonly ScaleLevel[],
 ): ChangeSummaryGroup[] {
   const out: ChangeSummaryGroup[] = [];
+  const item = (d: WorldDelta) => ({ id: d.id, subject: d.subject, was: d.was, now: d.now, why: d.cause });
   for (const scale of SCALE_LEVELS) {
-    const items = deltas
-      .filter(d => d.scale === scale)
-      .map(d => ({ id: d.id, subject: d.subject, was: d.was, now: d.now, why: d.cause }));
+    const items = deltas.filter(d => !d.far && d.scale === scale).map(item);
     if (items.length === 0) continue;
     out.push({ id: scale, scale, label: labelOf(scale), collapsed: !near.includes(scale), items });
   }
+  // Процессы вдали от партии (решение пользователя 30.10.2026) — одной свёрнутой группой, принимаются пачкой или по строке.
+  const far = deltas.filter(d => d.far).map(item);
+  if (far.length) out.push({ id: FAR_GROUP, scale: 'planet', label: 'Сводка мира · вдали от партии', collapsed: true, items: far });
   return out;
 }
+
+/** id группы «Сводка мира» в `summaryGroups`. */
+export const FAR_GROUP = 'far';
+
+/** Предложение — в группе сводки: дальнее — только в «Сводке мира», остальное — в группе своего масштаба. */
+export const inSummaryGroup = (d: Pick<WorldDelta, 'scale' | 'far'>, groupId: string) => (groupId === FAR_GROUP ? !!d.far : !d.far && d.scale === groupId);
 
 /* Кнопки — как BTN на столе: строка целиком. Золотая — то же с text-gd-hi. */
 const BTN = 'type-num-12 uppercase whitespace-nowrap px-2 py-1 bg-cd shadow-bevel text-t2 cursor-pointer enabled:hover:text-tx enabled:active:shadow-bevel-in focus-visible:shadow-[var(--bevel),var(--glow-gold)] disabled:cursor-default disabled:opacity-(--op-disabled)';

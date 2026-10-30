@@ -4,7 +4,7 @@
 // по d20 + DEX (SRD: initiative = Dexterity check), и бросок — DICE_ROLLED в логе, как любой другой.
 import type { InitiativeEntry } from '../engine/events';
 import type { Actor, State } from '../engine/state';
-import { MONSTERS, type MonsterId } from '../rules/srd/monsters';
+import { MONSTERS, MONSTER_IDS, monsterOrigin, type MonsterId } from '../rules/srd/monsters';
 import { abilityMod } from './derive';
 import { monsterActor } from './seed';
 
@@ -71,4 +71,14 @@ export function spawnMonsters(state: State, monsterId: MonsterId, name: string, 
     taken.add(id);
     return monsterActor(id, monsterId, n === 1 ? base : `${base} ${from + i}`);
   });
+}
+
+/**
+ * Блок под имя из таблицы встреч A5E («Bandit captain», «Gelatinous cube», ROADMAP 0.5, M15): таблица — A5E, поэтому
+ * сначала блок A5E, потом SRD и Black Flag; имя без учёта регистра. Нет такого блока (или библиотека не загружена) — undefined.
+ */
+export function encounterMonsterId(name: string): MonsterId | undefined {
+  const n = name.trim().toLowerCase();
+  const rank = { a5e: 0, srd: 1, bf: 2 } as const;
+  return MONSTER_IDS.filter(id => MONSTERS[id].name.toLowerCase() === n).sort((a, b) => rank[monsterOrigin(MONSTERS[a])] - rank[monsterOrigin(MONSTERS[b])])[0];
 }
