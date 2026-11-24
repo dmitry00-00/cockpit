@@ -1,12 +1,16 @@
 // Чип состояния: один факт из actor.conditions (или концентрация, или эффект) в одном виде
 // для корешка партии, карточки и любого другого места. Три вида — дебафф, бафф, концентрация —
-// различаются цветом текста и нижним кантом, но у каждого чипа своя иконка: цвет никогда не
-// единственный носитель смысла. Чип ничего не хранит и в стор не ходит: всё приходит пропсами,
-// а помощники внизу собирают пропсы из актёра, чтобы корешок и карточка красили одинаково.
+// различаются нижним кантом; светлые темы затемняют подписи ради читаемости. У каждого чипа своя
+// иконка: цвет никогда не единственный носитель смысла. Чип ничего не хранит и в стор не ходит —
+// всё приходит пропсами; помощники внизу собирают их из актёра, чтобы корешок и карточка совпадали.
 import { Tooltip } from 'radix-ui';
 import type { ActiveEffect, Actor, ConditionSnapshot } from '../engine';
 import { Icon, type IconName } from '../icons/Icon';
 import { CONCENTRATION, CONDITIONS, type ConditionId } from '../rules/srd';
+import { ConditionMark } from '../art/ConditionMark';
+import { SemanticMark } from '../art/SemanticMark';
+import type { ArtId } from '../art/registry.generated';
+import { CONCENTRATION_ART } from '../art/semanticBindings';
 
 export type ChipKind = 'debuff' | 'buff' | 'conc';
 
@@ -14,6 +18,10 @@ export interface ConditionChipProps {
   /** Русская подпись состояния или имя заклинания латиницей (Hunter's Mark). */
   label: string;
   icon: IconName;
+  /** Explicit SRD condition binding; concentration and free-form effects keep their glyphs. */
+  condition?: ConditionId;
+  /** Explicit linked illustration for another typed chip, such as concentration. */
+  art?: ArtId;
   /** Вид: дебафф (по умолчанию), бафф, концентрация. */
   kind?: ChipKind;
   /** Остаток времени или срок словами: «38 мин», «конец следующего хода». */
@@ -36,7 +44,7 @@ export interface ConditionChipProps {
 }
 
 /**
- * Плита с нижним кантом цвета вида. Бирюзовый — единственный, и он же метка симуляции (src-sim, 4.5:1 к pl).
+ * Плита с нижним кантом цвета вида; кантик сохраняет семантику, а тема задаёт контрастный цвет подписи.
  * Кольцо фокуса — вместе с фаской и кантом: своя тень утилитой перекрыла бы глобальное :focus-visible.
  * Строки полные — Tailwind ищет их в исходнике.
  */
@@ -46,15 +54,16 @@ const KIND_CLASS: Readonly<Record<ChipKind, string>> = {
   conc: 'text-src-sim shadow-[var(--bevel),inset_0_-2px_0_var(--src-sim)] focus-visible:shadow-[var(--bevel),inset_0_-2px_0_var(--src-sim),var(--glow-gold)]',
 };
 
-export function ConditionChip({ label, icon, kind = 'debuff', timer, level, tip, onRemove, onOpen, focusable = true, className = '' }: ConditionChipProps) {
+export function ConditionChip({ label, icon, condition, art, kind = 'debuff', timer, level, tip, onRemove, onOpen, focusable = true, className = '' }: ConditionChipProps) {
   // Нативного title у чипа нет: текст SRD показывает Radix-тултип, второй тултип поверх него не нужен.
   const chip = (
     <span
       data-kind={kind}
+      data-part="condition-chip"
       tabIndex={tip && focusable && !onOpen ? 0 : undefined}
       className={`inline-flex items-center whitespace-nowrap max-w-full gap-1 px-1.5 pt-px pb-0.5 type-body-sm bg-linear-to-b from-pl to-cd ${KIND_CLASS[kind]} ${tip ? 'cursor-help' : ''} ${className}`}
     >
-      <Icon name={icon} size={16} color="currentColor" title={label} />
+      {condition ? <ConditionMark condition={condition} title={label} size={16} /> : art ? <SemanticMark asset={art} icon={icon} size={16} title={label} /> : <Icon name={icon} size={16} color="currentColor" title={label} />}
       {onOpen
         ? <button type="button" aria-label={`Карточка: ${label}`} onClick={onOpen} className="truncate cursor-pointer underline decoration-t3 underline-offset-2 hover:text-tx focus-visible:shadow-glow-gold">{label}</button>
         : <span className="truncate">{label}</span>}
@@ -141,6 +150,7 @@ export function conditionChipProps(id: ConditionId, snapshot: ConditionSnapshot 
     key: id,
     label: c.label,
     icon: `cond-${id}` as IconName,
+    condition: id,
     kind: c.kind,
     timer,
     level,
@@ -166,6 +176,7 @@ export function concentrationChipProps(conc: NonNullable<Actor['concentration']>
     key: 'concentration',
     label: conc.spell,
     icon: 'cond-concentration',
+    art: CONCENTRATION_ART,
     kind: 'conc',
     timer: conc.untilSec === undefined ? undefined : formatRemaining(conc.untilSec - nowSec),
     tip: CONCENTRATION.text.join(' '),

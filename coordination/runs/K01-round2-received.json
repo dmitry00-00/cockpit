@@ -1,0 +1,10 @@
+{
+  "files": {
+    "src/components/PartySpread.tsx": "70ab9a9447062b6d257f0393641fc16b6bcffc598510a102219b47d8da089392",
+    "src/components/PartySpread.css": "c84a4c07e73cc7f48e9631f802847a1e75a914ee4e296fce2f975ebc1ad538d9",
+    "src/components/PartySpread.test.tsx": "e3f556cfdc9d79379cd5e62a4ac02dbb5669d0b5979857e094328588bf4f6874"
+  },
+  "terminalExit": 1,
+  "reason": "provider 429 five-hour usage quota; no Kimi final acceptance",
+  "independentRootTests": 24
+}

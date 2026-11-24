@@ -1,0 +1,3 @@
+
+.rule-mark { display: inline-grid; place-items: center; width: 24px; height: 24px; flex: none; }
+.rule-mark > img { object-fit: contain; }

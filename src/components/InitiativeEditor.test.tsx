@@ -56,15 +56,15 @@ describe('InitiativeEditor', () => {
   });
 
   it('«Бросить» у строки зовёт onRoll с формулой и подписью и пишет итог в поле; «Бросить пустым» — только пустым', () => {
-    const onRoll = vi.fn((formula: string, _label: string) => (formula === '1d20+3' ? 21 : 9));
+    const onRoll = vi.fn((formula: string, _label: string, _actorId?: string) => (formula === '1d20+3' ? 21 : 9));
     render(<InitiativeEditor rows={ROWS} mode="start" onRoll={onRoll} onApply={() => {}} />);
     fireEvent.click(screen.getByRole('button', { name: 'Бросить: Bandit Captain' }));
-    expect(onRoll).toHaveBeenCalledWith('1d20+3', 'Инициатива · Bandit Captain');
+    expect(onRoll).toHaveBeenCalledWith('1d20+3', 'Инициатива · Bandit Captain', 'captain');
     expect(field('Bandit Captain')).toHaveValue('21');
 
     fireEvent.click(screen.getByRole('button', { name: 'Бросить пустым' }));
     expect(onRoll).toHaveBeenCalledTimes(3);
-    expect(onRoll.mock.calls.slice(1).map(c => c[1])).toEqual(['Инициатива · Korrin Battlehammer', 'Инициатива · Bandit 1']);
+    expect(onRoll.mock.calls.slice(1).map(c => [c[1], c[2]])).toEqual([['Инициатива · Korrin Battlehammer', 'korrin'], ['Инициатива · Bandit 1', 'bandit-1']]);
     expect(field('Bo Tambernack')).toHaveValue('15');
     expect(field('Korrin Battlehammer')).toHaveValue('9');
     expect(screen.getByRole('button', { name: 'Бросить пустым' })).toBeDisabled();

@@ -1,26 +1,31 @@
 // Глобус уровня планеты (HANDOFF §3, §10, референс Globe.png): пиксельный диск по маске, ночная сторона —
 // те же цвета местности, приглушённые, ползунок долготы, щелчок по суше — континент или класс местности.
-// Тупой компонент: маску, солнце и метки даёт страница. Канвас — около двух тысяч клеток (§9); в jsdom он
-// не рисует, поэтому всё, что проверяется, — в DOM: подпись, ползунок, метки, ответ на щелчок.
+// Тупой компонент: маску, солнце и метки получает от страницы, но на сфере маркеры и подписи не рисует.
+// Канвас — около двух тысяч клеток (§9); в jsdom он не рисует, поэтому проверяются DOM-интерфейс и ответ на щелчок.
 // Колесо (TASKS M16): приближает диск к точке под курсором — она встаёт в центр, клеток поперёк диска больше, пока
 // хватает разрешения маски; ещё шаг колеса сверх того — onZoomIn: страница переходит на плоскую карту в той же точке.
-// Последние шаги колеса перед пределом (globeVectorFrom) — та же векторная схема с подписями, что у плоской карты
-// (vector), спроецированная на диск: переход глобус → карта без смены картинки. За краем исходника карты схемы нет —
+// Последние шаги колеса перед пределом (globeVectorFrom) — та же векторная схема, что у плоской карты (vector),
+// спроецированная на диск без подписей: переход глобус → карта без смены картинки. За краем исходника карты схемы нет —
 // там остаются клетки маски.
 import { useEffect, useMemo, useRef, useState, type MouseEvent, type ReactNode, type WheelEvent } from 'react';
-import { ENTITY, type EntityType } from '../components/EntityCard';
-import { Icon } from '../icons/Icon';
+import type { EntityType } from '../components/EntityCard';
 import type { IconName } from '../icons/icons.generated';
-import { globeCells, globeHit, globeToLonLat, lonLatToGlobe, TERRAIN_CLASSES, TERRAIN_LABEL, type PlanetMask } from './planet';
-import type { MapPoint } from './projection';
+import { globeCells, globeHit, globeToLonLat, TERRAIN_CLASSES, TERRAIN_LABEL, type PlanetMask } from './planet';
+import type { MapPassport, MapPoint, MapView } from './projection';
 import type { MapSchema } from './schema';
-import { drawLabels, fillSchema, labelMeasure, occupiedBoxes, riverWidth, schemaPaths, schemaSampler, useFontsReady } from './schemaDraw';
-import { loadLabels, placeLabels, type SchemaLabel } from './schemaLabels';
+import { fillSchema, riverWidth, schemaPaths, schemaSampler } from './schemaDraw';
 import { clipLineToBand, clipRingToBand, diskPoint, globeVectorFrom, nightPolygon } from './globeSchema';
-import { fold } from './gazetteer';
+import { SphereSurfaceLayer } from './SphereSurfaceLayer';
+import { useSurfaceSession } from './SurfaceHost';
+import { preserveSurfaceZoomAnchor } from './surfaceZoom';
+import { clampSurfaceTilt, unprojectSurface, type GeographicExtent, type SurfaceCamera } from './surfaceProjection';
+import { loadClean } from './cleanMap';
+import { mapPixelRatio } from './renderer';
+import { surfaceFromFlat } from './surfaceTransition';
 
 /** Схема плоской карты для последних шагов колеса: как пиксель карты ложится на глобус. */
 export interface GlobeVector {
+  passport?: MapPassport;
   schema: MapSchema;
   /** Карта — по ней подписи схемы. */
   mapId?: string;
@@ -61,6 +66,8 @@ export interface GlobeProps {
   tools?: ReactNode;
   /** С чего начать: точка в центре и приближение — возврат с плоской карты отдалением (M16). */
   focus?: GlobeFocus;
+  /** Exact flat camera at a reverse projection handoff; navigation state only. */
+  fromFlat?: MapView;
   /** Колесо дальше предела глобуса: центр диска и радиус в пикселях экрана — по ним страница ставит вид плоской карты. */
   onZoomIn?: (at: GlobeFocus & { radiusPx: number }) => void;
   /** Векторная схема плоской карты — на последних шагах колеса вместо клеток. */
@@ -83,14 +90,35 @@ const WHEEL_STEP = 1.2;
  */
 export const globeMaxZoom = (mask: PlanetMask, n: number) => Math.max(1, mask.w / 2 / n);
 
-const NO_MARKERS: readonly GlobeMarker[] = [];
+const reducedMotion = () => typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-export function Globe({ mask, rot: rot0, sun, markers = NO_MARKERS, onPick, n: n0 = 44, tools, focus, onZoomIn, vector, children, className = '' }: GlobeProps) {
+export function Globe({ mask, rot: rot0, sun, onPick, n: n0 = 44, tools, focus, fromFlat, onZoomIn, vector, children, className = '' }: GlobeProps) {
   const maxZoom = globeMaxZoom(mask, n0);
   const [zoom, setZoom] = useState(() => Math.min(maxZoom, Math.max(1, focus?.zoom ?? 1)));
-  const [rot, setRot] = useState(Math.round(focus?.lon ?? rot0));
+  const [rot, setRot] = useState(focus?.lon ?? Math.round(rot0));
   /** Широта в центре окна — только на приближении; целый диск стоит посередине. */
-  const [lat, setLat] = useState(focus?.lat ?? 0);
+  const [lat, setLat] = useState(clampSurfaceTilt(focus?.lat ?? 0));
+  const [gpuAvailable,setGpuAvailable]=useState<boolean|null>(null);
+  const [entryProgress,setEntryProgress]=useState(fromFlat?0:1);
+  const entryStarted=useRef(false);
+  const surfaceLayout=!!gpuAvailable || (!!vector?.passport && typeof Path2D!=='undefined');
+  const surfaceSession=useSurfaceSession();
+  const [rasterMode,setRasterMode]=useState(surfaceSession.look!=='schema');
+  useEffect(()=>{surfaceSession.look=rasterMode?'clean':'schema';},[rasterMode,surfaceSession]);
+  const [clean,setClean]=useState<MapPassport|null>(null);
+  const [morphOverride,setMorphOverride]=useState<number|null>(null);
+  const diagnostics=typeof location!=='undefined'&&new URLSearchParams(location.search).get('mapStats')==='1';
+  const dragRef=useRef<{id:number;x:number;y:number;lon:number;lat:number;moved:boolean}|null>(null);
+  const suppressClick=useRef(false);
+  const zoomRaf=useRef(0);
+  const zoomCurrent=useRef(zoom);zoomCurrent.current=zoom;
+  const zoomTarget=useRef(zoom);
+  useEffect(()=>()=>cancelAnimationFrame(zoomRaf.current),[]);
+  useEffect(()=>{
+    let live=true;setClean(null);
+    if(vector?.passport)void loadClean(vector.passport).then(p=>{if(live)setClean(p);});
+    return()=>{live=false;};
+  },[vector?.passport]);
   const [cellPx, setCellPx] = useState(14);
   const [box, setBox] = useState({ w: 0, h: 0 });
   const n = Math.round(n0 * zoom);
@@ -118,16 +146,6 @@ export function Globe({ mask, rot: rot0, sun, markers = NO_MARKERS, onPick, n: n
 
   // Схема на последних шагах колеса; в jsdom (нет Path2D) — всегда клетки.
   const vectorOn = !!vector && typeof Path2D !== 'undefined' && zoom >= globeVectorFrom(maxZoom, WHEEL_STEP) - 1e-9;
-  const [labels, setLabels] = useState<readonly SchemaLabel[]>([]);
-  const fonts = useFontsReady();
-  const mapId = vectorOn ? vector?.mapId : undefined;
-  useEffect(() => {
-    if (!mapId) return;
-    let live = true;
-    void loadLabels(mapId).then(l => { if (live) setLabels(l); });
-    return () => { live = false; };
-  }, [mapId]);
-
   const size = n * cellPx;
   // Широта центра окна — по высоте точки на диске; целый диск — посередине.
   const zoomed = zoom > 1;
@@ -141,7 +159,7 @@ export function Globe({ mask, rot: rot0, sun, markers = NO_MARKERS, onPick, n: n
   useEffect(() => {
     const target = vectorOn ? 1 : 0;
     if (mixRef.current === target) return;
-    if (typeof requestAnimationFrame === 'undefined' || typeof performance === 'undefined') {
+    if (reducedMotion() || typeof requestAnimationFrame === 'undefined' || typeof performance === 'undefined') {
       mixRef.current = target;
       setMix(target);
       return;
@@ -158,11 +176,37 @@ export function Globe({ mask, rot: rot0, sun, markers = NO_MARKERS, onPick, n: n
     raf = requestAnimationFrame(step);
     return () => cancelAnimationFrame(raf);
   }, [vectorOn]);
-  const drawVector = !!vector && typeof Path2D !== 'undefined' && mix > 0;
-  const dpr = drawVector && typeof window !== 'undefined' ? window.devicePixelRatio || 1 : 1;
+  const drawVector = !surfaceLayout && !!vector && typeof Path2D !== 'undefined' && mix > 0;
+  const dpr = drawVector ? mapPixelRatio() : 1;
 
   // Пути схемы на диске — один раз на вид (поворот, клетки, размер клетки), а не на каждый кадр проявления.
-  const R = size / 2;
+  const R = gpuAvailable ? n0 * zoom * cellPx / 2 : size / 2;
+  const extent=useMemo(():GeographicExtent|null=>{
+    if(!vector?.passport)return null;
+    const a=vector.toLonLat({x:0,y:0}),b=vector.toLonLat({x:vector.size.width,y:vector.size.height});
+    return {lon0:a.lon,lon1:b.lon,latTop:a.lat,latBottom:b.lat,width:vector.size.width,height:vector.size.height};
+  },[vector]);
+  const flatZoom=maxZoom*1.65;
+  const camera=useMemo(():SurfaceCamera|null=>{
+    if(!vector||!extent||!box.w||!box.h)return null;
+    const t=Math.min(1,Math.max(0,(zoom-maxZoom)/(flatZoom-maxZoom)));
+    const morph=morphOverride??t*t*(3-2*t);
+    const center=vector.toMap({lon:rot,lat:clampSurfaceTilt(lat)});
+    const target={vp:box,view:{...center,scale:vector.scaleAt(R,lat)},globe:{lon:rot,lat:clampSurfaceTilt(lat),radius:R},morph};
+    return fromFlat && entryProgress<1 ? surfaceFromFlat(target,fromFlat,entryProgress) : target;
+  },[vector,extent,box,zoom,maxZoom,flatZoom,rot,lat,R,morphOverride,fromFlat,entryProgress]);
+  useEffect(()=>{
+    if(!fromFlat||!surfaceLayout||!box.w||!box.h||entryStarted.current)return;
+    entryStarted.current=true;
+    if(reducedMotion()){setEntryProgress(1);return;}
+    let frame=0;
+    const start=performance.now();
+    const tick=(now:number)=>{const t=Math.min(1,(now-start)/320);setEntryProgress(t*t*(3-2*t));if(t<1)frame=requestAnimationFrame(tick);};
+    frame=requestAnimationFrame(tick);
+    return()=>{cancelAnimationFrame(frame);entryStarted.current=false;};
+  },[fromFlat,surfaceLayout,box.w,box.h]);
+  const cameraRef=useRef(camera);cameraRef.current=camera;
+  const surfaceActive=surfaceLayout&&!!camera&&!!extent;
   const disk = useMemo(() => {
     if (!drawVector || !vector) return null;
     const onDisk = (p: MapPoint) => {
@@ -180,6 +224,7 @@ export function Globe({ mask, rot: rot0, sun, markers = NO_MARKERS, onPick, n: n
   const samplerRef = useRef<{ schema: MapSchema; at: ((p: MapPoint) => string | null) | null } | null>(null);
 
   useEffect(() => {
+    if(surfaceLayout)return;
     const cv = canvasRef.current;
     const ctx = cv?.getContext?.('2d');
     if (!cv || !ctx) return;
@@ -222,7 +267,7 @@ export function Globe({ mask, rot: rot0, sun, markers = NO_MARKERS, onPick, n: n
       ctx.fillStyle = color[c.cls];
       ctx.fillRect(c.x * cellPx, c.y * cellPx, cellPx, cellPx);
     }
-    const { onDisk, paths } = disk;
+    const { paths } = disk;
     const scale = vector.scaleAt(R, zoomed ? lat : 0);
     if (paths) {
       fillSchema(ctx, paths, token, 1, riverWidth(scale));
@@ -239,26 +284,45 @@ export function Globe({ mask, rot: rot0, sun, markers = NO_MARKERS, onPick, n: n
       ctx.fill();
     }
     ctx.restore();
-    if (!labels.length || box.w <= 0) return;
-    // Подписи — в окне глобуса (не в квадрате диска), как у плоской карты: тот же отбор, тот же масштаб у центра.
-    const family = token('font-display') || 'serif';
-    const placed = placeLabels(labels, {
-      project: p => {
-        const d = onDisk(p);
-        return d.visible ? { x: d.x + diskPos.left, y: d.y + diskPos.top } : null;
-      },
-      scale,
-      vp: box,
-      measure: labelMeasure(ctx, family),
-      // Метки мест кампании — по DOM окна глобуса; их имена схема не повторяет.
-      avoid: occupiedBoxes(boxRef.current),
-      skip: new Set(markers.map(m => fold(m.label))),
-    });
-    ctx.setTransform(dpr, 0, 0, dpr, -diskPos.left * dpr, -diskPos.top * dpr);
-    ctx.globalAlpha = mix;
-    drawLabels(ctx, placed, family, token);
-    ctx.globalAlpha = 1;
-  }, [mask, n, rot, sun, cellPx, size, R, dpr, mix, disk, vector, labels, fonts, box, diskPos.left, diskPos.top, markers, zoomed, lat]);
+  }, [mask, n, rot, sun, cellPx, size, R, dpr, mix, disk, vector, zoomed, lat,surfaceLayout]);
+
+  const surfaceAt=(clientX:number,clientY:number)=>{
+    if(!camera||!extent||!vector||!boxRef.current)return null;
+    const rect=boxRef.current.getBoundingClientRect();
+    const point=unprojectSurface({x:clientX-rect.left,y:clientY-rect.top},extent,camera);
+    return point?vector.toLonLat(point):null;
+  };
+
+  const handoff=()=>{
+    const current=cameraRef.current;
+    if(current)onZoomIn?.({lon:current.globe.lon,lat:current.globe.lat,zoom:zoomCurrent.current,radiusPx:current.globe.radius});
+  };
+  const animateZoom=(target:number,after?:()=>void,anchor?:MapPoint)=>{
+    zoomTarget.current=target;cancelAnimationFrame(zoomRaf.current);
+    const from=zoomCurrent.current,start=performance.now(),previous=cameraRef.current;
+    const advance=(value:number)=>{
+      if(anchor&&previous&&extent&&vector){
+        const radius=n0*value*cellPx/2;
+        const progress=Math.min(1,Math.max(0,(value-maxZoom)/(flatZoom-maxZoom)));
+        const next:SurfaceCamera={...previous,globe:{...previous.globe,radius},view:{...previous.view,scale:vector.scaleAt(radius,previous.globe.lat)},morph:progress*progress*(3-2*progress)};
+        const anchored=preserveSurfaceZoomAnchor(previous,next,extent,anchor);
+        setRot(anchored.globe.lon);setLat(anchored.globe.lat);
+      }
+      setZoom(value);
+    };
+    if(reducedMotion()){
+      advance(target);
+      // The handoff must read the committed final camera, even without animated frames.
+      if(after)zoomRaf.current=requestAnimationFrame(after);
+      return;
+    }
+    const tick=(now:number)=>{
+      const t=Math.min(1,(now-start)/220),ease=1-(1-t)**3,value=from+(target-from)*ease;
+      advance(value);
+      if(t<1)zoomRaf.current=requestAnimationFrame(tick);else if(after)zoomRaf.current=requestAnimationFrame(after);
+    };
+    zoomRaf.current=requestAnimationFrame(tick);
+  };
 
   const at = (e: MouseEvent<HTMLCanvasElement>) => {
     const r = e.currentTarget.getBoundingClientRect();
@@ -267,6 +331,18 @@ export function Globe({ mask, rot: rot0, sun, markers = NO_MARKERS, onPick, n: n
 
   const onWheel = (e: WheelEvent<HTMLDivElement>) => {
     if (e.deltaY === 0) return;
+    if(surfaceActive&&camera&&vector){
+      if(entryProgress<1||dragRef.current)return;
+      if((e.target as HTMLElement).closest('button,input,[data-part="map-ui"]'))return;
+      const covered=vector.covers(rot,lat);
+      setMorphOverride(null);
+      const maximum=covered?flatZoom:maxZoom;
+      if(e.deltaY<0&&zoom>=flatZoom-1e-6&&covered){handoff();return;}
+      const target=Math.max(1,Math.min(maximum,zoomTarget.current*(e.deltaY<0?WHEEL_STEP:1/WHEEL_STEP)));
+      const rect=e.currentTarget.getBoundingClientRect();
+      animateZoom(target,undefined,{x:e.clientX-rect.left,y:e.clientY-rect.top});
+      return;
+    }
     if (e.deltaY < 0) {
       // Точка под курсором — в центр; вне диска — приближаем к текущему центру.
       const r = e.currentTarget.querySelector('canvas')?.getBoundingClientRect();
@@ -291,11 +367,25 @@ export function Globe({ mask, rot: rot0, sun, markers = NO_MARKERS, onPick, n: n
   return (
     <div className={`relative flex min-h-0 bg-wl ${className}`} data-part="globe">
       {children ? <div className="flex-none p-4 flex items-start gap-4 min-h-0 max-h-full">{children}</div> : null}
-      <div className="flex-1 min-w-0 flex flex-col items-center gap-3 p-4">
-        <div ref={boxRef} onWheel={onWheel} data-part="globe-view" data-zoom={zoom.toFixed(2)} className="relative flex-1 min-h-0 w-full overflow-hidden">
-        <div className="absolute" style={{ width: size, height: size, ...diskPos }}>
+      <div className={`relative flex-1 min-w-0 flex flex-col items-center ${surfaceLayout ? '' : 'gap-3 p-4'}`}>
+        <div ref={boxRef} onWheel={onWheel} data-part="globe-view" data-zoom={zoom.toFixed(2)} data-entry={entryProgress.toFixed(3)} className="relative flex-1 min-h-0 w-full overflow-hidden touch-none"
+          onPointerDown={e=>{if(entryProgress<1||!surfaceActive||e.button!==0||(e.target as HTMLElement).closest('button,input,[data-part="map-ui"]'))return;
+            cancelAnimationFrame(zoomRaf.current);zoomTarget.current=zoomCurrent.current;
+            dragRef.current={id:e.pointerId,x:e.clientX,y:e.clientY,lon:rot,lat,moved:false};suppressClick.current=false;e.currentTarget.setPointerCapture(e.pointerId);}}
+          onPointerMove={e=>{const drag=dragRef.current;if(!drag||drag.id!==e.pointerId)return;const dx=e.clientX-drag.x,dy=e.clientY-drag.y;drag.moved ||= Math.hypot(dx,dy)>5;
+            if(drag.moved){setRot(((drag.lon-dx/R*180/Math.PI)%360+360)%360);setLat(clampSurfaceTilt(drag.lat+dy/R*180/Math.PI));}}}
+          onPointerUp={e=>{if(dragRef.current?.id===e.pointerId){suppressClick.current=dragRef.current.moved;dragRef.current=null;e.currentTarget.releasePointerCapture(e.pointerId);}}}
+          onPointerCancel={()=>{dragRef.current=null;suppressClick.current=true;}}
+        >
+        {camera&&extent&&vector?.passport?<SphereSurfaceLayer passport={vector.passport} schema={vector.schema} extent={extent} mask={mask} camera={camera} sun={sun} raster={rasterMode?(clean??vector.passport):undefined} onAvailable={setGpuAvailable}/>:null}
+        {surfaceActive?<canvas className="absolute inset-0 size-full cursor-grab active:cursor-grabbing" role="img" aria-label={`Глобус ${mask.label}: щелчок по суше — континент`}
+          onClick={e=>{if(suppressClick.current){suppressClick.current=false;return;}const ll=surfaceAt(e.clientX,e.clientY),hit=ll?globeHit(mask,ll.lon,ll.lat):null;if(hit)onPick?.(hit);}}
+          onMouseMove={e=>{const ll=surfaceAt(e.clientX,e.clientY),hit=ll?globeHit(mask,ll.lon,ll.lat):null;setHover(hit?.label??null);}}
+        />:null}
+        <div className="absolute pointer-events-none" style={gpuAvailable?{width:box.w,height:box.h,left:0,top:0}:{ width: size, height: size, ...diskPos }}>
           <canvas
             ref={canvasRef}
+            hidden={surfaceActive}
             width={Math.round(size * dpr)}
             height={Math.round(size * dpr)}
             role="img"
@@ -304,7 +394,7 @@ export function Globe({ mask, rot: rot0, sun, markers = NO_MARKERS, onPick, n: n
             data-vector={vectorOn || undefined}
             data-mix={drawVector ? mix.toFixed(2) : undefined}
             style={{ width: size, height: size }}
-            className={`block cursor-pointer ${drawVector ? '' : '[image-rendering:pixelated]'}`}
+            className={`block pointer-events-auto cursor-pointer ${drawVector ? '' : '[image-rendering:pixelated]'}`}
             onMouseMove={e => {
               const ll = at(e);
               const hit = ll ? globeHit(mask, ll.lon, ll.lat) : null;
@@ -317,31 +407,21 @@ export function Globe({ mask, rot: rot0, sun, markers = NO_MARKERS, onPick, n: n
               if (hit) onPick?.(hit);
             }}
           />
-          {markers.map(m => {
-            const p = lonLatToGlobe(n, rot, m.lon, m.lat);
-            if (!p.visible) return null;
-            const ent = ENTITY[m.type];
-            return (
-              <span
-                key={m.id}
-                data-marker={m.id}
-                title={`${ent.label} · ${m.label}`}
-                className="absolute flex items-center gap-1 px-1 py-0.5 bg-cd shadow-float pointer-events-none whitespace-nowrap"
-                style={{ left: p.x * cellPx, top: p.y * cellPx, transform: 'translate(-50%, -50%)' }}
-              >
-                <Icon name={m.icon ?? ent.icon} size={16} color={ent.color} title={ent.label} />
-                <span className="type-body-sm text-tx">{m.label}</span>
-              </span>
-            );
-          })}
         </div>
         </div>
-        <div className="flex items-center gap-3 px-3 py-2 bg-pn shadow-bevel" data-part="globe-ui">
-          {tools}
+        <div className={`flex flex-wrap items-center gap-3 px-3 py-2 bg-pn shadow-bevel ${surfaceLayout ? 'absolute right-2 bottom-2 max-w-[calc(100%-1rem)]' : ''}`} data-part="map-ui" data-globe-ui="true">
+          {!surfaceLayout?tools:null}
+          {surfaceLayout?<>
+            <button type="button" disabled={!vector?.covers(rot,lat)} title={!vector?.covers(rot,lat)?'Для этой области нет подробной карты':undefined} onClick={()=>{if(camera?.morph===1)handoff();else animateZoom(flatZoom,handoff);}} className="type-num-12 text-tx disabled:text-t4">Плоская карта</button>
+            <button type="button" aria-pressed={!rasterMode} onClick={()=>setRasterMode(false)} className="type-num-12 text-tx">Схема</button>
+            <button type="button" aria-pressed={rasterMode} onClick={()=>setRasterMode(true)} className="type-num-12 text-tx">Карта</button>
+            <label className="flex items-center gap-2 type-body-sm text-t2">Наклон <input aria-label="Наклон глобуса" type="range" min={-75} max={75} value={lat} onChange={e=>setLat(Number(e.target.value))}/></label>
+            {diagnostics?<label className="flex items-center gap-2 type-body-sm text-t2">Проекция <input aria-label="Смешение проекций" type="range" min={0} max={1} step={0.05} value={camera?.morph??0} onChange={e=>setMorphOverride(Number(e.target.value))}/></label>:null}
+          </>:null}
           <label className="flex items-center gap-2">
             <span className="type-num-12 uppercase text-t2">Долгота</span>
             <input type="range" min={0} max={359} step={1} value={rot} aria-label="Долгота в центре глобуса" onChange={e => setRot(Number(e.target.value))} className="w-48 accent-[var(--gd)]" />
-            <span className="type-num-12 text-tx w-10 text-right">{rot}°</span>
+            <span className="type-num-12 text-tx w-10 text-right">{rot.toFixed(0)}°</span>
           </label>
           <span className="type-body-sm text-t2 min-w-36" aria-live="polite">{hover ?? (onZoomIn ? 'Щелчок по суше — континент · колесо — ближе, до плоской карты' : 'Щелчок по суше — континент')}</span>
         </div>

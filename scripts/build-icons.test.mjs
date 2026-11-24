@@ -3,8 +3,51 @@
 import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
+import { createRequire } from 'node:module';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { OUT, ROOT, build, crc32, encodePng, loadGenerator, readPngSize } from './build-icons.mjs';
+
+const require = createRequire(import.meta.url);
+const pilot = require('../design/art/bronze-icons-v1/pilot.cjs');
+const baseline = require('../design/art/bronze-icons-v1/baseline.json');
+const tokens = require('../design/tokens.json');
+
+describe('ручной пилот БА10', () => {
+  it('пилот содержит 18–24 принятых разных силуэта, светлая грань различима на рабочих поверхностях', () => {
+    const accepted = pilot.entries.filter(e => e.status === 'integrated');
+    expect(accepted.length).toBeGreaterThanOrEqual(18);
+    expect(accepted.length).toBeLessThanOrEqual(24);
+    expect(new Set(accepted.map(e => pilot.render(e.mask))).size).toBe(accepted.length);
+    const lum = hex => {
+      const c = hex.slice(1).match(/../g).map(v => parseInt(v, 16) / 255)
+        .map(v => v <= .04045 ? v / 12.92 : ((v + .055) / 1.055) ** 2.4);
+      return c[0] * .2126 + c[1] * .7152 + c[2] * .0722;
+    };
+    const surfaces = tokens.color.tokens.filter(t => ['wl', 'bg', 'pn', 'cd', 'pl'].includes(t.name));
+    const gen = loadGenerator();
+    for (const e of accepted) for (const surface of surfaces) {
+      const a = lum(gen.palettes[e.id][3]), b = lum(surface.value);
+      expect((Math.max(a, b) + .05) / (Math.min(a, b) + .05), `${e.id} / ${surface.name}`).toBeGreaterThanOrEqual(3);
+    }
+  });
+
+  it('меняет только отобранные формы, сохраняя палитры и порядок имён', () => {
+    const gen = loadGenerator();
+    // БА10 проверяется отдельно: БА12 вправе доработать ранее отклонённые формы.
+    const icons = pilot.apply(Object.fromEntries(Object.entries(baseline).map(([id, b]) => [id, b.grid])));
+    for (const entry of pilot.entries) {
+      expect(icons[entry.id]).toBe(entry.status === 'integrated' ? pilot.render(entry.mask) : baseline[entry.id].grid);
+      expect(gen.palettes[entry.id]).toEqual(baseline[entry.id].palette);
+    }
+  });
+
+  it('отказывает при опечатке id, повторе и повреждении сетки до записи атласа', () => {
+    const e = pilot.entries[0];
+    expect(() => pilot.apply({}, [e])).toThrow('Неизвестная');
+    expect(() => pilot.apply({ [e.id]: '' }, [e, e])).toThrow('Повтор');
+    expect(() => pilot.render(['#'])).toThrow('силуэт');
+  });
+});
 
 let tmp;
 let result;

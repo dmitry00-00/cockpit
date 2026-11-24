@@ -1,0 +1,1246 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "person",
+  "entities": [
+    {
+      "ref": "person:porther",
+      "kind": "person",
+      "name": "Porther",
+      "nameRu": "Портер",
+      "subtitle": "A Game of Thrones · Arya II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Arya II; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_22",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Arya II"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Страж из окружения Старков, названный среди присутствующих в сцене в Малом зале; отдельное действие главы для него не уточнено."
+        }
+      ],
+      "links": [
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Hand's tourney",
+          "ref": "event:hand-tourney-melee"
+        }
+      ]
+    },
+    {
+      "ref": "person:hobber-redwyne",
+      "kind": "person",
+      "name": "Hobber Redwyne",
+      "nameRu": "Хоббер Редвин",
+      "subtitle": "A Game of Thrones · Sansa II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa II; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_29",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Sansa II"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Рыцарь из дома Редвинов и один из близнецов, присутствующих на турнире десницы в Королевской Гавани."
+        }
+      ],
+      "links": [
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Hand's tourney",
+          "ref": "event:hand-tourney-melee"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Game of Thrones · Sansa V (chapter 57; AWOIAF secondary index)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_57",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "agot",
+          "chapterNo": 57
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Game of Thrones · Arya V (chapter 65; AWOIAF secondary index)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_65",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "agot",
+          "chapterNo": 65
+        }
+      ]
+    },
+    {
+      "ref": "person:horas-redwyne",
+      "kind": "person",
+      "name": "Horas Redwyne",
+      "nameRu": "Хорас Редвин",
+      "subtitle": "A Game of Thrones · Sansa II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa II; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_29",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Sansa II"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Рыцарь из дома Редвинов, брат-близнец Хоббера и участник турнира десницы."
+        }
+      ],
+      "links": [
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Hand's tourney",
+          "ref": "event:hand-tourney-melee"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Game of Thrones · Sansa V (chapter 57; AWOIAF secondary index)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_57",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "agot",
+          "chapterNo": 57
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Game of Thrones · Arya V (chapter 65; AWOIAF secondary index)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_65",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "agot",
+          "chapterNo": 65
+        }
+      ]
+    },
+    {
+      "ref": "person:martyn-rivers",
+      "kind": "person",
+      "name": "Martyn Rivers",
+      "nameRu": "Мартин Риверс",
+      "subtitle": "A Game of Thrones · Sansa II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa II; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_29",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Sansa II"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Бастард из рода Фреев, присутствующий вместе с родичами на турнире десницы."
+        }
+      ],
+      "links": [
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Hand's tourney",
+          "ref": "event:hand-tourney-melee"
+        }
+      ]
+    },
+    {
+      "ref": "person:andar-royce",
+      "kind": "person",
+      "name": "Andar Royce",
+      "nameRu": "Андар Ройс",
+      "subtitle": "A Game of Thrones · Sansa II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa II; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_29",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Sansa II"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Рыцарь из дома Ройсов, прибывший на турнир вместе с отцом и братом; в первом поединке его побеждает Джейме Ланнистер."
+        }
+      ],
+      "links": [
+        {
+          "label": "Yohn Royce",
+          "ref": "person:yohn-royce"
+        },
+        {
+          "label": "Robar Royce",
+          "ref": "person:robar-royce"
+        },
+        {
+          "label": "Hand's tourney",
+          "ref": "event:hand-tourney-melee"
+        }
+      ]
+    },
+    {
+      "ref": "person:moon-boy",
+      "kind": "person",
+      "name": "Moon Boy",
+      "nameRu": "Лунный Мальчик",
+      "subtitle": "A Game of Thrones · Sansa II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa II; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_29",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Sansa II"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Придворный шут Роберта, выступающий на пиру после турнира и наблюдаемый Сансой."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robert I Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "person:martyn-cassel",
+      "kind": "person",
+      "name": "Martyn Cassel",
+      "nameRu": "Мартин Кассель",
+      "subtitle": "A Game of Thrones · Eddard X",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard X; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_39",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard X"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется в воспоминании-сне Эддарда"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Отец Джори и один из спутников Эддарда в воспоминании о Башне Радости."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Jory Cassel",
+          "ref": "person:jory-cassel"
+        },
+        {
+          "label": "Lyanna Stark",
+          "ref": "person:lyanna-stark"
+        }
+      ]
+    },
+    {
+      "ref": "person:willam-dustin",
+      "kind": "person",
+      "name": "Willam Dustin",
+      "nameRu": "Виллам Дастин",
+      "subtitle": "A Game of Thrones · Eddard X",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard X; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_39",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard X"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется в воспоминании-сне Эддарда"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Лорд Долины Курганов, один из семерых спутников Эддарда в воспоминании о Башне Радости."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Lyanna Stark",
+          "ref": "person:lyanna-stark"
+        }
+      ]
+    },
+    {
+      "ref": "person:ethan-glover",
+      "kind": "person",
+      "name": "Ethan Glover",
+      "nameRu": "Итан Гловер",
+      "subtitle": "A Game of Thrones · Eddard X",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard X; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_39",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard X"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется в воспоминании-сне Эддарда"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Оруженосец Брандона Старка, участвовавший вместе с Эддардом в походе к Башне Радости."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Brandon Stark",
+          "ref": "person:brandon-stark"
+        }
+      ]
+    },
+    {
+      "ref": "person:gerold-hightower",
+      "kind": "person",
+      "name": "Gerold Hightower",
+      "nameRu": "Герольд Хайтауэр",
+      "subtitle": "A Game of Thrones · Eddard X",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard X; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_39",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard X"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется в воспоминании-сне Эддарда"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Лорд-командующий Королевской гвардии, один из защитников Башни Радости в воспоминании Эддарда."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Rhaegar Targaryen",
+          "ref": "person:rhaegar-targaryen"
+        }
+      ]
+    },
+    {
+      "ref": "person:mark-ryswell",
+      "kind": "person",
+      "name": "Mark Ryswell",
+      "nameRu": "Марк Рисвелл",
+      "subtitle": "A Game of Thrones · Eddard X",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard X; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_39",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard X"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется в воспоминании-сне Эддарда"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Рыцарь дома Рисвеллов и один из спутников Эддарда в воспоминании о Башне Радости."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Lyanna Stark",
+          "ref": "person:lyanna-stark"
+        }
+      ]
+    },
+    {
+      "ref": "person:oswell-whent",
+      "kind": "person",
+      "name": "Oswell Whent",
+      "nameRu": "Освелл Уэнт",
+      "subtitle": "A Game of Thrones · Eddard X",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard X; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_39",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard X"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется в воспоминании-сне Эддарда"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Рыцарь Королевской гвардии, стоявший вместе с Герольдом Хайтауэром и Артуром Дейном у Башни Радости."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Rhaegar Targaryen",
+          "ref": "person:rhaegar-targaryen"
+        }
+      ]
+    },
+    {
+      "ref": "person:theo-wull",
+      "kind": "person",
+      "name": "Theo Wull",
+      "nameRu": "Тео Вулл",
+      "subtitle": "A Game of Thrones · Eddard X",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard X; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_39",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard X"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется в воспоминании-сне Эддарда"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Северянин из спутников Эддарда в воспоминании о походе к Башне Радости."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Lyanna Stark",
+          "ref": "person:lyanna-stark"
+        }
+      ]
+    },
+    {
+      "ref": "person:tysha",
+      "kind": "person",
+      "name": "Tysha",
+      "nameRu": "Тайша",
+      "subtitle": "A Game of Thrones · Tyrion VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion VI; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_42",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion VI"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается в рассказе Тириона о прошлом"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Девушка из простого народа, с которой юный Тирион вступил в тайный брак; его рассказ связывает личную историю с жестоким решением Тайвина."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Jaime Lannister",
+          "ref": "person:jaime-lannister"
+        },
+        {
+          "label": "Tywin Lannister",
+          "ref": "person:tywin-lannister"
+        }
+      ]
+    },
+    {
+      "ref": "person:lyn-corbray",
+      "kind": "person",
+      "name": "Lyn Corbray",
+      "nameRu": "Лин Корбрей",
+      "subtitle": "A Game of Thrones · Tyrion V",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion V; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_38",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion V"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Рыцарь Долины, присутствующий среди знати в Высоком зале Эйри во время слушания дела Тириона."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "The Eyrie",
+          "ref": "place:the-eyrie"
+        },
+        {
+          "label": "trial by combat",
+          "ref": "event:tyrion-requests-trial-by-combat"
+        }
+      ]
+    },
+    {
+      "ref": "person:eon-hunter",
+      "kind": "person",
+      "name": "Eon Hunter",
+      "nameRu": "Ион Хантер",
+      "subtitle": "A Game of Thrones · Tyrion V",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion V; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_38",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion V"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Лорд Долгого Лука, присутствующий в Высоком зале Эйри во время дела Тириона."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "The Eyrie",
+          "ref": "place:the-eyrie"
+        },
+        {
+          "label": "trial by combat",
+          "ref": "event:tyrion-requests-trial-by-combat"
+        }
+      ]
+    },
+    {
+      "ref": "person:anya-waynwood",
+      "kind": "person",
+      "name": "Anya Waynwood",
+      "nameRu": "Аня Вейнвуд",
+      "subtitle": "A Game of Thrones · Tyrion V",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion V; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_38",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion V"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Леди из дома Вейнвуд, присутствующая в суде Лизы Аррен над Тирионом."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robert Arryn",
+          "ref": "person:robert-arryn"
+        },
+        {
+          "label": "The Eyrie",
+          "ref": "place:the-eyrie"
+        },
+        {
+          "label": "trial by combat",
+          "ref": "event:tyrion-requests-trial-by-combat"
+        }
+      ]
+    },
+    {
+      "ref": "person:morton-waynwood",
+      "kind": "person",
+      "name": "Morton Waynwood",
+      "nameRu": "Мортон Вейнвуд",
+      "subtitle": "A Game of Thrones · Tyrion V",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion V; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_38",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion V"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Рыцарь дома Вейнвуд, присутствующий в Высоком зале Эйри на разбирательстве против Тириона."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robert Arryn",
+          "ref": "person:robert-arryn"
+        },
+        {
+          "label": "The Eyrie",
+          "ref": "place:the-eyrie"
+        },
+        {
+          "label": "trial by combat",
+          "ref": "event:tyrion-requests-trial-by-combat"
+        }
+      ]
+    },
+    {
+      "ref": "person:wallace-waynwood",
+      "kind": "person",
+      "name": "Wallace Waynwood",
+      "nameRu": "Уоллес Вейнвуд",
+      "subtitle": "A Game of Thrones · Tyrion V",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion V; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_38",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion V"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Представитель дома Вейнвуд, названный среди присутствующих при разбирательстве Тириона в Эйри."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robert Arryn",
+          "ref": "person:robert-arryn"
+        },
+        {
+          "label": "The Eyrie",
+          "ref": "place:the-eyrie"
+        },
+        {
+          "label": "trial by combat",
+          "ref": "event:tyrion-requests-trial-by-combat"
+        }
+      ]
+    },
+    {
+      "ref": "person:chett",
+      "kind": "person",
+      "name": "Chett",
+      "nameRu": "Четт",
+      "subtitle": "A Game of Thrones · Jon V",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon V; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_41",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon V"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Стюард у мейстера Эймона; Джон встречает его вместе с Клайдасом у двери башни мейстера."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Maester Aemon",
+          "ref": "person:maester-aemon"
+        },
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        },
+        {
+          "label": "Night's Watch",
+          "ref": "organization:nights-watch"
+        }
+      ]
+    },
+    {
+      "ref": "person:three-finger-hobb",
+      "kind": "person",
+      "name": "Three-Finger Hobb",
+      "nameRu": "Хобб Три-Пальца",
+      "subtitle": "A Game of Thrones · Jon V",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon V; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_41",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon V"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Главный повар Чёрного замка, названный среди людей, к которым Джон обращается в повседневной жизни Ночного дозора."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        },
+        {
+          "label": "Night's Watch",
+          "ref": "organization:nights-watch"
+        }
+      ]
+    },
+    {
+      "ref": "person:matthar",
+      "kind": "person",
+      "name": "Matthar",
+      "nameRu": "Маттар",
+      "subtitle": "A Game of Thrones · Jon V",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon V; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_41",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon V"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Рекрут Ночного дозора по прозвищу «Сер Лун», один из юношей, которых Тормон переводит в полноправные братья."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        },
+        {
+          "label": "Night's Watch",
+          "ref": "organization:nights-watch"
+        }
+      ]
+    },
+    {
+      "ref": "person:clydas",
+      "kind": "person",
+      "name": "Clydas",
+      "nameRu": "Клайдас",
+      "subtitle": "A Game of Thrones · Jon V",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon V; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_41",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon V"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается по списку; синопсис также описывает присутствие у двери Эймона (расхождение AWOIAF)"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "есть расхождение внутри AWOIAF: список глав помечает как упоминание, пересказ страницы описывает физическое присутствие; первичное издание не сверялось"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Стюард при мейстере Эймоне в Чёрном замке; статус в главе требует сверки: список AWOIAF отмечает упоминание, а пересказ той же страницы помещает его у двери Эймона."
+        }
+      ],
+      "links": [
+        {
+          "label": "Maester Aemon",
+          "ref": "person:maester-aemon"
+        },
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        },
+        {
+          "label": "Night's Watch",
+          "ref": "organization:nights-watch"
+        }
+      ]
+    },
+    {
+      "ref": "person:cuger",
+      "kind": "person",
+      "name": "Cuger",
+      "nameRu": "Кугер",
+      "subtitle": "A Game of Thrones · Jon V",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon V; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_41",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon V"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Рекрут Ночного дозора, названный в списке людей у Чёрного замка; в этой главе отдельная роль не описана."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        },
+        {
+          "label": "Night's Watch",
+          "ref": "organization:nights-watch"
+        }
+      ]
+    }
+  ]
+}

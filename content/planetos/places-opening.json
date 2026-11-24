@@ -1,0 +1,1031 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "place",
+  "entities": [
+    {
+      "ref": "place:essos",
+      "kind": "place",
+      "name": "Essos",
+      "nameRu": "Эссос",
+      "subtitle": "A Game of Thrones · Daenerys I · континент",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "География",
+          "value": "координаты не назначены"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Назначение в сцене",
+          "text": "Восточный континент; добавлен как родительская область для Пентоса."
+        }
+      ],
+      "links": []
+    },
+    {
+      "ref": "place:free-cities",
+      "kind": "place",
+      "name": "Free Cities",
+      "nameRu": "Вольные города",
+      "subtitle": "A Game of Thrones · Daenerys I · регион",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "География",
+          "value": "координаты не назначены"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Назначение в сцене",
+          "text": "Группа вольных городов Эссоса."
+        }
+      ],
+      "links": [
+        {
+          "label": "Essos",
+          "ref": "place:essos"
+        }
+      ]
+    },
+    {
+      "ref": "place:pentos",
+      "kind": "place",
+      "name": "Pentos",
+      "nameRu": "Пентос",
+      "subtitle": "A Game of Thrones · Daenerys I · город",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "География",
+          "value": "координаты не назначены"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Назначение в сцене",
+          "text": "Вольный город, где живут Визерис и Дейенерис."
+        }
+      ],
+      "links": [
+        {
+          "label": "Free Cities",
+          "ref": "place:free-cities"
+        }
+      ]
+    },
+    {
+      "ref": "place:illyrio-manse",
+      "kind": "place",
+      "name": "Illyrio's manse",
+      "nameRu": "Особняк Иллирио",
+      "subtitle": "A Game of Thrones · Daenerys I · особняк",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "География",
+          "value": "координаты не назначены"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Назначение в сцене",
+          "text": "Жильё, где живут Визерис и Дейенерис до встречи с Дрого."
+        }
+      ],
+      "links": [
+        {
+          "label": "Pentos",
+          "ref": "place:pentos"
+        },
+        {
+          "label": "Illyrio Mopatis",
+          "ref": "person:illyrio-mopatis"
+        }
+      ]
+    },
+    {
+      "ref": "place:drogo-manse",
+      "kind": "place",
+      "name": "Drogo's manse",
+      "nameRu": "Особняк Дрого",
+      "subtitle": "A Game of Thrones · Daenerys I · особняк",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "География",
+          "value": "координаты не назначены"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Назначение в сцене",
+          "text": "Место встречи гостей с Дрого и представления ему Дейенерис."
+        }
+      ],
+      "links": [
+        {
+          "label": "Pentos",
+          "ref": "place:pentos"
+        },
+        {
+          "label": "Drogo",
+          "ref": "person:drogo"
+        }
+      ]
+    },
+    {
+      "ref": "place:crypt-of-winterfell",
+      "kind": "place",
+      "name": "Crypt of Winterfell",
+      "nameRu": "Склеп Винтерфелла",
+      "subtitle": "A Game of Thrones · Eddard I · склеп",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_4",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "География",
+          "value": "координаты не назначены"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Назначение в сцене",
+          "text": "Роберт посещает склеп и могилу Лианны Старк."
+        }
+      ],
+      "links": [
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "place:great-hall-of-winterfell",
+      "kind": "place",
+      "name": "Great Hall of Winterfell",
+      "nameRu": "Большой зал Винтерфелла",
+      "subtitle": "A Game of Thrones · Jon I · зал",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_5",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "География",
+          "value": "координаты не назначены"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Назначение в сцене",
+          "text": "Место пира в честь приезда королевского двора."
+        }
+      ],
+      "links": [
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "place:great-keep-of-winterfell",
+      "kind": "place",
+      "name": "Great Keep",
+      "nameRu": "Главная башня Винтерфелла",
+      "subtitle": "A Game of Thrones · Catelyn II · замок",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn II; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_6",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn II"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "География",
+          "value": "координаты не назначены"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Назначение в сцене",
+          "text": "Покои Катлин и срочное сообщение мейстера Лювина находятся в главной башне."
+        }
+      ],
+      "links": [
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "place:practice-yard-of-winterfell",
+      "kind": "place",
+      "name": "Practice yard of Winterfell",
+      "nameRu": "Тренировочный двор Винтерфелла",
+      "subtitle": "A Game of Thrones · Arya I · двор",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Arya I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_7",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Arya I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "География",
+          "value": "координаты не назначены"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Назначение в сцене",
+          "text": "Место тренировки с деревянными мечами под присмотром мастера над оружием."
+        }
+      ],
+      "links": [
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "place:broken-tower",
+      "kind": "place",
+      "name": "Broken Tower",
+      "nameRu": "Разбитая башня",
+      "subtitle": "A Game of Thrones · Bran II · башня",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran II; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_8",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Bran II"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "География",
+          "value": "координаты не назначены"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Назначение в сцене",
+          "text": "Башня Винтерфелла, куда Бран забирается кормить ворон."
+        }
+      ],
+      "links": [
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "place:first-keep-of-winterfell",
+      "kind": "place",
+      "name": "First Keep",
+      "nameRu": "Первая крепость Винтерфелла",
+      "subtitle": "A Game of Thrones · Bran II · часть замка",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran II; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_8",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Bran II"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "География",
+          "value": "координаты не назначены"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Назначение в сцене",
+          "text": "Старая часть Винтерфелла; здесь Бран слышит разговор Серсеи и Джейме."
+        }
+      ],
+      "links": [
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "place:crownlands",
+      "kind": "place",
+      "name": "Crownlands",
+      "nameRu": "Королевские земли",
+      "subtitle": "A Game of Thrones · регион Вестероса",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones · регион Вестероса; A Wiki of Ice and Fire, place entry (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Crownlands",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "регион Вестероса"
+        },
+        {
+          "label": "География",
+          "value": "координаты не назначены; иерархия указана только по вторичному справочнику"
+        },
+        {
+          "label": "Сверка",
+          "value": "вики-указатель; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткое описание",
+          "text": "Регион, подчинённый непосредственно Железному трону; Королевская Гавань находится в его пределах."
+        }
+      ],
+      "links": [
+        {
+          "label": "Westeros",
+          "ref": "place:westeros"
+        }
+      ]
+    },
+    {
+      "ref": "place:kings-landing",
+      "kind": "place",
+      "name": "King's Landing",
+      "nameRu": "Королевская Гавань",
+      "subtitle": "A Game of Thrones · Catelyn IV; Eddard IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones · Catelyn IV; Eddard IV; A Wiki of Ice and Fire, place entry (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Kingslanding",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn IV; Eddard IV"
+        },
+        {
+          "label": "География",
+          "value": "координаты не назначены; иерархия указана только по вторичному справочнику"
+        },
+        {
+          "label": "Сверка",
+          "value": "вики-указатель; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткое описание",
+          "text": "Столица Семи Королевств; важное место королевского двора и линий Эддарда и Катлин."
+        }
+      ],
+      "links": [
+        {
+          "label": "Crownlands",
+          "ref": "place:crownlands"
+        },
+        {
+          "label": "Blackwater Bay",
+          "ref": "place:blackwater-bay"
+        }
+      ]
+    },
+    {
+      "ref": "place:blackwater-bay",
+      "kind": "place",
+      "name": "Blackwater Bay",
+      "nameRu": "Черноводный залив",
+      "subtitle": "A Game of Thrones · Catelyn IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones · Catelyn IV; A Wiki of Ice and Fire, place entry (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Blackwater_Bay",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn IV"
+        },
+        {
+          "label": "География",
+          "value": "координаты не назначены; иерархия указана только по вторичному справочнику"
+        },
+        {
+          "label": "Сверка",
+          "value": "вики-указатель; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткое описание",
+          "text": "Залив у восточного побережья Вестероса, куда выходит гавань Королевской Гавани."
+        }
+      ],
+      "links": [
+        {
+          "label": "Crownlands",
+          "ref": "place:crownlands"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "place:red-keep",
+      "kind": "place",
+      "name": "Red Keep",
+      "nameRu": "Красный замок",
+      "subtitle": "A Game of Thrones · Eddard IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones · Eddard IV; A Wiki of Ice and Fire, place entry (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Red_castle",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard IV"
+        },
+        {
+          "label": "География",
+          "value": "координаты не назначены; иерархия указана только по вторичному справочнику"
+        },
+        {
+          "label": "Сверка",
+          "value": "вики-указатель; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткое описание",
+          "text": "Королевская крепость в Королевской Гавани и место пребывания двора."
+        }
+      ],
+      "links": [
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "place:castle-black",
+      "kind": "place",
+      "name": "Castle Black",
+      "nameRu": "Чёрный замок",
+      "subtitle": "A Game of Thrones · Jon III; Tyrion III",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones · Jon III; Tyrion III; A Wiki of Ice and Fire, place entry (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Castle_Black",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon III; Tyrion III"
+        },
+        {
+          "label": "География",
+          "value": "координаты не назначены; иерархия указана только по вторичному справочнику"
+        },
+        {
+          "label": "Сверка",
+          "value": "вики-указатель; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткое описание",
+          "text": "Главная крепость Ночного дозора и резиденция лорд-командующего на Стене."
+        }
+      ],
+      "links": [
+        {
+          "label": "The Wall",
+          "ref": "place:the-wall"
+        }
+      ]
+    },
+    {
+      "ref": "place:vale-of-arryn",
+      "kind": "place",
+      "name": "Vale of Arryn",
+      "nameRu": "Долина Аррен",
+      "subtitle": "A Game of Thrones · Catelyn VI; Tyrion V",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones · Catelyn VI; Tyrion V; A Wiki of Ice and Fire, place entry (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Vale_of_Arryn_(valley)",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn VI; Tyrion V"
+        },
+        {
+          "label": "География",
+          "value": "координаты не назначены; иерархия указана только по вторичному справочнику"
+        },
+        {
+          "label": "Сверка",
+          "value": "вики-указатель; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткое описание",
+          "text": "Восточный регион Вестероса, отделённый от основной дороги Лунными горами."
+        }
+      ],
+      "links": [
+        {
+          "label": "Westeros",
+          "ref": "place:westeros"
+        }
+      ]
+    },
+    {
+      "ref": "place:the-eyrie",
+      "kind": "place",
+      "name": "The Eyrie",
+      "nameRu": "Орлиное Гнездо",
+      "subtitle": "A Game of Thrones · Catelyn VI; Tyrion V",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones · Catelyn VI; Tyrion V; A Wiki of Ice and Fire, place entry (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Eyrie",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn VI; Tyrion V"
+        },
+        {
+          "label": "География",
+          "value": "координаты не назначены; иерархия указана только по вторичному справочнику"
+        },
+        {
+          "label": "Сверка",
+          "value": "вики-указатель; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткое описание",
+          "text": "Высоко расположенная крепость и резиденция дома Аррен в Долине."
+        }
+      ],
+      "links": [
+        {
+          "label": "Vale of Arryn",
+          "ref": "place:vale-of-arryn"
+        }
+      ]
+    },
+    {
+      "ref": "place:riverlands",
+      "kind": "place",
+      "name": "Riverlands",
+      "nameRu": "Речные земли",
+      "subtitle": "A Game of Thrones · регион Вестероса",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones · регион Вестероса; A Wiki of Ice and Fire, place entry (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Riverlands",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "регион Вестероса"
+        },
+        {
+          "label": "География",
+          "value": "координаты не назначены; иерархия указана только по вторичному справочнику"
+        },
+        {
+          "label": "Сверка",
+          "value": "вики-указатель; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткое описание",
+          "text": "Центральный регион Вестероса вокруг трёх рукавов Трезубца и верховьев Черноводной."
+        }
+      ],
+      "links": [
+        {
+          "label": "Westeros",
+          "ref": "place:westeros"
+        }
+      ]
+    },
+    {
+      "ref": "place:moat-cailin",
+      "kind": "place",
+      "name": "Moat Cailin",
+      "nameRu": "Ров Кейлин",
+      "subtitle": "A Game of Thrones · Eddard IV; Catelyn VIII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones · Eddard IV; Catelyn VIII; A Wiki of Ice and Fire, place entry (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Moat_Cailin",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard IV; Catelyn VIII"
+        },
+        {
+          "label": "География",
+          "value": "координаты не назначены; иерархия указана только по вторичному справочнику"
+        },
+        {
+          "label": "Сверка",
+          "value": "вики-указатель; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткое описание",
+          "text": "Древняя крепость на южной границе Севера, контролирующая проход через перешеек."
+        }
+      ],
+      "links": [
+        {
+          "label": "The North",
+          "ref": "place:the-north"
+        }
+      ]
+    },
+    {
+      "ref": "place:dothraki-sea",
+      "kind": "place",
+      "name": "Dothraki Sea",
+      "nameRu": "Дотракийское море",
+      "subtitle": "A Game of Thrones · Daenerys III; Daenerys IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones · Daenerys III; Daenerys IV; A Wiki of Ice and Fire, place entry (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Dothraki_sea",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys III; Daenerys IV"
+        },
+        {
+          "label": "География",
+          "value": "координаты не назначены; иерархия указана только по вторичному справочнику"
+        },
+        {
+          "label": "Сверка",
+          "value": "вики-указатель; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткое описание",
+          "text": "Обширная внутренняя степная область Эссоса, по которой кочуют кхаласары."
+        }
+      ],
+      "links": [
+        {
+          "label": "Essos",
+          "ref": "place:essos"
+        }
+      ]
+    },
+    {
+      "ref": "place:vaes-dothrak",
+      "kind": "place",
+      "name": "Vaes Dothrak",
+      "nameRu": "Ваэс Дотрак",
+      "subtitle": "A Game of Thrones · Daenerys VIII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones · Daenerys VIII; A Wiki of Ice and Fire, place entry (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Vaes_Dothrak",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys VIII"
+        },
+        {
+          "label": "География",
+          "value": "координаты не назначены; иерархия указана только по вторичному справочнику"
+        },
+        {
+          "label": "Сверка",
+          "value": "вики-указатель; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткое описание",
+          "text": "Священный город дотракийцев в восточной части Дотракийского моря."
+        }
+      ],
+      "links": [
+        {
+          "label": "Dothraki Sea",
+          "ref": "place:dothraki-sea"
+        }
+      ]
+    },
+    {
+      "ref": "place:inn-at-crossroads",
+      "kind": "place",
+      "name": "Inn at the Crossroads",
+      "nameRu": "Постоялый двор на перекрёстке",
+      "subtitle": "A Game of Thrones · Catelyn V; Tyrion VII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones · Catelyn V; Tyrion VII; A Wiki of Ice and Fire, place entry (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Crossroads_Inn",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn V; Tyrion VII"
+        },
+        {
+          "label": "География",
+          "value": "координаты не назначены; иерархия указана только по вторичному справочнику"
+        },
+        {
+          "label": "Сверка",
+          "value": "вики-указатель; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткое описание",
+          "text": "Постоялый двор на пересечении королевского тракта, речной дороги и Высокой дороги."
+        }
+      ],
+      "links": [
+        {
+          "label": "Riverlands",
+          "ref": "place:riverlands"
+        }
+      ]
+    },
+    {
+      "ref": "place:the-twins",
+      "kind": "place",
+      "name": "The Twins",
+      "nameRu": "Близнецы",
+      "subtitle": "A Game of Thrones · Catelyn IX",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones · Catelyn IX; A Wiki of Ice and Fire, place entry (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/The_Twins",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn IX"
+        },
+        {
+          "label": "География",
+          "value": "координаты не назначены; иерархия указана только по вторичному справочнику"
+        },
+        {
+          "label": "Сверка",
+          "value": "вики-указатель; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткое описание",
+          "text": "Укреплённая переправа через Зелёный рукав Трезубца с замками по обе стороны моста."
+        }
+      ],
+      "links": [
+        {
+          "label": "Riverlands",
+          "ref": "place:riverlands"
+        }
+      ]
+    },
+    {
+      "ref": "place:riverrun",
+      "kind": "place",
+      "name": "Riverrun",
+      "nameRu": "Риверран",
+      "subtitle": "A Game of Thrones · Catelyn IX; Catelyn XI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones · Catelyn IX; Catelyn XI; A Wiki of Ice and Fire, place entry (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/River_Run",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn IX; Catelyn XI"
+        },
+        {
+          "label": "География",
+          "value": "координаты не назначены; иерархия указана только по вторичному справочнику"
+        },
+        {
+          "label": "Сверка",
+          "value": "вики-указатель; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткое описание",
+          "text": "Крепость и резиденция дома Талли в Речных землях."
+        }
+      ],
+      "links": [
+        {
+          "label": "Riverlands",
+          "ref": "place:riverlands"
+        }
+      ]
+    },
+    {
+      "ref": "place:darry",
+      "kind": "place",
+      "name": "Darry",
+      "nameRu": "Дэрри",
+      "subtitle": "A Game of Thrones · Eddard III",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard III; A Wiki of Ice and Fire, place entry and chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Darry",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard III; место сцены"
+        },
+        {
+          "label": "География",
+          "value": "положение в Речных землях; точные координаты не опубликованы"
+        },
+        {
+          "label": "Сверка",
+          "value": "вики-указатель; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткое описание",
+          "text": "Небольшой замок и резиденция дома Дарри в Речных землях; точное положение на карте не установлено."
+        }
+      ],
+      "links": [
+        {
+          "label": "Riverlands",
+          "ref": "place:riverlands"
+        }
+      ]
+    }
+  ]
+}

@@ -5,13 +5,22 @@
   "type": "module",
   "description": "Электронная ширма мастера D&D 5e: операционная система живого мира",
   "scripts": {
-    "dev": "npm run build:theme && npm run build:icons && vite",
-    "build": "npm run build:theme && npm run build:icons && tsc -b --force && vite build",
+    "dev": "npm run build:theme && npm run build:icons && npm run build:art && vite",
+    "build": "npm run build:theme && npm run build:icons && npm run build:art && npm run check:packages && tsc -b --force && vite build --manifest && npm run build:player-shell && npm run check:art-delivery",
     "preview": "vite preview",
     "build:theme": "node scripts/build-theme.mjs",
     "build:icons": "node scripts/build-icons.mjs",
-    "test": "npm run build:theme && npm run build:icons && vitest run",
-    "check": "tsc -b --force --noEmit"
+    "test": "npm run build:theme && npm run build:icons && npm run build:art && vitest run",
+    "check:packages": "node scripts/check-packages.mjs",
+    "import:srd": "node scripts/import-srd.mjs",
+    "check": "npm run check:packages && tsc -b --force --noEmit",
+    "build:art": "node scripts/build-art.mjs",
+    "check:art-delivery": "node scripts/check-art-delivery.mjs",
+    "build:player-shell": "node scripts/build-player-shell.mjs",
+    "test:player-transport": "node --test scripts/player-relay.node-test.mjs",
+    "check:art-generation": "node scripts/check-art-generation.mjs",
+    "check:chronology-classification": "python3 scripts/apply-chronology-classification.py",
+    "build:chronology-classification": "python3 scripts/apply-chronology-classification.py --apply"
   },
   "dependencies": {
     "@fontsource/forum": "^5",

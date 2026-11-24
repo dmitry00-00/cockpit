@@ -1,0 +1,983 @@
+{
+  "schemaVersion": "extended-art-coverage/1",
+  "scope": "Coverage planning only. IDs and source labels follow project data; proposed visual briefs are authored concepts, not canonical claims. No image generation or manifest changes.",
+  "ancestry": {
+    "source": "content/compendium/races.json#races",
+    "recordCount": 38,
+    "subraceCount": 62,
+    "existingBaseOriginals": 4,
+    "newBaseOriginalsRequired": 34,
+    "recordToFamily": [
+      {
+        "id": "celovek",
+        "label": "Человек",
+        "source": "srd",
+        "currentIconRole": "race-celovek",
+        "baseFamily": "ancestry-human",
+        "status": "existing-original",
+        "subraceIdsInheritSameFamily": [
+          "celovek-prohoda",
+          "celovek-uhoda",
+          "celovek-sozdania",
+          "celovek-straja",
+          "celovek-poiska"
+        ],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": null
+      },
+      {
+        "id": "el-f",
+        "label": "Эльф",
+        "source": "srd",
+        "currentIconRole": "race-el-f",
+        "baseFamily": "ancestry-elf",
+        "status": "existing-original",
+        "subraceIdsInheritSameFamily": [
+          "el-f-vyssiy",
+          "el-f-blednye",
+          "el-f-lesnoy",
+          "el-f-temnyy-el-f",
+          "el-f-morskie-el-fy",
+          "el-f-sadar-kay",
+          "el-f-eladrin",
+          "el-f-metki-teni"
+        ],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": null
+      },
+      {
+        "id": "dvarf",
+        "label": "Дварф",
+        "source": "srd",
+        "currentIconRole": "race-dvarf",
+        "baseFamily": "ancestry-dwarf",
+        "status": "existing-original",
+        "subraceIdsInheritSameFamily": [
+          "dvarf-holmovoy",
+          "dvarf-metka-opeki",
+          "dvarf-gornyy",
+          "dvarf-duergary"
+        ],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": null
+      },
+      {
+        "id": "gnom",
+        "label": "Гном",
+        "source": "srd",
+        "currentIconRole": "race-gnom",
+        "baseFamily": "ancestry-gnom",
+        "status": "new-base-original-required",
+        "subraceIdsInheritSameFamily": [
+          "gnom-kamennyy-skal-nyy",
+          "gnom-lesnoy",
+          "gnom-metka-pis-ma",
+          "gnom-svirfneblin-glubinnye"
+        ],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": "Compact adult gnome bust; short stature conveyed by compressed shoulders and an alert, broad face, with subtle crafted-tool detail. Keep clearly distinct from dwarf; no specific subrace costume."
+      },
+      {
+        "id": "poluroslik",
+        "label": "Полурослик",
+        "source": "srd",
+        "currentIconRole": "race-poluroslik",
+        "baseFamily": "ancestry-halfling",
+        "status": "existing-original",
+        "subraceIdsInheritSameFamily": [
+          "poluroslik-lotosdenskiy",
+          "poluroslik-prizracnyy",
+          "poluroslik-metka-iscelenia",
+          "poluroslik-metka-gostepriimstva",
+          "poluroslik-metki-poiska",
+          "poluroslik-korenastyy",
+          "poluroslik-legkonogiy"
+        ],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": null
+      },
+      {
+        "id": "ork",
+        "label": "Орк",
+        "source": "book",
+        "currentIconRole": "race-ork",
+        "baseFamily": "ancestry-ork",
+        "status": "new-base-original-required",
+        "subraceIdsInheritSameFamily": [],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": "Orc bust with broad jaw, visible tusks and powerful neck; neutral expression, restrained material treatment, no war paint or weapon."
+      },
+      {
+        "id": "poluork",
+        "label": "Полуорк",
+        "source": "srd",
+        "currentIconRole": "race-poluork",
+        "baseFamily": "ancestry-poluork",
+        "status": "new-base-original-required",
+        "subraceIdsInheritSameFamily": [
+          "poluork-metki-poiska"
+        ],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": "Half-orc bust with human and orc facial cues in one individual, visible lower tusks and broad jaw; do not reuse human or orc image."
+      },
+      {
+        "id": "poluel-f",
+        "label": "Полуэльф",
+        "source": "srd",
+        "currentIconRole": "race-poluel-f",
+        "baseFamily": "ancestry-poluel-f",
+        "status": "new-base-original-required",
+        "subraceIdsInheritSameFamily": [
+          "poluel-f-poluel-f",
+          "poluel-f-metki-obnarujenia",
+          "poluel-f-metki-buri",
+          "poluel-f-faeruna"
+        ],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": "Half-elf bust with balanced human and elven facial cues and modest pointed ears; do not reuse human or elf image."
+      },
+      {
+        "id": "tifling",
+        "label": "Тифлинг",
+        "source": "srd",
+        "currentIconRole": "race-tifling",
+        "baseFamily": "ancestry-tifling",
+        "status": "new-base-original-required",
+        "subraceIdsInheritSameFamily": [
+          "tifling-mefistofela",
+          "tifling-f-erna",
+          "tifling-vel-zevul",
+          "tifling-levistus",
+          "tifling-glasia",
+          "tifling-asmodea",
+          "tifling-mammona",
+          "tifling-dispatera",
+          "tifling-zariel",
+          "tifling-faeruna"
+        ],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": "Tiefling bust with curved horns and subtly unusual eyes, humanlike face; avoid infernal symbols, fire, tail assumptions or subrace markers."
+      },
+      {
+        "id": "drakonorojdennyy",
+        "label": "Драконорождённый",
+        "source": "srd",
+        "currentIconRole": "race-drakonorojdennyy",
+        "baseFamily": "ancestry-drakonorojdennyy",
+        "status": "new-base-original-required",
+        "subraceIdsInheritSameFamily": [
+          "drakonorojdennyy-drakonokrovnyy",
+          "drakonorojdennyy-ravenit"
+        ],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": "Dragonborn bust with scaled reptilian head, broad muzzle and defined brow; select no specific dragon color/breath or lineage."
+      },
+      {
+        "id": "goblinoidy",
+        "label": "Гоблиноиды",
+        "source": "book",
+        "currentIconRole": "race-goblinoidy",
+        "baseFamily": "ancestry-goblinoidy",
+        "status": "new-base-original-required",
+        "subraceIdsInheritSameFamily": [
+          "goblinoidy-gobliny",
+          "goblinoidy-hobgobliny",
+          "goblinoidy-bagbir"
+        ],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": "Goblinoid category represented by a neutral three-silhouette family emblem (goblin, hobgoblin, bugbear), no single member substituted for the category."
+      },
+      {
+        "id": "gity",
+        "label": "Гиты",
+        "source": "book",
+        "currentIconRole": "race-gity",
+        "baseFamily": "ancestry-gity",
+        "status": "new-base-original-required",
+        "subraceIdsInheritSameFamily": [
+          "gity-gitcerai",
+          "gity-git-anki"
+        ],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": "Gith adult bust with angular, alien facial planes and narrow nose; use neutral noncombat dress, no weapon or planar symbols."
+      },
+      {
+        "id": "djenazi",
+        "label": "Дженази",
+        "source": "book",
+        "currentIconRole": "race-djenazi",
+        "baseFamily": "ancestry-djenazi",
+        "status": "new-base-original-required",
+        "subraceIdsInheritSameFamily": [
+          "djenazi-vody",
+          "djenazi-ogna",
+          "djenazi-zemli",
+          "djenazi-vozduha"
+        ],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": "Genasi bust with a restrained elemental motif integrated into the material (small flame, water curl, stone facet and air ribbon as subvariant cues); no single element dominates the shared base."
+      },
+      {
+        "id": "sifter",
+        "label": "Шифтер",
+        "source": "book",
+        "currentIconRole": "race-sifter",
+        "baseFamily": "ancestry-sifter",
+        "status": "new-base-original-required",
+        "subraceIdsInheritSameFamily": [
+          "sifter-dikiy-ohotnik",
+          "sifter-dlinnozuby",
+          "sifter-bystronogi",
+          "sifter-zveroskury"
+        ],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": "Shifter bust with subtle animal-feature cues (slightly pronounced canines/cheek line), recognizably humanoid; avoid choosing one listed subrace as universal."
+      },
+      {
+        "id": "aasimar",
+        "label": "Аасимар",
+        "source": "book",
+        "currentIconRole": "race-aasimar",
+        "baseFamily": "ancestry-aasimar",
+        "status": "new-base-original-required",
+        "subraceIdsInheritSameFamily": [
+          "aasimar-zasitnik",
+          "aasimar-karatel",
+          "aasimar-pavsiy-aasimar"
+        ],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": "Aasimar bust with ordinary humanoid face and a restrained luminous halo/rim, no wings or specific celestial subrace feature."
+      },
+      {
+        "id": "uan-ti",
+        "label": "Юань-ти",
+        "source": "book",
+        "currentIconRole": "race-uan-ti",
+        "baseFamily": "ancestry-uan-ti",
+        "status": "new-base-original-required",
+        "subraceIdsInheritSameFamily": [
+          "uan-ti-cistokrovnye"
+        ],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": "Yuan-ti bust with subtle serpentine facial scales and slit-pupil suggestion; no full snake head, hood or poison prop."
+      },
+      {
+        "id": "vedalkin",
+        "label": "Ведалкин",
+        "source": "book",
+        "currentIconRole": "race-vedalkin",
+        "baseFamily": "ancestry-vedalkin",
+        "status": "new-base-original-required",
+        "subraceIdsInheritSameFamily": [],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": "Vedalken bust with smooth hairless head, elongated ears and calm analytical face; no laboratory or magic props."
+      },
+      {
+        "id": "verdan",
+        "label": "Вердан",
+        "source": "book",
+        "currentIconRole": "race-verdan",
+        "baseFamily": "ancestry-verdan",
+        "status": "new-base-original-required",
+        "subraceIdsInheritSameFamily": [],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": "Verdan bust with green skin and small tusks, youthful-adult proportions; avoid childlike presentation or goblin stereotype."
+      },
+      {
+        "id": "gibridy-simikov",
+        "label": "Гибриды симиков",
+        "source": "book",
+        "currentIconRole": "race-gibridy-simikov",
+        "baseFamily": "ancestry-gibridy-simikov",
+        "status": "new-base-original-required",
+        "subraceIdsInheritSameFamily": [],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": "Simic hybrid bust with one subtle authored biological adaptation such as a fin-like ear edge; no multiple mutations or scientific apparatus."
+      },
+      {
+        "id": "grung",
+        "label": "Грунг",
+        "source": "book",
+        "currentIconRole": "race-grung",
+        "baseFamily": "ancestry-grung",
+        "status": "new-base-original-required",
+        "subraceIdsInheritSameFamily": [],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": "Small frog-like humanoid bust with smooth amphibian skin and broad mouth; no poison colors/effects or weapon."
+      },
+      {
+        "id": "tortl",
+        "label": "Тортл",
+        "source": "book",
+        "currentIconRole": "race-tortl",
+        "baseFamily": "ancestry-tortl",
+        "status": "new-base-original-required",
+        "subraceIdsInheritSameFamily": [],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": "Tortle bust with visible turtle beak and shell edge at shoulders; no shield or beach scene."
+      },
+      {
+        "id": "triton",
+        "label": "Тритон",
+        "source": "book",
+        "currentIconRole": "race-triton",
+        "baseFamily": "ancestry-triton",
+        "status": "new-base-original-required",
+        "subraceIdsInheritSameFamily": [],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": "Triton bust with aquatic humanoid features, subtle gill marks and swept hair; avoid identifying a particular sea realm or deity."
+      },
+      {
+        "id": "firbolg",
+        "label": "Фирболг",
+        "source": "book",
+        "currentIconRole": "race-firbolg",
+        "baseFamily": "ancestry-firbolg",
+        "status": "new-base-original-required",
+        "subraceIdsInheritSameFamily": [],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": "Firbolg bust with broad gentle face, slightly pointed ears and a small natural hair/wood texture accent; no antlers or animal body."
+      },
+      {
+        "id": "aarakokra",
+        "label": "Ааракокра",
+        "source": "book",
+        "currentIconRole": "race-aarakokra",
+        "baseFamily": "ancestry-aarakokra",
+        "status": "new-base-original-required",
+        "subraceIdsInheritSameFamily": [],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": "Aarakocra bust with a clearly avian head and feathered neck; keep species generic, no specific bird species or wings spread across frame."
+      },
+      {
+        "id": "satir",
+        "label": "Сатир",
+        "source": "book",
+        "currentIconRole": "race-satir",
+        "baseFamily": "ancestry-satir",
+        "status": "new-base-original-required",
+        "subraceIdsInheritSameFamily": [],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": "Satyr bust with goatlike ears and small curled horns; no wine, flute or mythic setting."
+      },
+      {
+        "id": "tabaksi",
+        "label": "Табакси",
+        "source": "book",
+        "currentIconRole": "race-tabaksi",
+        "baseFamily": "ancestry-tabaksi",
+        "status": "new-base-original-required",
+        "subraceIdsInheritSameFamily": [],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": "Tabaxi bust with feline muzzle, whiskers and ears; no pelt pattern assigning an individual lineage."
+      },
+      {
+        "id": "goliaf",
+        "label": "Голиаф",
+        "source": "book",
+        "currentIconRole": "race-goliaf",
+        "baseFamily": "ancestry-goliaf",
+        "status": "new-base-original-required",
+        "subraceIdsInheritSameFamily": [],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": "Goliath bust with strong features and restrained stone-like skin patterning; no giant weapon or snow scene."
+      },
+      {
+        "id": "izmenausiysa",
+        "label": "Изменяющийся",
+        "source": "book",
+        "currentIconRole": "race-izmenausiysa",
+        "baseFamily": "ancestry-izmenausiysa",
+        "status": "new-base-original-required",
+        "subraceIdsInheritSameFamily": [],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": "Changeling bust with deliberately neutral androgynous face and understated shifting contour; no multiple faces or disguise props."
+      },
+      {
+        "id": "kalastar",
+        "label": "Калаштар",
+        "source": "book",
+        "currentIconRole": "race-kalastar",
+        "baseFamily": "ancestry-kalastar",
+        "status": "new-base-original-required",
+        "subraceIdsInheritSameFamily": [],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": "Kalashtar bust with calm humanoid face and subtle paired abstract echo motif behind the head; no ghost portrait or invented spirit identity."
+      },
+      {
+        "id": "kenku",
+        "label": "Кенку",
+        "source": "book",
+        "currentIconRole": "race-kenku",
+        "baseFamily": "ancestry-kenku",
+        "status": "new-base-original-required",
+        "subraceIdsInheritSameFamily": [],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": "Kenku bust with crow-like beak and dark feather silhouette; no stolen voice text or costume stereotype."
+      },
+      {
+        "id": "kovanyy",
+        "label": "Кованый",
+        "source": "book",
+        "currentIconRole": "race-kovanyy",
+        "baseFamily": "ancestry-kovanyy",
+        "status": "new-base-original-required",
+        "subraceIdsInheritSameFamily": [],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": "Warforged bust of an individual constructed humanoid with visible wood/metal/stone material seams; no weapon, uniform or assumption of a particular maker."
+      },
+      {
+        "id": "kobol-d",
+        "label": "Кобольд",
+        "source": "book",
+        "currentIconRole": "race-kobol-d",
+        "baseFamily": "ancestry-kobol-d",
+        "status": "new-base-original-required",
+        "subraceIdsInheritSameFamily": [],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": "Kobold bust with small draconic snout, upright ears and modest scales; do not assign dragon color or faction."
+      },
+      {
+        "id": "leonin",
+        "label": "Леонин",
+        "source": "book",
+        "currentIconRole": "race-leonin",
+        "baseFamily": "ancestry-leonin",
+        "status": "new-base-original-required",
+        "subraceIdsInheritSameFamily": [],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": "Leonin bust with broad leonine muzzle, mane framing the face and feline ears; no crown, weapon or specific pride emblem."
+      },
+      {
+        "id": "loksodon",
+        "label": "Локсодон",
+        "source": "book",
+        "currentIconRole": "race-loksodon",
+        "baseFamily": "ancestry-loksodon",
+        "status": "new-base-original-required",
+        "subraceIdsInheritSameFamily": [],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": "Loxodon bust with elephant head and short visible trunk, tusks and broad ears; no armor or ceremonial garb."
+      },
+      {
+        "id": "lokata",
+        "label": "Локата",
+        "source": "book",
+        "currentIconRole": "race-lokata",
+        "baseFamily": "ancestry-lokata",
+        "status": "new-base-original-required",
+        "subraceIdsInheritSameFamily": [],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": "Locathah bust with fishlike head, gill plates and fin silhouette; no trident or underwater backdrop."
+      },
+      {
+        "id": "ludoaser",
+        "label": "Людоящер",
+        "source": "book",
+        "currentIconRole": "race-ludoaser",
+        "baseFamily": "ancestry-ludoaser",
+        "status": "new-base-original-required",
+        "subraceIdsInheritSameFamily": [],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": "Lizardfolk bust with scaled reptilian face, flattened snout and calm eye; no armor made from bones or predatory pose."
+      },
+      {
+        "id": "minotavr",
+        "label": "Минотавр",
+        "source": "book",
+        "currentIconRole": "race-minotavr",
+        "baseFamily": "ancestry-minotavr",
+        "status": "new-base-original-required",
+        "subraceIdsInheritSameFamily": [],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": "Minotaur bust with bovine muzzle, strong curved horns and broad neck; no labyrinth or weapon."
+      },
+      {
+        "id": "kentavr",
+        "label": "Кентавр",
+        "source": "book",
+        "currentIconRole": "race-kentavr",
+        "baseFamily": "ancestry-kentavr",
+        "status": "new-base-original-required",
+        "subraceIdsInheritSameFamily": [],
+        "inheritanceRule": "Base image may be reused only by subrace records listed here, as direct descendants of this same race record; create a distinct approved variant only if a listed subrace needs its own visual distinction. Never inherit from another race record.",
+        "visualBrief": "Centaur bust composition showing human torso joined visibly to horse body at the lower crop; no rider, weapon or landscape."
+      }
+    ],
+    "inheritancePolicy": "No cross-record inheritance. Same-record subraces may inherit the parent base image; any subrace-specific variant is a separate optional original, only when an approved visual distinction is needed. Do not infer count of variants from record count."
+  },
+  "families": {
+    "traitKinds": {
+      "requiredCount": 13,
+      "generator": "design/icons-generator.js",
+      "items": [
+        {
+          "id": "kind-claw",
+          "label": "claw",
+          "currentIconRole": "kind-claw",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "kind-resist",
+          "label": "resist",
+          "currentIconRole": "kind-resist",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "kind-save",
+          "label": "save",
+          "currentIconRole": "kind-save",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "kind-proficiency",
+          "label": "proficiency",
+          "currentIconRole": "kind-proficiency",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "kind-tool",
+          "label": "tool",
+          "currentIconRole": "kind-tool",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "kind-vision",
+          "label": "vision",
+          "currentIconRole": "kind-vision",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "kind-sense",
+          "label": "sense",
+          "currentIconRole": "kind-sense",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "kind-size",
+          "label": "size",
+          "currentIconRole": "kind-size",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "kind-bonus",
+          "label": "bonus",
+          "currentIconRole": "kind-bonus",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "kind-rest",
+          "label": "rest",
+          "currentIconRole": "kind-rest",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "kind-aura",
+          "label": "aura",
+          "currentIconRole": "kind-aura",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "kind-shape",
+          "label": "shape",
+          "currentIconRole": "kind-shape",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "kind-other",
+          "label": "other",
+          "currentIconRole": "kind-other",
+          "newOriginalsRequired": 1
+        }
+      ]
+    },
+    "equipmentSlots": {
+      "requiredCount": 9,
+      "generator": "design/icons-generator.js",
+      "items": [
+        {
+          "id": "slot-head",
+          "label": "head",
+          "currentIconRole": "slot-head",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "slot-neck",
+          "label": "neck",
+          "currentIconRole": "slot-neck",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "slot-cloak",
+          "label": "cloak",
+          "currentIconRole": "slot-cloak",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "slot-armor",
+          "label": "armor",
+          "currentIconRole": "slot-armor",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "slot-hands",
+          "label": "hands",
+          "currentIconRole": "slot-hands",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "slot-ring",
+          "label": "ring",
+          "currentIconRole": "slot-ring",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "slot-belt",
+          "label": "belt",
+          "currentIconRole": "slot-belt",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "slot-feet",
+          "label": "feet",
+          "currentIconRole": "slot-feet",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "slot-weapon",
+          "label": "weapon",
+          "currentIconRole": "slot-weapon",
+          "newOriginalsRequired": 1
+        }
+      ]
+    },
+    "mapPins": {
+      "requiredCount": 6,
+      "generator": "design/icons-generator.js",
+      "items": [
+        {
+          "id": "pin-quest",
+          "label": "quest",
+          "currentIconRole": "pin-quest",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "pin-danger",
+          "label": "danger",
+          "currentIconRole": "pin-danger",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "pin-shop",
+          "label": "shop",
+          "currentIconRole": "pin-shop",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "pin-rumor",
+          "label": "rumor",
+          "currentIconRole": "pin-rumor",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "pin-camp",
+          "label": "camp",
+          "currentIconRole": "pin-camp",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "pin-road",
+          "label": "road",
+          "currentIconRole": "pin-road",
+          "newOriginalsRequired": 1
+        }
+      ]
+    },
+    "weatherTime": {
+      "requiredCount": 12,
+      "basis": "four day phases + four sky states + four lunar phases; no invented temperature icons",
+      "generator": "design/icons-generator.js",
+      "items": [
+        {
+          "id": "dawn",
+          "label": "Рассвет",
+          "currentIconRole": "dawn",
+          "currentStatus": "existing procedural glyph",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "day",
+          "label": "День",
+          "currentIconRole": "day",
+          "currentStatus": "existing procedural glyph",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "dusk",
+          "label": "Сумерки",
+          "currentIconRole": "dusk",
+          "currentStatus": "existing procedural glyph",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "night",
+          "label": "Ночь",
+          "currentIconRole": "night",
+          "currentStatus": "existing procedural glyph",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "clear",
+          "label": "Ясно (в генераторе отдельного глифа нет)",
+          "currentIconRole": null,
+          "currentStatus": "no generator glyph",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "cloudy",
+          "label": "Облачно",
+          "currentIconRole": "cloudy",
+          "currentStatus": "existing procedural glyph",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "rain",
+          "label": "Дождь",
+          "currentIconRole": "rain",
+          "currentStatus": "existing procedural glyph",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "storm",
+          "label": "Гроза",
+          "currentIconRole": "storm",
+          "currentStatus": "existing procedural glyph",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "moon-new",
+          "label": "Новолуние",
+          "currentIconRole": "moon-new",
+          "currentStatus": "existing procedural glyph",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "moon-waxing",
+          "label": "Растущая луна",
+          "currentIconRole": "moon-waxing",
+          "currentStatus": "existing procedural glyph",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "moon-full",
+          "label": "Полнолуние",
+          "currentIconRole": "moon-full",
+          "currentStatus": "existing procedural glyph",
+          "newOriginalsRequired": 1
+        },
+        {
+          "id": "moon-waning",
+          "label": "Убывающая луна",
+          "currentIconRole": "moon-waning",
+          "currentStatus": "existing procedural glyph",
+          "newOriginalsRequired": 1
+        }
+      ]
+    }
+  },
+  "activeFactionAndDeityCandidates": {
+    "count": 6,
+    "selection": "All active faction refs in src/campaign/world.ts plus Aldric deity in seeded party; no symbolic details inferred.",
+    "items": [
+      {
+        "id": "zhentarim",
+        "label": "Zhentarim",
+        "sourceRefs": [
+          "src/campaign/world.ts#FACTION.zhentarim",
+          "content/world/organizations.json#zhentarim"
+        ],
+        "currentIconRole": null,
+        "newOriginalRequired": true
+      },
+      {
+        "id": "lords-alliance",
+        "label": "Lords' Alliance",
+        "sourceRefs": [
+          "src/campaign/world.ts#FACTION.lordsAlliance",
+          "content/world/organizations.json#lords-alliance"
+        ],
+        "currentIconRole": null,
+        "newOriginalRequired": true
+      },
+      {
+        "id": "harpers",
+        "label": "Harpers",
+        "sourceRefs": [
+          "src/campaign/world.ts#FACTION.harpers",
+          "content/world/organizations.json#harpers"
+        ],
+        "currentIconRole": null,
+        "newOriginalRequired": true
+      },
+      {
+        "id": "church-of-lathander",
+        "label": "Church of Lathander",
+        "sourceRefs": [
+          "src/campaign/world.ts#FACTION.churchOfLathander",
+          "content/world/organizations.json#church-of-lathander"
+        ],
+        "currentIconRole": null,
+        "newOriginalRequired": true
+      },
+      {
+        "id": "church-of-helm",
+        "label": "Church of Helm",
+        "sourceRefs": [
+          "src/campaign/world.ts#FACTION.churchOfHelm",
+          "content/world/organizations.json#church-of-helm"
+        ],
+        "currentIconRole": null,
+        "newOriginalRequired": true
+      },
+      {
+        "id": "lathander",
+        "label": "Lathander",
+        "sourceRefs": [
+          "src/campaign/party.ts#ALDRIC.deity",
+          "content/cosmos/deities.json#lathander"
+        ],
+        "currentIconRole": null,
+        "newOriginalRequired": true
+      }
+    ]
+  },
+  "activePartySpells": {
+    "count": 16,
+    "selection": "16 unique spells explicitly listed on seeded Bo and Lyra; spell names and source IDs verified against SRD spell data. Not a claim these are all active-party spells.",
+    "items": [
+      {
+        "id": "hunters-mark",
+        "label": "Hunter's Mark",
+        "currentIconRole": "school-family; no spell-specific original assigned",
+        "sourceRef": "content/srd/spells.json#hunters-mark",
+        "seedRef": "src/campaign/party.ts#BO.spells"
+      },
+      {
+        "id": "cure-wounds",
+        "label": "Cure Wounds",
+        "currentIconRole": "school-family; no spell-specific original assigned",
+        "sourceRef": "content/srd/spells.json#cure-wounds",
+        "seedRef": "src/campaign/party.ts#BO.spells"
+      },
+      {
+        "id": "goodberry",
+        "label": "Goodberry",
+        "currentIconRole": "school-family; no spell-specific original assigned",
+        "sourceRef": "content/srd/spells.json#goodberry",
+        "seedRef": "src/campaign/party.ts#BO.spells"
+      },
+      {
+        "id": "pass-without-trace",
+        "label": "Pass Without Trace",
+        "currentIconRole": "school-family; no spell-specific original assigned",
+        "sourceRef": "content/srd/spells.json#pass-without-trace",
+        "seedRef": "src/campaign/party.ts#BO.spells"
+      },
+      {
+        "id": "fire-bolt",
+        "label": "Fire Bolt",
+        "currentIconRole": "school-family; no spell-specific original assigned",
+        "sourceRef": "content/srd/spells.json#fire-bolt",
+        "seedRef": "src/campaign/party.ts#LYRA.spells"
+      },
+      {
+        "id": "acid-splash",
+        "label": "Acid Splash",
+        "currentIconRole": "school-family; no spell-specific original assigned",
+        "sourceRef": "content/srd/spells.json#acid-splash",
+        "seedRef": "src/campaign/party.ts#LYRA.spells"
+      },
+      {
+        "id": "mage-hand",
+        "label": "Mage Hand",
+        "currentIconRole": "school-family; no spell-specific original assigned",
+        "sourceRef": "content/srd/spells.json#mage-hand",
+        "seedRef": "src/campaign/party.ts#LYRA.spells"
+      },
+      {
+        "id": "prestidigitation",
+        "label": "Prestidigitation",
+        "currentIconRole": "school-family; no spell-specific original assigned",
+        "sourceRef": "content/srd/spells.json#prestidigitation",
+        "seedRef": "src/campaign/party.ts#LYRA.spells"
+      },
+      {
+        "id": "mage-armor",
+        "label": "Mage Armor",
+        "currentIconRole": "school-family; no spell-specific original assigned",
+        "sourceRef": "content/srd/spells.json#mage-armor",
+        "seedRef": "src/campaign/party.ts#LYRA.spells"
+      },
+      {
+        "id": "magic-missile",
+        "label": "Magic Missile",
+        "currentIconRole": "school-family; no spell-specific original assigned",
+        "sourceRef": "content/srd/spells.json#magic-missile",
+        "seedRef": "src/campaign/party.ts#LYRA.spells"
+      },
+      {
+        "id": "shield",
+        "label": "Shield",
+        "currentIconRole": "school-family; no spell-specific original assigned",
+        "sourceRef": "content/srd/spells.json#shield",
+        "seedRef": "src/campaign/party.ts#LYRA.spells"
+      },
+      {
+        "id": "detect-magic",
+        "label": "Detect Magic",
+        "currentIconRole": "school-family; no spell-specific original assigned",
+        "sourceRef": "content/srd/spells.json#detect-magic",
+        "seedRef": "src/campaign/party.ts#LYRA.spells"
+      },
+      {
+        "id": "sleep",
+        "label": "Sleep",
+        "currentIconRole": "school-family; no spell-specific original assigned",
+        "sourceRef": "content/srd/spells.json#sleep",
+        "seedRef": "src/campaign/party.ts#LYRA.spells"
+      },
+      {
+        "id": "burning-hands",
+        "label": "Burning Hands",
+        "currentIconRole": "school-family; no spell-specific original assigned",
+        "sourceRef": "content/srd/spells.json#burning-hands",
+        "seedRef": "src/campaign/party.ts#LYRA.spells"
+      },
+      {
+        "id": "identify",
+        "label": "Identify",
+        "currentIconRole": "school-family; no spell-specific original assigned",
+        "sourceRef": "content/srd/spells.json#identify",
+        "seedRef": "src/campaign/party.ts#LYRA.spells"
+      },
+      {
+        "id": "misty-step",
+        "label": "Misty Step",
+        "currentIconRole": "school-family; no spell-specific original assigned",
+        "sourceRef": "content/srd/spells.json#misty-step",
+        "seedRef": "src/campaign/party.ts#LYRA.spells"
+      }
+    ]
+  },
+  "derivedCounts": {
+    "newAncestryBases": 34,
+    "kindIcons": 13,
+    "slotIcons": 9,
+    "pinIcons": 6,
+    "weatherTimeIcons": 12,
+    "factionDeityOriginals": 6,
+    "spellSpecificOriginals": 16,
+    "minimumNewOriginalsListed": 96,
+    "note": "Counts are separate family deliverables; spell-specific pictures are a proposed selected sample. All 12 weather/time concepts have count slots, but clear currently lacks even a procedural glyph. Existing world-and-travel PNGs cover only human/dwarf/elf/halfling and 4 place families."
+  }
+}

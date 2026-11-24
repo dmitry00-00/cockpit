@@ -1,0 +1,1076 @@
+{
+  "format": 1,
+  "kind": "people",
+  "entities": [
+    {
+      "ref": "person:janos-slynt",
+      "kind": "person",
+      "name": "Janos Slynt",
+      "nameRu": "Янос Слинт",
+      "subtitle": "A Game of Thrones · Eddard VI; Eddard XIV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard VI and Eddard XIV; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_27",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard VI; Eddard XIV"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        },
+        {
+          "label": "Дополнительное появление",
+          "value": "Eddard XIV"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Командующий городской стражей докладывает малому совету о росте беспорядков и просит пополнить стражу."
+        },
+        {
+          "title": "Дополнительная сцена · Eddard XIV",
+          "text": "Командующий городской стражей; его решение в тронном зале определяет исход попытки Эддарда взять семью королевы под стражу."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Robert Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Cersei Lannister",
+          "ref": "person:cersei-lannister"
+        }
+      ]
+    },
+    {
+      "ref": "person:beric-dondarrion",
+      "kind": "person",
+      "name": "Beric Dondarrion",
+      "nameRu": "Берик Дондаррион",
+      "subtitle": "A Game of Thrones · Eddard VI; Eddard XI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard VI and Eddard XI; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_27",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard VI; Eddard XI"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        },
+        {
+          "label": "Дополнительное появление",
+          "value": "Eddard XI"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Прибывает в Королевскую Гавань со свитой для участия в турнире Десницы."
+        },
+        {
+          "title": "Дополнительная сцена · Eddard XI",
+          "text": "Капитан отряда, которому Эддард поручает королевское правосудие против Григора Клигана."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Karyl Vance",
+          "ref": "person:karyl-vance"
+        }
+      ]
+    },
+    {
+      "ref": "person:tobho-mott",
+      "kind": "person",
+      "name": "Tobho Mott",
+      "nameRu": "Тобхо Мотт",
+      "subtitle": "A Game of Thrones · Eddard VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard VI; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_27",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard VI"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Королевский оружейник принимает Неда и рассказывает о своём ученике Джендри."
+        }
+      ],
+      "links": [
+        {
+          "label": "Gendry",
+          "ref": "person:gendry"
+        },
+        {
+          "label": "Tobho Mott’s shop",
+          "ref": "place:tobho-mott-shop"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        }
+      ]
+    },
+    {
+      "ref": "person:jacks",
+      "kind": "person",
+      "name": "Jacks",
+      "nameRu": "Джекс",
+      "subtitle": "A Game of Thrones · Eddard VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard VI; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_27",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard VI"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Один из стражников Неда, сопровождающих его по Королевской Гавани."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "person:varly",
+      "kind": "person",
+      "name": "Varly",
+      "nameRu": "Варли",
+      "subtitle": "A Game of Thrones · Eddard VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard VI; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_27",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard VI"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Один из стражников Неда, сопровождающих его по Королевской Гавани."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "person:hugh-of-the-vale",
+      "kind": "person",
+      "name": "Hugh of the Vale",
+      "nameRu": "Хью из Долины",
+      "subtitle": "A Game of Thrones · Eddard V–VII; Sansa II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard V–VII and Sansa II; A Wiki of Ice and Fire numeric chapter pages (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_29",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard V и Eddard VI — упоминания; Sansa II — появление и гибель; Eddard VII — осмотр тела"
+        },
+        {
+          "label": "Статус в главах",
+          "value": "Бывший оруженосец Джона Аррена; гибнет во время турнира Десницы; позже его тело осматривают Нед и Барристан"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Хью служил оруженосцем Джона Аррена. После смерти Аррена Роберт посвятил его в рыцари; во время турнира Десницы Хью погибает. Нед и Барристан видят его тело позднее. Источник не устанавливает намерение Григора Клигана."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Arryn",
+          "ref": "person:jon-arryn"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Gregor Clegane",
+          "ref": "person:gregor-clegane"
+        },
+        {
+          "label": "Barristan Selmy",
+          "ref": "person:barristan-selmy"
+        },
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        },
+        {
+          "label": "Hand's Tourney grounds",
+          "ref": "place:hand-tourney-grounds"
+        },
+        {
+          "label": "Ser Hugh dies in the Hand's tourney",
+          "ref": "event:ser-hugh-dies-in-hands-tourney"
+        }
+      ]
+    },
+    {
+      "ref": "person:stannis-baratheon",
+      "kind": "person",
+      "name": "Stannis Baratheon",
+      "nameRu": "Станнис Баратеон",
+      "subtitle": "A Game of Thrones · Eddard VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard VI; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_27",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard VI"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Брат Роберта; его поездки с Джоном Арреном и отсутствие при дворе обсуждаются в расследовании Неда."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robert Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "Jon Arryn",
+          "ref": "person:jon-arryn"
+        }
+      ]
+    },
+    {
+      "ref": "person:shireen-baratheon",
+      "kind": "person",
+      "name": "Shireen Baratheon",
+      "nameRu": "Ширен Баратеон",
+      "subtitle": "A Game of Thrones · Eddard VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard VI; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_27",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard VI"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Дочь Станниса, названная в разговоре придворных."
+        }
+      ],
+      "links": [
+        {
+          "label": "Stannis Baratheon",
+          "ref": "person:stannis-baratheon"
+        }
+      ]
+    },
+    {
+      "ref": "person:lyanna-stark",
+      "kind": "person",
+      "name": "Lyanna Stark",
+      "nameRu": "Лианна Старк",
+      "subtitle": "A Game of Thrones · Eddard VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard VI; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_27",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard VI"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Сестра Эддарда вспоминается в связи с прошлым Роберта и его браком."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Robert Baratheon",
+          "ref": "person:robert-baratheon"
+        }
+      ]
+    },
+    {
+      "ref": "person:margaery-tyrell",
+      "kind": "person",
+      "name": "Margaery Tyrell",
+      "nameRu": "Маргери Тирелл",
+      "subtitle": "A Game of Thrones · Eddard VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard VI; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_27",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard VI"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Ренли показывает Нэду её портрет и спрашивает, напоминает ли она Лианну."
+        }
+      ],
+      "links": [
+        {
+          "label": "Renly Baratheon",
+          "ref": "person:renly-baratheon"
+        },
+        {
+          "label": "Loras Tyrell",
+          "ref": "person:loras-tyrell"
+        },
+        {
+          "label": "Lyanna Stark",
+          "ref": "person:lyanna-stark"
+        }
+      ]
+    },
+    {
+      "ref": "person:roose-bolton",
+      "kind": "person",
+      "name": "Roose Bolton",
+      "nameRu": "Русе Болтон",
+      "subtitle": "A Game of Thrones · Eddard VIII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard VIII; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_33",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard VIII"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Назван среди лордов Севера в обсуждении решения двора относительно Дейенерис."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        }
+      ]
+    },
+    {
+      "ref": "person:rhaego",
+      "kind": "person",
+      "name": "Rhaego",
+      "nameRu": "Рейго",
+      "subtitle": "A Game of Thrones · Eddard VIII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard VIII; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_33",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard VIII"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Ещё не родившийся ребёнок Дейенерис упомянут в разговоре о тревоге двора из-за её беременности."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Drogo",
+          "ref": "person:drogo"
+        }
+      ]
+    },
+    {
+      "ref": "person:rhaegar-targaryen",
+      "kind": "person",
+      "name": "Rhaegar Targaryen",
+      "nameRu": "Рейегар Таргариен",
+      "subtitle": "A Game of Thrones · Eddard VIII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard VIII; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_33",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard VIII"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Покойный принц вспоминается во время спора Неда и Роберта о Таргариенах."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Robert Baratheon",
+          "ref": "person:robert-baratheon"
+        }
+      ]
+    },
+    {
+      "ref": "person:aerys-ii-targaryen",
+      "kind": "person",
+      "name": "Aerys II Targaryen",
+      "nameRu": "Эйрис II Таргариен",
+      "subtitle": "A Game of Thrones · Eddard VIII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard VIII; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_33",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard VIII"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Прежний король назван в рассуждениях о доме Таргариенов и его свержении."
+        }
+      ],
+      "links": [
+        {
+          "label": "Rhaegar Targaryen",
+          "ref": "person:rhaegar-targaryen"
+        }
+      ]
+    },
+    {
+      "ref": "person:chataya",
+      "kind": "person",
+      "name": "Chataya",
+      "nameRu": "Чатая",
+      "subtitle": "A Game of Thrones · Eddard IX",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard IX; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_35",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard IX"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Владелица борделя, где Нед встречает одну из дочерей Роберта."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "person:barra",
+      "kind": "person",
+      "name": "Barra",
+      "nameRu": "Барра",
+      "subtitle": "A Game of Thrones · Eddard IX",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard IX; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_35",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard IX"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Младенец, которого Нед навещает в борделе Чатаи; его происхождение обсуждается в сцене."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robert Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "Chataya",
+          "ref": "person:chataya"
+        }
+      ]
+    },
+    {
+      "ref": "person:heward",
+      "kind": "person",
+      "name": "Heward",
+      "nameRu": "Хьюард",
+      "subtitle": "A Game of Thrones · Eddard IX",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard IX; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_35",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard IX"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Стражник Неда сопровождает его в Королевской Гавани и погибает во время нападения на отряд."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Jory Cassel",
+          "ref": "person:jory-cassel"
+        }
+      ]
+    },
+    {
+      "ref": "person:wyl",
+      "kind": "person",
+      "name": "Wyl",
+      "nameRu": "Уил",
+      "subtitle": "A Game of Thrones · Eddard IX",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard IX; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_35",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard IX"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Стражник Неда, погибший во время нападения на его отряд."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Jory Cassel",
+          "ref": "person:jory-cassel"
+        }
+      ]
+    },
+    {
+      "ref": "person:tregar",
+      "kind": "person",
+      "name": "Tregar",
+      "nameRu": "Трегар",
+      "subtitle": "A Game of Thrones · Eddard IX",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard IX; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_35",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard IX"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Назван среди участников сцены в Королевской Гавани; дополнительная биография в этом локаторе не подтверждена."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "person:edric-storm",
+      "kind": "person",
+      "name": "Edric Storm",
+      "nameRu": "Эдрик Шторм",
+      "subtitle": "A Game of Thrones · Eddard IX",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard IX; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_35",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard IX"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Признанный бастард Роберта упомянут в разговоре о детях короля."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robert Baratheon",
+          "ref": "person:robert-baratheon"
+        }
+      ]
+    },
+    {
+      "ref": "person:delena-florent",
+      "kind": "person",
+      "name": "Delena Florent",
+      "nameRu": "Делена Флорент",
+      "subtitle": "A Game of Thrones · Eddard IX",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard IX; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_35",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard IX"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Упоминается в связи с родословной Эдрика Шторма."
+        }
+      ],
+      "links": [
+        {
+          "label": "Edric Storm",
+          "ref": "person:edric-storm"
+        }
+      ]
+    },
+    {
+      "ref": "person:selyse-florent",
+      "kind": "person",
+      "name": "Selyse Florent",
+      "nameRu": "Селиса Флорент",
+      "subtitle": "A Game of Thrones · Eddard IX",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard IX; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_35",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard IX"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Названа среди членов семьи, упоминаемых в разговоре о родственных связях и бастардах Роберта."
+        }
+      ],
+      "links": [
+        {
+          "label": "Stannis Baratheon",
+          "ref": "person:stannis-baratheon"
+        }
+      ]
+    }
+  ]
+}

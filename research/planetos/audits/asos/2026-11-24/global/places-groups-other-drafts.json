@@ -1,0 +1,1803 @@
+{
+  "format": "cockpit.entity-layer-draft-set/1",
+  "packageSnapshot": "2026.11.24.39",
+  "sourcePolicy": {
+    "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summaries; primary-edition verification pending.",
+    "status": "secondary-indexed-partial",
+    "primaryVerification": "pending",
+    "coordinateAndAbsoluteDatePolicy": "omitted; no coordinates or absolute dates added.",
+    "scope": "Missing P1 places in ASOS chapters 0–20, 21–40 and 61–81. Chapter locators preserve scene relation; place subtype separately distinguishes routes and vessels."
+  },
+  "selectionSummary": {
+    "placeCards": 25,
+    "organizationCards": 0,
+    "rangeCardCounts": {
+      "0-20": 11,
+      "21-40": 6,
+      "61-81": 8
+    },
+    "newOrganizationReason": "Global reconciliation classifies organizations in these ranges as P2, already present, alias-review, broad collective, historical/reference-only, or not a durable organization; none met the requested P0/P1 threshold."
+  },
+  "payloads": [
+    {
+      "format": "cockpit.entity-layer/1",
+      "kind": "place",
+      "entities": [
+        {
+          "ref": "place:milkwater",
+          "kind": "place",
+          "name": "Milkwater",
+          "nameRu": "Милкуотер",
+          "subtitle": "A Storm of Swords · Prologue (Chapter 0); Jon I (Chapter 7); Jon II (Chapter 15)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "placeType": "river",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Prologue (Chapter 0); Jon I (Chapter 7); Jon II (Chapter 15); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Prologue",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 0,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Подтип места",
+              "value": "river"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Связь с главой",
+              "value": "сцена / место действия; классификация вторичная"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Prologue (Chapter 0); Jon I (Chapter 7); Jon II (Chapter 15)"
+            },
+            {
+              "label": "Статус проверки",
+              "value": "secondary-indexed-partial; сверка с выбранным изданием романа ожидает выполнения."
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Река, отмеченная как место действия пролога и двух глав Джона. В карточке сохранены три отдельные локализации сцены."
+            }
+          ],
+          "links": [],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 0,
+              "chapterTitle": "Prologue",
+              "relation": "scene",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Prologue"
+            },
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 7,
+              "chapterTitle": "Jon I",
+              "relation": "scene",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_7"
+            },
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 15,
+              "chapterTitle": "Jon II",
+              "relation": "scene",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_15"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          }
+        },
+        {
+          "ref": "place:sept-of-riverrun",
+          "kind": "place",
+          "name": "Sept of Riverrun",
+          "nameRu": "Септ Риверрана",
+          "subtitle": "A Storm of Swords · Catelyn I (Chapter 2)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "placeType": "religious-site",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Catelyn I (Chapter 2); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_2",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 2,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Подтип места",
+              "value": "religious-site"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Связь с главой",
+              "value": "сцена / место действия; классификация вторичная"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Catelyn I (Chapter 2)"
+            },
+            {
+              "label": "Статус проверки",
+              "value": "secondary-indexed-partial; сверка с выбранным изданием романа ожидает выполнения."
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Септ Риверрана, указанный как место сцены главы Катлин I."
+            }
+          ],
+          "links": [],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 2,
+              "chapterTitle": "Catelyn I",
+              "relation": "scene",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_2"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          }
+        },
+        {
+          "ref": "place:onion-rock",
+          "kind": "place",
+          "name": "Onion Rock",
+          "nameRu": "Онион-Рок",
+          "subtitle": "A Storm of Swords · Davos I (Chapter 5)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "placeType": "named-site",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Davos I (Chapter 5); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_5",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 5,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Подтип места",
+              "value": "named-site"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Связь с главой",
+              "value": "сцена / место действия; классификация вторичная"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Davos I (Chapter 5)"
+            },
+            {
+              "label": "Статус проверки",
+              "value": "secondary-indexed-partial; сверка с выбранным изданием романа ожидает выполнения."
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Именованный географический ориентир, выбранный для главы Давоса I; точную форму и положение следует проверить по изданию."
+            }
+          ],
+          "links": [],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 5,
+              "chapterTitle": "Davos I",
+              "relation": "scene",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_5"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "reviewNotes": [
+            "Подтип и точное положение имени оставить предварительными до первичной сверки."
+          ]
+        },
+        {
+          "ref": "place:maidenvault",
+          "kind": "place",
+          "name": "Maidenvault",
+          "nameRu": "Мейденволт",
+          "subtitle": "A Storm of Swords · Sansa I (Chapter 6)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "placeType": "tower",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Sansa I (Chapter 6); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 6,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Подтип места",
+              "value": "tower"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Связь с главой",
+              "value": "сцена / место действия; классификация вторичная"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Sansa I (Chapter 6)"
+            },
+            {
+              "label": "Статус проверки",
+              "value": "secondary-indexed-partial; сверка с выбранным изданием романа ожидает выполнения."
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Башня Красного замка, указанная как место сцены главы Сансы I."
+            }
+          ],
+          "links": [
+            {
+              "label": "Red Keep",
+              "ref": "place:red-keep"
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 6,
+              "chapterTitle": "Sansa I",
+              "relation": "scene",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          }
+        },
+        {
+          "ref": "place:summer-sea",
+          "kind": "place",
+          "name": "Summer Sea",
+          "nameRu": "Летнее море",
+          "subtitle": "A Storm of Swords · Daenerys I (Chapter 8)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "placeType": "sea",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Daenerys I (Chapter 8); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_8",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 8,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Подтип места",
+              "value": "sea"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Связь с главой",
+              "value": "сцена / место действия; классификация вторичная"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Daenerys I (Chapter 8)"
+            },
+            {
+              "label": "Статус проверки",
+              "value": "secondary-indexed-partial; сверка с выбранным изданием романа ожидает выполнения."
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Морской регион, обозначенный в заголовке сцены главы Дейенерис I."
+            }
+          ],
+          "links": [],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 8,
+              "chapterTitle": "Daenerys I",
+              "relation": "scene",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_8"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          }
+        },
+        {
+          "ref": "place:balerion",
+          "kind": "place",
+          "name": "Balerion",
+          "nameRu": "Балерион",
+          "subtitle": "A Storm of Swords · Daenerys I (Chapter 8)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "placeType": "vessel",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Daenerys I (Chapter 8); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_8",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 8,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Подтип места",
+              "value": "vessel"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Связь с главой",
+              "value": "сцена / место действия; классификация вторичная"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Daenerys I (Chapter 8)"
+            },
+            {
+              "label": "Статус проверки",
+              "value": "secondary-indexed-partial; сверка с выбранным изданием романа ожидает выполнения."
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Корабль, указанный в заголовке сцены главы Дейенерис I на Летнем море; это отдельная сущность типа «судно», не персонаж-кот с таким же именем."
+            }
+          ],
+          "links": [
+            {
+              "label": "Summer Sea",
+              "ref": "place:summer-sea"
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 8,
+              "chapterTitle": "Daenerys I",
+              "relation": "scene",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_8"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "reviewNotes": [
+            "Не объединять с person:balerion-the-cat: различаются виды сущности (судно и персонаж)."
+          ]
+        },
+        {
+          "ref": "place:tumbledown-tower",
+          "kind": "place",
+          "name": "Tumbledown Tower",
+          "nameRu": "Покосившаяся башня",
+          "subtitle": "A Storm of Swords · Bran I (Chapter 9)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "placeType": "tower",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Bran I (Chapter 9); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_9",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 9,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Подтип места",
+              "value": "tower"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Связь с главой",
+              "value": "сцена / место действия; классификация вторичная"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Bran I (Chapter 9)"
+            },
+            {
+              "label": "Статус проверки",
+              "value": "secondary-indexed-partial; сверка с выбранным изданием романа ожидает выполнения."
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Именованная башня, указанная как место сцены главы Брана I."
+            }
+          ],
+          "links": [],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 9,
+              "chapterTitle": "Bran I",
+              "relation": "scene",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_9"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          }
+        },
+        {
+          "ref": "place:shayalas-dance",
+          "kind": "place",
+          "name": "Shayala’s Dance",
+          "nameRu": "Танец Шаялы",
+          "subtitle": "A Storm of Swords · Davos II (Chapter 10)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "placeType": "vessel",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Davos II (Chapter 10); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_10",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 10,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Подтип места",
+              "value": "vessel"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Связь с главой",
+              "value": "сцена / место действия; классификация вторичная"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Davos II (Chapter 10)"
+            },
+            {
+              "label": "Статус проверки",
+              "value": "secondary-indexed-partial; сверка с выбранным изданием романа ожидает выполнения."
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Судно, на котором разворачивается сцена главы Давоса II в районе Черноводного залива и Драконьего Камня."
+            }
+          ],
+          "links": [
+            {
+              "label": "Blackwater Bay",
+              "ref": "place:blackwater-bay"
+            },
+            {
+              "label": "Dragonstone",
+              "ref": "place:dragonstone"
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 10,
+              "chapterTitle": "Davos II",
+              "relation": "scene",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_10"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          }
+        },
+        {
+          "ref": "place:aegons-garden",
+          "kind": "place",
+          "name": "Aegon’s Garden",
+          "nameRu": "Сад Эйгона",
+          "subtitle": "A Storm of Swords · Davos II (Chapter 10)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "placeType": "garden",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Davos II (Chapter 10); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_10",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 10,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Подтип места",
+              "value": "garden"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Связь с главой",
+              "value": "сцена / место действия; классификация вторичная"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Davos II (Chapter 10)"
+            },
+            {
+              "label": "Статус проверки",
+              "value": "secondary-indexed-partial; сверка с выбранным изданием романа ожидает выполнения."
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Сад Драконьего Камня, выделенный в описании сцены главы Давоса II."
+            }
+          ],
+          "links": [
+            {
+              "label": "Dragonstone",
+              "ref": "place:dragonstone"
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 10,
+              "chapterTitle": "Davos II",
+              "relation": "scene",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_10"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          }
+        },
+        {
+          "ref": "place:inn-of-the-kneeling-man",
+          "kind": "place",
+          "name": "Inn of the Kneeling Man",
+          "nameRu": "Постоялый двор Коленопреклонённого",
+          "subtitle": "A Storm of Swords · Jaime II (Chapter 11); Arya II (Chapter 13)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "placeType": "inn",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Jaime II (Chapter 11); Arya II (Chapter 13); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_11",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 11,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Подтип места",
+              "value": "inn"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Связь с главой",
+              "value": "сцена / место действия; классификация вторичная"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Jaime II (Chapter 11); Arya II (Chapter 13)"
+            },
+            {
+              "label": "Статус проверки",
+              "value": "secondary-indexed-partial; сверка с выбранным изданием романа ожидает выполнения."
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Именованный постоялый двор, отмеченный как место сцен глав Джейме II и Арьи II."
+            }
+          ],
+          "links": [],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 11,
+              "chapterTitle": "Jaime II",
+              "relation": "scene",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_11"
+            },
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 13,
+              "chapterTitle": "Arya II",
+              "relation": "scene",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_13"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          }
+        },
+        {
+          "ref": "place:river-road",
+          "kind": "place",
+          "name": "River road",
+          "nameRu": "Речная дорога",
+          "subtitle": "A Storm of Swords · Arya II (Chapter 13)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "placeType": "route",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Arya II (Chapter 13); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_13",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 13,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Подтип места",
+              "value": "route"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Связь с главой",
+              "value": "сцена / место действия; классификация вторичная"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Arya II (Chapter 13)"
+            },
+            {
+              "label": "Статус проверки",
+              "value": "secondary-indexed-partial; сверка с выбранным изданием романа ожидает выполнения."
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Дорожный маршрут, указанный в сценическом контексте главы Арьи II; тип сущности — маршрут, локатор главы остаётся scene."
+            }
+          ],
+          "links": [],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 13,
+              "chapterTitle": "Arya II",
+              "relation": "scene",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_13"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          }
+        },
+        {
+          "ref": "place:maidenpool",
+          "kind": "place",
+          "name": "Maidenpool",
+          "nameRu": "Мейденпул",
+          "subtitle": "A Storm of Swords · Jaime III (Chapter 21)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "placeType": "settlement",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Jaime III (Chapter 21); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_21",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 21,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Подтип места",
+              "value": "settlement"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Связь с главой",
+              "value": "сцена / место действия; классификация вторичная"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Jaime III (Chapter 21)"
+            },
+            {
+              "label": "Статус проверки",
+              "value": "secondary-indexed-partial; сверка с выбранным изданием романа ожидает выполнения."
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Поселение, указанное как место сцены главы Джейме III."
+            }
+          ],
+          "links": [],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 21,
+              "chapterTitle": "Jaime III",
+              "relation": "scene",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_21"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          }
+        },
+        {
+          "ref": "place:duskendale-road",
+          "kind": "place",
+          "name": "Duskendale road",
+          "nameRu": "Дорога на Даскендейл",
+          "subtitle": "A Storm of Swords · Jaime III (Chapter 21)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "placeType": "route",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Jaime III (Chapter 21); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_21",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 21,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Подтип места",
+              "value": "route"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Связь с главой",
+              "value": "сцена / место действия; классификация вторичная"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Jaime III (Chapter 21)"
+            },
+            {
+              "label": "Статус проверки",
+              "value": "secondary-indexed-partial; сверка с выбранным изданием романа ожидает выполнения."
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Дорога к Даскендейлу, указанная как место сцены главы Джейме III; направление не кодируется как отдельное событие."
+            }
+          ],
+          "links": [],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 21,
+              "chapterTitle": "Jaime III",
+              "relation": "scene",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_21"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          }
+        },
+        {
+          "ref": "place:acorn-hall",
+          "kind": "place",
+          "name": "Acorn Hall",
+          "nameRu": "Эйкорн-Холл",
+          "subtitle": "A Storm of Swords · Arya IV (Chapter 22)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "placeType": "hall-and-seat",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Arya IV (Chapter 22); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_22",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 22,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Подтип места",
+              "value": "hall-and-seat"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Связь с главой",
+              "value": "сцена / место действия; классификация вторичная"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Arya IV (Chapter 22)"
+            },
+            {
+              "label": "Статус проверки",
+              "value": "secondary-indexed-partial; сверка с выбранным изданием романа ожидает выполнения."
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Зал и резиденция, указанные для сцены главы Арьи IV."
+            }
+          ],
+          "links": [],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 22,
+              "chapterTitle": "Arya IV",
+              "relation": "scene",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_22"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          }
+        },
+        {
+          "ref": "place:stoney-sept",
+          "kind": "place",
+          "name": "Stoney Sept",
+          "nameRu": "Стоуни-Септ",
+          "subtitle": "A Storm of Swords · Arya V (Chapter 29)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "placeType": "settlement",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Arya V (Chapter 29); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_29",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 29,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Подтип места",
+              "value": "settlement"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Связь с главой",
+              "value": "сцена / место действия; классификация вторичная"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Arya V (Chapter 29)"
+            },
+            {
+              "label": "Статус проверки",
+              "value": "secondary-indexed-partial; сверка с выбранным изданием романа ожидает выполнения."
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Поселение, указанное как место сцены главы Арьи V."
+            }
+          ],
+          "links": [],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 29,
+              "chapterTitle": "Arya V",
+              "relation": "scene",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_29"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          }
+        },
+        {
+          "ref": "place:greyguard",
+          "kind": "place",
+          "name": "Greyguard",
+          "nameRu": "Грейгард",
+          "subtitle": "A Storm of Swords · Jon IV (Chapter 30)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "placeType": "castle",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Jon IV (Chapter 30); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_30",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 30,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Подтип места",
+              "value": "castle"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Связь с главой",
+              "value": "сцена / место действия; классификация вторичная"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Jon IV (Chapter 30)"
+            },
+            {
+              "label": "Статус проверки",
+              "value": "secondary-indexed-partial; сверка с выбранным изданием романа ожидает выполнения."
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Замок на Стене, обозначенный как место сцены главы Джона IV."
+            }
+          ],
+          "links": [
+            {
+              "label": "The Wall",
+              "ref": "place:the-wall"
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 30,
+              "chapterTitle": "Jon IV",
+              "relation": "scene",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_30"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          }
+        },
+        {
+          "ref": "place:hollow-hill",
+          "kind": "place",
+          "name": "hollow hill",
+          "nameRu": "Холлоу-Хилл",
+          "subtitle": "A Storm of Swords · Arya VI (Chapter 34)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "placeType": "named-site",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Arya VI (Chapter 34); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_34",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 34,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Подтип места",
+              "value": "named-site"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Связь с главой",
+              "value": "сцена / место действия; классификация вторичная"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Arya VI (Chapter 34)"
+            },
+            {
+              "label": "Статус проверки",
+              "value": "secondary-indexed-partial; сверка с выбранным изданием романа ожидает выполнения."
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Именованное место сцены главы Арьи VI; точный подтип локации стоит уточнить по выбранному изданию."
+            }
+          ],
+          "links": [],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 34,
+              "chapterTitle": "Arya VI",
+              "relation": "scene",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_34"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "reviewNotes": [
+            "Подтип и точное положение имени оставить предварительными до первичной сверки."
+          ]
+        },
+        {
+          "ref": "place:merling-king",
+          "kind": "place",
+          "name": "Merling King",
+          "nameRu": "Король-Русал",
+          "subtitle": "A Storm of Swords · Sansa V (Chapter 61)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "placeType": "vessel",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Sansa V (Chapter 61); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_61",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 61,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Подтип места",
+              "value": "vessel"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Связь с главой",
+              "value": "сцена / место действия; классификация вторичная"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Sansa V (Chapter 61)"
+            },
+            {
+              "label": "Статус проверки",
+              "value": "secondary-indexed-partial; сверка с выбранным изданием романа ожидает выполнения."
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Судно, указанное для сцены главы Сансы V."
+            }
+          ],
+          "links": [],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 61,
+              "chapterTitle": "Sansa V",
+              "relation": "scene",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_61"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          }
+        },
+        {
+          "ref": "place:castle-sept",
+          "kind": "place",
+          "name": "Castle sept",
+          "nameRu": "Замковый септ",
+          "subtitle": "A Storm of Swords · Jaime VII (Chapter 62)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "placeType": "religious-site",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Jaime VII (Chapter 62); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_62",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 62,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Подтип места",
+              "value": "religious-site"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Связь с главой",
+              "value": "сцена / место действия; классификация вторичная"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Jaime VII (Chapter 62)"
+            },
+            {
+              "label": "Статус проверки",
+              "value": "secondary-indexed-partial; сверка с выбранным изданием романа ожидает выполнения."
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Септ в Красном замке, связанный со сценой Джейме VII; индекс главы также называет эту внутреннюю локацию Royal sept."
+            }
+          ],
+          "links": [
+            {
+              "label": "Red Keep",
+              "ref": "place:red-keep"
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 62,
+              "chapterTitle": "Jaime VII",
+              "relation": "scene",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_62"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "reviewNotes": [
+            "AWOIAF использует в синопсисе Castle sept и отдельно перечисляет Royal sept под Red Keep; сверить, что это одна локация."
+          ]
+        },
+        {
+          "ref": "place:white-sword-tower",
+          "kind": "place",
+          "name": "White Sword Tower",
+          "nameRu": "Башня Белого Меча",
+          "subtitle": "A Storm of Swords · Jaime VIII (Chapter 67); Jaime IX (Chapter 72)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "placeType": "tower",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Jaime VIII (Chapter 67); Jaime IX (Chapter 72); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_67",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 67,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Подтип места",
+              "value": "tower"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Связь с главой",
+              "value": "сцена / место действия; классификация вторичная"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Jaime VIII (Chapter 67); Jaime IX (Chapter 72)"
+            },
+            {
+              "label": "Статус проверки",
+              "value": "secondary-indexed-partial; сверка с выбранным изданием романа ожидает выполнения."
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Башня в составе Красного замка, отмеченная в локаторах глав Джейме VIII–IX; требуется проверить точность комнатной локализации."
+            }
+          ],
+          "links": [
+            {
+              "label": "Red Keep",
+              "ref": "place:red-keep"
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 67,
+              "chapterTitle": "Jaime VIII",
+              "relation": "scene",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_67"
+            },
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 72,
+              "chapterTitle": "Jaime IX",
+              "relation": "scene",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_72"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "reviewNotes": [
+            "Проверить по роману, происходит ли сцена именно в башне, а не в её внутреннем помещении."
+          ]
+        },
+        {
+          "ref": "place:saltpans",
+          "kind": "place",
+          "name": "Saltpans",
+          "nameRu": "Солтпенс",
+          "subtitle": "A Storm of Swords · Arya XIII (Chapter 74)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "placeType": "settlement",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Arya XIII (Chapter 74); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_74",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 74,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Подтип места",
+              "value": "settlement"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Связь с главой",
+              "value": "сцена / место действия; классификация вторичная"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Arya XIII (Chapter 74)"
+            },
+            {
+              "label": "Статус проверки",
+              "value": "secondary-indexed-partial; сверка с выбранным изданием романа ожидает выполнения."
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Поселение, указанное как место сцены главы Арьи XIII."
+            }
+          ],
+          "links": [],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 74,
+              "chapterTitle": "Arya XIII",
+              "relation": "scene",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_74"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          }
+        },
+        {
+          "ref": "place:titans-daughter",
+          "kind": "place",
+          "name": "Titan’s Daughter",
+          "nameRu": "Дочь Титана",
+          "subtitle": "A Storm of Swords · Arya XIII (Chapter 74)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "placeType": "vessel",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Arya XIII (Chapter 74); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_74",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 74,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Подтип места",
+              "value": "vessel"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Связь с главой",
+              "value": "сцена / место действия; классификация вторичная"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Arya XIII (Chapter 74)"
+            },
+            {
+              "label": "Статус проверки",
+              "value": "secondary-indexed-partial; сверка с выбранным изданием романа ожидает выполнения."
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Судно, указанное как место сцены главы Арьи XIII."
+            }
+          ],
+          "links": [],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 74,
+              "chapterTitle": "Arya XIII",
+              "relation": "scene",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_74"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          }
+        },
+        {
+          "ref": "place:godswood-of-the-eyrie",
+          "kind": "place",
+          "name": "Godswood of the Eyrie",
+          "nameRu": "Божья роща Орлиного Гнезда",
+          "subtitle": "A Storm of Swords · Sansa VII (Chapter 80)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "placeType": "grove",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Sansa VII (Chapter 80); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_80",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 80,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Подтип места",
+              "value": "grove"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Связь с главой",
+              "value": "сцена / место действия; классификация вторичная"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Sansa VII (Chapter 80)"
+            },
+            {
+              "label": "Статус проверки",
+              "value": "secondary-indexed-partial; сверка с выбранным изданием романа ожидает выполнения."
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Божья роща замка Орлиное Гнездо, отдельная от общей карточки замка и указанная для сцены Сансы VII."
+            }
+          ],
+          "links": [
+            {
+              "label": "The Eyrie",
+              "ref": "place:the-eyrie"
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 80,
+              "chapterTitle": "Sansa VII",
+              "relation": "scene",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_80"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          }
+        },
+        {
+          "ref": "place:kings-tower-at-castle-black",
+          "kind": "place",
+          "name": "King’s Tower at Castle Black",
+          "nameRu": "Королевская башня Чёрного замка",
+          "subtitle": "A Storm of Swords · Jon XI (Chapter 76)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "placeType": "tower",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Jon XI (Chapter 76); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_76",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 76,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Подтип места",
+              "value": "tower"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Связь с главой",
+              "value": "сцена / место действия; классификация вторичная"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Jon XI (Chapter 76)"
+            },
+            {
+              "label": "Статус проверки",
+              "value": "secondary-indexed-partial; сверка с выбранным изданием романа ожидает выполнения."
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Башня Чёрного замка, выделенная как место сцены главы Джона XI."
+            }
+          ],
+          "links": [
+            {
+              "label": "Castle Black",
+              "ref": "place:castle-black"
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 76,
+              "chapterTitle": "Jon XI",
+              "relation": "scene",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_76"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          }
+        },
+        {
+          "ref": "place:tomb-of-king-tristifer-iv-mudd",
+          "kind": "place",
+          "name": "Tomb of King Tristifer IV Mudd",
+          "nameRu": "Гробница Тристайна IV Мадда",
+          "subtitle": "A Storm of Swords · Epilogue (Chapter 81)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "placeType": "tomb",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Epilogue (Chapter 81); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Epilogue",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 81,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Подтип места",
+              "value": "tomb"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Связь с главой",
+              "value": "сцена / место действия; классификация вторичная"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Epilogue (Chapter 81)"
+            },
+            {
+              "label": "Статус проверки",
+              "value": "secondary-indexed-partial; сверка с выбранным изданием романа ожидает выполнения."
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Гробница короля Тристайна IV Мадда, указанная для сцены эпилога; связана с Олдстоунсом."
+            }
+          ],
+          "links": [
+            {
+              "label": "Oldstones",
+              "ref": "place:oldstones"
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 81,
+              "chapterTitle": "Epilogue",
+              "relation": "scene",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Epilogue"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          }
+        }
+      ]
+    },
+    {
+      "format": "cockpit.entity-layer/1",
+      "kind": "organization",
+      "entities": []
+    }
+  ],
+  "excludedOrDeferredRefs": [
+    {
+      "ref": "organization:house-karstark",
+      "decision": "defer",
+      "reason": "P2 in global reconciliation; important named house, below P0/P1 cutoff."
+    },
+    {
+      "ref": "organization:queens-men",
+      "decision": "defer",
+      "reason": "P2; named faction but durable organization status not established."
+    },
+    {
+      "ref": "organization:kingswood-brotherhood",
+      "decision": "defer",
+      "reason": "P2; historical/song reference in audited range."
+    },
+    {
+      "ref": "organization:salladhor-saans-fleet",
+      "decision": "defer",
+      "reason": "P2; reference-only fleet locators."
+    },
+    {
+      "ref": "organization:bloody-mummers",
+      "decision": "alias-review",
+      "reason": "Probable overlap with Brave Companions; do not create a separate card before primary-text verification."
+    },
+    {
+      "ref": "organization:gold-cloaks",
+      "decision": "alias-review",
+      "reason": "Likely naming variant of the existing City Watch of King’s Landing."
+    },
+    {
+      "ref": "place:wall",
+      "decision": "exclude-duplicate",
+      "reason": "Alias of existing place:the-wall."
+    },
+    {
+      "ref": "place:eyrie",
+      "decision": "exclude-duplicate",
+      "reason": "Existing place:the-eyrie."
+    },
+    {
+      "ref": "place:moon-door",
+      "decision": "exclude-duplicate",
+      "reason": "Existing place:moon-door-of-the-eyrie."
+    },
+    {
+      "ref": "place:high-heart",
+      "decision": "exclude-existing",
+      "reason": "Present in package .39."
+    },
+    {
+      "ref": "place:queenscrown",
+      "decision": "exclude-existing",
+      "reason": "Present in package .39."
+    },
+    {
+      "ref": "place:oldstones",
+      "decision": "exclude-existing",
+      "reason": "Present in package .39; tomb is a distinct nested candidate."
+    },
+    {
+      "ref": "place:nightfort",
+      "decision": "exclude-existing",
+      "reason": "Present in package .39."
+    },
+    {
+      "ref": "place:black-gate",
+      "decision": "exclude-existing",
+      "reason": "Present in package .39."
+    }
+  ]
+}

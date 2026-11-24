@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="297mm" viewBox="0 0 210 297" role="img">
+<title>БА17 — лист 1, основание временного прибора</title>
+<desc>Лист A4 в масштабе 1:1. Вырезать панель 190 на 145 миллиметров. Два циферблата используют вращающиеся бумажные указатели.</desc>
+<style>text{font-family:Georgia,"Times New Roman",serif}.cut{stroke:#8c6337;stroke-dasharray:1.5 1.2}.hole{fill:#fffdf7;stroke:#8c6337;stroke-width:.35}.tiny{font-size:2.8px}</style>
+<rect x="0" y="0" width="210" height="297" fill="#fbf8f0"/>
+<text x="10.00" y="15.00" text-anchor="start" font-size="6.00" fill="#4d3548" font-weight="bold" >БА17 · ЛИСТ 1 ИЗ 2 · ОСНОВАНИЕ</text>
+<text x="10.00" y="22.00" text-anchor="start" font-size="3.30" fill="#71685c" font-weight="normal" >Печать A4, масштаб 100%. Перед сборкой измерьте контрольный квадрат 50 × 50 мм.</text>
+<rect x="10.00" y="30.00" width="190.00" height="145.00" stroke="#8c6337" stroke-width="0.70" fill="#fffdf8"/>
+<text x="15.00" y="38.00" text-anchor="start" font-size="4.10" fill="#4d3548" font-weight="bold" >АСТРОЛЯБИЯ · ГОДОВОЙ КРУГ</text>
+<text x="195.00" y="38.00" text-anchor="end" font-size="3.50" fill="#302820" font-weight="normal" >ГОД: __________ DR</text>
+<line x1="15.00" y1="41.00" x2="195.00" y2="41.00" stroke="#8c6337" stroke-width="0.35"/>
+<text x="58.00" y="49.00" text-anchor="middle" font-size="3.10" fill="#71685c" font-weight="normal" >МЕСЯЦ</text>
+<text x="151.00" y="49.00" text-anchor="middle" font-size="3.40" fill="#4d3548" font-weight="bold" >ЧАСЫ ХАРПТОСА · 24 ЧАСА</text>
+<circle cx="58.00" cy="88.00" r="34.00" stroke="#8c6337" stroke-width="0.65" fill="none"/>
+<circle cx="58.00" cy="88.00" r="29.00" stroke="#b9a98d" stroke-width="0.25" fill="none"/>
+<circle cx="58.00" cy="88.00" r="13.00" stroke="#b9a98d" stroke-width="0.25" fill="none"/>
+<line x1="58.00" y1="59.00" x2="58.00" y2="54.20" stroke="#8c6337" stroke-width="0.45"/>
+<text x="58.00" y="64.70" text-anchor="middle" font-size="2.65" fill="#4d3548" font-weight="bold" >HAM</text>
+<line x1="72.50" y1="62.89" x2="74.90" y2="58.73" stroke="#8c6337" stroke-width="0.45"/>
+<text x="70.15" y="67.96" text-anchor="middle" font-size="2.65" fill="#4d3548" font-weight="bold" >ALT</text>
+<line x1="83.11" y1="73.50" x2="87.27" y2="71.10" stroke="#8c6337" stroke-width="0.45"/>
+<text x="79.04" y="76.85" text-anchor="middle" font-size="2.65" fill="#4d3548" font-weight="bold" >CHE</text>
+<line x1="87.00" y1="88.00" x2="91.80" y2="88.00" stroke="#8c6337" stroke-width="0.45"/>
+<text x="82.30" y="89.00" text-anchor="middle" font-size="2.65" fill="#4d3548" font-weight="bold" >TAR</text>
+<line x1="83.11" y1="102.50" x2="87.27" y2="104.90" stroke="#8c6337" stroke-width="0.45"/>
+<text x="79.04" y="101.15" text-anchor="middle" font-size="2.65" fill="#4d3548" font-weight="bold" >MIR</text>
+<line x1="72.50" y1="113.11" x2="74.90" y2="117.27" stroke="#8c6337" stroke-width="0.45"/>
+<text x="70.15" y="110.04" text-anchor="middle" font-size="2.65" fill="#4d3548" font-weight="bold" >KYT</text>
+<line x1="58.00" y1="117.00" x2="58.00" y2="121.80" stroke="#8c6337" stroke-width="0.45"/>
+<text x="58.00" y="113.30" text-anchor="middle" font-size="2.65" fill="#4d3548" font-weight="bold" >FLA</text>
+<line x1="43.50" y1="113.11" x2="41.10" y2="117.27" stroke="#8c6337" stroke-width="0.45"/>
+<text x="45.85" y="110.04" text-anchor="middle" font-size="2.65" fill="#4d3548" font-weight="bold" >EAS</text>
+<line x1="32.89" y1="102.50" x2="28.73" y2="104.90" stroke="#8c6337" stroke-width="0.45"/>
+<text x="36.96" y="101.15" text-anchor="middle" font-size="2.65" fill="#4d3548" font-weight="bold" >EIN</text>
+<line x1="29.00" y1="88.00" x2="24.20" y2="88.00" stroke="#8c6337" stroke-width="0.45"/>
+<text x="33.70" y="89.00" text-anchor="middle" font-size="2.65" fill="#4d3548" font-weight="bold" >MAR</text>
+<line x1="32.89" y1="73.50" x2="28.73" y2="71.10" stroke="#8c6337" stroke-width="0.45"/>
+<text x="36.96" y="76.85" text-anchor="middle" font-size="2.65" fill="#4d3548" font-weight="bold" >UKT</text>
+<line x1="43.50" y1="62.89" x2="41.10" y2="58.73" stroke="#8c6337" stroke-width="0.45"/>
+<text x="45.85" y="67.96" text-anchor="middle" font-size="2.65" fill="#4d3548" font-weight="bold" >NIG</text>
+<circle cx="58.00" cy="88.00" r="1.55" stroke="#302820" stroke-width="0.45" fill="#fbf8f0" class="hole"/>
+<text x="58.00" y="94.00" text-anchor="middle" font-size="2.65" fill="#71685c" font-weight="normal" >УКАЗАТЕЛЬ</text>
+<text x="58.00" y="97.40" text-anchor="middle" font-size="2.65" fill="#71685c" font-weight="normal" >МЕСЯЦА</text>
+<circle cx="151.00" cy="88.00" r="27.00" stroke="#8c6337" stroke-width="0.65" fill="none"/>
+<circle cx="151.00" cy="88.00" r="21.10" stroke="#b9a98d" stroke-width="0.25" fill="none"/>
+<line x1="151.00" y1="65.80" x2="151.00" y2="61.30" stroke="#8c6337" stroke-width="0.42"/>
+<text x="151.00" y="69.95" text-anchor="middle" font-size="2.45" fill="#302820" font-weight="bold" >00</text>
+<line x1="157.26" y1="64.62" x2="157.91" y2="62.21" stroke="#b9a98d" stroke-width="0.22"/>
+<text x="155.89" y="70.59" text-anchor="middle" font-size="2.45" fill="#302820" font-weight="normal" >01</text>
+<line x1="163.10" y1="67.04" x2="164.35" y2="64.88" stroke="#b9a98d" stroke-width="0.22"/>
+<text x="160.45" y="72.48" text-anchor="middle" font-size="2.45" fill="#302820" font-weight="normal" >02</text>
+<line x1="168.11" y1="70.89" x2="169.88" y2="69.12" stroke="#b9a98d" stroke-width="0.22"/>
+<text x="164.36" y="75.49" text-anchor="middle" font-size="2.45" fill="#302820" font-weight="normal" >03</text>
+<line x1="170.23" y1="76.90" x2="174.12" y2="74.65" stroke="#8c6337" stroke-width="0.42"/>
+<text x="167.37" y="79.40" text-anchor="middle" font-size="2.45" fill="#302820" font-weight="bold" >04</text>
+<line x1="174.38" y1="81.74" x2="176.79" y2="81.09" stroke="#b9a98d" stroke-width="0.22"/>
+<text x="169.26" y="83.96" text-anchor="middle" font-size="2.45" fill="#302820" font-weight="normal" >05</text>
+<line x1="175.20" y1="88.00" x2="177.70" y2="88.00" stroke="#b9a98d" stroke-width="0.22"/>
+<text x="169.90" y="88.85" text-anchor="middle" font-size="2.45" fill="#302820" font-weight="normal" >06</text>
+<line x1="174.38" y1="94.26" x2="176.79" y2="94.91" stroke="#b9a98d" stroke-width="0.22"/>
+<text x="169.26" y="93.74" text-anchor="middle" font-size="2.45" fill="#302820" font-weight="normal" >07</text>
+<line x1="170.23" y1="99.10" x2="174.12" y2="101.35" stroke="#8c6337" stroke-width="0.42"/>
+<text x="167.37" y="98.30" text-anchor="middle" font-size="2.45" fill="#302820" font-weight="bold" >08</text>
+<line x1="168.11" y1="105.11" x2="169.88" y2="106.88" stroke="#b9a98d" stroke-width="0.22"/>
+<text x="164.36" y="102.21" text-anchor="middle" font-size="2.45" fill="#302820" font-weight="normal" >09</text>
+<line x1="163.10" y1="108.96" x2="164.35" y2="111.12" stroke="#b9a98d" stroke-width="0.22"/>
+<text x="160.45" y="105.22" text-anchor="middle" font-size="2.45" fill="#302820" font-weight="normal" >10</text>
+<line x1="157.26" y1="111.38" x2="157.91" y2="113.79" stroke="#b9a98d" stroke-width="0.22"/>
+<text x="155.89" y="107.11" text-anchor="middle" font-size="2.45" fill="#302820" font-weight="normal" >11</text>
+<line x1="151.00" y1="110.20" x2="151.00" y2="114.70" stroke="#8c6337" stroke-width="0.42"/>
+<text x="151.00" y="107.75" text-anchor="middle" font-size="2.45" fill="#302820" font-weight="bold" >12</text>
+<line x1="144.74" y1="111.38" x2="144.09" y2="113.79" stroke="#b9a98d" stroke-width="0.22"/>
+<text x="146.11" y="107.11" text-anchor="middle" font-size="2.45" fill="#302820" font-weight="normal" >13</text>
+<line x1="138.90" y1="108.96" x2="137.65" y2="111.12" stroke="#b9a98d" stroke-width="0.22"/>
+<text x="141.55" y="105.22" text-anchor="middle" font-size="2.45" fill="#302820" font-weight="normal" >14</text>
+<line x1="133.89" y1="105.11" x2="132.12" y2="106.88" stroke="#b9a98d" stroke-width="0.22"/>
+<text x="137.64" y="102.21" text-anchor="middle" font-size="2.45" fill="#302820" font-weight="normal" >15</text>
+<line x1="131.77" y1="99.10" x2="127.88" y2="101.35" stroke="#8c6337" stroke-width="0.42"/>
+<text x="134.63" y="98.30" text-anchor="middle" font-size="2.45" fill="#302820" font-weight="bold" >16</text>
+<line x1="127.62" y1="94.26" x2="125.21" y2="94.91" stroke="#b9a98d" stroke-width="0.22"/>
+<text x="132.74" y="93.74" text-anchor="middle" font-size="2.45" fill="#302820" font-weight="normal" >17</text>
+<line x1="126.80" y1="88.00" x2="124.30" y2="88.00" stroke="#b9a98d" stroke-width="0.22"/>
+<text x="132.10" y="88.85" text-anchor="middle" font-size="2.45" fill="#302820" font-weight="normal" >18</text>
+<line x1="127.62" y1="81.74" x2="125.21" y2="81.09" stroke="#b9a98d" stroke-width="0.22"/>
+<text x="132.74" y="83.96" text-anchor="middle" font-size="2.45" fill="#302820" font-weight="normal" >19</text>
+<line x1="131.77" y1="76.90" x2="127.88" y2="74.65" stroke="#8c6337" stroke-width="0.42"/>
+<text x="134.63" y="79.40" text-anchor="middle" font-size="2.45" fill="#302820" font-weight="bold" >20</text>
+<line x1="133.89" y1="70.89" x2="132.12" y2="69.12" stroke="#b9a98d" stroke-width="0.22"/>
+<text x="137.64" y="75.49" text-anchor="middle" font-size="2.45" fill="#302820" font-weight="normal" >21</text>
+<line x1="138.90" y1="67.04" x2="137.65" y2="64.88" stroke="#b9a98d" stroke-width="0.22"/>
+<text x="141.55" y="72.48" text-anchor="middle" font-size="2.45" fill="#302820" font-weight="normal" >22</text>
+<line x1="144.74" y1="64.62" x2="144.09" y2="62.21" stroke="#b9a98d" stroke-width="0.22"/>
+<text x="146.11" y="70.59" text-anchor="middle" font-size="2.45" fill="#302820" font-weight="normal" >23</text>
+<circle cx="151.00" cy="88.00" r="1.55" stroke="#302820" stroke-width="0.45" fill="#fbf8f0" class="hole"/>
+<text x="151.00" y="94.10" text-anchor="middle" font-size="2.55" fill="#71685c" font-weight="normal" >МИНУТЫ</text>
+<line x1="144.00" y1="97.00" x2="158.00" y2="97.00" stroke="#302820" stroke-width="0.28"/>
+<text x="15.00" y="127.00" text-anchor="start" font-size="3.10" fill="#71685c" font-weight="normal" >ДЕНЬ / ПРАЗДНИК:</text>
+<line x1="50.00" y1="127.40" x2="91.00" y2="127.40" stroke="#302820" stroke-width="0.30"/>
+<text x="108.00" y="127.00" text-anchor="start" font-size="2.95" fill="#71685c" font-weight="normal" >ВРЕМЯ: поворот указателя · минуты впишите ниже</text>
+<line x1="15.00" y1="131.00" x2="195.00" y2="131.00" stroke="#b9a98d" stroke-width="0.25"/>
+<text x="15.00" y="137.20" text-anchor="start" font-size="3.00" fill="#302820" font-weight="normal" >01  Hammer</text>
+<text x="15.00" y="142.40" text-anchor="start" font-size="3.00" fill="#302820" font-weight="normal" >02  Alturiak</text>
+<text x="15.00" y="147.60" text-anchor="start" font-size="3.00" fill="#302820" font-weight="normal" >03  Ches</text>
+<text x="15.00" y="152.80" text-anchor="start" font-size="3.00" fill="#302820" font-weight="normal" >04  Tarsakh</text>
+<text x="78.00" y="137.20" text-anchor="start" font-size="3.00" fill="#302820" font-weight="normal" >05  Mirtul</text>
+<text x="78.00" y="142.40" text-anchor="start" font-size="3.00" fill="#302820" font-weight="normal" >06  Kythorn</text>
+<text x="78.00" y="147.60" text-anchor="start" font-size="3.00" fill="#302820" font-weight="normal" >07  Flamerule</text>
+<text x="78.00" y="152.80" text-anchor="start" font-size="3.00" fill="#302820" font-weight="normal" >08  Eleasis</text>
+<text x="141.00" y="137.20" text-anchor="start" font-size="3.00" fill="#302820" font-weight="normal" >09  Eleint</text>
+<text x="141.00" y="142.40" text-anchor="start" font-size="3.00" fill="#302820" font-weight="normal" >10  Marpenoth</text>
+<text x="141.00" y="147.60" text-anchor="start" font-size="3.00" fill="#302820" font-weight="normal" >11  Uktar</text>
+<text x="141.00" y="152.80" text-anchor="start" font-size="3.00" fill="#302820" font-weight="normal" >12  Nightal</text>
+<line x1="15.00" y1="156.00" x2="195.00" y2="156.00" stroke="#b9a98d" stroke-width="0.25"/>
+<text x="15.00" y="161.00" text-anchor="start" font-size="2.70" fill="#4d3548" font-weight="normal" >ДНИ ВНЕ МЕСЯЦЕВ: Midwinter · Greengrass · Midsummer</text>
+<text x="15.00" y="166.00" text-anchor="start" font-size="2.70" fill="#4d3548" font-weight="normal" >Shieldmeet · Highharvestide · Feast of the Moon</text>
+<text x="15.00" y="171.30" text-anchor="start" font-size="2.65" fill="#71685c" font-weight="normal" >* Shieldmeet — используйте только если он есть в календаре выбранного года.</text>
+<text x="10.00" y="190.00" text-anchor="start" font-size="3.20" fill="#71685c" font-weight="normal" >Вырезать по внешней линии; отверстия центров пробить после наклейки на подложку.</text>
+<rect x="145.00" y="207.00" width="50.00" height="50.00" stroke="#8c6337" stroke-width="0.55" fill="none"/>
+<text x="170.00" y="264.00" text-anchor="middle" font-size="3.10" fill="#4d3548" font-weight="bold" >КОНТРОЛЬ 50 × 50 мм</text>
+<text x="10.00" y="283.00" text-anchor="start" font-size="3.00" fill="#71685c" font-weight="normal" >Бумажный макет · без электроники · состояние кампании ведётся отдельно в приложении.</text>
+</svg>

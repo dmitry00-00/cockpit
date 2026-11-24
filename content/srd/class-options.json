@@ -1,0 +1,2031 @@
+{
+  "source": "SRD 5.1 (CC-BY-4.0) via https://www.dnd5eapi.co/api/2014/features",
+  "fetchedAt": "2026-11-21",
+  "classOptions": [
+    {
+      "id": "additional-fighting-style",
+      "name": "Additional Fighting Style",
+      "classId": "fighter",
+      "subclassId": "champion",
+      "level": 10,
+      "choices": {
+        "invocations": [],
+        "subfeature_options": {
+          "choose": 1,
+          "from": {
+            "option_set_type": "options_array",
+            "options": [
+              {
+                "item": {
+                  "index": "fighter-fighting-style-archery",
+                  "name": "Fighting Style: Archery"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "fighter-fighting-style-defense",
+                  "name": "Fighting Style: Defense"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "fighter-fighting-style-dueling",
+                  "name": "Fighting Style: Dueling"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "fighter-fighting-style-great-weapon-fighting",
+                  "name": "Fighting Style: Great Weapon Fighting"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "fighter-fighting-style-protection",
+                  "name": "Fighting Style: Protection"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "fighter-fighting-style-two-weapon-fighting",
+                  "name": "Fighting Style: Two-Weapon Fighting"
+                },
+                "option_type": "reference"
+              }
+            ]
+          },
+          "type": "feature"
+        }
+      }
+    },
+    {
+      "id": "bard-expertise-1",
+      "name": "Expertise",
+      "classId": "bard",
+      "level": 3,
+      "choices": {
+        "expertise_options": {
+          "choose": 2,
+          "from": {
+            "option_set_type": "options_array",
+            "options": [
+              {
+                "item": {
+                  "index": "skill-acrobatics",
+                  "name": "Skill: Acrobatics"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-animal-handling",
+                  "name": "Skill: Animal Handling"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-arcana",
+                  "name": "Skill: Arcana"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-athletics",
+                  "name": "Skill: Athletics"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-deception",
+                  "name": "Skill: Deception"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-history",
+                  "name": "Skill: History"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-insight",
+                  "name": "Skill: Insight"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-intimidation",
+                  "name": "Skill: Intimidation"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-investigation",
+                  "name": "Skill: Investigation"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-medicine",
+                  "name": "Skill: Medicine"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-nature",
+                  "name": "Skill: Nature"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-perception",
+                  "name": "Skill: Perception"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-performance",
+                  "name": "Skill: Performance"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-persuasion",
+                  "name": "Skill: Persuasion"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-religion",
+                  "name": "Skill: Religion"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-sleight-of-hand",
+                  "name": "Skill: Sleight of Hand"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-stealth",
+                  "name": "Skill: Stealth"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-survival",
+                  "name": "Skill: Survival"
+                },
+                "option_type": "reference"
+              }
+            ]
+          },
+          "type": "proficiency"
+        },
+        "invocations": []
+      }
+    },
+    {
+      "id": "bard-expertise-2",
+      "name": "Expertise",
+      "classId": "bard",
+      "level": 10,
+      "choices": {
+        "expertise_options": {
+          "choose": 2,
+          "from": {
+            "option_set_type": "options_array",
+            "options": [
+              {
+                "item": {
+                  "index": "skill-acrobatics",
+                  "name": "Skill: Acrobatics"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-animal-handling",
+                  "name": "Skill: Animal Handling"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-arcana",
+                  "name": "Skill: Arcana"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-athletics",
+                  "name": "Skill: Athletics"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-deception",
+                  "name": "Skill: Deception"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-history",
+                  "name": "Skill: History"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-insight",
+                  "name": "Skill: Insight"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-intimidation",
+                  "name": "Skill: Intimidation"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-investigation",
+                  "name": "Skill: Investigation"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-medicine",
+                  "name": "Skill: Medicine"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-nature",
+                  "name": "Skill: Nature"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-perception",
+                  "name": "Skill: Perception"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-performance",
+                  "name": "Skill: Performance"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-persuasion",
+                  "name": "Skill: Persuasion"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-religion",
+                  "name": "Skill: Religion"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-sleight-of-hand",
+                  "name": "Skill: Sleight of Hand"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-stealth",
+                  "name": "Skill: Stealth"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-survival",
+                  "name": "Skill: Survival"
+                },
+                "option_type": "reference"
+              }
+            ]
+          },
+          "type": "proficiency"
+        },
+        "invocations": []
+      }
+    },
+    {
+      "id": "circle-of-the-land",
+      "name": "Circle of the Land",
+      "classId": "druid",
+      "subclassId": "land",
+      "level": 2,
+      "choices": {
+        "invocations": [],
+        "subfeature_options": {
+          "choose": 1,
+          "from": {
+            "option_set_type": "options_array",
+            "options": [
+              {
+                "item": {
+                  "index": "circle-of-the-land-arctic",
+                  "name": "Circle of the Land: Arctic"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "circle-of-the-land-coast",
+                  "name": "Circle of the Land: Coast"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "circle-of-the-land-desert",
+                  "name": "Circle of the Land: Desert"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "circle-of-the-land-forest",
+                  "name": "Circle of the Land: Forest"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "circle-of-the-land-grassland",
+                  "name": "Circle of the Land: Grassland"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "circle-of-the-land-mountain",
+                  "name": "Circle of the Land: Mountain"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "circle-of-the-land-swamp",
+                  "name": "Circle of the Land: Swamp"
+                },
+                "option_type": "reference"
+              }
+            ]
+          },
+          "type": "feature"
+        }
+      }
+    },
+    {
+      "id": "defensive-tactics",
+      "name": "Defensive Tactics",
+      "classId": "ranger",
+      "subclassId": "hunter",
+      "level": 7,
+      "choices": {
+        "invocations": [],
+        "subfeature_options": {
+          "choose": 1,
+          "from": {
+            "option_set_type": "options_array",
+            "options": [
+              {
+                "item": {
+                  "index": "defensive-tactics-escape-the-horde",
+                  "name": "Defensive Tactics: Escape the Horde"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "defensive-tactics-multiattack-defense",
+                  "name": "Defensive Tactics: Multiattack Defense"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "defensive-tactics-steel-will",
+                  "name": "Defensive Tactics: Steel Will"
+                },
+                "option_type": "reference"
+              }
+            ]
+          },
+          "type": "feature"
+        }
+      }
+    },
+    {
+      "id": "dragon-ancestor",
+      "name": "Dragon Ancestor",
+      "classId": "sorcerer",
+      "subclassId": "draconic",
+      "level": 1,
+      "choices": {
+        "invocations": [],
+        "subfeature_options": {
+          "choose": 1,
+          "from": {
+            "option_set_type": "options_array",
+            "options": [
+              {
+                "item": {
+                  "index": "dragon-ancestor-black---acid-damage",
+                  "name": "Dragon Ancestor: Black - Acid Damage"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "dragon-ancestor-blue---lightning-damage",
+                  "name": "Dragon Ancestor: Blue - Lightning Damage"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "dragon-ancestor-brass---fire-damage",
+                  "name": "Dragon Ancestor: Brass - Fire Damage"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "dragon-ancestor-bronze---lightning-damage",
+                  "name": "Dragon Ancestor: Bronze - Lightning Damage"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "dragon-ancestor-copper---acid-damage",
+                  "name": "Dragon Ancestor: Copper - Acid Damage"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "dragon-ancestor-gold---fire-damage",
+                  "name": "Dragon Ancestor: Gold - Fire Damage"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "dragon-ancestor-green---poison-damage",
+                  "name": "Dragon Ancestor: Green - Poison Damage"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "dragon-ancestor-red---fire-damage",
+                  "name": "Dragon Ancestor: Red - Fire Damage"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "dragon-ancestor-silver---cold-damage",
+                  "name": "Dragon Ancestor: Silver - Cold Damage"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "dragon-ancestor-white---cold-damage",
+                  "name": "Dragon Ancestor: White - Cold Damage"
+                },
+                "option_type": "reference"
+              }
+            ]
+          },
+          "type": "feature"
+        }
+      }
+    },
+    {
+      "id": "eldritch-invocations",
+      "name": "Eldritch Invocations",
+      "classId": "warlock",
+      "level": 2,
+      "choices": {
+        "invocations": [
+          {
+            "index": "eldritch-invocation-agonizing-blast",
+            "name": "Eldritch Invocation: Agonizing Blast",
+            "level": 2,
+            "prerequisites": [
+              {
+                "spell": "/api/2014/spells/eldritch-blast",
+                "type": "spell"
+              }
+            ]
+          },
+          {
+            "index": "eldritch-invocation-armor-of-shadows",
+            "name": "Eldritch Invocation: Armor of Shadows",
+            "level": 2,
+            "prerequisites": []
+          },
+          {
+            "index": "eldritch-invocation-beast-speech",
+            "name": "Eldritch Invocation: Beast Speech",
+            "level": 2,
+            "prerequisites": []
+          },
+          {
+            "index": "eldritch-invocation-beguiling-influence",
+            "name": "Eldritch Invocation: Beguiling Influence",
+            "level": 2,
+            "prerequisites": []
+          },
+          {
+            "index": "eldritch-invocation-book-of-ancient-secrets",
+            "name": "Eldritch Invocation: Book of Ancient Secrets",
+            "level": 2,
+            "prerequisites": [
+              {
+                "feature": "/api/2014/features/pact-of-the-tome",
+                "type": "feature"
+              }
+            ]
+          },
+          {
+            "index": "eldritch-invocation-devils-sight",
+            "name": "Eldritch Invocation: Devil's Sight",
+            "level": 2,
+            "prerequisites": []
+          },
+          {
+            "index": "eldritch-invocation-eldritch-sight",
+            "name": "Eldritch Invocation: Eldritch Sight",
+            "level": 2,
+            "prerequisites": []
+          },
+          {
+            "index": "eldritch-invocation-eldritch-spear",
+            "name": "Eldritch Invocation: Eldritch Spear",
+            "level": 2,
+            "prerequisites": [
+              {
+                "spell": "/api/2014/spells/eldritch-blast",
+                "type": "spell"
+              }
+            ]
+          },
+          {
+            "index": "eldritch-invocation-eyes-of-the-rune-keeper",
+            "name": "Eldritch Invocation: Eyes of the Rune Keeper",
+            "level": 2,
+            "prerequisites": []
+          },
+          {
+            "index": "eldritch-invocation-fiendish-vigor",
+            "name": "Eldritch Invocation: Fiendish Vigor",
+            "level": 2,
+            "prerequisites": []
+          },
+          {
+            "index": "eldritch-invocation-gaze-of-two-minds",
+            "name": "Eldritch Invocation: Gaze of Two Minds",
+            "level": 2,
+            "prerequisites": []
+          },
+          {
+            "index": "eldritch-invocation-mask-of-many-faces",
+            "name": "Eldritch Invocation: Mask of Many Faces",
+            "level": 2,
+            "prerequisites": []
+          },
+          {
+            "index": "eldritch-invocation-misty-visions",
+            "name": "Eldritch Invocation: Misty Visions",
+            "level": 2,
+            "prerequisites": []
+          },
+          {
+            "index": "eldritch-invocation-repelling-blast",
+            "name": "Eldritch Invocation: Repelling Blast",
+            "level": 2,
+            "prerequisites": [
+              {
+                "spell": "/api/2014/spells/eldritch-blast",
+                "type": "spell"
+              }
+            ]
+          },
+          {
+            "index": "eldritch-invocation-thief-of-five-fates",
+            "name": "Eldritch Invocation: Thief of Five Fates",
+            "level": 2,
+            "prerequisites": []
+          },
+          {
+            "index": "eldritch-invocation-voice-of-the-chain-master",
+            "name": "Eldritch Invocation: Voice of the Chain Master",
+            "level": 2,
+            "prerequisites": [
+              {
+                "feature": "/api/2014/features/pact-of-the-chain",
+                "type": "feature"
+              }
+            ]
+          },
+          {
+            "index": "eldritch-invocation-mire-the-mind",
+            "name": "Eldritch Invocation: Mire the Mind",
+            "level": 5,
+            "prerequisites": [
+              {
+                "level": 5,
+                "type": "level"
+              }
+            ]
+          },
+          {
+            "index": "eldritch-invocation-one-with-shadows",
+            "name": "Eldritch Invocation: One with Shadows",
+            "level": 5,
+            "prerequisites": [
+              {
+                "level": 5,
+                "type": "level"
+              }
+            ]
+          },
+          {
+            "index": "eldritch-invocation-sign-of-ill-omen",
+            "name": "Eldritch Invocation: Sign of Ill Omen",
+            "level": 5,
+            "prerequisites": [
+              {
+                "level": 5,
+                "type": "level"
+              }
+            ]
+          },
+          {
+            "index": "eldritch-invocation-thirsting-blade",
+            "name": "Eldritch Invocation: Thirsting Blade",
+            "level": 5,
+            "prerequisites": [
+              {
+                "level": 5,
+                "type": "level"
+              },
+              {
+                "feature": "/api/2014/features/pact-of-the-blade",
+                "type": "feature"
+              }
+            ]
+          },
+          {
+            "index": "eldritch-invocation-bewitching-whispers",
+            "name": "Eldritch Invocation: Bewitching Whispers",
+            "level": 7,
+            "prerequisites": [
+              {
+                "level": 7,
+                "type": "level"
+              }
+            ]
+          },
+          {
+            "index": "eldritch-invocation-dreadful-word",
+            "name": "Eldritch Invocation: Dreadful Word",
+            "level": 7,
+            "prerequisites": [
+              {
+                "level": 7,
+                "type": "level"
+              }
+            ]
+          },
+          {
+            "index": "eldritch-invocation-sculptor-of-flesh",
+            "name": "Eldritch Invocation: Sculptor of Flesh",
+            "level": 7,
+            "prerequisites": [
+              {
+                "level": 7,
+                "type": "level"
+              }
+            ]
+          },
+          {
+            "index": "eldritch-invocation-ascendant-step",
+            "name": "Eldritch Invocation: Ascendant Step",
+            "level": 9,
+            "prerequisites": [
+              {
+                "level": 9,
+                "type": "level"
+              }
+            ]
+          },
+          {
+            "index": "eldritch-invocation-minions-of-chaos",
+            "name": "Eldritch Invocation: Minions of Chaos",
+            "level": 9,
+            "prerequisites": [
+              {
+                "level": 9,
+                "type": "level"
+              }
+            ]
+          },
+          {
+            "index": "eldritch-invocation-otherworldly-leap",
+            "name": "Eldritch Invocation: Otherworldly Leap",
+            "level": 9,
+            "prerequisites": [
+              {
+                "level": 9,
+                "type": "level"
+              }
+            ]
+          },
+          {
+            "index": "eldritch-invocation-whispers-of-the-grave",
+            "name": "Eldritch Invocation: Whispers of the Grave",
+            "level": 9,
+            "prerequisites": [
+              {
+                "level": 9,
+                "type": "level"
+              }
+            ]
+          },
+          {
+            "index": "eldritch-invocation-lifedrinker",
+            "name": "Eldritch Invocation: Lifedrinker",
+            "level": 12,
+            "prerequisites": [
+              {
+                "level": 12,
+                "type": "level"
+              },
+              {
+                "feature": "/api/2014/features/pact-of-the-blade",
+                "type": "feature"
+              }
+            ]
+          },
+          {
+            "index": "eldritch-invocation-chains-of-carceri",
+            "name": "Eldritch Invocation: Chains of Carceri",
+            "level": 15,
+            "prerequisites": [
+              {
+                "level": 15,
+                "type": "level"
+              },
+              {
+                "feature": "/api/2014/features/pact-of-the-chain",
+                "type": "feature"
+              }
+            ]
+          },
+          {
+            "index": "eldritch-invocation-master-of-myriad-forms",
+            "name": "Eldritch Invocation: Master of Myriad Forms",
+            "level": 15,
+            "prerequisites": [
+              {
+                "level": 15,
+                "type": "level"
+              }
+            ]
+          },
+          {
+            "index": "eldritch-invocation-visions-of-distant-realms",
+            "name": "Eldritch Invocation: Visions of Distant Realms",
+            "level": 15,
+            "prerequisites": [
+              {
+                "level": 15,
+                "type": "level"
+              }
+            ]
+          },
+          {
+            "index": "eldritch-invocation-witch-sight",
+            "name": "Eldritch Invocation: Witch Sight",
+            "level": 15,
+            "prerequisites": [
+              {
+                "level": 15,
+                "type": "level"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "favored-enemy-1-type",
+      "name": "Favored Enemy (1 type)",
+      "classId": "ranger",
+      "level": 1,
+      "choices": {
+        "enemy_type_options": {
+          "choose": 1,
+          "desc": "one enemy type",
+          "from": {
+            "option_set_type": "options_array",
+            "options": [
+              "aberrations",
+              "beasts",
+              "celestials",
+              "constructs",
+              "dragons",
+              "elementals",
+              "fey",
+              "fiends",
+              "giants",
+              "monstrosities",
+              "oozes",
+              "plants",
+              "undead",
+              "humanoids"
+            ]
+          },
+          "type": "string"
+        },
+        "invocations": []
+      }
+    },
+    {
+      "id": "favored-enemy-2-types",
+      "name": "Favored Enemy (2 types)",
+      "classId": "ranger",
+      "level": 6,
+      "choices": {
+        "enemy_type_options": {
+          "choose": 1,
+          "desc": "one enemy type",
+          "from": {
+            "option_set_type": "options_array",
+            "options": [
+              "aberrations",
+              "beasts",
+              "celestials",
+              "constructs",
+              "dragons",
+              "elementals",
+              "fey",
+              "fiends",
+              "giants",
+              "monstrosities",
+              "oozes",
+              "plants",
+              "undead",
+              "humanoids"
+            ]
+          },
+          "type": "string"
+        },
+        "invocations": []
+      }
+    },
+    {
+      "id": "favored-enemy-3-enemies",
+      "name": "Favored Enemy (3 enemies)",
+      "classId": "ranger",
+      "level": 14,
+      "choices": {
+        "enemy_type_options": {
+          "choose": 1,
+          "desc": "one enemy type",
+          "from": {
+            "option_set_type": "options_array",
+            "options": [
+              "aberrations",
+              "beasts",
+              "celestials",
+              "constructs",
+              "dragons",
+              "elementals",
+              "fey",
+              "fiends",
+              "giants",
+              "monstrosities",
+              "oozes",
+              "plants",
+              "undead",
+              "humanoids"
+            ]
+          },
+          "type": "string"
+        },
+        "invocations": []
+      }
+    },
+    {
+      "id": "fighter-fighting-style",
+      "name": "Fighting Style",
+      "classId": "fighter",
+      "level": 1,
+      "choices": {
+        "invocations": [],
+        "subfeature_options": {
+          "choose": 1,
+          "from": {
+            "option_set_type": "options_array",
+            "options": [
+              {
+                "item": {
+                  "index": "fighter-fighting-style-archery",
+                  "name": "Fighting Style: Archery"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "fighter-fighting-style-defense",
+                  "name": "Fighting Style: Defense"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "fighter-fighting-style-dueling",
+                  "name": "Fighting Style: Dueling"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "fighter-fighting-style-great-weapon-fighting",
+                  "name": "Fighting Style: Great Weapon Fighting"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "fighter-fighting-style-protection",
+                  "name": "Fighting Style: Protection"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "fighter-fighting-style-two-weapon-fighting",
+                  "name": "Fighting Style: Two-Weapon Fighting"
+                },
+                "option_type": "reference"
+              }
+            ]
+          },
+          "type": "feature"
+        }
+      }
+    },
+    {
+      "id": "hunters-prey",
+      "name": "Hunter's Prey",
+      "classId": "ranger",
+      "subclassId": "hunter",
+      "level": 3,
+      "choices": {
+        "invocations": [],
+        "subfeature_options": {
+          "choose": 1,
+          "from": {
+            "option_set_type": "options_array",
+            "options": [
+              {
+                "item": {
+                  "index": "hunters-prey-colossus-slayer",
+                  "name": "Hunter's Prey: Colossus Slayer"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "hunters-prey-giant-killer",
+                  "name": "Hunter's Prey: Giant Killer"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "hunters-prey-horde-breaker",
+                  "name": "Hunter's Prey: Horde Breaker"
+                },
+                "option_type": "reference"
+              }
+            ]
+          },
+          "type": "feature"
+        }
+      }
+    },
+    {
+      "id": "metamagic-1",
+      "name": "Metamagic",
+      "classId": "sorcerer",
+      "level": 3,
+      "choices": {
+        "invocations": [],
+        "subfeature_options": {
+          "choose": 2,
+          "from": {
+            "option_set_type": "options_array",
+            "options": [
+              {
+                "item": {
+                  "index": "metamagic-careful-spell",
+                  "name": "Metamagic: Careful Spell"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "metamagic-distant-spell",
+                  "name": "Metamagic: Distant Spell"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "metamagic-empowered-spell",
+                  "name": "Metamagic: Empowered Spell"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "metamagic-extended-spell",
+                  "name": "Metamagic: Extended Spell"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "metamagic-heightened-spell",
+                  "name": "Metamagic: Heightened Spell"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "metamagic-quickened-spell",
+                  "name": "Metamagic: Quickened Spell"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "metamagic-subtle-spell",
+                  "name": "Metamagic: Subtle Spell"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "metamagic-twinned-spell",
+                  "name": "Metamagic: Twinned Spell"
+                },
+                "option_type": "reference"
+              }
+            ]
+          },
+          "type": "feature"
+        }
+      }
+    },
+    {
+      "id": "metamagic-2",
+      "name": "Metamagic",
+      "classId": "sorcerer",
+      "level": 10,
+      "choices": {
+        "invocations": [],
+        "subfeature_options": {
+          "choose": 1,
+          "from": {
+            "option_set_type": "options_array",
+            "options": [
+              {
+                "item": {
+                  "index": "metamagic-careful-spell",
+                  "name": "Metamagic: Careful Spell"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "metamagic-distant-spell",
+                  "name": "Metamagic: Distant Spell"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "metamagic-empowered-spell",
+                  "name": "Metamagic: Empowered Spell"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "metamagic-extended-spell",
+                  "name": "Metamagic: Extended Spell"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "metamagic-heightened-spell",
+                  "name": "Metamagic: Heightened Spell"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "metamagic-quickened-spell",
+                  "name": "Metamagic: Quickened Spell"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "metamagic-subtle-spell",
+                  "name": "Metamagic: Subtle Spell"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "metamagic-twinned-spell",
+                  "name": "Metamagic: Twinned Spell"
+                },
+                "option_type": "reference"
+              }
+            ]
+          },
+          "type": "feature"
+        }
+      }
+    },
+    {
+      "id": "metamagic-3",
+      "name": "Metamagic",
+      "classId": "sorcerer",
+      "level": 17,
+      "choices": {
+        "invocations": [],
+        "subfeature_options": {
+          "choose": 1,
+          "from": {
+            "option_set_type": "options_array",
+            "options": [
+              {
+                "item": {
+                  "index": "metamagic-careful-spell",
+                  "name": "Metamagic: Careful Spell"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "metamagic-distant-spell",
+                  "name": "Metamagic: Distant Spell"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "metamagic-empowered-spell",
+                  "name": "Metamagic: Empowered Spell"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "metamagic-extended-spell",
+                  "name": "Metamagic: Extended Spell"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "metamagic-heightened-spell",
+                  "name": "Metamagic: Heightened Spell"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "metamagic-quickened-spell",
+                  "name": "Metamagic: Quickened Spell"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "metamagic-subtle-spell",
+                  "name": "Metamagic: Subtle Spell"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "metamagic-twinned-spell",
+                  "name": "Metamagic: Twinned Spell"
+                },
+                "option_type": "reference"
+              }
+            ]
+          },
+          "type": "feature"
+        }
+      }
+    },
+    {
+      "id": "multiattack",
+      "name": "Multiattack",
+      "classId": "ranger",
+      "subclassId": "hunter",
+      "level": 11,
+      "choices": {
+        "invocations": [],
+        "subfeature_options": {
+          "choose": 1,
+          "from": {
+            "option_set_type": "options_array",
+            "options": [
+              {
+                "item": {
+                  "index": "multiattack-volley",
+                  "name": "Multiattack: Volley"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "multiattack-whirlwind-attack",
+                  "name": "Multiattack: Whirlwind Attack"
+                },
+                "option_type": "reference"
+              }
+            ]
+          },
+          "type": "feature"
+        }
+      }
+    },
+    {
+      "id": "natural-explorer-1-terrain-type",
+      "name": "Natural Explorer (1 terrain type)",
+      "classId": "ranger",
+      "level": 1,
+      "choices": {
+        "invocations": [],
+        "terrain_type_options": {
+          "choose": 1,
+          "desc": "one terrain type",
+          "from": {
+            "option_set_type": "options_array",
+            "options": [
+              "arctic",
+              "coast",
+              "desert",
+              "forest",
+              "grassland",
+              "mountain",
+              "swamp"
+            ]
+          },
+          "type": "string"
+        }
+      }
+    },
+    {
+      "id": "natural-explorer-2-terrain-types",
+      "name": "Natural Explorer (2 terrain types)",
+      "classId": "ranger",
+      "level": 6,
+      "choices": {
+        "invocations": [],
+        "terrain_type_options": {
+          "choose": 1,
+          "desc": "one terrain type",
+          "from": {
+            "option_set_type": "options_array",
+            "options": [
+              "arctic",
+              "coast",
+              "desert",
+              "forest",
+              "grassland",
+              "mountain",
+              "swamp"
+            ]
+          },
+          "type": "string"
+        }
+      }
+    },
+    {
+      "id": "natural-explorer-3-terrain-types",
+      "name": "Natural Explorer (3 terrain types)",
+      "classId": "ranger",
+      "level": 10,
+      "choices": {
+        "invocations": [],
+        "terrain_type_options": {
+          "choose": 1,
+          "desc": "one terrain type",
+          "from": {
+            "option_set_type": "options_array",
+            "options": [
+              "arctic",
+              "coast",
+              "desert",
+              "forest",
+              "grassland",
+              "mountain",
+              "swamp"
+            ]
+          },
+          "type": "string"
+        }
+      }
+    },
+    {
+      "id": "pact-boon",
+      "name": "Pact Boon",
+      "classId": "warlock",
+      "level": 3,
+      "choices": {
+        "invocations": [],
+        "subfeature_options": {
+          "choose": 1,
+          "from": {
+            "option_set_type": "options_array",
+            "options": [
+              {
+                "item": {
+                  "index": "pact-of-the-chain",
+                  "name": "Pact of the Chain"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "pact-of-the-blade",
+                  "name": "Pact of the Blade"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "pact-of-the-tome",
+                  "name": "Pact of the Tome"
+                },
+                "option_type": "reference"
+              }
+            ]
+          },
+          "type": "feature"
+        }
+      }
+    },
+    {
+      "id": "paladin-fighting-style",
+      "name": "Fighting Style",
+      "classId": "paladin",
+      "level": 2,
+      "choices": {
+        "invocations": [],
+        "subfeature_options": {
+          "choose": 1,
+          "from": {
+            "option_set_type": "options_array",
+            "options": [
+              {
+                "item": {
+                  "index": "fighting-style-defense",
+                  "name": "Fighting Style: Defense"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "fighting-style-dueling",
+                  "name": "Fighting Style: Dueling"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "fighting-style-great-weapon-fighting",
+                  "name": "Fighting Style: Great Weapon Fighting"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "fighting-style-protection",
+                  "name": "Fighting Style: Protection"
+                },
+                "option_type": "reference"
+              }
+            ]
+          },
+          "type": "feature"
+        }
+      }
+    },
+    {
+      "id": "ranger-fighting-style",
+      "name": "Fighting Style",
+      "classId": "ranger",
+      "level": 2,
+      "choices": {
+        "invocations": [],
+        "subfeature_options": {
+          "choose": 1,
+          "from": {
+            "option_set_type": "options_array",
+            "options": [
+              {
+                "item": {
+                  "index": "ranger-fighting-style-archery",
+                  "name": "Fighting Style: Archery"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "ranger-fighting-style-defense",
+                  "name": "Fighting Style: Defense"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "ranger-fighting-style-dueling",
+                  "name": "Fighting Style: Dueling"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "ranger-fighting-style-two-weapon-fighting",
+                  "name": "Fighting Style: Two-Weapon Fighting"
+                },
+                "option_type": "reference"
+              }
+            ]
+          },
+          "type": "feature"
+        }
+      }
+    },
+    {
+      "id": "rogue-expertise-1",
+      "name": "Expertise",
+      "classId": "rogue",
+      "level": 1,
+      "choices": {
+        "expertise_options": {
+          "choose": 1,
+          "from": {
+            "option_set_type": "options_array",
+            "options": [
+              {
+                "choice": {
+                  "choose": 2,
+                  "from": {
+                    "option_set_type": "options_array",
+                    "options": [
+                      {
+                        "item": {
+                          "index": "skill-acrobatics",
+                          "name": "Skill: Acrobatics"
+                        },
+                        "option_type": "reference"
+                      },
+                      {
+                        "item": {
+                          "index": "skill-animal-handling",
+                          "name": "Skill: Animal Handling"
+                        },
+                        "option_type": "reference"
+                      },
+                      {
+                        "item": {
+                          "index": "skill-arcana",
+                          "name": "Skill: Arcana"
+                        },
+                        "option_type": "reference"
+                      },
+                      {
+                        "item": {
+                          "index": "skill-athletics",
+                          "name": "Skill: Athletics"
+                        },
+                        "option_type": "reference"
+                      },
+                      {
+                        "item": {
+                          "index": "skill-deception",
+                          "name": "Skill: Deception"
+                        },
+                        "option_type": "reference"
+                      },
+                      {
+                        "item": {
+                          "index": "skill-history",
+                          "name": "Skill: History"
+                        },
+                        "option_type": "reference"
+                      },
+                      {
+                        "item": {
+                          "index": "skill-insight",
+                          "name": "Skill: Insight"
+                        },
+                        "option_type": "reference"
+                      },
+                      {
+                        "item": {
+                          "index": "skill-intimidation",
+                          "name": "Skill: Intimidation"
+                        },
+                        "option_type": "reference"
+                      },
+                      {
+                        "item": {
+                          "index": "skill-investigation",
+                          "name": "Skill: Investigation"
+                        },
+                        "option_type": "reference"
+                      },
+                      {
+                        "item": {
+                          "index": "skill-medicine",
+                          "name": "Skill: Medicine"
+                        },
+                        "option_type": "reference"
+                      },
+                      {
+                        "item": {
+                          "index": "skill-nature",
+                          "name": "Skill: Nature"
+                        },
+                        "option_type": "reference"
+                      },
+                      {
+                        "item": {
+                          "index": "skill-perception",
+                          "name": "Skill: Perception"
+                        },
+                        "option_type": "reference"
+                      },
+                      {
+                        "item": {
+                          "index": "skill-performance",
+                          "name": "Skill: Performance"
+                        },
+                        "option_type": "reference"
+                      },
+                      {
+                        "item": {
+                          "index": "skill-persuasion",
+                          "name": "Skill: Persuasion"
+                        },
+                        "option_type": "reference"
+                      },
+                      {
+                        "item": {
+                          "index": "skill-religion",
+                          "name": "Skill: Religion"
+                        },
+                        "option_type": "reference"
+                      },
+                      {
+                        "item": {
+                          "index": "skill-sleight-of-hand",
+                          "name": "Skill: Sleight of Hand"
+                        },
+                        "option_type": "reference"
+                      },
+                      {
+                        "item": {
+                          "index": "skill-stealth",
+                          "name": "Skill: Stealth"
+                        },
+                        "option_type": "reference"
+                      },
+                      {
+                        "item": {
+                          "index": "skill-survival",
+                          "name": "Skill: Survival"
+                        },
+                        "option_type": "reference"
+                      }
+                    ]
+                  },
+                  "type": "proficiency"
+                },
+                "option_type": "choice"
+              },
+              {
+                "items": [
+                  {
+                    "choice": {
+                      "choose": 1,
+                      "from": {
+                        "option_set_type": "options_array",
+                        "options": [
+                          {
+                            "item": {
+                              "index": "skill-acrobatics",
+                              "name": "Skill: Acrobatics"
+                            },
+                            "option_type": "reference"
+                          },
+                          {
+                            "item": {
+                              "index": "skill-animal-handling",
+                              "name": "Skill: Animal Handling"
+                            },
+                            "option_type": "reference"
+                          },
+                          {
+                            "item": {
+                              "index": "skill-arcana",
+                              "name": "Skill: Arcana"
+                            },
+                            "option_type": "reference"
+                          },
+                          {
+                            "item": {
+                              "index": "skill-athletics",
+                              "name": "Skill: Athletics"
+                            },
+                            "option_type": "reference"
+                          },
+                          {
+                            "item": {
+                              "index": "skill-deception",
+                              "name": "Skill: Deception"
+                            },
+                            "option_type": "reference"
+                          },
+                          {
+                            "item": {
+                              "index": "skill-history",
+                              "name": "Skill: History"
+                            },
+                            "option_type": "reference"
+                          },
+                          {
+                            "item": {
+                              "index": "skill-insight",
+                              "name": "Skill: Insight"
+                            },
+                            "option_type": "reference"
+                          },
+                          {
+                            "item": {
+                              "index": "skill-intimidation",
+                              "name": "Skill: Intimidation"
+                            },
+                            "option_type": "reference"
+                          },
+                          {
+                            "item": {
+                              "index": "skill-investigation",
+                              "name": "Skill: Investigation"
+                            },
+                            "option_type": "reference"
+                          },
+                          {
+                            "item": {
+                              "index": "skill-medicine",
+                              "name": "Skill: Medicine"
+                            },
+                            "option_type": "reference"
+                          },
+                          {
+                            "item": {
+                              "index": "skill-nature",
+                              "name": "Skill: Nature"
+                            },
+                            "option_type": "reference"
+                          },
+                          {
+                            "item": {
+                              "index": "skill-perception",
+                              "name": "Skill: Perception"
+                            },
+                            "option_type": "reference"
+                          },
+                          {
+                            "item": {
+                              "index": "skill-performance",
+                              "name": "Skill: Performance"
+                            },
+                            "option_type": "reference"
+                          },
+                          {
+                            "item": {
+                              "index": "skill-persuasion",
+                              "name": "Skill: Persuasion"
+                            },
+                            "option_type": "reference"
+                          },
+                          {
+                            "item": {
+                              "index": "skill-religion",
+                              "name": "Skill: Religion"
+                            },
+                            "option_type": "reference"
+                          },
+                          {
+                            "item": {
+                              "index": "skill-sleight-of-hand",
+                              "name": "Skill: Sleight of Hand"
+                            },
+                            "option_type": "reference"
+                          },
+                          {
+                            "item": {
+                              "index": "skill-stealth",
+                              "name": "Skill: Stealth"
+                            },
+                            "option_type": "reference"
+                          },
+                          {
+                            "item": {
+                              "index": "skill-survival",
+                              "name": "Skill: Survival"
+                            },
+                            "option_type": "reference"
+                          }
+                        ]
+                      },
+                      "type": "proficiency"
+                    },
+                    "option_type": "choice"
+                  },
+                  {
+                    "item": {
+                      "index": "thieves-tools",
+                      "name": "Thieves' Tools"
+                    },
+                    "option_type": "reference"
+                  }
+                ],
+                "option_type": "multiple"
+              }
+            ]
+          },
+          "type": "proficiency"
+        },
+        "invocations": []
+      }
+    },
+    {
+      "id": "rogue-expertise-2",
+      "name": "Expertise",
+      "classId": "rogue",
+      "level": 6,
+      "choices": {
+        "expertise_options": {
+          "choose": 2,
+          "from": {
+            "option_set_type": "options_array",
+            "options": [
+              {
+                "item": {
+                  "index": "skill-acrobatics",
+                  "name": "Skill: Acrobatics"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-animal-handling",
+                  "name": "Skill: Animal Handling"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-arcana",
+                  "name": "Skill: Arcana"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-athletics",
+                  "name": "Skill: Athletics"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-deception",
+                  "name": "Skill: Deception"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-history",
+                  "name": "Skill: History"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-insight",
+                  "name": "Skill: Insight"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-intimidation",
+                  "name": "Skill: Intimidation"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-investigation",
+                  "name": "Skill: Investigation"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-medicine",
+                  "name": "Skill: Medicine"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-nature",
+                  "name": "Skill: Nature"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-perception",
+                  "name": "Skill: Perception"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-performance",
+                  "name": "Skill: Performance"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-persuasion",
+                  "name": "Skill: Persuasion"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-religion",
+                  "name": "Skill: Religion"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-sleight-of-hand",
+                  "name": "Skill: Sleight of Hand"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-stealth",
+                  "name": "Skill: Stealth"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "skill-survival",
+                  "name": "Skill: Survival"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "thieves-tools",
+                  "name": "Thieves' Tools"
+                },
+                "option_type": "reference"
+              }
+            ]
+          },
+          "type": "proficiency"
+        },
+        "invocations": []
+      }
+    },
+    {
+      "id": "superior-hunters-defense",
+      "name": "Superior Hunter's Defense",
+      "classId": "ranger",
+      "subclassId": "hunter",
+      "level": 15,
+      "choices": {
+        "invocations": [],
+        "subfeature_options": {
+          "choose": 1,
+          "from": {
+            "option_set_type": "options_array",
+            "options": [
+              {
+                "item": {
+                  "index": "superior-hunters-defense-evasion",
+                  "name": "Superior Hunter's Defense: Evasion"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "superior-hunters-defense-stand-against-the-tide",
+                  "name": "Superior Hunter's Defense: Stand Against the Tide"
+                },
+                "option_type": "reference"
+              },
+              {
+                "item": {
+                  "index": "superior-hunters-defense-uncanny-dodge",
+                  "name": "Superior Hunter's Defense: Uncanny Dodge"
+                },
+                "option_type": "reference"
+              }
+            ]
+          },
+          "type": "feature"
+        }
+      }
+    }
+  ]
+}

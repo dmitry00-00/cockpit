@@ -1,6 +1,6 @@
 // Портреты партии (узкий экран): окно на персонажа — аватар расы, значок класса, уровень, имя, хиты числом и
 // полосой, значки состояний; щелчок по окну открывает карточку, кнопка «Партия» раскрывает полную панель.
-import { fireEvent, render, screen, within } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import { SEED_SEC, seedEngine } from '../campaign';
 import { PartyPortraits } from './PartyPortraits';
@@ -11,7 +11,7 @@ const party = () => {
 };
 
 describe('<PartyPortraits>', () => {
-  it('окно на каждого персонажа в порядке партии: аватар расы, класс, уровень, имя, хиты; выбранный — aria-current', () => {
+  it('окно на каждого персонажа в порядке партии: портрет/аватар расы, класс, уровень, имя, хиты; выбранный — aria-current', async () => {
     render(<PartyPortraits actors={party()} worldSec={SEED_SEC} selectedId="bo" onOpen={() => {}} panelOpen={false} onPanel={() => {}} />);
     const nav = screen.getByRole('navigation', { name: 'Партия' });
     expect(nav).toHaveClass('w-rail-portraits');
@@ -20,7 +20,13 @@ describe('<PartyPortraits>', () => {
     const bo = windows[0];
     expect(bo).toHaveAttribute('aria-current', 'true');
     expect(windows[1]).not.toHaveAttribute('aria-current');
-    expect(within(bo).getByRole('img', { name: 'Полурослик · Следопыт' })).toBeInTheDocument();
+    await waitFor(() => expect(within(bo).getByRole('img', { name: 'Портрет: Bo Tambernack' }).tagName).toBe('IMG'));
+    const portrait = within(bo).getByRole('img', { name: 'Портрет: Bo Tambernack' });
+    expect(portrait).toHaveAttribute('loading', 'lazy');
+    expect(portrait).toHaveAttribute('width', '48');
+    expect(portrait).toHaveAttribute('sizes', '48px');
+    expect(portrait.getAttribute('srcset')).toContain('256w');
+    expect(within(windows[1]).getByRole('img', { name: 'Дварф · Воин' })).toBeInTheDocument();
     expect(within(bo).getByRole('img', { name: 'Класс' })).toBeInTheDocument();
     expect(within(bo).getByTitle('Уровень')).toHaveTextContent('5');
     expect(within(bo).getByText('Bo')).toBeInTheDocument();
@@ -50,5 +56,18 @@ describe('<PartyPortraits>', () => {
     expect(k).toHaveAttribute('data-down', 'true');
     expect(k.querySelector('[data-part="portrait"]')).toHaveClass('opacity-55');
     expect(within(k).getByText('Korrin')).toHaveClass('text-t2');
+  });
+
+  it('ошибка изображения оставляет доступный placeholder, неизвестная ссылка сохраняет расовый значок', async () => {
+    const actors = party();
+    const { rerender } = render(<PartyPortraits actors={actors} worldSec={SEED_SEC} onOpen={() => {}} panelOpen={false} onPanel={() => {}} />);
+    await waitFor(() => expect(screen.getByRole('img', { name: 'Портрет: Bo Tambernack' }).tagName).toBe('IMG'));
+    const image = screen.getByRole('img', { name: 'Портрет: Bo Tambernack' });
+    fireEvent.error(image);
+    expect(screen.getByRole('img', { name: 'Портрет: Bo Tambernack' }).tagName).toBe('SPAN');
+    expect(screen.getByRole('img', { name: 'Портрет: Bo Tambernack' }).querySelector('svg title')?.textContent).toBe('Полурослик · Следопыт');
+    const unknown = actors.map(a => a.id === 'bo' ? { ...a, sheet: { ...a.sheet!, portrait: 'https://example.invalid/portrait.png' as never } } : a);
+    rerender(<PartyPortraits actors={unknown} worldSec={SEED_SEC} onOpen={() => {}} panelOpen={false} onPanel={() => {}} />);
+    expect(within(screen.getByRole('button', { name: 'Открыть карточку: Bo Tambernack' })).getByRole('img', { name: 'Полурослик · Следопыт' })).toBeInTheDocument();
   });
 });

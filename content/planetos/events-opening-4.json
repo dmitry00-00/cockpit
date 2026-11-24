@@ -1,0 +1,457 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "event",
+  "entities": [
+    {
+      "ref": "event:hand-tourney-melee",
+      "kind": "event",
+      "name": "The Hand's tourney melee",
+      "nameRu": "Схватка на турнире Десницы",
+      "subtitle": "A Game of Thrones · Eddard VII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard VII; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_30",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 30
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard VII"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; дата не выводится из номера главы"
+        },
+        {
+          "label": "Статус",
+          "value": "схватка происходит в главе; Сандор побеждает, спасая Лораса Тирелла"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "На турнире Десницы Сандор Клиган вступает в бой, спасает Лораса Тирелла и выигрывает схватку. Намерение убить Роберта, о котором Нед узнаёт позднее в этой главе, вынесено в отдельную карточку сообщения."
+        }
+      ],
+      "links": [
+        {
+          "label": "Sandor Clegane",
+          "ref": "person:sandor-clegane"
+        },
+        {
+          "label": "Loras Tyrell",
+          "ref": "person:loras-tyrell"
+        },
+        {
+          "label": "Robert Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Hand's Tourney grounds",
+          "ref": "place:hand-tourney-grounds"
+        }
+      ]
+    },
+    {
+      "ref": "event:robert-assassination-conspiracy-revealed-at-tourney",
+      "kind": "event",
+      "name": "Varys reports a plot against Robert at the tourney",
+      "nameRu": "Варис сообщает о замысле убить Роберта на турнире",
+      "subtitle": "A Game of Thrones · Eddard VII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard VII; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_30",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 30
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard VII"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; дата не выводится из номера главы"
+        },
+        {
+          "label": "Статус",
+          "value": "Варис сообщает Неду о намерении; покушение не совершается в главе"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "После турнира Варис приходит к Неду и сообщает, что гибель Роберта на схватке могла быть задумана. Карточка фиксирует получение известия; она не утверждает, что покушение действительно было совершено."
+        }
+      ],
+      "links": [
+        {
+          "label": "Varys",
+          "ref": "person:varys"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Robert Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "event:robert-orders-daenerys-assassination",
+      "kind": "event",
+      "name": "Robert approves a plan to kill Daenerys",
+      "nameRu": "Роберт одобряет план убийства Дейенерис",
+      "subtitle": "A Game of Thrones · Eddard VIII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard VIII; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_33",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 33
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard VIII"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; дата не выводится из номера главы"
+        },
+        {
+          "label": "Статус",
+          "value": "решение и план приняты в главе; убийство не происходит здесь"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "После известия о беременности Дейенерис Роберт добивается от малого совета согласия на её убийство. Нед возражает и отказывается участвовать; речь идёт о принятом плане, а не о совершившемся покушении."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robert Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Barristan Selmy",
+          "ref": "person:barristan-selmy"
+        },
+        {
+          "label": "Renly Baratheon",
+          "ref": "person:renly-baratheon"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Red Keep",
+          "ref": "place:red-keep"
+        }
+      ]
+    },
+    {
+      "ref": "event:ned-resigns-as-hand",
+      "kind": "event",
+      "name": "Eddard resigns as Hand",
+      "nameRu": "Эддард отказывается от должности Десницы",
+      "subtitle": "A Game of Thrones · Eddard VIII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard VIII; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_33",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 33
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard VIII"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; дата не выводится из номера главы"
+        },
+        {
+          "label": "Статус",
+          "value": "отставка объявлена в главе после решения об убийстве Дейенерис"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Не желая участвовать в одобренном Робертом плане, Нед снимает знак Десницы и отказывается от должности. Позднейшее возвращение к службе отмечается отдельным событием в Eddard X."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Robert Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Red Keep",
+          "ref": "place:red-keep"
+        }
+      ]
+    },
+    {
+      "ref": "event:jaime-ambushes-ned-and-kills-jory",
+      "kind": "event",
+      "name": "Jaime ambushes Ned; Jory Cassel is killed",
+      "nameRu": "Джейме нападает на Неда; Джори Кассель погибает",
+      "subtitle": "A Game of Thrones · Eddard IX",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard IX; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_35",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 35
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard IX"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; дата не выводится из номера главы"
+        },
+        {
+          "label": "Статус",
+          "value": "нападение происходит; Джори и люди сопровождения убиты, Нед ранен"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Возвращаясь в Красный замок после визита к Chataya, Нед и его люди попадают в засаду Джейме Ланнистера. Джори и другие спутники Неда погибают, сам Нед получает тяжёлую травму ноги."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jaime Lannister",
+          "ref": "person:jaime-lannister"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Jory Cassel",
+          "ref": "person:jory-cassel"
+        },
+        {
+          "label": "Heward",
+          "ref": "person:heward"
+        },
+        {
+          "label": "Wyl",
+          "ref": "person:wyl"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Red Keep",
+          "ref": "place:red-keep"
+        }
+      ]
+    },
+    {
+      "ref": "event:robert-reinstates-ned-as-hand",
+      "kind": "event",
+      "name": "Robert reinstates Ned as Hand",
+      "nameRu": "Роберт возвращает Неда на должность Десницы",
+      "subtitle": "A Game of Thrones · Eddard X",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard X; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_39",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 39
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard X"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; дата не выводится из номера главы"
+        },
+        {
+          "label": "Статус",
+          "value": "назначение происходит в главе; Нед принимает обязанности"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "После пробуждения Неда король Роберт просит его уладить конфликт с Ланнистерами и вновь назначает Десницей; до отъезда на охоту Нед должен исполнять обязанности короля."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robert Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Red Keep",
+          "ref": "place:red-keep"
+        }
+      ]
+    },
+    {
+      "ref": "event:tyrion-secures-stone-crows",
+      "kind": "event",
+      "name": "Tyrion negotiates with the Stone Crows",
+      "nameRu": "Тирион договаривается с Каменными Воронами",
+      "subtitle": "A Game of Thrones · Tyrion VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion VI; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_42",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 42
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion VI"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; дата не выводится из номера главы"
+        },
+        {
+          "label": "Статус",
+          "value": "соглашение достигается в главе; последующие сражения не входят в это событие"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Тирион и Бронн решают не скрываться от горных кланов. Тирион предлагает Каменным Воронам награду за его защиту и добивается соглашения; предложение Тайвина о снаряжении позднее описано отдельно."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Bronn",
+          "ref": "person:bronn"
+        },
+        {
+          "label": "Shagga",
+          "ref": "person:shagga"
+        },
+        {
+          "label": "Conn",
+          "ref": "person:conn"
+        },
+        {
+          "label": "Gunthor",
+          "ref": "person:gunthor"
+        },
+        {
+          "label": "High Road",
+          "ref": "place:high-road"
+        },
+        {
+          "label": "Mountains of the Moon",
+          "ref": "place:mountains-of-the-moon"
+        },
+        {
+          "label": "Vale of Arryn",
+          "ref": "place:vale-of-arryn"
+        }
+      ]
+    }
+  ]
+}

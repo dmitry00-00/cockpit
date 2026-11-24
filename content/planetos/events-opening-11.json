@@ -1,0 +1,283 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "event",
+  "entities": [
+    {
+      "ref": "event:daenerys-strikes-viserys-at-vaes-dothrak",
+      "kind": "event",
+      "name": "Daenerys strikes Viserys after he grabs her",
+      "nameRu": "Дейенерис ударяет Визериса после того, как он хватает её",
+      "subtitle": "A Game of Thrones · Daenerys IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys IV; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_36",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 36
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys IV"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "конфликт и ответ Дейенерис происходят в сцене; дальнейшие угрозы Визериса не включены"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Визерис отвергает попытку Дейенерис примириться и хватает её за руку. Дейенерис бьёт брата поясом и требует уйти. Сцена фиксирует её непосредственный ответ на нападение, не объединяя его с прежней ссорой на дороге."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Viserys Targaryen",
+          "ref": "person:viserys-targaryen"
+        },
+        {
+          "label": "Jorah Mormont",
+          "ref": "person:jorah-mormont"
+        },
+        {
+          "label": "Vaes Dothrak",
+          "ref": "place:vaes-dothrak"
+        }
+      ]
+    },
+    {
+      "ref": "event:eddard-refuses-renly-seizure-plan",
+      "kind": "event",
+      "name": "Eddard refuses Renly’s plan to seize the royal children",
+      "nameRu": "Эддард отвергает план Ренли захватить королевских детей",
+      "subtitle": "A Game of Thrones · Eddard XIII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard XIII; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_47",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 47
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard XIII"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "Ренли предлагает захватить Красный Замок и детей; Эддард отказывается, захват не происходит"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "После того как Роберт назначает Эддарда регентом, Ренли предлагает немедленно занять Красный Замок и взять королевских детей под контроль. Эддард отказывается проливать кровь в замке, пока Роберт жив. Карточка фиксирует предложение и отказ, а не исполнение плана."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Renly Baratheon",
+          "ref": "person:renly-baratheon"
+        },
+        {
+          "label": "Robert Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "Red Keep",
+          "ref": "place:red-keep"
+        }
+      ]
+    },
+    {
+      "ref": "event:eddard-asks-varys-to-stop-daenerys-assassination",
+      "kind": "event",
+      "name": "Eddard asks Varys to stop the order against Daenerys",
+      "nameRu": "Эддард просит Вариса остановить приказ об убийстве Дейенерис",
+      "subtitle": "A Game of Thrones · Eddard XIII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard XIII; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_47",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 47
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard XIII"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "Эддард передаёт просьбу Роберта; Варис отвечает, что исполнители уже отправлены, поэтому отмена и спасение Дейенерис не подтверждаются"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Перед смертью Роберт просит отозвать приказ об убийстве Дейенерис. Эддард сообщает об этом Варису; тот отвечает, что посланные исполнители уже выехали, и обещает сделать, что сможет. Карточка фиксирует передачу просьбы, но не предполагает, что приказ был отменён или Дейенерис спасена."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Varys",
+          "ref": "person:varys"
+        },
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Robert Baratheon",
+          "ref": "person:robert-baratheon"
+        }
+      ]
+    },
+    {
+      "ref": "event:eddard-sends-stannis-letter-naming-him-heir",
+      "kind": "event",
+      "name": "Eddard writes to Stannis naming him Robert’s rightful heir",
+      "nameRu": "Эддард пишет Станнису, называя его законным наследником Роберта",
+      "subtitle": "A Game of Thrones · Eddard XIII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard XIII; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_47",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 47
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard XIII"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "письмо составлено и передано гонцу для доставки; получение Станнисом здесь не подтверждается"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Опираясь на сведения о происхождении детей Серсеи, Эддард составляет для Станниса письмо: сообщает о смерти Роберта и предлагает ему трон как законному наследнику. Запечатанное письмо он поручает передать через Томарда; ответ или получение адресатом в этой сцене неизвестны."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Stannis Baratheon",
+          "ref": "person:stannis-baratheon"
+        },
+        {
+          "label": "Tomard",
+          "ref": "person:tomard"
+        }
+      ]
+    },
+    {
+      "ref": "event:eddard-asks-littlefinger-to-secure-city-watch",
+      "kind": "event",
+      "name": "Eddard asks Littlefinger to secure the City Watch",
+      "nameRu": "Эддард просит Мизинца обеспечить поддержку городской стражи",
+      "subtitle": "A Game of Thrones · Eddard XIII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard XIII; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_47",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 47
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard XIII"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "просьба поручена Петиру Бейлишу; фактическая поддержка стражи в этой карточке не утверждается"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Понимая, что одной регентской грамоты недостаточно для контроля над столицей, Эддард вызывает Петира Бейлиша и просит его договориться о поддержке городской стражи. Это обращение за политической и силовой опорой; карточка не считает поручение выполненным."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Petyr Baelish",
+          "ref": "person:petyr-baelish"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    }
+  ]
+}

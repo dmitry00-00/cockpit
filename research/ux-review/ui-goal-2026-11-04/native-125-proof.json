@@ -1,0 +1,7 @@
+{
+  "application": "Google Chrome",
+  "url": "http://127.0.0.1:5181/design/qa/product-contexts/index.html#/session/desk",
+  "nativeZoom": "125%",
+  "method": "Cmd+0, Cmd+plus twice; Chrome AX zoom readout “Масштаб: 125 %”",
+  "screenshot": ".tools/ui-goal/native-125-menu.png"
+}

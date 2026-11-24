@@ -26,7 +26,10 @@ describe('SpawnForm', () => {
     render(<SpawnForm options={OPTIONS} onSpawn={onSpawn} />);
     const group = screen.getByRole('group', { name: 'Блок' });
     const buttons = within(group).getAllByRole('button');
-    expect(buttons.map(b => b.textContent)).toEqual(['BanditCR 1/8AC 12HP 11', 'Bandit CaptainCR 2AC 15HP 65']);
+    expect(buttons.map(b => b.getAttribute('aria-label'))).toEqual([
+      'Bandit, тип не указан, размер не указан, CR 1/8, AC 12, HP 11',
+      'Bandit Captain, тип не указан, размер не указан, CR 2, AC 15, HP 65',
+    ]);
     expect(buttons[0]).toHaveAttribute('aria-pressed', 'true');
     expect(screen.getByRole('textbox', { name: 'Имя' })).toHaveValue('Bandit 4');
     fireEvent.click(screen.getByRole('button', { name: 'Добавить' }));
@@ -40,7 +43,7 @@ describe('SpawnForm', () => {
     const name = screen.getByRole('textbox', { name: 'Имя' });
     expect(name).toHaveValue('Bandit Captain 2');
     fireEvent.change(name, { target: { value: 'Атаман' } });
-    fireEvent.click(screen.getByRole('button', { name: /^Bandit CR/ }));
+    fireEvent.click(screen.getByRole('button', { name: /^Bandit,/ }));
     expect(name).toHaveValue('Атаман');
     const count = screen.getByRole('textbox', { name: 'Сколько' });
     fireEvent.change(count, { target: { value: '3' } });

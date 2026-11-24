@@ -1,0 +1,498 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "event",
+  "entities": [
+    {
+      "ref": "event:tywin-prepares-to-meet-robb",
+      "kind": "event",
+      "name": "Tywin prepares to meet Robb’s host",
+      "nameRu": "Тайвин готовится встретить войско Робба",
+      "subtitle": "A Game of Thrones · Tyrion VII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion VII; A Wiki of Ice and Fire chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_56",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 56
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion VII"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "приказы и соглашение с горными кланами; сражение происходит позднее"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Получив известие о приближении войска Робба, Тайвин приказывает отступить и выманивать северян южнее, а затем принимает помощь горных кланов Долины, обещая им снаряжение и добычу. Тайвин просит Тириона идти с ними в бой; исход столкновения здесь не предрешён."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tywin Lannister",
+          "ref": "person:tywin-lannister"
+        },
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "Shagga",
+          "ref": "person:shagga"
+        },
+        {
+          "label": "Inn at the crossroads",
+          "ref": "place:inn-at-crossroads"
+        },
+        {
+          "label": "Vale of Arryn",
+          "ref": "place:vale-of-arryn"
+        }
+      ]
+    },
+    {
+      "ref": "event:tyrion-learns-robert-is-dead",
+      "kind": "event",
+      "name": "Tyrion learns that Robert is dead",
+      "nameRu": "Тирион узнаёт о смерти Роберта",
+      "subtitle": "A Game of Thrones · Tyrion VII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion VII; A Wiki of Ice and Fire chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_56",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 56
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion VII"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "сообщение Тириону в лагере Тайвина; смерть уже произошла"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "В ходе разговора о войне Тирион узнаёт, что Роберт умер и Джоффри теперь правит. Это получение известия Тирионом, а не отдельное указание даты смерти или момент коронации."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Robert Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "Joffrey Baratheon",
+          "ref": "person:joffrey-baratheon"
+        },
+        {
+          "label": "Tywin Lannister",
+          "ref": "person:tywin-lannister"
+        }
+      ]
+    },
+    {
+      "ref": "event:eddard-sends-beric-after-gregor",
+      "kind": "event",
+      "name": "Eddard sends Beric to bring Gregor to justice",
+      "nameRu": "Эддард отправляет Берика привлечь Григора к правосудию",
+      "subtitle": "A Game of Thrones · Eddard XI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard XI; A Wiki of Ice and Fire chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_43",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 43
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard XI"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "королевский приказ вынесен; исполнение поручено отряду"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Выслушав жителей разорённых владений речных лордов, Эддард отказывает им в разрешении на месть и объявляет королевское правосудие. Он лишает Григора Клегейна земель и титулов, приговаривает его к смерти и отправляет отряд под командованием Берика Дондарриона доставить его к суду. Сам исход похода не фиксируется."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Loras Tyrell",
+          "ref": "person:loras-tyrell"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Riverrun",
+          "ref": "place:riverrun"
+        }
+      ]
+    },
+    {
+      "ref": "event:eddard-warns-cersei-to-flee",
+      "kind": "event",
+      "name": "Eddard warns Cersei and urges her to flee",
+      "nameRu": "Эддард предупреждает Серсею и советует ей бежать",
+      "subtitle": "A Game of Thrones · Eddard XII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard XII; A Wiki of Ice and Fire chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_45",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 45
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard XII"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "тайная беседа состоялась; предупреждение отклонено"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Эддард открывает Серсее, что раскрыл тайну происхождения её детей, и говорит, что намерен сообщить всё Роберту. Он предлагает ей покинуть Королевскую Гавань вместе с семьёй; Серсея предупреждение отвергает. Это секрет мастера, раскрываемый персонажам только в соответствии с выбранной границей спойлеров."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Cersei Lannister",
+          "ref": "person:cersei-lannister"
+        },
+        {
+          "label": "Robert Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "event:maester-aemon-reveals-his-identity",
+      "kind": "event",
+      "name": "Maester Aemon reveals his Targaryen identity",
+      "nameRu": "Мейстер Эйемон раскрывает своё происхождение из дома Таргариенов",
+      "subtitle": "A Game of Thrones · Jon VIII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon VIII; A Wiki of Ice and Fire chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_60",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 60
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon VIII"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "Эйемон рассказывает Джону о своём происхождении"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Когда Джон отвергает сочувствие старого мейстера к его выбору между долгом и семьёй, Эйемон открывает ему, что сам принадлежит к дому Таргариенов и является сыном короля Мейкара I. Секрет мастера; показывать игрокам только после достижения соответствующей границы спойлеров."
+        }
+      ],
+      "links": [
+        {
+          "label": "Maester Aemon",
+          "ref": "person:maester-aemon"
+        },
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        }
+      ]
+    },
+    {
+      "ref": "event:jon-returns-from-desertion",
+      "kind": "event",
+      "name": "Jon returns from desertion and remains with the Watch",
+      "nameRu": "Джон возвращается после попытки дезертировать и остаётся в Дозоре",
+      "subtitle": "A Game of Thrones · Jon IX",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon IX; A Wiki of Ice and Fire chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_70",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 70
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon IX"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "попытка побега пресечена; Джон подтверждает службу Ночному Дозору"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "На фоне вести о казни отца Джон уезжает из Чёрного замка, намереваясь присоединиться к Роббу, но братья по Ночному Дозору находят его к югу от Кротового городка и возвращают. Утром Джон принимает доводы Джиора Мормонта и обещает не бежать снова; Мормонт сообщает, что поведёт Дозор в большой поход за Стену."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Jeor Mormont",
+          "ref": "person:jeor-mormont"
+        },
+        {
+          "label": "Samwell Tarly",
+          "ref": "person:samwell-tarly"
+        },
+        {
+          "label": "Grenn",
+          "ref": "person:grenn"
+        },
+        {
+          "label": "Pypar",
+          "ref": "person:pypar"
+        },
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        },
+        {
+          "label": "Mole’s Town",
+          "ref": "place:moles-town"
+        }
+      ]
+    },
+    {
+      "ref": "event:daenerys-claims-the-remnant-khalasar",
+      "kind": "event",
+      "name": "Daenerys claims the remnant as her khalasar",
+      "nameRu": "Дейенерис объявляет оставшихся людей своим кхаласаром",
+      "subtitle": "A Game of Thrones · Daenerys X",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys X; A Wiki of Ice and Fire chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_72",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 72
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys X"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "Дейенерис заявляет право вести оставшихся; Джорах присягает ей"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Перед погребальным костром Дрого Дейенерис объявляет оставшихся людей своим кхаласаром, освобождает рабов, а Джорах Мормонт приносит ей присягу и становится первым членом её Королевской гвардии. Три молодых воина отказываются стать её кровными всадниками; окончательное признание Дейенерис остальными происходит после появления драконов и описывается отдельной карточкой."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Jorah Mormont",
+          "ref": "person:jorah-mormont"
+        },
+        {
+          "label": "Jhogo",
+          "ref": "person:jhogo"
+        },
+        {
+          "label": "Aggo",
+          "ref": "person:aggo"
+        },
+        {
+          "label": "Rakharo",
+          "ref": "person:rakharo"
+        },
+        {
+          "label": "Drogo",
+          "ref": "person:drogo"
+        },
+        {
+          "label": "Dothraki Sea",
+          "ref": "place:dothraki-sea"
+        }
+      ]
+    },
+    {
+      "ref": "event:daenerys-invokes-blood-magic-to-save-drogo",
+      "kind": "event",
+      "name": "Daenerys seeks blood magic to treat Drogo",
+      "nameRu": "Дейенерис обращается к кровавой магии ради лечения Дрого",
+      "subtitle": "A Game of Thrones · Daenerys VIII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys VIII; A Wiki of Ice and Fire chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_64",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 64
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys VIII"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "ритуал начат; лечение не объявляется успешным"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Дрого падает с коня, и Дейенерис приказывает остановить кхаласар. Узнав, что рана загноилась, она отказывается бежать и просит Мирри Маз Дуур прибегнуть к кровавой магии. Ритуал вызывает схватку, гибель кровных всадников и тяжёлое кровотечение у Дейенерис; Джорах уносит её в шатёр. Итог лечения в этой карточке не предполагается."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Drogo",
+          "ref": "person:drogo"
+        },
+        {
+          "label": "Mirri Maz Duur",
+          "ref": "person:mirri-maz-duur"
+        },
+        {
+          "label": "Jorah Mormont",
+          "ref": "person:jorah-mormont"
+        },
+        {
+          "label": "Quaro",
+          "ref": "person:quaro"
+        },
+        {
+          "label": "Dothraki Sea",
+          "ref": "place:dothraki-sea"
+        }
+      ]
+    }
+  ]
+}

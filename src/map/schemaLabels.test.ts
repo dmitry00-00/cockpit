@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import labelsFile from '../../content/maps/toril-labels.json';
-import { hitAt, LABEL_STYLE, labelHits, labelOrder, labelVisible, parseLabels, placeLabels, type LabelStyle, type SchemaLabel } from './schemaLabels';
+import { correctedLabels, hitAt, LABEL_STYLE, labelHits, labelOrder, labelVisible, parseLabels, parseRasterFeatureLabels, parseRasterIcons, placeLabels, unlinkedRasterIcons, type LabelStyle, type SchemaLabel } from './schemaLabels';
+import corrections from '../../content/maps/toril-raster-corrections.json';
 
 const vp = { w: 1000, h: 600 };
 // Мерка без канваса: ширина знака — половина кегля, разрядка — на каждый знак.
@@ -8,6 +9,47 @@ const measure = (t: string, s: LabelStyle) => t.length * (s.size * 0.5 + s.spaci
 const L = (name: string, kind: SchemaLabel['kind'], x: number, y: number, r = 0, rank = 9): SchemaLabel => ({ name, kind, x, y, r, rank });
 // Вид 1:1 — пиксель исходника = пиксель экрана.
 const flat = (scale = 1) => ({ project: (p: { x: number; y: number }) => ({ x: p.x * scale, y: p.y * scale }), scale, vp, measure });
+
+it('поправки M13 восстанавливают отдельные подписи, не сдвигая одноимённые далёкие места', () => {
+  const original = parseLabels(labelsFile);
+  const corrected = correctedLabels(original, corrections.places);
+  expect(corrected.find(l => l.name === 'Selgaunt')).toMatchObject({ x: 11500, y: 3887, kind: 'city' });
+  expect(corrected.find(l => l.name === 'Teziir')).toMatchObject({ x: 10733, y: 4108, kind: 'town' });
+  expect(corrected.filter(l => l.name === "Al Azra'Wadi")).toEqual([L("Al Azra'Wadi", 'town', 14026, 7706, 0, 4)]);
+  expect(corrected.filter(l => l.name === "Lo'Shan")).toEqual([L("Lo'Shan", 'city', 18314, 4958, 0, 3)]);
+  expect(corrected.filter(l => l.name === 'Mezro')).toEqual([L('Mezro', 'town', 8531, 5936, 0, 4)]);
+  expect(corrected.find(l => l.name === 'Ordulin')).toEqual(original.find(l => l.name === 'Ordulin'));
+  expect(correctedLabels(corrected, corrections.places)).toEqual(corrected);
+  const far = L('Selgaunt', 'city', 1, 1);
+  expect(correctedLabels([far], corrections.places)).toContainEqual(far);
+});
+
+it('дополняет очищенную карту только принятыми OCR-объектами с исходными координатами', () => {
+  const raw = { map: 'toril', labels: [
+    { role: 'feature', kind: 'settlement', text: 'Shakkak', x: 12256, y: 1482 },
+    { role: 'feature', kind: 'river', text: 'Aca Stream', x: 12782, y: 1556 },
+    { role: 'fragment', kind: 'fragment', text: 'THE', x: 10, y: 10 },
+    { role: 'gis-reference', kind: 'Forest', text: 'Forest', x: 20, y: 20 },
+    { role: 'feature', kind: 'unknown', text: 'Unknown', x: 30, y: 30 },
+  ] };
+  expect(parseRasterFeatureLabels(raw, 'toril')).toEqual([
+    L('Shakkak', 'town', 12256, 1482, 0, 4),
+    L('Aca Stream', 'label', 12782, 1556, 0, 4),
+  ]);
+  expect(parseRasterFeatureLabels(raw, 'other')).toEqual([]);
+});
+
+it('возвращает оставшиеся OCR-значки по исходным координатам, не дублируя каталогизированные места', () => {
+  const icons = parseRasterIcons({ map: 'toril', icons: [
+    { kind: 'capital', x: 100, y: 200, s: 1 },
+    { kind: 'mine', x: 300, y: 400 },
+    { kind: 'site', x: Number.NaN, y: 10 },
+  ] }, 'toril');
+  expect(unlinkedRasterIcons(icons, [{ x: 104, y: 202 }])).toEqual([
+    { kind: 'mine', x: 300, y: 400, size: 1 },
+  ]);
+  expect(parseRasterIcons({ map: 'other', icons: [{ kind: 'city', x: 1, y: 1 }] }, 'toril')).toEqual([]);
+});
 
 describe('подписи схемы (M16): разбор', () => {
   it('строки [имя, вид, x, y, r, ранг]; битая строка — ошибка с номером', () => {

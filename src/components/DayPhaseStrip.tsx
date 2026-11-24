@@ -5,7 +5,9 @@
 // Смена фазы — одно из трёх мест, где движение несёт смысл (CLAUDE.md): кольцо и цвет переходят
 // ступенями за 160 мс, prefers-reduced-motion гасит это глобально. Строки классов полные.
 
-import { Icon, type IconName } from '../icons/Icon';
+import type { IconName } from '../icons/Icon';
+import { SemanticMark } from '../art/SemanticMark';
+import { DAY_PHASE_ART } from '../art/semanticBindings';
 
 export type DayPhase = 'morning' | 'day' | 'evening' | 'night';
 
@@ -50,7 +52,7 @@ export function DayPhaseStrip({ value, className = '' }: DayPhaseStripProps) {
             data-phase={p}
             className={`${CELL} ${on ? CELL_ON : CELL_OFF}`}
           >
-            <Icon name={DAY_PHASE_ICONS[p]} size={24} color="currentColor" title={label} />
+            <SemanticMark asset={DAY_PHASE_ART[p]} icon={DAY_PHASE_ICONS[p]} size={24} color="currentColor" title={label} />
             <span className="type-num-12 uppercase">{label}</span>
           </div>
         );

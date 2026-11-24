@@ -28,9 +28,25 @@ export interface DeskPoll { seq: number; tokens: readonly VttToken[] | null; map
 /** Тишина дольше этого — MapTool не на связи (аддон шлёт раз в секунду). */
 export const MAPTOOL_STALE_MS = 5000;
 
+const isRecord = (value: unknown): value is Record<string, unknown> =>
+  !!value && typeof value === 'object' && !Array.isArray(value);
+
 const isToken = (t: unknown): t is VttToken => {
   const o = t as VttToken;
-  return !!o && typeof o.id === 'string' && typeof o.name === 'string' && Number.isInteger(o.x) && Number.isInteger(o.y);
+  return isRecord(t) && typeof o.id === 'string' && o.id.length > 0
+    && typeof o.name === 'string' && o.name.length > 0
+    && Number.isSafeInteger(o.x) && Number.isSafeInteger(o.y);
+};
+
+const isTokenView = (value: unknown): value is VttTokenView => {
+  if (!isRecord(value)) return false;
+  const token = value as unknown as VttTokenView;
+  return typeof token.tokenId === 'string' && token.tokenId.length > 0
+    && isRecord(token.hp)
+    && Number.isSafeInteger(token.hp.current) && token.hp.current >= 0
+    && Number.isSafeInteger(token.hp.max) && token.hp.max >= 0
+    && Number.isSafeInteger(token.hp.temp) && token.hp.temp >= 0
+    && Array.isArray(token.states) && token.states.every(state => typeof state === 'string' && state.length > 0);
 };
 
 export class VttRelay {
@@ -52,6 +68,7 @@ export class VttRelay {
     const b = body as { tokens?: unknown; map?: unknown };
     if (!b || !Array.isArray(b.tokens) || !b.tokens.every(isToken)) throw new Error('ожидалось { tokens: [{ id, name, x, y }] }');
     const next = b.tokens.map(t => ({ id: t.id, name: t.name, x: t.x, y: t.y }));
+    if (new Set(next.map(token => token.id)).size !== next.length) throw new Error('id токенов MapTool должны быть уникальны');
     const map = typeof b.map === 'string' ? b.map : null;
     if (JSON.stringify(next) !== JSON.stringify(this.tokens) || map !== this.map) {
       this.tokens = next;
@@ -70,7 +87,17 @@ export class VttRelay {
   /** Страница стола кладёт вид; новый номер правки — только если вид поменялся. */
   deskView(body: unknown): DeskView {
     const b = body as Omit<DeskView, 'rev'>;
-    if (!b || !Array.isArray(b.tokens) || !Array.isArray(b.managed)) throw new Error('ожидалось { tokens, managed }');
+    if (!isRecord(body) || !Array.isArray(b.tokens) || !b.tokens.every(isTokenView)
+      || !Array.isArray(b.managed) || !b.managed.every(state => typeof state === 'string' && state.length > 0)) {
+      throw new Error('ожидалось { tokens: [{ tokenId, hp, states }], managed: string[] }');
+    }
+    const tokenIds = b.tokens.map(token => token.tokenId);
+    if (new Set(tokenIds).size !== tokenIds.length) throw new Error('id токенов вида стола должны быть уникальны');
+    if (new Set(b.managed).size !== b.managed.length) throw new Error('управляемые состояния должны быть уникальны');
+    const managed = new Set(b.managed);
+    if (b.tokens.some(token => new Set(token.states).size !== token.states.length || token.states.some(state => !managed.has(state)))) {
+      throw new Error('состояния токена должны быть уникальными и входить в managed');
+    }
     const same = JSON.stringify([b.tokens, b.managed]) === JSON.stringify([this.view.tokens, this.view.managed]);
     if (!same) this.view = { rev: `${this.boot}-${++this.edits}`, tokens: b.tokens, managed: b.managed };
     return this.view;

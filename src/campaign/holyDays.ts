@@ -7,8 +7,12 @@ import { DAYS_PER_YEAR, harptos, moonState, type FestivalName, type MonthName } 
 const SCAN_DAYS = DAYS_PER_YEAR + 1;
 import { EDITION_ORDER, type Era } from './era';
 import { SECONDS_PER_DAY, type State } from '../engine/state';
+import { loadSettingJson } from '../packages/registry';
 
-const raw = (await import('../../content/cosmos/holy-days.json')).default;
+const [raw, placeFaithRaw] = await Promise.all([
+  loadSettingJson('content/cosmos/holy-days.json'),
+  loadSettingJson('content/world/place-faiths.json'),
+]);
 
 type Edition = '5eR' | '5e' | '4e' | '3e' | '2e' | '1e' | '';
 export type Solar = 'spring' | 'summer' | 'autumn' | 'winter';
@@ -38,6 +42,12 @@ export interface HolyDeity {
 }
 
 export const HOLY_DEITIES: readonly HolyDeity[] = (raw as unknown as { deities: HolyDeity[] }).deities;
+const PLACE_FAITHS = (placeFaithRaw as { places: Readonly<Record<string, { deities?: readonly string[] }>> }).places;
+
+/** Боги, прямо перечисленные в поле religion конкретного места; без вывода из соседних городов или фракций. */
+export function placeFaithDeities(placeId: string): readonly string[] {
+  return PLACE_FAITHS[placeId]?.deities ?? [];
+}
 
 export const SOLAR_LABEL: Readonly<Record<Solar, string>> = {
   spring: 'весеннее равноденствие', summer: 'летнее солнцестояние', autumn: 'осеннее равноденствие', winter: 'зимнее солнцестояние',

@@ -1,0 +1,847 @@
+{
+  "format": "cockpit.entity-layer-draft-set/1",
+  "packageVersionChecked": "2026.11.24.36",
+  "layers": [
+    {
+      "format": "cockpit.entity-layer/1",
+      "kind": "person",
+      "entities": [
+        {
+          "ref": "person:colemon",
+          "kind": "person",
+          "name": "Colemon",
+          "subtitle": "A Game of Thrones · Eddard V (chapter 25)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Eddard V (chapter 25); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_25",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "agot",
+            "chapterNo": 25
+          },
+          "sources": [
+            {
+              "kind": "wiki",
+              "cite": "A Game of Thrones, Eddard V (chapter 25); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_25",
+              "license": "CC-BY-SA-3.0",
+              "bookId": "agot",
+              "chapterNo": 25
+            },
+            {
+              "kind": "wiki",
+              "cite": "A Wiki of Ice and Fire, Colemon; CC BY-SA 3.0.",
+              "url": "https://awoiaf.westeros.org/index.php/Maester_Colemon",
+              "license": "CC-BY-SA-3.0"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Приоритет",
+              "value": "P2"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Локатор",
+              "value": "Eddard V (chapter 25)"
+            },
+            {
+              "label": "Сверка",
+              "value": "AWOIAF — вторичный источник; первичная сверка по выбранному изданию ожидается."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Писцель говорит, что отстранил мейстера Колемона от лечения Джона Аррена, опасаясь, что назначенные им снадобья навредят больному."
+            }
+          ],
+          "links": []
+        },
+        {
+          "ref": "person:brandon-the-builder",
+          "kind": "person",
+          "name": "Brandon the Builder",
+          "subtitle": "A Game of Thrones · Eddard V (chapter 25)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Eddard V (chapter 25); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_25",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "agot",
+            "chapterNo": 25
+          },
+          "sources": [
+            {
+              "kind": "wiki",
+              "cite": "A Game of Thrones, Eddard V (chapter 25); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_25",
+              "license": "CC-BY-SA-3.0",
+              "bookId": "agot",
+              "chapterNo": 25
+            },
+            {
+              "kind": "wiki",
+              "cite": "A Wiki of Ice and Fire, Brandon the Builder; CC BY-SA 3.0.",
+              "url": "https://awoiaf.westeros.org/index.php/Brandon_the_Builder",
+              "license": "CC-BY-SA-3.0"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Локатор",
+              "value": "Eddard V (chapter 25)"
+            },
+            {
+              "label": "Сверка",
+              "value": "AWOIAF — вторичный источник; первичная сверка по выбранному изданию ожидается."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Легендарному Брандону Строителю приписывают основание дома Старков и возведение ряда сооружений; источники AWOIAF подают эти деяния как предания."
+            }
+          ],
+          "links": []
+        },
+        {
+          "ref": "person:malleon",
+          "kind": "person",
+          "name": "Malleon",
+          "subtitle": "A Game of Thrones · Eddard V (chapter 25)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Eddard V (chapter 25); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_25",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "agot",
+            "chapterNo": 25
+          },
+          "sources": [
+            {
+              "kind": "wiki",
+              "cite": "A Game of Thrones, Eddard V (chapter 25); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_25",
+              "license": "CC-BY-SA-3.0",
+              "bookId": "agot",
+              "chapterNo": 25
+            },
+            {
+              "kind": "wiki",
+              "cite": "A Wiki of Ice and Fire, Malleon; CC BY-SA 3.0.",
+              "url": "https://awoiaf.westeros.org/index.php/Malleon",
+              "license": "CC-BY-SA-3.0"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Локатор",
+              "value": "Eddard V (chapter 25)"
+            },
+            {
+              "label": "Сверка",
+              "value": "AWOIAF — вторичный источник; первичная сверка по выбранному изданию ожидается."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Маллеон был верховным мейстером и автором книги родословий великих домов, которую используют в расследовании происхождения детей Роберта."
+            }
+          ],
+          "links": []
+        },
+        {
+          "ref": "person:aegon-v-targaryen",
+          "kind": "person",
+          "name": "Aegon V Targaryen",
+          "subtitle": "A Game of Thrones · Eddard V (chapter 25)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Eddard V (chapter 25); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_25",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "agot",
+            "chapterNo": 25
+          },
+          "sources": [
+            {
+              "kind": "wiki",
+              "cite": "A Game of Thrones, Eddard V (chapter 25); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_25",
+              "license": "CC-BY-SA-3.0",
+              "bookId": "agot",
+              "chapterNo": 25
+            },
+            {
+              "kind": "wiki",
+              "cite": "A Wiki of Ice and Fire, Aegon V Targaryen; CC BY-SA 3.0.",
+              "url": "https://awoiaf.westeros.org/index.php/Aegon_V_Targaryen",
+              "license": "CC-BY-SA-3.0"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Локатор",
+              "value": "Eddard V (chapter 25)"
+            },
+            {
+              "label": "Сверка",
+              "value": "AWOIAF — вторичный источник; первичная сверка по выбранному изданию ожидается."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Эйгон V — пятнадцатый король из династии Таргариенов; его называют Эйгоном Невероятным."
+            }
+          ],
+          "links": []
+        },
+        {
+          "ref": "person:jaehaerys-ii-targaryen",
+          "kind": "person",
+          "name": "Jaehaerys II Targaryen",
+          "subtitle": "A Game of Thrones · Eddard V (chapter 25)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Eddard V (chapter 25); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_25",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "agot",
+            "chapterNo": 25
+          },
+          "sources": [
+            {
+              "kind": "wiki",
+              "cite": "A Game of Thrones, Eddard V (chapter 25); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_25",
+              "license": "CC-BY-SA-3.0",
+              "bookId": "agot",
+              "chapterNo": 25
+            },
+            {
+              "kind": "wiki",
+              "cite": "A Wiki of Ice and Fire, Jaehaerys II Targaryen; CC BY-SA 3.0.",
+              "url": "https://awoiaf.westeros.org/index.php/Jaehaerys_II_Targaryen",
+              "license": "CC-BY-SA-3.0"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Локатор",
+              "value": "Eddard V (chapter 25)"
+            },
+            {
+              "label": "Сверка",
+              "value": "AWOIAF — вторичный источник; первичная сверка по выбранному изданию ожидается."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Джейхейрис II был шестнадцатым королём-Таргариеном и отцом Эйриса II."
+            }
+          ],
+          "links": []
+        },
+        {
+          "ref": "person:maekar-i-targaryen",
+          "kind": "person",
+          "name": "Maekar I Targaryen",
+          "subtitle": "A Game of Thrones · Eddard V (chapter 25)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Eddard V (chapter 25); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_25",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "agot",
+            "chapterNo": 25
+          },
+          "sources": [
+            {
+              "kind": "wiki",
+              "cite": "A Game of Thrones, Eddard V (chapter 25); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_25",
+              "license": "CC-BY-SA-3.0",
+              "bookId": "agot",
+              "chapterNo": 25
+            },
+            {
+              "kind": "wiki",
+              "cite": "A Wiki of Ice and Fire, Maekar I Targaryen; CC BY-SA 3.0.",
+              "url": "https://awoiaf.westeros.org/index.php/Maekar_I_Targaryen",
+              "license": "CC-BY-SA-3.0"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Локатор",
+              "value": "Eddard V (chapter 25)"
+            },
+            {
+              "label": "Сверка",
+              "value": "AWOIAF — вторичный источник; первичная сверка по выбранному изданию ожидается."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Мейкар I был четырнадцатым королём-Таргариеном и отцом Эйгона V."
+            }
+          ],
+          "links": []
+        }
+      ]
+    },
+    {
+      "format": "cockpit.entity-layer/1",
+      "kind": "place",
+      "entities": [
+        {
+          "ref": "place:eastwatch",
+          "kind": "place",
+          "name": "Eastwatch-by-the-Sea",
+          "subtitle": "A Game of Thrones · Jon V (chapter 41)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Jon V (chapter 41); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_41",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "agot",
+            "chapterNo": 41
+          },
+          "sources": [
+            {
+              "kind": "wiki",
+              "cite": "A Game of Thrones, Jon V (chapter 41); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_41",
+              "license": "CC-BY-SA-3.0",
+              "bookId": "agot",
+              "chapterNo": 41
+            },
+            {
+              "kind": "wiki",
+              "cite": "A Wiki of Ice and Fire, Eastwatch-by-the-Sea; CC BY-SA 3.0.",
+              "url": "https://awoiaf.westeros.org/index.php/Eastwatch_by_the_Sea",
+              "license": "CC-BY-SA-3.0"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Локатор",
+              "value": "Jon V (chapter 41)"
+            },
+            {
+              "label": "Сверка",
+              "value": "AWOIAF — вторичный источник; первичная сверка по выбранному изданию ожидается."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Восточный замок Ночного дозора у Стены, расположенный на берегу залива Тюленей."
+            }
+          ],
+          "links": []
+        },
+        {
+          "ref": "place:isle-of-faces",
+          "kind": "place",
+          "name": "Isle of Faces",
+          "subtitle": "A Game of Thrones · Jon V (chapter 41)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Jon V (chapter 41); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_41",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "agot",
+            "chapterNo": 41
+          },
+          "sources": [
+            {
+              "kind": "wiki",
+              "cite": "A Game of Thrones, Jon V (chapter 41); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_41",
+              "license": "CC-BY-SA-3.0",
+              "bookId": "agot",
+              "chapterNo": 41
+            },
+            {
+              "kind": "wiki",
+              "cite": "A Wiki of Ice and Fire, Isle of Faces; CC BY-SA 3.0.",
+              "url": "https://awoiaf.westeros.org/index.php/Isle_of_Faces",
+              "license": "CC-BY-SA-3.0"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Локатор",
+              "value": "Jon V (chapter 41)"
+            },
+            {
+              "label": "Сверка",
+              "value": "AWOIAF — вторичный источник; первичная сверка по выбранному изданию ожидается."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Священный остров посреди озера Божье Око в Речных землях; AWOIAF отмечает там южные рощи чардрев."
+            }
+          ],
+          "links": []
+        },
+        {
+          "ref": "place:braavos",
+          "kind": "place",
+          "name": "Braavos",
+          "subtitle": "A Game of Thrones · Jon V (chapter 41)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Jon V (chapter 41); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_41",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "agot",
+            "chapterNo": 41
+          },
+          "sources": [
+            {
+              "kind": "wiki",
+              "cite": "A Game of Thrones, Jon V (chapter 41); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_41",
+              "license": "CC-BY-SA-3.0",
+              "bookId": "agot",
+              "chapterNo": 41
+            },
+            {
+              "kind": "wiki",
+              "cite": "A Wiki of Ice and Fire, Braavos; CC BY-SA 3.0.",
+              "url": "https://awoiaf.westeros.org/index.php/Braavos",
+              "license": "CC-BY-SA-3.0"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Локатор",
+              "value": "Jon V (chapter 41)"
+            },
+            {
+              "label": "Сверка",
+              "value": "AWOIAF — вторичный источник; первичная сверка по выбранному изданию ожидается."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Вольный город на северо-западе Эссоса, расположенный среди островов Великой лагуны."
+            }
+          ],
+          "links": []
+        },
+        {
+          "ref": "place:mummers-ford",
+          "kind": "place",
+          "name": "Mummer's Ford",
+          "subtitle": "A Game of Thrones · Eddard XI (chapter 43)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Eddard XI (chapter 43); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_43",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "agot",
+            "chapterNo": 43
+          },
+          "sources": [
+            {
+              "kind": "wiki",
+              "cite": "A Game of Thrones, Eddard XI (chapter 43); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_43",
+              "license": "CC-BY-SA-3.0",
+              "bookId": "agot",
+              "chapterNo": 43
+            },
+            {
+              "kind": "wiki",
+              "cite": "A Wiki of Ice and Fire, Mummer's Ford; CC BY-SA 3.0.",
+              "url": "https://awoiaf.westeros.org/index.php/Mummer%27s_Ford",
+              "license": "CC-BY-SA-3.0"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Приоритет",
+              "value": "P2"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Локатор",
+              "value": "Eddard XI (chapter 43)"
+            },
+            {
+              "label": "Сверка",
+              "value": "AWOIAF — вторичный источник; первичная сверка по выбранному изданию ожидается."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Переправа через Красный Зубец в западных Речных землях; точное положение места на карте в AWOIAF не установлено."
+            }
+          ],
+          "links": []
+        },
+        {
+          "ref": "place:wendish-town",
+          "kind": "place",
+          "name": "Wendish Town",
+          "subtitle": "A Game of Thrones · Eddard XI (chapter 43)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Eddard XI (chapter 43); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_43",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "agot",
+            "chapterNo": 43
+          },
+          "sources": [
+            {
+              "kind": "wiki",
+              "cite": "A Game of Thrones, Eddard XI (chapter 43); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_43",
+              "license": "CC-BY-SA-3.0",
+              "bookId": "agot",
+              "chapterNo": 43
+            },
+            {
+              "kind": "wiki",
+              "cite": "A Wiki of Ice and Fire, Wendish Town; CC BY-SA 3.0.",
+              "url": "https://awoiaf.westeros.org/index.php/Wendish_Town",
+              "license": "CC-BY-SA-3.0"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Приоритет",
+              "value": "P2"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Локатор",
+              "value": "Eddard XI (chapter 43)"
+            },
+            {
+              "label": "Сверка",
+              "value": "AWOIAF — вторичный источник; первичная сверка по выбранному изданию ожидается."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Поселение в Речных землях с деревянным укреплением; в сообщении на суде говорится, что жители погибли при сожжении укрепления."
+            }
+          ],
+          "links": []
+        },
+        {
+          "ref": "place:kingswood",
+          "kind": "place",
+          "name": "Kingswood",
+          "subtitle": "A Game of Thrones · Eddard XII (chapter 45)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Eddard XII (chapter 45); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_45",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "agot",
+            "chapterNo": 45
+          },
+          "sources": [
+            {
+              "kind": "wiki",
+              "cite": "A Game of Thrones, Eddard XII (chapter 45); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_45",
+              "license": "CC-BY-SA-3.0",
+              "bookId": "agot",
+              "chapterNo": 45
+            },
+            {
+              "kind": "wiki",
+              "cite": "A Wiki of Ice and Fire, Kingswood; CC BY-SA 3.0.",
+              "url": "https://awoiaf.westeros.org/index.php/King%27s_wood",
+              "license": "CC-BY-SA-3.0"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Локатор",
+              "value": "Eddard XII (chapter 45)"
+            },
+            {
+              "label": "Сверка",
+              "value": "AWOIAF — вторичный источник; первичная сверка по выбранному изданию ожидается."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Большой лес на юге Королевских земель и севере Штормовых земель, за Черноводной от Королевской Гавани."
+            }
+          ],
+          "links": []
+        },
+        {
+          "ref": "place:port-of-ibben",
+          "kind": "place",
+          "name": "Port of Ibben",
+          "subtitle": "A Game of Thrones · Eddard XII (chapter 45)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Eddard XII (chapter 45); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_45",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "agot",
+            "chapterNo": 45
+          },
+          "sources": [
+            {
+              "kind": "wiki",
+              "cite": "A Game of Thrones, Eddard XII (chapter 45); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_45",
+              "license": "CC-BY-SA-3.0",
+              "bookId": "agot",
+              "chapterNo": 45
+            },
+            {
+              "kind": "wiki",
+              "cite": "A Wiki of Ice and Fire, Port of Ibben; CC BY-SA 3.0.",
+              "url": "https://awoiaf.westeros.org/index.php/Port_of_Ibben",
+              "license": "CC-BY-SA-3.0"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Локатор",
+              "value": "Eddard XII (chapter 45)"
+            },
+            {
+              "label": "Сверка",
+              "value": "AWOIAF — вторичный источник; первичная сверка по выбранному изданию ожидается."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Главный и крупнейший город острова Иб, расположенный на его южном побережье."
+            }
+          ],
+          "links": []
+        },
+        {
+          "ref": "place:summer-isles",
+          "kind": "place",
+          "name": "Summer Isles",
+          "subtitle": "A Game of Thrones · Eddard XII (chapter 45)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Eddard XII (chapter 45); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_45",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "agot",
+            "chapterNo": 45
+          },
+          "sources": [
+            {
+              "kind": "wiki",
+              "cite": "A Game of Thrones, Eddard XII (chapter 45); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_45",
+              "license": "CC-BY-SA-3.0",
+              "bookId": "agot",
+              "chapterNo": 45
+            },
+            {
+              "kind": "wiki",
+              "cite": "A Wiki of Ice and Fire, Summer Isles; CC BY-SA 3.0.",
+              "url": "https://awoiaf.westeros.org/index.php/Summer_Isles",
+              "license": "CC-BY-SA-3.0"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Локатор",
+              "value": "Eddard XII (chapter 45)"
+            },
+            {
+              "label": "Сверка",
+              "value": "AWOIAF — вторичный источник; первичная сверка по выбранному изданию ожидается."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Большой архипелаг к югу от Вестероса и Эссоса, к западу от Сотороса и Наата."
+            }
+          ],
+          "links": []
+        }
+      ]
+    },
+    {
+      "format": "cockpit.entity-layer/1",
+      "kind": "event",
+      "entities": [
+        {
+          "ref": "event:lannister-army-gathering-at-casterly-rock",
+          "kind": "event",
+          "name": "Report: Lannister forces gather at Casterly Rock",
+          "subtitle": "A Game of Thrones · Catelyn VII (chapter 40)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Catelyn VII (chapter 40); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_40",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "agot",
+            "chapterNo": 40
+          },
+          "sources": [
+            {
+              "kind": "wiki",
+              "cite": "A Game of Thrones, Catelyn VII (chapter 40); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_40",
+              "license": "CC-BY-SA-3.0",
+              "bookId": "agot",
+              "chapterNo": 40
+            }
+          ],
+          "facts": [
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Локатор",
+              "value": "Catelyn VII (chapter 40)"
+            },
+            {
+              "label": "Сверка",
+              "value": "AWOIAF — вторичный источник; первичная сверка по выбранному изданию ожидается."
+            },
+            {
+              "label": "Класс события",
+              "value": "reported — переданное персонажем сообщение; событие не показано как непосредственно наблюдаемое"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Родрик сообщает Катлин, что Джейме собирает войско в Кастерли-Рок; глава передаёт это как полученную новость, а не как увиденное действие или подтверждённый итог."
+            }
+          ],
+          "links": []
+        }
+      ]
+    }
+  ]
+}

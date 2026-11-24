@@ -1,0 +1,148 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "organization",
+  "entities": [
+    {
+      "ref": "organization:house-hightower",
+      "kind": "organization",
+      "name": "House Hightower",
+      "nameRu": "Дом Хайтауэров",
+      "subtitle": "A Feast for Crows · Samwell V (Chapter 45)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Feast for Crows, Samwell V (Chapter 45); A Wiki of Ice and Fire secondary chapter index; primary-edition verification pending",
+        "url": "https://awoiaf.westeros.org/index.php/A_Feast_for_Crows-Chapter_45",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "affc",
+        "chapterNo": 45
+      },
+      "facts": [
+        {
+          "label": "Тип организации",
+          "value": "родовой дом Простора"
+        },
+        {
+          "label": "Опорная глава",
+          "value": "AFFC 45: Samwell V; сцена в Староместе"
+        },
+        {
+          "label": "Роль в главе",
+          "value": "Лорд Лейтон остается в Башне; его сыновья стараются защитить Старомест, а Хамфри отправляется нанять наемные корабли. Это показано в пересказе главы AWOIAF."
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; сверка по первичному изданию pending."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Один из влиятельных домов Простора, связанный со Староместом и подчиненный дому Тиреллов. Для ведущего полезен как самостоятельный центр военной и городской политики на юго-западе."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Tyrell",
+          "ref": "organization:house-tyrell"
+        },
+        {
+          "label": "Mace Tyrell",
+          "ref": "person:mace-tyrell"
+        },
+        {
+          "label": "Margaery Tyrell",
+          "ref": "person:margaery-tyrell"
+        },
+        {
+          "label": "Gerold Hightower",
+          "ref": "person:gerold-hightower"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Feast for Crows · Samwell V (Chapter 45)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Feast_for_Crows-Chapter_45",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "affc",
+          "chapterNo": 45
+        }
+      ]
+    },
+    {
+      "ref": "organization:house-manderly",
+      "kind": "organization",
+      "name": "House Manderly",
+      "nameRu": "Дом Мандерли",
+      "subtitle": "A Dance with Dragons · Davos IV (Chapter 29)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Dance with Dragons, Davos IV (Chapter 29); A Wiki of Ice and Fire secondary chapter index; primary-edition verification pending",
+        "url": "https://awoiaf.westeros.org/index.php/A_Dance_with_Dragons-Chapter_29",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "adwd",
+        "chapterNo": 29
+      },
+      "facts": [
+        {
+          "label": "Тип организации",
+          "value": "родовой дом Севера, лорды Белой Гавани"
+        },
+        {
+          "label": "Опорная глава",
+          "value": "ADWD 29: Davos IV; встреча Давоса с лордом Виманом"
+        },
+        {
+          "label": "Роль в главе",
+          "value": "Виман объясняет вынужденное публичное сотрудничество с Фреями заложничеством Уиллиса и выражает долг дома перед Старками. Это позиция главы дома в сцене, не утверждение о единогласии всех Мандерли."
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; сверка по первичному изданию pending."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Сильный северный дом с собственными ресурсами и сложной публичной лояльностью. Для ведущего важен как политический узел, где принуждение, верность Старкам и расчёт главы дома расходятся."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Stark",
+          "ref": "organization:house-stark"
+        },
+        {
+          "label": "Wylis Manderly",
+          "ref": "person:wylis-manderly"
+        },
+        {
+          "label": "Wendel Manderly",
+          "ref": "person:wendel-manderly"
+        },
+        {
+          "label": "Roose Bolton",
+          "ref": "person:roose-bolton"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Dance with Dragons · Davos IV (Chapter 29)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Dance_with_Dragons-Chapter_29",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "adwd",
+          "chapterNo": 29
+        }
+      ]
+    }
+  ]
+}

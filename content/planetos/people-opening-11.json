@@ -1,0 +1,206 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "person",
+  "entities": [
+    {
+      "ref": "person:jafer-flowers",
+      "kind": "person",
+      "name": "Jafer Flowers",
+      "nameRu": "Яфер Флауэрс",
+      "subtitle": "A Game of Thrones · Jon VII",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Jon VII (Chapter 52); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_52", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Jon VII (Chapter 52)"},
+        {"label": "Статус в главе", "value": "появляется посмертно: его тело осматривают в Чёрном замке"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Проверка имени", "value": "AWOIAF также приводит вариант Jared; не смешивать с уже имеющимся Jared Frey. Основание варианта и написание в выбранном издании не проверены."},
+        {"label": "Сверка", "value": "AWOIAF отмечает среди появляющихся; первичный текст не сверялся"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Рейнджер из отряда Бенджена Старка. Его тело и тело Отора доставляют к Чёрному замку; отрубленную кисть Яфера ранее приносит Призрак."}],
+      "links": [{"label": "Benjen Stark", "ref": "person:benjen-stark"}, {"label": "Jaremy Rykker", "ref": "person:jaremy-rykker"}, {"label": "Night's Watch", "ref": "organization:nights-watch"}]
+    },
+    {
+      "ref": "person:robett-glover",
+      "kind": "person",
+      "name": "Robett Glover",
+      "nameRu": "Робетт Гловер",
+      "subtitle": "A Game of Thrones · Bran VI; Catelyn VIII",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Bran VI (Chapter 53) and Catelyn VIII (Chapter 55); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_53", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Bran VI (Chapter 53); Catelyn VIII (Chapter 55)"},
+        {"label": "Статус в главе", "value": "появляется в обеих главах"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Различение", "value": "Брат Гальбарта Гловера; отдельный персонаж, не дубль существующей карточки Гальбарта."},
+        {"label": "Сверка", "value": "AWOIAF отмечает среди появляющихся; первичный текст не сверялся"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Северный знаменосец, присутствующий среди лордов, которые собираются у Робба в Винтерфелле и сопровождают его армию."}],
+      "links": [{"label": "Galbart Glover", "ref": "person:galbart-glover"}, {"label": "Robb Stark", "ref": "person:robb-stark"}, {"label": "House Stark", "ref": "organization:house-stark"}]
+    },
+    {
+      "ref": "person:halys-hornwood",
+      "kind": "person",
+      "name": "Halys Hornwood",
+      "nameRu": "Халис Хорнвуд",
+      "subtitle": "A Game of Thrones · Bran VI; Catelyn VIII; Tyrion VIII",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Bran VI (Chapter 53), Catelyn VIII (Chapter 55), and Tyrion VIII (Chapter 62); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_53", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Bran VI (53), Catelyn VIII (55), Tyrion VIII (62)"},
+        {"label": "Статус в главе", "value": "появляется в главах 53 и 55; упоминается погибшим в главе 62"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Различение", "value": "Отец Дарына Хорнвуда; не смешивать с сыном, у которого уже есть отдельная карточка."},
+        {"label": "Сверка", "value": "классификация по спискам AWOIAF; первичный текст не сверялся"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Лорд Рогового леса, прибывший в Винтерфелл после призыва Робба. В Tyrion VIII сообщается о его гибели в битве на Зелёном Зубце."}],
+      "links": [{"label": "Daryn Hornwood", "ref": "person:daryn-hornwood"}, {"label": "Robb Stark", "ref": "person:robb-stark"}, {"label": "Green Fork", "ref": "place:green-fork"}]
+    },
+    {
+      "ref": "person:wylis-manderly",
+      "kind": "person",
+      "name": "Wylis Manderly",
+      "nameRu": "Уиллис Мандерли",
+      "subtitle": "A Game of Thrones · Catelyn VIII; Tyrion VIII",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Catelyn VIII (Chapter 55) and Tyrion VIII (Chapter 62); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_55", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Catelyn VIII (55); Tyrion VIII (62)"},
+        {"label": "Статус в главе", "value": "появляется в главе 55; упоминается пленным в главе 62"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Различение", "value": "Сын Уаймана и брат Венделя Мандерли; три карточки обозначают разных людей."},
+        {"label": "Сверка", "value": "классификация по спискам AWOIAF; первичный текст не сверялся"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Рыцарь из Белой Гавани, пришедший к Роббу с войском Мандерли и сопровождающий Кейтлин у Рва Кайлин. После битвы на Зелёном Зубце его называют среди пленных."}],
+      "links": [{"label": "Wendel Manderly", "ref": "person:wendel-manderly"}, {"label": "Moat Cailin", "ref": "place:moat-cailin"}, {"label": "Robb Stark", "ref": "person:robb-stark"}]
+    },
+    {
+      "ref": "person:mago",
+      "kind": "person",
+      "name": "Mago",
+      "nameRu": "Маго",
+      "subtitle": "A Game of Thrones · Daenerys VII; Daenerys IX",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Daenerys VII (Chapter 61) and Daenerys IX (Chapter 68); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_61", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Daenerys VII (61); Daenerys IX (68)"},
+        {"label": "Статус в главе", "value": "появляется в главе 61; упоминается в рассказе о событиях главы 68"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Сверка", "value": "AWOIAF относит его к появляющимся в 61-й главе, а к упоминаемым в 68-й; первичный текст не сверялся"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Воин из khas Ко Джхаго. В Daenerys VII он спорит с Дейенерис после её вмешательства в судьбу лхазарянок; в Daenerys IX она вспоминает, что он увёл Эроэ после распада кхаласара."}],
+      "links": [{"label": "Daenerys Targaryen", "ref": "person:daenerys-targaryen"}, {"label": "Drogo", "ref": "person:drogo"}]
+    },
+    {
+      "ref": "person:eroeh",
+      "kind": "person",
+      "name": "Eroeh",
+      "nameRu": "Эроэ",
+      "subtitle": "A Game of Thrones · Daenerys VII; Daenerys IX",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Daenerys VII (Chapter 61) and Daenerys IX (Chapter 68); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_61", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Daenerys VII (61); Daenerys IX (68)"},
+        {"label": "Статус в главе", "value": "появляется в главе 61; упоминается в пересказе событий главы 68"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Сверка", "value": "AWOIAF отмечает её среди появляющихся в 61-й главе и упоминаемых в 68-й; первичный текст не сверялся"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Лхазарянка, которую Дейенерис спасает во время набега, останавливая нападение и поручая Дореа позаботиться о её ранах. Позднее её судьбу рассказывают Дейенерис."}],
+      "links": [{"label": "Daenerys Targaryen", "ref": "person:daenerys-targaryen"}, {"label": "Doreah", "ref": "person:doreah"}, {"label": "Jorah Mormont", "ref": "person:jorah-mormont"}]
+    },
+    {
+      "ref": "person:addam-marbrand",
+      "kind": "person",
+      "name": "Addam Marbrand",
+      "nameRu": "Аддам Марбранд",
+      "subtitle": "A Game of Thrones · Tyrion VIII",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Tyrion VIII (Chapter 62); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_62", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Tyrion VIII (Chapter 62)"},
+        {"label": "Статус в главе", "value": "появляется"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Неопределённость", "value": "Рыцарь с гербом Марбрандов в Eddard VI (27) лишь предположительно отождествляется с Аддамом; надёжно названный выход Аддама здесь — Tyrion VIII (62)."},
+        {"label": "Сверка", "value": "AWOIAF отмечает его появляющимся в Tyrion VIII; первичный текст не сверялся"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Командует правым крылом войска Тайвина на Зелёном Зубце и приносит известие о движении Робба с юга от Близнецов."}],
+      "links": [{"label": "Tywin Lannister", "ref": "person:tywin-lannister"}, {"label": "Tyrion Lannister", "ref": "person:tyrion-lannister"}, {"label": "House Lannister", "ref": "organization:house-lannister"}]
+    },
+    {
+      "ref": "person:podrick-payne",
+      "kind": "person",
+      "name": "Podrick Payne",
+      "nameRu": "Подрик Пейн",
+      "subtitle": "A Game of Thrones · Tyrion VIII",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Tyrion VIII (Chapter 62); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_62", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Tyrion VIII (Chapter 62)"},
+        {"label": "Статус в главе", "value": "появляется"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Сверка", "value": "AWOIAF включает его в список появляющихся; первичный текст не сверялся"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Юный оруженосец Тириона в лагере у Зелёного Зубца; помогает ему облачиться в доспехи перед битвой."}],
+      "links": [{"label": "Tyrion Lannister", "ref": "person:tyrion-lannister"}, {"label": "House Lannister", "ref": "organization:house-lannister"}]
+    },
+    {
+      "ref": "person:shae",
+      "kind": "person",
+      "name": "Shae",
+      "nameRu": "Шая",
+      "subtitle": "A Game of Thrones · Tyrion VIII",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Tyrion VIII (Chapter 62); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_62", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Tyrion VIII (Chapter 62)"},
+        {"label": "Статус в главе", "value": "появляется"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Сверка", "value": "AWOIAF включает её в список появляющихся; первичный текст не сверялся"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Молодая темноволосая женщина, которую Бронн приводит к Тириону в лагерь; перед битвой она помогает ему надеть доспехи."}],
+      "links": [{"label": "Tyrion Lannister", "ref": "person:tyrion-lannister"}, {"label": "Bronn", "ref": "person:bronn"}]
+    },
+    {
+      "ref": "person:lyman-darry",
+      "kind": "person",
+      "name": "Lyman Darry",
+      "nameRu": "Лайман Дарри",
+      "subtitle": "A Game of Thrones · Catelyn XI",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Catelyn XI (Chapter 71); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_71", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Catelyn XI (Chapter 71)"},
+        {"label": "Статус в главе", "value": "появляется"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Различение", "value": "Сын Реймуна Дарри; не сливать с уже существующей карточкой отца."},
+        {"label": "Сверка", "value": "AWOIAF включает его в список появляющихся на совете; первичный текст не сверялся"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Представитель дома Дарри, присутствующий на совете Робба в Риверране среди речных лордов."}],
+      "links": [{"label": "Raymun Darry", "ref": "person:raymun-darry"}, {"label": "Riverrun", "ref": "place:riverrun"}, {"label": "Robb Stark", "ref": "person:robb-stark"}]
+    },
+    {
+      "ref": "person:jonelle-cerwyn",
+      "kind": "person",
+      "name": "Jonelle Cerwyn",
+      "nameRu": "Джонелль Сервин",
+      "subtitle": "A Game of Thrones · Bran VI",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Bran VI (Chapter 53); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_53", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Bran VI (Chapter 53)"},
+        {"label": "Статус в главе", "value": "появляется"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Различение", "value": "Дочь лорда Меджера Серрина; самостоятельный персонаж, а не вариант имени отца."},
+        {"label": "Сверка", "value": "AWOIAF включает её в список появляющихся; первичный текст не сверялся"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Дочь лорда Серрина, приехавшая с отцом в Винтерфелл после призыва Робба. В разговоре Робб говорит, что она отправится на юг с его войском."}],
+      "links": [{"label": "Robb Stark", "ref": "person:robb-stark"}, {"label": "Winterfell", "ref": "place:winterfell"}]
+    },
+    {
+      "ref": "person:medger-cerwyn",
+      "kind": "person",
+      "name": "Medger Cerwyn",
+      "nameRu": "Меджер Серрин",
+      "subtitle": "A Game of Thrones · Bran VI; Tyrion VIII",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Bran VI (Chapter 53) and Tyrion VIII (Chapter 62); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_53", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Bran VI (53); Tyrion VIII (62)"},
+        {"label": "Статус в главе", "value": "появляется в главе 53; упоминается пленным в главе 62"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Различение", "value": "Лорд Серрина и отец Джонелль; отдельная карточка дочери не является дублем."},
+        {"label": "Сверка", "value": "классификация по спискам AWOIAF; первичный текст не сверялся"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Лорд Серрина, прибывший к Роббу в Винтерфелл с дочерью. Позднее сообщается, что он захвачен в битве на Зелёном Зубце."}],
+      "links": [{"label": "Robb Stark", "ref": "person:robb-stark"}, {"label": "Green Fork", "ref": "place:green-fork"}, {"label": "Winterfell", "ref": "place:winterfell"}]
+    }
+  ]
+}

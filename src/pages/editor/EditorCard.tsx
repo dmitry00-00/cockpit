@@ -8,9 +8,16 @@
 import { useState, type ReactNode } from 'react';
 import { Popover } from 'radix-ui';
 import { abilityMod, type DerivedCharacter } from '../../campaign';
+import { PortraitImage } from '../../art/portrait';
+import { BUILT_IN_PORTRAITS, BUILT_IN_PORTRAIT_LABELS } from '../../art/portraitIds';
+import { MaterialArtwork } from '../../art/MaterialArtwork';
+import { prepareUserPortrait } from '../../art/userPortrait';
 import { ABILITY_LABEL, SKILL_LABEL, classIcon, raceIcon, signedMod } from '../../components';
-import { skillIcon } from '../../components/sheetIcons';
+import { AbilityMark, SkillMark } from '../../art/RuleMark';
+import { ClassEmblem } from '../../art/ClassEmblem';
+import { RaceMark } from '../../art/RaceMark';
 import { Icon } from '../../icons/Icon';
+import './EditorCard.css';
 import { ABILITIES, ABILITY_IDS, SKILLS, SKILL_IDS, type AbilityId, type SkillId } from '../../rules/srd';
 import type { Background, CharacterClass, Race } from '../../rules/compendium';
 import {
@@ -56,6 +63,7 @@ export interface EditorCardProps {
   asiLabel: (r: Race) => string;
   /** Подвал: «осталось выбрать» и кнопка «В партию» страницы. */
   footer?: ReactNode;
+  onDependencyChange?: (kind: 'race' | 'class', before: Draft, after: Draft) => void;
 }
 
 function Picker({ label, icon, title, children }: { label: string; icon: ReactNode; title: string; children: (close: () => void) => ReactNode }) {
@@ -82,7 +90,8 @@ function MenuItem({ on, onClick, children }: { on: boolean; onClick: () => void;
   );
 }
 
-export function EditorCard({ draft, setDraft, derived, races, classes, backgrounds, skillChoice, bgSkills, asiLabel, footer }: EditorCardProps) {
+export function EditorCard({ draft, setDraft, derived, races, classes, backgrounds, skillChoice, bgSkills, asiLabel, footer, onDependencyChange }: EditorCardProps) {
+  const [portraitError, setPortraitError] = useState<string | null>(null);
   const race = races.find(r => r.id === draft.raceId) ?? derived?.race;
   const cls = classes.find(c => c.id === draft.classId) ?? derived?.cls;
   const bg = backgrounds.find(b => b.id === draft.backgroundId);
@@ -98,11 +107,11 @@ export function EditorCard({ draft, setDraft, derived, races, classes, backgroun
     .filter(r => r.skills.length > 0);
 
   return (
-    <article aria-label="Карта персонажа: редактор" data-part="editor-card" className="flex flex-col flex-none w-card-single max-w-full bg-cd shadow-[var(--bevel),var(--frame)]">
+    <article aria-label="Карта персонажа: редактор" data-part="editor-card" className="editor-card flex flex-col flex-none w-card-single max-w-full bg-cd shadow-[var(--bevel),var(--frame)]">
       {/* Корешок: имя правится здесь, раса и класс — иконками со списком (образец). */}
-      <header className={`flex-none flex items-center gap-2 px-1.5 py-1.5 bg-linear-to-br from-pl to-cd ${TIER}`}>
+      <header className={`editor-card__spine flex-none flex items-center gap-2 px-1.5 py-1.5 bg-linear-to-br from-pl to-cd ${TIER}`}>
         <span className="flex-none size-9 grid place-items-center bg-linear-to-br from-pl to-wl shadow-[inset_0_0_0_2px_var(--bl)]">
-          <Icon name={classIcon(draft.classId)} size={16} title={cls?.nameRu ?? 'Класс'} />
+          <ClassEmblem icon={classIcon(draft.classId)} title={cls?.nameRu ?? 'Класс'} size={32} />
         </span>
         <input
           type="text"
@@ -112,27 +121,58 @@ export function EditorCard({ draft, setDraft, derived, races, classes, backgroun
           maxLength={40}
           value={draft.name}
           onChange={e => { const v = e.target.value; setDraft(d => ({ ...d, name: v })); }}
-          className="flex-1 min-w-0 h-8 px-1 bg-transparent type-h-17 text-gd-hi shadow-[inset_0_-1px_0_var(--t4)] outline-none focus-visible:shadow-[inset_0_-2px_0_var(--gd)] placeholder:text-t3"
+          className="flex-1 min-w-0 h-8 px-1 bg-transparent type-h-17 text-tx shadow-[inset_0_-1px_0_var(--t4)] outline-none focus-visible:shadow-[inset_0_-2px_0_var(--gd)] placeholder:text-t3"
         />
-        <Picker label="Раса" title={`Раса: ${race?.nameRu ?? '—'} · сменить`} icon={<Icon name={raceIcon(draft.raceId)} size={16} title={race?.nameRu ?? 'Раса'} />}>
+        <Picker label="Раса" title={`Раса: ${race?.nameRu ?? '—'} · сменить`} icon={<RaceMark raceId={draft.raceId} title={race?.nameRu ?? 'Раса'} size={24} fallback={<Icon name={raceIcon(draft.raceId)} size={16} title={race?.nameRu ?? 'Раса'} />} />}>
           {close => races.map(r => (
-            <MenuItem key={r.id} on={r.id === draft.raceId} onClick={() => { setDraft(d => withRace(d, r.id)); close(); }}>
-              <Icon name={raceIcon(r.id)} size={16} title={r.nameRu} />
+            <MenuItem key={r.id} on={r.id === draft.raceId} onClick={() => { const next = withRace(draft, r.id); onDependencyChange?.('race', draft, next); setDraft(() => next); close(); }}>
+              <RaceMark raceId={r.id} title={r.nameRu} size={24} fallback={<Icon name={raceIcon(r.id)} size={16} title={r.nameRu} />} />
               <span className="flex-1 min-w-0 truncate type-body-sm text-tx">{r.nameRu}</span>
               <span className="type-key text-t3 truncate">{asiLabel(r)}</span>
             </MenuItem>
           ))}
         </Picker>
-        <Picker label="Класс" title={`Класс: ${cls?.nameRu ?? '—'} · сменить`} icon={<Icon name={classIcon(draft.classId)} size={16} title={cls?.nameRu ?? 'Класс'} />}>
+        <Picker label="Класс" title={`Класс: ${cls?.nameRu ?? '—'} · сменить`} icon={<ClassEmblem icon={classIcon(draft.classId)} title={cls?.nameRu ?? 'Класс'} />}>
           {close => classes.map(c => (
-            <MenuItem key={c.id} on={c.id === draft.classId} onClick={() => { setDraft(d => withClass(d, c.id)); close(); }}>
-              <Icon name={classIcon(c.id)} size={16} title={c.nameRu} />
+            <MenuItem key={c.id} on={c.id === draft.classId} onClick={() => { const next = withClass(draft, c.id); onDependencyChange?.('class', draft, next); setDraft(() => next); close(); }}>
+              <ClassEmblem icon={classIcon(c.id)} title={c.nameRu} />
               <span className="flex-1 min-w-0 truncate type-body-sm text-tx">{c.nameRu}</span>
               <span className="type-key text-t3 truncate">{c.name}</span>
             </MenuItem>
           ))}
         </Picker>
       </header>
+
+      <section aria-label="Портрет персонажа" className="flex flex-wrap items-center gap-2 px-2 py-2 shadow-[inset_0_-1px_0_var(--lo)]">
+        <div className="relative isolate size-24 flex-none grid place-items-center overflow-hidden bg-wl shadow-bevel-in" data-part="portrait-preview">
+          {draft.portrait ? (
+            <PortraitImage portrait={draft.portrait} alt={`Портрет: ${draft.name.trim() || 'персонаж'}`} width={96} sizes="96px" className="size-24 object-cover" />
+          ) : <span className="type-key text-t3 text-center px-2">Без портрета</span>}
+          <MaterialArtwork asset="kimi-material-trim-bronze-corner-v1" width={96} className="portrait-preview-corner" style={{ position: 'absolute', insetBlockStart: 0, insetInlineStart: 0, width: 32, maxWidth: 'none', height: 32, objectFit: 'contain', pointerEvents: 'none' }} />
+          <MaterialArtwork asset="kimi-material-trim-bronze-corner-v1" width={96} className="portrait-preview-corner" style={{ position: 'absolute', insetBlockEnd: 0, insetInlineEnd: 0, width: 32, maxWidth: 'none', height: 32, objectFit: 'contain', transform: 'rotate(180deg)', pointerEvents: 'none' }} />
+        </div>
+        <div role="group" aria-label="Выбрать портрет" className="flex min-w-0 flex-wrap gap-1">
+          <button type="button" aria-pressed={!draft.portrait} onClick={() => setDraft(d => ({ ...d, portrait: undefined }))} className={`px-2 py-1 type-body-xs focus-visible:shadow-[var(--glow-gold)] ${!draft.portrait ? 'bg-pl text-gd-hi shadow-plate' : 'bg-wl text-t2 hover:bg-pl'}`}>
+            Без портрета
+          </button>
+          {BUILT_IN_PORTRAITS.map(portrait => (
+            <button key={portrait} type="button" data-portrait-option={portrait} aria-pressed={draft.portrait === portrait} onClick={() => setDraft(d => ({ ...d, portrait }))} className={`inline-flex items-center gap-1 px-2 py-1 type-body-xs focus-visible:shadow-[var(--glow-gold)] ${draft.portrait === portrait ? 'bg-pl text-gd-hi shadow-plate' : 'bg-wl text-t2 hover:bg-pl'}`}>
+              <PortraitImage portrait={portrait} alt="" width={32} sizes="32px" className="size-6 object-cover" />
+              <span>{BUILT_IN_PORTRAIT_LABELS[portrait]}</span>
+            </button>
+          ))}
+          <label htmlFor="user-portrait-file" className="px-2 py-1 type-body-xs bg-wl text-t2 hover:bg-pl cursor-pointer focus-within:shadow-[var(--glow-gold)]">Загрузить свой портрет</label>
+          <input id="user-portrait-file" type="file" accept="image/png,image/jpeg,image/webp" className="sr-only" onChange={event => {
+            const file = event.target.files?.[0];
+            event.target.value = '';
+            if (!file) return;
+            setPortraitError(null);
+            void prepareUserPortrait(file).then(portrait => setDraft(d => ({ ...d, portrait }))).catch(error => setPortraitError(error instanceof Error ? error.message : String(error)));
+          }} />
+        </div>
+        <p className="w-full type-body-xs text-t3">Исходный файл не копируется в проект. В кампании сохраняется уменьшенный WebP-портрет до 128 КиБ.</p>
+        {portraitError ? <p role="alert" className="w-full type-body-xs text-fx-damage-hi">{portraitError}</p> : null}
+      </section>
 
       {/* Числа мягкого вывода: меняются после каждого щелчка. */}
       <div role="group" aria-label="Числа листа" className={`flex-none grid grid-cols-4 bg-pn ${TIER}`}>
@@ -159,7 +199,10 @@ export function EditorCard({ draft, setDraft, derived, races, classes, backgroun
           const racial = final - draft.base[ab] - Object.values(draft.improvements).reduce((s, a) => s + (a[ab] ?? 0), 0);
           return (
             <div key={ab} className={`flex flex-col items-center gap-0.5 py-1 bg-linear-to-b from-pl to-cd ${CELL_EDGE[ab]}`} data-ability={ab}>
-              <span className="type-key uppercase text-t2" title={ABILITY_LABEL[ab]}>{ABILITIES[ab].code}</span>
+              <span data-part="ability-mark" className="flex items-center justify-center gap-1 type-key uppercase text-t2" title={ABILITY_LABEL[ab]}>
+                <AbilityMark ability={ab} title={ABILITY_LABEL[ab]} />
+                <span>{ABILITIES[ab].code}</span>
+              </span>
               {draft.method === 'pointbuy' ? (
                 <span className="flex items-center gap-px">
                   <button type="button" aria-label={`${ABILITY_LABEL[ab]} ниже на карте`} disabled={!canDecrease(draft.base, ab)} onClick={() => setDraft(d => ({ ...d, base: { ...d.base, [ab]: d.base[ab] - 1 } }))} className={STEP}>−</button>
@@ -246,7 +289,7 @@ export function EditorCard({ draft, setDraft, derived, races, classes, backgroun
                   className={`relative size-8 flex-none flex flex-col items-center justify-center gap-0.5 bg-wl ${origin ? origin.frame : available ? 'shadow-[var(--bevel-in),inset_0_0_0_1px_var(--t4)] cursor-pointer hover:shadow-[var(--bevel-in),inset_0_0_0_1px_var(--gd)]' : 'shadow-bevel-in'} ${locked && !origin ? 'opacity-(--op-disabled)' : ''} ${chosen ? 'cursor-pointer' : ''} focus-visible:shadow-[var(--glow-gold)]`}
                 >
                   {origin ? <span aria-hidden className={`absolute right-px top-px type-key leading-none ${origin.text}`}>{origin.tag}</span> : null}
-                  <Icon name={skillIcon(sk)} size={16} title={SKILL_LABEL[sk]} />
+                  <SkillMark skill={sk} title={SKILL_LABEL[sk]} />
                   <span className={`type-num-12 leading-none ${origin ? origin.text : 'text-t2'}`}>{signedMod(bonus)}</span>
                 </button>
               );
@@ -257,7 +300,7 @@ export function EditorCard({ draft, setDraft, derived, races, classes, backgroun
 
       {/* Итог, как внизу образца: кто это и главные числа одной строкой. */}
       <footer className="flex-none flex flex-col items-center gap-1 px-2 py-2 bg-linear-to-br from-pl to-cd shadow-[inset_0_2px_0_var(--br)]" data-part="summary">
-        <span className="type-h-17 text-gd-hi truncate max-w-full">{name || 'Новый персонаж'}</span>
+        <span className="type-h-17 text-tx truncate max-w-full">{name || 'Новый персонаж'}</span>
         <span className="type-body-xs text-t2 truncate max-w-full">{[race?.nameRu, cls?.nameRu, `${draft.level} ур.`].filter(Boolean).join(' · ')}{bg ? ` · ${bg.nameRu}` : ''}</span>
         {derived ? (
           <span className="flex gap-3 type-num-12">

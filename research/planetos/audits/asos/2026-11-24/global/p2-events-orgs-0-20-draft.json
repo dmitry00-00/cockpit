@@ -1,0 +1,1664 @@
+{
+  "format": "cockpit.entity-layer-draft-set/1",
+  "packageSnapshot": "2026.11.24.41",
+  "sourcePolicy": {
+    "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original short Russian paraphrases; primary-edition verification pending.",
+    "status": "secondary-indexed-partial",
+    "primaryVerification": "pending",
+    "absoluteDatePolicy": "do not infer dates from chapter order",
+    "scope": "P2 ASOS events and organizations; first batch, earliest chapters 0–20 only."
+  },
+  "summary": {
+    "p2LocatorRowsInRange": 50,
+    "uniqueCandidateIdsInRange": 48,
+    "uniqueEventIds": 45,
+    "uniqueOrganizationIds": 3,
+    "draftCards": 16,
+    "draftEvents": 13,
+    "draftOrganizations": 3,
+    "earliestChapterRange": "0–20",
+    "remainingRanges": {
+      "21–40": {
+        "locatorRows": 3,
+        "uniqueIds": 3
+      },
+      "41–60": {
+        "locatorRows": 2,
+        "uniqueIds": 2
+      },
+      "61–81": {
+        "locatorRows": 26,
+        "uniqueIds": 24
+      }
+    }
+  },
+  "payloads": [
+    {
+      "format": "cockpit.entity-layer/1",
+      "kind": "event",
+      "entities": [
+        {
+          "ref": "event:chetts-desertion-and-officer-killing-conspiracy",
+          "kind": "event",
+          "name": "Chett’s desertion and officer-killing conspiracy",
+          "nameRu": "Заговор Четта о дезертирстве и убийстве командиров",
+          "subtitle": "A Storm of Swords · Prologue (Chapter 0)",
+          "status": "secondary-indexed-partial",
+          "priority": "P2",
+          "earliestChapterRange": "0–20",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Prologue (chapter 0); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0; primary verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Prologue",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 0,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original short Russian paraphrases; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 0,
+              "chapterTitle": "Prologue",
+              "relation": "plan",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Prologue"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус источника",
+              "value": "plan"
+            },
+            {
+              "label": "Ограничение",
+              "value": "План, не свершившееся убийство или побег."
+            },
+            {
+              "label": "Приоритет",
+              "value": "P2"
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Четт и группа братьев Ночного дозора планируют дезертировать и убить нескольких командиров. Синопсис указывает, что план не успевает исполниться до тревожного сигнала у Фиста."
+            }
+          ],
+          "links": [
+            {
+              "label": "Chett",
+              "ref": "person:chett"
+            },
+            {
+              "label": "Night's Watch",
+              "ref": "organization:nights-watch"
+            },
+            {
+              "label": "Fist of the First Men",
+              "ref": "place:fist-of-the-first-men"
+            },
+            {
+              "label": "Jeor Mormont",
+              "ref": "person:jeor-mormont"
+            }
+          ]
+        },
+        {
+          "ref": "event:nights-watch-decision-to-march-against-mances-host",
+          "kind": "event",
+          "name": "Night’s Watch decides to march against Mance’s host",
+          "nameRu": "Ночной дозор решает выступить против войска Манса",
+          "subtitle": "A Storm of Swords · Prologue (Chapter 0)",
+          "status": "secondary-indexed-partial",
+          "priority": "P2",
+          "earliestChapterRange": "0–20",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Prologue (chapter 0); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0; primary verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Prologue",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 0,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original short Russian paraphrases; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 0,
+              "chapterTitle": "Prologue",
+              "relation": "plan",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Prologue"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус источника",
+              "value": "plan"
+            },
+            {
+              "label": "Ограничение",
+              "value": "Решение/план, не состоявшееся столкновение."
+            },
+            {
+              "label": "Приоритет",
+              "value": "P2"
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Командование Ночного дозора объявляет, что выступит навстречу войску Манса на рассвете. Карточка фиксирует решение, не исход похода."
+            }
+          ],
+          "links": [
+            {
+              "label": "Night's Watch",
+              "ref": "organization:nights-watch"
+            },
+            {
+              "label": "Mance Rayder",
+              "ref": "person:mance-rayder"
+            },
+            {
+              "label": "Jeor Mormont",
+              "ref": "person:jeor-mormont"
+            }
+          ]
+        },
+        {
+          "ref": "event:daenerys-decides-to-redirect-the-fleet-toward-slavers-bay",
+          "kind": "event",
+          "name": "Daenerys redirects her fleet toward Slaver’s Bay",
+          "nameRu": "Дейенерис меняет курс к Заливу Работорговцев",
+          "subtitle": "A Storm of Swords · Daenerys I (Chapter 8)",
+          "status": "secondary-indexed-partial",
+          "priority": "P2",
+          "earliestChapterRange": "0–20",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Daenerys I (chapter 8); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0; primary verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_8",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 8,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original short Russian paraphrases; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 8,
+              "chapterTitle": "Daenerys I",
+              "relation": "decision",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_8"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус источника",
+              "value": "decision"
+            },
+            {
+              "label": "Ограничение",
+              "value": "AWOIAF chapter index/synopsis is secondary; verify against chosen primary edition."
+            },
+            {
+              "label": "Приоритет",
+              "value": "P2"
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Джорах предлагает направиться к Астапору за Безупречными; Дейенерис соглашается изменить курс. Карточка не приписывает ей дальнейшие действия в городе."
+            }
+          ],
+          "links": [
+            {
+              "label": "Daenerys Targaryen",
+              "ref": "person:daenerys-targaryen"
+            },
+            {
+              "label": "Jorah Mormont",
+              "ref": "person:jorah-mormont"
+            },
+            {
+              "label": "Slaver's Bay",
+              "ref": "place:slavers-bay"
+            },
+            {
+              "label": "Unsullied",
+              "ref": "organization:unsullied"
+            }
+          ]
+        },
+        {
+          "ref": "event:three-thousand-of-qohor",
+          "kind": "event",
+          "name": "Three Thousand of Qohor",
+          "nameRu": "Три тысячи Квохора",
+          "subtitle": "A Storm of Swords · Daenerys I (Chapter 8)",
+          "status": "secondary-indexed-partial",
+          "priority": "P2",
+          "earliestChapterRange": "0–20",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Daenerys I (chapter 8); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0; primary verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_8",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 8,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original short Russian paraphrases; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 8,
+              "chapterTitle": "Daenerys I",
+              "relation": "historical-reference",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_8"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус источника",
+              "value": "historical-reference"
+            },
+            {
+              "label": "Ограничение",
+              "value": "Исторический рассказ, не текущая сцена."
+            },
+            {
+              "label": "Приоритет",
+              "value": "P2"
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Джорах рассказывает Дейенерис историю о небольшом отряде Безупречных, остановившем кхаласар у Квохора. Это историческое упоминание; детали требуют сверки по первичному тексту."
+            }
+          ],
+          "links": [
+            {
+              "label": "Unsullied",
+              "ref": "organization:unsullied"
+            },
+            {
+              "label": "Qohor",
+              "ref": "place:qohor"
+            }
+          ]
+        },
+        {
+          "ref": "event:guncer-sunglasss-sons-are-burned",
+          "kind": "event",
+          "name": "Sons of Guncer Sunglass are burned",
+          "nameRu": "Сыновья Гунсера Сангласса сожжены",
+          "subtitle": "A Storm of Swords · Davos II (Chapter 10)",
+          "status": "secondary-indexed-partial",
+          "priority": "P2",
+          "earliestChapterRange": "0–20",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Davos II (chapter 10); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0; primary verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_10",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 10,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original short Russian paraphrases; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 10,
+              "chapterTitle": "Davos II",
+              "relation": "reported",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_10"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус источника",
+              "value": "reported"
+            },
+            {
+              "label": "Ограничение",
+              "value": "Сообщение в главе; Давос не наблюдает сцену."
+            },
+            {
+              "label": "Приоритет",
+              "value": "P2"
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Салладор сообщает Давосу, что на Драконстоуне сожгли сыновей сторонников Станниса, обвинённых в измене. Страница главы также называет сыновей Хубарда Рэмбтона; факт подан как сообщение персонажа."
+            }
+          ],
+          "links": [
+            {
+              "label": "Guncer Sunglass",
+              "ref": "person:guncer-sunglass"
+            }
+          ]
+        },
+        {
+          "ref": "event:sansa-is-invited-to-visit-highgarden-and-marry-willas",
+          "kind": "event",
+          "name": "Sansa is invited to visit Highgarden and marry Willas",
+          "nameRu": "Сансе предлагают гостить в Хайгардене и выйти за Уилласа",
+          "subtitle": "A Storm of Swords · Sansa I (Chapter 6)",
+          "status": "secondary-indexed-partial",
+          "priority": "P2",
+          "earliestChapterRange": "0–20",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Sansa I (chapter 6); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0; primary verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 6,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original short Russian paraphrases; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 6,
+              "chapterTitle": "Sansa I",
+              "relation": "proposal",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6"
+            },
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 16,
+              "chapterTitle": "Sansa II",
+              "relation": "proposal",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_16"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус источника",
+              "value": "proposal"
+            },
+            {
+              "label": "Ограничение",
+              "value": "Предложение/план, не заключённый брак."
+            },
+            {
+              "label": "Приоритет",
+              "value": "P2"
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Оленна предлагает Сансе после свадьбы посетить Хайгарден и выйти замуж за Уилласа Тирелла. Второй locator отмечает повторное предложение; план не состоялся в этой главе."
+            }
+          ],
+          "links": [
+            {
+              "label": "Sansa Stark",
+              "ref": "person:sansa-stark"
+            },
+            {
+              "label": "Olenna Tyrell",
+              "ref": "person:olenna-tyrell"
+            }
+          ]
+        },
+        {
+          "ref": "event:robb-stark-and-jeyne-westerling-marry",
+          "kind": "event",
+          "name": "Robb Stark and Jeyne Westerling marry",
+          "nameRu": "Робб Старк и Джейни Вестерлинг вступают в брак",
+          "subtitle": "A Storm of Swords · Catelyn II (Chapter 14)",
+          "status": "secondary-indexed-partial",
+          "priority": "P2",
+          "earliestChapterRange": "0–20",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Catelyn II (chapter 14); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0; primary verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_14",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 14,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original short Russian paraphrases; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 14,
+              "chapterTitle": "Catelyn II",
+              "relation": "reported",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_14"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус источника",
+              "value": "reported"
+            },
+            {
+              "label": "Ограничение",
+              "value": "Событие пересказано в Catelyn II."
+            },
+            {
+              "label": "Приоритет",
+              "value": "P2"
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "В Риверране Робб сообщает матери, что женился на Джейни Вестерлинг; решение нарушает брачный союз с Фреями. Церемония не показана в этой главе."
+            }
+          ],
+          "links": [
+            {
+              "label": "Robb Stark",
+              "ref": "person:robb-stark"
+            },
+            {
+              "label": "Jeyne Westerling",
+              "ref": "person:jeyne-westerling"
+            }
+          ]
+        },
+        {
+          "ref": "event:storming-of-the-crag",
+          "kind": "event",
+          "name": "Storming of the Crag",
+          "nameRu": "Штурм Крага",
+          "subtitle": "A Storm of Swords · Catelyn II (Chapter 14)",
+          "status": "secondary-indexed-partial",
+          "priority": "P2",
+          "earliestChapterRange": "0–20",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Catelyn II (chapter 14); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0; primary verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_14",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 14,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original short Russian paraphrases; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 14,
+              "chapterTitle": "Catelyn II",
+              "relation": "reported",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_14"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус источника",
+              "value": "reported"
+            },
+            {
+              "label": "Ограничение",
+              "value": "Вторичное изложение; детали штурма не расширяются."
+            },
+            {
+              "label": "Приоритет",
+              "value": "P2"
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Робб рассказывает, что получил ранение при штурме Крага; Джейни ухаживала за ним после этого. Дополнительные детали осады не выводятся."
+            }
+          ],
+          "links": [
+            {
+              "label": "Robb Stark",
+              "ref": "person:robb-stark"
+            },
+            {
+              "label": "The Crag",
+              "ref": "place:the-crag"
+            }
+          ]
+        },
+        {
+          "ref": "event:attack-on-the-fist-and-nights-watch-retreat",
+          "kind": "event",
+          "name": "Attack on the Fist and Night’s Watch retreat",
+          "nameRu": "Нападение на Фист и отступление Ночного дозора",
+          "subtitle": "A Storm of Swords · Jon II (Chapter 15)",
+          "status": "secondary-indexed-partial",
+          "priority": "P2",
+          "earliestChapterRange": "0–20",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Jon II (chapter 15); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0; primary verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_15",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 15,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original short Russian paraphrases; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 15,
+              "chapterTitle": "Jon II",
+              "relation": "reference",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_15"
+            },
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 18,
+              "chapterTitle": "Samwell I",
+              "relation": "recounted",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_18"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус источника",
+              "value": "reference"
+            },
+            {
+              "label": "Ограничение",
+              "value": "Ch15 — aftermath/reference, ch18 — recollection."
+            },
+            {
+              "label": "Приоритет",
+              "value": "P2"
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "В Jon II Манс и Джон наблюдают последствия боя у Фиста; Samwell I позднее вспоминает нападение мертвецов, отход выживших и их бегство к Стене. Два кандидата нормализованы в одно событие."
+            }
+          ],
+          "links": [
+            {
+              "label": "Night's Watch",
+              "ref": "organization:nights-watch"
+            },
+            {
+              "label": "Fist of the First Men",
+              "ref": "place:fist-of-the-first-men"
+            }
+          ]
+        },
+        {
+          "ref": "event:rickard-karstark-orders-murders-of-willem-lannister-and-tion-frey",
+          "kind": "event",
+          "name": "Rickard Karstark orders the murders of Willem Lannister and Tion Frey",
+          "nameRu": "Рикард Карстарк приказывает убить Уиллема Ланнистера и Тиона Фрея",
+          "subtitle": "A Storm of Swords · Catelyn III (Chapter 20)",
+          "status": "secondary-indexed-partial",
+          "priority": "P2",
+          "earliestChapterRange": "0–20",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Catelyn III (chapter 20); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0; primary verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_20",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 20,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original short Russian paraphrases; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 20,
+              "chapterTitle": "Catelyn III",
+              "relation": "reported",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_20"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус источника",
+              "value": "reported"
+            },
+            {
+              "label": "Ограничение",
+              "value": "Убийство пленников отделено от последующей казни."
+            },
+            {
+              "label": "Приоритет",
+              "value": "P2"
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Синопсис сообщает, что Рикард Карстарк и его люди убили двух пленников в Риверране, после чего Робб казнил Рикарда. Убийства выделены как отдельный предшествующий эпизод."
+            }
+          ],
+          "links": [
+            {
+              "label": "Rickard Karstark",
+              "ref": "person:rickard-karstark"
+            },
+            {
+              "label": "Robb Stark",
+              "ref": "person:robb-stark"
+            }
+          ]
+        },
+        {
+          "ref": "event:three-horn-blasts-warn-of-others",
+          "kind": "event",
+          "name": "Three horn blasts sound at the Fist",
+          "nameRu": "У Фиста звучат три сигнала рога",
+          "subtitle": "A Storm of Swords · Prologue (Chapter 0)",
+          "status": "secondary-indexed-partial",
+          "priority": "P2",
+          "earliestChapterRange": "0–20",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Prologue (chapter 0); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0; primary verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Prologue",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 0,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original short Russian paraphrases; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 0,
+              "chapterTitle": "Prologue",
+              "relation": "signal",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Prologue"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус главы",
+              "value": "signal"
+            },
+            {
+              "label": "Ограничение",
+              "value": "Карточка фиксирует услышанный сигнал, но не трактует его значение как установленный факт."
+            },
+            {
+              "label": "Приоритет",
+              "value": "P2"
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Рейнджер подаёт три сигнала рога, которые слышат Сэм и Четт. Имя глобального кандидата связывает сигнал с Иными, но сама страница-синопсис не объясняет значение сигнала; оно требует проверки по первичному тексту."
+            }
+          ],
+          "links": [
+            {
+              "label": "Night's Watch",
+              "ref": "organization:nights-watch"
+            },
+            {
+              "label": "Fist of the First Men",
+              "ref": "place:fist-of-the-first-men"
+            }
+          ]
+        },
+        {
+          "ref": "event:tywin-orders-campaign-against-northern-force-at-duskendale",
+          "kind": "event",
+          "name": "Tywin orders a campaign against the northern force at Duskendale",
+          "nameRu": "Тайвин направляет войска против северян у Даскендейла",
+          "subtitle": "A Storm of Swords · Tyrion I (Chapter 4)",
+          "status": "secondary-indexed-partial",
+          "priority": "P2",
+          "earliestChapterRange": "0–20",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Tyrion I (chapter 4); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0; primary verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_4",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 4,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original short Russian paraphrases; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 4,
+              "chapterTitle": "Tyrion I",
+              "relation": "order",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_4"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус главы",
+              "value": "order"
+            },
+            {
+              "label": "Ограничение",
+              "value": "Приказ подтверждён синопсисом; не дублирует отдельную карточку поздней битвы у Даскендейла."
+            },
+            {
+              "label": "Приоритет",
+              "value": "P2"
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Тайвин отправляет Рэндилла Тарли и Григора Клигана против северян, наступающих на Даскендейл. Это приказ о военной операции; карточка не отождествляет его с последующим столкновением."
+            }
+          ],
+          "links": [
+            {
+              "label": "Tywin Lannister",
+              "ref": "person:tywin-lannister"
+            },
+            {
+              "label": "Randyll Tarly",
+              "ref": "person:randyll-tarly"
+            },
+            {
+              "label": "Gregor Clegane",
+              "ref": "person:gregor-clegane"
+            }
+          ]
+        },
+        {
+          "ref": "event:freys-withdraw-from-robbs-host",
+          "kind": "event",
+          "name": "Frey men withdraw from Robb’s host",
+          "nameRu": "Люди Фреев покидают войско Робба",
+          "subtitle": "A Storm of Swords · Catelyn II (Chapter 14)",
+          "status": "secondary-indexed-partial",
+          "priority": "P2",
+          "earliestChapterRange": "0–20",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Catelyn II (chapter 14); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0; primary verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_14",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 14,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original short Russian paraphrases; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 14,
+              "chapterTitle": "Catelyn II",
+              "relation": "reported",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_14"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус главы",
+              "value": "reported"
+            },
+            {
+              "label": "Ограничение",
+              "value": "В главе событие пересказано; связь с браком подтверждается синопсисом, но карточка выделяет уход войск как отдельное изменение состава армии."
+            },
+            {
+              "label": "Приоритет",
+              "value": "P2"
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "После сообщения о браке Робба с Джейни Вестерлинг Кэтлин узнаёт, что Риман и Чёрный Уолдер увели людей обратно к Близнецам. Это отдельное военное последствие, не часть церемонии брака."
+            }
+          ],
+          "links": [
+            {
+              "label": "Robb Stark",
+              "ref": "person:robb-stark"
+            },
+            {
+              "label": "House Frey",
+              "ref": "organization:house-frey"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "format": "cockpit.entity-layer/1",
+      "kind": "organization",
+      "entities": [
+        {
+          "ref": "organization:salladhor-saans-fleet",
+          "kind": "organization",
+          "name": "Salladhor Saan’s fleet",
+          "nameRu": "Флот Салладора Саана",
+          "subtitle": "A Storm of Swords · Davos I (Chapter 5)",
+          "status": "secondary-indexed-partial",
+          "priority": "P2",
+          "earliestChapterRange": "0–20",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Davos I (chapter 5); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0; primary verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_5",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 5,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original short Russian paraphrases; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 5,
+              "chapterTitle": "Davos I",
+              "relation": "referenced organization",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_5"
+            },
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 10,
+              "chapterTitle": "Davos II",
+              "relation": "referenced organization",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_10"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус источника",
+              "value": "referenced organization"
+            },
+            {
+              "label": "Ограничение",
+              "value": "Сводка не задаёт численность, состав или постоянный статус флота."
+            },
+            {
+              "label": "Приоритет",
+              "value": "P2"
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Давос узнаёт корабль как судно из флота Салладора Саана; Davos II вновь показывает флот как морскую силу и наёмный ресурс Станниса."
+            }
+          ],
+          "links": [
+            {
+              "label": "Salladhor Saan",
+              "ref": "person:salladhor-saan"
+            }
+          ],
+          "organizationType": "fleet"
+        },
+        {
+          "ref": "organization:kingswood-brotherhood",
+          "kind": "organization",
+          "name": "Kingswood Brotherhood",
+          "nameRu": "Братство Кингсвуда",
+          "subtitle": "A Storm of Swords · Jaime II (Chapter 11)",
+          "status": "secondary-indexed-partial",
+          "priority": "P2",
+          "earliestChapterRange": "0–20",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Jaime II (chapter 11); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0; primary verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_11",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 11,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original short Russian paraphrases; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 11,
+              "chapterTitle": "Jaime II",
+              "relation": "historical-reference",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_11"
+            },
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 17,
+              "chapterTitle": "Arya III",
+              "relation": "song/reference",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_17"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус источника",
+              "value": "historical-reference"
+            },
+            {
+              "label": "Ограничение",
+              "value": "Историческая группа подтверждается; подробности состава не включены."
+            },
+            {
+              "label": "Приоритет",
+              "value": "P2"
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Jaime II связывает Братство Кингсвуда с кампанией, во время которой Джейме был посвящён в рыцари; Arya III также содержит упоминание в песне. Состав группы не реконструируется."
+            }
+          ],
+          "links": [
+            {
+              "label": "Jaime Lannister",
+              "ref": "person:jaime-lannister"
+            }
+          ],
+          "organizationType": "historical-band"
+        },
+        {
+          "ref": "organization:house-karstark",
+          "kind": "organization",
+          "name": "House Karstark",
+          "nameRu": "Дом Карстарков",
+          "subtitle": "A Storm of Swords · Catelyn III (Chapter 20)",
+          "status": "secondary-indexed-partial",
+          "priority": "P2",
+          "earliestChapterRange": "0–20",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Catelyn III (chapter 20); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0; primary verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_20",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 20,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original short Russian paraphrases; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 20,
+              "chapterTitle": "Catelyn III",
+              "relation": "reference",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_20"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус источника",
+              "value": "reference"
+            },
+            {
+              "label": "Ограничение",
+              "value": "Полная карточка дома требует отдельной сверки."
+            },
+            {
+              "label": "Приоритет",
+              "value": "P2"
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочая передача; сверить с выбранным русским изданием"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Глава показывает Рикарда Карстарка как лорда дома и связывает его людей с уходом из Риверрана после убийств пленников. Состав и владения здесь не реконструируются."
+            }
+          ],
+          "links": [
+            {
+              "label": "Rickard Karstark",
+              "ref": "person:rickard-karstark"
+            }
+          ],
+          "organizationType": "noble-house"
+        }
+      ]
+    }
+  ],
+  "candidateDecisions": [
+    {
+      "globalId": "event:chetts-desertion-and-officer-killing-conspiracy",
+      "chapterNo": 0,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Chett’s desertion and officer-killing conspiracy",
+      "proposedField": "events_referenced_ids",
+      "decision": "draft",
+      "note": "Unexecuted conspiracy, explicitly kept as plan.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Prologue"
+    },
+    {
+      "globalId": "event:nights-watch-decision-to-march-against-mances-host",
+      "chapterNo": 0,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Night’s Watch decision to march against Mance’s host",
+      "proposedField": "events_referenced_ids",
+      "decision": "draft",
+      "note": "Command decision kept as plan rather than battle occurrence.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Prologue"
+    },
+    {
+      "globalId": "event:three-horn-blasts-warn-of-others",
+      "chapterNo": 0,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Three horn blasts warn of Others",
+      "proposedField": "events_referenced_ids",
+      "decision": "draft",
+      "note": "Standalone clue retained as a signal; index interpretation “of Others” is not asserted until primary text check.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Prologue"
+    },
+    {
+      "globalId": "event:burned-inn-victims-are-discovered-and-buried",
+      "chapterNo": 1,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Burned inn victims are discovered and buried",
+      "proposedField": "events_referenced_ids",
+      "decision": "deferred",
+      "note": "One chapter-level report with limited standalone campaign utility.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_1"
+    },
+    {
+      "globalId": "event:lysa-and-catelyns-twin-betrothals",
+      "chapterNo": 2,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Lysa and Catelyn’s twin betrothals",
+      "proposedField": "events_referenced_ids",
+      "decision": "deferred",
+      "note": "Historical biographical detail, not selected as a standalone timeline card.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_2"
+    },
+    {
+      "globalId": "event:stannis-loses-the-battle-for-kings-landing",
+      "chapterNo": 2,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Stannis loses the battle for King’s Landing",
+      "proposedField": "events_referenced_ids",
+      "decision": "existing",
+      "note": "event:battle-of-blackwater",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_2"
+    },
+    {
+      "globalId": "event:storming-of-the-crag-and-robbs-wound",
+      "chapterNo": 2,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Storming of the Crag and Robb’s wound",
+      "proposedField": "events_referenced_ids",
+      "decision": "merged",
+      "note": "Normalized to the separate storming-of-the-crag card; wound remains a reported consequence.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_2"
+    },
+    {
+      "globalId": "event:war-of-the-five-kings",
+      "chapterNo": 3,
+      "earliestChapterRange": "0–20",
+      "candidateName": "War of the Five Kings",
+      "proposedField": "events_referenced_ids",
+      "decision": "deferred",
+      "note": "Umbrella conflict reference, not a new discrete event.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_3"
+    },
+    {
+      "globalId": "event:joffrey-and-margaery-wedding-date-is-set",
+      "chapterNo": 4,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Joffrey and Margaery wedding date is set",
+      "proposedField": "events_referenced_ids",
+      "decision": "deferred",
+      "note": "Scheduling decision considered lower priority than strategic actions; not a separate card in this pass.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_4"
+    },
+    {
+      "globalId": "event:tyrek-lannister-remains-missing-after-the-riots",
+      "chapterNo": 4,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Tyrek Lannister remains missing after the riots",
+      "proposedField": "events_referenced_ids",
+      "decision": "deferred",
+      "note": "Ongoing status rather than a discrete event.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_4"
+    },
+    {
+      "globalId": "event:tywin-orders-campaign-against-northern-force-at-duskendale",
+      "chapterNo": 4,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Tywin orders campaign against northern force at Duskendale",
+      "proposedField": "events_referenced_ids",
+      "decision": "draft",
+      "note": "Strategically useful order/plan. Kept separate from later battle card event:battle-at-duskendale.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_4"
+    },
+    {
+      "globalId": "organization:salladhor-saans-fleet",
+      "chapterNo": 5,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Salladhor Saan’s fleet",
+      "proposedField": "organization_ids",
+      "decision": "draft",
+      "note": "One card covers the recurring fleet reference in Davos I and Davos II.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_5"
+    },
+    {
+      "globalId": "event:sansa-is-invited-to-visit-highgarden-and-marry-willas",
+      "chapterNo": 6,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Sansa is invited to visit Highgarden and marry Willas",
+      "proposedField": "events_referenced_ids",
+      "decision": "draft",
+      "note": "Proposal card also carries ch16 locator.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6"
+    },
+    {
+      "globalId": "event:feast-for-robert-at-winterfell",
+      "chapterNo": 7,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Feast for Robert at Winterfell",
+      "proposedField": "events_referenced_ids",
+      "decision": "existing",
+      "note": "event:feast-for-royal-visit",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_7"
+    },
+    {
+      "globalId": "event:great-ranging",
+      "chapterNo": 7,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Great ranging",
+      "proposedField": "events_referenced_ids",
+      "decision": "false-positive-excluded",
+      "note": "Ch7 locator is not the Great Ranging by the Night’s Watch; it refers to Mance’s earlier ranging/host. Exclude this relation.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_7"
+    },
+    {
+      "globalId": "event:daenerys-decides-to-redirect-the-fleet-toward-slavers-bay",
+      "chapterNo": 8,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Daenerys decides to redirect the fleet toward Slaver’s Bay",
+      "proposedField": "events_occurred_ids",
+      "decision": "draft",
+      "note": "Strategic route decision with campaign consequence.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_8"
+    },
+    {
+      "globalId": "event:three-thousand-of-qohor",
+      "chapterNo": 8,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Three Thousand of Qohor",
+      "proposedField": "events_referenced_ids",
+      "decision": "draft",
+      "note": "Historical reference kept as a GM-useful example of Unsullied reputation.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_8"
+    },
+    {
+      "globalId": "event:tourney-at-lannisport",
+      "chapterNo": 8,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Tourney at Lannisport",
+      "proposedField": "events_referenced_ids",
+      "decision": "deferred",
+      "note": "Not selected as a standalone card; see summary.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_8"
+    },
+    {
+      "globalId": "event:bran-and-companions-choose-the-wall-as-destination",
+      "chapterNo": 9,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Bran and companions choose the Wall as destination",
+      "proposedField": "events_referenced_ids",
+      "decision": "deferred",
+      "note": "Travel plan is a small-scale decision, not selected as a standalone P2 event.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_9"
+    },
+    {
+      "globalId": "event:harvest-feast-299",
+      "chapterNo": 9,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Harvest feast (299)",
+      "proposedField": "events_referenced_ids",
+      "decision": "deferred",
+      "note": "Historical event reference; insufficient utility in this P2 event pass.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_9"
+    },
+    {
+      "globalId": "event:davoss-plan-to-kill-melisandre-is-discovered",
+      "chapterNo": 10,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Davos’s plan to kill Melisandre is discovered",
+      "proposedField": "events_referenced_ids",
+      "decision": "related",
+      "note": "event:davos-is-taken-into-custody; arrest is consequence, not the plan",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_10"
+    },
+    {
+      "globalId": "event:guncer-sunglasss-sons-are-burned",
+      "chapterNo": 10,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Guncer Sunglass’s sons are burned",
+      "proposedField": "events_referenced_ids",
+      "decision": "draft",
+      "note": "Reported execution with political consequence; source also names Hubard Rambton’s sons.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_10"
+    },
+    {
+      "globalId": "organization:salladhor-saans-fleet",
+      "chapterNo": 10,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Salladhor Saan’s fleet",
+      "proposedField": "organization_ids",
+      "decision": "draft",
+      "note": "One card covers the recurring fleet reference in Davos I and Davos II.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_10"
+    },
+    {
+      "globalId": "event:jaime-recalls-killing-aerys-ii-during-the-sack-of-kings-landing",
+      "chapterNo": 11,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Jaime recalls killing Aerys II during the Sack of King’s Landing",
+      "proposedField": "events_referenced_ids",
+      "decision": "existing",
+      "note": "event:jaime-kills-aerys-ii; chapter locator is recollection",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_11"
+    },
+    {
+      "globalId": "event:kingswood-brotherhood-campaign",
+      "chapterNo": 11,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Kingswood Brotherhood campaign",
+      "proposedField": "events_referenced_ids",
+      "decision": "deferred",
+      "note": "Not selected as a standalone card; see summary.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_11"
+    },
+    {
+      "globalId": "event:renlys-death",
+      "chapterNo": 11,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Renly’s death",
+      "proposedField": "events_referenced_ids",
+      "decision": "existing",
+      "note": "event:renly-killed-at-storms-end",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_11"
+    },
+    {
+      "globalId": "organization:kingswood-brotherhood",
+      "chapterNo": 11,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Kingswood Brotherhood",
+      "proposedField": "organization_ids",
+      "decision": "draft",
+      "note": "New standalone P2 card.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_11"
+    },
+    {
+      "globalId": "event:tyrion-attempts-to-send-shae-away",
+      "chapterNo": 12,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Tyrion attempts to send Shae away",
+      "proposedField": "events_referenced_ids",
+      "decision": "deferred",
+      "note": "Personal plan, not selected as a campaign-level standalone event.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_12"
+    },
+    {
+      "globalId": "event:tyrion-decides-to-remove-symon-silver-tongue-as-a-threat",
+      "chapterNo": 12,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Tyrion decides to remove Symon Silver Tongue as a threat",
+      "proposedField": "events_referenced_ids",
+      "decision": "deferred",
+      "note": "Unexecuted personal plan; primary-edition verification pending.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_12"
+    },
+    {
+      "globalId": "event:aegons-conquest-kneeling-of-torrhen-stark",
+      "chapterNo": 13,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Aegon’s Conquest / Kneeling of Torrhen Stark",
+      "proposedField": "events_referenced_ids",
+      "decision": "related",
+      "note": "event:aegons-conquest is umbrella-level; exact Kneeling detail is not mapped",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_13"
+    },
+    {
+      "globalId": "event:freys-withdraw-from-robbs-host",
+      "chapterNo": 14,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Freys withdraw from Robb’s host",
+      "proposedField": "events_referenced_ids",
+      "decision": "draft",
+      "note": "Distinct reported military consequence of the marriage; own card, not folded into marriage.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_14"
+    },
+    {
+      "globalId": "event:robb-stark-and-jeyne-westerling-marry",
+      "chapterNo": 14,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Robb Stark and Jeyne Westerling marry",
+      "proposedField": "events_referenced_ids",
+      "decision": "draft",
+      "note": "Reported major marriage and alliance change.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_14"
+    },
+    {
+      "globalId": "event:storming-of-the-crag",
+      "chapterNo": 14,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Storming of the Crag",
+      "proposedField": "events_referenced_ids",
+      "decision": "draft",
+      "note": "Reported military operation, distinct from Robb/Jeyne marriage.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_14"
+    },
+    {
+      "globalId": "event:fight-at-the-fist",
+      "chapterNo": 15,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Fight at the Fist",
+      "proposedField": "events_referenced_ids",
+      "decision": "merged",
+      "note": "Normalized to the one Fist attack/retreat card.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_15"
+    },
+    {
+      "globalId": "event:great-ranging",
+      "chapterNo": 15,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Great ranging",
+      "proposedField": "events_referenced_ids",
+      "decision": "existing-add-locator",
+      "note": "Map Jon II reference to the existing Fist episode card, per range review; not a new umbrella event.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_15",
+      "targetRef": "event:great-ranging-reaches-fist",
+      "relation": "reference"
+    },
+    {
+      "globalId": "event:mance-plans-a-crossing-of-the-wall",
+      "chapterNo": 15,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Mance plans a crossing of the Wall",
+      "proposedField": "events_referenced_ids",
+      "decision": "deferred",
+      "note": "Not selected as a standalone card; see summary.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_15"
+    },
+    {
+      "globalId": "event:olenna-proposes-sansas-marriage-to-willas",
+      "chapterNo": 16,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Olenna proposes Sansa’s marriage to Willas",
+      "proposedField": "events_referenced_ids",
+      "decision": "merged",
+      "note": "Included as ch16 locator in the earlier Sansa/Willas proposal card.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_16"
+    },
+    {
+      "globalId": "event:sansa-and-dontos-maintain-an-escape-plan-for-joffreys-wedding-day",
+      "chapterNo": 16,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Sansa and Dontos maintain an escape plan for Joffrey’s wedding day",
+      "proposedField": "events_referenced_ids",
+      "decision": "existing",
+      "note": "event:sansa-dontos-escape-plan",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_16"
+    },
+    {
+      "globalId": "event:berics-band-suffers-losses-at-mummers-ford",
+      "chapterNo": 17,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Beric’s band suffers losses at Mummer’s Ford",
+      "proposedField": "events_referenced_ids",
+      "decision": "existing",
+      "note": "event:tywin-ambushes-berics-justice-party",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_17"
+    },
+    {
+      "globalId": "event:nights-watch-survivors-retreat-from-the-fist",
+      "chapterNo": 18,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Night’s Watch survivors retreat from the Fist",
+      "proposedField": "events_referenced_ids",
+      "decision": "merged",
+      "note": "Normalized to the one Fist attack/retreat card.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_18"
+    },
+    {
+      "globalId": "event:battle-at-duskendale-and-northern-losses",
+      "chapterNo": 19,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Battle at Duskendale and northern losses",
+      "proposedField": "events_referenced_ids",
+      "decision": "existing-add-locator",
+      "note": "Catelyn II reports the outcome/losses of the already-existing battle card; add this chapter locator, not a new battle.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_19",
+      "targetRef": "event:battle-at-duskendale",
+      "relation": "reported"
+    },
+    {
+      "globalId": "event:joffrey-and-margaery-wedding-preparations",
+      "chapterNo": 19,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Joffrey and Margaery wedding preparations",
+      "proposedField": "events_referenced_ids",
+      "decision": "deferred",
+      "note": "Not selected as a standalone card; see summary.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_19"
+    },
+    {
+      "globalId": "event:petyr-is-assigned-to-marry-lysa-and-deliver-the-vale",
+      "chapterNo": 19,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Petyr is assigned to marry Lysa and deliver the Vale",
+      "proposedField": "events_referenced_ids",
+      "decision": "deferred",
+      "note": "Not selected as a standalone card; see summary.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_19"
+    },
+    {
+      "globalId": "event:robb-and-jeynes-marriage",
+      "chapterNo": 19,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Robb and Jeyne’s marriage",
+      "proposedField": "events_referenced_ids",
+      "decision": "deferred",
+      "note": "Not selected as a standalone card; see summary.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_19"
+    },
+    {
+      "globalId": "event:tywin-orders-tyrion-to-marry-sansa",
+      "chapterNo": 19,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Tywin orders Tyrion to marry Sansa",
+      "proposedField": "events_referenced_ids",
+      "decision": "deferred",
+      "note": "Not selected as a standalone card; see summary.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_19"
+    },
+    {
+      "globalId": "event:tywin-proposes-cersei-marry-willas",
+      "chapterNo": 19,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Tywin proposes Cersei marry Willas",
+      "proposedField": "events_referenced_ids",
+      "decision": "deferred",
+      "note": "Not selected as a standalone card; see summary.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_19"
+    },
+    {
+      "globalId": "event:brynden-leads-a-search-party-after-them",
+      "chapterNo": 20,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Brynden leads a search party after them",
+      "proposedField": "events_referenced_ids",
+      "decision": "deferred",
+      "note": "Not selected as a standalone card; see summary.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_20"
+    },
+    {
+      "globalId": "event:karstark-men-leave-riverrun",
+      "chapterNo": 20,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Karstark men leave Riverrun",
+      "proposedField": "events_referenced_ids",
+      "decision": "deferred",
+      "note": "Not selected as a standalone card; see summary.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_20"
+    },
+    {
+      "globalId": "event:rickard-karstark-orders-murders-of-willem-lannister-and-tion-frey",
+      "chapterNo": 20,
+      "earliestChapterRange": "0–20",
+      "candidateName": "Rickard Karstark orders murders of Willem Lannister and Tion Frey",
+      "proposedField": "events_referenced_ids",
+      "decision": "draft",
+      "note": "New standalone P2 card.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_20"
+    },
+    {
+      "globalId": "organization:house-karstark",
+      "chapterNo": 20,
+      "earliestChapterRange": "0–20",
+      "candidateName": "House Karstark",
+      "proposedField": "organization_ids",
+      "decision": "draft",
+      "note": "New standalone P2 card.",
+      "sourceUrl": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_20"
+    }
+  ],
+  "validation": {
+    "currentPackageVersion": "2026.11.24.41",
+    "currentLayerCount": 67,
+    "currentRefCount": 1107,
+    "draftRefsUnique": true,
+    "allLinksResolveToCurrent41": true,
+    "candidateDecisionsCoverEveryLocator": true
+  },
+  "existingLocatorSuggestions": [
+    {
+      "sourceGlobalId": "event:great-ranging",
+      "chapterNo": 7,
+      "decision": "exclude",
+      "reason": "False positive: chapter 7 refers to Mance’s earlier ranging, not the Night’s Watch Great Ranging."
+    },
+    {
+      "sourceGlobalId": "event:great-ranging",
+      "chapterNo": 15,
+      "targetRef": "event:great-ranging-reaches-fist",
+      "relation": "reference",
+      "reason": "Map to the existing Fist episode card."
+    },
+    {
+      "sourceGlobalId": "event:battle-at-duskendale-and-northern-losses",
+      "chapterNo": 19,
+      "targetRef": "event:battle-at-duskendale",
+      "relation": "reported",
+      "reason": "Chapter reports the battle outcome; retain existing event card."
+    }
+  ]
+}

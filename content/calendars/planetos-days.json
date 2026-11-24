@@ -1,0 +1,31 @@
+{
+  "format": 1,
+  "id": "planetos-days",
+  "kind": "counter",
+  "epoch": {
+    "day": 0
+  },
+  "dayLabel": "День кампании",
+  "dayPhases": [
+    {
+      "id": "morning",
+      "labelRu": "утро",
+      "fromHour": 6
+    },
+    {
+      "id": "day",
+      "labelRu": "день",
+      "fromHour": 12
+    },
+    {
+      "id": "evening",
+      "labelRu": "вечер",
+      "fromHour": 18
+    },
+    {
+      "id": "night",
+      "labelRu": "ночь",
+      "fromHour": 22
+    }
+  ]
+}

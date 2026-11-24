@@ -1,0 +1,1122 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "place",
+  "entities": [
+    {
+      "ref": "place:astapor",
+      "kind": "place",
+      "name": "Astapor",
+      "nameRu": "Астапор",
+      "subtitle": "A Storm of Swords · Daenerys II (Chapter 23)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Daenerys II (Chapter 23); city changes hands in Daenerys III (Chapter 27); A Wiki of Ice and Fire (AWOIAF) secondary chapter index; primary-edition verification pending",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_23",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 23
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "A Storm of Swords · Daenerys II (Chapter 23)"
+        },
+        {
+          "label": "Статус места",
+          "value": "место сцены"
+        },
+        {
+          "label": "Тип сведений",
+          "value": "город в Заливе Работорговцев; переговоры о Безупречных"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; сверка по выбранному изданию и русскому переводу не проведена"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Ключевая локация кампании Дейенерис в Эссосе."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Essos",
+          "ref": "place:essos"
+        },
+        {
+          "label": "Fall of Astapor",
+          "ref": "event:fall-of-astapor"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Storm of Swords · Daenerys II (Chapter 23)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_23",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "asos",
+          "chapterNo": 23
+        }
+      ]
+    },
+    {
+      "ref": "place:dragonstone",
+      "kind": "place",
+      "name": "Dragonstone",
+      "nameRu": "Драконий Камень",
+      "subtitle": "A Clash of Kings · Davos I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Davos I (chapter 10); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_10",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 10
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Davos I, глава 10"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Русское имя",
+          "value": "Рабочая передача для передачи в пакет; сверить с выбранным изданием владельца."
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Островная крепость Станниса и исходная точка его политических распоряжений в этой главе. Здесь Давос получает поручение распространять заявление короля."
+        }
+      ],
+      "links": [
+        {
+          "label": "Stannis Baratheon",
+          "ref": "person:stannis-baratheon"
+        },
+        {
+          "label": "Davos Seaworth",
+          "ref": "person:davos-seaworth"
+        },
+        {
+          "label": "Melisandre",
+          "ref": "person:melisandre"
+        },
+        {
+          "label": "Stannis Claims Iron Throne",
+          "ref": "event:stannis-claims-iron-throne"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "Davos I, глава 10",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_10",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 10
+        }
+      ]
+    },
+    {
+      "ref": "place:fist-of-the-first-men",
+      "kind": "place",
+      "name": "Fist of the First Men",
+      "nameRu": "Кулак первых людей",
+      "subtitle": "A Storm of Swords · Samwell I (Chapter 18)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Samwell I (Chapter 18); fight recalled after retreat; A Wiki of Ice and Fire (AWOIAF) secondary chapter index; primary-edition verification pending",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_18",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 18
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "A Storm of Swords · Samwell I (Chapter 18)"
+        },
+        {
+          "label": "Статус места",
+          "value": "место ранее произошедшей сцены, вспоминаемой в главе"
+        },
+        {
+          "label": "Тип сведений",
+          "value": "место нападения мертвецов на Ночной Дозор и отступления выживших"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; карта и координаты не проверялись"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; сверка по выбранному изданию и русскому переводу не проведена"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Важная точка северной линии; не превращать описания в точные координаты."
+        }
+      ],
+      "links": [
+        {
+          "label": "Night's Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        },
+        {
+          "label": "The Wall",
+          "ref": "place:the-wall"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Storm of Swords · Samwell I (Chapter 18)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_18",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "asos",
+          "chapterNo": 18
+        }
+      ]
+    },
+    {
+      "ref": "place:great-pyramid-of-meereen",
+      "kind": "place",
+      "name": "Great Pyramid of Meereen",
+      "nameRu": "Великая пирамида Миэрина",
+      "subtitle": "A Dance with Dragons · Daenerys I (Chapter 2)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Dance with Dragons, Daenerys I (Chapter 2); A Wiki of Ice and Fire (AWOIAF) numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Dance_with_Dragons-Chapter_2",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "adwd",
+        "chapterNo": 2
+      },
+      "facts": [
+        {
+          "label": "Локаторы",
+          "value": "A Dance with Dragons, Daenerys I (Chapter 2)"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Категория",
+          "value": "здание / дворец"
+        },
+        {
+          "label": "География",
+          "value": "точные границы и координаты не выводятся из вторичного указателя"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный индекс AWOIAF; первичный текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Резиденция Дейенерис и место аудиенций; отличать дворец от более широкой городской сцены."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Meereen",
+          "ref": "place:meereen"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Dance with Dragons, Daenerys I (Chapter 2)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Dance_with_Dragons-Chapter_2",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "adwd",
+          "chapterNo": 2
+        }
+      ]
+    },
+    {
+      "ref": "place:great-wyk",
+      "kind": "place",
+      "name": "Great Wyk",
+      "nameRu": "Большой Вик",
+      "subtitle": "A Feast for Crows · The Prophet (Chapter 1)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Feast for Crows, The Prophet (Chapter 1); A Wiki of Ice and Fire (AWOIAF) numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Feast_for_Crows-Chapter_1",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "affc",
+        "chapterNo": 1
+      },
+      "facts": [
+        {
+          "label": "Локаторы",
+          "value": "A Feast for Crows, The Prophet (Chapter 1)"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Категория",
+          "value": "остров"
+        },
+        {
+          "label": "География",
+          "value": "точные границы и координаты не выводятся из вторичного указателя"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный индекс AWOIAF; первичный текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Остров Железных; связан с островной линией Аэрона. Точную сценическую точку следует сверить с романом."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Greyjoy",
+          "ref": "organization:house-greyjoy"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Feast for Crows, The Prophet (Chapter 1)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Feast_for_Crows-Chapter_1",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "affc",
+          "chapterNo": 1
+        }
+      ]
+    },
+    {
+      "ref": "place:hardhome",
+      "kind": "place",
+      "name": "Hardhome",
+      "nameRu": "Твердомест",
+      "subtitle": "A Dance with Dragons · Jon XIII (Chapter 69)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Dance with Dragons, Jon XIII (Chapter 69); A Wiki of Ice and Fire (AWOIAF) numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Dance_with_Dragons-Chapter_69",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "adwd",
+        "chapterNo": 69
+      },
+      "facts": [
+        {
+          "label": "Локаторы",
+          "value": "A Dance with Dragons, Jon XIII (Chapter 69)"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Категория",
+          "value": "поселение; упомянутое место, не место сцены"
+        },
+        {
+          "label": "География",
+          "value": "точные границы и координаты не выводятся из вторичного указателя"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный индекс AWOIAF; первичный текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Северное поселение и цель обсуждаемой спасательной миссии. В романе это место упоминается как цель плана, а не показано в сцене."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Dance with Dragons, Jon XIII (Chapter 69)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Dance_with_Dragons-Chapter_69",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "adwd",
+          "chapterNo": 69
+        }
+      ]
+    },
+    {
+      "ref": "place:harrenhal",
+      "kind": "place",
+      "name": "Harrenhal",
+      "nameRu": "Харренхол",
+      "subtitle": "A Clash of Kings · Arya IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Arya IV (chapter 14); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_14",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 14
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Arya IV, глава 14"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Русское имя",
+          "value": "Рабочая передача для передачи в пакет; сверить с выбранным изданием владельца."
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Йорен называет Харренхол возможным убежищем, если отряд сможет туда добраться. В этой главе герои туда не приходят: замок лишь обсуждается как вариант."
+        }
+      ],
+      "links": [
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Yoren",
+          "ref": "person:yoren"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "Arya IV, глава 14",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_14",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 14
+        }
+      ]
+    },
+    {
+      "ref": "place:meereen",
+      "kind": "place",
+      "name": "Meereen",
+      "nameRu": "Миэрин",
+      "subtitle": "Ключевой указатель · 2 романа",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Wiki of Ice and Fire (AWOIAF): вторичные указатели глав; первичная сверка по изданию ожидается.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Dance_with_Dragons-Chapter_2",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "adwd",
+        "chapterNo": 2
+      },
+      "facts": [
+        {
+          "label": "Статус места",
+          "value": "место сцены"
+        },
+        {
+          "label": "Тип сведений",
+          "value": "город, занятый Дейенерис; она решает остаться и править им"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; сверка по выбранному изданию и русскому переводу не проведена"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Категория",
+          "value": "город"
+        },
+        {
+          "label": "География",
+          "value": "точные границы и координаты не выводятся из вторичного указателя"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный индекс AWOIAF; первичный текст выбранного издания не сверялся"
+        },
+        {
+          "label": "Локаторы по книгам и главам",
+          "value": "A Storm of Swords · Daenerys VI (гл. 71); A Dance with Dragons · Daenerys I (гл. 2)"
+        }
+      ],
+      "sections": [
+        {
+          "title": "A Storm of Swords · A Storm of Swords · Daenerys VI (Chapter 71) — Опорный срез",
+          "text": "Центральная локация продолжения восточной кампании."
+        },
+        {
+          "title": "A Dance with Dragons · A Dance with Dragons · Daenerys I (Chapter 2) — Опорный срез",
+          "text": "Город и политический центр линии Дейенерис; здесь разворачиваются дворцовые дела и конфликт с Сынами Гарпии."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Essos",
+          "ref": "place:essos"
+        },
+        {
+          "label": "Barristan Selmy",
+          "ref": "person:barristan-selmy"
+        },
+        {
+          "label": "House Targaryen",
+          "ref": "organization:house-targaryen"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Storm of Swords · Daenerys VI (гл. 71)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_71",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "asos",
+          "chapterNo": 71
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Dance with Dragons · Daenerys I (гл. 2)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Dance_with_Dragons-Chapter_2",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "adwd",
+          "chapterNo": 2
+        }
+      ]
+    },
+    {
+      "ref": "place:old-wyk",
+      "kind": "place",
+      "name": "Old Wyk",
+      "nameRu": "Старый Вик",
+      "subtitle": "A Feast for Crows · The Drowned Man (Chapter 19)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Feast for Crows, The Drowned Man (Chapter 19); A Wiki of Ice and Fire (AWOIAF) numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Feast_for_Crows-Chapter_19",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "affc",
+        "chapterNo": 19
+      },
+      "facts": [
+        {
+          "label": "Локаторы",
+          "value": "A Feast for Crows, The Drowned Man (Chapter 19)"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Категория",
+          "value": "остров"
+        },
+        {
+          "label": "География",
+          "value": "точные границы и координаты не выводятся из вторичного указателя"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный индекс AWOIAF; первичный текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Остров и место kingsmoot на Наггином холме; полезен для отдельной политической сцены."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Greyjoy",
+          "ref": "organization:house-greyjoy"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Feast for Crows, The Drowned Man (Chapter 19)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Feast_for_Crows-Chapter_19",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "affc",
+          "chapterNo": 19
+        }
+      ]
+    },
+    {
+      "ref": "place:oldtown",
+      "kind": "place",
+      "name": "Oldtown",
+      "nameRu": "Старомест",
+      "subtitle": "A Feast for Crows · Samwell V (Chapter 45)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Feast for Crows, Samwell V (Chapter 45); A Wiki of Ice and Fire (AWOIAF) numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Feast_for_Crows-Chapter_45",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "affc",
+        "chapterNo": 45
+      },
+      "facts": [
+        {
+          "label": "Локаторы",
+          "value": "A Feast for Crows, Samwell V (Chapter 45)"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Категория",
+          "value": "город"
+        },
+        {
+          "label": "География",
+          "value": "точные границы и координаты не выводятся из вторичного указателя"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный индекс AWOIAF; первичный текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Большой южный город и центр линии Цитадели; глава содержит сцену в Староместе."
+        }
+      ],
+      "links": [
+        {
+          "label": "Samwell Tarly",
+          "ref": "person:samwell-tarly"
+        },
+        {
+          "label": "Orland of Oldtown",
+          "ref": "person:orland-of-oldtown"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Feast for Crows, Samwell V (Chapter 45)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Feast_for_Crows-Chapter_45",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "affc",
+          "chapterNo": 45
+        }
+      ]
+    },
+    {
+      "ref": "place:pyke",
+      "kind": "place",
+      "name": "Pyke",
+      "nameRu": "Пайк",
+      "subtitle": "A Clash of Kings · Theon II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Theon II (chapter 24); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_24",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 24
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Theon II, глава 24"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Русское имя",
+          "value": "Рабочая передача для передачи в пакет; сверить с выбранным изданием владельца."
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Родовое место Грейджоев на Железных островах. В этой главе Теон прибывает сюда и узнаёт план Балона."
+        }
+      ],
+      "links": [
+        {
+          "label": "Theon Greyjoy",
+          "ref": "person:theon-greyjoy"
+        },
+        {
+          "label": "Balon Greyjoy",
+          "ref": "person:balon-greyjoy"
+        },
+        {
+          "label": "Asha Greyjoy",
+          "ref": "person:asha-greyjoy"
+        },
+        {
+          "label": "House Greyjoy",
+          "ref": "organization:house-greyjoy"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "Theon II, глава 24",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_24",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 24
+        }
+      ]
+    },
+    {
+      "ref": "place:qarth",
+      "kind": "place",
+      "name": "Qarth",
+      "nameRu": "Кварт",
+      "subtitle": "A Clash of Kings · Daenerys IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Daenerys IV (chapter 48); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_48",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 48
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys IV, глава 48"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Русское имя",
+          "value": "Рабочая передача для передачи в пакет; сверить с выбранным изданием владельца."
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Город, где разворачивается эпизод у Дома Бессмертных. Индекс главы указывает Кварт как место действия."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Xaro Xhoan Daxos",
+          "ref": "person:xaro-xhoan-daxos"
+        },
+        {
+          "label": "Pyat Pree",
+          "ref": "person:pyat-pree"
+        },
+        {
+          "label": "Daenerys Enters The House Of The Undying",
+          "ref": "event:daenerys-enters-the-house-of-the-undying"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "Daenerys IV, глава 48",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_48",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 48
+        }
+      ]
+    },
+    {
+      "ref": "place:storms-end",
+      "kind": "place",
+      "name": "Storm's End",
+      "nameRu": "Штормовой Предел",
+      "subtitle": "A Clash of Kings · Catelyn III",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Catelyn III (chapter 31); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending); additional chapter locator(s): Catelyn IV, chapter 33",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_31",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 31
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn III, глава 31"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Русское имя",
+          "value": "Рабочая передача для передачи в пакет; сверить с выбранным изданием владельца."
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Дополнительные числовые локаторы",
+          "value": "Catelyn IV, chapter 33: https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_33"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Крепость находится под осадой Станниса; Кэтлин прибывает к её стенам, чтобы примирить братьев. В следующей главе события продолжаются у лагеря Ренли рядом с замком."
+        }
+      ],
+      "links": [
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Renly Baratheon",
+          "ref": "person:renly-baratheon"
+        },
+        {
+          "label": "Stannis Baratheon",
+          "ref": "person:stannis-baratheon"
+        },
+        {
+          "label": "Renly Killed At Storms End",
+          "ref": "event:renly-killed-at-storms-end"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "Catelyn III, глава 31",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_31",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 31
+        }
+      ]
+    },
+    {
+      "ref": "place:sunspear",
+      "kind": "place",
+      "name": "Sunspear",
+      "nameRu": "Солнечное Копьё",
+      "subtitle": "A Feast for Crows · The Captain of Guards (Chapter 2)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Feast for Crows, The Captain of Guards (Chapter 2); A Wiki of Ice and Fire (AWOIAF) numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Feast_for_Crows-Chapter_2",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "affc",
+        "chapterNo": 2
+      },
+      "facts": [
+        {
+          "label": "Локаторы",
+          "value": "A Feast for Crows, The Captain of Guards (Chapter 2)"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Категория",
+          "value": "город / замок"
+        },
+        {
+          "label": "География",
+          "value": "точные границы и координаты не выводятся из вторичного указателя"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный индекс AWOIAF; первичный текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Столица Дорна и место дворцовой линии Доранa, Арео и Мирцеллы."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Martell",
+          "ref": "organization:house-martell"
+        },
+        {
+          "label": "Myrcella Baratheon",
+          "ref": "person:myrcella-baratheon"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Feast for Crows, The Captain of Guards (Chapter 2)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Feast_for_Crows-Chapter_2",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "affc",
+          "chapterNo": 2
+        }
+      ]
+    },
+    {
+      "ref": "place:the-crag",
+      "kind": "place",
+      "name": "The Crag",
+      "nameRu": "рабочая передача — сверить с изданием",
+      "subtitle": "A Storm of Swords · Catelyn II (Chapter 14)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Catelyn II (Chapter 14); A Wiki of Ice and Fire (AWOIAF) secondary chapter index; primary-edition verification pending",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_14",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 14
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "A Storm of Swords · Catelyn II (Chapter 14)"
+        },
+        {
+          "label": "Статус места",
+          "value": "упомянуто; не место POV-сцены Catelyn II"
+        },
+        {
+          "label": "Тип сведений",
+          "value": "место штурма и ранения Робба; использовать как referenced place"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; координаты и положение не проверялись"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; сверка по выбранному изданию и русскому переводу не проведена"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Опорное место для военной и брачной линии Робба; не назначать координаты без отдельного источника."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Jeyne Westerling",
+          "ref": "person:jeyne-westerling"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Storm of Swords · Catelyn II (Chapter 14)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_14",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "asos",
+          "chapterNo": 14
+        }
+      ]
+    },
+    {
+      "ref": "place:yunkai",
+      "kind": "place",
+      "name": "Yunkai",
+      "nameRu": "Юнкай",
+      "subtitle": "A Storm of Swords · Daenerys IV (Chapter 42)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Daenerys IV (Chapter 42); later battle outcome in Daenerys V (Chapter 57); A Wiki of Ice and Fire (AWOIAF) secondary chapter index; primary-edition verification pending",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_42",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 42
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "A Storm of Swords · Daenerys IV (Chapter 42)"
+        },
+        {
+          "label": "Статус места",
+          "value": "место сцены"
+        },
+        {
+          "label": "Тип сведений",
+          "value": "город и место противостояния в кампании Дейенерис"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; сверка по выбранному изданию и русскому переводу не проведена"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Юнкай — следующий важный узел восточной кампании после Астапора."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Essos",
+          "ref": "place:essos"
+        },
+        {
+          "label": "Battle near Yunkai",
+          "ref": "event:battle-near-yunkai"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Storm of Swords · Daenerys IV (Chapter 42)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_42",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "asos",
+          "chapterNo": 42
+        }
+      ]
+    }
+  ]
+}

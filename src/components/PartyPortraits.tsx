@@ -1,10 +1,11 @@
-// Портреты партии (F9, узкий экран): вместо одной иконки «Партия» — колонка мини-окон, по окну на персонажа:
-// аватар по расе, значок класса, уровень, имя, хиты числом и полосой, значки состояний. Щелчок по окну открывает
-// карточку персонажа — переключаться можно и со свёрнутой панелью; верхняя кнопка «Партия» раскрывает полную
-// панель оверлеем, как ячейка полосы иконок. Компонент тупой: актёры, выбор и колбэки — пропсами.
+// Портреты партии (F9): горизонтальная полоса иконок над рабочей зоной на всех ширинах; имя, HP и
+// состояния доступны в описании кнопки. Щелчок открывает карточку, верхняя кнопка «Партия» раскрывает
+// полную панель оверлеем. Компонент получает актёров и колбэки пропсами.
 import { useId } from 'react';
 import type { Actor } from '../engine';
 import { Icon } from '../icons/Icon';
+import { PortraitImage, resolvePortrait } from '../art/portrait';
+import './PartyPortraits.css';
 import type { ChipKind } from './ConditionChip';
 import { hpGeometry, hpLevel, hpText, type HpFlash, type HpLevel } from './HpBar';
 import { partyRowDescription, partyRowOf } from './PartySpineRow';
@@ -21,6 +22,11 @@ export interface PartyPortraitsProps {
   /** Полная панель партии раскрыта оверлеем. */
   panelOpen: boolean;
   onPanel: () => void;
+  /** Встроенный ряд в раскрытой панели показывает портреты без второй кнопки раскрытия. */
+  showPanelToggle?: boolean;
+  /** Показывать выбор участника для групповых действий поверх портрета. */
+  checkedIds?: ReadonlySet<string>;
+  onCheck?: (id: string) => void;
   className?: string;
 }
 
@@ -31,25 +37,35 @@ const FILL: Readonly<Record<HpLevel, string>> = { high: 'bg-hp-high', mid: 'bg-h
 const TRACK: Readonly<Record<NonNullable<HpFlash>, string>> = { damage: 'shadow-flash-damage', heal: 'shadow-flash-heal' };
 const CHIP_TEXT: Readonly<Record<ChipKind, string>> = { debuff: 'text-fx-debuff-hi', buff: 'text-fx-buff-hi', conc: 'text-src-sim' };
 
-const HEAD_CELL = 'relative flex h-10 w-full flex-none items-center justify-center gap-1 cursor-pointer bg-linear-to-b from-pl to-cd focus-visible:shadow-[var(--bevel),var(--glow-gold)]';
+const HEAD_CELL = 'relative flex h-14 w-14 flex-none items-center justify-center gap-1 cursor-pointer bg-linear-to-b from-pl to-cd focus-visible:shadow-[var(--bevel),var(--glow-gold)]';
 
-export function PartyPortraits({ actors, worldSec, selectedId, onOpen, flash, panelOpen, onPanel, className = '' }: PartyPortraitsProps) {
+export function PartyPortraits({ actors, worldSec, selectedId, onOpen, flash, panelOpen, onPanel, showPanelToggle = true, checkedIds, onCheck, className = '' }: PartyPortraitsProps) {
   return (
-    <nav aria-label="Партия" data-side="left" className={`w-rail-portraits flex-none flex flex-col gap-px min-h-0 bg-pn shadow-bevel ${className}`}>
-      <button
-        type="button"
-        aria-pressed={panelOpen}
-        aria-label="Партия"
-        title={`Партия: ${panelOpen ? 'свернуть' : 'раскрыть панель'}`}
-        onClick={onPanel}
-        className={`${HEAD_CELL} ${panelOpen ? 'text-gd-hi shadow-[var(--bevel),inset_-3px_0_0_var(--gd)]' : 'shadow-bevel text-t2 hover:text-tx'}`}
-      >
-        <Icon name="ent-pc" size={16} color={panelOpen ? 'var(--gd-hi)' : 'var(--ent-pc)'} title="Партия" />
-        <span className="type-key" title="Персонажей в партии">{actors.length}</span>
-      </button>
-      <div className="flex-1 min-h-0 overflow-y-auto flex flex-col gap-px">
+    <nav aria-label="Партия" data-side="left" data-party-portraits className={`party-portrait-rail w-rail-portraits flex-none flex flex-row gap-px min-h-0 bg-pn shadow-bevel ${className}`}>
+      {showPanelToggle ? (
+        <button
+          type="button"
+          aria-pressed={panelOpen}
+          aria-label="Партия"
+          data-part="party-rail-toggle"
+          title={`Партия: ${panelOpen ? 'свернуть' : 'раскрыть панель'}`}
+          onClick={onPanel}
+          className={`${HEAD_CELL} ${panelOpen ? 'text-gd-hi shadow-[var(--bevel),inset_-3px_0_0_var(--gd)]' : 'shadow-bevel text-t2 hover:text-tx'}`}
+        >
+          <Icon name="ent-pc" size={16} color={panelOpen ? 'var(--gd-hi)' : 'var(--ent-pc)'} title="Партия" />
+          <span className="type-key" title="Персонажей в партии">{actors.length}</span>
+        </button>
+      ) : null}
+      <div className="party-portrait-items flex-1 min-w-0 min-h-0 overflow-x-auto overflow-y-hidden flex flex-row gap-px">
         {actors.map(a => (
-          <Portrait key={a.id} actor={a} worldSec={worldSec} selected={a.id === selectedId} onOpen={onOpen} flash={flash?.[a.id] ?? null} />
+          <div key={a.id} data-part="party-portrait-slot" className="party-portrait-slot">
+            <Portrait actor={a} worldSec={worldSec} selected={a.id === selectedId} onOpen={onOpen} flash={flash?.[a.id] ?? null} />
+            {onCheck ? (
+              <label className="party-portrait-check" title={`Включить ${a.name} в групповые действия`}>
+                <input type="checkbox" checked={checkedIds?.has(a.id) ?? false} onChange={() => onCheck(a.id)} aria-label={`Выбрать ${a.name} для групповых действий`} />
+              </label>
+            ) : null}
+          </div>
         ))}
       </div>
     </nav>
@@ -60,6 +76,8 @@ function Portrait({ actor, worldSec, selected, onOpen, flash }: {
   actor: Actor; worldSec: number; selected: boolean; onOpen: (id: string) => void; flash: HpFlash;
 }) {
   const row = partyRowOf(actor, worldSec);
+  const portrait = resolvePortrait(actor.sheet?.portrait);
+  const fallbackPortrait = <Icon name={row.avatar} size={32} color="var(--t2)" title={row.lineage ?? 'Персонаж игрока'} />;
   const descId = useId();
   const { pct } = hpGeometry(row.hp);
   const lvl = hpLevel(row.hp.current, row.hp.max);
@@ -77,13 +95,14 @@ function Portrait({ actor, worldSec, selected, onOpen, flash }: {
       title={[row.name, row.lineage && `${row.lineage}${row.level === undefined ? '' : `, ${row.level} ур.`}`, `хиты ${hpText(row.hp)}`, `AC ${row.ac}`]
         .filter(Boolean).join(' · ')}
       onClick={() => onOpen(row.id)}
-      className={`flex flex-col items-center gap-0.5 p-1 w-full cursor-pointer bg-linear-to-b from-pl to-cd ${selected ? 'shadow-[var(--plate),var(--glow-gold)]' : 'shadow-plate'} focus-visible:shadow-[var(--plate),var(--glow-gold)]`}
+      data-part="party-portrait-button"
+      className={`flex flex-none flex-col items-center justify-center gap-0.5 p-1 w-14 h-14 cursor-pointer bg-linear-to-b from-pl to-cd ${selected ? 'shadow-[var(--plate),var(--glow-gold)]' : 'shadow-plate'} focus-visible:shadow-[var(--plate),var(--glow-gold)]`}
     >
       <span id={descId} className="sr-only">
         {[row.lineage && (row.level === undefined ? row.lineage : `${row.lineage}, ${row.level} уровень`), partyRowDescription(row)].filter(Boolean).join('; ')}
       </span>
       <span className={`relative size-12 flex-none flex items-center justify-center bg-cd shadow-bevel-in ${row.down ? 'opacity-55' : ''}`} data-part="portrait">
-        <Icon name={row.avatar} size={32} color="var(--t2)" title={row.lineage ?? 'Персонаж игрока'} />
+        {portrait ? <PortraitImage portrait={portrait} alt={`Портрет: ${actor.name}`} width={48} sizes="48px" className="size-12 object-cover" fallback={fallbackPortrait} /> : fallbackPortrait}
         {row.classIcon ? (
           <span className="absolute left-0 top-0 flex bg-pl shadow-bevel" data-part="class">
             <Icon name={row.classIcon} size={16} color="var(--t2)" title="Класс" />

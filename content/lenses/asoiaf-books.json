@@ -1,0 +1,13 @@
+{
+  "format": 1,
+  "id": "asoiaf-books",
+  "default": "published-books",
+  "eras": [
+    {
+      "id": "published-books",
+      "fieldOrder": [
+        "published-books"
+      ]
+    }
+  ]
+}

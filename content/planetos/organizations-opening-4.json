@@ -1,0 +1,98 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "organization",
+  "entities": [
+    {
+      "ref": "organization:house-redwyne",
+      "kind": "organization",
+      "name": "House Redwyne",
+      "subtitle": "Reach · noble house",
+      "source": {
+        "kind": "wiki",
+        "cite": "House Redwyne · A Wiki of Ice and Fire",
+        "url": "https://awoiaf.westeros.org/index.php/House_Redwyne",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Тип",
+          "value": "дом / благородный род"
+        },
+        {
+          "label": "Регион",
+          "value": "Reach"
+        },
+        {
+          "label": "Резиденция",
+          "value": "the Arbor"
+        },
+        {
+          "label": "Глава в указанной эпохе",
+          "value": "Paxter Redwyne"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial; первичное издание не сверено"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "House Redwyne связан с ключевыми именованными участниками в первой книге. Состав и политические сведения даны только на уровне AWOIAF и требуют сверки с выбранным изданием."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Tyrell",
+          "ref": "organization:house-tyrell"
+        }
+      ]
+    },
+    {
+      "ref": "organization:house-serrett",
+      "kind": "organization",
+      "name": "House Serrett",
+      "subtitle": "Westerlands · noble house",
+      "source": {
+        "kind": "wiki",
+        "cite": "House Serrett · A Wiki of Ice and Fire",
+        "url": "https://awoiaf.westeros.org/index.php/House_Serrett",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Тип",
+          "value": "дом / благородный род"
+        },
+        {
+          "label": "Регион",
+          "value": "Westerlands"
+        },
+        {
+          "label": "Резиденция",
+          "value": "Silverhill"
+        },
+        {
+          "label": "Глава в указанной эпохе",
+          "value": "Lord Serrett"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial; первичное издание не сверено"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "House Serrett связан с ключевыми именованными участниками в первой книге. Состав и политические сведения даны только на уровне AWOIAF и требуют сверки с выбранным изданием."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Lannister",
+          "ref": "organization:house-lannister"
+        }
+      ]
+    }
+  ]
+}

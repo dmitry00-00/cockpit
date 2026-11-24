@@ -3,7 +3,7 @@
 // встречи округи и регион A5E, нити партии, канон места из хронологии. Справочник места (вики) грузит страница и
 // передаёт готовым (`SceneCanon`): функция чистая. Пустая секция не попадает в сцену. Игрокам — только открытое:
 // без канона вики, встреч, ждущего и секретных заметок.
-import { SECONDS_PER_DAY, type Location, type State, type WorldPatch } from '../engine/state';
+import { SECONDS_PER_DAY, type Actor, type Location, type State, type WorldPatch } from '../engine/state';
 import { ref, type EntityRef } from '../entities/ref';
 import { GOODS_LABEL, RELATION_LABEL, signed } from '../components/labels';
 import { ENCOUNTER_TYPE_LABEL, JOURNEY_REGIONS, activityDc, tierOfLevel, type RegionTier } from '../rules/a5e/journey';
@@ -11,17 +11,19 @@ import { MONSTERS } from '../rules/srd/monsters';
 import type { ChronoEvent } from '../world/chronology';
 import { orgExistsIn, type Organization, type PlaceFaith } from '../world/organizations';
 import { residentsAlive, type Resident } from '../world/people';
-import { SEASON_LABELS, TENDAY, harptos, moonState, seasonOf } from './calendar';
-import { eraOf } from './era';
+import { SEASON_LABELS, TENDAY, calendarAdapterForState, harptos, moonState, seasonOf } from './calendar';
+import { eraOfSetting } from './era';
 import { holyDaysOn, holyWhat, isAnnual } from './holyDays';
 import { priceRowOf } from './pulse';
 import { TENSION_LABEL, tensionsAt, type Tension } from './tensions';
 import { weatherLabel, weatherOf } from './weather';
+import { warDangerAtPlace, warFrontAtPlace } from './war';
+import { DEFAULT_SETTING_PACKAGE } from '../packages/registry';
 
-export type SceneSectionId = 'now' | 'faith' | 'powers' | 'people' | 'market' | 'around' | 'threads' | 'tensions' | 'chronicle';
+export type SceneSectionId = 'now' | 'processes' | 'faith' | 'powers' | 'people' | 'market' | 'around' | 'rumors' | 'threads' | 'tensions' | 'chronicle';
 
 export const SCENE_TITLE: Readonly<Record<SceneSectionId, string>> = {
-  now: 'Сейчас', faith: 'Вера', powers: 'Силы', people: 'Люди', market: 'Рынок', around: 'Округа', threads: 'Нити', tensions: 'Напряжения', chronicle: 'Канон места',
+  now: 'Сейчас', processes: 'Процессы', faith: 'Вера', powers: 'Силы', people: 'Люди', market: 'Рынок', around: 'Округа', rumors: 'Слухи', threads: 'Нити', tensions: 'Напряжения', chronicle: 'Канон места',
 };
 
 export interface SceneLink { label: string; ref: EntityRef }
@@ -40,7 +42,17 @@ export interface SceneRow {
 
 export interface SceneSection { id: SceneSectionId; title: string; rows: SceneRow[] }
 
-export interface Scene { sec: number; year: number; sections: SceneSection[] }
+export interface Scene {
+  sec: number;
+  year: number | null;
+  /** Кампанийное место текущей сцены, если оно есть. */
+  locationId?: string;
+  /** Ступень региона A5E, уже выбранная для текущей сцены. */
+  regionTier?: RegionTier;
+  sections: SceneSection[];
+  /** Только для мастера: пассивное Восприятие партии как ориентир при назначении сложности. */
+  passivePerception?: readonly { id: string; name: string; score: number }[];
+}
 
 /** Справочник места — вики и хронология; страница грузит его сама и передаёт готовым. */
 export interface SceneCanon {
@@ -105,6 +117,16 @@ function monsterRef(name: string): EntityRef | undefined {
 
 const pctLabel = (index: number) => (index === 100 ? 'базовые' : signed(index - 100, '%'));
 const inDaysLabel = (n: number) => (n === 0 ? 'сегодня' : n === 1 ? 'завтра' : `через ${n} дн.`);
+const PROCESS_KIND_LABEL: Readonly<Record<string, string>> = {
+  caravan: 'Караван', 'trade-line': 'Торговая линия', war: 'Война держав', siege: 'Осада', blockade: 'Блокада',
+  famine: 'Голод', epidemic: 'Эпидемия', revolt: 'Восстание', cosmic: 'Космический процесс', rumor: 'Слух',
+};
+const PROCESS_STAGE_LABEL: Readonly<Record<string, string>> = {
+  transit: 'в пути', blocked: 'маршрут перекрыт', arrived: 'прибыл', lost: 'потерян', scheduled: 'по расписанию',
+  mobilization: 'мобилизация', campaign: 'кампания', protracted: 'затяжная война', peace: 'мир', capitulation: 'капитуляция',
+  active: 'действует', shortage: 'нехватка', outbreak: 'вспышка', incubation: 'инкубация', infectious: 'заражение',
+  unrest: 'волнения', revolt: 'восстание', siege: 'осада', ongoing: 'идёт', observing: 'наблюдение', travel: 'в пути',
+};
 
 /** Место кампании и его потомки по лестнице — их факты и предложения относятся к сцене. */
 function subtree(locations: State['world']['locations'], id: string): Set<string> {
@@ -124,31 +146,74 @@ export function sceneOf(state: State, at: SceneAt, sec: number, canon?: SceneCan
   const { locations, factions, threads } = state.world;
   const location: Location | undefined = at.location ? locations[at.location]
     : at.place ? Object.values(locations).find(l => l.ref === ref('place', at.place!)) : undefined;
-  const year = harptos(sec).year;
-  const era = eraOf(year);
-  const w = players ? undefined : canon;
+  const settingPackageId = state.settingPackageId ?? DEFAULT_SETTING_PACKAGE;
+  const isForgottenRealms = settingPackageId === DEFAULT_SETTING_PACKAGE;
+  const calendar = calendarAdapterForState(state);
+  const year = calendar.yearAt(sec);
+  const era = isForgottenRealms && year !== null ? eraOfSetting(year, settingPackageId) : undefined;
+  const canonicalYear = year ?? 0;
+  const w = players || !isForgottenRealms || year === null ? undefined : canon;
   const pending = players ? [] : Object.values(state.deltas).filter(d => d.status === 'pending');
   const patches = pending.flatMap(d => (d.patch ? [d.patch] : []));
   const sections: SceneSection[] = [];
+  let sceneRegionTier: RegionTier | undefined;
   const add = (id: SceneSectionId, rows: SceneRow[]) => { if (rows.length) sections.push({ id, title: SCENE_TITLE[id], rows }); };
 
-  // Сейчас: день, праздник Харптоса, сезон, Selûne, погода.
-  const d = harptos(sec);
-  const moon = moonState(sec);
-  add('now', [
-    { label: d.festival ? `${d.festival} ${d.year} DR` : `${d.day} ${d.month} ${d.year} DR`, note: d.festival ? 'праздник Харптоса' : SEASON_LABELS[seasonOf(sec)] },
-    { label: 'Selûne', ref: ref('body', 'selune'), note: moon.phase === 'full' ? MOON_WORD.full : `${MOON_WORD[moon.phase]} · полнолуние ${inDaysLabel(moon.daysToFull)}` },
-    { label: weatherLabel(weatherOf(sec)), note: 'погода дня' },
-  ]);
+  // Сейчас: дата из календаря пакета; Харптос, Selûne и погода — только у Forgotten Realms.
+  const frDate = isForgottenRealms ? harptos(sec) : undefined;
+  const season = isForgottenRealms ? seasonOf(sec) : calendar.seasonAt?.(sec);
+  const seasonLabel = isForgottenRealms && season
+    ? SEASON_LABELS[season as keyof typeof SEASON_LABELS]
+    : calendar.seasonLabelAt?.(sec) ?? season;
+  const nowRows: SceneRow[] = [{
+    label: calendar.formatDateOnly(sec),
+    ...(frDate?.festival ? { note: 'праздник Харптоса' } : seasonLabel ? { note: seasonLabel } : {}),
+  }];
+  const moon = isForgottenRealms ? moonState(sec) : calendar.moonAt?.(sec);
+  if (moon && isForgottenRealms) {
+    nowRows.push({ label: 'Selûne', ref: ref('body', 'selune'), note: moon.phase === 'full' ? MOON_WORD.full : `${MOON_WORD[moon.phase]} · полнолуние ${inDaysLabel(moon.daysToFull)}` });
+  } else if (moon) {
+    nowRows.push({ label: 'Луна', note: moon.phase === 'full' ? MOON_WORD.full : `${MOON_WORD[moon.phase]} · полнолуние ${inDaysLabel(moon.daysToFull)}` });
+  }
+  if (isForgottenRealms) nowRows.push({ label: weatherLabel(weatherOf(sec)), note: 'погода дня' });
+  add('now', nowRows);
+
+  // Процессы текущего места и предков. Игрокам разрешена только подпись явных часов и их счётчик.
+  if (location) {
+    const ancestors = new Set<string>();
+    let current: Location | undefined = location;
+    while (current && !ancestors.has(current.id)) {
+      ancestors.add(current.id);
+      current = current.parentId ? locations[current.parentId] : undefined;
+    }
+    const processRows = Object.values(state.world.processes ?? {})
+      .filter(process => !process.ended && process.startedSec <= sec && !!process.at && ancestors.has(process.at))
+      .sort((a, b) => a.nextSec - b.nextSec || a.id.localeCompare(b.id))
+      .flatMap(process => {
+        if (players) {
+          const clock = process.clock;
+          const label = clock?.playerLabel?.trim();
+          return clock?.playerVisible && label
+            ? [{ label, note: `Часы: ${clock.filled} из ${clock.segments}` }]
+            : [];
+        }
+        const date = calendar.formatDateOnly(process.nextSec);
+        return [{
+          label: process.name,
+          note: `${PROCESS_KIND_LABEL[process.kind] ?? process.kind} · ${PROCESS_STAGE_LABEL[process.stage] ?? process.stage} · следующий такт ${date}`,
+        }];
+      });
+    add('processes', processRows);
+  }
 
   // Вера: боги места, церкви (с базой здесь и церкви богов места), святые дни богов места на десятидневку вперёд.
   if (w) {
     const gods = w.faith?.deities ?? [];
-    const live = (list: readonly Organization[]) => list.filter(o => orgExistsIn(o, year));
+    const live = (list: readonly Organization[]) => list.filter(o => orgExistsIn(o, canonicalYear));
     const churches = [...new Map([...live(w.based.filter(o => o.church)), ...gods.flatMap(g => live(w.churchesOf(g)))].map(o => [o.id, o])).values()];
     const today = Math.floor(sec / DAY) * DAY;
     const holy: SceneRow[] = [];
-    if (gods.length) {
+    if (gods.length && era) {
       const scope = new Set(gods);
       for (let i = 0; i < TENDAY; i++) {
         for (const h of holyDaysOn(today + i * DAY, era, scope).filter(x => isAnnual(x.rule))) {
@@ -173,7 +238,7 @@ export function sceneOf(state: State, at: SceneAt, sec: number, canon?: SceneCan
       : { label: o.name, ref: ref('organization', o.id), ...(what ? { note: what } : o.type ? { note: o.type } : {}) };
   }
   if (w) {
-    const here = w.based.filter(o => !o.church && orgExistsIn(o, year));
+    const here = w.based.filter(o => !o.church && orgExistsIn(o, canonicalYear));
     const hereIds = new Set(here.map(o => o.id));
     const campaignOrg = new Map(Object.values(factions).flatMap(f => (f.ref?.startsWith('organization:') ? [[f.ref.slice(13), f] as const] : [])));
     const sideOf = (id: string): SceneLink | undefined => {
@@ -189,7 +254,7 @@ export function sceneOf(state: State, at: SceneAt, sec: number, canon?: SceneCan
           const b = sideOf(other);
           const a = sideOf(o.id) ?? { label: o.name, ref: ref('organization', o.id) };
           const key = [o.id, other].sort().join('|');
-          if (b && other !== o.id && !pairs.has(key) && (!w.org(other) || orgExistsIn(w.org(other)!, year))) pairs.set(key, { ...a, with: b, note });
+          if (b && other !== o.id && !pairs.has(key) && (!w.org(other) || orgExistsIn(w.org(other)!, canonicalYear))) pairs.set(key, { ...a, with: b, note });
         }
       }
     }
@@ -216,7 +281,7 @@ export function sceneOf(state: State, at: SceneAt, sec: number, canon?: SceneCan
     ]);
 
     // Люди: живые в год сцены; члены организаций — первыми, с организациями в заметке.
-    const people = residentsAlive(w.residents, year).map(([id, name]) => {
+    const people = residentsAlive(w.residents, canonicalYear).map(([id, name]) => {
       const orgs = (w.orgsOf?.(id) ?? []).map(o => w.org(o)?.name).filter((x): x is string => !!x);
       return { label: name, ref: ref('person', id), ...(orgs.length ? { note: orgs.slice(0, 2).join(', ') + (orgs.length > 2 ? ` и ещё ${orgs.length - 2}` : '') } : {}) };
     });
@@ -244,11 +309,20 @@ export function sceneOf(state: State, at: SceneAt, sec: number, canon?: SceneCan
         return { label: key, ...(mref ? { ref: mref } : {}), note: `${l.name} ×${l.encounters?.[key] ?? 1}`, ...(p && p.kind === 'encounter' ? { pending: `×${p.value}` } : {}) };
       });
     });
-    const regionId = regionOfKind(canon?.place?.kind) ?? (location?.scale === 'settlement' ? 'urban-township' : undefined);
+    const placeId = canon?.place?.id ?? (location?.ref?.startsWith('place:') ? location.ref.slice('place:'.length) : undefined);
+    const front = placeId ? warFrontAtPlace(state, placeId) : undefined;
+    const campaignDanger = placeId ? warDangerAtPlace(state, placeId) : undefined;
+    const territoryController = placeId ? state.world.territoryControl?.[placeId] : undefined;
+    if (territoryController) rows.push({
+      label: `Контроль территории · ${territoryController.kingdomName}`,
+      note: 'кампанийная запись по решению мастера; справочник держав не изменён',
+    });
+    const regionId = front ? 'wartorn-kingdom' : regionOfKind(canon?.place?.kind) ?? (location?.scale === 'settlement' ? 'urban-township' : undefined);
     const region = regionId ? JOURNEY_REGIONS[regionId] : undefined;
     if (region) {
-      const tier = opts.tier ?? tierOfLevel(Math.max(1, ...state.party.map(id => state.actors[id]?.sheet?.level ?? 1)));
-      rows.push({ label: region.name, note: `регион A5E · уровень опасности ${tier} · DC занятий ${activityDc(tier)}` });
+      const tier = front?.front.tier ?? opts.tier ?? tierOfLevel(Math.max(1, ...state.party.map(id => state.actors[id]?.sheet?.level ?? 1)));
+      sceneRegionTier = tier;
+      rows.push({ label: region.name, note: `регион A5E · уровень опасности ${tier} · DC занятий ${activityDc(tier)}${campaignDanger ? ' · опасность места высокая' : ''}${front ? ` · фронт войны «${front.process.name}»` : ''}` });
       for (const e of region.encounters[String(tier)] ?? []) {
         const mref = e.type === 'monster' ? monsterRef(e.name) : undefined;
         rows.push({ label: e.name, ...(mref ? { ref: mref } : {}), note: `d100 ${e.from === e.to ? e.from : `${e.from}–${e.to}`} · ${ENCOUNTER_TYPE_LABEL[e.type]}` });
@@ -260,6 +334,18 @@ export function sceneOf(state: State, at: SceneAt, sec: number, canon?: SceneCan
   // Нити: открытые нити, о которых говорят факты и ждущие предложения места и его потомков. Игрокам — открытые факты.
   if (location) {
     const ids = subtree(locations, location.id);
+    let nearbyLocation: Location | undefined = location;
+    const ancestorIds = new Set<string>();
+    while (nearbyLocation && !ancestorIds.has(nearbyLocation.id)) {
+      ancestorIds.add(nearbyLocation.id);
+      ids.add(nearbyLocation.id);
+      nearbyLocation = nearbyLocation.parentId ? locations[nearbyLocation.parentId] : undefined;
+    }
+    const rumors = Object.values(state.facts)
+      .filter(fact => fact.category === 'rumor' && fact.visibility === 'players' && !!fact.subjectId && ids.has(fact.subjectId))
+      .sort((a, b) => a.text.localeCompare(b.text, 'ru') || a.id.localeCompare(b.id))
+      .map(fact => ({ label: fact.text, note: 'слух, дошедший до этого места' }));
+    add('rumors', rumors);
     const byThread = new Map<string, string[]>();
     const note = (t: string, text: string) => byThread.set(t, [...(byThread.get(t) ?? []), text]);
     for (const f of Object.values(state.facts)) {
@@ -283,9 +369,20 @@ export function sceneOf(state: State, at: SceneAt, sec: number, canon?: SceneCan
 
   // Канон места: последние события хронологии о нём до года сцены, по-английски, как в вики.
   if (w?.events) {
-    const past = w.events.filter(e => e.year <= year && e.kind !== 'publications').sort((a, b) => b.year - a.year).slice(0, SCENE_CANON_EVENTS);
+    const past = w.events.filter(e => e.year <= canonicalYear && e.kind !== 'publications').sort((a, b) => b.year - a.year).slice(0, SCENE_CANON_EVENTS);
     add('chronicle', past.map(e => ({ label: e.text, en: true, note: `${e.year < 0 ? `−${-e.year}` : e.year} DR${e.when ? ` · ${e.when}` : ''}` })));
   }
 
-  return { sec, year, sections };
+  const passivePerception = players ? undefined : state.party
+    .map(id => state.actors[id])
+    .filter((actor): actor is Actor => !!actor && !actor.removed)
+    .map(actor => ({ id: actor.id, name: actor.name, score: actor.passivePerception }))
+    .sort((a, b) => b.score - a.score || a.name.localeCompare(b.name));
+
+  return {
+    sec, year, sections,
+    ...(location ? { locationId: location.id } : {}),
+    ...(sceneRegionTier !== undefined ? { regionTier: sceneRegionTier } : {}),
+    ...(passivePerception?.length ? { passivePerception } : {}),
+  };
 }

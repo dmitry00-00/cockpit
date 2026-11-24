@@ -1,0 +1,4153 @@
+{
+  "format": "cockpit.entity-layer-draft-set/1",
+  "packageSnapshot": "2026.11.24.38",
+  "sourcePolicy": {
+    "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise Russian paraphrases; primary-edition verification pending.",
+    "status": "secondary-indexed-partial",
+    "primaryVerification": "pending",
+    "absoluteDatePolicy": "do not infer dates from chapter order",
+    "scope": "Missing P0/P1 event candidates from ASOS chapters 0–20, 41–60, and 61–81; existing .38 cards and prior 21–40 drafts excluded."
+  },
+  "payloads": [
+    {
+      "format": "cockpit.entity-layer/1",
+      "kind": "event",
+      "entities": [
+        {
+          "ref": "event:arya-and-sandor-fight-polliver-tickler-and-the-squire-at-the-crossroads-inn",
+          "kind": "event",
+          "name": "Arya and Sandor fight Polliver, Tickler, and the squire at the crossroads inn",
+          "nameRu": "Арья и Сандор сталкиваются с Полливером, Тиклером и оруженосцем в трактире",
+          "subtitle": "A Storm of Swords · Arya XIII (Chapter 74)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Arya XIII (Chapter 74); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_74",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 74,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 74,
+              "chapterTitle": "Arya XIII",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_74"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "В трактире на перекрёстке происходит схватка Арьи и Сандора с Полливером, Тиклером и оруженосцем. Исход этого столкновения описан отдельной карточкой."
+            }
+          ],
+          "links": [
+            {
+              "label": "Arya Stark",
+              "ref": "person:arya-stark"
+            },
+            {
+              "label": "Sandor Clegane",
+              "ref": "person:sandor-clegane"
+            }
+          ]
+        },
+        {
+          "ref": "event:arya-kills-polliver-tickler-and-the-squire",
+          "kind": "event",
+          "name": "Arya kills Polliver, Tickler, and the squire",
+          "nameRu": "Арья убивает Полливера, Тиклера и оруженосца",
+          "subtitle": "A Storm of Swords · Arya XIII (Chapter 74)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Arya XIII (Chapter 74); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_74",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 74,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 74,
+              "chapterTitle": "Arya XIII",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_74"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "В ходе столкновения у трактира Арья убивает Полливера, Тиклера и неназванного оруженосца. Карточка не присваивает оруженосцу имя."
+            }
+          ],
+          "links": [
+            {
+              "label": "Arya Stark",
+              "ref": "person:arya-stark"
+            }
+          ]
+        },
+        {
+          "ref": "event:arya-leaves-sandor-and-secures-passage-toward-braavos",
+          "kind": "event",
+          "name": "Arya leaves Sandor and secures passage toward Braavos",
+          "nameRu": "Арья оставляет Сандора и получает путь в Браавос",
+          "subtitle": "A Storm of Swords · Arya XIII (Chapter 74)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Arya XIII (Chapter 74); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_74",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 74,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 74,
+              "chapterTitle": "Arya XIII",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_74"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Арья расстаётся с Сандором и добивается прохода на корабль, следующий в Браавос. Точный маршрут не превращается в абсолютную дату."
+            }
+          ],
+          "links": [
+            {
+              "label": "Arya Stark",
+              "ref": "person:arya-stark"
+            },
+            {
+              "label": "Sandor Clegane",
+              "ref": "person:sandor-clegane"
+            },
+            {
+              "label": "Braavos",
+              "ref": "place:braavos"
+            }
+          ]
+        },
+        {
+          "ref": "event:aryas-party-is-captured-by-the-brotherhood-without-banners",
+          "kind": "event",
+          "name": "Arya’s party is captured by the Brotherhood without Banners",
+          "nameRu": "Пленение отряда Арьи Братством без знамён",
+          "subtitle": "A Storm of Swords · Arya II (Chapter 13)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Arya II (Chapter 13); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_13",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 13,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 13,
+              "chapterTitle": "Arya II",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_13"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "В главе Арья и её спутники оказываются захвачены Братством без знамён. Карточка фиксирует пленение, не раскрывая дальнейшие решения отряда."
+            }
+          ],
+          "links": [
+            {
+              "label": "Arya Stark",
+              "ref": "person:arya-stark"
+            },
+            {
+              "label": "Brotherhood without Banners",
+              "ref": "organization:brotherhood-without-banners"
+            }
+          ]
+        },
+        {
+          "ref": "event:barristan-reveals-himself-to-daenerys",
+          "kind": "event",
+          "name": "Barristan reveals his identity",
+          "nameRu": "Барристан открывает Дейенерис своё имя",
+          "subtitle": "A Storm of Swords · Daenerys V (Chapter 57)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Daenerys V (Chapter 57); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_57",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 57,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 57,
+              "chapterTitle": "Daenerys V",
+              "relation": "occurred-revelation",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_57"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершившееся раскрытие/признание"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Арстан раскрывает Дейенерис, что он Барристан Селми, и предлагает ей службу. Последующее решение о службе и конфликте с Джорахом имеет отдельные локаторы."
+            }
+          ],
+          "links": [
+            {
+              "label": "Barristan Selmy",
+              "ref": "person:barristan-selmy"
+            },
+            {
+              "label": "Daenerys Targaryen",
+              "ref": "person:daenerys-targaryen"
+            }
+          ]
+        },
+        {
+          "ref": "event:barristan-selmy-swears-himself-to-daenerys",
+          "kind": "event",
+          "name": "Barristan Selmy swears himself to Daenerys",
+          "nameRu": "Барристан Селми клянётся служить Дейенерис",
+          "subtitle": "A Storm of Swords · Daenerys VI (Chapter 71)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Daenerys VI (Chapter 71); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_71",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 71,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 71,
+              "chapterTitle": "Daenerys VI",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_71"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "После раскрытия личности Барристан подтверждает Дейенерис свою службу. Это отдельный поздний эпизод, не повторное раскрытие имени."
+            }
+          ],
+          "links": [
+            {
+              "label": "Barristan Selmy",
+              "ref": "person:barristan-selmy"
+            },
+            {
+              "label": "Daenerys Targaryen",
+              "ref": "person:daenerys-targaryen"
+            }
+          ]
+        },
+        {
+          "ref": "event:bran-group-crosses-black-gate",
+          "kind": "event",
+          "name": "Bran’s group passes through the Black Gate",
+          "nameRu": "Отряд Брана проходит через Чёрные ворота",
+          "subtitle": "A Storm of Swords · Bran IV (Chapter 56)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Bran IV (Chapter 56); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_56",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 56,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 56,
+              "chapterTitle": "Bran IV",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_56"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Сэм проводит группу Брана через Чёрные ворота под Стеной. Это отмечает смену маршрута отряда."
+            }
+          ],
+          "links": [
+            {
+              "label": "Bran Stark",
+              "ref": "person:bran-stark"
+            },
+            {
+              "label": "Samwell Tarly",
+              "ref": "person:samwell-tarly"
+            },
+            {
+              "label": "Black Gate",
+              "ref": "place:black-gate"
+            },
+            {
+              "label": "The Wall",
+              "ref": "place:the-wall"
+            }
+          ]
+        },
+        {
+          "ref": "event:brienne-is-arrested",
+          "kind": "event",
+          "name": "Brienne is arrested",
+          "nameRu": "Бриенну арестовывают",
+          "subtitle": "A Storm of Swords · Jaime VII (Chapter 62)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Jaime VII (Chapter 62); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_62",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 62,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 62,
+              "chapterTitle": "Jaime VII",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_62"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Бриенну арестовывают в главе Джейме VII. Основания и дальнейшее разбирательство описываются отдельно."
+            }
+          ],
+          "links": [
+            {
+              "label": "Brienne of Tarth",
+              "ref": "person:brienne-of-tarth"
+            },
+            {
+              "label": "King's Landing",
+              "ref": "place:kings-landing"
+            }
+          ]
+        },
+        {
+          "ref": "event:brown-ben-reveals-meereen-sewer-route",
+          "kind": "event",
+          "name": "Brown Ben reveals a sewer route into Meereen",
+          "nameRu": "Бен Пламм раскрывает путь в Меерин через канализацию",
+          "subtitle": "A Storm of Swords · Daenerys V (Chapter 57)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Daenerys V (Chapter 57); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_57",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 57,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 57,
+              "chapterTitle": "Daenerys V",
+              "relation": "plan-or-intelligence",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_57"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "переданное оперативное предложение; его выполнение не подтверждено"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Бен Пламм сообщает Дейенерис о возможном пути в город через канализацию. Это оперативное предложение, а не состоявшееся взятие Меерина."
+            }
+          ],
+          "links": [
+            {
+              "label": "Daenerys Targaryen",
+              "ref": "person:daenerys-targaryen"
+            },
+            {
+              "label": "Meereen",
+              "ref": "place:meereen"
+            }
+          ]
+        },
+        {
+          "ref": "event:report-of-balon-death-and-euron-return",
+          "kind": "event",
+          "name": "Captain reports Balon’s death and Euron’s return",
+          "nameRu": "Капитан сообщает о смерти Бейлона и возвращении Эурона",
+          "subtitle": "A Storm of Swords · Catelyn V (Chapter 45)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Catelyn V (Chapter 45); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_45",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 45,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 45,
+              "chapterTitle": "Catelyn V",
+              "relation": "reported-message",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_45"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "сообщение/письмо; содержание не превращать в независимо подтверждённый факт"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Капитан передаёт известие о смерти Бейлона и возвращении Эурона. Карточка хранит сообщение как услышанное в сцене, а не как самостоятельное подтверждение источником."
+            }
+          ],
+          "links": [
+            {
+              "label": "Balon Greyjoy",
+              "ref": "person:balon-greyjoy"
+            },
+            {
+              "label": "Euron Greyjoy",
+              "ref": "person:euron-greyjoy"
+            },
+            {
+              "label": "Catelyn Stark",
+              "ref": "person:catelyn-stark"
+            }
+          ]
+        },
+        {
+          "ref": "event:daenerys-exiles-jorah-mormont",
+          "kind": "event",
+          "name": "Daenerys exiles Jorah Mormont",
+          "nameRu": "Дейенерис изгоняет Джораха Мормонта",
+          "subtitle": "A Storm of Swords · Daenerys VI (Chapter 71)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Daenerys VI (Chapter 71); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_71",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 71,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 71,
+              "chapterTitle": "Daenerys VI",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_71"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Дейенерис приказывает Джораху покинуть её окружение. Этот эпизод завершает более ранний конфликт, начавшийся с разоблачения шпионажа."
+            }
+          ],
+          "links": [
+            {
+              "label": "Daenerys Targaryen",
+              "ref": "person:daenerys-targaryen"
+            },
+            {
+              "label": "Jorah Mormont",
+              "ref": "person:jorah-mormont"
+            },
+            {
+              "label": "Meereen",
+              "ref": "place:meereen"
+            }
+          ]
+        },
+        {
+          "ref": "event:dalla-gives-birth-during-the-attack",
+          "kind": "event",
+          "name": "Dalla gives birth during the attack",
+          "nameRu": "Далла рожает во время нападения",
+          "subtitle": "A Storm of Swords · Jon X (Chapter 73)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Jon X (Chapter 73); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_73",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 73,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 73,
+              "chapterTitle": "Jon X",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_73"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Во время наступления сил Станниса Далла рожает. Карточка фиксирует роды в кризисной обстановке, не добавляя причинно-следственных выводов."
+            }
+          ],
+          "links": [
+            {
+              "label": "Dalla",
+              "ref": "person:dalla"
+            },
+            {
+              "label": "Mance Rayder",
+              "ref": "person:mance-rayder"
+            }
+          ]
+        },
+        {
+          "ref": "event:davos-and-loyal-men-remove-edric-storm-from-dragonstone",
+          "kind": "event",
+          "name": "Davos and loyal men remove Edric Storm from Dragonstone",
+          "nameRu": "Давос с союзниками увозит Эдрика Шторма с Драконьего Камня",
+          "subtitle": "A Storm of Swords · Davos VI (Chapter 63)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Davos VI (Chapter 63); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_63",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 63,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 63,
+              "chapterTitle": "Davos VI",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_63"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Давос и его сторонники тайно вывозят Эдрика с Драконьего Камня. Детали маршрута не выводятся из заголовка кандидата."
+            }
+          ],
+          "links": [
+            {
+              "label": "Davos Seaworth",
+              "ref": "person:davos-seaworth"
+            },
+            {
+              "label": "Edric Storm",
+              "ref": "person:edric-storm"
+            },
+            {
+              "label": "Dragonstone",
+              "ref": "place:dragonstone"
+            }
+          ]
+        },
+        {
+          "ref": "event:davos-confronts-stannis-over-edric-and-melisandres-prophecy",
+          "kind": "event",
+          "name": "Davos confronts Stannis over Edric and Melisandre’s prophecy",
+          "nameRu": "Давос спорит со Станнисом об Эдрике и пророчестве Мелисандры",
+          "subtitle": "A Storm of Swords · Davos VI (Chapter 63)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Davos VI (Chapter 63); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_63",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 63,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 63,
+              "chapterTitle": "Davos VI",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_63"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Давос оспаривает решение Станниса, связанное с Эдриком и пророчеством Мелисандры. Карточка фиксирует состоявшийся разговор, а не его будущий исход."
+            }
+          ],
+          "links": [
+            {
+              "label": "Davos Seaworth",
+              "ref": "person:davos-seaworth"
+            },
+            {
+              "label": "Stannis Baratheon",
+              "ref": "person:stannis-baratheon"
+            },
+            {
+              "label": "Edric Storm",
+              "ref": "person:edric-storm"
+            },
+            {
+              "label": "Melisandre",
+              "ref": "person:melisandre"
+            }
+          ]
+        },
+        {
+          "ref": "event:davos-is-taken-into-custody",
+          "kind": "event",
+          "name": "Davos is taken into custody",
+          "nameRu": "Давоса берут под стражу",
+          "subtitle": "A Storm of Swords · Davos II (Chapter 10)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Davos II (Chapter 10); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_10",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 10,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 10,
+              "chapterTitle": "Davos II",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_10"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Давоса берут под стражу. Место и точная последовательность задержания требуют сверки с выбранным изданием."
+            }
+          ],
+          "links": [
+            {
+              "label": "Davos Seaworth",
+              "ref": "person:davos-seaworth"
+            },
+            {
+              "label": "Dragonstone",
+              "ref": "place:dragonstone"
+            }
+          ]
+        },
+        {
+          "ref": "event:davos-reads-aemons-warning-letter",
+          "kind": "event",
+          "name": "Davos reads Aemon’s letter about the Fist and the Wall",
+          "nameRu": "Давос читает письмо Эйемона о событиях у Кулака и Стены",
+          "subtitle": "A Storm of Swords · Davos V (Chapter 54)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Davos V (Chapter 54); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_54",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 54,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 54,
+              "chapterTitle": "Davos V",
+              "relation": "reported-message",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_54"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "сообщение/письмо; содержание не превращать в независимо подтверждённый факт"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Давос читает письмо мейстера Эйемона с тревожными сведениями за Стеной. Содержание письма следует учитывать как переданные вести, а не как независимую сцену, показанную в письме."
+            }
+          ],
+          "links": [
+            {
+              "label": "Davos Seaworth",
+              "ref": "person:davos-seaworth"
+            },
+            {
+              "label": "Night's Watch",
+              "ref": "organization:nights-watch"
+            },
+            {
+              "label": "The Wall",
+              "ref": "place:the-wall"
+            }
+          ]
+        },
+        {
+          "ref": "event:davos-survives-the-battle-of-the-blackwater-and-is-rescued",
+          "kind": "event",
+          "name": "Davos survives the Battle of the Blackwater and is rescued",
+          "nameRu": "Давос переживает битву на Чёрноводной и спасён",
+          "subtitle": "A Storm of Swords · Davos I (Chapter 5)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Davos I (Chapter 5); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_5",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 5,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 5,
+              "chapterTitle": "Davos I",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_5"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "После битвы Давос остаётся жив и оказывается спасён. Точная последовательность спасения требует сверки с выбранным изданием."
+            }
+          ],
+          "links": [
+            {
+              "label": "Davos Seaworth",
+              "ref": "person:davos-seaworth"
+            },
+            {
+              "label": "Battle of the Blackwater",
+              "ref": "event:battle-of-blackwater"
+            },
+            {
+              "label": "Blackwater Bay",
+              "ref": "place:blackwater-bay"
+            }
+          ]
+        },
+        {
+          "ref": "event:dontos-hollard-is-killed-and-his-skiff-burned",
+          "kind": "event",
+          "name": "Dontos Hollard is killed and his skiff burned",
+          "nameRu": "Донтоса Холларда убивают, его лодку сжигают",
+          "subtitle": "A Storm of Swords · Sansa V (Chapter 61)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Sansa V (Chapter 61); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_61",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 61,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 61,
+              "chapterTitle": "Sansa V",
+              "relation": "occurred-as-recounted",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_61"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "событие пересказано персонажем; первичная сверка необходима"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Петир сообщает Сансе о гибели Донтоса и уничтожении его лодки. Сохранять это как изложенный в сцене факт и сверить формулировку по роману."
+            }
+          ],
+          "links": [
+            {
+              "label": "Dontos Hollard",
+              "ref": "person:dontos-hollard"
+            },
+            {
+              "label": "Sansa Stark",
+              "ref": "person:sansa-stark"
+            },
+            {
+              "label": "Petyr Baelish",
+              "ref": "person:petyr-baelish"
+            },
+            {
+              "label": "King's Landing",
+              "ref": "place:kings-landing"
+            }
+          ]
+        },
+        {
+          "ref": "event:jaime-frees-tyrion-from-the-black-cells",
+          "kind": "event",
+          "name": "Jaime frees Tyrion from the black cells",
+          "nameRu": "Джейме освобождает Тириона из чёрных камер",
+          "subtitle": "A Storm of Swords · Tyrion XI (Chapter 77)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Tyrion XI (Chapter 77); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_77",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 77,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 77,
+              "chapterTitle": "Tyrion XI",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_77"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Джейме помогает Тириону выбраться из заключения в Королевской Гавани. Детали побега и последующий маршрут относятся к другим частям сцены."
+            }
+          ],
+          "links": [
+            {
+              "label": "Jaime Lannister",
+              "ref": "person:jaime-lannister"
+            },
+            {
+              "label": "Tyrion Lannister",
+              "ref": "person:tyrion-lannister"
+            },
+            {
+              "label": "King's Landing",
+              "ref": "place:kings-landing"
+            }
+          ]
+        },
+        {
+          "ref": "event:jaime-returns-to-kings-landing",
+          "kind": "event",
+          "name": "Jaime returns to King’s Landing",
+          "nameRu": "Джейме возвращается в Королевскую Гавань",
+          "subtitle": "A Storm of Swords · Jaime VII (Chapter 62)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Jaime VII (Chapter 62); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_62",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 62,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 62,
+              "chapterTitle": "Jaime VII",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_62"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "После долгого отсутствия Джейме прибывает в Королевскую Гавань. Карточка фиксирует возвращение, не связывая его с последующими действиями."
+            }
+          ],
+          "links": [
+            {
+              "label": "Jaime Lannister",
+              "ref": "person:jaime-lannister"
+            },
+            {
+              "label": "King's Landing",
+              "ref": "place:kings-landing"
+            }
+          ]
+        },
+        {
+          "ref": "event:jaime-tests-and-instructs-the-kingsguard-under-his-command",
+          "kind": "event",
+          "name": "Jaime tests and instructs the Kingsguard under his command",
+          "nameRu": "Джейме проверяет и обучает подчинённых королевских гвардейцев",
+          "subtitle": "A Storm of Swords · Jaime VIII (Chapter 67)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Jaime VIII (Chapter 67); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_67",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 67,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 67,
+              "chapterTitle": "Jaime VIII",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_67"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Джейме проводит проверку и тренировку гвардейцев, которыми теперь командует. Имена участников следует брать из карточек персонажей, а не выводить из общего названия."
+            }
+          ],
+          "links": [
+            {
+              "label": "Jaime Lannister",
+              "ref": "person:jaime-lannister"
+            },
+            {
+              "label": "Kingsguard",
+              "ref": "organization:kingsguard"
+            },
+            {
+              "label": "King's Landing",
+              "ref": "place:kings-landing"
+            }
+          ]
+        },
+        {
+          "ref": "event:janos-slynt-and-alliser-thorne-arrest-jon",
+          "kind": "event",
+          "name": "Janos Slynt and Alliser Thorne arrest Jon",
+          "nameRu": "Янос Слинт и Аллисер Торн арестовывают Джона",
+          "subtitle": "A Storm of Swords · Jon IX (Chapter 69)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Jon IX (Chapter 69); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_69",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 69,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 69,
+              "chapterTitle": "Jon IX",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_69"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Янос Слинт и Аллисер Торн задерживают Джона в Чёрном замке. Это действие происходит до отдельного решения о его судьбе."
+            }
+          ],
+          "links": [
+            {
+              "label": "Jon Snow",
+              "ref": "person:jon-snow"
+            },
+            {
+              "label": "Janos Slynt",
+              "ref": "person:janos-slynt"
+            },
+            {
+              "label": "Alliser Thorne",
+              "ref": "person:alliser-thorne"
+            },
+            {
+              "label": "Castle Black",
+              "ref": "place:castle-black"
+            }
+          ]
+        },
+        {
+          "ref": "event:jarman-reports-mances-host-to-castle-black",
+          "kind": "event",
+          "name": "Jarman Buckwell reports Mance’s host at the Wall",
+          "nameRu": "Джарман Баквелл сообщает о войске Манса у Стены",
+          "subtitle": "A Storm of Swords · Jon VI (Chapter 48)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Jon VI (Chapter 48); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_48",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 48,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 48,
+              "chapterTitle": "Jon VI",
+              "relation": "reported-message",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_48"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "сообщение/письмо; содержание не превращать в независимо подтверждённый факт"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Вернувшийся разведчик сообщает о силах Манса у Стены. Численность и точные позиции не расширяются за пределы индексированной записи."
+            }
+          ],
+          "links": [
+            {
+              "label": "Mance Rayder",
+              "ref": "person:mance-rayder"
+            },
+            {
+              "label": "Castle Black",
+              "ref": "place:castle-black"
+            },
+            {
+              "label": "The Wall",
+              "ref": "place:the-wall"
+            }
+          ]
+        },
+        {
+          "ref": "event:jon-asks-for-time-and-does-not-accept-the-offer",
+          "kind": "event",
+          "name": "Jon asks for time and does not accept the offer",
+          "nameRu": "Джон просит время и не принимает предложение сразу",
+          "subtitle": "A Storm of Swords · Jon XI (Chapter 76)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Jon XI (Chapter 76); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_76",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 76,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 76,
+              "chapterTitle": "Jon XI",
+              "relation": "occurred-decision-pending",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_76"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершившийся ответ с открытым решением; не считать окончательным отказом"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Джон просит время обдумать предложение Станниса и не соглашается немедленно. Карточка не превращает паузу в окончательный отказ."
+            }
+          ],
+          "links": [
+            {
+              "label": "Jon Snow",
+              "ref": "person:jon-snow"
+            },
+            {
+              "label": "Stannis Baratheon",
+              "ref": "person:stannis-baratheon"
+            }
+          ]
+        },
+        {
+          "ref": "event:jon-escapes-thenns-at-queenscrown",
+          "kind": "event",
+          "name": "Jon escapes the raiding party at Queenscrown",
+          "nameRu": "Джон уходит от отряда теннов у Квинс-кроуна",
+          "subtitle": "A Storm of Swords · Jon V (Chapter 41)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Jon V (Chapter 41); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_41",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 41,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 41,
+              "chapterTitle": "Jon V",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_41"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "После стычки у Квинс-кроуна Джон избегает преследователей и покидает место столкновения. Указатель связывает эпизод с теннами."
+            }
+          ],
+          "links": [
+            {
+              "label": "Jon Snow",
+              "ref": "person:jon-snow"
+            },
+            {
+              "label": "Queenscrown",
+              "ref": "place:queenscrown"
+            },
+            {
+              "label": "Thenns",
+              "ref": "organization:thenns"
+            }
+          ]
+        },
+        {
+          "ref": "event:jon-snow-is-elected-the-998th-lord-commander-of-the-nights-watch",
+          "kind": "event",
+          "name": "Jon Snow is elected the 998th Lord Commander of the Night’s Watch",
+          "nameRu": "Джона Сноу избирают 998-м лордом-командующим Ночного Дозора",
+          "subtitle": "A Storm of Swords · Jon XII (Chapter 79)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Jon XII (Chapter 79); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_79",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 79,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 79,
+              "chapterTitle": "Jon XII",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_79"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Голоса братьев приводят к избранию Джона Сноу лордом-командующим. Карточка фиксирует результат выборов, не включая предшествующие предложения Станниса."
+            }
+          ],
+          "links": [
+            {
+              "label": "Jon Snow",
+              "ref": "person:jon-snow"
+            },
+            {
+              "label": "Night's Watch",
+              "ref": "organization:nights-watch"
+            },
+            {
+              "label": "Samwell Tarly",
+              "ref": "person:samwell-tarly"
+            }
+          ]
+        },
+        {
+          "ref": "event:jorah-spying-exposed-and-dismissed",
+          "kind": "event",
+          "name": "Jorah’s spying is exposed; Daenerys dismisses him",
+          "nameRu": "Шпионаж Джораха раскрыт, Дейенерис отстраняет его",
+          "subtitle": "A Storm of Swords · Daenerys V (Chapter 57)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Daenerys V (Chapter 57); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_57",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 57,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 57,
+              "chapterTitle": "Daenerys V",
+              "relation": "occurred-revelation-and-decision",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_57"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "раскрытие и решение в сцене"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Дейенерис узнаёт о прежней передаче Джорахом сведений и отстраняет его. Позднее изгнание в главе 71 остаётся отдельным решением."
+            }
+          ],
+          "links": [
+            {
+              "label": "Jorah Mormont",
+              "ref": "person:jorah-mormont"
+            },
+            {
+              "label": "Daenerys Targaryen",
+              "ref": "person:daenerys-targaryen"
+            }
+          ]
+        },
+        {
+          "ref": "event:lysa-attempts-to-kill-sansa-at-the-moon-door",
+          "kind": "event",
+          "name": "Lysa attempts to kill Sansa at the Moon Door",
+          "nameRu": "Лиза пытается столкнуть Сансу в Лунную дверь",
+          "subtitle": "A Storm of Swords · Sansa VII (Chapter 80)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Sansa VII (Chapter 80); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_80",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 80,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 80,
+              "chapterTitle": "Sansa VII",
+              "relation": "occurred-attempt",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_80"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "попытка насилия показана; исход отдельный"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Лиза угрожает Сансe у Лунной двери, и попытку насилия удаётся остановить. Не объединять с последующим убийством Лизы Петиром."
+            }
+          ],
+          "links": [
+            {
+              "label": "Lysa Arryn",
+              "ref": "person:lysa-arryn"
+            },
+            {
+              "label": "Sansa Stark",
+              "ref": "person:sansa-stark"
+            },
+            {
+              "label": "Petyr Baelish",
+              "ref": "person:petyr-baelish"
+            },
+            {
+              "label": "The Eyrie",
+              "ref": "place:the-eyrie"
+            }
+          ]
+        },
+        {
+          "ref": "event:mance-rayder-is-captured-and-harma-dogshead-is-killed",
+          "kind": "event",
+          "name": "Mance Rayder is captured and Harma Dogshead is killed",
+          "nameRu": "Манса захватывают, Харма Догсхед погибает",
+          "subtitle": "A Storm of Swords · Jon X (Chapter 73)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Jon X (Chapter 73); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_73",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 73,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 73,
+              "chapterTitle": "Jon X",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_73"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "После поражения войска Манса его захватывают, а Харма Догсхед погибает. Эти последствия связаны с битвой, но не повторяют её общий исход."
+            }
+          ],
+          "links": [
+            {
+              "label": "Mance Rayder",
+              "ref": "person:mance-rayder"
+            },
+            {
+              "label": "Harma Dogshead",
+              "ref": "person:harma-dogshead"
+            },
+            {
+              "label": "Stannis Baratheon",
+              "ref": "person:stannis-baratheon"
+            }
+          ]
+        },
+        {
+          "ref": "event:marillion-attempts-to-assault-sansa-and-is-stopped",
+          "kind": "event",
+          "name": "Marillion attempts to assault Sansa and is stopped",
+          "nameRu": "Мариллион нападает на Сансу, его останавливают",
+          "subtitle": "A Storm of Swords · Sansa VI (Chapter 68)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Sansa VI (Chapter 68); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_68",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 68,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 68,
+              "chapterTitle": "Sansa VI",
+              "relation": "occurred-attempt",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_68"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "попытка насилия показана; исход отдельный"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Мариллион пытается причинить Сансе вред, но его действия пресекают. Формулировка не уточняет способ нападения сверх индексированного эпизода."
+            }
+          ],
+          "links": [
+            {
+              "label": "Marillion",
+              "ref": "person:marillion"
+            },
+            {
+              "label": "Sansa Stark",
+              "ref": "person:sansa-stark"
+            },
+            {
+              "label": "The Eyrie",
+              "ref": "place:the-eyrie"
+            }
+          ]
+        },
+        {
+          "ref": "event:mero-attacks-daenerys-and-is-killed",
+          "kind": "event",
+          "name": "Mero attacks Daenerys and is killed by Barristan",
+          "nameRu": "Меро нападает на Дейенерис и погибает от руки Барристана",
+          "subtitle": "A Storm of Swords · Daenerys V (Chapter 57)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Daenerys V (Chapter 57); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_57",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 57,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 57,
+              "chapterTitle": "Daenerys V",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_57"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Меро пытается напасть на Дейенерис; Барристан вмешивается, и Меро погибает."
+            }
+          ],
+          "links": [
+            {
+              "label": "Daenerys Targaryen",
+              "ref": "person:daenerys-targaryen"
+            },
+            {
+              "label": "Barristan Selmy",
+              "ref": "person:barristan-selmy"
+            },
+            {
+              "label": "Meereen",
+              "ref": "place:meereen"
+            }
+          ]
+        },
+        {
+          "ref": "event:merrett-frey-is-hanged-by-the-brotherhood-without-banners",
+          "kind": "event",
+          "name": "Merrett Frey is hanged by the Brotherhood without Banners",
+          "nameRu": "Мерретта Фрея вешает Братство без знамён",
+          "subtitle": "A Storm of Swords · Epilogue (Chapter 81)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Epilogue (Chapter 81); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Epilogue",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 81,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 81,
+              "chapterTitle": "Epilogue",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Epilogue"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Братство без знамён вешает Мерретта Фрея после допроса. Сцена также содержит важное раскрытие личности предводительницы, которое остаётся отдельной сущностью/событием."
+            }
+          ],
+          "links": [
+            {
+              "label": "Merrett Frey",
+              "ref": "person:merrett-frey"
+            },
+            {
+              "label": "Brotherhood without Banners",
+              "ref": "organization:brotherhood-without-banners"
+            }
+          ]
+        },
+        {
+          "ref": "event:oberyn-agrees-to-champion-tyrion",
+          "kind": "event",
+          "name": "Oberyn agrees to champion Tyrion",
+          "nameRu": "Оберин соглашается защищать Тириона на поединке",
+          "subtitle": "A Storm of Swords · Tyrion IX (Chapter 66)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Tyrion IX (Chapter 66); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_66",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 66,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 66,
+              "chapterTitle": "Tyrion IX",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_66"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Оберин заявляет, что станет бойцом Тириона в суде поединком. Это происходит после начала судебной линии и до самого поединка."
+            }
+          ],
+          "links": [
+            {
+              "label": "Oberyn Martell",
+              "ref": "person:oberyn-martell"
+            },
+            {
+              "label": "Tyrion Lannister",
+              "ref": "person:tyrion-lannister"
+            },
+            {
+              "label": "King's Landing",
+              "ref": "place:kings-landing"
+            }
+          ]
+        },
+        {
+          "ref": "event:olenna-and-margaery-probe-sansa-about-joffrey",
+          "kind": "event",
+          "name": "Olenna and Margaery probe Sansa about Joffrey",
+          "nameRu": "Оленна и Маргери расспрашивают Сансу о Джоффри",
+          "subtitle": "A Storm of Swords · Sansa I (Chapter 6)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Sansa I (Chapter 6); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 6,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 6,
+              "chapterTitle": "Sansa I",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Оленна и Маргери задают Сансе вопросы о Джоффри и её опыте общения с ним. Содержание беседы обозначено кратко, без расширения мотивов сверх указателя."
+            }
+          ],
+          "links": [
+            {
+              "label": "Olenna Tyrell",
+              "ref": "person:olenna-tyrell"
+            },
+            {
+              "label": "Margaery Tyrell",
+              "ref": "person:margaery-tyrell"
+            },
+            {
+              "label": "Sansa Stark",
+              "ref": "person:sansa-stark"
+            },
+            {
+              "label": "Joffrey Baratheon",
+              "ref": "person:joffrey-baratheon"
+            }
+          ]
+        },
+        {
+          "ref": "event:belwas-kills-oznak-zo-pahl",
+          "kind": "event",
+          "name": "Oznak zo Pahl is killed in single combat",
+          "nameRu": "Ознак зо Паль погибает в поединке",
+          "subtitle": "A Storm of Swords · Daenerys V (Chapter 57)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Daenerys V (Chapter 57); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_57",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 57,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 57,
+              "chapterTitle": "Daenerys V",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_57"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Ознак зо Паль вступает в поединок с Белвасом и погибает. Город в этот момент ещё не взят."
+            }
+          ],
+          "links": [
+            {
+              "label": "Belwas",
+              "ref": "person:belwas"
+            },
+            {
+              "label": "Meereen",
+              "ref": "place:meereen"
+            }
+          ]
+        },
+        {
+          "ref": "event:petyr-baelish-and-lysa-arryn-marry-at-his-tower",
+          "kind": "event",
+          "name": "Petyr Baelish and Lysa Arryn marry at his tower",
+          "nameRu": "Петир Бейлиш и Лиза Аррен заключают брак в его башне",
+          "subtitle": "A Storm of Swords · Sansa VI (Chapter 68)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Sansa VI (Chapter 68); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_68",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 68,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 68,
+              "chapterTitle": "Sansa VI",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_68"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Петир Бейлиш и Лиза Аррен вступают в брак. Точное место следует сверить с выбранным изданием."
+            }
+          ],
+          "links": [
+            {
+              "label": "Petyr Baelish",
+              "ref": "person:petyr-baelish"
+            },
+            {
+              "label": "Lysa Arryn",
+              "ref": "person:lysa-arryn"
+            },
+            {
+              "label": "The Eyrie",
+              "ref": "place:the-eyrie"
+            }
+          ]
+        },
+        {
+          "ref": "event:petyr-baelish-kills-lysa-arryn-and-blames-marillion",
+          "kind": "event",
+          "name": "Petyr Baelish kills Lysa Arryn and blames Marillion",
+          "nameRu": "Петир Бейлиш убивает Лизу Аррен и обвиняет Мариллиона",
+          "subtitle": "A Storm of Swords · Sansa VII (Chapter 80)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Sansa VII (Chapter 80); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_80",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 80,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 80,
+              "chapterTitle": "Sansa VII",
+              "relation": "occurred-and-framed",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_80"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "убийство свершилось; обвинение в сцене — версия, не факт"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Петир убивает Лизу, после чего обвинение направляют на Мариллиона. Развести подтверждённое убийство и ложную версию для окружающих."
+            }
+          ],
+          "links": [
+            {
+              "label": "Petyr Baelish",
+              "ref": "person:petyr-baelish"
+            },
+            {
+              "label": "Lysa Arryn",
+              "ref": "person:lysa-arryn"
+            },
+            {
+              "label": "Marillion",
+              "ref": "person:marillion"
+            },
+            {
+              "label": "Sansa Stark",
+              "ref": "person:sansa-stark"
+            },
+            {
+              "label": "The Eyrie",
+              "ref": "place:the-eyrie"
+            }
+          ]
+        },
+        {
+          "ref": "event:rattleshirt-is-presented-as-evidence-against-jon",
+          "kind": "event",
+          "name": "Rattleshirt is presented as evidence against Jon",
+          "nameRu": "Раттлширта показывают как улику против Джона",
+          "subtitle": "A Storm of Swords · Jon IX (Chapter 69)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Jon IX (Chapter 69); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_69",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 69,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 69,
+              "chapterTitle": "Jon IX",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_69"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Раттлширта показывают как подтверждение обвинений против Джона. Его появление само по себе не доказывает вину Джона."
+            }
+          ],
+          "links": [
+            {
+              "label": "Rattleshirt",
+              "ref": "person:rattleshirt"
+            },
+            {
+              "label": "Jon Snow",
+              "ref": "person:jon-snow"
+            },
+            {
+              "label": "Castle Black",
+              "ref": "place:castle-black"
+            }
+          ]
+        },
+        {
+          "ref": "event:red-wedding-responsibility-is-judged-by-the-brotherhood",
+          "kind": "event",
+          "name": "Red Wedding responsibility is judged by the Brotherhood",
+          "nameRu": "Братство без знамён судит виновных в Красной свадьбе",
+          "subtitle": "A Storm of Swords · Epilogue (Chapter 81)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Epilogue (Chapter 81); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Epilogue",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 81,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 81,
+              "chapterTitle": "Epilogue",
+              "relation": "occurred-retrospective-justice",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Epilogue"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершившаяся расправа с ретроспективной связью с Красной свадьбой"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "В эпилоге Братство без знамён приводит к расправе над одним из Фреев и связывает её с Красной свадьбой. Не трактовать как повторное событие самой свадьбы."
+            }
+          ],
+          "links": [
+            {
+              "label": "Brotherhood without Banners",
+              "ref": "organization:brotherhood-without-banners"
+            },
+            {
+              "label": "Merrett Frey",
+              "ref": "person:merrett-frey"
+            },
+            {
+              "label": "Red Wedding",
+              "ref": "event:red-wedding"
+            }
+          ]
+        },
+        {
+          "ref": "event:river-galley-intercepts-the-skiff-and-is-sunk",
+          "kind": "event",
+          "name": "River galley intercepts the skiff and is sunk",
+          "nameRu": "Речная галера перехватывает и топит лодку",
+          "subtitle": "A Storm of Swords · Jaime I (Chapter 1)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Jaime I (Chapter 1); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_1",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 1,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 1,
+              "chapterTitle": "Jaime I",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_1"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "В главе указано столкновение речной галеры с лодкой и её последующее затопление. Не уточняются участники сверх названных в индексе."
+            }
+          ],
+          "links": [
+            {
+              "label": "Jaime Lannister",
+              "ref": "person:jaime-lannister"
+            }
+          ]
+        },
+        {
+          "ref": "event:robb-executes-rickard-karstark",
+          "kind": "event",
+          "name": "Robb executes Rickard Karstark",
+          "nameRu": "Робб казнит Рикарда Карстарка",
+          "subtitle": "A Storm of Swords · Catelyn III (Chapter 20)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Catelyn III (Chapter 20); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_20",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 20,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 20,
+              "chapterTitle": "Catelyn III",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_20"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Робб казнит Рикарда Карстарка. Карточка фиксирует действие из главы и не дополняет его выводами о политических последствиях."
+            }
+          ],
+          "links": [
+            {
+              "label": "Robb Stark",
+              "ref": "person:robb-stark"
+            },
+            {
+              "label": "Rickard Karstark",
+              "ref": "person:rickard-karstark"
+            }
+          ]
+        },
+        {
+          "ref": "event:robb-plans-to-name-jon-heir",
+          "kind": "event",
+          "name": "Robb plans to legitimize Jon and name him heir",
+          "nameRu": "Робб намеревается узаконить Джона и назвать наследником",
+          "subtitle": "A Storm of Swords · Catelyn V (Chapter 45)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Catelyn V (Chapter 45); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_45",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 45,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 45,
+              "chapterTitle": "Catelyn V",
+              "relation": "planned-only",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_45"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "план/намерение; не помечать как свершившееся"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Робб обсуждает узаконивание Джона и назначение его наследником как решение на случай отсутствия иных наследников. Это план, а не совершённое назначение."
+            }
+          ],
+          "links": [
+            {
+              "label": "Robb Stark",
+              "ref": "person:robb-stark"
+            },
+            {
+              "label": "Jon Snow",
+              "ref": "person:jon-snow"
+            },
+            {
+              "label": "Catelyn Stark",
+              "ref": "person:catelyn-stark"
+            }
+          ]
+        },
+        {
+          "ref": "event:roose-reports-theon-held-by-ramsay",
+          "kind": "event",
+          "name": "Roose reports Ramsay holds Theon",
+          "nameRu": "Руз сообщает, что Теон находится у Рамси",
+          "subtitle": "A Storm of Swords · Catelyn VI (Chapter 49)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Catelyn VI (Chapter 49); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_49",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 49,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 49,
+              "chapterTitle": "Catelyn VI",
+              "relation": "reported-message",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_49"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "сообщение/письмо; содержание не превращать в независимо подтверждённый факт"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Руз сообщает Роббу, что Рамси удерживает Теона. Это содержание реплики в сцене, не независимая проверка статуса Теона."
+            }
+          ],
+          "links": [
+            {
+              "label": "Roose Bolton",
+              "ref": "person:roose-bolton"
+            },
+            {
+              "label": "Theon Greyjoy",
+              "ref": "person:theon-greyjoy"
+            },
+            {
+              "label": "Robb Stark",
+              "ref": "person:robb-stark"
+            }
+          ]
+        },
+        {
+          "ref": "event:sam-kills-an-other-with-dragonglass",
+          "kind": "event",
+          "name": "Sam kills an Other with dragonglass",
+          "nameRu": "Сэм убивает Иного обсидианом",
+          "subtitle": "A Storm of Swords · Samwell I (Chapter 18)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Samwell I (Chapter 18); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_18",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 18,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 18,
+              "chapterTitle": "Samwell I",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_18"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Во время нападения Иных Сэм поражает одного из них обсидиановым оружием. Детали сцены и свойства оружия требуют первичной сверки."
+            }
+          ],
+          "links": [
+            {
+              "label": "Samwell Tarly",
+              "ref": "person:samwell-tarly"
+            },
+            {
+              "label": "Night's Watch",
+              "ref": "organization:nights-watch"
+            },
+            {
+              "label": "Fist of the First Men",
+              "ref": "place:fist-of-the-first-men"
+            }
+          ]
+        },
+        {
+          "ref": "event:sandor-and-arya-take-work-in-a-foothills-village",
+          "kind": "event",
+          "name": "Sandor and Arya take work in a foothills village",
+          "nameRu": "Сандор и Арья устраиваются на работу в деревне у подножия гор",
+          "subtitle": "A Storm of Swords · Arya XII (Chapter 65)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Arya XII (Chapter 65); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_65",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 65,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 65,
+              "chapterTitle": "Arya XII",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_65"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Сандор и Арья временно находят работу в небольшом поселении. Деревня не получает отдельный стабильный ref без дополнительной проверки."
+            }
+          ],
+          "links": [
+            {
+              "label": "Sandor Clegane",
+              "ref": "person:sandor-clegane"
+            },
+            {
+              "label": "Arya Stark",
+              "ref": "person:arya-stark"
+            }
+          ]
+        },
+        {
+          "ref": "event:sansa-is-taken-from-kings-landing-by-petyr-baelish",
+          "kind": "event",
+          "name": "Sansa is taken from King’s Landing by Petyr Baelish",
+          "nameRu": "Петир Бейлиш увозит Сансу из Королевской Гавани",
+          "subtitle": "A Storm of Swords · Sansa V (Chapter 61)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Sansa V (Chapter 61); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_61",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 61,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 61,
+              "chapterTitle": "Sansa V",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_61"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Петир увозит Сансу из Королевской Гавани. Детали плана и отдельное сообщение о гибели Донтоса хранятся в других карточках."
+            }
+          ],
+          "links": [
+            {
+              "label": "Sansa Stark",
+              "ref": "person:sansa-stark"
+            },
+            {
+              "label": "Petyr Baelish",
+              "ref": "person:petyr-baelish"
+            },
+            {
+              "label": "King's Landing",
+              "ref": "place:kings-landing"
+            }
+          ]
+        },
+        {
+          "ref": "event:small-paul-is-killed-by-an-other",
+          "kind": "event",
+          "name": "Small Paul is killed by an Other",
+          "nameRu": "Малый Пол погибает от руки Иного",
+          "subtitle": "A Storm of Swords · Samwell I (Chapter 18)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Samwell I (Chapter 18); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_18",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 18,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 18,
+              "chapterTitle": "Samwell I",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_18"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "В главе Малый Пол погибает во время столкновения с Иными. Карточка не объединяет его гибель с ответным действием Сэма."
+            }
+          ],
+          "links": [
+            {
+              "label": "Small Paul",
+              "ref": "person:small-paul"
+            },
+            {
+              "label": "Samwell Tarly",
+              "ref": "person:samwell-tarly"
+            },
+            {
+              "label": "Fist of the First Men",
+              "ref": "place:fist-of-the-first-men"
+            }
+          ]
+        },
+        {
+          "ref": "event:stanniss-forces-attack-and-defeat-mances-host",
+          "kind": "event",
+          "name": "Stannis’s forces attack and defeat Mance’s host",
+          "nameRu": "Войска Станниса разбивают силы Манса",
+          "subtitle": "A Storm of Swords · Jon X (Chapter 73)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Jon X (Chapter 73); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_73",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 73,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 73,
+              "chapterTitle": "Jon X",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_73"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Войско Станниса внезапно атакует силы Манса и наносит им поражение. Захват Манса и гибель Хармы вынесены в отдельную карточку последствий."
+            }
+          ],
+          "links": [
+            {
+              "label": "Stannis Baratheon",
+              "ref": "person:stannis-baratheon"
+            },
+            {
+              "label": "Mance Rayder",
+              "ref": "person:mance-rayder"
+            },
+            {
+              "label": "Night's Watch",
+              "ref": "organization:nights-watch"
+            },
+            {
+              "label": "The Wall",
+              "ref": "place:the-wall"
+            }
+          ]
+        },
+        {
+          "ref": "event:tyrion-demands-trial-by-combat",
+          "kind": "event",
+          "name": "Tyrion demands trial by combat in King’s Landing",
+          "nameRu": "Тирион требует суда поединком в Королевской Гавани",
+          "subtitle": "A Storm of Swords · Tyrion IX (Chapter 66)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Tyrion IX (Chapter 66); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_66",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 66,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 66,
+              "chapterTitle": "Tyrion IX",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_66"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "После показаний против него Тирион требует суд поединком в Королевской Гавани. Это отдельное обращение, не прежнее требование у Орлиного гнезда."
+            }
+          ],
+          "links": [
+            {
+              "label": "Tyrion Lannister",
+              "ref": "person:tyrion-lannister"
+            },
+            {
+              "label": "King's Landing",
+              "ref": "place:kings-landing"
+            },
+            {
+              "label": "Tywin Lannister",
+              "ref": "person:tywin-lannister"
+            }
+          ]
+        },
+        {
+          "ref": "event:tyrion-is-taken-to-the-black-cells-after-the-verdict",
+          "kind": "event",
+          "name": "Tyrion is taken to the black cells after the verdict",
+          "nameRu": "После приговора Тириона отправляют в чёрные камеры",
+          "subtitle": "A Storm of Swords · Tyrion X (Chapter 70)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Tyrion X (Chapter 70); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_70",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 70,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 70,
+              "chapterTitle": "Tyrion X",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_70"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "После вынесения решения Тириона заключают в чёрных камерах. Карточка не пересказывает детали суда, вынесенные в отдельные карточки."
+            }
+          ],
+          "links": [
+            {
+              "label": "Tyrion Lannister",
+              "ref": "person:tyrion-lannister"
+            },
+            {
+              "label": "King's Landing",
+              "ref": "place:kings-landing"
+            }
+          ]
+        },
+        {
+          "ref": "event:tyrion-kills-shae-in-the-red-keep",
+          "kind": "event",
+          "name": "Tyrion kills Shae in the Red Keep",
+          "nameRu": "Тирион убивает Шаю в Красном замке",
+          "subtitle": "A Storm of Swords · Tyrion XI (Chapter 77)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Tyrion XI (Chapter 77); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_77",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 77,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 77,
+              "chapterTitle": "Tyrion XI",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_77"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "В исходной кандидатной записи вместе упомянуты гибель Шаи и Тайвина; смерть Тайвина уже покрыта существующей карточкой. Этот отдельный черновик фиксирует только новую дельту о Шае."
+            }
+          ],
+          "links": [
+            {
+              "label": "Tyrion Lannister",
+              "ref": "person:tyrion-lannister"
+            },
+            {
+              "label": "Shae",
+              "ref": "person:shae"
+            },
+            {
+              "label": "King's Landing",
+              "ref": "place:kings-landing"
+            }
+          ]
+        },
+        {
+          "ref": "event:tywin-receives-coded-report-of-robb-death",
+          "kind": "event",
+          "name": "Tywin’s court receives coded news of Robb’s death",
+          "nameRu": "Двор Тайвина получает условное известие о смерти Робба",
+          "subtitle": "A Storm of Swords · Tyrion VI (Chapter 53)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Tyrion VI (Chapter 53); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_53",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 53,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 53,
+              "chapterTitle": "Tyrion VI",
+              "relation": "reported-message",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_53"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "сообщение/письмо; содержание не превращать в независимо подтверждённый факт"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "В окружение Тайвина поступает условное сообщение о гибели Робба. Значение сообщения раскрывают в сцене; сам эпизод хранится как полученная весть."
+            }
+          ],
+          "links": [
+            {
+              "label": "Tywin Lannister",
+              "ref": "person:tywin-lannister"
+            },
+            {
+              "label": "Robb Stark",
+              "ref": "person:robb-stark"
+            },
+            {
+              "label": "King's Landing",
+              "ref": "place:kings-landing"
+            }
+          ]
+        },
+        {
+          "ref": "event:varys-helps-tyrion-escape-by-ship",
+          "kind": "event",
+          "name": "Varys helps Tyrion escape by ship",
+          "nameRu": "Варис помогает Тириону бежать на корабле",
+          "subtitle": "A Storm of Swords · Tyrion XI (Chapter 77)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Tyrion XI (Chapter 77); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_77",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 77,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 77,
+              "chapterTitle": "Tyrion XI",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_77"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Варис содействует побегу Тириона и его посадке на корабль. Эпизод следует отделять от решения Тириона покинуть город и от дальнейшего маршрута."
+            }
+          ],
+          "links": [
+            {
+              "label": "Varys",
+              "ref": "person:varys"
+            },
+            {
+              "label": "Tyrion Lannister",
+              "ref": "person:tyrion-lannister"
+            },
+            {
+              "label": "King's Landing",
+              "ref": "place:kings-landing"
+            }
+          ]
+        },
+        {
+          "ref": "event:wights-attack-sam-and-gilly-at-whitetree",
+          "kind": "event",
+          "name": "Wights attack Sam and Gilly at Whitetree",
+          "nameRu": "Мертвецы нападают на Сэма и Лилли у Уайттри",
+          "subtitle": "A Storm of Swords · Samwell III (Chapter 46)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Samwell III (Chapter 46); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_46",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 46,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 46,
+              "chapterTitle": "Samwell III",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_46"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Уайттри становится местом нападения ходячих мертвецов на Сэма и Лилли. Не смешивать с прежним посещением заброшенного поселения."
+            }
+          ],
+          "links": [
+            {
+              "label": "Samwell Tarly",
+              "ref": "person:samwell-tarly"
+            },
+            {
+              "label": "Gilly",
+              "ref": "person:gilly"
+            },
+            {
+              "label": "Whitetree",
+              "ref": "place:whitetree"
+            }
+          ]
+        },
+        {
+          "ref": "event:attack-on-castle-black",
+          "kind": "event",
+          "name": "Wildlings attack Castle Black",
+          "nameRu": "Одичалые нападают на Чёрный замок",
+          "subtitle": "A Storm of Swords · Jon VII (Chapter 55)",
+          "status": "secondary-indexed-partial",
+          "priority": "P0",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Jon VII (Chapter 55); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_55",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 55,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 55,
+              "chapterTitle": "Jon VII",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_55"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P0"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Войско Манса начинает нападение на Чёрный замок. Это отдельная атака главы 55; её не следует объединять с боем под Стеной в главе 64."
+            }
+          ],
+          "links": [
+            {
+              "label": "Jon Snow",
+              "ref": "person:jon-snow"
+            },
+            {
+              "label": "Ygritte",
+              "ref": "person:ygritte"
+            },
+            {
+              "label": "Night's Watch",
+              "ref": "organization:nights-watch"
+            },
+            {
+              "label": "Castle Black",
+              "ref": "place:castle-black"
+            }
+          ]
+        },
+        {
+          "ref": "event:ygritte-dies-at-castle-black",
+          "kind": "event",
+          "name": "Ygritte dies during the attack",
+          "nameRu": "Игритт погибает во время нападения на Чёрный замок",
+          "subtitle": "A Storm of Swords · Jon VII (Chapter 55)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Jon VII (Chapter 55); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_55",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 55,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 55,
+              "chapterTitle": "Jon VII",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_55"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Во время атаки на Чёрный замок Игритт получает смертельное ранение и умирает. Событие связано с нападением, но может храниться отдельной карточкой смерти."
+            }
+          ],
+          "links": [
+            {
+              "label": "Ygritte",
+              "ref": "person:ygritte"
+            },
+            {
+              "label": "Jon Snow",
+              "ref": "person:jon-snow"
+            },
+            {
+              "label": "Castle Black",
+              "ref": "place:castle-black"
+            }
+          ]
+        },
+        {
+          "ref": "event:davos-begins-to-read-the-nights-watch-letter-to-stannis",
+          "kind": "event",
+          "name": "Davos begins reading the Night’s Watch letter to Stannis",
+          "nameRu": "Давос начинает читать Станнису письмо Ночного Дозора",
+          "subtitle": "A Storm of Swords · Davos VI (Chapter 63)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Davos VI (Chapter 63); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_63",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 63,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 63,
+              "chapterTitle": "Davos VI",
+              "relation": "occurred-in-progress",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_63"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "сцена чтения письма происходит; содержание остаётся переданным сообщением"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Давос начинает зачитывать Станнису письмо от Ночного Дозора. Эта карточка фиксирует сцену чтения; содержание письма хранить как сообщение и не расширять без первичной сверки."
+            }
+          ],
+          "links": [
+            {
+              "label": "Davos Seaworth",
+              "ref": "person:davos-seaworth"
+            },
+            {
+              "label": "Stannis Baratheon",
+              "ref": "person:stannis-baratheon"
+            },
+            {
+              "label": "Night's Watch",
+              "ref": "organization:nights-watch"
+            }
+          ]
+        },
+        {
+          "ref": "event:jaime-gives-brienne-the-valyrian-sword-later-named-oathkeeper-and-asks-her-to-find-the-stark-girls",
+          "kind": "event",
+          "name": "Jaime gives Brienne a Valyrian sword and asks her to find the Stark girls",
+          "nameRu": "Джейме передаёт Бриенне валирийский меч и поручает найти дочерей Старка",
+          "subtitle": "A Storm of Swords · Jaime IX (Chapter 72)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Jaime IX (Chapter 72); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_72",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 72,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 72,
+              "chapterTitle": "Jaime IX",
+              "relation": "occurred-and-mission-assigned",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_72"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "передача меча и поручение показаны; исполнение поручения не утверждается"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Джейме вручает Бриенне валирийский меч и поручает ей разыскать дочерей Старка. Имя, данное мечу позднее, не предполагается известным участникам сцены."
+            }
+          ],
+          "links": [
+            {
+              "label": "Jaime Lannister",
+              "ref": "person:jaime-lannister"
+            },
+            {
+              "label": "Brienne of Tarth",
+              "ref": "person:brienne-of-tarth"
+            },
+            {
+              "label": "Arya Stark",
+              "ref": "person:arya-stark"
+            },
+            {
+              "label": "Sansa Stark",
+              "ref": "person:sansa-stark"
+            }
+          ]
+        },
+        {
+          "ref": "event:tyrions-trial-begins-and-testimony-is-presented",
+          "kind": "event",
+          "name": "Tyrion’s trial begins and testimony is presented",
+          "nameRu": "Начинается суд над Тирионом, заслушивают показания",
+          "subtitle": "A Storm of Swords · Tyrion IX (Chapter 66)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Tyrion IX (Chapter 66); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_66",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 66,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 66,
+              "chapterTitle": "Tyrion IX",
+              "relation": "occurred-per-synopsis",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_66"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершилось по синопсису главы"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "В Королевской Гавани начинается разбирательство над Тирионом, и в суде выступают свидетели. Черновик не приписывает показаниям достоверность и не включает исход суда."
+            }
+          ],
+          "links": [
+            {
+              "label": "Tyrion Lannister",
+              "ref": "person:tyrion-lannister"
+            },
+            {
+              "label": "Tywin Lannister",
+              "ref": "person:tywin-lannister"
+            },
+            {
+              "label": "King's Landing",
+              "ref": "place:kings-landing"
+            }
+          ]
+        },
+        {
+          "ref": "event:gregor-clegane-confesses-to-elias-martells-death",
+          "kind": "event",
+          "name": "Gregor Clegane confesses to Elia Martell’s death",
+          "nameRu": "Григор Клиган признаёт причастность к гибели Элии Мартелл",
+          "subtitle": "A Storm of Swords · Tyrion X (Chapter 70)",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Tyrion X (Chapter 70); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_70",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 70,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise paraphrase; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 70,
+              "chapterTitle": "Tyrion X",
+              "relation": "occurred-revelation",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_70"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "свершившееся раскрытие/признание"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "AWOIAF — вторичный chapter index; сверка с выбранным первичным изданием и переводом pending."
+            },
+            {
+              "label": "Дата",
+              "value": "не установлена; порядок глав не используется как абсолютная дата"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Во время событий вокруг поединка Григор подтверждает свою ответственность за гибель Элии Мартелл. Смерть Оберина отдельно покрыта имеющейся карточкой и здесь не повторяется."
+            }
+          ],
+          "links": [
+            {
+              "label": "Gregor Clegane",
+              "ref": "person:gregor-clegane"
+            },
+            {
+              "label": "Elia Martell",
+              "ref": "person:elia-martell"
+            },
+            {
+              "label": "Oberyn Martell",
+              "ref": "person:oberyn-martell"
+            },
+            {
+              "label": "King's Landing",
+              "ref": "place:kings-landing"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "normalizations": [
+    {
+      "sourceCandidateRef": "event:oberyn-dies-and-gregor-admits-responsibility-for-elias-death",
+      "outputRef": "event:gregor-clegane-confesses-to-elias-martells-death",
+      "reason": "existing card covers Oberyn death; output card isolates the additional confession/revelation only"
+    },
+    {
+      "sourceCandidateRef": "event:tyrion-kills-shae-and-tywin-lannister",
+      "outputRef": "event:tyrion-kills-shae-in-the-red-keep",
+      "reason": "source candidate combines multiple beats; package already covers the other beat"
+    }
+  ],
+  "excludedOrExisting": [
+    {
+      "ref": "event:attack-on-castle-black-and-battle-beneath-the-wall",
+      "reason": "Глава 69 возвращается к событиям у Стены; перекрывается с уже имеющимися attack-on-castle-black (гл.55) и battle-beneath-the-wall (гл.64), поэтому отдельный card создаст дубль.",
+      "chapterContexts": "69 Jon IX (61-81)"
+    },
+    {
+      "ref": "event:battle-beneath-the-wall-attack-on-castle-black",
+      "reason": "Событие уже покрывает event:battle-beneath-the-wall в пакете .38; locator ch64 совпадает.",
+      "chapterContexts": "64 Jon VIII (61-81)"
+    },
+    {
+      "ref": "event:donal-noye-and-mag-mar-tun-doh-weg-die-in-the-gate-tunnel",
+      "reason": "Гибель Донала Ноя и Мага уже указана в существующей карточке event:battle-beneath-the-wall как последствие боя.",
+      "chapterContexts": "64 Jon VIII (61-81)"
+    },
+    {
+      "ref": "event:nights-watch-repels-the-free-folk-assault",
+      "reason": "Тот же бой, что существующая event:battle-beneath-the-wall (chapter 64); не создавать второй ref.",
+      "chapterContexts": "64 Jon VIII (61-81)"
+    },
+    {
+      "ref": "event:trial-by-combat-between-oberyn-martell-and-gregor-clegane",
+      "reason": "Испытание уже непосредственно покрыто существующей event:oberyn-dies-in-trial-by-combat из той же главы; отдельная запись продублировала бы одно состязание.",
+      "chapterContexts": "70 Tyrion X (61-81)"
+    }
+  ],
+  "validation": {
+    "uniqueOutputRefs": 60,
+    "packageCollisions": 0,
+    "prior21to40Collisions": 0,
+    "unresolvedLinks": 0,
+    "allNumericChapterUrls": true,
+    "sourceLicense": "CC-BY-SA-3.0",
+    "allPrimaryVerificationPending": true,
+    "candidateInputRows": 65,
+    "includedCards": 60,
+    "allCandidateRefsAccountedFor": true,
+    "priorityCounts": {
+      "P1": 59,
+      "P0": 1
+    },
+    "rangeCounts": {
+      "61-81": 36,
+      "0-20": 8,
+      "41-60": 16
+    },
+    "locatorRelationCounts": {
+      "occurred-per-synopsis": 42,
+      "occurred-revelation": 2,
+      "plan-or-intelligence": 1,
+      "reported-message": 5,
+      "occurred-as-recounted": 1,
+      "occurred-decision-pending": 1,
+      "occurred-revelation-and-decision": 1,
+      "occurred-attempt": 2,
+      "occurred-and-framed": 1,
+      "occurred-retrospective-justice": 1,
+      "planned-only": 1,
+      "occurred-in-progress": 1,
+      "occurred-and-mission-assigned": 1
+    },
+    "coveredOrDuplicateExclusions": 5
+  },
+  "relatedExisting": [
+    {
+      "candidateRef": "event:battle-for-yunkai",
+      "packageRef": "event:battle-near-yunkai",
+      "chapterNo": 42,
+      "chapterTitle": "Daenerys IV",
+      "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_42",
+      "reason": "The source audit identifies a P0 battle candidate, but the package already has an event card for the Battle near Yunkai. Crosswalk the chapter-42 report as a locator review rather than creating a duplicate card."
+    }
+  ]
+}

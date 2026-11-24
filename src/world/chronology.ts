@@ -5,6 +5,7 @@
 // Слепок — проекция, не хранимый дамп: из справочника (NPC, организации) и событий на выбранный год. Годов у записи
 // нет — статус «без дат», а не «жив»: слепок не догадывается. Год — линза, не событие: состояние кампании он не меняет.
 import { eraOf, type Era } from '../campaign/era';
+import { DEFAULT_SETTING_PACKAGE, loadPackageJson, loadSettingJson, packageLayerPaths, loadCachedPromise } from '../packages/registry';
 import type { Organization } from './organizations';
 import type { Person } from './people';
 
@@ -39,6 +40,8 @@ export interface ChronoEvent {
   links?: readonly { t: string; ref?: string }[];
   /** Источники сносок: «The Grand History of the Realms, с. 153». */
   cites?: readonly string[];
+  /** Строки слоя летописей, схлопнутые с тем же событием статей-годов. */
+  articleSources?: readonly { title: string; section?: string; how: string }[];
 }
 
 export interface ChronoYear {
@@ -62,25 +65,19 @@ export interface ChronoIndex {
 }
 
 // Куски событий — каждый свой файл сборки; путь строкой, чтобы сборщик их видел.
-const CHUNKS: readonly (() => Promise<{ default: unknown }>)[] = [
-  () => import('../../content/chronology/events/0.json'), () => import('../../content/chronology/events/1.json'),
-  () => import('../../content/chronology/events/2.json'), () => import('../../content/chronology/events/3.json'),
-  () => import('../../content/chronology/events/4.json'), () => import('../../content/chronology/events/5.json'),
-  () => import('../../content/chronology/events/6.json'), () => import('../../content/chronology/events/7.json'),
-  () => import('../../content/chronology/events/8.json'), () => import('../../content/chronology/events/9.json'),
-];
+const CHUNKS = packageLayerPaths(DEFAULT_SETTING_PACKAGE, 'content/chronology/events')
+  .map(path => () => loadPackageJson(DEFAULT_SETTING_PACKAGE, path));
 
 let index: Promise<ChronoIndex> | null = null;
 /** Индекс хронологии: годы, эпохи, куски; повторный вызов — тот же промис. */
 export function loadChronoIndex(): Promise<ChronoIndex> {
-  index ??= import('../../content/chronology/index.json').then(m => m.default as unknown as ChronoIndex);
+  index ??= loadSettingJson('content/chronology/index.json').then(raw => raw as ChronoIndex).catch(error => { index = null; throw error; });
   return index;
 }
 
-const chunkCache = new Map<number, Promise<readonly ChronoEvent[]>>();
+const chunkCache = new Map<string, Promise<readonly ChronoEvent[]>>();
 const loadChunk = (n: number): Promise<readonly ChronoEvent[]> => {
-  if (!chunkCache.has(n)) chunkCache.set(n, CHUNKS[n]().then(m => (m.default as { events: ChronoEvent[] }).events));
-  return chunkCache.get(n)!;
+  return loadCachedPromise(chunkCache, String(n), () => CHUNKS[n]().then(raw => (raw as { events: ChronoEvent[] }).events));
 };
 
 /** События лет from…to включительно — грузятся только нужные куски; порядок — по году и дате. */
@@ -94,6 +91,17 @@ export async function loadEvents(from: number, to: number): Promise<ChronoEvent[
 // разделов History держав — сверх статей-годов. Свой индекс и десять кусков; `same` — id совпадающего события статей-годов.
 export interface ArticleEvent extends Omit<ChronoEvent, 'kind'> {
   kind?: ChronoKind;
+  /** Editorial metadata; never a new canonical fact or campaign event. Source-native kinds have no annotation. */
+  classification?: {
+    version: 'chronology-primary-topic/1';
+    origin: 'editorial' | 'canonical-match';
+    assignedKind: ChronoKind;
+    fingerprint: string;
+    reason: string;
+    evidence?: string;
+    matchedEventId?: string;
+    matchedFingerprint?: string;
+  };
   /** Конец конфликта, если вики даёт отрезок. */
   to?: number;
   same?: string;
@@ -101,24 +109,18 @@ export interface ArticleEvent extends Omit<ChronoEvent, 'kind'> {
   src: { title: string; section?: string; how: string };
 }
 
-const ARTICLE_CHUNKS: readonly (() => Promise<{ default: unknown }>)[] = [
-  () => import('../../content/chronology/articles/0.json'), () => import('../../content/chronology/articles/1.json'),
-  () => import('../../content/chronology/articles/2.json'), () => import('../../content/chronology/articles/3.json'),
-  () => import('../../content/chronology/articles/4.json'), () => import('../../content/chronology/articles/5.json'),
-  () => import('../../content/chronology/articles/6.json'), () => import('../../content/chronology/articles/7.json'),
-  () => import('../../content/chronology/articles/8.json'), () => import('../../content/chronology/articles/9.json'),
-];
+const ARTICLE_CHUNKS = packageLayerPaths(DEFAULT_SETTING_PACKAGE, 'content/chronology/articles')
+  .map(path => () => loadPackageJson(DEFAULT_SETTING_PACKAGE, path));
 
 let articleIndex: Promise<{ chunks: readonly { n: number; from: number; to: number }[] }> | null = null;
-const articleCache = new Map<number, Promise<readonly ArticleEvent[]>>();
+const articleCache = new Map<string, Promise<readonly ArticleEvent[]>>();
 
 /** События слоя статей за годы from…to включительно — только нужные куски. */
 export async function loadArticleEvents(from: number, to: number): Promise<ArticleEvent[]> {
-  articleIndex ??= import('../../content/chronology/articles/index.json').then(m => m.default as unknown as { chunks: { n: number; from: number; to: number }[] });
+  articleIndex ??= loadSettingJson('content/chronology/articles/index.json').then(raw => raw as { chunks: { n: number; from: number; to: number }[] }).catch(error => { articleIndex = null; throw error; });
   const idx = await articleIndex;
   const parts = await Promise.all(idx.chunks.filter(c => c.to >= from && c.from <= to).map(c => {
-    if (!articleCache.has(c.n)) articleCache.set(c.n, ARTICLE_CHUNKS[c.n]().then(m => (m.default as { events: ArticleEvent[] }).events));
-    return articleCache.get(c.n)!;
+    return loadCachedPromise(articleCache, String(c.n), () => ARTICLE_CHUNKS[c.n]().then(raw => (raw as { events: ArticleEvent[] }).events));
   }));
   return parts.flat().filter(e => e.year >= from && e.year <= to);
 }
@@ -152,7 +154,7 @@ export function orgStatus(o: Pick<Organization, 'formed' | 'disbanded'>, year: n
   return o.formed === undefined && o.disbanded === undefined ? 'undated' : 'exists';
 }
 
-/** Слепок мира на год: имя года, эпоха канона, редакция полей, события года и счётчики статусов справочника. */
+/** Слепок на год: имя, эпоха, редакция, события и их места, счётчики статусов NPC и организаций. */
 export interface CanonSnapshot {
   year: number;
   name?: string;
@@ -160,8 +162,35 @@ export interface CanonSnapshot {
   /** Редакция полей вики для карточек (3e / 4e / 5e) — та же, что у кампании (campaign/era.ts). */
   edition: Era;
   events: readonly ChronoEvent[];
+  /** Места, упомянутые в событиях выбранного года; год относится к событию, не к существованию места. */
+  placeMentions: readonly PlaceMention[];
   people: Readonly<Record<LifeStatus, number>>;
   organizations: Readonly<Record<OrgStatus, number>>;
+}
+
+export interface PlaceMention {
+  ref: string;
+  names: readonly string[];
+  /** Ссылки на включённые события; год — дата записи события в хронологии. */
+  events: readonly { id: string; year: number }[];
+}
+
+function placeMentions(events: readonly Pick<ChronoEvent, 'id' | 'year' | 'links'>[]): PlaceMention[] {
+  const mentions = new Map<string, { names: Set<string>; events: Map<string, number> }>();
+  for (const event of events) {
+    for (const link of event.links ?? []) {
+      if (!link.ref?.startsWith('place:')) continue;
+      const mention = mentions.get(link.ref) ?? { names: new Set<string>(), events: new Map<string, number>() };
+      if (link.t.trim()) mention.names.add(link.t.trim());
+      mention.events.set(event.id, event.year);
+      mentions.set(link.ref, mention);
+    }
+  }
+  return [...mentions.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([ref, mention]) => ({
+    ref,
+    names: [...mention.names].sort((a, b) => a.localeCompare(b)),
+    events: [...mention.events.entries()].map(([id, year]) => ({ id, year })).sort((a, b) => a.year - b.year || a.id.localeCompare(b.id)),
+  }));
 }
 
 export function snapshotAt(year: number, data: {
@@ -182,27 +211,33 @@ export function snapshotAt(year: number, data: {
     ...(era ? { era } : {}),
     edition: eraOf(year),
     events: data.events.filter(e => e.year === year),
+    placeMentions: placeMentions(data.events.filter(e => e.year === year)),
     people,
     organizations,
   };
 }
 
 /** Схема выгрузки слепка: меняется — меняется номер. */
-export const SNAPSHOT_SCHEMA = 'cockpit.canon-snapshot/1';
+export const SNAPSHOT_SCHEMA = 'cockpit.canon-snapshot/2';
 
 /**
  * Слепок для машинной обработки (подсказки модели, аналитика, подготовка к сессии): события периода и записи
- * справочника со статусом на год. Записи без дат не выгружаются как живые — статус undated. Авторство вики — в шапке.
+ * справочника со статусом на год. Записи без дат не выгружаются как живые — статус undated. Места перечислены только
+ * как ссылки из этих событий: годы ниже датируют упоминания, а не появление, существование или владение местом.
+ * Авторство вики — в шапке.
  */
 export function snapshotExport(year: number, data: {
   index: Pick<ChronoIndex, 'eras' | 'years' | 'attribution' | 'license'>;
   events: readonly ChronoEvent[];
   people?: Iterable<Person>;
   organizations?: Iterable<Organization>;
+  articleEvents?: readonly ArticleEvent[];
   /** Сколько лет истории до года брать в события; 0 — только сам год. */
   history?: number;
 }) {
   const history = data.history ?? 0;
+  const includedEvents = data.events.filter(e => e.year <= year && e.year >= year - history);
+  const includedArticles = (data.articleEvents ?? []).filter(e => e.year <= year && e.year >= year - history);
   const snap = snapshotAt(year, { index: data.index, events: data.events });
   return {
     schema: SNAPSHOT_SCHEMA,
@@ -212,7 +247,9 @@ export function snapshotExport(year: number, data: {
     ...(snap.era ? { era: snap.era.name } : {}),
     edition: snap.edition,
     source: { attribution: data.index.attribution, license: data.index.license },
-    events: data.events.filter(e => e.year <= year && e.year >= year - history),
+    events: includedEvents,
+    articleEvents: includedArticles,
+    placeMentions: placeMentions([...includedEvents, ...includedArticles]),
     people: [...(data.people ?? [])].map(p => ({
       id: p.id, name: p.name, status: personStatus(p, year),
       ...(p.born !== undefined ? { born: p.born } : {}), ...(p.died !== undefined ? { died: p.died } : {}),

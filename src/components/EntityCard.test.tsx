@@ -2,7 +2,7 @@
 // оверлея, кольца выбора и ожидания решения, вкладки переключают тело, проекция актёра берёт числа
 // из State — и урон по стору виден в карточке и в стопке из одного места; проекции места и фракции
 // (шаг 10) — из сида §13: Neverwinter 23k · средняя · +10%, Zhentarim 45% · +1 · 0. Ни одной пиктограммы.
-import { fireEvent, render, screen, within } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import { FACTION, LOCATION, seedEngine, seedState } from '../campaign';
 import { tonePaths } from '../icons/Icon';
@@ -254,7 +254,21 @@ describe('actorCardProps', () => {
     expect(actorCardProps(bo, { dmFacts: 1 }).tabs?.map(t => t.label)).toEqual(['Обзор', 'Состояния', 'Снаряжение', 'Путь', 'DM']);
     expect(actorCardProps(bo, { dmFacts: 1 }).tabs?.find(t => t.label === 'DM')?.dm).toBe(true);
     expect(p.origin).toBe('dm');
+    expect(p.portrait).toBe('bo-portrait');
     expect(raceLabel(bo.sheet!)).toBe('Полурослик · Легконогий');
+  });
+
+  it('явный портрет Bo идёт в корешок; неизвестная ссылка возвращает типовой значок, игрокам нет DM-вкладки', async () => {
+    const bo = seedState().actors.bo;
+    const props = actorCardProps(bo, { dmFacts: 1, players: true });
+    const { rerender } = render(<EntityCard {...props} dmView={false} />);
+    const card = screen.getByRole('region', { name: 'Bo Tambernack' });
+    await waitFor(() => expect(within(spineOf(card)).getByRole('img', { name: 'Портрет: Bo Tambernack' }).tagName).toBe('IMG'));
+    expect(within(spineOf(card)).getByRole('img', { name: 'Портрет: Bo Tambernack' })).toHaveAttribute('loading', 'lazy');
+    expect(within(card).queryByRole('tab', { name: 'DM' })).toBeNull();
+    rerender(<EntityCard {...props} portrait={'https://example.invalid/x.png' as never} dmView={false} />);
+    expect(within(spineOf(card)).getByRole('img', { name: 'Персонаж игрока' })).toBeInTheDocument();
+    expect(within(spineOf(card)).queryByRole('img', { name: 'Портрет: Bo Tambernack' })).toBeNull();
   });
 
   it('капитан: monster, «CR 2» и «Medium», HP 45/65 · AC 15 · SPD 30 из блока SRD (HP всегда первая), канон', () => {

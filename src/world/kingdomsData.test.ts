@@ -10,7 +10,7 @@ import cardsFile from '../../content/maps/toril-cards.json';
 import labelsFile from '../../content/maps/toril-labels.json';
 import articlesIndex from '../../content/chronology/articles/index.json';
 import { eventsAbout, loadEvents, type ChronoEvent } from './chronology';
-import { peopleTrade, type Kingdom, type KingdomRuler } from './kingdoms';
+import { kingdomHistoryOf, peopleTrade, type Kingdom, type KingdomRuler } from './kingdoms';
 
 type Rec = Kingdom & { rulers?: readonly (KingdomRuler & { at?: number; org?: string; role?: string })[]; events?: readonly string[]; gis?: { uuid: string; name: string } };
 type ArticleEvent = ChronoEvent & { kind?: string; to?: number; same?: string; src: { title: string; section?: string; how: string } };
@@ -129,5 +129,10 @@ describe('хронология: ссылки kingdom: и слой статей',
     const regency = articleEvents.find(e => e.src.title === 'War of the Regency')!;
     expect(regency).toMatchObject({ year: 1260, to: 1261, kind: 'conflicts' });
     expect(articleEvents.some(e => e.src.title === 'History of Cormyr (timeline)' && e.year === 26)).toBe(true);
+    const cormyrHistory = kingdomHistoryOf(byId.get('cormyr')!, 1261, [], [regency]);
+    expect(cormyrHistory.lines[0]).toMatchObject({
+      sourceTitle: 'War of the Regency',
+      sourceUrl: 'https://forgottenrealms.fandom.com/wiki/War_of_the_Regency',
+    });
   });
 });

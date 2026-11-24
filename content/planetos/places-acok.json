@@ -1,0 +1,2294 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "place",
+  "entities": [
+    {
+      "ref": "place:citadel",
+      "kind": "place",
+      "name": "Citadel",
+      "nameRu": "Цитадель",
+      "subtitle": "A Clash of Kings · chapter 0",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Prologue (chapter 0); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Prologue",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 0,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Локатор",
+          "value": "Prologue · chapter 0"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Оговорка",
+          "value": "Место сцены не показано."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Цитадель упоминается как место обучения мейстеров; в этом диапазоне это только ссылка, не сцена."
+        }
+      ],
+      "links": [
+        {
+          "label": "Oldtown",
+          "ref": "place:oldtown"
+        }
+      ]
+    },
+    {
+      "ref": "place:great-hall-of-dragonstone",
+      "kind": "place",
+      "name": "Great Hall of Dragonstone",
+      "nameRu": "Большой зал Драконьего Камня",
+      "subtitle": "A Clash of Kings · chapter 0",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Prologue (chapter 0); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Prologue",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 0,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Prologue · chapter 0"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "место сцены"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Роль локатора",
+          "value": "место сцены"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Большой зал на Драконьем Камне, где проходит пир Станниса и разворачивается попытка Крессена остановить Мелисандру."
+        }
+      ],
+      "links": [
+        {
+          "label": "Dragonstone",
+          "ref": "place:dragonstone"
+        },
+        {
+          "label": "Cressen",
+          "ref": "person:cressen"
+        },
+        {
+          "label": "Stannis Baratheon",
+          "ref": "person:stannis-baratheon"
+        }
+      ]
+    },
+    {
+      "ref": "place:broken-anvil",
+      "kind": "place",
+      "name": "Broken Anvil",
+      "nameRu": "«Сломанная наковальня»",
+      "subtitle": "A Clash of Kings · chapter 3",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Tyrion I (chapter 3); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_3",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 3,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Локатор",
+          "value": "Tyrion I · chapter 3"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "место сцены"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Роль локатора",
+          "value": "место сцены"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Постоялый двор в Королевской Гавани, где Тирион встречается с Варисом и обнаруживает, что тот нашёл Шаю."
+        }
+      ],
+      "links": [
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Varys",
+          "ref": "person:varys"
+        }
+      ]
+    },
+    {
+      "ref": "place:ivy-covered-inn",
+      "kind": "place",
+      "name": "Ivy-covered inn",
+      "nameRu": "Покрытая плющом гостиница",
+      "subtitle": "A Clash of Kings · chapter 5",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Arya II (chapter 5); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_5",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 5,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Локатор",
+          "value": "Arya II · chapter 5"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "место сцены; описательная метка"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Роль локатора",
+          "value": "место сцены; описательная метка"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Гостиница на пути отряда Йорена, где путники слышат новости о войне в Речных землях."
+        }
+      ],
+      "links": [
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Yoren",
+          "ref": "person:yoren"
+        }
+      ]
+    },
+    {
+      "ref": "place:casterly-rock",
+      "kind": "place",
+      "name": "Casterly Rock",
+      "nameRu": "Утёс Кастерли",
+      "subtitle": "A Clash of Kings · chapter 7",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Catelyn I (chapter 7); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_7",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 7,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Catelyn I · chapter 7"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Оговорка",
+          "value": "В главах диапазона — референс/план, не место сцены."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Резиденция Ланнистеров, упоминаемая в военных сводках и планах собрать новое войско."
+        }
+      ],
+      "links": [
+        {
+          "label": "Riverlands",
+          "ref": "place:riverlands"
+        },
+        {
+          "label": "House Lannister",
+          "ref": "organization:house-lannister"
+        }
+      ]
+    },
+    {
+      "ref": "place:stone-hedge",
+      "kind": "place",
+      "name": "Stone Hedge",
+      "nameRu": "Каменная Ограда",
+      "subtitle": "A Clash of Kings · chapter 7",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Catelyn I (chapter 7); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_7",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 7,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Локатор",
+          "value": "Catelyn I · chapter 7"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Оговорка",
+          "value": "Место сцены не показано."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Замок Бракенов, чьё возвращение под контроль речных лордов обсуждается в сводке Бриндена Талли."
+        }
+      ],
+      "links": [
+        {
+          "label": "Riverlands",
+          "ref": "place:riverlands"
+        }
+      ]
+    },
+    {
+      "ref": "place:shipbreaker-bay",
+      "kind": "place",
+      "name": "Shipbreaker Bay",
+      "nameRu": "Залив Кораблекрушений",
+      "subtitle": "A Clash of Kings · chapter 10",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Davos I (chapter 10); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_10",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 10,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Локатор",
+          "value": "Davos I · chapter 10"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Оговорка",
+          "value": "Место сцены не показано."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Залив, где затонули Windproud и погибли родители Станниса; Давос говорит о крушении в беседе с ним."
+        }
+      ],
+      "links": [
+        {
+          "label": "Dragonstone",
+          "ref": "place:dragonstone"
+        },
+        {
+          "label": "Storm’s End",
+          "ref": "place:storms-end"
+        }
+      ]
+    },
+    {
+      "ref": "place:iron-islands",
+      "kind": "place",
+      "name": "Iron Islands",
+      "nameRu": "Железные острова",
+      "subtitle": "A Clash of Kings · chapter 11",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Theon I (chapter 11); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_11",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 11,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Theon I · chapter 11"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Оговорка",
+          "value": "Место сцены не показано."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Родной регион дома Грейджоев, названный в рассказе Теона о возвращении на Пайк."
+        }
+      ],
+      "links": [
+        {
+          "label": "Pyke",
+          "ref": "place:pyke"
+        },
+        {
+          "label": "House Greyjoy",
+          "ref": "organization:house-greyjoy"
+        }
+      ]
+    },
+    {
+      "ref": "place:lordsport",
+      "kind": "place",
+      "name": "Lordsport",
+      "nameRu": "Лордспорт",
+      "subtitle": "A Clash of Kings · chapter 11, 24",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Theon I (chapter 11); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_11",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 11,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Theon I · chapter 11"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "место сцены"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Роль локатора",
+          "value": "место сцены"
+        },
+        {
+          "label": "Локатор",
+          "value": "Theon II, глава 24"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "scene"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорные срезы",
+          "text": "Глава 11: Порт на Пайке, куда прибывает Теон на корабле Myraham перед встречей с отцом.\n\nГлава 24: Портовый город у Пайка: Теон осматривает там корабль и встречает Ашу под чужим именем."
+        }
+      ],
+      "links": [
+        {
+          "label": "Pyke",
+          "ref": "place:pyke"
+        },
+        {
+          "label": "Theon Greyjoy",
+          "ref": "person:theon-greyjoy"
+        },
+        {
+          "label": "Balon Greyjoy",
+          "ref": "person:balon-greyjoy"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Theon I (chapter 11); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_11",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 11,
+          "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Theon II (chapter 24); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_24",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 24
+        }
+      ]
+    },
+    {
+      "ref": "place:red-waste",
+      "kind": "place",
+      "name": "Red Waste",
+      "nameRu": "Красные пустоши",
+      "subtitle": "A Clash of Kings · chapter 12",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Daenerys I (chapter 12); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_12",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 12,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Daenerys I · chapter 12"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "место сцены"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Роль локатора",
+          "value": "место сцены"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Засушливый регион, через который Дейенерис ведёт остаток кхаласара вслед за красной кометой."
+        }
+      ],
+      "links": [
+        {
+          "label": "Vaes Tolorro",
+          "ref": "place:vaes-tolorro"
+        },
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        }
+      ]
+    },
+    {
+      "ref": "place:slavers-bay",
+      "kind": "place",
+      "name": "Slaver's Bay",
+      "nameRu": "Работорговый залив",
+      "subtitle": "A Clash of Kings · chapter 12",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Daenerys I (chapter 12); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_12",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 12,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Daenerys I · chapter 12"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Оговорка",
+          "value": "Место сцены не показано."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Регион, в сторону которого Поно ведёт рабов; упоминается в главе Дейенерис I."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Qarth",
+          "ref": "place:qarth"
+        }
+      ]
+    },
+    {
+      "ref": "place:vaes-tolorro",
+      "kind": "place",
+      "name": "Vaes Tolorro",
+      "nameRu": "Ваэс Толорро",
+      "subtitle": "A Clash of Kings · chapter 12",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Daenerys I (chapter 12); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_12",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 12,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Daenerys I · chapter 12"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "место сцены"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Роль локатора",
+          "value": "место сцены"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Разрушенный город в Красных пустошах, где караван Дейенерис находит временное убежище."
+        }
+      ],
+      "links": [
+        {
+          "label": "Red Waste",
+          "ref": "place:red-waste"
+        },
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        }
+      ]
+    },
+    {
+      "ref": "place:whitetree",
+      "kind": "place",
+      "name": "Whitetree",
+      "nameRu": "Уайттри",
+      "subtitle": "A Clash of Kings · chapter 13",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Jon II (chapter 13); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_13",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 13,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Jon II · chapter 13"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "место сцены"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Роль локатора",
+          "value": "место сцены"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Опустевшая деревня за Стеной, осматриваемая отрядом Ночного Дозора; центральная сцена главы Джона II."
+        }
+      ],
+      "links": [
+        {
+          "label": "Beyond the Wall",
+          "ref": "place:beyond-the-wall"
+        },
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Night's Watch",
+          "ref": "organization:nights-watch"
+        }
+      ]
+    },
+    {
+      "ref": "place:gods-eye",
+      "kind": "place",
+      "name": "Gods Eye",
+      "nameRu": "Божье Око",
+      "subtitle": "A Clash of Kings · chapter 14",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Arya IV (chapter 14); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_14",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 14,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Arya IV · chapter 14"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "место сцены и ориентир"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Роль локатора",
+          "value": "место сцены и ориентир"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Большое озеро, у южного берега которого отряд Йорена ищет переправу; поблизости расположены города и Харренхол."
+        }
+      ],
+      "links": [
+        {
+          "label": "Riverlands",
+          "ref": "place:riverlands"
+        },
+        {
+          "label": "Harrenhal",
+          "ref": "place:harrenhal"
+        }
+      ]
+    },
+    {
+      "ref": "place:harrentown",
+      "kind": "place",
+      "name": "Harrentown",
+      "nameRu": "Харрен-таун",
+      "subtitle": "A Clash of Kings · chapter 14",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Arya IV (chapter 14); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_14",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 14,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Локатор",
+          "value": "Arya IV · chapter 14"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "планируемая цель, не место сцены"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Роль локатора",
+          "value": "планируемая цель, не место сцены"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Город, куда Йорен предлагает добраться на лодке через Божье Око; в этой главе отряд туда не прибывает."
+        }
+      ],
+      "links": [
+        {
+          "label": "Gods Eye",
+          "ref": "place:gods-eye"
+        },
+        {
+          "label": "Harrenhal",
+          "ref": "place:harrenhal"
+        }
+      ]
+    },
+    {
+      "ref": "place:abandoned-holdfast-south-of-gods-eye",
+      "kind": "place",
+      "name": "Unnamed abandoned holdfast south of the Gods Eye",
+      "nameRu": "Безымянный заброшенный укреплённый пункт к югу от Божьего Ока",
+      "subtitle": "A Clash of Kings · chapter 14",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Arya IV (chapter 14); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_14",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 14,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Arya IV · chapter 14"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "место сцены; безымянное"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Роль локатора",
+          "value": "место сцены; безымянное"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Описательная метка для безымянного укреплённого пункта в покинутом городе, где обоз Йорена принимает бой; это не собственное название места."
+        }
+      ],
+      "links": [
+        {
+          "label": "Gods Eye",
+          "ref": "place:gods-eye"
+        },
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Yoren",
+          "ref": "person:yoren"
+        },
+        {
+          "label": "Attack on Yoren’s holdfast",
+          "ref": "event:attack-on-yoren-holdfast"
+        }
+      ]
+    },
+    {
+      "ref": "place:dreadfort",
+      "kind": "place",
+      "name": "Dreadfort",
+      "nameRu": "Дредфорт",
+      "subtitle": "A Clash of Kings · chapter 16",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Bran II (chapter 16); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_16",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 16,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Bran II · chapter 16"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Оговорка",
+          "value": "Место сцены не показано."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Резиденция Болтонов, упомянутая в связи с происхождением Рамси Сноу."
+        }
+      ],
+      "links": [
+        {
+          "label": "Ramsay Snow",
+          "ref": "person:ramsay-snow"
+        }
+      ]
+    },
+    {
+      "ref": "place:white-harbor",
+      "kind": "place",
+      "name": "White Harbor",
+      "nameRu": "Белая Гавань",
+      "subtitle": "A Clash of Kings · chapter 16",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Bran II (chapter 16); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_16",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 16,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Bran II · chapter 16"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Оговорка",
+          "value": "Место сцены не показано."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Город Мандерли, откуда Уайман Мандерли привозит припасы на пир в Винтерфелле."
+        }
+      ],
+      "links": [
+        {
+          "label": "Wyman Manderly",
+          "ref": "person:wyman-manderly"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "place:dorne",
+      "kind": "place",
+      "name": "Dorne",
+      "nameRu": "Дорн",
+      "subtitle": "A Clash of Kings · chapter 17",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Tyrion IV (chapter 17); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_17",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 17,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Tyrion IV · chapter 17"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Оговорка",
+          "value": "В главе — предложение/политический адресат, не место сцены."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Регион, куда Тирион планирует направить письмо и предложение Дорана Мартелла."
+        }
+      ],
+      "links": [
+        {
+          "label": "Doran Martell",
+          "ref": "person:doran-martell"
+        }
+      ]
+    },
+    {
+      "ref": "place:godswood-of-red-keep",
+      "kind": "place",
+      "name": "Godswood of the Red Keep",
+      "nameRu": "Богороща Красного замка",
+      "subtitle": "A Clash of Kings · chapter 18",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Sansa II (chapter 18); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_18",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 18,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Sansa II · chapter 18"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "место сцены"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Роль локатора",
+          "value": "место сцены"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Богороща Красного замка, куда Санса приходит на тайную встречу с Донтосом после анонимной записки."
+        }
+      ],
+      "links": [
+        {
+          "label": "Red Keep",
+          "ref": "place:red-keep"
+        },
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        },
+        {
+          "label": "Dontos Hollard",
+          "ref": "person:dontos-hollard"
+        }
+      ]
+    },
+    {
+      "ref": "place:fishing-village-west-of-gods-eye",
+      "kind": "place",
+      "name": "Fishing village west of the Gods Eye",
+      "nameRu": "Рыбацкая деревня к западу от Божьего Ока",
+      "subtitle": "A Clash of Kings · chapter 19",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Arya V (chapter 19); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_19",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 19,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Локатор",
+          "value": "Arya V · chapter 19"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "ориентир сцены; описательная метка"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Роль локатора",
+          "value": "ориентир сцены; описательная метка"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Безымянная рыбацкая деревня, которую Арья замечает во время разведки; источник не даёт собственного названия."
+        }
+      ],
+      "links": [
+        {
+          "label": "Gods Eye",
+          "ref": "place:gods-eye"
+        },
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        }
+      ]
+    },
+    {
+      "ref": "place:guildhall-of-the-alchemists",
+      "kind": "place",
+      "name": "Guildhall of the Alchemists",
+      "nameRu": "Гильдия алхимиков",
+      "subtitle": "A Clash of Kings · chapter 20",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Tyrion V (chapter 20); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_20",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 20,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Tyrion V · chapter 20"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "место сцены"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Роль локатора",
+          "value": "место сцены"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Здание Гильдии алхимиков в Королевской Гавани, где Тирион осматривает запасы дикого огня и встречается с Халлином."
+        }
+      ],
+      "links": [
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Hallyne",
+          "ref": "person:hallyne"
+        },
+        {
+          "label": "Alchemists' Guild",
+          "ref": "organization:alchemists-guild"
+        }
+      ]
+    },
+    {
+      "ref": "place:greywater-watch",
+      "kind": "place",
+      "name": "Greywater Watch",
+      "nameRu": "Серая Вода",
+      "subtitle": "A Clash of Kings · chapter 21",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Bran III (chapter 21); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_21",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 21,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Bran III · chapter 21"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Оговорка",
+          "value": "Место сцены не показано."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Дом Ридов, названный при прибытии Мееры и Джоджена в Винтерфелл."
+        }
+      ],
+      "links": [
+        {
+          "label": "Meera Reed",
+          "ref": "person:meera-reed"
+        },
+        {
+          "label": "Jojen Reed",
+          "ref": "person:jojen-reed"
+        },
+        {
+          "label": "House Reed",
+          "ref": "organization:house-reed"
+        }
+      ]
+    },
+    {
+      "ref": "place:bitterbridge",
+      "kind": "place",
+      "name": "Bitterbridge",
+      "nameRu": "Горький Мост",
+      "subtitle": "A Clash of Kings · chapter 22",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Catelyn II (chapter 22); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_22",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 22,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Локатор",
+          "value": "Catelyn II · chapter 22"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "место сцены"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Роль локатора",
+          "value": "место сцены"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Город и переправа, где Кейтлин встречает лагерь Ренли и наблюдает турнирный бой на выбывание."
+        }
+      ],
+      "links": [
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Renly Baratheon",
+          "ref": "person:renly-baratheon"
+        },
+        {
+          "label": "Brienne of Tarth",
+          "ref": "person:brienne-of-tarth"
+        }
+      ]
+    },
+    {
+      "ref": "place:crasters-keep",
+      "kind": "place",
+      "name": "Craster’s Keep",
+      "nameRu": "Крепость Крастера",
+      "subtitle": "A Clash of Kings · chapter 23",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Jon III (chapter 23); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_23",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 23
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Jon III, глава 23"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "scene"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Опорное место Большого похода: здесь Ночной дозор находит Крастера и получает сведения о Мансе."
+        }
+      ],
+      "links": [
+        {
+          "label": "Craster",
+          "ref": "person:craster"
+        },
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        }
+      ]
+    },
+    {
+      "ref": "place:frostfangs",
+      "kind": "place",
+      "name": "Frostfangs",
+      "nameRu": "Клыки Мороза",
+      "subtitle": "A Clash of Kings · chapter 23",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Jon III (chapter 23); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_23",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 23
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Jon III, глава 23"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "referenced"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Область за Стеной, где, согласно сообщению Крастера, собираются силы Манса; сам сбор в этой главе не показан."
+        }
+      ],
+      "links": [
+        {
+          "label": "Mance Rayder",
+          "ref": "person:mance-rayder"
+        }
+      ]
+    },
+    {
+      "ref": "place:gods-eye-village",
+      "kind": "place",
+      "name": "Gods Eye village",
+      "nameRu": "Деревня у Божьего Ока",
+      "subtitle": "A Clash of Kings · chapter 26",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Arya VI (chapter 26); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_26",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 26
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Arya VI, глава 26"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "scene"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Деревня на берегу Божьего Ока, где люди Грегора удерживают пленников перед маршем в Харренхол."
+        }
+      ],
+      "links": [
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Harrenhal",
+          "ref": "place:harrenhal"
+        }
+      ]
+    },
+    {
+      "ref": "place:wailing-tower",
+      "kind": "place",
+      "name": "Wailing Tower",
+      "nameRu": "Башня Плача",
+      "subtitle": "A Clash of Kings · chapter 26",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Arya VI (chapter 26); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_26",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 26
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Локатор",
+          "value": "Arya VI, глава 26"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "scene"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Часть Харренхола, где Арья получает службу под надзором Уиза; башня остаётся частью замкового комплекса."
+        }
+      ],
+      "links": [
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Harrenhal",
+          "ref": "place:harrenhal"
+        },
+        {
+          "label": "Weese",
+          "ref": "person:weese"
+        }
+      ]
+    },
+    {
+      "ref": "place:renlys-pavilion-at-storms-end",
+      "kind": "place",
+      "name": "Renly’s pavilion at Storm’s End",
+      "nameRu": "Шатёр Ренли у Штормового Предела",
+      "subtitle": "A Clash of Kings · chapter 33",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Catelyn IV (chapter 33); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_33",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 33
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Catelyn IV, глава 33"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "scene"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Шатёр, где перед битвой Кэтлин встречает Ренли и становится свидетелем его гибели."
+        }
+      ],
+      "links": [
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Renly Baratheon",
+          "ref": "person:renly-baratheon"
+        },
+        {
+          "label": "Brienne of Tarth",
+          "ref": "person:brienne-of-tarth"
+        },
+        {
+          "label": "Storm’s End",
+          "ref": "place:storms-end"
+        }
+      ]
+    },
+    {
+      "ref": "place:stony-shore-village",
+      "kind": "place",
+      "name": "Stony Shore village",
+      "nameRu": "Деревня на Каменном Берегу",
+      "subtitle": "A Clash of Kings · chapter 37",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Theon III (chapter 37); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_37",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 37
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Theon III, глава 37"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "scene"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Прибрежное поселение, где отряд Теона разбивает людей Бенфреда; собственного названия у деревни нет."
+        }
+      ],
+      "links": [
+        {
+          "label": "Theon Greyjoy",
+          "ref": "person:theon-greyjoy"
+        },
+        {
+          "label": "Benfred Tallhart",
+          "ref": "person:benfred-tallhart"
+        }
+      ]
+    },
+    {
+      "ref": "place:harbor-of-kings-landing",
+      "kind": "place",
+      "name": "Harbor of King’s Landing",
+      "nameRu": "Гавань Королевской Гавани",
+      "subtitle": "A Clash of Kings · chapter 41",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Tyrion IX (chapter 41); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_41",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 41
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Tyrion IX, глава 41"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "scene"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Место отправления Мирцеллы в Дорн; глава показывает прощание королевской семьи и последующий путь через город."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Myrcella Baratheon",
+          "ref": "person:myrcella-baratheon"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "place:cavern-beneath-storms-end",
+      "kind": "place",
+      "name": "Cavern beneath Storm’s End",
+      "nameRu": "Пещера под Штормовым Пределом",
+      "subtitle": "A Clash of Kings · chapter 42",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Davos II (chapter 42); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_42",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 42
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Davos II, глава 42"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "scene"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Подземная пещера, куда Давос проводит Мелисандру; он становится очевидцем появления тени."
+        }
+      ],
+      "links": [
+        {
+          "label": "Davos Seaworth",
+          "ref": "person:davos-seaworth"
+        },
+        {
+          "label": "Melisandre",
+          "ref": "person:melisandre"
+        },
+        {
+          "label": "Storm’s End",
+          "ref": "place:storms-end"
+        }
+      ]
+    },
+    {
+      "ref": "place:red-fork",
+      "kind": "place",
+      "name": "Red Fork",
+      "nameRu": "Красный Зубец",
+      "subtitle": "A Clash of Kings · chapter 45",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Catelyn VI (chapter 45); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_45",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 45
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Catelyn VI, глава 45"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "scene"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Река и участок обороны Речных земель; Эдмур выступает от Риверрана, чтобы удержать переправы от сил Тайвина."
+        }
+      ],
+      "links": [
+        {
+          "label": "Edmure Tully",
+          "ref": "person:edmure-tully"
+        },
+        {
+          "label": "Riverrun",
+          "ref": "place:riverrun"
+        }
+      ]
+    },
+    {
+      "ref": "place:house-of-the-undying",
+      "kind": "place",
+      "name": "House of the Undying",
+      "nameRu": "Дом Бессмертных",
+      "subtitle": "A Clash of Kings · chapter 48",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Daenerys IV (Chapter 48); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_48",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 48
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Daenerys IV"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Место видений Дейенерис в Кварте. Содержание видений следует хранить отдельно от утверждений о реальных событиях и местоположениях."
+        }
+      ],
+      "links": [
+        {
+          "label": "Qarth",
+          "ref": "place:qarth"
+        },
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        }
+      ]
+    },
+    {
+      "ref": "place:mill-by-acorn-water",
+      "kind": "place",
+      "name": "Mill by Acorn Water",
+      "nameRu": "Мельница у Жёлудевой реки",
+      "subtitle": "A Clash of Kings · chapter 50",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Theon IV (Chapter 50); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_50",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 50
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Theon IV"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Указанный во вторичном индексе ориентир в поиске пропавших Старков; считать точную локализацию provisional и сверить с текстом."
+        }
+      ],
+      "links": [
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        },
+        {
+          "label": "Theon Greyjoy",
+          "ref": "person:theon-greyjoy"
+        }
+      ]
+    },
+    {
+      "ref": "place:skirling-pass",
+      "kind": "place",
+      "name": "Skirling Pass",
+      "nameRu": "Скирлингский перевал",
+      "subtitle": "A Clash of Kings · chapter 51, 53, 68",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Jon VI (Chapter 51); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_51",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 51
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Jon VI; Jon VII; Jon VIII"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Горный проход за Стеной, где разведывательный отряд Ночного Дозора сталкивается с силами одичалых и отступает."
+        }
+      ],
+      "links": [
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Qhorin Halfhand",
+          "ref": "person:qhorin-halfhand"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Jon VI (Chapter 51); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_51",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 51
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Jon VII (Chapter 53); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_53",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 53
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Jon VIII (Chapter 68); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_68",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 68
+        }
+      ]
+    },
+    {
+      "ref": "place:queens-ballroom",
+      "kind": "place",
+      "name": "Queen’s Ballroom",
+      "nameRu": "Бальный зал королевы",
+      "subtitle": "A Clash of Kings · chapter 57",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Sansa V (Chapter 57); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_57",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 57
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Sansa V"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Пространство приёмов в Красном Замке, связанное с придворными сценами во время битвы на Черноводной."
+        }
+      ],
+      "links": [
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        }
+      ]
+    },
+    {
+      "ref": "place:kingspyre-tower",
+      "kind": "place",
+      "name": "Kingspyre Tower",
+      "nameRu": "Башня Кингспайр",
+      "subtitle": "A Clash of Kings · chapter 64",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Arya X (Chapter 64); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_64",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 64
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Arya X"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Одна из башен Харренхолла; глава использует её как отдельную сценическую точку внутри уже существующей карточки замка."
+        }
+      ],
+      "links": [
+        {
+          "label": "Harrenhal",
+          "ref": "place:harrenhal"
+        },
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        }
+      ]
+    },
+    {
+      "ref": "place:blackwater-rush",
+      "kind": "place",
+      "name": "Blackwater Rush",
+      "nameRu": "Черноводная",
+      "subtitle": "A Clash of Kings · chapter 58",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Davos III (Chapter 58); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_58",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 58
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Davos III"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Водный участок у Королевской Гавани, на котором разворачивается бой флотов и поднимается заградительная цепь. Не задавать точные координаты или маршрут без отдельного источника."
+        }
+      ],
+      "links": [
+        {
+          "label": "Blackwater Bay",
+          "ref": "place:blackwater-bay"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    }
+  ]
+}

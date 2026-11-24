@@ -7,22 +7,61 @@
 // С 30.10 (M18) подложку рисует WebGL2 (map/schemaGl.ts) на своём канвасе, подписи — Canvas2D поверх; нет WebGL2 или
 // контекст потерян — всё на Canvas2D, как раньше. `?renderer=canvas` в адресе — принудительно Canvas2D (сравнение).
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { toScreen, type MapView, type Viewport } from './projection';
+import { toScreen, type MapPoint, type MapView, type Viewport } from './projection';
 import type { EntityRef } from '../entities';
 import { loadKingdoms } from '../world/kingdoms';
 import type { MapSchema } from './schema';
 import { schemaLegend } from './schemaLegend';
 import { fold } from './gazetteer';
-import { labelHits, loadLabels, placeLabels, type LabelHit, type SchemaLabel } from './schemaLabels';
+import { labelHits, loadLabels, loadRasterFeatureLabels, loadRasterIcons, placeLabels, unlinkedRasterIcons, type LabelHit, type RasterMapIcon, type SchemaLabel } from './schemaLabels';
 import { drawLabels, fillSchema, labelMeasure, occupiedBoxes, riverWidth, schemaPaths, useFontsReady } from './schemaDraw';
 import { createSchemaGl, type SchemaGl } from './schemaGl';
+import { mapPixelRatio } from './renderer';
 
 const forceCanvas = () => typeof location !== 'undefined' && new URLSearchParams(location.search).get('renderer') === 'canvas';
+
+function drawRasterIcon(ctx: CanvasRenderingContext2D, icon: RasterMapIcon, p: MapPoint) {
+  const x = p.x, y = p.y, s = Math.max(3.5, Math.min(7, 4.5 * icon.size));
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.lineWidth = 1.5;
+  ctx.strokeStyle = 'rgba(29, 20, 30, .96)';
+  ctx.fillStyle = 'rgba(221, 182, 96, .98)';
+  ctx.beginPath();
+  switch (icon.kind) {
+    case 'city': ctx.arc(0, 0, s, 0, Math.PI * 2); break;
+    case 'capital':
+      ctx.moveTo(0, -s - 1); ctx.lineTo(s + 1, 0); ctx.lineTo(0, s + 1); ctx.lineTo(-s - 1, 0); ctx.closePath(); break;
+    case 'keep': ctx.rect(-s, -s, 2 * s, 2 * s); break;
+    case 'temple':
+    case 'peak':
+      ctx.moveTo(-s, s); ctx.lineTo(0, -s); ctx.lineTo(s, s); ctx.closePath(); break;
+    case 'mine':
+      ctx.moveTo(-s, -s); ctx.lineTo(s, s); ctx.moveTo(s, -s); ctx.lineTo(-s, s); break;
+    case 'well': ctx.arc(0, 0, s, 0, Math.PI * 2); break;
+    case 'ruins':
+      ctx.moveTo(-s, -s); ctx.lineTo(0, -s); ctx.moveTo(s, -s); ctx.lineTo(s, 0); ctx.moveTo(s, s); ctx.lineTo(0, s); ctx.moveTo(-s, s); ctx.lineTo(-s, 0); break;
+    default:
+      ctx.moveTo(0, -s); ctx.lineTo(s, 0); ctx.lineTo(0, s); ctx.lineTo(-s, 0); ctx.closePath();
+  }
+  ctx.fill();
+  ctx.stroke();
+  if (icon.kind === 'keep' || icon.kind === 'well') {
+    ctx.beginPath(); ctx.arc(0, 0, s * .35, 0, Math.PI * 2); ctx.fillStyle = 'rgba(29, 20, 30, .96)'; ctx.fill();
+  }
+  ctx.restore();
+}
 
 export interface SchemaLayerProps {
   schema: MapSchema;
   vp: Viewport;
   view: MapView;
+  /** Нарисовать только подписи поверх очищенного растра, без схемы местности и линий. */
+  labelsOnly?: boolean;
+  /** Локальные редакционно принятые OCR-подписи личного растра; не попадают в production/package. */
+  supplementalRasterLabels?: boolean;
+  /** Координаты уже каталогизированных мест, для исключения повторного значка. */
+  rasterIconPlaces?: readonly MapPoint[];
   /** Карта — по ней подписи (content/maps/<id>-labels.json); нет файла — схема без подписей. */
   mapId?: string;
   /** Пины кампании: их имена схема не повторяет (плашки заняты — по DOM). */
@@ -33,27 +72,34 @@ export interface SchemaLayerProps {
   onHits?: (hits: readonly LabelHit[]) => void;
 }
 
-export function SchemaLayer({ schema, vp, view, mapId, pins = [], legend = true, onHits }: SchemaLayerProps) {
+export function SchemaLayer({ schema, vp, view, mapId, pins = [], legend = true, labelsOnly = false, supplementalRasterLabels = false, rasterIconPlaces = [], onHits }: SchemaLayerProps) {
   const ref = useRef<HTMLCanvasElement>(null);
   const glRef = useRef<HTMLCanvasElement>(null);
   /** Чем рисуется подложка: ждём проверки WebGL2 → gl или canvas. */
   const [gpu, setGpu] = useState<SchemaGl | 'pending' | null>('pending');
   const [labels, setLabels] = useState<readonly SchemaLabel[]>([]);
+  const [rasterLabels, setRasterLabels] = useState<readonly SchemaLabel[]>([]);
+  const [rasterIcons, setRasterIcons] = useState<readonly RasterMapIcon[]>([]);
   /** Подпись → карточка державы: fold(`kingdom.label`) → `kingdom:id`. */
   const [refs, setRefs] = useState<ReadonlyMap<string, EntityRef>>(new Map());
   const hitsTo = useRef(onHits);
   hitsTo.current = onHits;
-  const [legendOpen, setLegendOpen] = useState(true);
+  // Легенда доступна по запросу и не занимает угол карты при каждом открытии схемы.
+  const [legendOpen, setLegendOpen] = useState(false);
   const fonts = useFontsReady();
   // Path2D нет в jsdom — там схема не рисуется, а остальная карта живёт как есть. Пути Canvas2D — только без WebGL2.
   const paths = useMemo(() => (gpu === null ? schemaPaths(schema) : null), [schema, gpu]);
 
   useEffect(() => {
+    if (labelsOnly) {
+      setGpu(null);
+      return;
+    }
     const cv = glRef.current;
     const made = cv && !forceCanvas() ? createSchemaGl(cv, schema, () => setGpu(null)) : null;
     setGpu(made);
     return () => made?.dispose();
-  }, [schema]);
+  }, [schema, labelsOnly]);
   const items = useMemo(() => schemaLegend(schema), [schema]);
 
   useEffect(() => {
@@ -67,18 +113,42 @@ export function SchemaLayer({ schema, vp, view, mapId, pins = [], legend = true,
   }, [mapId]);
 
   useEffect(() => {
+    if (!supplementalRasterLabels || !mapId) {
+      setRasterLabels([]);
+      setRasterIcons([]);
+      return;
+    }
+    let live = true;
+    void Promise.all([loadRasterFeatureLabels(mapId), loadRasterIcons(mapId)]).then(([labels, icons]) => {
+      if (live) { setRasterLabels(labels); setRasterIcons(icons); }
+    });
+    return () => { live = false; };
+  }, [mapId, supplementalRasterLabels]);
+
+  const visibleLabels = useMemo(() => rasterLabels.length ? [...labels, ...rasterLabels] : labels, [labels, rasterLabels]);
+  const visibleRasterIcons = useMemo(() => unlinkedRasterIcons(rasterIcons, rasterIconPlaces), [rasterIcons, rasterIconPlaces]);
+
+  useEffect(() => {
     const cv = ref.current;
     const ctx = cv?.getContext?.('2d');
     hitsTo.current?.([]);
-    if (!cv || !ctx || gpu === 'pending' || (!gpu && !paths)) return;
-    const dpr = window.devicePixelRatio || 1;
+    if (!cv || !ctx || gpu === 'pending' || (!labelsOnly && !gpu && !paths)) return;
+    const dpr = mapPixelRatio();
     cv.width = Math.round(vp.w * dpr);
     cv.height = Math.round(vp.h * dpr);
     const css = getComputedStyle(cv);
     const color = (name: string) => css.getPropertyValue(`--${name}`).trim() || '#888';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, vp.w, vp.h);
+    const iconAvoid = view.scale >= 0.35 ? visibleRasterIcons.flatMap(icon => {
+      const at = toScreen(view, vp, icon);
+      if (at.x < -10 || at.y < -10 || at.x > vp.w + 10 || at.y > vp.h + 10) return [];
+      drawRasterIcon(ctx, icon, at);
+      return [{ x0: at.x - 6, y0: at.y - 6, x1: at.x + 6, y1: at.y + 6 }];
+    }) : [];
     if (gpu) {
       gpu.draw(view, vp, dpr, color);
-    } else if (paths) {
+    } else if (!labelsOnly && paths) {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.fillStyle = color('terrain-o');
       ctx.fillRect(0, 0, vp.w, vp.h);
@@ -90,30 +160,30 @@ export function SchemaLayer({ schema, vp, view, mapId, pins = [], legend = true,
       ctx.lineWidth = Math.max(1, Math.min(2.5, view.scale * 6)) / view.scale;
       ctx.stroke(paths.roads);
     }
-    if (!labels.length) return;
+    if (!visibleLabels.length) return;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     const font = css.getPropertyValue('--font-display').trim() || 'serif';
-    const placed = placeLabels(labels, {
+    const placed = placeLabels(visibleLabels, {
       project: p => toScreen(view, vp, p),
       scale: view.scale,
       vp,
       measure: labelMeasure(ctx, font),
       // Занятое — по DOM: плашки пинов с их значками, партия, метки слоёв, панели стола и карты (под карточкой
       // подпись не видна — место отдаётся соседке).
-      avoid: occupiedBoxes(cv.parentElement),
+      avoid: [...occupiedBoxes(cv.parentElement), ...iconAvoid],
       skip: new Set(pins.map(p => fold(p.name))),
     });
     drawLabels(ctx, placed, font, color);
     hitsTo.current?.(labelHits(placed, refs));
-  }, [gpu, paths, vp, view, labels, refs, pins, fonts]);
+  }, [gpu, paths, vp, view, visibleLabels, visibleRasterIcons, refs, pins, fonts]);
 
   return (
     <>
-      <canvas ref={glRef} aria-hidden="true" data-part="schema-gl" hidden={!gpu || gpu === 'pending'} className="absolute inset-0 size-full pointer-events-none" />
-      <canvas ref={ref} aria-hidden="true" data-part="schema" data-renderer={gpu === 'pending' ? undefined : gpu ? 'webgl2' : 'canvas'} data-labels={labels.length || undefined} className="absolute inset-0 size-full pointer-events-none" />
-      {legend && items.length ? (
+      {!labelsOnly ? <canvas ref={glRef} aria-hidden="true" data-part="schema-gl" hidden={!gpu || gpu === 'pending'} className="absolute inset-0 size-full pointer-events-none" /> : null}
+      <canvas ref={ref} aria-hidden="true" data-part="schema" data-renderer={gpu === 'pending' ? undefined : gpu ? 'webgl2' : 'canvas'} data-labels={visibleLabels.length || undefined} data-raster-labels={rasterLabels.length || undefined} data-raster-icons={view.scale >= 0.35 ? visibleRasterIcons.length || undefined : undefined} className="absolute inset-0 size-full pointer-events-none" />
+      {legend && !labelsOnly && items.length ? (
         // Под панелью карты справа: снизу справа — карточка места справочника и легенда слоёв по регионам.
-        <div data-part="map-ui" className="absolute z-10 right-3 top-14 flex flex-col bg-cd shadow-float cursor-default">
+        <div data-part="map-ui" className="absolute z-10 right-3 bottom-3 max-h-[60%] overflow-auto flex flex-col bg-cd shadow-float cursor-default">
           <button
             type="button"
             aria-expanded={legendOpen}

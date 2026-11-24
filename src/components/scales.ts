@@ -1,29 +1,22 @@
-// Лестница масштабов словами (HANDOFF §3): подписи девяти уровней, их порядок и темп часов каждого.
-// Одно место на всех потребителей — фильтр журнала, сводка «что изменилось», предложение мира, лестница
-// над главной зоной и карточка места называют уровень одним словом. Порядок — список движка, второго
-// источника нет. Темп — словами, как в шапке панели региона («темп часов: дни»), а не ключом переключателя:
-// часы уровня — подсказка мастеру, переключатель темпа живёт в TimeTempo и ходит по своей семёрке.
+// Подписи и темп рекомендуемых часов загружаются из лестницы активного пакета сеттинга.
+import { SCALE_LEVELS, type ScaleLevel, type Tempo } from '../engine';
+import { DEFAULT_SETTING_PACKAGE, settingDataFor } from '../packages/registry';
+import { parseScaleLadderProfile, type ScaleLadderProfile } from '../packages/settingData';
 
-import { SCALE_LEVELS, type ScaleLevel } from '../engine';
-
-/** Русские подписи девяти уровней лестницы масштабов (HANDOFF §3). */
-export const SCALE_LABELS: Readonly<Record<ScaleLevel, string>> = {
-  cosmology: 'Космология',
-  plane: 'План',
-  system: 'Система',
-  planet: 'Планета',
-  continent: 'Континент',
-  region: 'Регион',
-  settlement: 'Поселение',
-  building: 'Здание',
-  battle: 'Бой',
+const TEMPO_LABEL: Readonly<Record<Tempo, string>> = {
+  round: 'раунды', '10min': '10 минут', hour: 'часы', day: 'дни', tenday: 'десятидневки', season: 'сезоны', year: 'годы',
 };
+const profileCache = new Map<string, ScaleLadderProfile>();
+export function scaleLadderForSetting(settingPackageId: string): ScaleLadderProfile {
+  const cached = profileCache.get(settingPackageId);
+  if (cached) return cached;
+  const profile = parseScaleLadderProfile(settingDataFor(settingPackageId, 'ladder'), settingPackageId);
+  profileCache.set(settingPackageId, profile);
+  return profile;
+}
 
-/** Порядок уровней от космологии к бою — тот же список, что у движка, второго источника нет. */
+const DEFAULT_LADDER = scaleLadderForSetting(DEFAULT_SETTING_PACKAGE);
+export const SCALE_LABELS: Readonly<Record<ScaleLevel, string>> = Object.freeze(Object.fromEntries(DEFAULT_LADDER.ranks.map(rank => [rank.id, rank.labelRu])) as Record<ScaleLevel, string>);
+/** Ранги ядра — стабильная структура. Пакет предоставляет параметры и подписи к этим рангам. */
 export const SCALE_ORDER: readonly ScaleLevel[] = SCALE_LEVELS;
-
-/** Темп часов уровня словами — для тултипов лестницы и шапки панели: «дни», «раунды» (HANDOFF §3). */
-export const SCALE_TEMPO_LABELS: Readonly<Record<ScaleLevel, string>> = {
-  cosmology: 'годы', plane: 'годы', system: 'сезоны', planet: 'сезоны', continent: 'десятидневки',
-  region: 'дни', settlement: 'часы', building: '10 минут', battle: 'раунды',
-};
+export const SCALE_TEMPO_LABELS: Readonly<Record<ScaleLevel, string>> = Object.freeze(Object.fromEntries(DEFAULT_LADDER.ranks.map(rank => [rank.id, TEMPO_LABEL[rank.tempo]])) as Record<ScaleLevel, string>);

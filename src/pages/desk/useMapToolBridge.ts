@@ -23,7 +23,7 @@ export interface MapToolLink {
 
 export function useMapToolBridge(store: EngineStoreApi | null, state: State, seeded: Readonly<Record<string, GridCell>>): MapToolLink | null {
   const [poll, setPoll] = useState<DeskPoll | null>(null);
-  const prev = useRef<{ store: EngineStoreApi; seq: number; tokens: readonly VttToken[] } | null>(null);
+  const prev = useRef<{ store: EngineStoreApi; seq: number; map: string | null; tokens: readonly VttToken[] } | null>(null);
   const sentView = useRef('');
 
   const on = LIVE && store !== null;
@@ -43,20 +43,26 @@ export function useMapToolBridge(store: EngineStoreApi | null, state: State, see
     return () => { live = false; clearInterval(id); };
   }, [on]);
 
-  // Ходы: новый снимок MapTool против прошлого. Другая сессия стола — заново, первый снимок выравнивает клетки.
+  // Ходы: новый снимок той же карты MapTool против прошлого. При переходе на другую карту снимок становится базовым.
   useEffect(() => {
     if (!store || !poll?.tokens) return;
-    const was = prev.current?.store === store ? prev.current : null;
-    if (was && was.seq === poll.seq) return;
+    const previous = prev.current?.store === store ? prev.current : null;
+    // seq is process-local and resets when the dev relay restarts. Compare the payload too so a
+    // post-restart snapshot that reuses the last seq still updates the map baseline.
+    if (previous && previous.seq === poll.seq && previous.map === poll.map
+      && JSON.stringify(previous.tokens) === JSON.stringify(poll.tokens)) return;
+    const mapChanged = previous !== null && previous.map !== poll.map;
     const now = store.getState();
-    for (const m of movesFromSnapshot(now.state, was?.tokens, poll.tokens, seeded)) {
-      try {
-        now.moveToken(m.actorId, m.to, 'maptool', m.from);
-      } catch {
-        // Стол отказал (актёр выбыл между опросами) — ход пропущен, следующий снимок даст новый.
+    if (!mapChanged) {
+      for (const m of movesFromSnapshot(now.state, previous?.tokens, poll.tokens, seeded)) {
+        try {
+          now.moveToken(m.actorId, m.to, 'maptool', m.from);
+        } catch {
+          // Стол отказал (актёр выбыл между опросами) — ход пропущен, следующий снимок даст новый.
+        }
       }
     }
-    prev.current = { store, seq: poll.seq, tokens: poll.tokens };
+    prev.current = { store, seq: poll.seq, map: poll.map, tokens: poll.tokens };
   }, [poll, store, seeded]);
 
   // Вид для MapTool — по каждой перемене стола и снимка; одинаковый не шлётся.

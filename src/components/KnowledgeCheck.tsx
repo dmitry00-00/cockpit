@@ -9,7 +9,7 @@ import { SKILLS, type SkillId } from '../rules/srd/abilities';
 import { DIFFICULTY_CLASSES } from '../rules/srd/checks';
 import { SKILL_LABEL } from './labels';
 
-export interface KnowledgeMember { id: string; name: string; mods: Partial<Record<SkillId, number>> }
+export interface KnowledgeMember { id: string; name: string; mods: Partial<Record<SkillId, number>>; keyKnowledge?: number }
 
 export interface KnowledgeCheckProps {
   fact: { label: string; value: string };
@@ -22,6 +22,8 @@ export interface KnowledgeCheckProps {
   onReveal: (p: { by?: string; check?: { skill: SkillId; dc: number; total: number } }) => void;
   /** Бросок системой: d20 + модификатор навыка, DICE_ROLLED; вернуть итог. Нет — итог только вводом. */
   onRoll?: (formula: string, label: string) => number;
+  /** A5E: один личный Key Knowledge по этой сущности даёт преимущество на этот связанный бросок. */
+  onRollWithKeyKnowledge?: (actorId: string, skill: SkillId, dc: number, modifier: number) => number | null;
 }
 
 const BTN = 'type-num-12 uppercase whitespace-nowrap px-2 py-1 bg-cd shadow-bevel text-t2 cursor-pointer enabled:hover:text-tx enabled:active:shadow-bevel-in focus-visible:shadow-[var(--bevel),var(--glow-gold)] disabled:cursor-default disabled:opacity-(--op-disabled)';
@@ -29,7 +31,7 @@ const BTN_MAIN = 'type-num-12 uppercase whitespace-nowrap px-3 py-1 bg-linear-to
 const FIELD = 'h-7 px-1 type-body-sm text-tx bg-wl shadow-bevel-in focus-visible:shadow-[var(--bevel-in),var(--glow-gold)]';
 const signed = (n: number) => (n < 0 ? `−${-n}` : `+${n}`);
 
-export function KnowledgeCheckForm({ fact, members, skills, skill: skill0, dc: dc0, rule, onReveal, onRoll }: KnowledgeCheckProps) {
+export function KnowledgeCheckForm({ fact, members, skills, skill: skill0, dc: dc0, rule, onReveal, onRoll, onRollWithKeyKnowledge }: KnowledgeCheckProps) {
   const [by, setBy] = useState(members[0]?.id ?? '');
   const [skill, setSkill] = useState<SkillId>(skill0);
   const [dc, setDc] = useState(dc0);
@@ -81,6 +83,14 @@ export function KnowledgeCheckForm({ fact, members, skills, skill: skill0, dc: d
               d20 {signed(mod)}
             </button>
           ) : null}
+          {onRollWithKeyKnowledge && member && (member.keyKnowledge ?? 0) > 0 ? (
+            <button type="button" className={BTN} title={`Потратить 1 Key Knowledge по этой сущности и бросить с преимуществом; запас: ${member.keyKnowledge}`} onClick={() => {
+              const result = onRollWithKeyKnowledge(member.id, skill, dc, mod);
+              if (result !== null) { setTotal(String(result)); setMiss(null); }
+            }}>
+              d20 + Key Knowledge ({member.keyKnowledge})
+            </button>
+          ) : null}
         </span>
       </div>
       {miss ? <p role="status" className="type-body-sm text-hp-low">{miss}</p> : null}
@@ -98,16 +108,23 @@ export function KnowledgeCheckForm({ fact, members, skills, skill: skill0, dc: d
  * проверка SRD против Сл знаний); никто — лучший и его разрыв. Шепнуть игроку — дело мастера; открыть партии — «Узнать»
  * на строке паспорта, итог «пассивно» там же.
  */
-export function SkillVoices({ skill, dc, knows, best }: { skill: SkillId; dc: number; knows: readonly { id: string; name: string; score: number }[]; best?: { name: string; score: number } }) {
+export function SkillVoices({ skill, dc, knows, best, successLabel, noneLabel }: {
+  skill: SkillId;
+  dc: number;
+  knows: readonly { id: string; name: string; score: number }[];
+  best?: { name: string; score: number };
+  successLabel?: string;
+  noneLabel?: string;
+}) {
   if (!knows.length && !best) return null;
   const name = SKILL_LABEL[skill];
   return (
     <p data-part="skill-voices" className="type-body-sm text-t2 flex items-start gap-2">
       <Icon name="skill-history" size={16} color="var(--src-players)" title="Голоса навыков: пассивная проверка SRD" />
       {knows.length ? (
-        <span>Знают без броска, {name} против Сл {dc}: <span className="text-tx">{knows.map(v => `${v.name} ${v.score}`).join(', ')}</span></span>
+        <span>{successLabel ?? `Знают без броска, ${name} против Сл ${dc}`}: <span className="text-tx">{knows.map(v => `${v.name} ${v.score}`).join(', ')}</span></span>
       ) : (
-        <span>Без броска никто: лучший — {best!.name}, {name} {best!.score} против Сл {dc}</span>
+        <span>{noneLabel ?? 'Без броска никто'}: лучший — {best!.name}, {name} {best!.score} против Сл {dc}</span>
       )}
     </p>
   );

@@ -1,0 +1,37 @@
+{
+  "format": 1,
+  "id": "a5e",
+  "kind": "rules",
+  "title": "Level Up: Advanced 5th Edition SRD",
+  "titleRu": "A5E SRD",
+  "version": "2026.10.31",
+  "layers": [
+    {
+      "id": "content-a5e-journey-json",
+      "path": "content/a5e/journey.json",
+      "kinds": [
+        "journey"
+      ],
+      "license": "CC-BY-4.0",
+      "distribution": "open",
+      "attribution": "A5E System Reference Document by EN Publishing, Creative Commons Attribution 4.0 International.",
+      "source": {
+        "url": "https://a5esrd.com/a5esrd"
+      }
+    },
+    {
+      "id": "content-a5e-monsters-json",
+      "path": "content/a5e/monsters.json",
+      "kinds": [
+        "monster"
+      ],
+      "license": "CC-BY-4.0",
+      "distribution": "open",
+      "attribution": "A5E System Reference Document by EN Publishing, Creative Commons Attribution 4.0 International.",
+      "source": {
+        "url": "https://a5esrd.com/a5esrd"
+      }
+    }
+  ],
+  "distribution": "open"
+}

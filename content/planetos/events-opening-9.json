@@ -1,0 +1,656 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "event",
+  "entities": [
+    {
+      "ref": "event:jon-receives-news-of-robert-death-and-ned-arrest",
+      "kind": "event",
+      "name": "Jon learns of Robert’s death and Eddard’s arrest",
+      "nameRu": "Джон узнаёт о смерти Роберта и аресте Эддарда",
+      "subtitle": "A Game of Thrones · Jon VII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon VII; A Wiki of Ice and Fire numeric chapter page (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_52",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 52
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon VII"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "Весть о смерти Роберта и обвинении Эддарда в измене доходит до Джона в Castle Black; это получение сообщения в данной главе, а не сами более ранние события."
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; выбранное издание не сверялось"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "В Castle Black Джон получает новости с юга о смерти короля и заключении отца. Сведения достигают его через Ночной Дозор и меняют его оценку долга перед семьёй и братством."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Jeor Mormont",
+          "ref": "person:jeor-mormont"
+        },
+        {
+          "label": "Samwell Tarly",
+          "ref": "person:samwell-tarly"
+        },
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        },
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Robert’s death",
+          "ref": "event:robert-dies-from-hunting-wounds"
+        },
+        {
+          "label": "Ned’s arrest",
+          "ref": "event:stark-coup-and-ned-arrested"
+        }
+      ]
+    },
+    {
+      "ref": "event:wight-attacks-lord-commanders-tower",
+      "kind": "event",
+      "name": "A wight attacks the Lord Commander’s Tower",
+      "nameRu": "Мертвец нападает в Башне лорда-командующего",
+      "subtitle": "A Game of Thrones · Jon VII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon VII; A Wiki of Ice and Fire numeric chapter page (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_52",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 52
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon VII"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "Один из найденных мертвецов оживает ночью и нападает на Джона и лорда-командующего; Джон уничтожает его огнём и спасает Джейора."
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; выбранное издание не сверялось"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Ночью в Castle Black оживший мертвец проникает в покои лорда-командующего. Джон и Призрак сдерживают нападение, а огонь останавливает существо. Эпизод подтверждает непосредственную опасность за Стеной."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Jeor Mormont",
+          "ref": "person:jeor-mormont"
+        },
+        {
+          "label": "Ghost",
+          "ref": "person:ghost"
+        },
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        },
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Lord Commander’s Tower",
+          "ref": "place:lords-commanders-tower-at-castle-black"
+        }
+      ]
+    },
+    {
+      "ref": "event:robb-marches-south-leaving-bran-as-lord",
+      "kind": "event",
+      "name": "Robb marches south and leaves Bran in Winterfell",
+      "nameRu": "Робб уходит на юг, оставляя Брана править Винтерфеллом",
+      "subtitle": "A Game of Thrones · Bran VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran VI; A Wiki of Ice and Fire numeric chapter page (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_53",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 53
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Bran VI"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "Войско Робба выступает на юг; Робб поручает Брану оставаться лордом в Винтерфелле."
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; выбранное издание не сверялось"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "После сбора северных знамен Робб увозит войско на юг, а Брану поручает отвечать за Винтерфелл. Это отдельное исполнение похода, отличное от ранее принятого плана кампании."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "Maester Luwin",
+          "ref": "person:maester-luwin"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        },
+        {
+          "label": "House Stark",
+          "ref": "organization:house-stark"
+        },
+        {
+          "label": "Earlier southward campaign decision",
+          "ref": "event:robb-chooses-southern-campaign"
+        }
+      ]
+    },
+    {
+      "ref": "event:wineseller-attempts-to-poison-daenerys",
+      "kind": "event",
+      "name": "A wineseller attempts to poison Daenerys",
+      "nameRu": "Продавец вина пытается отравить Дейенерис",
+      "subtitle": "A Game of Thrones · Daenerys VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys VI; A Wiki of Ice and Fire numeric chapter page (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_54",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 54
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys VI"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "Попытка происходит на рынке; Джорах распознаёт угрозу и не даёт Дейенерис выпить отравленное вино."
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; выбранное издание не сверялось"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "На рынке в Ваэс Дотраке незнакомый торговец предлагает Дейенерис вино. Джорах требует, чтобы продавец попробовал его первым; попытка уклониться раскрывает угрозу, и заговор срывается."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Jorah Mormont",
+          "ref": "person:jorah-mormont"
+        },
+        {
+          "label": "Drogo",
+          "ref": "person:drogo"
+        },
+        {
+          "label": "Vaes Dothrak",
+          "ref": "place:vaes-dothrak"
+        },
+        {
+          "label": "Robert authorizes the assassination attempt",
+          "ref": "event:robert-orders-daenerys-assassination"
+        },
+        {
+          "label": "Western Market",
+          "ref": "place:western-market-of-vaes-dothrak"
+        }
+      ]
+    },
+    {
+      "ref": "event:drogo-vows-to-invade-westeros",
+      "kind": "event",
+      "name": "Drogo vows to lead his khalasar west",
+      "nameRu": "Дрого клянётся повести кхаласар на запад",
+      "subtitle": "A Game of Thrones · Daenerys VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys VI; A Wiki of Ice and Fire numeric chapter page (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_54",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 54
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys VI"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "Дрого произносит обещание после того, как узнаёт о покушении на Дейенерис; поход ещё не начинается в самой сцене."
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; выбранное издание не сверялось"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Услышав о попытке отравления Дейенерис, Дрого обещает повести кхаласар через море в Вестерос и завоевать для нерождённого сына Железный трон. Карточка фиксирует клятву и намерение, не состоявшийся поход."
+        }
+      ],
+      "links": [
+        {
+          "label": "Drogo",
+          "ref": "person:drogo"
+        },
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Rhaego",
+          "ref": "person:rhaego"
+        },
+        {
+          "label": "Khalasar of Drogo",
+          "ref": "organization:khalasar-of-drogo"
+        },
+        {
+          "label": "Westeros",
+          "ref": "place:westeros"
+        },
+        {
+          "label": "Vaes Dothrak",
+          "ref": "place:vaes-dothrak"
+        }
+      ]
+    },
+    {
+      "ref": "event:joffrey-promises-mercy-if-eddard-confesses",
+      "kind": "event",
+      "name": "Joffrey makes mercy conditional on Eddard’s confession",
+      "nameRu": "Джоффри обещает пощадить Эддарда, если тот признает вину",
+      "subtitle": "A Game of Thrones · Sansa V",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa V; A Wiki of Ice and Fire numeric chapter page (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_57",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 57
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Sansa V"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "Во время слушания Джоффри обещает милость при условии, что Эддард признается и присягнёт; обещание не является вынесенным приговором или гарантией исполнения."
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; выбранное издание не сверялось"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Санса просит за отца, а король объявляет, что Эддард может получить милость, если признает измену и присягнёт Джоффри. Решение усиливает надежду Сансы, но оставляет исход в руках двора."
+        }
+      ],
+      "links": [
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        },
+        {
+          "label": "Joffrey Baratheon",
+          "ref": "person:joffrey-baratheon"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Cersei Lannister",
+          "ref": "person:cersei-lannister"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Eddard’s arrest",
+          "ref": "event:stark-coup-and-ned-arrested"
+        }
+      ]
+    },
+    {
+      "ref": "event:barristan-selmy-leaves-the-kingsguard",
+      "kind": "event",
+      "name": "Barristan Selmy lays down his white cloak",
+      "nameRu": "Барристан Селми складывает белый плащ Королевской гвардии",
+      "subtitle": "A Game of Thrones · Sansa V",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa V; A Wiki of Ice and Fire numeric chapter page (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_57",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 57
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Sansa V"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "После унижения при дворе Барристан оставляет службу; назначение Сандора Клегейна на его место происходит вслед за этим."
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; выбранное издание не сверялось"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Барристан отвергает обращение нового короля с ним и оставляет должность лорда-командующего Королевской гвардии. Его уход открывает место, которое Джоффри отдаёт Сандору Клегейну."
+        }
+      ],
+      "links": [
+        {
+          "label": "Barristan Selmy",
+          "ref": "person:barristan-selmy"
+        },
+        {
+          "label": "Joffrey Baratheon",
+          "ref": "person:joffrey-baratheon"
+        },
+        {
+          "label": "Sandor Clegane",
+          "ref": "person:sandor-clegane"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Red Keep",
+          "ref": "place:red-keep"
+        }
+      ]
+    },
+    {
+      "ref": "event:drogo-wounded-during-lhazareen-raid",
+      "kind": "event",
+      "name": "Drogo is wounded during the raid on a Lhazareen village",
+      "nameRu": "Дрого получает рану во время набега на лхазарянское селение",
+      "subtitle": "A Game of Thrones · Daenerys VII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys VII; A Wiki of Ice and Fire numeric chapter page (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_61",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 61
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys VII"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "Дрого получает рану в бою; Дейенерис вмешивается, чтобы защитить захваченных женщин, и позднее ищет для него лечение."
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; выбранное издание не сверялось"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Во время набега кхаласара сопротивление в селении приводит к ранению Дрого. Дейенерис добивается защиты для лхазарянок, а повреждение становится причиной последующего обращения к Мирри Маз Дуур."
+        }
+      ],
+      "links": [
+        {
+          "label": "Drogo",
+          "ref": "person:drogo"
+        },
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Jorah Mormont",
+          "ref": "person:jorah-mormont"
+        },
+        {
+          "label": "Mirri Maz Duur",
+          "ref": "person:mirri-maz-duur"
+        },
+        {
+          "label": "Khalasar of Drogo",
+          "ref": "organization:khalasar-of-drogo"
+        },
+        {
+          "label": "Dothraki Sea",
+          "ref": "place:dothraki-sea"
+        },
+        {
+          "label": "Daenerys protects the women",
+          "ref": "event:daenerys-protects-lhazareen-women"
+        }
+      ]
+    },
+    {
+      "ref": "event:bran-receives-news-of-eddards-execution",
+      "kind": "event",
+      "name": "Bran receives news of Eddard’s execution",
+      "nameRu": "Бран получает весть о казни Эддарда",
+      "subtitle": "A Game of Thrones · Bran VII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran VII; A Wiki of Ice and Fire numeric chapter page (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_66",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 66
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Bran VII"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "В Винтерфелл приходит ворон с сообщением; Бран и Рикон узнают о казни отца. Сама казнь произошла раньше."
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; выбранное издание не сверялось"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Пока Бран и Рикон слушают рассказ о древней истории Севера, окровавленный ворон приносит известие, после которого Мейстер Лювин сообщает им о смерти Эддарда. Получение вести выделено отдельно от казни в Королевской Гавани."
+        }
+      ],
+      "links": [
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "Rickon Stark",
+          "ref": "person:rickon-stark"
+        },
+        {
+          "label": "Maester Luwin",
+          "ref": "person:maester-luwin"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        },
+        {
+          "label": "Eddard’s execution",
+          "ref": "event:eddard-executed-at-kings-landing"
+        },
+        {
+          "label": "Maester’s turret",
+          "ref": "place:maesters-turret-of-winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "event:daenerys-loses-most-of-drogo-khalasar",
+      "kind": "event",
+      "name": "Most of Drogo’s khalasar abandons Daenerys",
+      "nameRu": "Большая часть кхаласара Дрого покидает Дейенерис",
+      "subtitle": "A Game of Thrones · Daenerys IX",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys IX; A Wiki of Ice and Fire numeric chapter page (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_68",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 68
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys IX"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "После того как Дрого остаётся недееспособным, многие всадники и люди уходят; Дейенерис сохраняет лишь часть прежнего кхаласара."
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; выбранное издание не сверялось"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Когда становится ясно, что прежний кхал не вернётся к управлению, значительная часть его людей уходит со стадами и добычей. Разрыв лишает Дейенерис большей части прежней силы и предшествует её решению заявить права на оставшихся."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Drogo",
+          "ref": "person:drogo"
+        },
+        {
+          "label": "Khalasar of Drogo",
+          "ref": "organization:khalasar-of-drogo"
+        },
+        {
+          "label": "Dothraki Sea",
+          "ref": "place:dothraki-sea"
+        },
+        {
+          "label": "Drogo falls and the bloodriders fight",
+          "ref": "event:drogo-falls-and-bloodriders-die"
+        }
+      ]
+    }
+  ]
+}

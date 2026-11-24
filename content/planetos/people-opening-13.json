@@ -1,0 +1,314 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "person",
+  "entities": [
+    {
+      "ref": "person:direwolf-mother",
+      "kind": "person",
+      "name": "Direwolf Mother",
+      "nameRu": "Мать лютоволков",
+      "subtitle": "A Game of Thrones · Bran I (chapter 1)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran I (chapter 1); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_1",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 1
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Bran I (chapter 1)"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Русское имя",
+          "value": "Рабочая передача; сверить с выбранным изданием владельца."
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Обозначение",
+          "value": "Описательное, не личное имя; первичная формулировка требует сверки."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Погибшая лютоволчица, рядом с которой дети Старков находят шестерых щенков. АWOIAF использует описательное имя; собственной клички у неё в источнике нет."
+        }
+      ],
+      "links": [
+        {
+          "label": "Direwolf pups found",
+          "ref": "event:direwolf-pups-found"
+        },
+        {
+          "label": "Ghost",
+          "ref": "person:ghost"
+        },
+        {
+          "label": "Grey Wind",
+          "ref": "person:grey-wind"
+        },
+        {
+          "label": "Lady",
+          "ref": "person:lady"
+        },
+        {
+          "label": "Nymeria",
+          "ref": "person:nymeria-direwolf"
+        },
+        {
+          "label": "Shaggydog",
+          "ref": "person:shaggydog"
+        },
+        {
+          "label": "Summer",
+          "ref": "person:summer-direwolf"
+        },
+        {
+          "label": "Hills north of Winterfell",
+          "ref": "place:hills-north-of-winterfell"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Game of Thrones · Bran I (chapter 1)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_1",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "agot",
+          "chapterNo": 1
+        }
+      ]
+    },
+    {
+      "ref": "person:silver-mare",
+      "kind": "person",
+      "name": "The silver mare",
+      "nameRu": "Серебряная кобыла",
+      "subtitle": "A Game of Thrones · Daenerys II (chapter 11)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys II (chapter 11); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_11",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 11
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys II (chapter 11)"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Русское имя",
+          "value": "Рабочая передача; сверить с выбранным изданием владельца."
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Обозначение",
+          "value": "«The silver» — описательная форма; не утверждать, что это формальная кличка."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Подаренная Дейенерис кобыла становится её основной спутницей в пути. AWOIAF отмечает, что дотракийцы не дают лошадям имён: это устойчивое описательное обозначение, а не подтверждённая личная кличка."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Drogo",
+          "ref": "person:drogo"
+        },
+        {
+          "label": "Wedding of Daenerys and Drogo",
+          "ref": "event:daenerys-marries-drogo"
+        },
+        {
+          "label": "Dothraki wedding ground",
+          "ref": "place:dothraki-wedding-ground-outside-pentos"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Game of Thrones · Daenerys II (chapter 11)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_11",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "agot",
+          "chapterNo": 11
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Game of Thrones · Daenerys VIII (chapter 64; AWOIAF secondary index)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_64",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "agot",
+          "chapterNo": 64
+        },
+        {
+          "kind": "wiki",
+          "cite": "Silver mare · A Wiki of Ice and Fire",
+          "url": "https://awoiaf.westeros.org/index.php/Silver_mare",
+          "license": "CC-BY-SA-3.0"
+        }
+      ]
+    },
+    {
+      "ref": "person:endrew-tarth",
+      "kind": "person",
+      "name": "Endrew Tarth",
+      "nameRu": "Эндрю Тарт",
+      "subtitle": "A Game of Thrones · Jon VIII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones · Jon VIII (chapter 60); A Wiki of Ice and Fire secondary chapter index; primary-edition verification pending",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_60",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 60
+      },
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Game of Thrones · Jon VIII (chapter 60); A Wiki of Ice and Fire secondary chapter index; primary-edition verification pending",
+          "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_60",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "agot",
+          "chapterNo": 60
+        }
+      ],
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon VIII · глава 60"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается; лично в сцене не появляется"
+        },
+        {
+          "label": "Роль",
+          "value": "рыцарь Ночного дозора из Теневой башни; Джиор Мормонт сообщает Джону, что Эндрю заменит Аллисера Торна в роли наставника по оружию в Чёрном замке"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Джиор Мормонт упоминает Эндрю Тарта как участника Ночного дозора, которого переведут из Теневой башни в Чёрный замок на обязанности наставника по оружию. Глава не показывает его лично и не устанавливает родственные связи с другими Тартами."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Tarth",
+          "ref": "organization:house-tarth"
+        },
+        {
+          "label": "Night's Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Shadow Tower",
+          "ref": "place:shadow-tower"
+        },
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        },
+        {
+          "label": "Jeor Mormont",
+          "ref": "person:jeor-mormont"
+        },
+        {
+          "label": "Alliser Thorne",
+          "ref": "person:alliser-thorne"
+        }
+      ]
+    },
+    {
+      "ref": "person:drogo-stallion",
+      "kind": "person",
+      "name": "Drogo's stallion",
+      "nameRu": "Жеребец Дрого",
+      "subtitle": "A Game of Thrones · Daenerys VIII (chapter 64)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones · Daenerys VIII (chapter 64); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_64",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 64
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys VIII (chapter 64)"
+        },
+        {
+          "label": "Обозначение",
+          "value": "Безымянный жеребец Дрого; карточка использует описательный ярлык главы, это не собственное имя."
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Участвует в сцене главы 64 и приносится в жертву во время ритуала. Другие сведения о животном не выводятся."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Drogo",
+          "ref": "person:drogo"
+        }
+      ]
+    }
+  ]
+}

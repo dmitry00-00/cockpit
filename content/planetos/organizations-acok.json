@@ -1,0 +1,415 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "organization",
+  "entities": [
+    {
+      "ref": "organization:thirteen-of-qarth",
+      "kind": "organization",
+      "name": "The Thirteen of Qarth",
+      "nameRu": "Тринадцать Кварта",
+      "subtitle": "A Clash of Kings · chapter 12",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Daenerys I (chapter 12); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_12",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 12,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Локатор",
+          "value": "Daenerys I · chapter 12"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "упоминается или действует в локаторе"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Оговорка",
+          "value": "Источник главы подтверждает принадлежность Ксаро к группе, но не раскрывает здесь её структуру."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Группа, к которой глава относит Ксаро Ксоан Даксоса; точный состав и полномочия требуют проверки по тексту."
+        }
+      ],
+      "links": [
+        {
+          "label": "Xaro Xhoan Daxos",
+          "ref": "person:xaro-xhoan-daxos"
+        },
+        {
+          "label": "Qarth",
+          "ref": "place:qarth"
+        }
+      ]
+    },
+    {
+      "ref": "organization:alchemists-guild",
+      "kind": "organization",
+      "name": "Alchemists' Guild",
+      "nameRu": "Гильдия алхимиков",
+      "subtitle": "A Clash of Kings · chapter 20",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Tyrion V (chapter 20); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_20",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 20,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Tyrion V · chapter 20"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "упоминается или действует в локаторе"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Гильдия в Королевской Гавани, члены которой производят и хранят дикий огонь."
+        }
+      ],
+      "links": [
+        {
+          "label": "Hallyne",
+          "ref": "person:hallyne"
+        },
+        {
+          "label": "Guildhall of the Alchemists",
+          "ref": "place:guildhall-of-the-alchemists"
+        }
+      ]
+    },
+    {
+      "ref": "organization:house-reed",
+      "kind": "organization",
+      "name": "House Reed",
+      "nameRu": "Дом Ридов",
+      "subtitle": "A Clash of Kings · chapter 21",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Bran III (chapter 21); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_21",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 21,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Bran III · chapter 21"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "появляется"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Дом, чьи представители Меера и Джоджен прибывают в Винтерфелл, чтобы возобновить верность Старкам."
+        }
+      ],
+      "links": [
+        {
+          "label": "Meera Reed",
+          "ref": "person:meera-reed"
+        },
+        {
+          "label": "Jojen Reed",
+          "ref": "person:jojen-reed"
+        },
+        {
+          "label": "Greywater Watch",
+          "ref": "place:greywater-watch"
+        }
+      ]
+    },
+    {
+      "ref": "organization:rainbow-guard",
+      "kind": "organization",
+      "name": "Rainbow Guard",
+      "nameRu": "Радужная гвардия",
+      "subtitle": "A Clash of Kings · chapter 22",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Catelyn II (chapter 22); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_22",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 22,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Catelyn II · chapter 22"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "упоминается или действует в локаторе"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Семь рыцарей, составляющих личную гвардию Ренли; в этой главе он принимает Бриенну в её состав."
+        }
+      ],
+      "links": [
+        {
+          "label": "Renly Baratheon",
+          "ref": "person:renly-baratheon"
+        },
+        {
+          "label": "Brienne of Tarth",
+          "ref": "person:brienne-of-tarth"
+        }
+      ]
+    },
+    {
+      "ref": "organization:house-tallhart",
+      "kind": "organization",
+      "name": "House Tallhart",
+      "nameRu": "Дом Толхарт",
+      "subtitle": "A Clash of Kings · chapter 37",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Theon III (chapter 37); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_37",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 37
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Локатор",
+          "value": "Theon III, глава 37"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "mentioned"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Северный дом, представленный в этом локаторе пленным командиром Бенфредом Толхартом. Состав и положение дома не реконструируются по одной главе."
+        }
+      ],
+      "links": [
+        {
+          "label": "Benfred Tallhart",
+          "ref": "person:benfred-tallhart"
+        }
+      ]
+    },
+    {
+      "ref": "organization:the-pureborn",
+      "kind": "organization",
+      "name": "The Pureborn",
+      "nameRu": "Чистокровные",
+      "subtitle": "A Clash of Kings · chapter 40",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Daenerys III (chapter 40); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_40",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 40
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Daenerys III, глава 40"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "appearing as a group"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Правящая группа Кварта, отказ которой в помощи заставляет Дейенерис пересматривать планы. Полный состав и устройство группы здесь не устанавливаются."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Qarth",
+          "ref": "place:qarth"
+        }
+      ]
+    },
+    {
+      "ref": "organization:house-bolton",
+      "kind": "organization",
+      "name": "House Bolton",
+      "nameRu": "Дом Болтонов",
+      "subtitle": "A Clash of Kings · chapter 47, 64, 66",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Arya IX (Chapter 47); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_47",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 47
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в источнике",
+          "value": "appears"
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; первичное издание не сверялось."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Северный дом Рузе Болтона. Его люди устанавливают власть в Харренхолле и участвуют в кампании вокруг Винтерфелла."
+        }
+      ],
+      "links": [
+        {
+          "label": "Roose Bolton",
+          "ref": "person:roose-bolton"
+        },
+        {
+          "label": "Harrenhal",
+          "ref": "place:harrenhal"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Arya IX (Chapter 47); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_47",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 47
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Arya X (Chapter 64); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_64",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 64
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Theon VI (Chapter 66); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_66",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 66
+        }
+      ]
+    }
+  ]
+}

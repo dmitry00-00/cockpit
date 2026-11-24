@@ -1,0 +1,10 @@
+{
+  "format": 1,
+  "id": "forgotten-realms-editions",
+  "default": "5e",
+  "eras": [
+    { "id": "3e", "throughYear": 1384, "fieldOrder": ["3e", "2e", "1e", ""], "cosmology": "tree" },
+    { "id": "4e", "throughYear": 1487, "fieldOrder": ["4e", "3e", "2e", "1e", ""], "cosmology": "wheel" },
+    { "id": "5e", "fieldOrder": ["5eR", "5e", "4e", "3e", "2e", "1e", ""], "cosmology": "wheel" }
+  ]
+}

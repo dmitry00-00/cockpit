@@ -1,0 +1,27 @@
+{
+  "format": 1,
+  "id": "asoiaf-north-pilot",
+  "kind": "campaign",
+  "title": "A Song of Ice and Fire — Northern Court",
+  "titleRu": "Песнь льда и пламени — Север: королевский визит",
+  "version": "1.0.0",
+  "requires": [
+    { "id": "planetos", "version": "2026.11.24.41" }
+  ],
+  "layers": [
+    {
+      "id": "asoiaf-north-pilot-adventure",
+      "path": "content/campaigns/asoiaf-north-pilot.json",
+      "kinds": ["adventure"],
+      "license": "Internal",
+      "distribution": "internal",
+      "attribution": "Оригинальная игровая структура; краткие канонические ориентиры основаны на вторичном указателе глав AWOIAF и требуют сверки по выбранному изданию.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "GM_START_KIT_DRAFT.md · frontier: Prologue, Bran I, Catelyn I"
+      }
+    }
+  ],
+  "distribution": "internal",
+  "canary": "Внутренний мастерский пакет; не публиковать игрокам как общий справочник до введения границы знания по книге и главе."
+}

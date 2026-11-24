@@ -7,7 +7,7 @@
 export const REFERENCE_KINDS = [
   'condition', 'ability', 'skill', 'resource', 'spell', 'item', 'monster',
   'race', 'subrace', 'trait', 'class', 'subclass', 'feature', 'feat', 'background',
-  'plane', 'body', 'sphere', 'deity', 'pantheon', 'place', 'person', 'organization', 'kingdom',
+  'plane', 'body', 'sphere', 'deity', 'pantheon', 'place', 'person', 'organization', 'kingdom', 'event',
 ] as const;
 
 /** Виды состояния — из State, меняются событиями. */
@@ -45,6 +45,7 @@ export const KIND_LABEL: Readonly<Record<EntityKind, string>> = {
   // Держава — свой вид (решение пользователя 30.10.2026): у неё правители по годам, население, торговля и история,
   // которых нет ни у места карты, ни у организации.
   kingdom: 'Держава',
+  event: 'Событие',
   actor: 'Персонаж',
   location: 'Место кампании',
   faction: 'Фракция',

@@ -1,0 +1,4549 @@
+{
+  "format": "cockpit.planetos-human-denominator-audit/1",
+  "packageSnapshot": "2026.11.24.41",
+  "sourcePolicy": {
+    "globalSource": "Global reconciliation strict human appearance flag; AWOIAF chapter-index locators are secondary indexing.",
+    "crosswalkSource": "Accepted entity-ref crosswalk snapshot at .40, applied only where decision is alias-normalization or identity-normalization and canonical person ref exists in .41.",
+    "primaryBookVerification": "pending; no novel text independently checked.",
+    "scope": "Read-only completeness audit of all 328 global rows with kind=person and human_denominator_included=yes."
+  },
+  "summary": {
+    "rawStrictHumanRefs": 328,
+    "exactDirectPackageMatches": 231,
+    "rawUnmatchedRefsBeforeCrosswalk": 97,
+    "acceptedHumanCrosswalkSourceIds": 5,
+    "acceptedCrosswalkLocatorRows": 12,
+    "duplicateAliasRefsCollapsedIntoAlreadyCountedCanonicalCandidates": 4,
+    "canonicalizedUniqueIdentityCandidates": 324,
+    "matchedCanonicalIdentities": 232,
+    "unmatchedCanonicalIdentities": 92,
+    "trueMissingCards": 89,
+    "aliasOrTypeAmbiguousUnmatchedRefs": 3,
+    "equation": "324 canonicalized identities = 232 matched + 89 true missing + 3 unresolved alias/type candidates",
+    "trueMissingByPriority": {
+      "P2": 57,
+      "not-specified": 32
+    },
+    "ambiguousByPriority": {
+      "not-specified": 3
+    },
+    "currentLivePersonRefs": 535,
+    "currentLivePlanetosRefs": 1107,
+    "strictRefResolutionByPriority": {
+      "P0": {
+        "strictRefs": 3,
+        "resolvedRefs": 3,
+        "unresolvedRefs": 0
+      },
+      "P1": {
+        "strictRefs": 86,
+        "resolvedRefs": 86,
+        "unresolvedRefs": 0
+      },
+      "P2": {
+        "strictRefs": 145,
+        "resolvedRefs": 88,
+        "unresolvedRefs": 57
+      },
+      "not-specified": {
+        "strictRefs": 94,
+        "resolvedRefs": 59,
+        "unresolvedRefs": 35
+      }
+    },
+    "allP0P1StrictRefsResolved": true,
+    "acceptedParentCrosswalksOutsideSnapshotFile": 1,
+    "grazdanReview": "AWOIAF Daenerys III separately lists four Grazdan appearances, and the Grazdan mo Ullhor profile says he is one of four named Grazdans; the three descriptor IDs are counted as true missing separately. Primary-book verification pending."
+  },
+  "acceptedHumanCrosswalks": [
+    {
+      "sourceId": "person:arryk",
+      "sourceName": "Arryk",
+      "canonicalRef": "person:arryk-cargyll",
+      "decision": "alias-normalization",
+      "outputKind": "person",
+      "chapters": [
+        {
+          "chapterNo": 6,
+          "chapterTitle": "Sansa I",
+          "sourceRelation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6"
+        }
+      ],
+      "targetExistsIn41": true
+    },
+    {
+      "sourceId": "person:erryk",
+      "sourceName": "Erryk",
+      "canonicalRef": "person:erryk-cargyll",
+      "decision": "alias-normalization",
+      "outputKind": "person",
+      "chapters": [
+        {
+          "chapterNo": 6,
+          "chapterTitle": "Sansa I",
+          "sourceRelation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6"
+        }
+      ],
+      "targetExistsIn41": true
+    },
+    {
+      "sourceId": "person:aemon-targaryen",
+      "sourceName": "Aemon Targaryen",
+      "canonicalRef": "person:maester-aemon",
+      "decision": "identity-normalization",
+      "outputKind": "person",
+      "chapters": [
+        {
+          "chapterNo": 64,
+          "chapterTitle": "Jon VIII",
+          "sourceRelation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_64"
+        },
+        {
+          "chapterNo": 69,
+          "chapterTitle": "Jon IX",
+          "sourceRelation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_69"
+        },
+        {
+          "chapterNo": 75,
+          "chapterTitle": "Samwell IV",
+          "sourceRelation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_75"
+        },
+        {
+          "chapterNo": 78,
+          "chapterTitle": "Samwell V",
+          "sourceRelation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_78"
+        },
+        {
+          "chapterNo": 79,
+          "chapterTitle": "Jon XII",
+          "sourceRelation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_79"
+        }
+      ],
+      "targetExistsIn41": true
+    },
+    {
+      "sourceId": "person:tormund",
+      "sourceName": "Tormund",
+      "canonicalRef": "person:tormund-giantsbane",
+      "decision": "identity-normalization",
+      "outputKind": "person",
+      "chapters": [
+        {
+          "chapterNo": 7,
+          "chapterTitle": "Jon I",
+          "sourceRelation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_7"
+        },
+        {
+          "chapterNo": 15,
+          "chapterTitle": "Jon II",
+          "sourceRelation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_15"
+        },
+        {
+          "chapterNo": 73,
+          "chapterTitle": "Jon X",
+          "sourceRelation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_73"
+        }
+      ],
+      "targetExistsIn41": true
+    },
+    {
+      "sourceId": "person:jon-umber",
+      "sourceName": "Jon Umber",
+      "canonicalRef": "person:greatjon-umber",
+      "decision": "parent-confirmed-identity-normalization",
+      "outputKind": "person",
+      "chapters": [
+        {
+          "chapterNo": 14,
+          "chapterTitle": "Catelyn II",
+          "sourceRelation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_14"
+        },
+        {
+          "chapterNo": 35,
+          "chapterTitle": "Catelyn IV",
+          "sourceRelation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_35"
+        }
+      ],
+      "targetExistsIn41": true,
+      "provenance": "Parent-confirmed during this audit."
+    }
+  ],
+  "matchedCanonicalIdentities": [
+    {
+      "identityRef": "person:addam-marbrand",
+      "candidateIds": [
+        "person:addam-marbrand"
+      ],
+      "matchedPackageRef": "person:addam-marbrand",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:aenys-frey",
+      "candidateIds": [
+        "person:aenys-frey"
+      ],
+      "matchedPackageRef": "person:aenys-frey",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:aggo",
+      "candidateIds": [
+        "person:aggo"
+      ],
+      "matchedPackageRef": "person:aggo",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:alerie-hightower",
+      "candidateIds": [
+        "person:alerie-hightower"
+      ],
+      "matchedPackageRef": "person:alerie-hightower",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:alester-florent",
+      "candidateIds": [
+        "person:alester-florent"
+      ],
+      "matchedPackageRef": "person:alester-florent",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:alla-tyrell",
+      "candidateIds": [
+        "person:alla-tyrell"
+      ],
+      "matchedPackageRef": "person:alla-tyrell",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:alliser-thorne",
+      "candidateIds": [
+        "person:alliser-thorne"
+      ],
+      "matchedPackageRef": "person:alliser-thorne",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:alyce-graceford",
+      "candidateIds": [
+        "person:alyce-graceford"
+      ],
+      "matchedPackageRef": "person:alyce-graceford",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:alysanne-bulwer",
+      "candidateIds": [
+        "person:alysanne-bulwer"
+      ],
+      "matchedPackageRef": "person:alysanne-bulwer",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:andrew-estermont",
+      "candidateIds": [
+        "person:andrew-estermont"
+      ],
+      "matchedPackageRef": "person:andrew-estermont",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:anguy",
+      "candidateIds": [
+        "person:anguy"
+      ],
+      "matchedPackageRef": "person:anguy",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:arryk-cargyll",
+      "candidateIds": [
+        "person:arryk",
+        "person:arryk-cargyll"
+      ],
+      "matchedPackageRef": "person:arryk-cargyll",
+      "matchMethod": "accepted-crosswalk",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:arya-stark",
+      "candidateIds": [
+        "person:arya-stark"
+      ],
+      "matchedPackageRef": "person:arya-stark",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:axell-florent",
+      "candidateIds": [
+        "person:axell-florent"
+      ],
+      "matchedPackageRef": "person:axell-florent",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:ballabar",
+      "candidateIds": [
+        "person:ballabar"
+      ],
+      "matchedPackageRef": "person:ballabar",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:balon-swann",
+      "candidateIds": [
+        "person:balon-swann"
+      ],
+      "matchedPackageRef": "person:balon-swann",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:barristan-selmy",
+      "candidateIds": [
+        "person:barristan-selmy"
+      ],
+      "matchedPackageRef": "person:barristan-selmy",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:bedwyck",
+      "candidateIds": [
+        "person:bedwyck"
+      ],
+      "matchedPackageRef": "person:bedwyck",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:belwas",
+      "candidateIds": [
+        "person:belwas"
+      ],
+      "matchedPackageRef": "person:belwas",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:ben-plumm",
+      "candidateIds": [
+        "person:ben-plumm"
+      ],
+      "matchedPackageRef": "person:ben-plumm",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:beric-dondarrion",
+      "candidateIds": [
+        "person:beric-dondarrion"
+      ],
+      "matchedPackageRef": "person:beric-dondarrion",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:blane",
+      "candidateIds": [
+        "person:blane"
+      ],
+      "matchedPackageRef": "person:blane",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:boros-blount",
+      "candidateIds": [
+        "person:boros-blount"
+      ],
+      "matchedPackageRef": "person:boros-blount",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:bowen-marsh",
+      "candidateIds": [
+        "person:bowen-marsh"
+      ],
+      "matchedPackageRef": "person:bowen-marsh",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:bran-stark",
+      "candidateIds": [
+        "person:bran-stark"
+      ],
+      "matchedPackageRef": "person:bran-stark",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:brienne-of-tarth",
+      "candidateIds": [
+        "person:brienne-of-tarth"
+      ],
+      "matchedPackageRef": "person:brienne-of-tarth",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:bronn",
+      "candidateIds": [
+        "person:bronn"
+      ],
+      "matchedPackageRef": "person:bronn",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:brown-bernarr",
+      "candidateIds": [
+        "person:brown-bernarr"
+      ],
+      "matchedPackageRef": "person:brown-bernarr",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:brynden-tully",
+      "candidateIds": [
+        "person:brynden-tully"
+      ],
+      "matchedPackageRef": "person:brynden-tully",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:butterbumps",
+      "candidateIds": [
+        "person:butterbumps"
+      ],
+      "matchedPackageRef": "person:butterbumps",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:catelyn-stark",
+      "candidateIds": [
+        "person:catelyn-stark"
+      ],
+      "matchedPackageRef": "person:catelyn-stark",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:cellador",
+      "candidateIds": [
+        "person:cellador"
+      ],
+      "matchedPackageRef": "person:cellador",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:cersei-lannister",
+      "candidateIds": [
+        "person:cersei-lannister"
+      ],
+      "matchedPackageRef": "person:cersei-lannister",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:chett",
+      "candidateIds": [
+        "person:chett"
+      ],
+      "matchedPackageRef": "person:chett",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:cleos-frey",
+      "candidateIds": [
+        "person:cleos-frey"
+      ],
+      "matchedPackageRef": "person:cleos-frey",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:clubfoot-karl",
+      "candidateIds": [
+        "person:clubfoot-karl"
+      ],
+      "matchedPackageRef": "person:clubfoot-karl",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:clydas",
+      "candidateIds": [
+        "person:clydas"
+      ],
+      "matchedPackageRef": "person:clydas",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:colemon",
+      "candidateIds": [
+        "person:colemon"
+      ],
+      "matchedPackageRef": "person:colemon",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:cotter-pyke",
+      "candidateIds": [
+        "person:cotter-pyke"
+      ],
+      "matchedPackageRef": "person:cotter-pyke",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:craster",
+      "candidateIds": [
+        "person:craster"
+      ],
+      "matchedPackageRef": "person:craster",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:daario-naharis",
+      "candidateIds": [
+        "person:daario-naharis"
+      ],
+      "matchedPackageRef": "person:daario-naharis",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:daemon-sand",
+      "candidateIds": [
+        "person:daemon-sand"
+      ],
+      "matchedPackageRef": "person:daemon-sand",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:daenerys-targaryen",
+      "candidateIds": [
+        "person:daenerys-targaryen"
+      ],
+      "matchedPackageRef": "person:daenerys-targaryen",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:dagos-manwoody",
+      "candidateIds": [
+        "person:dagos-manwoody"
+      ],
+      "matchedPackageRef": "person:dagos-manwoody",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:dalla",
+      "candidateIds": [
+        "person:dalla"
+      ],
+      "matchedPackageRef": "person:dalla",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:danwell-frey",
+      "candidateIds": [
+        "person:danwell-frey"
+      ],
+      "matchedPackageRef": "person:danwell-frey",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:davos-seaworth",
+      "candidateIds": [
+        "person:davos-seaworth"
+      ],
+      "matchedPackageRef": "person:davos-seaworth",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:denys-mallister",
+      "candidateIds": [
+        "person:denys-mallister"
+      ],
+      "matchedPackageRef": "person:denys-mallister",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:desmond-grell",
+      "candidateIds": [
+        "person:desmond-grell"
+      ],
+      "matchedPackageRef": "person:desmond-grell",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:devan-seaworth",
+      "candidateIds": [
+        "person:devan-seaworth"
+      ],
+      "matchedPackageRef": "person:devan-seaworth",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:dirk",
+      "candidateIds": [
+        "person:dirk"
+      ],
+      "matchedPackageRef": "person:dirk",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:donal-noye",
+      "candidateIds": [
+        "person:donal-noye"
+      ],
+      "matchedPackageRef": "person:donal-noye",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:donnel-hill",
+      "candidateIds": [
+        "person:donnel-hill"
+      ],
+      "matchedPackageRef": "person:donnel-hill",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:dontos-hollard",
+      "candidateIds": [
+        "person:dontos-hollard"
+      ],
+      "matchedPackageRef": "person:dontos-hollard",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:dormund",
+      "candidateIds": [
+        "person:dormund"
+      ],
+      "matchedPackageRef": "person:dormund",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:dywen",
+      "candidateIds": [
+        "person:dywen"
+      ],
+      "matchedPackageRef": "person:dywen",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:eddison-tollett",
+      "candidateIds": [
+        "person:eddison-tollett"
+      ],
+      "matchedPackageRef": "person:eddison-tollett",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:edmure-tully",
+      "candidateIds": [
+        "person:edmure-tully"
+      ],
+      "matchedPackageRef": "person:edmure-tully",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:edric-dayne",
+      "candidateIds": [
+        "person:edric-dayne"
+      ],
+      "matchedPackageRef": "person:edric-dayne",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:edric-storm",
+      "candidateIds": [
+        "person:edric-storm"
+      ],
+      "matchedPackageRef": "person:edric-storm",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:eleyna-westerling",
+      "candidateIds": [
+        "person:eleyna-westerling"
+      ],
+      "matchedPackageRef": "person:eleyna-westerling",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:elinor-tyrell",
+      "candidateIds": [
+        "person:elinor-tyrell"
+      ],
+      "matchedPackageRef": "person:elinor-tyrell",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:ellaria-sand",
+      "candidateIds": [
+        "person:ellaria-sand"
+      ],
+      "matchedPackageRef": "person:ellaria-sand",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:erryk-cargyll",
+      "candidateIds": [
+        "person:erryk",
+        "person:erryk-cargyll"
+      ],
+      "matchedPackageRef": "person:erryk-cargyll",
+      "matchMethod": "accepted-crosswalk",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:flement-brax",
+      "candidateIds": [
+        "person:flement-brax"
+      ],
+      "matchedPackageRef": "person:flement-brax",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:frenken",
+      "candidateIds": [
+        "person:frenken"
+      ],
+      "matchedPackageRef": "person:frenken",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:galbart-glover",
+      "candidateIds": [
+        "person:galbart-glover"
+      ],
+      "matchedPackageRef": "person:galbart-glover",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:garlan-tyrell",
+      "candidateIds": [
+        "person:garlan-tyrell"
+      ],
+      "matchedPackageRef": "person:garlan-tyrell",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:gendry",
+      "candidateIds": [
+        "person:gendry"
+      ],
+      "matchedPackageRef": "person:gendry",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:gilly",
+      "candidateIds": [
+        "person:gilly"
+      ],
+      "matchedPackageRef": "person:gilly",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:greatjon-umber",
+      "candidateIds": [
+        "person:greatjon-umber",
+        "person:jon-umber"
+      ],
+      "matchedPackageRef": "person:greatjon-umber",
+      "matchMethod": "parent-confirmed-crosswalk",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:greenbeard",
+      "candidateIds": [
+        "person:greenbeard"
+      ],
+      "matchedPackageRef": "person:greenbeard",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:gregor-clegane",
+      "candidateIds": [
+        "person:gregor-clegane"
+      ],
+      "matchedPackageRef": "person:gregor-clegane",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:grenn",
+      "candidateIds": [
+        "person:grenn"
+      ],
+      "matchedPackageRef": "person:grenn",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:grey-worm",
+      "candidateIds": [
+        "person:grey-worm"
+      ],
+      "matchedPackageRef": "person:grey-worm",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:grigg-the-goat",
+      "candidateIds": [
+        "person:grigg-the-goat"
+      ],
+      "matchedPackageRef": "person:grigg-the-goat",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:groleo",
+      "candidateIds": [
+        "person:groleo"
+      ],
+      "matchedPackageRef": "person:groleo",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:gyles-rosby",
+      "candidateIds": [
+        "person:gyles-rosby"
+      ],
+      "matchedPackageRef": "person:gyles-rosby",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:hake",
+      "candidateIds": [
+        "person:hake"
+      ],
+      "matchedPackageRef": "person:hake",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:halder",
+      "candidateIds": [
+        "person:halder"
+      ],
+      "matchedPackageRef": "person:halder",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:hareth",
+      "candidateIds": [
+        "person:hareth"
+      ],
+      "matchedPackageRef": "person:hareth",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:harma-dogshead",
+      "candidateIds": [
+        "person:harma-dogshead"
+      ],
+      "matchedPackageRef": "person:harma-dogshead",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:harwin",
+      "candidateIds": [
+        "person:harwin"
+      ],
+      "matchedPackageRef": "person:harwin",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:harys-swyft",
+      "candidateIds": [
+        "person:harys-swyft"
+      ],
+      "matchedPackageRef": "person:harys-swyft",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:hobber-redwyne",
+      "candidateIds": [
+        "person:hobber-redwyne"
+      ],
+      "matchedPackageRef": "person:hobber-redwyne",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:hodor",
+      "candidateIds": [
+        "person:hodor"
+      ],
+      "matchedPackageRef": "person:hodor",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:hosteen-frey",
+      "candidateIds": [
+        "person:hosteen-frey"
+      ],
+      "matchedPackageRef": "person:hosteen-frey",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:hoster-tully",
+      "candidateIds": [
+        "person:hoster-tully"
+      ],
+      "matchedPackageRef": "person:hoster-tully",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:hot-pie",
+      "candidateIds": [
+        "person:hot-pie"
+      ],
+      "matchedPackageRef": "person:hot-pie",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:irri",
+      "candidateIds": [
+        "person:irri"
+      ],
+      "matchedPackageRef": "person:irri",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:jack-be-lucky",
+      "candidateIds": [
+        "person:jack-be-lucky"
+      ],
+      "matchedPackageRef": "person:jack-be-lucky",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:jaime-lannister",
+      "candidateIds": [
+        "person:jaime-lannister"
+      ],
+      "matchedPackageRef": "person:jaime-lannister",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:jalabhar-xho",
+      "candidateIds": [
+        "person:jalabhar-xho"
+      ],
+      "matchedPackageRef": "person:jalabhar-xho",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:janna-fossoway",
+      "candidateIds": [
+        "person:janna-fossoway"
+      ],
+      "matchedPackageRef": "person:janna-fossoway",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:janos-slynt",
+      "candidateIds": [
+        "person:janos-slynt"
+      ],
+      "matchedPackageRef": "person:janos-slynt",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:jarl",
+      "candidateIds": [
+        "person:jarl"
+      ],
+      "matchedPackageRef": "person:jarl",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:jason-mallister",
+      "candidateIds": [
+        "person:jason-mallister"
+      ],
+      "matchedPackageRef": "person:jason-mallister",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:jeor-mormont",
+      "candidateIds": [
+        "person:jeor-mormont"
+      ],
+      "matchedPackageRef": "person:jeor-mormont",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:jeyne-westerling",
+      "candidateIds": [
+        "person:jeyne-westerling"
+      ],
+      "matchedPackageRef": "person:jeyne-westerling",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:jhiqui",
+      "candidateIds": [
+        "person:jhiqui"
+      ],
+      "matchedPackageRef": "person:jhiqui",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:jhogo",
+      "candidateIds": [
+        "person:jhogo"
+      ],
+      "matchedPackageRef": "person:jhogo",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:joffrey-baratheon",
+      "candidateIds": [
+        "person:joffrey-baratheon"
+      ],
+      "matchedPackageRef": "person:joffrey-baratheon",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:jojen-reed",
+      "candidateIds": [
+        "person:jojen-reed"
+      ],
+      "matchedPackageRef": "person:jojen-reed",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:jon-snow",
+      "candidateIds": [
+        "person:jon-snow"
+      ],
+      "matchedPackageRef": "person:jon-snow",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:jonos-bracken",
+      "candidateIds": [
+        "person:jonos-bracken"
+      ],
+      "matchedPackageRef": "person:jonos-bracken",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:jorah-mormont",
+      "candidateIds": [
+        "person:jorah-mormont"
+      ],
+      "matchedPackageRef": "person:jorah-mormont",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:karyl-vance",
+      "candidateIds": [
+        "person:karyl-vance"
+      ],
+      "matchedPackageRef": "person:karyl-vance",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:kedge-whiteye",
+      "candidateIds": [
+        "person:kedge-whiteye"
+      ],
+      "matchedPackageRef": "person:kedge-whiteye",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:kegs",
+      "candidateIds": [
+        "person:kegs"
+      ],
+      "matchedPackageRef": "person:kegs",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:kennos-of-kayce",
+      "candidateIds": [
+        "person:kennos-of-kayce"
+      ],
+      "matchedPackageRef": "person:kennos-of-kayce",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:kevan-lannister",
+      "candidateIds": [
+        "person:kevan-lannister"
+      ],
+      "matchedPackageRef": "person:kevan-lannister",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:khorane-sathmantes",
+      "candidateIds": [
+        "person:khorane-sathmantes"
+      ],
+      "matchedPackageRef": "person:khorane-sathmantes",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:kraznys-mo-nakloz",
+      "candidateIds": [
+        "person:kraznys-mo-nakloz"
+      ],
+      "matchedPackageRef": "person:kraznys-mo-nakloz",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:lark",
+      "candidateIds": [
+        "person:lark"
+      ],
+      "matchedPackageRef": "person:lark",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:lem",
+      "candidateIds": [
+        "person:lem"
+      ],
+      "matchedPackageRef": "person:lem",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:lenyl",
+      "candidateIds": [
+        "person:lenyl"
+      ],
+      "matchedPackageRef": "person:lenyl",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:leonette-fossoway",
+      "candidateIds": [
+        "person:leonette-fossoway"
+      ],
+      "matchedPackageRef": "person:leonette-fossoway",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:lollys-stokeworth",
+      "candidateIds": [
+        "person:lollys-stokeworth"
+      ],
+      "matchedPackageRef": "person:lollys-stokeworth",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:long-lew",
+      "candidateIds": [
+        "person:long-lew"
+      ],
+      "matchedPackageRef": "person:long-lew",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:loras-tyrell",
+      "candidateIds": [
+        "person:loras-tyrell"
+      ],
+      "matchedPackageRef": "person:loras-tyrell",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:lothar-frey",
+      "candidateIds": [
+        "person:lothar-frey"
+      ],
+      "matchedPackageRef": "person:lothar-frey",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:lothor-brune",
+      "candidateIds": [
+        "person:lothor-brune"
+      ],
+      "matchedPackageRef": "person:lothor-brune",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:lymond-lychester",
+      "candidateIds": [
+        "person:lymond-lychester"
+      ],
+      "matchedPackageRef": "person:lymond-lychester",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:lysa-arryn",
+      "candidateIds": [
+        "person:lysa-arryn"
+      ],
+      "matchedPackageRef": "person:lysa-arryn",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:mace-tyrell",
+      "candidateIds": [
+        "person:mace-tyrell"
+      ],
+      "matchedPackageRef": "person:mace-tyrell",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:maege-mormont",
+      "candidateIds": [
+        "person:maege-mormont"
+      ],
+      "matchedPackageRef": "person:maege-mormont",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:maester-aemon",
+      "candidateIds": [
+        "person:aemon-targaryen"
+      ],
+      "matchedPackageRef": "person:maester-aemon",
+      "matchMethod": "accepted-crosswalk",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:mag-mar-tun-doh-weg",
+      "candidateIds": [
+        "person:mag-mar-tun-doh-weg"
+      ],
+      "matchedPackageRef": "person:mag-mar-tun-doh-weg",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:mallador-locke",
+      "candidateIds": [
+        "person:mallador-locke"
+      ],
+      "matchedPackageRef": "person:mallador-locke",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:mance-rayder",
+      "candidateIds": [
+        "person:mance-rayder"
+      ],
+      "matchedPackageRef": "person:mance-rayder",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:margaery-tyrell",
+      "candidateIds": [
+        "person:margaery-tyrell"
+      ],
+      "matchedPackageRef": "person:margaery-tyrell",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:marillion",
+      "candidateIds": [
+        "person:marillion"
+      ],
+      "matchedPackageRef": "person:marillion",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:marq-piper",
+      "candidateIds": [
+        "person:marq-piper"
+      ],
+      "matchedPackageRef": "person:marq-piper",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:martyn-rivers",
+      "candidateIds": [
+        "person:martyn-rivers"
+      ],
+      "matchedPackageRef": "person:martyn-rivers",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:masha-heddle",
+      "candidateIds": [
+        "person:masha-heddle"
+      ],
+      "matchedPackageRef": "person:masha-heddle",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:maslyn",
+      "candidateIds": [
+        "person:maslyn"
+      ],
+      "matchedPackageRef": "person:maslyn",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:mathis-rowan",
+      "candidateIds": [
+        "person:mathis-rowan"
+      ],
+      "matchedPackageRef": "person:mathis-rowan",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:meera-reed",
+      "candidateIds": [
+        "person:meera-reed"
+      ],
+      "matchedPackageRef": "person:meera-reed",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:megga-tyrell",
+      "candidateIds": [
+        "person:megga-tyrell"
+      ],
+      "matchedPackageRef": "person:megga-tyrell",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:meizo-mahr",
+      "candidateIds": [
+        "person:meizo-mahr"
+      ],
+      "matchedPackageRef": "person:meizo-mahr",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:melisandre",
+      "candidateIds": [
+        "person:melisandre"
+      ],
+      "matchedPackageRef": "person:melisandre",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:meredyth-crane",
+      "candidateIds": [
+        "person:meredyth-crane"
+      ],
+      "matchedPackageRef": "person:meredyth-crane",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:merrett-frey",
+      "candidateIds": [
+        "person:merrett-frey"
+      ],
+      "matchedPackageRef": "person:merrett-frey",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:meryn-trant",
+      "candidateIds": [
+        "person:meryn-trant"
+      ],
+      "matchedPackageRef": "person:meryn-trant",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:missandei",
+      "candidateIds": [
+        "person:missandei"
+      ],
+      "matchedPackageRef": "person:missandei",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:moon-boy",
+      "candidateIds": [
+        "person:moon-boy"
+      ],
+      "matchedPackageRef": "person:moon-boy",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:morros-slynt",
+      "candidateIds": [
+        "person:morros-slynt"
+      ],
+      "matchedPackageRef": "person:morros-slynt",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:mully",
+      "candidateIds": [
+        "person:mully"
+      ],
+      "matchedPackageRef": "person:mully",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:munda",
+      "candidateIds": [
+        "person:munda"
+      ],
+      "matchedPackageRef": "person:munda",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:nage",
+      "candidateIds": [
+        "person:nage"
+      ],
+      "matchedPackageRef": "person:nage",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:nysterica",
+      "candidateIds": [
+        "person:nysterica"
+      ],
+      "matchedPackageRef": "person:nysterica",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:oberyn-martell",
+      "candidateIds": [
+        "person:oberyn-martell"
+      ],
+      "matchedPackageRef": "person:oberyn-martell",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:olenna-tyrell",
+      "candidateIds": [
+        "person:olenna-tyrell"
+      ],
+      "matchedPackageRef": "person:olenna-tyrell",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:ollo-lophand",
+      "candidateIds": [
+        "person:ollo-lophand"
+      ],
+      "matchedPackageRef": "person:ollo-lophand",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:one-eye",
+      "candidateIds": [
+        "person:one-eye"
+      ],
+      "matchedPackageRef": "person:one-eye",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:osfryd-kettleblack",
+      "candidateIds": [
+        "person:osfryd-kettleblack"
+      ],
+      "matchedPackageRef": "person:osfryd-kettleblack",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:osmund-kettleblack",
+      "candidateIds": [
+        "person:osmund-kettleblack"
+      ],
+      "matchedPackageRef": "person:osmund-kettleblack",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:osney-kettleblack",
+      "candidateIds": [
+        "person:osney-kettleblack"
+      ],
+      "matchedPackageRef": "person:osney-kettleblack",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:oswell-kettleblack",
+      "candidateIds": [
+        "person:oswell-kettleblack"
+      ],
+      "matchedPackageRef": "person:oswell-kettleblack",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:othell-yarwyck",
+      "candidateIds": [
+        "person:othell-yarwyck"
+      ],
+      "matchedPackageRef": "person:othell-yarwyck",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:ottyn-wythers",
+      "candidateIds": [
+        "person:ottyn-wythers"
+      ],
+      "matchedPackageRef": "person:ottyn-wythers",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:owen-the-oaf",
+      "candidateIds": [
+        "person:owen-the-oaf"
+      ],
+      "matchedPackageRef": "person:owen-the-oaf",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:patchface",
+      "candidateIds": [
+        "person:patchface"
+      ],
+      "matchedPackageRef": "person:patchface",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:paxter-redwyne",
+      "candidateIds": [
+        "person:paxter-redwyne"
+      ],
+      "matchedPackageRef": "person:paxter-redwyne",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:perwyn-frey",
+      "candidateIds": [
+        "person:perwyn-frey"
+      ],
+      "matchedPackageRef": "person:perwyn-frey",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:petyr-baelish",
+      "candidateIds": [
+        "person:petyr-baelish"
+      ],
+      "matchedPackageRef": "person:petyr-baelish",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:podrick-payne",
+      "candidateIds": [
+        "person:podrick-payne"
+      ],
+      "matchedPackageRef": "person:podrick-payne",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:pycelle",
+      "candidateIds": [
+        "person:pycelle"
+      ],
+      "matchedPackageRef": "person:pycelle",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:pylos",
+      "candidateIds": [
+        "person:pylos"
+      ],
+      "matchedPackageRef": "person:pylos",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:pypar",
+      "candidateIds": [
+        "person:pypar"
+      ],
+      "matchedPackageRef": "person:pypar",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:quaithe",
+      "candidateIds": [
+        "person:quaithe"
+      ],
+      "matchedPackageRef": "person:quaithe",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:qyburn",
+      "candidateIds": [
+        "person:qyburn"
+      ],
+      "matchedPackageRef": "person:qyburn",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:ragwyle",
+      "candidateIds": [
+        "person:ragwyle"
+      ],
+      "matchedPackageRef": "person:ragwyle",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:rakharo",
+      "candidateIds": [
+        "person:rakharo"
+      ],
+      "matchedPackageRef": "person:rakharo",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:rattleshirt",
+      "candidateIds": [
+        "person:rattleshirt"
+      ],
+      "matchedPackageRef": "person:rattleshirt",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:ravella-smallwood",
+      "candidateIds": [
+        "person:ravella-smallwood"
+      ],
+      "matchedPackageRef": "person:ravella-smallwood",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:raynald-westerling",
+      "candidateIds": [
+        "person:raynald-westerling"
+      ],
+      "matchedPackageRef": "person:raynald-westerling",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:rickard-karstark",
+      "candidateIds": [
+        "person:rickard-karstark"
+      ],
+      "matchedPackageRef": "person:rickard-karstark",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:robb-stark",
+      "candidateIds": [
+        "person:robb-stark"
+      ],
+      "matchedPackageRef": "person:robb-stark",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:robert-arryn",
+      "candidateIds": [
+        "person:robert-arryn"
+      ],
+      "matchedPackageRef": "person:robert-arryn",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:robin-ryger",
+      "candidateIds": [
+        "person:robin-ryger"
+      ],
+      "matchedPackageRef": "person:robin-ryger",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:rollam-westerling",
+      "candidateIds": [
+        "person:rollam-westerling"
+      ],
+      "matchedPackageRef": "person:rollam-westerling",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:rolland-storm",
+      "candidateIds": [
+        "person:rolland-storm"
+      ],
+      "matchedPackageRef": "person:rolland-storm",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:rolph-spicer",
+      "candidateIds": [
+        "person:rolph-spicer"
+      ],
+      "matchedPackageRef": "person:rolph-spicer",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:roose-bolton",
+      "candidateIds": [
+        "person:roose-bolton"
+      ],
+      "matchedPackageRef": "person:roose-bolton",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:rorge",
+      "candidateIds": [
+        "person:rorge"
+      ],
+      "matchedPackageRef": "person:rorge",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:salladhor-saan",
+      "candidateIds": [
+        "person:salladhor-saan"
+      ],
+      "matchedPackageRef": "person:salladhor-saan",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:samwell-tarly",
+      "candidateIds": [
+        "person:samwell-tarly"
+      ],
+      "matchedPackageRef": "person:samwell-tarly",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:sandor-clegane",
+      "candidateIds": [
+        "person:sandor-clegane"
+      ],
+      "matchedPackageRef": "person:sandor-clegane",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:sansa-stark",
+      "candidateIds": [
+        "person:sansa-stark"
+      ],
+      "matchedPackageRef": "person:sansa-stark",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:satin",
+      "candidateIds": [
+        "person:satin"
+      ],
+      "matchedPackageRef": "person:satin",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:sawwood",
+      "candidateIds": [
+        "person:sawwood"
+      ],
+      "matchedPackageRef": "person:sawwood",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:selyse-florent",
+      "candidateIds": [
+        "person:selyse-florent"
+      ],
+      "matchedPackageRef": "person:selyse-florent",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:shae",
+      "candidateIds": [
+        "person:shae"
+      ],
+      "matchedPackageRef": "person:shae",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:sharna",
+      "candidateIds": [
+        "person:sharna"
+      ],
+      "matchedPackageRef": "person:sharna",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:shireen-baratheon",
+      "candidateIds": [
+        "person:shireen-baratheon"
+      ],
+      "matchedPackageRef": "person:shireen-baratheon",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:sly",
+      "candidateIds": [
+        "person:sly"
+      ],
+      "matchedPackageRef": "person:sly",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:small-paul",
+      "candidateIds": [
+        "person:small-paul"
+      ],
+      "matchedPackageRef": "person:small-paul",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:smalljon-umber",
+      "candidateIds": [
+        "person:smalljon-umber"
+      ],
+      "matchedPackageRef": "person:smalljon-umber",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:spare-boot",
+      "candidateIds": [
+        "person:spare-boot"
+      ],
+      "matchedPackageRef": "person:spare-boot",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:stannis-baratheon",
+      "candidateIds": [
+        "person:stannis-baratheon"
+      ],
+      "matchedPackageRef": "person:stannis-baratheon",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:steelshanks-walton",
+      "candidateIds": [
+        "person:steelshanks-walton"
+      ],
+      "matchedPackageRef": "person:steelshanks-walton",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:styr",
+      "candidateIds": [
+        "person:styr"
+      ],
+      "matchedPackageRef": "person:styr",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:sybell-spicer",
+      "candidateIds": [
+        "person:sybell-spicer"
+      ],
+      "matchedPackageRef": "person:sybell-spicer",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:symon-silver-tongue",
+      "candidateIds": [
+        "person:symon-silver-tongue"
+      ],
+      "matchedPackageRef": "person:symon-silver-tongue",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:taena-merryweather",
+      "candidateIds": [
+        "person:taena-merryweather"
+      ],
+      "matchedPackageRef": "person:taena-merryweather",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:tallad",
+      "candidateIds": [
+        "person:tallad"
+      ],
+      "matchedPackageRef": "person:tallad",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:thoren-smallwood",
+      "candidateIds": [
+        "person:thoren-smallwood"
+      ],
+      "matchedPackageRef": "person:thoren-smallwood",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:thoros-of-myr",
+      "candidateIds": [
+        "person:thoros-of-myr"
+      ],
+      "matchedPackageRef": "person:thoros-of-myr",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:three-finger-hobb",
+      "candidateIds": [
+        "person:three-finger-hobb"
+      ],
+      "matchedPackageRef": "person:three-finger-hobb",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:tickler",
+      "candidateIds": [
+        "person:tickler"
+      ],
+      "matchedPackageRef": "person:tickler",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:tion-frey",
+      "candidateIds": [
+        "person:tion-frey"
+      ],
+      "matchedPackageRef": "person:tion-frey",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:tobho-mott",
+      "candidateIds": [
+        "person:tobho-mott"
+      ],
+      "matchedPackageRef": "person:tobho-mott",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:todder",
+      "candidateIds": [
+        "person:todder"
+      ],
+      "matchedPackageRef": "person:todder",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:tom-of-sevenstreams",
+      "candidateIds": [
+        "person:tom-of-sevenstreams"
+      ],
+      "matchedPackageRef": "person:tom-of-sevenstreams",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:tommen-baratheon",
+      "candidateIds": [
+        "person:tommen-baratheon"
+      ],
+      "matchedPackageRef": "person:tommen-baratheon",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:toregg",
+      "candidateIds": [
+        "person:toregg"
+      ],
+      "matchedPackageRef": "person:toregg",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:tormund-giantsbane",
+      "candidateIds": [
+        "person:tormund",
+        "person:tormund-giantsbane"
+      ],
+      "matchedPackageRef": "person:tormund-giantsbane",
+      "matchMethod": "accepted-crosswalk",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:tyrion-lannister",
+      "candidateIds": [
+        "person:tyrion-lannister"
+      ],
+      "matchedPackageRef": "person:tyrion-lannister",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:tytos-blackwood",
+      "candidateIds": [
+        "person:tytos-blackwood"
+      ],
+      "matchedPackageRef": "person:tytos-blackwood",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:tywin-lannister",
+      "candidateIds": [
+        "person:tywin-lannister"
+      ],
+      "matchedPackageRef": "person:tywin-lannister",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:utherydes-wayn",
+      "candidateIds": [
+        "person:utherydes-wayn"
+      ],
+      "matchedPackageRef": "person:utherydes-wayn",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:val",
+      "candidateIds": [
+        "person:val"
+      ],
+      "matchedPackageRef": "person:val",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:varamyr",
+      "candidateIds": [
+        "person:varamyr"
+      ],
+      "matchedPackageRef": "person:varamyr",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:varamyr-sixskins",
+      "candidateIds": [
+        "person:varamyr-sixskins"
+      ],
+      "matchedPackageRef": "person:varamyr-sixskins",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:vargo-hoat",
+      "candidateIds": [
+        "person:vargo-hoat"
+      ],
+      "matchedPackageRef": "person:vargo-hoat",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:varys",
+      "candidateIds": [
+        "person:varys"
+      ],
+      "matchedPackageRef": "person:varys",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:vyman",
+      "candidateIds": [
+        "person:vyman"
+      ],
+      "matchedPackageRef": "person:vyman",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:walder-rivers",
+      "candidateIds": [
+        "person:walder-rivers"
+      ],
+      "matchedPackageRef": "person:walder-rivers",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:weeper",
+      "candidateIds": [
+        "person:weeper"
+      ],
+      "matchedPackageRef": "person:weeper",
+      "matchMethod": "direct-ref",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:willem-lannister",
+      "candidateIds": [
+        "person:willem-lannister"
+      ],
+      "matchedPackageRef": "person:willem-lannister",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    },
+    {
+      "identityRef": "person:ygritte",
+      "candidateIds": [
+        "person:ygritte"
+      ],
+      "matchedPackageRef": "person:ygritte",
+      "matchMethod": "package_refs",
+      "kind": "person"
+    }
+  ],
+  "trueMissingCards": [
+    {
+      "ref": "person:shagwell",
+      "name": "Shagwell",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 21,
+          "chapterTitle": "Jaime III",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_21"
+        },
+        {
+          "chapterNo": 31,
+          "chapterTitle": "Jaime IV",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_31"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:timeon",
+      "name": "Timeon",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 21,
+          "chapterTitle": "Jaime III",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_21"
+        },
+        {
+          "chapterNo": 31,
+          "chapterTitle": "Jaime IV",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_31"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:urswyck",
+      "name": "Urswyck",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 21,
+          "chapterTitle": "Jaime III",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_21"
+        },
+        {
+          "chapterNo": 31,
+          "chapterTitle": "Jaime IV",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_31"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:zollo",
+      "name": "Zollo",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 21,
+          "chapterTitle": "Jaime III",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_21"
+        },
+        {
+          "chapterNo": 31,
+          "chapterTitle": "Jaime IV",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_31"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:roone",
+      "name": "Roone",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 22,
+          "chapterTitle": "Arya IV",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_22"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:grazdan-mo-ullhor",
+      "name": "Grazdan mo Ullhor",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 27,
+          "chapterTitle": "Daenerys III",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_27"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package. The AWOIAF character index lists this named figure alongside three other Grazdan identities; the profile describes mo Ullhor as one of four named Grazdans. Keep the four indexed candidates distinct pending primary-book verification.",
+      "identityReviewStatus": "separately indexed; primary verification pending",
+      "statusOrAmbiguity": "AWOIAF lists four Grazdan identities separately in Daenerys III; mo Ullhor is described as one of four named Grazdans. No primary novel verification performed.",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing",
+      "identityReviewNote": "Keep separate from Grazdan (fat one), Grazdan (spiked beard), and Grazdan (tall one): the AWOIAF chapter index lists all four separately and mo Ullhor’s profile calls him one of four named Grazdans. This is secondary-source evidence only; primary verification pending."
+    },
+    {
+      "ref": "person:alyn-ambrose",
+      "name": "Alyn Ambrose",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 28,
+          "chapterTitle": "Sansa III",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_28"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:ermesande-hayford",
+      "name": "Ermesande Hayford",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 28,
+          "chapterTitle": "Sansa III",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_28"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:orton-merryweather",
+      "name": "Orton Merryweather",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 28,
+          "chapterTitle": "Sansa III",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_28"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:philip-foote",
+      "name": "Philip Foote",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40",
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 28,
+          "chapterTitle": "Sansa III",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_28"
+        },
+        {
+          "chapterNo": 38,
+          "chapterTitle": "Tyrion V",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_38"
+        },
+        {
+          "chapterNo": 66,
+          "chapterTitle": "Tyrion IX",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_66"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:bella",
+      "name": "Bella",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 29,
+          "chapterTitle": "Arya V",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_29"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:cass",
+      "name": "Cass",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 29,
+          "chapterTitle": "Arya V",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_29"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:helly",
+      "name": "Helly",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 29,
+          "chapterTitle": "Arya V",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_29"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:jyzene",
+      "name": "Jyzene",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 29,
+          "chapterTitle": "Arya V",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_29"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:lanna",
+      "name": "Lanna",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 29,
+          "chapterTitle": "Arya V",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_29"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:tansy",
+      "name": "Tansy",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 29,
+          "chapterTitle": "Arya V",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_29"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:errok",
+      "name": "Errok",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 30,
+          "chapterTitle": "Jon IV",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_30"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:amabel",
+      "name": "Amabel",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 31,
+          "chapterTitle": "Jaime IV",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_31"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:alan-of-rosby",
+      "name": "Alan of Rosby",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 33,
+          "chapterTitle": "Samwell II",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_33"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:bannen",
+      "name": "Bannen",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 33,
+          "chapterTitle": "Samwell II",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_33"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:byam-flint",
+      "name": "Byam Flint",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 33,
+          "chapterTitle": "Samwell II",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_33"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:ferny",
+      "name": "Ferny",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 33,
+          "chapterTitle": "Samwell II",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_33"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:fornio",
+      "name": "Fornio",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 33,
+          "chapterTitle": "Samwell II",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_33"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:garth-of-greenaway",
+      "name": "Garth of Greenaway",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 33,
+          "chapterTitle": "Samwell II",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_33"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:garth-of-oldtown",
+      "name": "Garth of Oldtown",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 33,
+          "chapterTitle": "Samwell II",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_33"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:orphan-oss",
+      "name": "Orphan Oss",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 33,
+          "chapterTitle": "Samwell II",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_33"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:rolley-of-sisterton",
+      "name": "Rolley of Sisterton",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 33,
+          "chapterTitle": "Samwell II",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_33"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:ronnel-harclay",
+      "name": "Ronnel Harclay",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 33,
+          "chapterTitle": "Samwell II",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_33"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:tim-stone",
+      "name": "Tim Stone",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 33,
+          "chapterTitle": "Samwell II",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_33"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:ulmer-of-the-kingswood",
+      "name": "Ulmer of the Kingswood",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40",
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 33,
+          "chapterTitle": "Samwell II",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_33"
+        },
+        {
+          "chapterNo": 79,
+          "chapterTitle": "Jon XII",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_79"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:dennet",
+      "name": "Dennet",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 34,
+          "chapterTitle": "Arya VI",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_34"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:kyle",
+      "name": "Kyle",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 34,
+          "chapterTitle": "Arya VI",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_34"
+        },
+        {
+          "chapterNo": 39,
+          "chapterTitle": "Arya VII",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_39"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:melly",
+      "name": "Melly",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 34,
+          "chapterTitle": "Arya VI",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_34"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:elmar-frey",
+      "name": "Elmar Frey",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 37,
+          "chapterTitle": "Jaime V",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_37"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:arron-qorgyle",
+      "name": "Arron Qorgyle",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40",
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 38,
+          "chapterTitle": "Tyrion V",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_38"
+        },
+        {
+          "chapterNo": 70,
+          "chapterTitle": "Tyrion X",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_70"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:deziel-dalt",
+      "name": "Deziel Dalt",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 38,
+          "chapterTitle": "Tyrion V",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_38"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:dickon-manwoody",
+      "name": "Dickon Manwoody",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 38,
+          "chapterTitle": "Tyrion V",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_38"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:harmen-uller",
+      "name": "Harmen Uller",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 38,
+          "chapterTitle": "Tyrion V",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_38"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:jynessa-blackmont",
+      "name": "Jynessa Blackmont",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 38,
+          "chapterTitle": "Tyrion V",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_38"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:larra-blackmont",
+      "name": "Larra Blackmont",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 38,
+          "chapterTitle": "Tyrion V",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_38"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:merlon-crakehall",
+      "name": "Merlon Crakehall",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 38,
+          "chapterTitle": "Tyrion V",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_38"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:mors-manwoody",
+      "name": "Mors Manwoody",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 38,
+          "chapterTitle": "Tyrion V",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_38"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:myles-manwoody",
+      "name": "Myles Manwoody",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 38,
+          "chapterTitle": "Tyrion V",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_38"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:myria-jordayne",
+      "name": "Myria Jordayne",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 38,
+          "chapterTitle": "Tyrion V",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_38"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:perros-blackmont",
+      "name": "Perros Blackmont",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 38,
+          "chapterTitle": "Tyrion V",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_38"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:ryon-allyrion",
+      "name": "Ryon Allyrion",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 38,
+          "chapterTitle": "Tyrion V",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_38"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:tremond-gargalen",
+      "name": "Tremond Gargalen",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 38,
+          "chapterTitle": "Tyrion V",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_38"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:ulwyck-uller",
+      "name": "Ulwyck Uller",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 38,
+          "chapterTitle": "Tyrion V",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_38"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:beardless-dick",
+      "name": "Beardless Dick",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 39,
+          "chapterTitle": "Arya VII",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_39"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:merrit-o-moontown",
+      "name": "Merrit o' Moontown",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 39,
+          "chapterTitle": "Arya VII",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_39"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:mudge",
+      "name": "Mudge",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 39,
+          "chapterTitle": "Arya VII",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_39"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:notch",
+      "name": "Notch",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40",
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 39,
+          "chapterTitle": "Arya VII",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_39"
+        },
+        {
+          "chapterNo": 81,
+          "chapterTitle": "Epilogue",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Epilogue"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:utt",
+      "name": "Utt",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 39,
+          "chapterTitle": "Arya VII",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_39"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:watty-the-miller",
+      "name": "Watty the Miller",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 39,
+          "chapterTitle": "Arya VII",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_39"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:gerald-gower",
+      "name": "Gerald Gower",
+      "priority": "not-specified",
+      "sourceRanges": [
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 63,
+          "chapterTitle": "Davos VI",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_63"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:lewys-the-fishwife",
+      "name": "Lewys the Fishwife",
+      "priority": "not-specified",
+      "sourceRanges": [
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 63,
+          "chapterTitle": "Davos VI",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_63"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:omer-blackberry",
+      "name": "Omer Blackberry",
+      "priority": "not-specified",
+      "sourceRanges": [
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 63,
+          "chapterTitle": "Davos VI",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_63"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:triston-of-tally-hill",
+      "name": "Triston of Tally Hill",
+      "priority": "not-specified",
+      "sourceRanges": [
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 63,
+          "chapterTitle": "Davos VI",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_63"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:arron",
+      "name": "Arron",
+      "priority": "not-specified",
+      "sourceRanges": [
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 64,
+          "chapterTitle": "Jon VIII",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_64"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:emrick",
+      "name": "Emrick",
+      "priority": "not-specified",
+      "sourceRanges": [
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 64,
+          "chapterTitle": "Jon VIII",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_64"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:jack-bulwer",
+      "name": "Jack Bulwer",
+      "priority": "not-specified",
+      "sourceRanges": [
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 64,
+          "chapterTitle": "Jon VIII",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_64"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:red-alyn-of-the-rosewood",
+      "name": "Red Alyn of the Rosewood",
+      "priority": "not-specified",
+      "sourceRanges": [
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 64,
+          "chapterTitle": "Jon VIII",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_64"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:spotted-pate-of-maidenpool",
+      "name": "Spotted Pate of Maidenpool",
+      "priority": "not-specified",
+      "sourceRanges": [
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 64,
+          "chapterTitle": "Jon VIII",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_64"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:zei",
+      "name": "Zei",
+      "priority": "not-specified",
+      "sourceRanges": [
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 64,
+          "chapterTitle": "Jon VIII",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_64"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:ardrian-celtigar",
+      "name": "Ardrian Celtigar",
+      "priority": "not-specified",
+      "sourceRanges": [
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 66,
+          "chapterTitle": "Tyrion IX",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_66"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:galyeon-of-cuy",
+      "name": "Galyeon of Cuy",
+      "priority": "not-specified",
+      "sourceRanges": [
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 66,
+          "chapterTitle": "Tyrion IX",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_66"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:josmyn-peckledon",
+      "name": "Josmyn Peckledon",
+      "priority": "not-specified",
+      "sourceRanges": [
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 66,
+          "chapterTitle": "Tyrion IX",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_66"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:jothos-slynt",
+      "name": "Jothos Slynt",
+      "priority": "not-specified",
+      "sourceRanges": [
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 66,
+          "chapterTitle": "Tyrion IX",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_66"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:bryen",
+      "name": "Bryen",
+      "priority": "not-specified",
+      "sourceRanges": [
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 68,
+          "chapterTitle": "Sansa VI",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_68"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:grisel",
+      "name": "Grisel",
+      "priority": "not-specified",
+      "sourceRanges": [
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 68,
+          "chapterTitle": "Sansa VI",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_68"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:kella",
+      "name": "Kella",
+      "priority": "not-specified",
+      "sourceRanges": [
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 68,
+          "chapterTitle": "Sansa VI",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_68"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:umfred",
+      "name": "Umfred",
+      "priority": "not-specified",
+      "sourceRanges": [
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 68,
+          "chapterTitle": "Sansa VI",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_68"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:glendon-hewett",
+      "name": "Glendon Hewett",
+      "priority": "not-specified",
+      "sourceRanges": [
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 69,
+          "chapterTitle": "Jon IX",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_69"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:tim-tangletongue",
+      "name": "Tim Tangletongue",
+      "priority": "not-specified",
+      "sourceRanges": [
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 69,
+          "chapterTitle": "Jon IX",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_69"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:wynton-stout",
+      "name": "Wynton Stout",
+      "priority": "not-specified",
+      "sourceRanges": [
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 69,
+          "chapterTitle": "Jon IX",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_69"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:ghael",
+      "name": "Ghael",
+      "priority": "not-specified",
+      "sourceRanges": [
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 71,
+          "chapterTitle": "Daenerys VI",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_71"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:arrowhead",
+      "name": "Arrowhead",
+      "priority": "not-specified",
+      "sourceRanges": [
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 73,
+          "chapterTitle": "Jon X",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_73"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:harma",
+      "name": "Harma",
+      "priority": "not-specified",
+      "sourceRanges": [
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 73,
+          "chapterTitle": "Jon X",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_73"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:quenn",
+      "name": "Quenn",
+      "priority": "not-specified",
+      "sourceRanges": [
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 73,
+          "chapterTitle": "Jon X",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_73"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:torwynd",
+      "name": "Torwynd",
+      "priority": "not-specified",
+      "sourceRanges": [
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 73,
+          "chapterTitle": "Jon X",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_73"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:polliver",
+      "name": "Polliver",
+      "priority": "not-specified",
+      "sourceRanges": [
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 74,
+          "chapterTitle": "Arya XIII",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_74"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "Selected continuity mention; not an exhaustive list and not an appearance.",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids | people_mentioned_ids",
+      "sourceRolesSeen": "appearing | mentioned"
+    },
+    {
+      "ref": "person:ternesio-terys",
+      "name": "Ternesio Terys",
+      "priority": "not-specified",
+      "sourceRanges": [
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 74,
+          "chapterTitle": "Arya XIII",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_74"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:lester",
+      "name": "Lester",
+      "priority": "not-specified",
+      "sourceRanges": [
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 77,
+          "chapterTitle": "Tyrion XI",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_77"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:lum",
+      "name": "Lum",
+      "priority": "not-specified",
+      "sourceRanges": [
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 77,
+          "chapterTitle": "Tyrion XI",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_77"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:emmett",
+      "name": "Emmett",
+      "priority": "not-specified",
+      "sourceRanges": [
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 79,
+          "chapterTitle": "Jon XII",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_79"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:petyr-frey",
+      "name": "Petyr Frey",
+      "priority": "not-specified",
+      "sourceRanges": [
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 81,
+          "chapterTitle": "Epilogue",
+          "range": "61-81",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Epilogue"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "Selected continuity mention; not an exhaustive list and not an appearance.",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids | people_mentioned_ids",
+      "sourceRolesSeen": "appearing | mentioned"
+    },
+    {
+      "ref": "person:grazdan-fat-one",
+      "name": "Grazdan (fat one)",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 27,
+          "chapterTitle": "Daenerys III",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_27"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package. AWOIAF Daenerys III separately lists this descriptor as an appearing character; the Grazdan mo Ullhor profile says he is one of four named Grazdans. Treat as a separate indexed candidate; primary-book verification remains pending.",
+      "identityReviewStatus": "separately indexed; primary verification pending",
+      "statusOrAmbiguity": "AWOIAF lists four Grazdan identities separately in Daenerys III; mo Ullhor is described as one of four named Grazdans. No primary novel verification performed.",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:grazdan-spiked-beard",
+      "name": "Grazdan (spiked beard)",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 27,
+          "chapterTitle": "Daenerys III",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_27"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package. AWOIAF Daenerys III separately lists this descriptor as an appearing character; the Grazdan mo Ullhor profile says he is one of four named Grazdans. Treat as a separate indexed candidate; primary-book verification remains pending.",
+      "identityReviewStatus": "separately indexed; primary verification pending",
+      "statusOrAmbiguity": "AWOIAF lists four Grazdan identities separately in Daenerys III; mo Ullhor is described as one of four named Grazdans. No primary novel verification performed.",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:grazdan-tall-one",
+      "name": "Grazdan (tall one)",
+      "priority": "P2",
+      "sourceRanges": [
+        "21-40"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 27,
+          "chapterTitle": "Daenerys III",
+          "range": "21-40",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_27"
+        }
+      ],
+      "classification": "true-missing",
+      "reason": "No person card ref or accepted crosswalk target is present in live .41 package. AWOIAF Daenerys III separately lists this descriptor as an appearing character; the Grazdan mo Ullhor profile says he is one of four named Grazdans. Treat as a separate indexed candidate; primary-book verification remains pending.",
+      "identityReviewStatus": "separately indexed; primary verification pending",
+      "statusOrAmbiguity": "AWOIAF lists four Grazdan identities separately in Daenerys III; mo Ullhor is described as one of four named Grazdans. No primary novel verification performed.",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    }
+  ],
+  "unresolvedAliasOrTypeCandidates": [
+    {
+      "ref": "person:ryk",
+      "name": "Ryk",
+      "priority": "not-specified",
+      "sourceRanges": [
+        "0-20"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 7,
+          "chapterTitle": "Jon I",
+          "range": "0-20",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_7"
+        }
+      ],
+      "classification": "identity-review",
+      "reason": "Earlier parent instruction: Ryk and Longspear Ryk remain separate unresolved IDs; no merge until primary-text review.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:longspear-ryk",
+      "name": "Longspear Ryk",
+      "priority": "not-specified",
+      "sourceRanges": [
+        "0-20"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 15,
+          "chapterTitle": "Jon II",
+          "range": "0-20",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_15"
+        }
+      ],
+      "classification": "identity-review",
+      "reason": "Earlier parent instruction: Ryk and Longspear Ryk remain separate unresolved IDs; no merge until primary-text review.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids",
+      "sourceRolesSeen": "appearing"
+    },
+    {
+      "ref": "person:high-septon",
+      "name": "High Septon",
+      "priority": "not-specified",
+      "sourceRanges": [
+        "0-20",
+        "61-81"
+      ],
+      "chapters": [
+        {
+          "chapterNo": 19,
+          "chapterTitle": "Tyrion III",
+          "range": "0-20",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_19"
+        }
+      ],
+      "classification": "type-or-identity-review",
+      "reason": "The chapter index lists the office-holder as appearing, but it provides only the office title, not a stable named individual; prior card-draft direction was to exclude unnamed office-holders.",
+      "identityReviewStatus": "no explicit ambiguity flagged",
+      "statusOrAmbiguity": "Selected continuity mention; not an exhaustive list and not an appearance.",
+      "sourceStatus": "secondary-indexed-partial; primary verification pending",
+      "proposedLedgerField": "people_appearing_ids | people_mentioned_ids",
+      "sourceRolesSeen": "appearing | mentioned"
+    }
+  ],
+  "matchedButAmbiguousRefs": [
+    {
+      "ref": "person:quaithe",
+      "issue": "Card exists; AWOIAF/ledger context mixes appearing and dream-related interpretation. Preserve the existing card, but keep locator role for primary review."
+    },
+    {
+      "ref": "person:rattleshirt",
+      "issue": "Card exists; prior instruction keeps the Lord of Bones/Rattleshirt identity boundary under review and forbids a new duplicate/merge before primary review."
+    },
+    {
+      "ref": "person:greatjon-umber",
+      "issue": "Card exists; distinct from Smalljon Umber. Keep both refs separate."
+    },
+    {
+      "ref": "person:smalljon-umber",
+      "issue": "Card exists; distinct from Greatjon Umber. Keep both refs separate."
+    }
+  ],
+  "crosswalkRowsOutsideDenominator": [
+    {
+      "sourceId": "place:wall",
+      "targetRef": "place:the-wall",
+      "decision": "alias-normalization",
+      "outputKind": "place",
+      "reason": "AWOIAF indexes the Wall as a place in this chapter; use the existing canonical The Wall ref.",
+      "denominatorIncluded": false
+    },
+    {
+      "sourceId": "place:wall",
+      "targetRef": "place:the-wall",
+      "decision": "alias-normalization",
+      "outputKind": "place",
+      "reason": "AWOIAF indexes the Wall as a place in this chapter; use the existing canonical The Wall ref.",
+      "denominatorIncluded": false
+    },
+    {
+      "sourceId": "place:eyrie",
+      "targetRef": "place:the-eyrie",
+      "decision": "alias-normalization",
+      "outputKind": "place",
+      "reason": "The indexed Eyrie maps to the existing canonical The Eyrie card.",
+      "denominatorIncluded": false
+    },
+    {
+      "sourceId": "place:moon-door",
+      "targetRef": "place:moon-door-of-the-eyrie",
+      "decision": "alias-normalization",
+      "outputKind": "place",
+      "reason": "The indexed Moon Door maps to the existing canonical Moon Door of the Eyrie card.",
+      "denominatorIncluded": false
+    },
+    {
+      "sourceId": "person:nights-watch",
+      "targetRef": "organization:nights-watch",
+      "decision": "type-correction",
+      "outputKind": "organization",
+      "reason": "The indexed entity is the Night’s Watch organization, not an individual person; place it in organization_ids.",
+      "denominatorIncluded": false
+    },
+    {
+      "sourceId": "person:moles-town",
+      "targetRef": "place:moles-town",
+      "decision": "type-correction",
+      "outputKind": "place",
+      "reason": "Mole’s Town is a location referred to in the chapter, not a person and not a scene location.",
+      "denominatorIncluded": false
+    },
+    {
+      "sourceId": "person:brown-ben-plumm",
+      "targetRef": null,
+      "decision": "alias-review-no-card",
+      "outputKind": "person",
+      "reason": "Possible duplicate of existing .40 card person:ben-plumm; do not merge/create a second card before checking the primary text.",
+      "denominatorIncluded": false
+    }
+  ],
+  "validation": {
+    "globalStrictUniqueRefs": true,
+    "currentPackageRefsRead": true,
+    "currentPeopleRefsRead": 535,
+    "allAcceptedHumanCrosswalkTargetsLive": true,
+    "allChapterLocatorsParsed": true,
+    "allMissingCandidatesHaveLocators": true,
+    "matchMissingAmbiguousSum": true,
+    "noProjectFilesModified": true
+  }
+}

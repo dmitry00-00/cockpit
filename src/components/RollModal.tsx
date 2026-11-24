@@ -22,6 +22,7 @@ export interface RollHistoryItem {
   total: number;
   outcome: RollOutcome;
   hidden: boolean;
+  origin?: DiceRolled['origin'];
 }
 
 export interface RollModalProps {
@@ -70,7 +71,8 @@ export function rollHistoryOf(events: readonly DomainEvent[], limit = HISTORY_MA
     const e = events[i];
     if (e.type !== 'DICE_ROLLED' || e.undoes || e.redoes || undone.has(e.id)) continue;
     const p = e.payload as PayloadByType['DICE_ROLLED'];
-    out.push({ id: e.id, label: p.label, formula: p.formula, total: p.total, outcome: d20Outcome(p), hidden: p.hidden });
+    if (p.group) continue;
+    out.push({ id: e.id, label: p.label, formula: p.formula, total: p.total, outcome: d20Outcome(p), hidden: p.hidden, ...(p.origin ? { origin: p.origin } : {}) });
   }
   return out;
 }
@@ -81,7 +83,9 @@ export function lastRollOf(events: readonly DomainEvent[]): { id: string; roll: 
   for (let i = events.length - 1; i >= 0; i--) {
     const e = events[i];
     if (e.type !== 'DICE_ROLLED' || e.undoes || e.redoes || undone.has(e.id)) continue;
-    return { id: e.id, roll: e.payload as PayloadByType['DICE_ROLLED'] };
+    const roll = e.payload as PayloadByType['DICE_ROLLED'];
+    if (roll.group) continue;
+    return { id: e.id, roll };
   }
   return null;
 }
@@ -125,6 +129,7 @@ export function RollModal({ roll, outcome, history = [], hidden = false, onHidde
       {roll.label ? <div data-part="formula" className="type-body-sm text-t2">{roll.formula}</div> : null}
       <div data-part="total" className="flex items-center gap-2">
         <span className={`type-num-32 ${tone}`}>{roll.total}</span>
+        {roll.origin ? <span data-part="origin" className="type-num-12 uppercase text-gd">{roll.origin === 'physical-manual' ? 'Физический' : 'Связанный дайс'}</span> : null}
         {roll.hidden ? <Icon name="hidden" size={16} color="var(--src-players)" title="Скрытый бросок: игроки не видели" /> : null}
       </div>
       <div data-part="dice" className="flex flex-wrap items-center gap-1">
@@ -159,6 +164,7 @@ export function RollModal({ roll, outcome, history = [], hidden = false, onHidde
             <li key={h.id} data-outcome={h.outcome ?? undefined} className="flex items-center gap-2 type-body-sm text-t2">
               <span className="flex-1 min-w-0 truncate" title={`${h.label || h.formula} · ${h.formula}`}>{h.label || h.formula}</span>
               {h.hidden ? <Icon name="hidden" size={16} color="var(--src-players)" title="Скрытый бросок" /> : null}
+              {h.origin ? <span className="type-num-12 uppercase text-gd">Физ.</span> : null}
               <span data-part="history-total" className={`flex-none type-num-15 ${TOTAL_TONE[h.outcome ?? 'plain']}`}>{h.total}</span>
             </li>
           ))}

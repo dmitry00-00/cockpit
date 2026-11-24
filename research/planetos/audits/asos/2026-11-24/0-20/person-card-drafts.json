@@ -1,0 +1,3284 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "person",
+  "entities": [
+    {
+      "ref": "person:bedwyck",
+      "kind": "person",
+      "name": "Bedwyck",
+      "subtitle": "A Storm of Swords · Prologue (ch. 0)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Prologue (Chapter 0); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Prologue",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 0
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Prologue (Chapter 0) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Bedwyck к появляющимся в Prologue (ch. 0). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 0,
+          "chapterTitle": "Prologue",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Prologue"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:blane",
+      "kind": "person",
+      "name": "Blane",
+      "subtitle": "A Storm of Swords · Prologue (ch. 0)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Prologue (Chapter 0); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Prologue",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 0
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Prologue (Chapter 0) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Blane к появляющимся в Prologue (ch. 0). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 0,
+          "chapterTitle": "Prologue",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Prologue"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:brown-bernarr",
+      "kind": "person",
+      "name": "Brown Bernarr",
+      "subtitle": "A Storm of Swords · Prologue (ch. 0)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Prologue (Chapter 0); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Prologue",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 0
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Prologue (Chapter 0) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        },
+        {
+          "label": "Неоднозначность имени",
+          "value": "В списке упоминаний главы 18 указано имя Black Bernarr; тождество с Brown Bernarr не установлено. Не объединять без первичной сверки."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Brown Bernarr к появляющимся в Prologue (ch. 0). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 0,
+          "chapterTitle": "Prologue",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Prologue"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:dirk",
+      "kind": "person",
+      "name": "Dirk",
+      "subtitle": "A Storm of Swords · Prologue (ch. 0)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Prologue (Chapter 0); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Prologue",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 0
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Prologue (Chapter 0) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Dirk к появляющимся в Prologue (ch. 0). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 0,
+          "chapterTitle": "Prologue",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Prologue"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:donnel-hill",
+      "kind": "person",
+      "name": "Sweet Donnel Hill",
+      "subtitle": "A Storm of Swords · Prologue (ch. 0)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Prologue (Chapter 0); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Prologue",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 0
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Prologue (Chapter 0) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Sweet Donnel Hill к появляющимся в Prologue (ch. 0). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю. В списке имён главы AWOIAF сокращает его до Donnel Hill."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 0,
+          "chapterTitle": "Prologue",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Prologue"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:kedge-whiteye",
+      "kind": "person",
+      "name": "Kedge Whiteye",
+      "subtitle": "A Storm of Swords · Prologue (ch. 0)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Prologue (Chapter 0); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Prologue",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 0
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Prologue (Chapter 0) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Kedge Whiteye к появляющимся в Prologue (ch. 0). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 0,
+          "chapterTitle": "Prologue",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Prologue"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:lark",
+      "kind": "person",
+      "name": "Lark the Sisterman",
+      "subtitle": "A Storm of Swords · Prologue (ch. 0)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Prologue (Chapter 0); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Prologue",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 0
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Prologue (Chapter 0) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Lark the Sisterman к появляющимся в Prologue (ch. 0). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю. В синопсисе AWOIAF дано полное прозвище, а в списке персонажей — краткая форма Lark."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 0,
+          "chapterTitle": "Prologue",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Prologue"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:mallador-locke",
+      "kind": "person",
+      "name": "Mallador Locke",
+      "subtitle": "A Storm of Swords · Prologue (ch. 0)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Prologue (Chapter 0); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Prologue",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 0
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Prologue (Chapter 0) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Mallador Locke к появляющимся в Prologue (ch. 0). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 0,
+          "chapterTitle": "Prologue",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Prologue"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:maslyn",
+      "kind": "person",
+      "name": "Maslyn",
+      "subtitle": "A Storm of Swords · Prologue (ch. 0)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Prologue (Chapter 0); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Prologue",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 0
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Prologue (Chapter 0) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Maslyn к появляющимся в Prologue (ch. 0). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 0,
+          "chapterTitle": "Prologue",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Prologue"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:ollo-lophand",
+      "kind": "person",
+      "name": "Ollo Lophand",
+      "subtitle": "A Storm of Swords · Prologue (ch. 0)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Prologue (Chapter 0); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Prologue",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 0
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Prologue (Chapter 0) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Ollo Lophand к появляющимся в Prologue (ch. 0). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 0,
+          "chapterTitle": "Prologue",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Prologue"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:sawwood",
+      "kind": "person",
+      "name": "Sawwood",
+      "subtitle": "A Storm of Swords · Prologue (ch. 0)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Prologue (Chapter 0); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Prologue",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 0
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Prologue (Chapter 0) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Sawwood к появляющимся в Prologue (ch. 0). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 0,
+          "chapterTitle": "Prologue",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Prologue"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:small-paul",
+      "kind": "person",
+      "name": "Small Paul",
+      "subtitle": "A Storm of Swords · Prologue (ch. 0); Samwell I (ch. 18)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Prologue (Chapter 0); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Prologue",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 0
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Prologue (Chapter 0) — appearing; A Storm of Swords · Samwell I (Chapter 18) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Small Paul к появляющимся в Prologue (ch. 0), Samwell I (ch. 18). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 0,
+          "chapterTitle": "Prologue",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Prologue"
+        },
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 18,
+          "chapterTitle": "Samwell I",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_18"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:robin-ryger",
+      "kind": "person",
+      "name": "Robin Ryger",
+      "subtitle": "A Storm of Swords · Jaime I (ch. 1); Catelyn I (ch. 2)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Jaime I (Chapter 1); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_1",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 1
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Jaime I (Chapter 1) — appearing; A Storm of Swords · Catelyn I (Chapter 2) — mentioned"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Сир Робин командует речной галерой, посланной вернуть Джейме в Риверран; Бриенна и Джейме срывают перехват. "
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 1,
+          "chapterTitle": "Jaime I",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_1"
+        },
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 2,
+          "chapterTitle": "Catelyn I",
+          "relation": "mentioned",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_2"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:desmond-grell",
+      "kind": "person",
+      "name": "Desmond Grell",
+      "subtitle": "A Storm of Swords · Catelyn I (ch. 2); Catelyn II (ch. 14)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Catelyn I (Chapter 2); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_2",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 2
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Catelyn I (Chapter 2) — appearing; A Storm of Swords · Catelyn II (Chapter 14) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Риверранский офицер, который сопровождает Катлин к отцу и отвечает за её содержание в замке. "
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 2,
+          "chapterTitle": "Catelyn I",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_2"
+        },
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 14,
+          "chapterTitle": "Catelyn II",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_14"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:iggo",
+      "kind": "person",
+      "name": "Iggo",
+      "subtitle": "A Storm of Swords · Arya I (ch. 3)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Arya I (Chapter 3); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_3",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 3
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Arya I (Chapter 3) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Iggo к появляющимся в Arya I (ch. 3). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 3,
+          "chapterTitle": "Arya I",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_3"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:frenken",
+      "kind": "person",
+      "name": "Frenken",
+      "subtitle": "A Storm of Swords · Tyrion I (ch. 4)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Tyrion I (Chapter 4); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_4",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 4
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Tyrion I (Chapter 4) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Frenken к появляющимся в Tyrion I (ch. 4). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 4,
+          "chapterTitle": "Tyrion I",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_4"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:alysanne-bulwer",
+      "kind": "person",
+      "name": "Alysanne Bulwer",
+      "subtitle": "A Storm of Swords · Sansa I (ch. 6)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Sansa I (Chapter 6); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 6
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Sansa I (Chapter 6) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Alysanne Bulwer к появляющимся в Sansa I (ch. 6). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 6,
+          "chapterTitle": "Sansa I",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:butterbumps",
+      "kind": "person",
+      "name": "Butterbumps",
+      "subtitle": "A Storm of Swords · Sansa I (ch. 6)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Sansa I (Chapter 6); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 6
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Sansa I (Chapter 6) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Butterbumps к появляющимся в Sansa I (ch. 6). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 6,
+          "chapterTitle": "Sansa I",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:meredyth-crane",
+      "kind": "person",
+      "name": "Meredyth Crane",
+      "subtitle": "A Storm of Swords · Sansa I (ch. 6)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Sansa I (Chapter 6); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 6
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Sansa I (Chapter 6) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Meredyth Crane к появляющимся в Sansa I (ch. 6). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 6,
+          "chapterTitle": "Sansa I",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:janna-fossoway",
+      "kind": "person",
+      "name": "Janna Fossoway",
+      "subtitle": "A Storm of Swords · Sansa I (ch. 6)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Sansa I (Chapter 6); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 6
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Sansa I (Chapter 6) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Janna Fossoway к появляющимся в Sansa I (ch. 6). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 6,
+          "chapterTitle": "Sansa I",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:leonette-fossoway",
+      "kind": "person",
+      "name": "Leonette Fossoway",
+      "subtitle": "A Storm of Swords · Sansa I (ch. 6)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Sansa I (Chapter 6); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 6
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Sansa I (Chapter 6) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Leonette Fossoway к появляющимся в Sansa I (ch. 6). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 6,
+          "chapterTitle": "Sansa I",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:alyce-graceford",
+      "kind": "person",
+      "name": "Alyce Graceford",
+      "subtitle": "A Storm of Swords · Sansa I (ch. 6)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Sansa I (Chapter 6); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 6
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Sansa I (Chapter 6) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Alyce Graceford к появляющимся в Sansa I (ch. 6). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 6,
+          "chapterTitle": "Sansa I",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:alerie-hightower",
+      "kind": "person",
+      "name": "Alerie Hightower",
+      "subtitle": "A Storm of Swords · Sansa I (ch. 6)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Sansa I (Chapter 6); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 6
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Sansa I (Chapter 6) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Alerie Hightower к появляющимся в Sansa I (ch. 6). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 6,
+          "chapterTitle": "Sansa I",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:kennos-of-kayce",
+      "kind": "person",
+      "name": "Kennos of Kayce",
+      "subtitle": "A Storm of Swords · Sansa I (ch. 6)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Sansa I (Chapter 6); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 6
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Sansa I (Chapter 6) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Kennos of Kayce к появляющимся в Sansa I (ch. 6). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 6,
+          "chapterTitle": "Sansa I",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:taena-merryweather",
+      "kind": "person",
+      "name": "Taena Merryweather",
+      "subtitle": "A Storm of Swords · Sansa I (ch. 6)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Sansa I (Chapter 6); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 6
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Sansa I (Chapter 6) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Taena Merryweather к появляющимся в Sansa I (ch. 6). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 6,
+          "chapterTitle": "Sansa I",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:nysterica",
+      "kind": "person",
+      "name": "Nysterica",
+      "subtitle": "A Storm of Swords · Sansa I (ch. 6)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Sansa I (Chapter 6); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 6
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Sansa I (Chapter 6) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Nysterica к появляющимся в Sansa I (ch. 6). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 6,
+          "chapterTitle": "Sansa I",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:morros-slynt",
+      "kind": "person",
+      "name": "Morros Slynt",
+      "subtitle": "A Storm of Swords · Sansa I (ch. 6)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Sansa I (Chapter 6); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 6
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Sansa I (Chapter 6) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Morros Slynt к появляющимся в Sansa I (ch. 6). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 6,
+          "chapterTitle": "Sansa I",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:tallad",
+      "kind": "person",
+      "name": "Tallad",
+      "subtitle": "A Storm of Swords · Sansa I (ch. 6)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Sansa I (Chapter 6); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 6
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Sansa I (Chapter 6) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Tallad к появляющимся в Sansa I (ch. 6). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 6,
+          "chapterTitle": "Sansa I",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:alla-tyrell",
+      "kind": "person",
+      "name": "Alla Tyrell",
+      "subtitle": "A Storm of Swords · Sansa I (ch. 6); Sansa II (ch. 16)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Sansa I (Chapter 6); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 6
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Sansa I (Chapter 6) — appearing; A Storm of Swords · Sansa II (Chapter 16) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Alla Tyrell к появляющимся в Sansa I (ch. 6), Sansa II (ch. 16). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 6,
+          "chapterTitle": "Sansa I",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6"
+        },
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 16,
+          "chapterTitle": "Sansa II",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_16"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:elinor-tyrell",
+      "kind": "person",
+      "name": "Elinor Tyrell",
+      "subtitle": "A Storm of Swords · Sansa I (ch. 6); Sansa II (ch. 16)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Sansa I (Chapter 6); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 6
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Sansa I (Chapter 6) — appearing; A Storm of Swords · Sansa II (Chapter 16) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Elinor Tyrell к появляющимся в Sansa I (ch. 6), Sansa II (ch. 16). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 6,
+          "chapterTitle": "Sansa I",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6"
+        },
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 16,
+          "chapterTitle": "Sansa II",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_16"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:megga-tyrell",
+      "kind": "person",
+      "name": "Megga Tyrell",
+      "subtitle": "A Storm of Swords · Sansa I (ch. 6); Sansa II (ch. 16)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Sansa I (Chapter 6); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 6
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Sansa I (Chapter 6) — appearing; A Storm of Swords · Sansa II (Chapter 16) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Megga Tyrell к появляющимся в Sansa I (ch. 6), Sansa II (ch. 16). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 6,
+          "chapterTitle": "Sansa I",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6"
+        },
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 16,
+          "chapterTitle": "Sansa II",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_16"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:olenna-tyrell",
+      "kind": "person",
+      "name": "Olenna Tyrell",
+      "subtitle": "A Storm of Swords · Sansa I (ch. 6); Sansa II (ch. 16)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Sansa I (Chapter 6); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 6
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Sansa I (Chapter 6) — appearing; A Storm of Swords · Sansa II (Chapter 16) — mentioned"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Матриарх дома Тиреллов; в разговоре с Сансой выясняет, что та думает о Джоффри, и обсуждает будущее Сансы. "
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 6,
+          "chapterTitle": "Sansa I",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_6"
+        },
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 16,
+          "chapterTitle": "Sansa II",
+          "relation": "mentioned",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_16"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:dalla",
+      "kind": "person",
+      "name": "Dalla",
+      "subtitle": "A Storm of Swords · Jon I (ch. 7)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Jon I (Chapter 7); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_7",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 7
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Jon I (Chapter 7) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Именованная участница группы свободного народа, которую AWOIAF включает в список появляющихся в Jon I; отдельная роль сверх этого локатора в данном проходе не закрепляется."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 7,
+          "chapterTitle": "Jon I",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_7"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:jarl",
+      "kind": "person",
+      "name": "Jarl",
+      "subtitle": "A Storm of Swords · Jon I (ch. 7); Jon II (ch. 15)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Jon I (Chapter 7); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_7",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 7
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Jon I (Chapter 7) — appearing; A Storm of Swords · Jon II (Chapter 15) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Jarl к появляющимся в Jon I (ch. 7), Jon II (ch. 15). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 7,
+          "chapterTitle": "Jon I",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_7"
+        },
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 15,
+          "chapterTitle": "Jon II",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_15"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:lenyl",
+      "kind": "person",
+      "name": "Lenyl",
+      "subtitle": "A Storm of Swords · Jon I (ch. 7)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Jon I (Chapter 7); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_7",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 7
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Jon I (Chapter 7) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Lenyl к появляющимся в Jon I (ch. 7). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 7,
+          "chapterTitle": "Jon I",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_7"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:ragwyle",
+      "kind": "person",
+      "name": "Ragwyle",
+      "subtitle": "A Storm of Swords · Jon I (ch. 7)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Jon I (Chapter 7); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_7",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 7
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Jon I (Chapter 7) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Ragwyle к появляющимся в Jon I (ch. 7). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 7,
+          "chapterTitle": "Jon I",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_7"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:styr",
+      "kind": "person",
+      "name": "Styr",
+      "subtitle": "A Storm of Swords · Jon I (ch. 7); Jon II (ch. 15)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Jon I (Chapter 7); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_7",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 7
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Jon I (Chapter 7) — appearing; A Storm of Swords · Jon II (Chapter 15) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Styr к появляющимся в Jon I (ch. 7), Jon II (ch. 15). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 7,
+          "chapterTitle": "Jon I",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_7"
+        },
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 15,
+          "chapterTitle": "Jon II",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_15"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:val",
+      "kind": "person",
+      "name": "Val",
+      "subtitle": "A Storm of Swords · Jon I (ch. 7)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Jon I (Chapter 7); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_7",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 7
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Jon I (Chapter 7) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Val к появляющимся в Jon I (ch. 7). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 7,
+          "chapterTitle": "Jon I",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_7"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:weeper",
+      "kind": "person",
+      "name": "Weeper",
+      "subtitle": "A Storm of Swords · Jon I (ch. 7); Jon II (ch. 15)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Jon I (Chapter 7); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_7",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 7
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Jon I (Chapter 7) — appearing; A Storm of Swords · Jon II (Chapter 15) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Weeper к появляющимся в Jon I (ch. 7), Jon II (ch. 15). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 7,
+          "chapterTitle": "Jon I",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_7"
+        },
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 15,
+          "chapterTitle": "Jon II",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_15"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:belwas",
+      "kind": "person",
+      "name": "Belwas",
+      "subtitle": "A Storm of Swords · Daenerys I (ch. 8)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Daenerys I (Chapter 8); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_8",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 8
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Daenerys I (Chapter 8) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Воин из сопровождения Дейенерис, перечисленный AWOIAF среди появляющихся во время морского перехода. "
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 8,
+          "chapterTitle": "Daenerys I",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_8"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:groleo",
+      "kind": "person",
+      "name": "Groleo",
+      "subtitle": "A Storm of Swords · Daenerys I (ch. 8)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Daenerys I (Chapter 8); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_8",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 8
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Daenerys I (Chapter 8) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Капитан корабля Дейенерис; обсуждается изменение маршрута её флота. "
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 8,
+          "chapterTitle": "Daenerys I",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_8"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:meizo-mahr",
+      "kind": "person",
+      "name": "Meizo Mahr",
+      "subtitle": "A Storm of Swords · Davos II (ch. 10)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Davos II (Chapter 10); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_10",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 10
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Davos II (Chapter 10) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Именованный персонаж из окружения Станниса на Драконьем Камне; AWOIAF отмечает его появление в Davos II. "
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 10,
+          "chapterTitle": "Davos II",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_10"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:khorane-sathmantes",
+      "kind": "person",
+      "name": "Khorane Sathmantes",
+      "subtitle": "A Storm of Swords · Davos II (ch. 10)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Davos II (Chapter 10); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_10",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 10
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Davos II (Chapter 10) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Именованный персонаж из корабельного окружения Салладора Саана; AWOIAF отмечает его появление в Davos II. "
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 10,
+          "chapterTitle": "Davos II",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_10"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:greenbeard",
+      "kind": "person",
+      "name": "Greenbeard",
+      "subtitle": "A Storm of Swords · Arya II (ch. 13); Arya III (ch. 17)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Arya II (Chapter 13); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_13",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 13
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Arya II (Chapter 13) — appearing; A Storm of Swords · Arya III (Chapter 17) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Участник группы Братства без знамён, сопровождающей Арью; отдельная роль в индексном описании не уточнена. "
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 13,
+          "chapterTitle": "Arya II",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_13"
+        },
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 17,
+          "chapterTitle": "Arya III",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_17"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:jack-be-lucky",
+      "kind": "person",
+      "name": "Jack-Be-Lucky",
+      "subtitle": "A Storm of Swords · Arya II (ch. 13); Arya III (ch. 17)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Arya II (Chapter 13); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_13",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 13
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Arya II (Chapter 13) — appearing; A Storm of Swords · Arya III (Chapter 17) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Участник Братства без знамён; в эпизоде с Арьей подаёт сигнал своим спутникам. "
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 13,
+          "chapterTitle": "Arya II",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_13"
+        },
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 17,
+          "chapterTitle": "Arya III",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_17"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:lem",
+      "kind": "person",
+      "name": "Lem",
+      "subtitle": "A Storm of Swords · Arya II (ch. 13); Arya III (ch. 17)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Arya II (Chapter 13); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_13",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 13
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Arya II (Chapter 13) — appearing; A Storm of Swords · Arya III (Chapter 17) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Участник Братства без знамён, входящий в группу, встретившую Арью у постоялого двора. "
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 13,
+          "chapterTitle": "Arya II",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_13"
+        },
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 17,
+          "chapterTitle": "Arya III",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_17"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:sharna",
+      "kind": "person",
+      "name": "Sharna",
+      "subtitle": "A Storm of Swords · Arya II (ch. 13)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Arya II (Chapter 13); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_13",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 13
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Arya II (Chapter 13) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Хозяйка постоялого двора, где Арья и её спутники встречают людей Братства без знамён. "
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 13,
+          "chapterTitle": "Arya II",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_13"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:tom-of-sevenstreams",
+      "kind": "person",
+      "name": "Tom of Sevenstreams",
+      "subtitle": "A Storm of Swords · Arya II (ch. 13); Arya III (ch. 17)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Arya II (Chapter 13); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_13",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 13
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Arya II (Chapter 13) — appearing; A Storm of Swords · Arya III (Chapter 17) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Участник Братства без знамён и певец; сопровождает отряд, который встречает Арью. "
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 13,
+          "chapterTitle": "Arya II",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_13"
+        },
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 17,
+          "chapterTitle": "Arya III",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_17"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:rolph-spicer",
+      "kind": "person",
+      "name": "Rolph Spicer",
+      "subtitle": "A Storm of Swords · Catelyn II (ch. 14); Catelyn III (ch. 20)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Catelyn II (Chapter 14); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_14",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 14
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Catelyn II (Chapter 14) — appearing; A Storm of Swords · Catelyn III (Chapter 20) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Брат Сибеллы и дядя Джейны Вестерлинг; появляется с семьёй при дворе Робба. "
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 14,
+          "chapterTitle": "Catelyn II",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_14"
+        },
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 20,
+          "chapterTitle": "Catelyn III",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_20"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:sybell-spicer",
+      "kind": "person",
+      "name": "Sybell Spicer",
+      "subtitle": "A Storm of Swords · Catelyn II (ch. 14)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Catelyn II (Chapter 14); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_14",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 14
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Catelyn II (Chapter 14) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Мать Джейны Вестерлинг; приезжает в Риверран вместе с детьми после брака Робба и Джейны. "
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 14,
+          "chapterTitle": "Catelyn II",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_14"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:eleyna-westerling",
+      "kind": "person",
+      "name": "Eleyna Westerling",
+      "subtitle": "A Storm of Swords · Catelyn II (ch. 14)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Catelyn II (Chapter 14); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_14",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 14
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Catelyn II (Chapter 14) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Одна из детей Сибеллы Вестерлинг, представленная Катлин в Риверране. "
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 14,
+          "chapterTitle": "Catelyn II",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_14"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:raynald-westerling",
+      "kind": "person",
+      "name": "Raynald Westerling",
+      "subtitle": "A Storm of Swords · Catelyn II (ch. 14); Catelyn III (ch. 20)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Catelyn II (Chapter 14); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_14",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 14
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Catelyn II (Chapter 14) — appearing; A Storm of Swords · Catelyn III (Chapter 20) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Сын Сибеллы Вестерлинг, присутствующий при представлении семьи Катлин. "
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 14,
+          "chapterTitle": "Catelyn II",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_14"
+        },
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 20,
+          "chapterTitle": "Catelyn III",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_20"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:rollam-westerling",
+      "kind": "person",
+      "name": "Rollam Westerling",
+      "subtitle": "A Storm of Swords · Catelyn II (ch. 14)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Catelyn II (Chapter 14); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_14",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 14
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Catelyn II (Chapter 14) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Младший член семьи Вестерлингов, присутствующий в Риверране. "
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 14,
+          "chapterTitle": "Catelyn II",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_14"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:dormund",
+      "kind": "person",
+      "name": "Dormund",
+      "subtitle": "A Storm of Swords · Jon II (ch. 15)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Jon II (Chapter 15); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_15",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 15
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Jon II (Chapter 15) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Dormund к появляющимся в Jon II (ch. 15). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 15,
+          "chapterTitle": "Jon II",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_15"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:harma-dogshead",
+      "kind": "person",
+      "name": "Harma Dogshead",
+      "subtitle": "A Storm of Swords · Jon II (ch. 15)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Jon II (Chapter 15); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_15",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 15
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Jon II (Chapter 15) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Предводительница отряда свободного народа; в главе Jon X её отряд вступает в бой, а сама Харма погибает. "
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 15,
+          "chapterTitle": "Jon II",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_15"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:mag-mar-tun-doh-weg",
+      "kind": "person",
+      "name": "Mag Mar Tun Doh Weg",
+      "subtitle": "A Storm of Swords · Jon II (ch. 15)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Jon II (Chapter 15); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_15",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 15
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Jon II (Chapter 15) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Гигант из войска Мейса; появляется у Стены и погибает в туннеле под воротами. "
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 15,
+          "chapterTitle": "Jon II",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_15"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:munda",
+      "kind": "person",
+      "name": "Munda",
+      "subtitle": "A Storm of Swords · Jon II (ch. 15)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Jon II (Chapter 15); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_15",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 15
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Jon II (Chapter 15) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Munda к появляющимся в Jon II (ch. 15). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 15,
+          "chapterTitle": "Jon II",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_15"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:one-eye",
+      "kind": "person",
+      "name": "One Eye",
+      "subtitle": "A Storm of Swords · Jon II (ch. 15)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Jon II (Chapter 15); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_15",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 15
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Jon II (Chapter 15) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит One Eye к появляющимся в Jon II (ch. 15). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 15,
+          "chapterTitle": "Jon II",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_15"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:sly",
+      "kind": "person",
+      "name": "Sly",
+      "subtitle": "A Storm of Swords · Jon II (ch. 15)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Jon II (Chapter 15); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_15",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 15
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Jon II (Chapter 15) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Sly к появляющимся в Jon II (ch. 15). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 15,
+          "chapterTitle": "Jon II",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_15"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:toregg",
+      "kind": "person",
+      "name": "Toregg",
+      "subtitle": "A Storm of Swords · Jon II (ch. 15)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Jon II (Chapter 15); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_15",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 15
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Jon II (Chapter 15) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Toregg к появляющимся в Jon II (ch. 15). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 15,
+          "chapterTitle": "Jon II",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_15"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:varamyr",
+      "kind": "person",
+      "name": "Varamyr",
+      "subtitle": "A Storm of Swords · Jon II (ch. 15)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Jon II (Chapter 15); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_15",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 15
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Jon II (Chapter 15) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Чародей-перевертыш из войска Мейса, связанный в описании главы с орлом Орелла. "
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 15,
+          "chapterTitle": "Jon II",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_15"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "person:long-lew",
+      "kind": "person",
+      "name": "Long Lew",
+      "subtitle": "A Storm of Swords · Catelyn III (ch. 20)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Catelyn III (Chapter 20); AWOIAF chapter index (secondary; primary edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_20",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 20
+      },
+      "facts": [
+        {
+          "label": "Статус карточки",
+          "value": "provisional · secondary-indexed-partial"
+        },
+        {
+          "label": "Локаторы AWOIAF",
+          "value": "A Storm of Swords · Catelyn III (Chapter 20) — appearing"
+        },
+        {
+          "label": "Первичная сверка",
+          "value": "Ожидает сверки с выбранным изданием; текст романа в этом аудите не проверялся."
+        },
+        {
+          "label": "Русское имя",
+          "value": "Не задано; требуется сверка с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Long Lew к появляющимся в Catelyn III (ch. 20). В рамках вторичного указателя отдельную роль сверх этих локаторов не закрепляю."
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 20,
+          "chapterTitle": "Catelyn III",
+          "relation": "appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_20"
+        }
+      ],
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    }
+  ]
+}

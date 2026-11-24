@@ -1,0 +1,257 @@
+{
+  "format": "dm-cockpit.coordination/1",
+  "createdOn": "2026-11-01",
+  "coordinator": "Codex",
+  "executor": "Kimi",
+  "transport": {
+    "status": "stopped_by_owner",
+    "executable": "/Users/dmitrij/.kimi-code/bin/kimi",
+    "version": "2.4.1",
+    "mode": "non-interactive prompt",
+    "latestSessionId": "session_cf057705-7a00-4302-a983-0635b4e69bd0"
+  },
+  "baseline": {
+    "observedHead": "7bd54fdd4d033120a18d4d3bcbdb6b8ba8c156e7",
+    "sharedSnapshotCommit": null,
+    "status": "local-snapshot-ready",
+    "snapshotId": "kimi-batch01",
+    "snapshotManifest": "coordination/runs/batch01-baseline.json",
+    "snapshotRoot": "/private/tmp/cockpit-kimi-batch01"
+  },
+  "runs": [
+    {
+      "id": "kimi-batch01",
+      "executor": "Kimi",
+      "pid": 32514,
+      "execSessionId": 62999,
+      "kimiSessionId": "session_fbb84a0a-e824-45be-8e33-2f50db97b39b",
+      "snapshotRoot": "/private/tmp/cockpit-kimi-batch01",
+      "status": "interrupted",
+      "agentIds": [
+        "agent-0",
+        "agent-1",
+        "agent-2"
+      ],
+      "exitCode": 130,
+      "reason": "Coordinator corrected browser-tool boundary for K02; session retained."
+    },
+    {
+      "id": "kimi-batch01-resume",
+      "executor": "Kimi",
+      "pid": 35109,
+      "execSessionId": 12793,
+      "kimiSessionId": "session_fbb84a0a-e824-45be-8e33-2f50db97b39b",
+      "snapshotRoot": "/private/tmp/cockpit-kimi-batch01",
+      "status": "exited",
+      "exitCode": 0
+    },
+    {
+      "id": "kimi-batch01-round2",
+      "status": "exited",
+      "pid": 40591,
+      "execSessionId": 32339,
+      "kimiSessionId": "session_fbb84a0a-e824-45be-8e33-2f50db97b39b",
+      "snapshotRoot": "/private/tmp/cockpit-kimi-batch01",
+      "exitCode": 1,
+      "reason": "Kimi provider 429: five-hour usage quota reached; code files recovered, no final Kimi review."
+    },
+    {
+      "id": "kimi-batch02",
+      "status": "interrupted_by_owner",
+      "pid": 7300,
+      "execSessionId": 54757,
+      "kimiSessionId": "session_cf057705-7a00-4302-a983-0635b4e69bd0",
+      "snapshotRoot": "/private/tmp/cockpit-kimi-batch02",
+      "snapshotManifest": "coordination/runs/batch02-baseline.json",
+      "agentIds": [
+        "agent-0",
+        "agent-1",
+        "agent-2"
+      ],
+      "exitCode": 130
+    }
+  ],
+  "tasks": [
+    {
+      "id": "R00",
+      "owner": "Codex",
+      "scope": "Coordination and shared baseline",
+      "brief": null,
+      "status": "in_progress",
+      "delivered": false,
+      "sessionId": null,
+      "resultCommit": null
+    },
+    {
+      "id": "R01",
+      "owner": "Codex",
+      "scope": "D17 integration of real party cards and current context",
+      "brief": null,
+      "status": "inline_spines_integrated_inventory_and_full_matrix_pending",
+      "delivered": true,
+      "sessionId": null,
+      "resultCommit": null,
+      "files": [
+        "src/campaign/partyContext.ts",
+        "src/campaign/partyContext.test.ts",
+        "src/pages/desk/PartyContextPanel.tsx",
+        "src/pages/desk/PartyContextPanel.test.tsx",
+        "src/pages/desk/PartyMemberCard.tsx",
+        "src/pages/desk/PartyMemberCard.test.tsx"
+      ],
+      "checks": {
+        "targetedTests": 5,
+        "status": "passed",
+        "integratedIntoDesk": false,
+        "memberCardTargetedTests": 5,
+        "memberCardIntegrated": true,
+        "spreadIntegrated": true,
+        "appSourceTypes": "passed",
+        "fullTests": 1560,
+        "fullTestFiles": 167,
+        "fullTestsStatus": "passed",
+        "build": "passed",
+        "browserInline1280": true,
+        "browserInline700": true,
+        "ownerRevision": "Individual card expands in same row; no duplicate selected party card in inspector",
+        "largeRosterScenarios": [
+          6,
+          8
+        ],
+        "removalUndoPageClamp": "passed",
+        "latestTargetedTests": 19,
+        "latestAppSourceTypes": "passed",
+        "fullTestsBaseline": "current including page clamp and equipment references"
+      }
+    },
+    {
+      "id": "K01",
+      "owner": "Kimi",
+      "scope": "D17 standalone PartySpread component",
+      "brief": "coordination/tasks/K01-party-spread.md",
+      "status": "received_reviewed_then_reworked_by_codex",
+      "delivered": true,
+      "sessionId": "session_fbb84a0a-e824-45be-8e33-2f50db97b39b",
+      "resultCommit": null,
+      "runId": "kimi-batch01-round2",
+      "preliminaryReview": {
+        "status": "changes-required",
+        "report": "research/coordination/K01-review-round1.md",
+        "draftTests": {
+          "passed": 14,
+          "failed": 3
+        },
+        "feedbackDelivered": true
+      },
+      "revision": "Owner clarified inline individual spine expansion; controlled openIds replaces all-only expanded flag.",
+      "report": "research/coordination/K01-round2-codex-acceptance.md"
+    },
+    {
+      "id": "K02",
+      "owner": "Kimi",
+      "scope": "BA2/BA20 independent UX audit",
+      "brief": "coordination/tasks/K02-independent-ux.md",
+      "status": "code_review_accepted_visual_pending",
+      "delivered": true,
+      "sessionId": "session_fbb84a0a-e824-45be-8e33-2f50db97b39b",
+      "resultCommit": null,
+      "runId": "kimi-batch01-resume",
+      "report": "research/coordination/K02-independent-ux.md",
+      "review": "research/coordination/K02-codex-review.md"
+    },
+    {
+      "id": "K03",
+      "owner": "Kimi",
+      "scope": "D16 noncombat contract research",
+      "brief": "coordination/tasks/K03-noncombat-contract.md",
+      "status": "research_accepted_contract_revisions_required",
+      "delivered": true,
+      "sessionId": "session_fbb84a0a-e824-45be-8e33-2f50db97b39b",
+      "resultCommit": null,
+      "runId": "kimi-batch01-resume",
+      "report": "research/coordination/K03-noncombat-contract.md",
+      "review": "research/coordination/K03-codex-review.md"
+    },
+    {
+      "id": "R02",
+      "owner": "Codex",
+      "scope": "Review K03; inventory/money event contract",
+      "brief": null,
+      "status": "design_review_complete_implementation_pending",
+      "delivered": false,
+      "sessionId": null,
+      "resultCommit": null,
+      "report": "research/coordination/K03-codex-review.md"
+    },
+    {
+      "id": "K04",
+      "owner": "Kimi",
+      "scope": "Independent review of final inline party spines and modal/focus scenarios",
+      "status": "interrupted_pending_review_owner_stop",
+      "delivered": true,
+      "brief": "coordination/tasks/K04-inline-spines-review.md",
+      "sessionId": "session_cf057705-7a00-4302-a983-0635b4e69bd0",
+      "prerequisite": "Fresh snapshot of current working copy; batch01 source predates owner revision.",
+      "runId": "kimi-batch02"
+    },
+    {
+      "id": "K05",
+      "owner": "Kimi",
+      "scope": "E7 event inventory implementation design and legacy compatibility audit",
+      "status": "interrupted_pending_review_owner_stop",
+      "delivered": true,
+      "brief": "coordination/tasks/K05-inventory-foundation.md",
+      "sessionId": "session_cf057705-7a00-4302-a983-0635b4e69bd0",
+      "prerequisite": "Fresh working copy snapshot; parallel with read-only K04.",
+      "runId": "kimi-batch02"
+    },
+    {
+      "id": "K06",
+      "owner": "Kimi",
+      "scope": "BA27 persistent session-local level plan drafts",
+      "status": "interrupted_pending_review_owner_stop",
+      "delivered": true,
+      "brief": "coordination/tasks/K06-level-plan-drafts.md",
+      "sessionId": "session_cf057705-7a00-4302-a983-0635b4e69bd0",
+      "runId": "kimi-batch02",
+      "resultCommit": null
+    }
+  ],
+  "automation": {
+    "id": "cockpit-kimi",
+    "status": "PAUSED",
+    "intervalMinutes": 15,
+    "quotaState": "coordination/kimi-quota.json"
+  },
+  "uiFix": {
+    "ownerInstruction": "2026-11-02 exclusive map/party, compact six cards, right scale dock, modal world clock",
+    "status": "code_verified_browser_six_checked",
+    "agents": [
+      "luna_grouped_party_tests",
+      "luna_character_card_spine",
+      "luna_vertical_map_toolbar"
+    ],
+    "testFiles": 169,
+    "tests": 1569,
+    "build": "passed",
+    "browserFourCards": "passed before picker",
+    "browserSixCards": "passed at1280x720 via memory-only QA harness",
+    "qaServerExec": 72591,
+    "report": "research/ux-review/exclusive-world-party-clock-2026-11-02.md",
+    "overallGoal": "cleared_by_owner",
+    "automations": "PAUSED"
+  },
+  "artPilot": {
+    "status": "pilot_integrated_generation_delivered",
+    "classEmblems": 13,
+    "newSelectedIllustrations": 23,
+    "testFiles": 170,
+    "tests": 1572,
+    "build": "passed",
+    "browser": "4 and6 cards at1280x720; worldclock modal/Esc",
+    "gallery": "design/art/codex-content-v1/index.html",
+    "serverExec": 72591,
+    "report": "research/ux-review/art-pilot-and-generation-2026-11-02.md",
+    "next3dBrief": "coordination/tasks/KIMI-remaining-3d-models.md"
+  }
+}

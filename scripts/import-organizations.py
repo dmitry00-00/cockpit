@@ -12,14 +12,14 @@
 # справочника карты и id божеств; content/world/place-faiths.json. Имя, которого нет в справочнике богов, остаётся
 # только в тексте поля. Года у поля нет: вики перечисляет богов разных эпох одной строкой.
 #
-# Запуск: .venv/bin/python -I scripts/import-organizations.py <dump.xml> [<fr-wiki-places.jsonl>]
+# Запуск: .venv/bin/python -I scripts/import-organizations.py <dump.xml> [<fr-wiki-places.jsonl>] [--skip-place-faiths] [--skip-resolve-leaders] [--content-root <content-dir>]
 #   выжимка по умолчанию — самая свежая /Volumes/внешний/datasets/fr-wiki-*/fr-wiki-places.jsonl
+import argparse
 import glob
 import importlib.util
 import json
 import os
 import re
-import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -31,6 +31,7 @@ def _load(name, file):
     return mod
 
 
+content_paths = _load('content_paths', 'content-paths.py')
 sj = _load('spelljammer', 'import-spelljammer.py')
 dz = _load('deities', 'import-deities.py')
 pp = _load('people', 'import-people.py')
@@ -63,15 +64,30 @@ def leaders(raw, person_of):
 
 
 def main():
-    if len(sys.argv) not in (2, 3):
-        sys.exit('usage: import-organizations.py <dump.xml> [<fr-wiki-places.jsonl>]')
-    pages, redirects = pp.scan(sys.argv[1], TEMPLATE)
+    parser = argparse.ArgumentParser(description='Импорт полей организаций из FR Wiki.')
+    parser.add_argument('dump', help='XML-дамп вики')
+    parser.add_argument('places_extract', nargs='?', help='JSONL-выжимка карточек мест')
+    parser.add_argument('--content-root', help='корень слоёв content; по умолчанию <корень проекта>/content')
+    parser.add_argument(
+        '--skip-place-faiths',
+        action='store_true',
+        help='не создавать place-faiths.json (например, при повторном импорте глав организаций)',
+    )
+    parser.add_argument(
+        '--skip-resolve-leaders',
+        action='store_true',
+        help='не читать ранее существующие NPC-карточки для ссылок глав (первичный проход до импорта NPC)',
+    )
+    args = parser.parse_args()
+    content_paths.set_content_root(args.content_root)
+    pages, redirects = pp.scan(args.dump, TEMPLATE)
     follow = pp.follower(redirects)
     place, deity_of = pp.place_resolver(follow), pp.deity_resolver(follow)
     person_of_title = {}
-    for path in glob.glob(os.path.join(ROOT, 'content', 'world', 'people', '*.json')):
-        with open(path, encoding='utf-8') as fh:
-            person_of_title.update({p['title']: p['id'] for p in json.load(fh)['people']})
+    if not args.skip_resolve_leaders:
+        for path in glob.glob(content_paths.content_path(ROOT, 'world', 'people', '*.json')):
+            with open(path, encoding='utf-8') as fh:
+                person_of_title.update({p['title']: p['id'] for p in json.load(fh)['people']})
     person_of = lambda link: person_of_title.get(follow(link)) or person_of_title.get(link)
 
     ids, taken = {}, set()
@@ -121,7 +137,7 @@ def main():
         }
         orgs.append(rec)
 
-    out = os.path.join(ROOT, 'content', 'world', 'organizations.json')
+    out = content_paths.content_path(ROOT, 'world', 'organizations.json')
     os.makedirs(os.path.dirname(out), exist_ok=True)
     with open(out, 'w', encoding='utf-8') as fh:
         json.dump({'attribution': sj.ATTRIBUTION, 'license': sj.LICENSE,
@@ -133,9 +149,10 @@ def main():
           f'с главой-NPC {sum(1 for o in orgs if any("person" in h for h in o.get("leaders", [])))}, с богом {count("deities")}, '
           f'с союзниками {count("allies")}, с врагами {count("enemies")}, распущены {count("disbanded")}')
 
-    extract = sys.argv[2] if len(sys.argv) == 3 else next(iter(sorted(glob.glob('/Volumes/внешний/datasets/fr-wiki-*/fr-wiki-places.jsonl'), reverse=True)), None)
-    if extract:
-        faiths(extract, place, deity_of)
+    if not args.skip_place_faiths:
+        extract = args.places_extract if args.places_extract is not None else next(iter(sorted(glob.glob('/Volumes/внешний/datasets/fr-wiki-*/fr-wiki-places.jsonl'), reverse=True)), None)
+        if extract:
+            faiths(extract, place, deity_of)
 
 
 def faiths(extract, place, deity_of):
@@ -152,7 +169,7 @@ def faiths(extract, place, deity_of):
             names = [n.strip(' .') for n in re.split(r',|;|\band\b|/', re.sub(r'\([^)]*\)', '', text))]
             deities = list(dict.fromkeys(d for d in (deity_of(n) for n in names if n) if d))
             out[pid] = {**({'deities': deities} if deities else {}), 'text': text[:200]}
-    path = os.path.join(ROOT, 'content', 'world', 'place-faiths.json')
+    path = content_paths.content_path(ROOT, 'world', 'place-faiths.json')
     with open(path, 'w', encoding='utf-8') as fh:
         json.dump({'attribution': sj.ATTRIBUTION, 'license': sj.LICENSE,
                    'note': 'Поле religion карточек мест вики: место справочника карты → боги (id божеств) и текст поля; без года.',

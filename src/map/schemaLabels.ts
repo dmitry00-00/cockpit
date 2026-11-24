@@ -5,8 +5,9 @@
 // по требованию; импортирует только ленивая часть схемы. Чистые функции: проекция и мерка текста — снаружи, поэтому
 // один отбор служит и плоской карте, и глобусу.
 import type { EntityRef } from '../entities';
-import { fold } from './gazetteer';
+import { fold, type GazetteerPlace } from './gazetteer';
 import type { MapBox, MapPoint, Viewport } from './projection';
+import { loadPackageJson, packageHasLayer, settingPackageForMap } from '../packages/registry';
 
 export type LabelKind =
   | 'continent' | 'ocean' | 'region' | 'realm' | 'sea' | 'lake' | 'island'
@@ -85,16 +86,102 @@ export function parseLabels(raw: unknown): SchemaLabel[] {
   });
 }
 
-const LOADERS: Readonly<Record<string, () => Promise<unknown>>> = {
-  toril: () => import('../../content/maps/toril-labels.json').then(m => m.default),
+const RASTER_KIND: Readonly<Record<string, LabelKind>> = {
+  settlement: 'town', fortress: 'site', ruins: 'site', temple: 'site', mine: 'site',
+  mountain: 'mountains', hills: 'hills', river: 'label', region: 'region', road: 'label',
+  forest: 'forest', pass: 'site', island: 'island', lake: 'lake', other: 'site',
+  sea: 'sea', bay: 'sea', swamp: 'swamp', archipelago: 'island', desert: 'desert',
+  bridge: 'site', peninsula: 'island', glacier: 'ice', reef: 'island',
 };
+
+/** Only editorially accepted OCR features are eligible; fragments and GIS references are not new labels. */
+export function parseRasterFeatureLabels(raw: unknown, mapId: string): SchemaLabel[] {
+  const data = raw as { map?: unknown; labels?: unknown } | null;
+  if (data?.map !== mapId || !Array.isArray(data.labels)) return [];
+  return data.labels.flatMap((value): SchemaLabel[] => {
+    if (!value || typeof value !== 'object') return [];
+    const row = value as { role?: unknown; kind?: unknown; name?: unknown; text?: unknown; x?: unknown; y?: unknown };
+    const kind = typeof row.kind === 'string' ? RASTER_KIND[row.kind] : undefined;
+    const name = typeof row.name === 'string' ? row.name : row.text;
+    if (row.role !== 'feature' || !kind || typeof name !== 'string' || !name.trim()
+      || typeof row.x !== 'number' || !Number.isFinite(row.x)
+      || typeof row.y !== 'number' || !Number.isFinite(row.y)) return [];
+    return [{ name, kind, x: row.x, y: row.y, r: 0, rank: 4 }];
+  });
+}
+
+export interface RasterMapIcon extends MapPoint { kind: string; size: number }
+
+export function parseRasterIcons(raw: unknown, mapId: string): RasterMapIcon[] {
+  const data = raw as { map?: unknown; icons?: unknown } | null;
+  if (data?.map !== mapId || !Array.isArray(data.icons)) return [];
+  return data.icons.flatMap((value): RasterMapIcon[] => {
+    if (!value || typeof value !== 'object') return [];
+    const row = value as { kind?: unknown; x?: unknown; y?: unknown; s?: unknown };
+    if (typeof row.kind !== 'string' || typeof row.x !== 'number' || !Number.isFinite(row.x)
+      || typeof row.y !== 'number' || !Number.isFinite(row.y)) return [];
+    return [{ kind: row.kind, x: row.x, y: row.y, size: typeof row.s === 'number' && Number.isFinite(row.s) ? row.s : 1 }];
+  });
+}
+
+/** Discard raster symbols already represented by a gazetteer location; the rest remain positional marks only. */
+export function unlinkedRasterIcons(icons: readonly RasterMapIcon[], places: readonly MapPoint[], radius = 5): RasterMapIcon[] {
+  return icons.filter(icon => !places.some(place => Math.hypot(icon.x - place.x, icon.y - place.y) <= radius));
+}
+
+const rasterFeatureCache = new Map<string, Promise<SchemaLabel[]>>();
+
+/** Personal source-map OCR is intentionally excluded from package/build assets; load it only in local development. */
+export function loadRasterFeatureLabels(mapId: string): Promise<SchemaLabel[]> {
+  if (!import.meta.env.DEV || mapId !== 'toril') return Promise.resolve([]);
+  if (!rasterFeatureCache.has(mapId)) {
+    rasterFeatureCache.set(mapId, fetch(`/content/maps/${mapId}-ocr-classification.json`)
+      .then(response => response.ok ? response.json() as Promise<unknown> : null)
+      .then(raw => parseRasterFeatureLabels(raw, mapId))
+      .catch(() => []));
+  }
+  return rasterFeatureCache.get(mapId)!;
+}
+
+const rasterIconCache = new Map<string, Promise<RasterMapIcon[]>>();
+export function loadRasterIcons(mapId: string): Promise<RasterMapIcon[]> {
+  if (!import.meta.env.DEV || mapId !== 'toril') return Promise.resolve([]);
+  if (!rasterIconCache.has(mapId)) {
+    rasterIconCache.set(mapId, fetch(`/maps/ocr/${mapId}-labels.json`)
+      .then(response => response.ok ? response.json() as Promise<unknown> : null)
+      .then(raw => parseRasterIcons(raw, mapId))
+      .catch(() => []));
+  }
+  return rasterIconCache.get(mapId)!;
+}
+
 const cache = new Map<string, Promise<SchemaLabel[]>>();
+
+/** Проверенные точки растра общие для глобуса, схемы и подписей чистой карты. */
+export function correctedLabels(labels: readonly SchemaLabel[], corrections: readonly GazetteerPlace[]): SchemaLabel[] {
+  let result = [...labels];
+  for (const c of corrections) {
+    const names = new Set([c.name, ...(c.aliases ?? [])].map(fold));
+    // Одноимённый далёкий объект не является той же точкой.
+    result = result.filter(l => !names.has(fold(l.name)) || Math.hypot(l.x - c.x, l.y - c.y) > 150);
+    const kind: LabelKind = c.kind === 'City' ? 'city' : ['Town', 'Village', 'settlement'].includes(c.kind) ? 'town' : 'site';
+    result.push({ name: c.name, kind, x: c.x, y: c.y, r: 0, rank: kind === 'city' ? 3 : 4 });
+  }
+  return result;
+}
 
 /** Подписи карты отдельным куском, один раз на сеанс; у карты без подписей — пусто. */
 export function loadLabels(mapId: string): Promise<SchemaLabel[]> {
-  const load = LOADERS[mapId];
-  if (!load) return Promise.resolve([]);
-  if (!cache.has(mapId)) cache.set(mapId, load().then(parseLabels).catch(() => []));
+  if (!cache.has(mapId)) {
+    const pkg = settingPackageForMap(mapId);
+    const path = `content/maps/${mapId}-labels.json`;
+    if (!pkg || !packageHasLayer(pkg.id, path)) return Promise.resolve([]);
+    const correctionsPath = `content/maps/${mapId}-raster-corrections.json`;
+    cache.set(mapId, Promise.all([
+      loadPackageJson(pkg.id, path),
+      packageHasLayer(pkg.id, correctionsPath) ? loadPackageJson(pkg.id, correctionsPath) : Promise.resolve({ places: [] }),
+    ]).then(([raw, corrections]) => correctedLabels(parseLabels(raw), (corrections as { places: GazetteerPlace[] }).places)).catch(() => []));
+  }
   return cache.get(mapId)!;
 }
 

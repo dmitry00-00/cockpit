@@ -4,7 +4,7 @@
 import { describe, expect, it } from 'vitest';
 import { createEngineStore } from '../engine';
 import { applyWorldPatch } from '../engine/reduce';
-import { SECONDS_PER_DAY, type Process, type State, type WorldPatch } from '../engine/state';
+import { emptyState, SECONDS_PER_DAY, type Process, type State, type WorldPatch } from '../engine/state';
 import { FAR_GROUP, inSummaryGroup, summaryGroups } from '../components/ChangeSummary';
 import { nearParty, simulateProcesses, type ProcessKind } from './processes';
 import { d20, rollOf } from './rng';
@@ -142,5 +142,42 @@ describe('процессы мира', () => {
     expect(groups).toEqual([expect.objectContaining({ id: FAR_GROUP, label: 'Сводка мира · вдали от партии', collapsed: true })]);
     expect(inSummaryGroup(far, FAR_GROUP)).toBe(true);
     expect(inSummaryGroup(far, 'settlement')).toBe(false);
+  });
+});
+
+describe('прогресс вида процесса', () => {
+  it('нормализует прогресс произвольного вида при принятом такте, сохраняя player-поля часов', () => {
+    const state = emptyState();
+    state.world.processes = {
+      authored: {
+        id: 'authored', kind: 'authored', name: 'Набор войск', scale: 'region', stage: 'gathering', parties: [],
+        startedSec: 0, nextSec: 10, vars: { step: 1 },
+        clock: { segments: 3, filled: 0, playerVisible: true, playerLabel: 'Войско собирается' },
+      },
+    };
+    const kind: ProcessKind = {
+      kind: 'authored', label: 'Авторский процесс', stages: { gathering: 'сбор' },
+      progress: process => ({ segments: 3, filled: process.vars.step }),
+      tick: (process, context) => ({
+        process: { ...process, vars: { step: process.vars.step + 1 }, nextSec: context.sec + 86_400 },
+      }),
+    };
+
+    const [delta] = simulateProcesses({ state, fromSec: 0, toSec: 10, timeEventId: 'clock-test' }, new Map([[kind.kind, kind]]));
+    expect(delta.patch).toMatchObject({
+      kind: 'batch', patches: [{ kind: 'process', process: { id: 'authored', clock: { segments: 3, filled: 2, playerVisible: true, playerLabel: 'Войско собирается' } } }],
+    });
+  });
+
+  it('отклоняет ошибочный прогресс типа до появления некорректного предложения', () => {
+    const state = emptyState();
+    state.world.processes = {
+      authored: { id: 'authored', kind: 'authored', name: 'Процесс', scale: 'region', stage: 'one', parties: [], startedSec: 0, nextSec: 10, vars: {} },
+    };
+    const kind: ProcessKind = {
+      kind: 'authored', label: 'Авторский процесс', stages: { one: 'один' },
+      progress: () => ({ segments: 0, filled: 1 }), tick: (process) => ({ process }),
+    };
+    expect(() => simulateProcesses({ state, fromSec: 0, toSec: 10, timeEventId: 'bad-clock' }, new Map([[kind.kind, kind]]))).toThrow(/неверный прогресс часов/);
   });
 });

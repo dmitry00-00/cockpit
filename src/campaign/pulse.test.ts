@@ -12,15 +12,18 @@ const fixed = () => {
 };
 
 describe('pulseOf', () => {
-  it('календарь от 15 Mirtul 1492 на 30 дней: полнолуние через 3 дня (как в полосе часов), новолуние, остывание нитей по порядку', () => {
+  it('календарь от 15 Mirtul 1492 на 30 дней: полнолуние и новолуние; часы нити не выдумываются без настройки мастера', () => {
     const p = pulseOf(seedState());
     expect(p.events.map(e => [e.days, e.label])).toEqual([
       [3, 'Полнолуние Selûne'],
-      [11, 'Old Owl Well: след остынет'],
       [18, 'Новолуние Selûne'],
-      [19, 'Луна и стая: след остынет'],
-      [20, 'The Missing Caravan: след остынет'],
     ]);
+  });
+
+  it('показывает срок следующего тика только для настроенных часов нити', () => {
+    const state = structuredClone(seedState());
+    state.world.threads['thr-old-owl-well'].clock = { segments: 4, filled: 1, startedSec: state.time.sec };
+    expect(pulseOf(state).events.find(e => e.kind === 'thread')).toMatchObject({ days: 10, label: 'Old Owl Well: предложение тика часов' });
   });
 
   it('праздник, смена сезона и святой день бога партии (Lathander — Midsummer) попадают в окно', () => {
@@ -43,7 +46,7 @@ describe('pulseOf', () => {
     expect(nw.goods.food).toEqual({ index: 110 });
     // Ликантропы ждут решения: ×1 сейчас, ×2 рядом.
     expect(p.encounters).toEqual([{ id: LOCATION.neverwinterWood, name: 'Neverwinter Wood', entries: [{ key: 'Werewolf', weight: 1, pending: 2 }] }]);
-    expect(p.gods).toEqual([{ id: 'lathander', name: 'Lathander', worshippers: ['Brother Aldric'] }]);
+    expect(p.gods).toEqual([{ id: 'lathander', name: 'Lathander', worshippers: ['Brother Aldric'], relations: [{ id: 'amaunator', name: 'Amaunator', kind: 'aspect' }] }]);
 
     // Принято — нынешнее значение, ждущего нет.
     store.getState().accept('d-iron-prices');

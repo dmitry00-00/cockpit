@@ -1,0 +1,643 @@
+{
+  "format": "cockpit.entity-layer-draft-set/1",
+  "packageSnapshot": "2026.11.24.40",
+  "packageCardRefs": 1099,
+  "sourcePolicy": {
+    "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise locator summaries; primary-edition verification pending.",
+    "status": "secondary-indexed-partial",
+    "primaryVerification": "pending",
+    "absoluteDatePolicy": "do not infer dates from chapter order",
+    "scope": "Eight requested P0/P1 ASOS person candidates only where the supplied audit gives a stable identity and an appearing locator; no biography beyond the index."
+  },
+  "payloads": [
+    {
+      "format": "cockpit.entity-layer/1",
+      "kind": "person",
+      "entities": [
+        {
+          "ref": "person:coldhands",
+          "kind": "person",
+          "name": "Coldhands",
+          "subtitle": "A Storm of Swords · 2 indexed chapter appearances",
+          "status": "secondary-indexed-partial",
+          "priority": "P0",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Samwell III (Chapter 46); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_46",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 46,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise locator summaries; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 46,
+              "chapterTitle": "Samwell III",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_46"
+            },
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 56,
+              "chapterTitle": "Bran IV",
+              "relation": "mentioned/route-guide",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_56"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус карточки",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P0"
+            },
+            {
+              "label": "Статус в локаторе",
+              "value": "appearing + mentioned/route-guide"
+            },
+            {
+              "label": "Сверка",
+              "value": "AWOIAF — вторичный указатель глав; сверка с первичным изданием ожидает выполнения."
+            },
+            {
+              "label": "Русское имя",
+              "value": "не задано; сверить с выбранным русским изданием."
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "A Storm of Swords · Samwell III (Chapter 46) — appearing; A Storm of Swords · Bran IV (Chapter 56) — mentioned/route-guide"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "В AWOIAF Coldhands указан как appearing в Samwell III. В Bran IV он отдельно отмечен как упоминаемый проводник группы; личность или биография сверх этих индексных указаний не выводится."
+            }
+          ],
+          "links": []
+        },
+        {
+          "ref": "person:ghost-of-high-heart",
+          "kind": "person",
+          "name": "Ghost of High Heart",
+          "subtitle": "A Storm of Swords · 2 indexed chapter appearances",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Arya IV (Chapter 22); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_22",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 22,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise locator summaries; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 22,
+              "chapterTitle": "Arya IV",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_22"
+            },
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 43,
+              "chapterTitle": "Arya VIII",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_43"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус карточки",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Статус в локаторе",
+              "value": "appearing"
+            },
+            {
+              "label": "Сверка",
+              "value": "AWOIAF — вторичный указатель глав; сверка с первичным изданием ожидает выполнения."
+            },
+            {
+              "label": "Русское имя",
+              "value": "не задано; сверить с выбранным русским изданием."
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "A Storm of Swords · Arya IV (Chapter 22) — appearing; A Storm of Swords · Arya VIII (Chapter 43) — appearing"
+            },
+            {
+              "label": "Различение сущностей",
+              "value": "Отдельная сущность от лютоволка Ghost (person:ghost); не объединять карточки по общему слову Ghost."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Индекс AWOIAF отмечает Ghost of High Heart как appearing в Arya IV и Arya VIII. Это отдельный stable ref от лютоволка Ghost; биография по одному chapter index не дополняется."
+            }
+          ],
+          "links": []
+        },
+        {
+          "ref": "person:grigg-the-goat",
+          "kind": "person",
+          "name": "Grigg the Goat",
+          "subtitle": "A Storm of Swords · 2 indexed chapter appearances",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Jon III (Chapter 26); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_26",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 26,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise locator summaries; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 26,
+              "chapterTitle": "Jon III",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_26"
+            },
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 30,
+              "chapterTitle": "Jon IV",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_30"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус карточки",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Статус в локаторе",
+              "value": "appearing"
+            },
+            {
+              "label": "Сверка",
+              "value": "AWOIAF — вторичный указатель глав; сверка с первичным изданием ожидает выполнения."
+            },
+            {
+              "label": "Русское имя",
+              "value": "не задано; сверить с выбранным русским изданием."
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "A Storm of Swords · Jon III (Chapter 26) — appearing; A Storm of Swords · Jon IV (Chapter 30) — appearing"
+            },
+            {
+              "label": "Индексная форма",
+              "value": "В Jon IV индексирует Grigg; локальный аудит связывает её со страницей Grigg the Goat. Сверка по роману pending."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "AWOIAF индексирует персонажа как Grigg the Goat в Jon III; в Jon IV индексная форма Grigg разрешается той же страницей персонажа. Первичная сверка связи имен pending."
+            }
+          ],
+          "links": []
+        },
+        {
+          "ref": "person:hareth",
+          "kind": "person",
+          "name": "Hareth",
+          "subtitle": "A Storm of Swords · 3 indexed chapter appearances",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Jon VIII (Chapter 64); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_64",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 64,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise locator summaries; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 64,
+              "chapterTitle": "Jon VIII",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_64"
+            },
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 69,
+              "chapterTitle": "Jon IX",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_69"
+            },
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 79,
+              "chapterTitle": "Jon XII",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_79"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус карточки",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Статус в локаторе",
+              "value": "appearing"
+            },
+            {
+              "label": "Сверка",
+              "value": "AWOIAF — вторичный указатель глав; сверка с первичным изданием ожидает выполнения."
+            },
+            {
+              "label": "Русское имя",
+              "value": "не задано; сверить с выбранным русским изданием."
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "A Storm of Swords · Jon VIII (Chapter 64) — appearing; A Storm of Swords · Jon IX (Chapter 69) — appearing; A Storm of Swords · Jon XII (Chapter 79) — appearing"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "AWOIAF chapter index отмечает Hareth как appearing в Jon VIII, Jon IX и Jon XII. Роль и биография за пределами этих локаторов не добавляются."
+            }
+          ],
+          "links": []
+        },
+        {
+          "ref": "person:kegs",
+          "kind": "person",
+          "name": "Kegs",
+          "subtitle": "A Storm of Swords · 2 indexed chapter appearances",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Jon VIII (Chapter 64); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_64",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 64,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise locator summaries; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 64,
+              "chapterTitle": "Jon VIII",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_64"
+            },
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 69,
+              "chapterTitle": "Jon IX",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_69"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус карточки",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Статус в локаторе",
+              "value": "appearing"
+            },
+            {
+              "label": "Сверка",
+              "value": "AWOIAF — вторичный указатель глав; сверка с первичным изданием ожидает выполнения."
+            },
+            {
+              "label": "Русское имя",
+              "value": "не задано; сверить с выбранным русским изданием."
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "A Storm of Swords · Jon VIII (Chapter 64) — appearing; A Storm of Swords · Jon IX (Chapter 69) — appearing"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "AWOIAF chapter index отмечает Kegs как appearing в Jon VIII и Jon IX. Роль и биография за пределами этих локаторов не добавляются."
+            }
+          ],
+          "links": []
+        },
+        {
+          "ref": "person:mully",
+          "kind": "person",
+          "name": "Mully",
+          "subtitle": "A Storm of Swords · 3 indexed chapter appearances",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Jon VIII (Chapter 64); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_64",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 64,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise locator summaries; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 64,
+              "chapterTitle": "Jon VIII",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_64"
+            },
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 69,
+              "chapterTitle": "Jon IX",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_69"
+            },
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 79,
+              "chapterTitle": "Jon XII",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_79"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус карточки",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Статус в локаторе",
+              "value": "appearing"
+            },
+            {
+              "label": "Сверка",
+              "value": "AWOIAF — вторичный указатель глав; сверка с первичным изданием ожидает выполнения."
+            },
+            {
+              "label": "Русское имя",
+              "value": "не задано; сверить с выбранным русским изданием."
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "A Storm of Swords · Jon VIII (Chapter 64) — appearing; A Storm of Swords · Jon IX (Chapter 69) — appearing; A Storm of Swords · Jon XII (Chapter 79) — appearing"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "AWOIAF chapter index отмечает Mully как appearing в Jon VIII, Jon IX и Jon XII. Роль и биография за пределами этих локаторов не добавляются."
+            }
+          ],
+          "links": []
+        },
+        {
+          "ref": "person:owen-the-oaf",
+          "kind": "person",
+          "name": "Owen the Oaf",
+          "subtitle": "A Storm of Swords · 3 indexed chapter appearances",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Jon VIII (Chapter 64); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_64",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 64,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise locator summaries; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 64,
+              "chapterTitle": "Jon VIII",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_64"
+            },
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 69,
+              "chapterTitle": "Jon IX",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_69"
+            },
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 79,
+              "chapterTitle": "Jon XII",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_79"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус карточки",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Статус в локаторе",
+              "value": "appearing"
+            },
+            {
+              "label": "Сверка",
+              "value": "AWOIAF — вторичный указатель глав; сверка с первичным изданием ожидает выполнения."
+            },
+            {
+              "label": "Русское имя",
+              "value": "не задано; сверить с выбранным русским изданием."
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "A Storm of Swords · Jon VIII (Chapter 64) — appearing; A Storm of Swords · Jon IX (Chapter 69) — appearing; A Storm of Swords · Jon XII (Chapter 79) — appearing"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "AWOIAF chapter index отмечает Owen the Oaf как appearing в Jon VIII, Jon IX и Jon XII. Роль и биография за пределами этих локаторов не добавляются."
+            }
+          ],
+          "links": []
+        },
+        {
+          "ref": "person:spare-boot",
+          "kind": "person",
+          "name": "Spare Boot",
+          "subtitle": "A Storm of Swords · 3 indexed chapter appearances",
+          "status": "secondary-indexed-partial",
+          "priority": "P1",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Jon VIII (Chapter 64); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_64",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 64,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise locator summaries; primary-edition verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 64,
+              "chapterTitle": "Jon VIII",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_64"
+            },
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 69,
+              "chapterTitle": "Jon IX",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_69"
+            },
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 79,
+              "chapterTitle": "Jon XII",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_79"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "facts": [
+            {
+              "label": "Статус карточки",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P1"
+            },
+            {
+              "label": "Статус в локаторе",
+              "value": "appearing"
+            },
+            {
+              "label": "Сверка",
+              "value": "AWOIAF — вторичный указатель глав; сверка с первичным изданием ожидает выполнения."
+            },
+            {
+              "label": "Русское имя",
+              "value": "не задано; сверить с выбранным русским изданием."
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "A Storm of Swords · Jon VIII (Chapter 64) — appearing; A Storm of Swords · Jon IX (Chapter 69) — appearing; A Storm of Swords · Jon XII (Chapter 79) — appearing"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "AWOIAF chapter index отмечает Spare Boot как appearing в Jon VIII, Jon IX и Jon XII. Роль и биография за пределами этих локаторов не добавляются."
+            }
+          ],
+          "links": []
+        }
+      ]
+    }
+  ],
+  "aliasReview": [
+    {
+      "candidateRef": "person:aemon-targaryen",
+      "candidateName": "Aemon Targaryen",
+      "package40Ref": "person:maester-aemon",
+      "status": "deferred-alias-review",
+      "evidence": "The .40 package contains person:maester-aemon; candidate ref is absent. Do not create a duplicate until identity/ref policy is reconciled."
+    },
+    {
+      "candidateRef": "person:tormund-giantsbane",
+      "candidateName": "Tormund Giantsbane",
+      "package40Ref": "person:tormund-giantsbane",
+      "status": "already-present; alias review deferred",
+      "evidence": "Exact stable ref is present in .40; no new card."
+    },
+    {
+      "candidateRef": "person:brown-ben-plumm",
+      "candidateName": "Brown Ben Plumm",
+      "package40Ref": "person:ben-plumm",
+      "status": "deferred-alias-review",
+      "evidence": "The .40 package contains person:ben-plumm; candidate ref is absent. ASOS 57 appears only as route-intelligence context in this pass; no new person card until alias/appearance scope is reconciled."
+    }
+  ],
+  "validation": {
+    "uniqueOutputRefs": 8,
+    "packageCollisions": 0,
+    "allLocatorsNumeric": true,
+    "sourceLicense": "CC-BY-SA-3.0",
+    "allPrimaryVerificationPending": true,
+    "entityCount": 8,
+    "locatorCount": 20,
+    "requestedIDsAbsentInPackage": true,
+    "nonAppearingLocatorsOnlyFor": "person:coldhands chapter 56 mention/route-guide",
+    "unresolvedLinks": 0
+  }
+}

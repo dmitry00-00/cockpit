@@ -6,6 +6,8 @@
 import type { CharacterSheet } from '../engine';
 import { Icon, type IconName } from '../icons/Icon';
 import { ARMOR, SHIELD, isArmorId } from '../rules/srd';
+import { SemanticMark } from '../art/SemanticMark';
+import { EQUIPMENT_SLOT_ART } from '../art/semanticBindings';
 
 export const SLOT_IDS = ['head', 'neck', 'cloak', 'armor', 'hands', 'ring', 'belt', 'feet', 'weapon'] as const;
 export type SlotId = (typeof SLOT_IDS)[number];
@@ -106,12 +108,9 @@ export function Paperdoll({ items = {}, weapons, inventory, onSlot, onAttack, cl
               onClick={() => onSlot?.(id)}
               className={`relative flex h-16 cursor-pointer flex-col items-center justify-center gap-1 px-1 py-1 min-w-0 ${item ? SLOT_FILLED : SLOT_EMPTY} ${FOCUS}`}
             >
-              <Icon
-                name={slot.icon}
-                size={24}
-                color={item ? (item.rare ? 'var(--gd)' : 'var(--tx)') : 'var(--t3)'}
-                title={slot.label}
-              />
+              {EQUIPMENT_SLOT_ART[slot.icon]
+                ? <SemanticMark asset={EQUIPMENT_SLOT_ART[slot.icon]!} icon={slot.icon} size={24} color={item ? (item.rare ? 'var(--gd)' : 'var(--tx)') : 'var(--t3)'} title={slot.label} />
+                : <Icon name={slot.icon} size={24} color={item ? (item.rare ? 'var(--gd)' : 'var(--tx)') : 'var(--t3)'} title={slot.label} />}
               <span className="type-body-xs max-w-full truncate">{item ? item.name : slot.label}</span>
               {item?.rare ? (
                 <span role="img" aria-label="редкий предмет" title="Редкий предмет" className="absolute top-1 right-1 size-2 bg-gd" />

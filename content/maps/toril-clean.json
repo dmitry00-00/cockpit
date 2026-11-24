@@ -1,9 +1,9 @@
 {
   "id": "toril-clean",
   "label": "Toril (без подписей)",
-  "note": "ЧЕРНОВИК, в стол не подключён. Растр HandsomeRob без подписей и значков — подложка, поверх которой подписи и места кладутся по координатам (toril-labels.json, toril-places.json). Исходник — maps/abeir toril/…-clean.tif (не в git), собран scripts/clean-map.py 30.10.2026 (маска по цвету и ореолу букв + рамки Vision + значки; заливка big-lama; линии дорог, границ и рек дорисованы по schema.json). Маска — maps/tiles/toril/clean-mask.png (клетка 4 px). Лицензия как у исходника: только стол владельца (SOURCES.md, «стол»), не публикуется. Координаты — те же пиксели, что у toril.json.",
+  "note": "ЧЕРНОВИК очищенной подложки, подключён в режиме «Карта». Контрольные трудные срезы: research/maps/m17-slices.json; полный OCR и принятые локальные поправки: research/maps/M17_FULL_OCR_RECHECK_2026-11-20.md. Растр HandsomeRob без подписей и значков — подложка, поверх которой подписи и места кладутся по координатам (toril-labels.json, toril-places.json). Базовый TIFF — maps/abeir toril/…-clean.tif (не в git), source.file указывает на локальный VRT-слой поправок; исходный TIFF и базовый очищенный TIFF сохранены. Маска — maps/tiles/toril/clean-mask.png (клетка 4 px). Лицензия как у исходника: только стол владельца (SOURCES.md, «стол»), не публикуется. Координаты — те же пиксели, что у toril.json.",
   "source": {
-    "file": "maps/abeir toril/HandsomeRobs_map_of_Toril-TorilMap-clean.tif",
+    "file": "maps/abeir toril/HandsomeRobs_map_of_Toril-TorilMap-clean-m17-northletter-2026-11-21.vrt",
     "author": "HandsomeRob",
     "extent": {
       "lon": [

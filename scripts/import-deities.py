@@ -11,8 +11,9 @@
 # Что не разобралось («Starfall», «varies»), остаётся только текстом карточки. Правила — отдельным маленьким файлом: календарь
 # на столе читает их сразу, а не из куска богов.
 #
-# Запуск: .venv/bin/python -I scripts/import-deities.py <dump.xml>
+# Запуск: .venv/bin/python -I scripts/import-deities.py <dump.xml> [--content-root <content-dir>]
 #   Выход: content/cosmos/deities.json, content/cosmos/holy-days.json.
+import argparse
 import importlib.util
 import json
 import os
@@ -21,8 +22,11 @@ import sys
 import unicodedata
 import xml.etree.ElementTree as ET
 
-ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-_spec = importlib.util.spec_from_file_location('spelljammer', os.path.join(ROOT, 'scripts', 'import-spelljammer.py'))
+REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+_paths_spec = importlib.util.spec_from_file_location('content_paths', os.path.join(REPO_ROOT, 'scripts', 'content-paths.py'))
+content_paths = importlib.util.module_from_spec(_paths_spec)
+_paths_spec.loader.exec_module(content_paths)
+_spec = importlib.util.spec_from_file_location('spelljammer', os.path.join(REPO_ROOT, 'scripts', 'import-spelljammer.py'))
 sj = importlib.util.module_from_spec(_spec)
 _spec.loader.exec_module(sj)
 NS = sj.NS
@@ -170,16 +174,19 @@ def links_of(v):
 
 
 def main():
-    if len(sys.argv) != 2:
-        sys.exit(__doc__ or 'usage: import-deities.py <dump.xml>')
-    pages, redirects, titles = scan(sys.argv[1])
+    parser = argparse.ArgumentParser(description='Импорт карточек божеств и святых дней из FR Wiki.')
+    parser.add_argument('dump', help='XML-дамп вики')
+    parser.add_argument('--content-root', help='корень слоёв content; по умолчанию <корень проекта>/content')
+    args = parser.parse_args()
+    content_paths.set_content_root(args.content_root)
+    pages, redirects, titles = scan(args.dump)
     follow = lambda t: redirects.get(t, redirects.get(t[:1].upper() + t[1:], t[:1].upper() + t[1:]))
 
     # Планы: статья → id отдельно для Колеса и Древа, слои Колеса → план. Поля 3e пишут дом бога по Древу, остальные
     # редакции — по Колесу: Demonweb Pits в 5e — слой Abyss, а не план Древа. Поле без редакции — по обеим моделям.
     plane_of, layer_of = {'wheel': {}, 'tree': {}}, {}
     for f, model in (('great-wheel', 'wheel'), ('world-tree', 'tree')):
-        with open(os.path.join(ROOT, 'content', 'cosmos', f + '.json'), encoding='utf-8') as fh:
+        with open(content_paths.content_path(REPO_ROOT, 'cosmos', f + '.json'), encoding='utf-8') as fh:
             for p in json.load(fh)['planes']:
                 plane_of[model][p['url'].rsplit('/', 1)[-1].replace('_', ' ')] = p['id']
                 if model == 'wheel':
@@ -303,7 +310,9 @@ def main():
         eds = {ed: {'text': c['t'], 'rules': holy_rules(c['t'])} for ed, c in d['fields'].get('holydays', {}).items()}
         if any(e['rules'] for e in eds.values()):
             holy.append({'deity': d['id'], 'name': d['name'], 'url': d['url'], **({'pantheons': d['pantheons']} if d.get('pantheons') else {}), 'editions': eds})
-    hpath = os.path.join(ROOT, 'content', 'cosmos', 'holy-days.json')
+    cosmos_dir = content_paths.content_path(REPO_ROOT, 'cosmos')
+    os.makedirs(cosmos_dir, exist_ok=True)
+    hpath = os.path.join(cosmos_dir, 'holy-days.json')
     with open(hpath, 'w', encoding='utf-8') as fh:
         json.dump({'attribution': sj.ATTRIBUTION, 'license': sj.LICENSE,
                    'note': 'Святые дни из поля holy days карточек {{Deity}}: правила календаря по редакциям; даты равноденствий и солнцестояний — статья Calendar of Harptos.',
@@ -311,7 +320,7 @@ def main():
         fh.write('\n')
     print(f'святые дни: {len(holy)} богов с правилами календаря → {hpath} ({os.path.getsize(hpath) // 1024} КБ)')
 
-    path = os.path.join(ROOT, 'content', 'cosmos', 'deities.json')
+    path = os.path.join(cosmos_dir, 'deities.json')
     with open(path, 'w', encoding='utf-8') as fh:
         json.dump(out, fh, ensure_ascii=False, separators=(',', ':'))
         fh.write('\n')

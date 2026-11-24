@@ -10,7 +10,7 @@ export const VIEW_LABEL = { desk: 'Стол', time: 'Время', pulse: 'Пул
 /** Вид главной зоны: стол, время, пульс мира и хроника канона (только мастеру), журнал, тетрадь партии (Д6). */
 export type DeskView = keyof typeof VIEW_LABEL;
 export const VIEW_ICON = { desk: 'map', time: 'tempo', pulse: 'pulse', chrono: 'skill-history', journal: 'journal', notebook: 'note' } as const satisfies Record<keyof typeof VIEW_LABEL, IconName>;
-export const VIEW_TITLE = { desk: 'Стол: карточка или поле боя · Esc', time: 'Шаг времени и сводка «что изменилось» · T делает шаг', pulse: 'Пульс мира: календарь, фракции, цены, встречи · W', chrono: 'Хроника канона: события по годам, слепок мира на год · H', journal: 'Журнал сессии · J', notebook: 'Тетрадь партии: что игроки узнали, когда и кто · N' } as const;
+export const VIEW_TITLE = { desk: 'Стол: карточка или поле боя · Esc', time: 'Шаг времени и сводка «что изменилось» · T делает шаг', pulse: 'Пульс мира: календарь, фракции, цены, встречи · W', chrono: 'Хроника мира: события по годам или книжным локаторам · H', journal: 'Журнал сессии · J', notebook: 'Тетрадь партии: что игроки узнали, когда и кто · N' } as const;
 export const MOON_PHASES: readonly MoonPhase[] = ['new', 'waxing', 'full', 'waning'];
 /** Иконка неба — из набора погоды генератора; у каждой title, подпись рядом словами. */
 export const SKY_ICON: Readonly<Record<Sky, IconName>> = { clear: 'day', cloudy: 'cloudy', rain: 'rain', storm: 'storm' };

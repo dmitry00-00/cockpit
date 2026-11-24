@@ -1,0 +1,66 @@
+.spawn-popover {
+  /* The picker is a catalog table: keep enough width for filters and a useful
+     result list. Layout switches below are based on this panel, not the viewport. */
+  box-sizing: border-box;
+  width: min(70rem, calc(100vw - 32px));
+  min-width: min(54rem, calc(100vw - 32px));
+  max-width: min(70rem, calc(100vw - 32px));
+  container: spawn-picker / inline-size;
+}
+.spawn-form { display: flex; flex-direction: column; width: 100%; max-height: min(88vh, 720px, var(--radix-popper-available-height, 720px)); }
+.spawn-form--long-list { height: min(88vh, 720px, var(--radix-popper-available-height, 720px)); }
+.spawn-form > :not(.spawn-option-list) { flex-shrink: 0; }
+.spawn-filter-grid > select { width: 100%; }
+.spawn-option-list { flex: 1 1 0; min-height: 0; max-height: min(64vh, 520px); }
+.spawn-option-list > button { flex: none; }
+
+@container spawn-picker (min-width: 900px) {
+  .spawn-form {
+    display: grid;
+    grid-template-columns: minmax(260px, 0.27fr) minmax(0, 1fr);
+    grid-template-areas:
+      "title title"
+      "search search"
+      "sources sources"
+      "filters table-head"
+      "filters list"
+      "name name";
+    grid-template-rows: auto auto auto auto minmax(0, 1fr) auto;
+    align-items: start;
+  }
+  .spawn-title { grid-area: title; }
+  .spawn-search { grid-area: search; width: 100%; }
+  .spawn-source-cr { grid-area: sources; align-self: stretch; }
+  .spawn-source-cr > [role="group"] { max-width: 100%; overflow-x: auto; }
+  .spawn-cr-row { flex-wrap: wrap; }
+  .spawn-filter-grid { grid-area: filters; align-content: start; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }
+  .spawn-table-head { grid-area: table-head; width: 100%; }
+  .spawn-option-list { grid-area: list; width: 100%; min-width: 0; height: 100%; max-height: none; }
+  .spawn-name-row { grid-area: name; width: 100%; }
+}
+
+@container spawn-picker (min-width: 760px) and (max-width: 899px) {
+  .spawn-form {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      "title"
+      "search"
+      "sources"
+      "filters"
+      "table-head"
+      "list"
+      "name";
+    grid-template-rows: auto auto auto auto auto minmax(0, 1fr) auto;
+  }
+  .spawn-filter-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 540px) {
+  .spawn-source-cr { flex-wrap: wrap; }
+  .spawn-source-cr > [role="group"] { max-width: 100%; overflow-x: auto; }
+  .spawn-cr-row { flex: 1; }
+  .spawn-filter-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 1280px), (max-height: 700px) {
+  .spawn-form { gap: 2px; padding: 6px; }
+}

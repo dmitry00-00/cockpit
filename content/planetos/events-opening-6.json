@@ -1,0 +1,388 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "event",
+  "entities": [
+    {
+      "ref": "event:robert-death-announced-by-great-sept-bells",
+      "kind": "event",
+      "name": "Bells announce Robert’s death in King’s Landing",
+      "nameRu": "Колокола возвещают о смерти Роберта в Королевской Гавани",
+      "subtitle": "A Game of Thrones · Sansa IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa IV; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_51",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 51
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Sansa IV"
+        },
+        {
+          "label": "Дата",
+          "value": "точный момент не установлен; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "колокола Великой септы возвещают о смерти; Санса слышит сообщение в главе; сама смерть произошла раньше"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; выбранное издание не сверялось"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Во время заточения Санса слышит звон Великой септы, возвещающий Королевской Гавани о смерти короля Роберта. Это публичное известие, отдельное от самой смерти и от более ранних частных сообщений."
+        }
+      ],
+      "links": [
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        },
+        {
+          "label": "Robert Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "Great Sept of Baelor",
+          "ref": "place:great-sept-of-baelor"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Robert’s death",
+          "ref": "event:robert-dies-from-hunting-wounds"
+        }
+      ]
+    },
+    {
+      "ref": "event:cersei-tells-sansa-betrothal-cannot-proceed",
+      "kind": "event",
+      "name": "Cersei tells Sansa the betrothal cannot proceed",
+      "nameRu": "Серсея говорит Сансе, что брак с Джоффри не состоится",
+      "subtitle": "A Game of Thrones · Sansa IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa IV; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_51",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 51
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Sansa IV"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена"
+        },
+        {
+          "label": "Статус",
+          "value": "Серсея сообщает Сансе, что не может выдать дочь объявленного предателем за сына; долговременное оформление брака здесь отдельно не моделируется"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; выбранное издание не сверялось"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "На встрече с королевой Санса узнаёт, что Серсея не позволит ей выйти за Джоффри после обвинения Эддарда в измене. Это меняет то, что Сансе сообщают о её будущем браке, не устанавливая отдельный юридический акт."
+        }
+      ],
+      "links": [
+        {
+          "label": "Cersei Lannister",
+          "ref": "person:cersei-lannister"
+        },
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        },
+        {
+          "label": "Joffrey Baratheon",
+          "ref": "person:joffrey-baratheon"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "event:sansa-writes-letters-to-starks-under-pressure",
+      "kind": "event",
+      "name": "Sansa writes letters to her family under pressure",
+      "nameRu": "Санса под давлением пишет письма семье",
+      "subtitle": "A Game of Thrones · Sansa IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa IV; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_51",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 51
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Sansa IV"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена"
+        },
+        {
+          "label": "Статус",
+          "value": "письма написаны в главе под давлением королевы и малого совета"
+        },
+        {
+          "label": "Получатели",
+          "value": "Catelyn Stark, Robb Stark, Lysa Arryn, Hoster Tully"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; выбранное издание не сверялось"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Серсея и совет задают Сансе содержание писем, призванных убедить родных Старков и Талли прибыть в Королевскую Гавань и присягнуть Джоффри. Письма не означают, что их адресаты уже получили или приняли это требование."
+        }
+      ],
+      "links": [
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        },
+        {
+          "label": "Cersei Lannister",
+          "ref": "person:cersei-lannister"
+        },
+        {
+          "label": "Jeyne Poole",
+          "ref": "person:jeyne-poole"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "Lysa Arryn",
+          "ref": "person:lysa-arryn"
+        },
+        {
+          "label": "Hoster Tully",
+          "ref": "person:hoster-tully"
+        },
+        {
+          "label": "Red Keep",
+          "ref": "place:red-keep"
+        }
+      ]
+    },
+    {
+      "ref": "event:tywin-receives-news-of-jaimes-capture-and-riverrun-defeat",
+      "kind": "event",
+      "name": "Tywin receives news of Jaime’s capture and defeat at Riverrun",
+      "nameRu": "Тайвин получает весть о пленении Джейме и поражении у Риверрана",
+      "subtitle": "A Game of Thrones · Tyrion IX",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion IX; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_69",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 69
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion IX"
+        },
+        {
+          "label": "Дата",
+          "value": "сообщение приходит после названных в нём боёв; точный интервал неизвестен"
+        },
+        {
+          "label": "Статус",
+          "value": "вестник сообщает о пленении Джейме и поражении остального войска у Риверрана; это получение сообщения в главе, а не новое сражение"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; выбранное издание не сверялось"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "В лагерь Тайвина у перекрёстка прибывает вестник с новостью о пленении Джейме и поражении оставшихся сил Ланнистеров у Риверрана. Сама весть резко меняет оценку положения Ланнистеров; её получение отделено от уже произошедших сражений."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tywin Lannister",
+          "ref": "person:tywin-lannister"
+        },
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Jaime Lannister",
+          "ref": "person:jaime-lannister"
+        },
+        {
+          "label": "Inn at the Crossroads",
+          "ref": "place:inn-at-crossroads"
+        },
+        {
+          "label": "Riverrun",
+          "ref": "place:riverrun"
+        },
+        {
+          "label": "Jaime captured at Whispering Wood",
+          "ref": "event:robb-captures-jaime-at-whispering-wood"
+        }
+      ]
+    },
+    {
+      "ref": "event:tywin-sends-tyrion-to-kings-landing-as-acting-hand",
+      "kind": "event",
+      "name": "Tywin sends Tyrion to King’s Landing as acting Hand",
+      "nameRu": "Тайвин отправляет Тириона в Королевскую Гавань исполнять обязанности Десницы",
+      "subtitle": "A Game of Thrones · Tyrion IX",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion IX; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_69",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 69
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion IX"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена"
+        },
+        {
+          "label": "Статус",
+          "value": "Тайвин назначает Тириона исполняющим обязанности Десницы в главе; поездка и исполнение поручения происходят позднее"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; выбранное издание не сверялось"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "После оценки военного положения Тайвин приказывает Тириону отправиться ко двору и исполнять обязанности Десницы, сдерживая Джоффри и исправляя беспорядок в Королевской Гавани. Тирион намерен взять Шаю вопреки прямому запрету отца; этот план не считается уже исполненным."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tywin Lannister",
+          "ref": "person:tywin-lannister"
+        },
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Joffrey Baratheon",
+          "ref": "person:joffrey-baratheon"
+        },
+        {
+          "label": "House Lannister",
+          "ref": "organization:house-lannister"
+        },
+        {
+          "label": "Inn at the Crossroads",
+          "ref": "place:inn-at-crossroads"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "event:tywin-orders-riverlands-raids",
+      "kind": "event",
+      "name": "Tywin orders raids across the Riverlands",
+      "nameRu": "Тайвин приказывает разорять Речные земли",
+      "subtitle": "A Game of Thrones · Tyrion IX",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion IX; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_69",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 69
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion IX"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена"
+        },
+        {
+          "label": "Статус",
+          "value": "приказ отдан в главе; последующее исполнение не описывается здесь"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; выбранное издание не сверялось"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Решив вести войско к Харренхоллу, Тайвин отдаёт приказы о новых вылазках и поджогах к югу от Красного Зубца. Карточка фиксирует стратегический приказ, а не уже разорённые поселения."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tywin Lannister",
+          "ref": "person:tywin-lannister"
+        },
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "House Lannister",
+          "ref": "organization:house-lannister"
+        },
+        {
+          "label": "Riverlands",
+          "ref": "place:riverlands"
+        }
+      ]
+    }
+  ]
+}

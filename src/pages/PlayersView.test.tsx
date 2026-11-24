@@ -1,3 +1,4 @@
+import { timeAction, openTimeControls } from './desk/testkit';
 // Адверсарный набор для режима «глазами игроков» (шаг 9, HANDOFF §14; CLAUDE.md «Правила экрана»: секреты не
 // приглушаются, а отсутствуют в DOM). Стол заводится со ВСЕМИ видами секретов — скрытый бросок, отклонённое,
 // принятое, переброшенное и нетронутое предложения, три факта мастера (один — про актёра, чтобы была вкладка DM),
@@ -186,7 +187,7 @@ function keyHints(): string[] {
 
 const P = () => fireEvent.keyDown(window, { key: 'p', code: 'KeyP' });
 const J = () => fireEvent.keyDown(window, { key: 'j', code: 'KeyJ' });
-const T = () => fireEvent.keyDown(window, { key: 't', code: 'KeyT' });
+const T = () => timeAction(() => { fireEvent.keyDown(window, { key: 't', code: 'KeyT' }); });
 const ESC = () => fireEvent.keyDown(window, { key: 'Escape', code: 'Escape' });
 const SPACE = () => fireEvent.keyDown(window, { key: ' ', code: 'Space' });
 const R = () => fireEvent.keyDown(window, { key: 'r', code: 'KeyR' });
@@ -215,7 +216,7 @@ const lastEvent = (store: EngineStoreApi) => store.getState().events.at(-1)!;
 /* ---------- 1. Секреты ---------- */
 
 describe('глазами игроков: секретов нет в document.body', () => {
-  it('стол: входящие, карточка скрытого броска, журнал стола — после P ничего из этого нет; хроника и партия есть', () => {
+  it('стол: входящие, карточка скрытого броска, журнал стола — после P ничего из этого нет; хроника и партия есть', async () => {
     const store = storeWithSecrets();
     mount(store);
     // Сначала стол мастера полон секретов — иначе проверка ниже ничего не доказывает.
@@ -236,7 +237,7 @@ describe('глазами игроков: секретов нет в document.bod
     expect(journal).toHaveTextContent('Партия решила идти к @Triboar Trail');
   });
 
-  it('карточка: вкладка DM открыта у мастера → после P ни вкладки, ни текста факта; карточка на «Обзор»', () => {
+  it('карточка: вкладка DM открыта у мастера → после P ни вкладки, ни текста факта; карточка на «Обзор»', async () => {
     const store = storeWithSecrets();
     mount(store);
     clickTab('DM');
@@ -252,7 +253,7 @@ describe('глазами игроков: секретов нет в document.bod
     expectClean('карточка Bo повторно');
   });
 
-  it('журнал сессии: записи, счётчик, фильтр, карточки нитей, клик по #нити и @упоминанию — чисто в каждом шаге', () => {
+  it('журнал сессии: записи, счётчик, фильтр, карточки нитей, клик по #нити и @упоминанию — чисто в каждом шаге', async () => {
     const store = storeWithSecrets();
     mount(store);
     P();
@@ -318,10 +319,10 @@ describe('глазами игроков: секретов нет в document.bod
     expectClean('журнал сессии в бою');
   });
 
-  it('вид «Время»: мастер сделал шаг (T) и нажал P — сводки «что изменилось» и предложений нет', () => {
+  it('вид «Время»: мастер сделал шаг (T) и нажал P — сводки «что изменилось» и предложений нет', async () => {
     const store = storeWithSecrets();
     mount(store);
-    T();
+    await T();
     expect(lastEvent(store).type).toMatch(/TIME_ADVANCED|WORLD_DELTA_PROPOSED/);
     expect(screen.getByRole('region', { name: 'Что изменилось' })).toBeInTheDocument();
     P();
@@ -353,7 +354,7 @@ describe('глазами игроков: секретов нет в document.bod
     fireEvent.blur(chip);
   });
 
-  it('Q1: монстр на столе игроков — без чисел и блока, состояние словами; заметка «Игрокам» видна, секретная — нет', () => {
+  it('Q1: монстр на столе игроков — без чисел и блока, состояние словами; заметка «Игрокам» видна, секретная — нет', async () => {
     mount(storeWithSecrets());
     P();
     const captain = screen.getByTitle('Bandit Captain · ранен');
@@ -367,7 +368,7 @@ describe('глазами игроков: секретов нет в document.bod
     expectClean('журнал игроков с заметками');
   });
 
-  it('раскрытый и тут же отменённый факт: в состоянии он снова секрет — и в DOM игроков его текста быть не должно', () => {
+  it('раскрытый и тут же отменённый факт: в состоянии он снова секрет — и в DOM игроков его текста быть не должно', async () => {
     const store = storeWithSecrets();
     mount(store);
     act(() => { store.getState().reveal(FACT.zhentarimAgent); });
@@ -379,7 +380,7 @@ describe('глазами игроков: секретов нет в document.bod
     expectNone(['Агент Zhentarim замечен у ворот Neverwinter'], 'журнал сессии после Ctrl+Z раскрытия');
   });
 
-  it('стол, поднятый с dmView={false}: чисто сразу и после боя', () => {
+  it('стол, поднятый с dmView={false}: чисто сразу и после боя', async () => {
     const store = storeWithSecrets();
     mount(store, false);
     expectClean('dmView=false, стол');
@@ -393,14 +394,29 @@ describe('глазами игроков: секретов нет в document.bod
 /* ---------- 2. Инструменты мастера ---------- */
 
 describe('глазами игроков: инструменты мастера (F8: панель темпа и подсказки клавиш убраны)', () => {
-  it('стол: ни одного инструмента мастера и ни одной подсказки клавиш, кроме «· P»', () => {
+  it('календарь доступен игрокам, но переключатель астролябии и линза остаются только у мастера', () => {
+    mount(storeWithSecrets());
+    P();
+    const dialog = openTimeControls();
+
+    expect(within(dialog).getByRole('region', { name: 'Календарь Харптоса' })).toBeInTheDocument();
+    expect(within(dialog).queryByRole('group', { name: 'Способ управления временем' })).toBeNull();
+    expect(within(dialog).queryByRole('region', { name: 'Астролябия мирового времени' })).toBeNull();
+    expect(within(dialog).queryByRole('spinbutton', { name: 'Год линзы карты и карточек' })).toBeNull();
+    expect(within(dialog).queryByRole('group', { name: 'Темп времени' })).toBeNull();
+    expect(dialog.querySelector('[data-part="astrolabe"]')).toBeNull();
+    expectClean('календарь на столе игроков');
+    fireEvent.click(within(dialog).getByRole('button', { name: 'Закрыть управление временем' }));
+  });
+
+  it('стол: ни одного инструмента мастера и ни одной подсказки клавиш, кроме «· P»', async () => {
     mount(storeWithSecrets());
     P();
     expectNone(DM_TOOLS, 'стол игроков');
     expect.soft(keyHints(), 'подсказки клавиш в title').toEqual([]);
   });
 
-  it('журнал сессии: форма заметки мастера и её подсказки', () => {
+  it('журнал сессии: форма заметки мастера и её подсказки', async () => {
     mount(storeWithSecrets());
     P();
     J();
@@ -419,9 +435,9 @@ describe('глазами игроков: инструменты мастера (
     expect.soft(keyHints(), 'подсказки клавиш в title').toEqual([]);
   });
 
-  it('вид «Время» остаётся после P: секция «Шаг времени» и «темп часов» на столе игроков', () => {
+  it('вид «Время» остаётся после P: секция «Шаг времени» и «темп часов» на столе игроков', async () => {
     mount(storeWithSecrets());
-    T();
+    await T();
     P();
     expect.soft(document.body.querySelector('section[aria-label="Шаг времени"]'), 'секция «Шаг времени»').toBeNull();
     expectNone(['темп часов'], 'вид «Время» после P');
@@ -431,13 +447,13 @@ describe('глазами игроков: инструменты мастера (
     expect(screen.getByRole('region', { name: 'Мир' })).toBeInTheDocument();
   });
 
-  it('клавиши мастера на столе игроков молчат: T, Space, Ctrl+Z и R не пишут событий — и R не перебрасывает скрытый бросок открыто', () => {
+  it('клавиши мастера на столе игроков молчат: T, Space, Ctrl+Z и R не пишут событий — и R не перебрасывает скрытый бросок открыто', async () => {
     const store = storeWithSecrets();
     mount(store);
     startCombat();
     P();
     let before = store.getState().events.length;
-    T();
+    await T();
     expect.soft(store.getState().events.length, 'T на столе игроков').toBe(before);
     SPACE();
     expect.soft(store.getState().events.length, 'Space на столе игроков').toBe(before);
@@ -456,7 +472,7 @@ describe('глазами игроков: инструменты мастера (
 /* ---------- 3. Обратная проверка: стол мастера ---------- */
 
 describe('стол мастера: те же строки присутствуют, и P назад ничего не теряет', () => {
-  it('каждая строка-секрет и каждый селектор встречаются на столе мастера хотя бы в одном состоянии', () => {
+  it('каждая строка-секрет и каждый селектор встречаются на столе мастера хотя бы в одном состоянии', async () => {
     const store = storeWithSecrets();
     mount(store);
     const seen = new Set<string>();
@@ -473,7 +489,7 @@ describe('стол мастера: те же строки присутствую
     J();
     collect(); // журнал сессии: напоминания, карточки нитей с «секрет» и «каскад», каскад под записью
     ESC();
-    T();
+    await T();
     collect(); // вид «Время»: «Что изменилось»
     ESC();
     fireEvent.click(screen.getByTitle('Bandit Captain · CR 2'));
@@ -506,8 +522,10 @@ describe('стол мастера: те же строки присутствую
     J();
     collect();
     ESC();
-    T();
+    await T();
+    openTimeControls();
     collect(); // вид «Время»: «темп часов»
+    fireEvent.click(screen.getByRole('button', { name: 'Закрыть управление временем' }));
     ESC();
     startCombat();
     // Radix возвращает фокус на «Порядок» через setTimeout(0) после закрытия редактора; в браузере это мгновенно,
@@ -519,7 +537,7 @@ describe('стол мастера: те же строки присутствую
     expect(DM_TOOLS.filter(s => !seen.has(s)), 'инструменты, которых нет на столе мастера — проба пустая').toEqual([]);
   });
 
-  it('P → P: секреты возвращаются в том же составе — мастер ничего не потерял', () => {
+  it('P → P: секреты возвращаются в том же составе — мастер ничего не потерял', async () => {
     const store = storeWithSecrets();
     mount(store);
     clickTab('DM');

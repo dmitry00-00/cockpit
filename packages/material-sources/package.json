@@ -1,0 +1,23 @@
+{
+  "format": 1,
+  "id": "material-sources",
+  "kind": "shared",
+  "title": "Game Material Source Registry",
+  "titleRu": "Реестр источников игровых материалов",
+  "version": "2026.11.17",
+  "layers": [
+    {
+      "id": "material-sources",
+      "path": "content/registries/material-sources.json",
+      "kinds": [
+        "source-registry"
+      ],
+      "license": "LicenseRef-Internal-Project-Register",
+      "distribution": "internal",
+      "attribution": "Сводный реестр DM Cockpit. Права и условия использования каждого внешнего источника определяются отдельно и не передаются этим индексом.",
+      "decision": "Только внутренний справочник; запись не разрешает использовать или распространять указанные материалы."
+    }
+  ],
+  "distribution": "internal",
+  "canary": "dmck-material-sources-20261117"
+}

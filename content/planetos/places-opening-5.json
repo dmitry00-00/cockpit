@@ -1,0 +1,1044 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "place",
+  "entities": [
+    {
+      "ref": "place:brans-sickroom-at-winterfell",
+      "kind": "place",
+      "name": "Bran's sickroom at Winterfell",
+      "nameRu": "Больничная комната Брана в Винтерфелле",
+      "subtitle": "A Game of Thrones · Catelyn III · комната",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn III; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_14",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn III"
+        },
+        {
+          "label": "Категория",
+          "value": "комната в замке"
+        },
+        {
+          "label": "География",
+          "value": "координаты и точные границы не заданы"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Комната, где Кейтлин остаётся у постели Брана; попытка нападения происходит здесь. Точная планировка не задана."
+        }
+      ],
+      "links": [
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        }
+      ]
+    },
+    {
+      "ref": "place:library-tower-of-winterfell",
+      "kind": "place",
+      "name": "Library Tower of Winterfell",
+      "nameRu": "Библиотечная башня Винтерфелла",
+      "subtitle": "A Game of Thrones · Catelyn III · башня",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn III; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_14",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn III"
+        },
+        {
+          "label": "Категория",
+          "value": "башня при замке"
+        },
+        {
+          "label": "География",
+          "value": "координаты и точные границы не заданы"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Во время нападения на Брана в башне начинается пожар, который отвлекает Робба и стражу; место важно как часть последовательности сцены, хотя POV остаётся в комнате Брана."
+        }
+      ],
+      "links": [
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        }
+      ]
+    },
+    {
+      "ref": "place:ruby-ford",
+      "kind": "place",
+      "name": "Ruby Ford",
+      "nameRu": "Рубиновый брод",
+      "subtitle": "A Game of Thrones · Sansa I · переправа",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa I; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_15",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Sansa I"
+        },
+        {
+          "label": "Категория",
+          "value": "брод через Трезубец"
+        },
+        {
+          "label": "География",
+          "value": "часть Трезубца; точные координаты не заданы"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Переправа через Трезубец, рядом с которой происходит столкновение Джоффри, Арьи и Мики. Точное положение брода на карте этим источником не задаётся."
+        }
+      ],
+      "links": [
+        {
+          "label": "Trident",
+          "ref": "place:trident"
+        },
+        {
+          "label": "Inn at the Crossroads",
+          "ref": "place:inn-at-crossroads"
+        },
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        }
+      ]
+    },
+    {
+      "ref": "place:hand-tourney-grounds",
+      "kind": "place",
+      "name": "Grounds of the Hand's Tourney",
+      "nameRu": "Площадка турнира Десницы",
+      "subtitle": "A Game of Thrones · Sansa II · временная арена",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa II; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_29",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Sansa II"
+        },
+        {
+          "label": "Категория",
+          "value": "временная турнирная площадка"
+        },
+        {
+          "label": "География",
+          "value": "в Королевской Гавани; точное положение не установлено"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Поле турнира Десницы в Королевской Гавани: здесь Санса наблюдает поединки, включая смертельный поединок Грегора Клегейна с Хью из Долины. Постоянное название или точное положение площадки не установлено."
+        }
+      ],
+      "links": [
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        },
+        {
+          "label": "Joffrey Baratheon",
+          "ref": "person:joffrey-baratheon"
+        }
+      ]
+    },
+    {
+      "ref": "place:pycelles-chambers-in-red-keep",
+      "kind": "place",
+      "name": "Grand Maester Pycelle's chambers",
+      "nameRu": "Покои великого мейстера Пицеля",
+      "subtitle": "A Game of Thrones · Eddard V · покои",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard V; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_25",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard V"
+        },
+        {
+          "label": "Категория",
+          "value": "покои в Красном замке"
+        },
+        {
+          "label": "География",
+          "value": "координаты и точные границы не заданы"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Нед беседует здесь с Пицелем о последних днях Джона Аррена; отдельная планировка покоев не описана."
+        }
+      ],
+      "links": [
+        {
+          "label": "Red Keep",
+          "ref": "place:red-keep"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Pycelle",
+          "ref": "person:pycelle"
+        }
+      ]
+    },
+    {
+      "ref": "place:dragon-cellar-of-red-keep",
+      "kind": "place",
+      "name": "Dragon cellar of the Red Keep",
+      "nameRu": "Подземелье драконьих черепов Красного замка",
+      "subtitle": "A Game of Thrones · Arya III · подземелье",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Arya III; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_32",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Arya III"
+        },
+        {
+          "label": "Категория",
+          "value": "подземелье Красного замка"
+        },
+        {
+          "label": "География",
+          "value": "координаты и точные границы не заданы"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "В тёмном подземелье среди драконьих черепов Арья теряется и слышит разговор двух мужчин. Точная схема подземных ходов не задана."
+        }
+      ],
+      "links": [
+        {
+          "label": "Red Keep",
+          "ref": "place:red-keep"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        }
+      ]
+    },
+    {
+      "ref": "place:lords-commanders-tower-at-castle-black",
+      "kind": "place",
+      "name": "Lord Commander's Tower at Castle Black",
+      "nameRu": "Башня лорда-командующего в Чёрном замке",
+      "subtitle": "A Game of Thrones · Jon VII · башня",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon VII; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_52",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon VII"
+        },
+        {
+          "label": "Категория",
+          "value": "башня внутри замка"
+        },
+        {
+          "label": "География",
+          "value": "координаты и точные границы не заданы"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "В башне лорда-командующего пробуждается мертвец; Джон спасает Мормонта. Здание затем получает пожарные повреждения, описанные в Jon VIII."
+        }
+      ],
+      "links": [
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        },
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Jeor Mormont",
+          "ref": "person:jeor-mormont"
+        }
+      ]
+    },
+    {
+      "ref": "place:weirwood-grove-near-castle-black",
+      "kind": "place",
+      "name": "Weirwood grove near Castle Black",
+      "nameRu": "Роща чардрева у Чёрного замка",
+      "subtitle": "A Game of Thrones · Jon VI (chapter 48) · weirwood grove",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones · Jon VI (chapter 48); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_48",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 48
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon VI (chapter 48)"
+        },
+        {
+          "label": "Категория",
+          "value": "роща за Стеной"
+        },
+        {
+          "label": "География",
+          "value": "за Стеной; точное положение не задано"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "В главе Jon VI Джон и Сэм приносят обеты в поляне с чардревами. После обряда Призрак возвращается с человеческой рукой. AWOIAF указывает рощу примерно в половине лиги от Чёрного замка; точные координаты неизвестны."
+        }
+      ],
+      "links": [
+        {
+          "label": "The Wall",
+          "ref": "place:the-wall"
+        },
+        {
+          "label": "Haunted Forest",
+          "ref": "place:haunted-forest"
+        },
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        }
+      ]
+    },
+    {
+      "ref": "place:womb-of-the-world",
+      "kind": "place",
+      "name": "Womb of the World",
+      "nameRu": "Чрево мира",
+      "subtitle": "A Game of Thrones · Daenerys V · священное озеро",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys V; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_46",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys V"
+        },
+        {
+          "label": "Категория",
+          "value": "озеро в Ваэс Дотраке"
+        },
+        {
+          "label": "География",
+          "value": "координаты и точные границы не заданы"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Священное озеро у Матери гор; после обряда Дейенерис омывается здесь. В карточке нет координат или береговой схемы."
+        }
+      ],
+      "links": [
+        {
+          "label": "Vaes Dothrak",
+          "ref": "place:vaes-dothrak"
+        },
+        {
+          "label": "Dothraki Sea",
+          "ref": "place:dothraki-sea"
+        },
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        }
+      ]
+    },
+    {
+      "ref": "place:godsway-of-vaes-dothrak",
+      "kind": "place",
+      "name": "Godsway of Vaes Dothrak",
+      "nameRu": "Божий путь Ваэс Дотрака",
+      "subtitle": "A Game of Thrones · Daenerys V–VI · путь",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys V and Daenerys VI; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_46",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys V; Daenerys VI"
+        },
+        {
+          "label": "Категория",
+          "value": "священный путь в городе"
+        },
+        {
+          "label": "География",
+          "value": "координаты и точные границы не заданы"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Дейенерис проходит этим путём от ритуальной части города к пиршеству и позднее едет по нему в паланкине; точная трасса не задана."
+        }
+      ],
+      "links": [
+        {
+          "label": "Vaes Dothrak",
+          "ref": "place:vaes-dothrak"
+        },
+        {
+          "label": "Dothraki Sea",
+          "ref": "place:dothraki-sea"
+        },
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        }
+      ]
+    },
+    {
+      "ref": "place:western-market-of-vaes-dothrak",
+      "kind": "place",
+      "name": "Western Market of Vaes Dothrak",
+      "nameRu": "Западный рынок Ваэс Дотрака",
+      "subtitle": "A Game of Thrones · Daenerys VI · рынок",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys VI; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_54",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys VI"
+        },
+        {
+          "label": "Категория",
+          "value": "рынок в Ваэс Дотраке"
+        },
+        {
+          "label": "География",
+          "value": "координаты и точные границы не заданы"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Дейенерис посещает рынок с Джорахом; именно здесь торговец предлагает ей отравленное вино. Точные границы торговой зоны неизвестны."
+        }
+      ],
+      "links": [
+        {
+          "label": "Vaes Dothrak",
+          "ref": "place:vaes-dothrak"
+        },
+        {
+          "label": "Dothraki Sea",
+          "ref": "place:dothraki-sea"
+        },
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Jorah Mormont",
+          "ref": "person:jorah-mormont"
+        }
+      ]
+    },
+    {
+      "ref": "place:bridge-of-the-twins",
+      "kind": "place",
+      "name": "Bridge of the Twins",
+      "nameRu": "Мост Близнецов",
+      "subtitle": "A Game of Thrones · Catelyn IX · мост",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn IX; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_59",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn IX"
+        },
+        {
+          "label": "Категория",
+          "value": "переход через Зелёный Зубец"
+        },
+        {
+          "label": "География",
+          "value": "координаты и точные границы не заданы"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Единственная переправа через Зелёный Зубец к северу от Рубинового брода; контроль над мостом определяет, сможет ли войско Робба перейти реку."
+        }
+      ],
+      "links": [
+        {
+          "label": "The Twins",
+          "ref": "place:the-twins"
+        },
+        {
+          "label": "Green Fork",
+          "ref": "place:green-fork"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        }
+      ]
+    },
+    {
+      "ref": "place:great-hall-of-the-twins",
+      "kind": "place",
+      "name": "Great Hall of the Twins",
+      "nameRu": "Большой зал Близнецов",
+      "subtitle": "A Game of Thrones · Catelyn IX · зал",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn IX; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_59",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn IX"
+        },
+        {
+          "label": "Категория",
+          "value": "зал в замке Фреев"
+        },
+        {
+          "label": "География",
+          "value": "координаты и точные границы не заданы"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Уолдер Фрей принимает Кейтлин в зале и ведёт переговоры о проходе армии; помещение становится пространством торга о военной поддержке и брачных условиях."
+        }
+      ],
+      "links": [
+        {
+          "label": "The Twins",
+          "ref": "place:the-twins"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        }
+      ]
+    },
+    {
+      "ref": "place:water-gate-of-riverrun",
+      "kind": "place",
+      "name": "Water Gate of Riverrun",
+      "nameRu": "Водяные ворота Риверрана",
+      "subtitle": "A Game of Thrones · Catelyn XI · ворота",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn XI; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_71",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn XI"
+        },
+        {
+          "label": "Категория",
+          "value": "речной вход в замок"
+        },
+        {
+          "label": "География",
+          "value": "координаты и точные границы не заданы"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Через широкие Водяные ворота лодки Кейтлин входят в Риверран; у водяной лестницы её встречает Эдмур. Координаты ворот не определены."
+        }
+      ],
+      "links": [
+        {
+          "label": "Riverrun",
+          "ref": "place:riverrun"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Edmure Tully",
+          "ref": "person:edmure-tully"
+        }
+      ]
+    },
+    {
+      "ref": "place:hosters-solar-at-riverrun",
+      "kind": "place",
+      "name": "Hoster Tully's solar at Riverrun",
+      "nameRu": "Солярий Хостера Талли в Риверране",
+      "subtitle": "A Game of Thrones · Catelyn XI · покои",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn XI; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_71",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn XI"
+        },
+        {
+          "label": "Категория",
+          "value": "покои в замке Талли"
+        },
+        {
+          "label": "География",
+          "value": "координаты и точные границы не заданы"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Треугольные покои с восточным балконом, где Кейтлин навещает больного отца. В комнате и на балконе Хостер обсуждает с ней состояние дома и войска."
+        }
+      ],
+      "links": [
+        {
+          "label": "Riverrun",
+          "ref": "place:riverrun"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Hoster Tully",
+          "ref": "person:hoster-tully"
+        }
+      ]
+    },
+    {
+      "ref": "place:godswood-of-riverrun",
+      "kind": "place",
+      "name": "Godswood of Riverrun",
+      "nameRu": "Божий лес Риверрана",
+      "subtitle": "A Game of Thrones · Catelyn XI · священная роща",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn XI; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_71",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn XI"
+        },
+        {
+          "label": "Категория",
+          "value": "лесная часть замкового комплекса"
+        },
+        {
+          "label": "География",
+          "value": "координаты и точные границы не заданы"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Робб молится здесь со сторонниками старых богов после возвращения в Риверран; Кейтлин находит его в роще перед военным советом."
+        }
+      ],
+      "links": [
+        {
+          "label": "Riverrun",
+          "ref": "place:riverrun"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        }
+      ]
+    },
+    {
+      "ref": "place:great-hall-of-riverrun",
+      "kind": "place",
+      "name": "Great Hall of Riverrun",
+      "nameRu": "Большой зал Риверрана",
+      "subtitle": "A Game of Thrones · Catelyn XI · зал",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn XI; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_71",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn XI"
+        },
+        {
+          "label": "Категория",
+          "value": "зал в замке Талли"
+        },
+        {
+          "label": "География",
+          "value": "координаты и точные границы не заданы"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "В зале проходит совет северных и речных лордов; здесь Великджон провозглашает Робба королём Севера."
+        }
+      ],
+      "links": [
+        {
+          "label": "Riverrun",
+          "ref": "place:riverrun"
+        },
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        }
+      ]
+    },
+    {
+      "ref": "place:castle-black-stables",
+      "kind": "place",
+      "name": "Stables of Castle Black",
+      "nameRu": "Конюшни Чёрного замка",
+      "subtitle": "A Game of Thrones · Jon IX · конюшни",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon IX; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_70",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon IX"
+        },
+        {
+          "label": "Категория",
+          "value": "конюшни замка"
+        },
+        {
+          "label": "География",
+          "value": "координаты и точные границы не заданы"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Ночью Джон седлает здесь кобылу перед попыткой дезертировать; дальнейший путь по Королевскому тракту вынесен в отдельные дорожные места."
+        }
+      ],
+      "links": [
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        },
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Samwell Tarly",
+          "ref": "person:samwell-tarly"
+        }
+      ]
+    },
+    {
+      "ref": "place:maesters-turret-of-winterfell",
+      "kind": "place",
+      "name": "Maester's turret at Winterfell",
+      "nameRu": "Башенка мейстера в Винтерфелле",
+      "subtitle": "A Game of Thrones · Bran VII · башня",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran VII; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_66",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Bran VII"
+        },
+        {
+          "label": "Категория",
+          "value": "башенка внутри замка"
+        },
+        {
+          "label": "География",
+          "value": "координаты и точные границы не заданы"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "После посещения крипт Бран и Лувин возвращаются в башенку мейстера, где обсуждают историю Севера; позже приходит ворон с королевским известием."
+        }
+      ],
+      "links": [
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        },
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "Maester Luwin",
+          "ref": "person:maester-luwin"
+        }
+      ]
+    },
+    {
+      "ref": "place:moon-door-of-the-eyrie",
+      "kind": "place",
+      "name": "Moon Door of the Eyrie",
+      "nameRu": "Лунная дверь Орлиного гнезда",
+      "subtitle": "A Game of Thrones · Tyrion V · проём над обрывом",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion V; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_38",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion V"
+        },
+        {
+          "label": "Категория",
+          "value": "проём в Большом зале над склоном горы"
+        },
+        {
+          "label": "География",
+          "value": "координаты и точные границы не заданы"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Лиза грозит отправить Тириона в полёт через Лунную дверь; угроза формирует риск суда, но в этой главе казнь не происходит."
+        }
+      ],
+      "links": [
+        {
+          "label": "The Eyrie",
+          "ref": "place:the-eyrie"
+        },
+        {
+          "label": "High Hall of the Eyrie",
+          "ref": "place:high-hall-of-the-eyrie"
+        },
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Lysa Arryn",
+          "ref": "person:lysa-arryn"
+        }
+      ]
+    }
+  ]
+}

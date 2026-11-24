@@ -1,0 +1,36 @@
+.timeline-cassette { flex: none; min-width: 0; background: var(--pn); color: var(--tx); box-shadow: var(--bevel); border-top: 1px solid var(--gd); padding: 4px 8px; }
+.timeline-toolbar { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.timeline-controls { display: flex; flex: 1 1 auto; align-items: center; flex-wrap: wrap; gap: 4px; min-width: 0; }
+.timeline-clock-slot { display: flex; flex: none; align-items: center; justify-content: flex-end; }
+.timeline-clock-slot[hidden] { display: none; }
+.timeline-clock-slot .desk-world-clock-dock { padding: 0; }
+.timeline-controls [aria-pressed="true"] { color: var(--gd-hi); box-shadow: var(--bevel-in); }
+.timeline-tape { margin-top: 4px; border-inline: 8px ridge var(--gd); background: var(--cd); padding: 0 4px; touch-action: pan-y; }
+.timeline-grid { display: grid; grid-template-columns: 112px repeat(7,minmax(0,1fr)) 70px; gap: 4px; align-items: center; font-size: 12px; min-height: 20px; }
+.timeline-grid > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.timeline-ticks { color: var(--t2); font-family: Georgia,serif; }
+.timeline-ticks [aria-current] { color: var(--gd-hi); }
+.timeline-marker { cursor: pointer; min-width: 0; color: var(--tx); border: 1px solid var(--gd); background: var(--pl); font-family: Georgia,serif; line-height: 16px; }
+.timeline-marker:focus-visible { outline: 2px solid var(--gd); outline-offset: 1px; }
+.timeline-marker[aria-pressed="true"] { color: var(--gd-hi); box-shadow: var(--bevel-in); }
+.timeline-proposal .timeline-marker { border-style: dashed; color: var(--src-sim); }
+.timeline-plan .timeline-marker { border-style: dotted; }
+.timeline-plan-range { min-height: 24px; }
+.timeline-plan-range > span { color: var(--gd-hi); }
+.timeline-plan-span { min-width: 0; grid-row: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; cursor: pointer; color: var(--gd-hi); border: 1px dotted var(--gd); background: var(--pl); font-family: Georgia,serif; }
+.timeline-plan-span:focus-visible { outline: 2px solid var(--gd); outline-offset: 1px; }
+.timeline-plan-editor { border-top: 1px solid var(--gd); padding: 4px 8px; font-size: 12px; }
+.timeline-plan-editor summary { cursor: pointer; color: var(--gd-hi); }
+.timeline-plan-editor form { display: flex; flex-wrap: wrap; align-items: end; gap: 6px 10px; padding-top: 6px; }
+.timeline-plan-editor label { display: flex; flex-direction: column; gap: 2px; min-width: 150px; }
+.timeline-plan-editor input, .timeline-plan-editor textarea { max-width: 100%; color: var(--tx); background: var(--cd); border: 1px solid var(--gd); padding: 4px; }
+.timeline-plan-editor textarea { min-width: 220px; min-height: 42px; }
+.timeline-plan-dates { display: flex; align-items: end; flex-wrap: wrap; gap: 6px 10px; }
+.timeline-plan-dates input { width: 92px; }
+.timeline-plan-dates > span { padding-bottom: 5px; color: var(--t2); }
+.timeline-plan-editor p { margin: 0; }
+.timeline-details { max-height: 24vh; overflow: auto; padding: 8px; font-size: 13px; background: var(--cd); }
+.timeline-details li { padding: 4px 0; border-bottom: 1px solid var(--pn); }
+.timeline-details summary { cursor: pointer; overflow-wrap: anywhere; }
+.timeline-details p { margin: 4px 0; }
+@media (max-width: 640px) { .timeline-grid { grid-template-columns: 65px repeat(7,minmax(0,1fr)) 44px; gap: 2px; font-size: 10px; } .timeline-tape { border-inline-width: 4px; } }

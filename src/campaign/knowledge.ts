@@ -4,10 +4,12 @@
 // Правила (заклинания, состояния, классы) туман не держит: их игроки знают по книге.
 import type { EntityView } from '../entities';
 import type { EntityKind } from '../entities/ref';
-import { knowledgeHow, type KnownEntity, type KnownFact, type State } from '../engine';
+import { knowledgeHow, type Actor, type KnownEntity, type KnownFact, type State } from '../engine';
 import type { SkillId } from '../rules/srd/abilities';
 import { DIFFICULTY_CLASSES } from '../rules/srd/checks';
-import { formatHarptos } from './calendar';
+import { MONSTERS } from '../rules/srd/monsters';
+import { calendarAdapterForState } from './calendar';
+import { sheetViewOf } from './sheetView';
 
 /** Проверки знаний DESIGN Д6: История, Религия, Магия, Природа. */
 export const KNOWLEDGE_SKILLS: readonly SkillId[] = ['arcana', 'history', 'nature', 'religion'];
@@ -46,6 +48,16 @@ export function knowledgeSkillOf(view: Pick<EntityView, 'kind' | 'subtitle'>): S
 /** Пассивная проверка SRD 5.1 (Ability Checks, «Passive Checks»): «10 + all modifiers that normally apply to the check». */
 export const passiveScore = (mod: number): number => 10 + mod;
 
+/** Rule-of-table DC for noticing an actor's lie: 10 + its Deception modifier (research/game-mechanics.md §4.5). */
+export function deceptionDcOf(actor: Actor): number | undefined {
+  const sheetMod = actor.sheet ? sheetViewOf(actor)?.skills.find(skill => skill.id === 'deception')?.mod : undefined;
+  if (sheetMod !== undefined) return 10 + sheetMod;
+  const monster = actor.monsterId ? MONSTERS[actor.monsterId] : undefined;
+  if (!monster) return undefined;
+  const modifier = monster.skills.deception ?? Math.floor((monster.abilities.cha - 10) / 2);
+  return 10 + modifier;
+}
+
 export interface PassiveVoice { id: string; name: string; score: number }
 
 /**
@@ -76,7 +88,7 @@ export function playersEntityView(view: EntityView, state: State): EntityView {
 
 /** Строка тетради словами: «15 Mirtul 1492 DR · Bo Tambernack, Religion 17 против Сл 15». */
 export function knownLine(fact: KnownFact, state: State): string {
-  return `${formatHarptos(fact.sec).replace(/,.*$/, '')} · ${knowledgeHow(fact, id => state.actors[id]?.name ?? id)}`;
+  return `${calendarAdapterForState(state).formatDateOnly(fact.sec)} · ${knowledgeHow(fact, id => state.actors[id]?.name ?? id)}`;
 }
 
 /** Тетрадь партии: сущности, последняя узнанная — сверху; строки — в порядке, в каком узнавали. */

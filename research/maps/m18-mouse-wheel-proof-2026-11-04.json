@@ -1,0 +1,85 @@
+{
+  "method": "CUA native drag/scroll and read-only DOM observations",
+  "viewport": [
+    1280,
+    720
+  ],
+  "dpr": 2,
+  "surfaceViewport": [
+    784,
+    408
+  ],
+  "drag": {
+    "from": [
+      800,
+      420
+    ],
+    "to": [
+      860,
+      450
+    ],
+    "before": {
+      "lon": 111,
+      "lat": 0,
+      "radius": 176,
+      "morph": 0.5
+    },
+    "after": {
+      "lon": 91.4673478932674,
+      "lat": 9.766326053366305,
+      "radius": 176,
+      "morph": 0.5
+    }
+  },
+  "wheel": {
+    "afterFirst": {
+      "zoom": 1.2,
+      "lon": 91.35565952497257,
+      "lat": 10.41875965955997,
+      "radius": 211.2
+    },
+    "beforeFlatHandoff": {
+      "zoom": 3,
+      "center": [
+        6528.614943234961,
+        6811.845678579831
+      ],
+      "scale": 0.09402401239867822,
+      "radius": 527.9999999999999,
+      "morph": 1,
+      "surfaceId": "1"
+    },
+    "afterFlatHandoff": {
+      "center": [
+        6528.614943234961,
+        6811.845678579831
+      ],
+      "scale": 0.09402401239867822,
+      "morph": 1,
+      "surfaceId": "1"
+    },
+    "afterTenScrollDown": {
+      "lon": 91.56279417373274,
+      "lat": 8.467513285770067,
+      "radius": 176,
+      "morph": 0,
+      "surfaceId": "1",
+      "entry": 1
+    }
+  },
+  "middleProjectionSteadySample": {
+    "morph": 0.5,
+    "frames": 300,
+    "rafFps": 58.8,
+    "p95FrameMs": 17.6,
+    "p95CpuMs": 0.4,
+    "p95GpuMs": 1.14,
+    "tiles": 183,
+    "estimatedTextureMeshMiB": 59.1
+  },
+  "limits": [
+    "DOM camera math, not GPU pixel readback",
+    "steady rolling sample is not a motion-only benchmark",
+    "Windows not available, confirmed by owner"
+  ]
+}

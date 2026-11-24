@@ -1,0 +1,787 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "event",
+  "entities": [
+    {
+      "ref": "event:ned-receives-roberts-order-for-hands-tourney",
+      "kind": "event",
+      "name": "Ned receives Robert's order to hold the Hand's tourney",
+      "nameRu": "Нед получает распоряжение Роберта устроить турнир Десницы",
+      "subtitle": "A Game of Thrones · Eddard IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard IV; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_20",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 20
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard IV"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "королевское распоряжение передано Неду; он возражает против расходов и откладывает решение, не объявляя турнир отменённым"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "На первом заседании Малого совета Нед получает распоряжение Роберта устроить турнир в честь его назначения Десницей. Нед возражает против расходов на фоне долга короны и откладывает решение."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Robert Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "Small Council",
+          "ref": "organization:small-council"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "event:ned-meets-catelyn-at-chatayas-brothel",
+      "kind": "event",
+      "name": "Ned meets Catelyn secretly in King's Landing",
+      "nameRu": "Нед тайно встречается с Кэтлин в Королевской Гавани",
+      "subtitle": "A Game of Thrones · Eddard IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard IV; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_20",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 20
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard IV"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "встреча и обсуждение расследования происходят; подозрения и обвинения не считаются доказанными"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Петир Бейлиш приводит Неда к Кэтлин в принадлежащий ему бордель, где она скрывается. Супруги обсуждают покушение на Брана, кинжал и смерть Джона Аррена; предположения о виновных остаются версиями, которые им предстоит проверять."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Petyr Baelish",
+          "ref": "person:petyr-baelish"
+        },
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Chataya's brothel",
+          "ref": "place:chatayas-brothel"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "event:pycelle-recounts-jon-arryns-last-words-to-ned",
+      "kind": "event",
+      "name": "Pycelle recounts Jon Arryn's last words to Ned",
+      "nameRu": "Пицель передаёт Неду последние слова Джона Аррена",
+      "subtitle": "A Game of Thrones · Eddard V",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard V; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_25",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 25
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard V"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "Пицель пересказывает свои воспоминания и выводы; причина смерти Джона Аррена не установлена этой беседой"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Расспрашивая Пицеля о болезни Джона Аррена, Нед узнаёт, что тот искал книгу родословий и перед смертью произнёс слова о «сильном семени». Пицель считает смерть естественной и обещает разыскать книгу; его версия не подтверждает причину смерти."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Grand Maester Pycelle",
+          "ref": "person:pycelle"
+        },
+        {
+          "label": "Jon Arryn",
+          "ref": "person:jon-arryn"
+        },
+        {
+          "label": "Red Keep",
+          "ref": "place:red-keep"
+        },
+        {
+          "label": "Pycelle's chambers",
+          "ref": "place:pycelles-chambers-in-red-keep"
+        }
+      ]
+    },
+    {
+      "ref": "event:jon-defends-samwell-from-thorne-at-castle-black",
+      "kind": "event",
+      "name": "Jon and his friends defend Sam during training",
+      "nameRu": "Джон и его друзья вступаются за Сэмвелла на тренировке",
+      "subtitle": "A Game of Thrones · Jon IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon IV; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_26",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 26
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon IV"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "стычка происходит во время обучения; Сэм остаётся в Ночном Дозоре, его назначение ещё не решено"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "После того как Сэм сдаётся, Аллисер Торн требует продолжить избиение. Джон вмешивается, и Пип с Гренном помогают ему отбиться от трёх рекрутов. Позже Джон знакомится с Сэмом и решает поддержать его."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Samwell Tarly",
+          "ref": "person:samwell-tarly"
+        },
+        {
+          "label": "Alliser Thorne",
+          "ref": "person:alliser-thorne"
+        },
+        {
+          "label": "Pyp",
+          "ref": "person:pypar"
+        },
+        {
+          "label": "Grenn",
+          "ref": "person:grenn"
+        },
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        }
+      ]
+    },
+    {
+      "ref": "event:ser-hugh-dies-in-hands-tourney",
+      "kind": "event",
+      "name": "Ser Hugh dies during the Hand's tourney",
+      "nameRu": "Сир Хью погибает на турнире Десницы",
+      "subtitle": "A Game of Thrones · Sansa II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa II; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_29",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 29
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Sansa II"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "Сир Хью получает смертельное ранение на турнире; обстоятельства описаны только по вторичному указателю"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Во время состязания на турнире Десницы Григор Клиган смертельно ранит молодого рыцаря Сира Хью. Карточка фиксирует смерть, не приписывая Григору намерение."
+        }
+      ],
+      "links": [
+        {
+          "label": "Ser Hugh of the Vale",
+          "ref": "person:hugh-of-the-vale"
+        },
+        {
+          "label": "Gregor Clegane",
+          "ref": "person:gregor-clegane"
+        },
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        },
+        {
+          "label": "Hand's Tourney grounds",
+          "ref": "place:hand-tourney-grounds"
+        }
+      ]
+    },
+    {
+      "ref": "event:bran-riding-party-ambushed-and-osha-captured",
+      "kind": "event",
+      "name": "Outlaws ambush Bran's riding party and capture Osha",
+      "nameRu": "Разбойники нападают на отряд Брана и берут Ошу в плен",
+      "subtitle": "A Game of Thrones · Bran V",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran V; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_37",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 37
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Bran V"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "нападение отражено; Оша остаётся в живых и взята в плен"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Во время первой поездки Брана за пределы Винтерфелла на его отряд нападают люди, объявленные дезертирами. Робб и лютоволки отражают нападение; Оша остаётся в живых и попадает в плен. Имена и более широкие связи нападавших требуют отдельной сверки."
+        }
+      ],
+      "links": [
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "Theon Greyjoy",
+          "ref": "person:theon-greyjoy"
+        },
+        {
+          "label": "Osha",
+          "ref": "person:osha"
+        },
+        {
+          "label": "Wolfswood",
+          "ref": "place:wolfswood"
+        }
+      ]
+    },
+    {
+      "ref": "event:nights-watch-promotes-eight-recruits",
+      "kind": "event",
+      "name": "Eight recruits are advanced in the Night's Watch",
+      "nameRu": "Восемь рекрутов Ночного Дозора проходят отбор",
+      "subtitle": "A Game of Thrones · Jon V",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon V; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_41",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 41
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon V"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "Аллисер Торн передаёт восьмерых рекрутов лорду-командующему; распределение по службам ещё предстоит"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Аллисер Торн сообщает, что восемь рекрутов, включая Джона, прошли подготовку и передаются лорду-командующему. Назначения в рейнджеры, строители и стюарды обсуждаются позднее и не выводятся из самого отбора."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Alliser Thorne",
+          "ref": "person:alliser-thorne"
+        },
+        {
+          "label": "Night's Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        }
+      ]
+    },
+    {
+      "ref": "event:jon-asks-aemon-to-make-sam-steward",
+      "kind": "event",
+      "name": "Jon asks Aemon to take Sam as his steward",
+      "nameRu": "Джон просит Эйемона принять Сэма в стюарды",
+      "subtitle": "A Game of Thrones · Jon V",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon V; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_41",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 41
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon V"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "просьба сделана; Эйемон обещает подумать, согласие ещё не получено"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "После отбора рекрутов Джон просит мейстера Эйемона взять Сэма себе в стюарды: чтение, письмо, счёт и помощь с воронами подходят Сэму лучше силовой службы. Эйемон обещает обдумать просьбу; назначение в этой главе ещё не утверждено."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Samwell Tarly",
+          "ref": "person:samwell-tarly"
+        },
+        {
+          "label": "Aemon",
+          "ref": "person:maester-aemon"
+        },
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        }
+      ]
+    },
+    {
+      "ref": "event:nights-watch-assigns-jon-and-sam-as-stewards",
+      "kind": "event",
+      "name": "Jon and Sam are assigned as stewards",
+      "nameRu": "Джона и Сэма назначают стюардами",
+      "subtitle": "A Game of Thrones · Jon VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon VI; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_48",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 48
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon VI"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "служебные назначения объявлены после принесения обетов"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Джон получает назначение личным стюардом лорда-командующего, а Сэм — стюардом мейстера Эйемона. Назначение Джона становится предметом будущего спора о его роли в Дозоре."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Samwell Tarly",
+          "ref": "person:samwell-tarly"
+        },
+        {
+          "label": "Jeor Mormont",
+          "ref": "person:jeor-mormont"
+        },
+        {
+          "label": "Aemon",
+          "ref": "person:maester-aemon"
+        },
+        {
+          "label": "Night's Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        }
+      ]
+    },
+    {
+      "ref": "event:ghost-returns-with-human-hand",
+      "kind": "event",
+      "name": "Ghost returns from the grove carrying a human hand",
+      "nameRu": "Призрак возвращается из рощи с человеческой рукой",
+      "subtitle": "A Game of Thrones · Jon VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon VI; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_48",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 48
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon VI"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "находка происходит после обетов; происхождение руки не установлено этой главой"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "После возвращения из рощи у Стены Призрак приносит человеческую руку. Находка оставляет тревожный вопрос о происходящем за Стеной; её происхождение нельзя выводить из одной сцены."
+        }
+      ],
+      "links": [
+        {
+          "label": "Ghost",
+          "ref": "person:ghost"
+        },
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        },
+        {
+          "label": "Weirwood grove near Castle Black",
+          "ref": "place:weirwood-grove-near-castle-black"
+        }
+      ]
+    },
+    {
+      "ref": "event:jon-gives-needle-to-arya",
+      "kind": "event",
+      "name": "Jon gives Arya a small sword she names Needle",
+      "nameRu": "Джон дарит Арье маленький меч, который она называет Иглой",
+      "subtitle": "A Game of Thrones · Jon II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon II; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_10",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 10
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon II"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "подарок и первое занятие происходят; дальнейшая судьба меча не подразумевается"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Перед отъездом Джон дарит Арье небольшой меч, изготовленный для неё, показывает хват и даёт первый совет. Арья называет меч Иглой."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "event:jon-learns-bran-has-awoken",
+      "kind": "event",
+      "name": "Jon receives news that Bran has awoken",
+      "nameRu": "Джон получает весть, что Бран очнулся",
+      "subtitle": "A Game of Thrones · Jon III",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon III; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_19",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 19
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon III"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "весть от Робба доставлена Джону; пробуждение Брана произошло раньше"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Лорд-командующий Джиор Мормонт передаёт Джону сообщение Робба: Бран очнулся, хотя тяжело пострадал при падении. Джон радуется, что брат жив, и сразу идёт рассказать Тириону; сама сцена пробуждения относится к более ранней главе."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "Jeor Mormont",
+          "ref": "person:jeor-mormont"
+        },
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        }
+      ]
+    },
+    {
+      "ref": "event:tyrion-promises-to-raise-watch-needs-with-king",
+      "kind": "event",
+      "name": "Tyrion promises to raise the Night's Watch's needs with the king",
+      "nameRu": "Тирион обещает передать королю просьбу Ночного Дозора о помощи",
+      "subtitle": "A Game of Thrones · Tyrion III",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion III; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_21",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 21
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion III"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "Тирион обещает передать просьбу королю; решение короля в этой главе не показано"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Во время ужина Джиор Мормонт просит Тириона рассказать королю о нехватке людей в Ночном Дозоре. Тирион обещает обратиться к Роберту. Позднее Джон отдельно просит его помочь Брану; карточка не трактует просьбу как исполненное обещание."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Jeor Mormont",
+          "ref": "person:jeor-mormont"
+        },
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Robert Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "Night's Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        }
+      ]
+    }
+  ]
+}

@@ -4,6 +4,7 @@
 // справочник пуст, а не ошибка: файл читается через import.meta.glob.
 import { WIKI } from './people';
 import type { ArticleEvent, ChronoEvent } from './chronology';
+import { loadCachedPromise, loadSettingJson } from '../packages/registry';
 
 export interface KingdomRuler {
   /** Как в вики: «King Foril Obarskyr». */
@@ -78,7 +79,8 @@ export interface Kingdom {
   milestones?: readonly { t: string; when?: string; year?: number }[];
 }
 
-export const kingdomUrl = (k: Pick<Kingdom, 'title'>) => WIKI + encodeURIComponent(k.title.replace(/ /g, '_')).replace(/%2F/g, '/');
+const wikiArticleUrl = (title: string) => WIKI + encodeURIComponent(title.replace(/ /g, '_')).replace(/%2F/g, '/');
+export const kingdomUrl = (k: Pick<Kingdom, 'title'>) => wikiArticleUrl(k.title);
 
 /** Есть в год кампании: основана не позже, не распалась к нему; годы неизвестны — есть. */
 export const kingdomExistsIn = (k: Pick<Kingdom, 'founded' | 'dissolved'>, year: number): boolean =>
@@ -117,16 +119,11 @@ export function rulersLine(k: Pick<Kingdom, 'rulers'>, year: number): string | u
   return note ? `${names} (${note})` : names;
 }
 
-const FILES = import.meta.glob<{ default: unknown }>('../../content/world/kingdoms.json');
-
-let all: Promise<ReadonlyMap<string, Kingdom>> | null = null;
+const allLoads = new Map<string, Promise<ReadonlyMap<string, Kingdom>>>();
 /** Все державы; повторный вызов — тот же промис; файла нет — пусто. */
 export function loadKingdoms(): Promise<ReadonlyMap<string, Kingdom>> {
-  const load = Object.values(FILES)[0];
-  all ??= load
-    ? load().then(m => new Map((m.default as { kingdoms: Kingdom[] }).kingdoms.map(k => [k.id, k])))
-    : Promise.resolve(new Map());
-  return all;
+  return loadCachedPromise(allLoads, 'all', () => loadSettingJson('content/world/kingdoms.json')
+    .then(raw => new Map((raw as { kingdoms: Kingdom[] }).kingdoms.map(k => [k.id, k]))));
 }
 
 /**
@@ -156,7 +153,18 @@ export function peopleTrade(k: Pick<Kingdom, 'exports' | 'imports'>): PeopleTrad
 }
 
 /** Строка истории державы: событие статей-годов или слоя статей. */
-export interface KingdomHistoryLine { id: string; year: number; to?: number; text: string; when?: string; cite?: string }
+export interface KingdomHistoryLine {
+  id: string;
+  year: number;
+  to?: number;
+  text: string;
+  when?: string;
+  /** Exact source article, where the imported chronology record has one. */
+  sourceTitle?: string;
+  sourceUrl?: string;
+  /** Book/page references supplied by the source record, kept separate from the article link. */
+  cites?: readonly string[];
+}
 
 /** История державы на год (линза): события из её списка `events` в обоих слоях хронологии, не позже года, по году.
  *  Строка слоя статей с парой (`same`), которая уже в истории, не повторяется. Позже года — только счётчик. */
@@ -166,10 +174,15 @@ export function kingdomHistoryOf(k: Pick<Kingdom, 'events'>, year: number, base:
   const main = base.filter(e => ids.has(e.id));
   const shown = new Set(main.map(e => e.id));
   const all: KingdomHistoryLine[] = [
-    ...main.map(e => ({ id: e.id, year: e.year, text: e.text, when: e.when, cite: e.cites?.join('; ') })),
+    ...main.map(e => ({
+      id: e.id, year: e.year, text: e.text, when: e.when,
+      sourceTitle: `${e.year} DR`, sourceUrl: wikiArticleUrl(`${e.year} DR`), cites: e.cites,
+    })),
     ...articles.filter(e => ids.has(e.id) && !(e.same && shown.has(e.same))).map(e => ({
       id: e.id, year: e.year, to: e.to, text: e.text, when: e.when,
-      cite: [e.src.section ? `${e.src.title} · ${e.src.section}` : e.src.title, ...(e.cites ?? [])].join('; '),
+      sourceTitle: e.src.section ? `${e.src.title} · ${e.src.section}` : e.src.title,
+      sourceUrl: wikiArticleUrl(e.src.title),
+      cites: e.cites,
     })),
   ].sort((a, b) => a.year - b.year || a.id.localeCompare(b.id, 'en', { numeric: true }));
   const lines = all.filter(l => l.year <= year);
@@ -177,10 +190,18 @@ export function kingdomHistoryOf(k: Pick<Kingdom, 'events'>, year: number, base:
 }
 
 /** Загрузить события державы: только куски лет, где она упомянута (`years`). */
-export async function loadKingdomHistory(k: Pick<Kingdom, 'events' | 'years'>, year: number) {
+export async function loadKingdomHistory(k: Pick<Kingdom, 'title' | 'events' | 'years'>, year: number) {
   if (!k.events?.length || !k.years?.length) return { lines: [], later: 0 };
   const from = Math.min(...k.years), to = Math.max(...k.years);
   const { loadEvents, loadArticleEvents } = await import('./chronology');
   const [base, articles] = await Promise.all([loadEvents(from, to), loadArticleEvents(from, to)]);
-  return kingdomHistoryOf(k, year, base, articles);
+  // Timeline entries can omit the kingdom's name in each line; the exact "History of <article>" source
+  // establishes that context. Include those rows, plus their canonical-year match when present, so the
+  // normal deduplication keeps one source-backed event in the profile.
+  const timeline = articles.filter(event =>
+    event.src.how === 'timeline' && event.src.title === `History of ${k.title} (timeline)`
+    || event.src.how === 'history' && event.src.title === `History of ${k.title}`,
+  );
+  const events = [...new Set([...(k.events ?? []), ...timeline.flatMap(event => [event.id, ...(event.same ? [event.same] : [])])])];
+  return kingdomHistoryOf({ events }, year, base, articles);
 }

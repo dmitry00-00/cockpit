@@ -41,7 +41,7 @@ describe('RestForm', () => {
     expect(within(list).getByText('4/9 +3')).toBeInTheDocument();
     expect(screen.queryByRole('textbox', { name: 'Кости хитов: Проводник' })).toBeNull();
     fireEvent.click(screen.getByRole('button', { name: 'Отдохнуть' }));
-    expect(onRest).toHaveBeenCalledWith('short', ['bo', 'lyra', 'guide'], []);
+    expect(onRest).toHaveBeenCalledWith('short', ['bo', 'lyra', 'guide'], [], { layer: 'srd', haven: false });
   });
 
   it('кости → «Бросить» зовёт onRoll с формулой класса и CON и пишет итог в хиты; без хитов за кости «Отдохнуть» недоступна; кости выше запаса — тоже', () => {
@@ -61,7 +61,7 @@ describe('RestForm', () => {
     fireEvent.change(field('Хиты: Lyra Moonwhisper'), { target: { value: '5' } });
     fireEvent.click(screen.getByRole('checkbox', { name: 'Отдыхает: Проводник' }));
     fireEvent.keyDown(field('Хиты: Lyra Moonwhisper'), { key: 'Enter' });
-    expect(onRest).toHaveBeenCalledWith('short', ['bo', 'lyra'], [{ actorId: 'bo', dice: 2, healed: 14 }, { actorId: 'lyra', dice: 1, healed: 5 }]);
+    expect(onRest).toHaveBeenCalledWith('short', ['bo', 'lyra'], [{ actorId: 'bo', dice: 2, healed: 14 }, { actorId: 'lyra', dice: 1, healed: 5 }], { layer: 'srd', haven: false });
   });
 
   it('долгий: строка «что случится» вместо костей; никто не отдыхает — кнопка недоступна; «Отдохнуть» отдаёт long без костей', () => {
@@ -75,7 +75,36 @@ describe('RestForm', () => {
     expect(screen.getByRole('button', { name: 'Отдохнуть' })).toBeDisabled();
     fireEvent.click(screen.getByRole('checkbox', { name: 'Отдыхает: Bo Tambernack' }));
     fireEvent.click(screen.getByRole('button', { name: 'Отдохнуть' }));
-    expect(onRest).toHaveBeenCalledWith('long', ['bo'], []);
+    expect(onRest).toHaveBeenCalledWith('long', ['bo'], [], { layer: 'srd', haven: false });
     expect(document.body.textContent).not.toMatch(/\p{Extended_Pictographic}/u);
+  });
+
+  it('A5E long-rest attempt records duration and exposes the reset outcome above one hour of strenuous interruption', () => {
+    const onRest = vi.fn();
+    render(<RestForm rows={ROWS} supplyAvailable={3} restLayer="a5e" onRoll={() => 0} onRest={onRest} />);
+    fireEvent.click(screen.getByRole('radio', { name: 'Долгий · 8 ч' }));
+    fireEvent.change(screen.getByRole('spinbutton', { name: 'Длительность отдыха, ч' }), { target: { value: '9' } });
+    fireEvent.change(screen.getByRole('spinbutton', { name: 'Прерывание отдыха, мин' }), { target: { value: '61' } });
+
+    expect(screen.getByText(/Свыше 60 минут напряжённой активности сбрасывают период/)).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Отдохнуть' })).toBeEnabled();
+    fireEvent.click(screen.getByRole('button', { name: 'Отдохнуть' }));
+    expect(onRest).toHaveBeenCalledWith('long', ['bo', 'lyra', 'guide'], [], expect.objectContaining({
+      layer: 'a5e', haven: false, a5eTiming: 'period-v2', a5eDurationHours: 9, a5eSleepHours: 6, a5eStrenuousMinutes: 61,
+    }));
+  });
+
+  it('A5E long-rest form records sleep below six hours and explains that recovery will not apply', () => {
+    const onRest = vi.fn();
+    render(<RestForm rows={ROWS} supplyAvailable={3} restLayer="a5e" onRoll={() => 0} onRest={onRest} />);
+    fireEvent.click(screen.getByRole('radio', { name: 'Долгий · 8 ч' }));
+    fireEvent.change(screen.getByRole('spinbutton', { name: 'Сон во время отдыха, ч' }), { target: { value: '5' } });
+
+    expect(screen.getByText(/Для отдыха нужно не меньше 6 часов сна/)).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Отдохнуть' })).toBeEnabled();
+    fireEvent.click(screen.getByRole('button', { name: 'Отдохнуть' }));
+    expect(onRest).toHaveBeenCalledWith('long', ['bo', 'lyra', 'guide'], [], expect.objectContaining({
+      layer: 'a5e', a5eTiming: 'period-v2', a5eDurationHours: 8, a5eSleepHours: 5, a5eStrenuousMinutes: 0,
+    }));
   });
 });

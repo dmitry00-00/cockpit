@@ -1,0 +1,206 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "place",
+  "entities": [
+    {
+      "ref": "place:winter-town",
+      "kind": "place",
+      "name": "Winter Town",
+      "nameRu": "Винтертаун",
+      "subtitle": "A Game of Thrones · Tyrion I / Bran V · поселение",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion I and Bran V; A Wiki of Ice and Fire, place entry and chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Wintertown",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        { "label": "Локатор", "value": "Tyrion I; Bran V" },
+        { "label": "Категория", "value": "поселение у Винтерфелла" },
+        { "label": "Сверка", "value": "вторичный указатель; выбранное издание не проверено" }
+      ],
+      "sections": [
+        { "title": "Опорный срез", "text": "Поселение у стен Винтерфелла; в первой книге упоминается постоялый двор и проход от замка к Волчьему лесу." }
+      ],
+      "links": [
+        { "label": "Winterfell", "ref": "place:winterfell" }
+      ]
+    },
+    {
+      "ref": "place:wolfswood",
+      "kind": "place",
+      "name": "Wolfswood",
+      "nameRu": "Волчий лес",
+      "subtitle": "A Game of Thrones · Tyrion II / Bran V · лес",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion II and Bran V; A Wiki of Ice and Fire, place entry and chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Wolfswood",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        { "label": "Локатор", "value": "Tyrion II; Bran V" },
+        { "label": "Категория", "value": "лес Северных земель" },
+        { "label": "Сверка", "value": "вторичный указатель; выбранное издание не проверено" }
+      ],
+      "sections": [
+        { "title": "Опорный срез", "text": "Большой лесной регион на Севере, примыкающий к землям Винтерфелла; в первой книге становится местом поездки отряда Старков." }
+      ],
+      "links": [
+        { "label": "The North", "ref": "place:the-north" },
+        { "label": "Winterfell", "ref": "place:winterfell" }
+      ]
+    },
+    {
+      "ref": "place:high-road",
+      "kind": "place",
+      "name": "High Road",
+      "nameRu": "Высокая дорога",
+      "subtitle": "A Game of Thrones · Catelyn V–VI · путь",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn V–VI; A Wiki of Ice and Fire, place entry and chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/High_road",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        { "label": "Локатор", "value": "Catelyn V–VI" },
+        { "label": "Категория", "value": "горный путь" },
+        { "label": "Сверка", "value": "вторичный указатель; выбранное издание не проверено" }
+      ],
+      "sections": [
+        { "title": "Опорный срез", "text": "Путь от постоялого двора на перекрёстке в сторону Долины Аррен; в сценах первой книги он проходит через предгорья и опасные горные участки. Точная трасса и расстояния не заданы." }
+      ],
+      "links": [
+        { "label": "Inn at the Crossroads", "ref": "place:inn-at-crossroads" },
+        { "label": "Vale of Arryn", "ref": "place:vale-of-arryn" },
+        { "label": "Riverlands", "ref": "place:riverlands" }
+      ]
+    },
+    {
+      "ref": "place:bloody-gate",
+      "kind": "place",
+      "name": "Bloody Gate",
+      "nameRu": "Кровавые ворота",
+      "subtitle": "A Game of Thrones · Catelyn VI · укрепление",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn VI; A Wiki of Ice and Fire, place entry and chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Bloody_Gate",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        { "label": "Локатор", "value": "Catelyn VI" },
+        { "label": "Категория", "value": "укреплённый проход в Долину Аррен" },
+        { "label": "Сверка", "value": "вторичный указатель; выбранное издание не проверено" }
+      ],
+      "sections": [
+        { "title": "Опорный срез", "text": "Укрепление на пути в Долину Аррен; в этой главе группа Кэтлин достигает ворот и встречает сопровождающих из гарнизона." }
+      ],
+      "links": [
+        { "label": "Vale of Arryn", "ref": "place:vale-of-arryn" },
+        { "label": "The Eyrie", "ref": "place:the-eyrie" }
+      ]
+    },
+    {
+      "ref": "place:tobho-mott-shop",
+      "kind": "place",
+      "name": "Shop of Tobho Mott",
+      "nameRu": "Мастерская Тобхо Мотта",
+      "subtitle": "A Game of Thrones · Eddard VI · мастерская",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard VI; A Wiki of Ice and Fire, place entry and chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Shop_of_Tobho_Mott",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        { "label": "Локатор", "value": "Eddard VI" },
+        { "label": "Категория", "value": "лавка оружейника и кузница" },
+        { "label": "Расположение", "value": "Street of Steel, King's Landing; точные координаты не заданы" },
+        { "label": "Сверка", "value": "вторичный указатель; выбранное издание не проверено" }
+      ],
+      "sections": [
+        { "title": "Опорный срез", "text": "Мастерская столичного оружейника, которую посещает Эддард Старк во время расследования." }
+      ],
+      "links": [
+        { "label": "King's Landing", "ref": "place:kings-landing" }
+      ]
+    },
+    {
+      "ref": "place:tower-of-the-hand",
+      "kind": "place",
+      "name": "Tower of the Hand",
+      "nameRu": "Башня Десницы",
+      "subtitle": "A Game of Thrones · Eddard IV · башня Красного замка",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard IV; A Wiki of Ice and Fire, place entry and chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Tower_of_the_Hand",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        { "label": "Локатор", "value": "Eddard IV" },
+        { "label": "Категория", "value": "башня и резиденция Десницы короля" },
+        { "label": "Сверка", "value": "вторичный указатель; выбранное издание не проверено" }
+      ],
+      "sections": [
+        { "title": "Опорный срез", "text": "Башня внутри Красного замка, связанная с должностью Десницы короля." }
+      ],
+      "links": [
+        { "label": "Red Keep", "ref": "place:red-keep" },
+        { "label": "King's Landing", "ref": "place:kings-landing" }
+      ]
+    },
+    {
+      "ref": "place:small-hall-of-tower-of-the-hand",
+      "kind": "place",
+      "name": "Small Hall of the Tower of the Hand",
+      "nameRu": "Малый зал Башни Десницы",
+      "subtitle": "A Game of Thrones · Arya II · зал",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Arya II; A Wiki of Ice and Fire, Tower of the Hand entry and chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Tower_of_the_Hand",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        { "label": "Локатор", "value": "Arya II" },
+        { "label": "Категория", "value": "зал в Башне Десницы" },
+        { "label": "Сверка", "value": "вторичный указатель; выбранное издание не проверено" }
+      ],
+      "sections": [
+        { "title": "Опорный срез", "text": "Помещение Башни Десницы, где Сирио Форель проводит занятия с Арьей Старк." }
+      ],
+      "links": [
+        { "label": "Tower of the Hand", "ref": "place:tower-of-the-hand" },
+        { "label": "Red Keep", "ref": "place:red-keep" }
+      ]
+    },
+    {
+      "ref": "place:moles-town",
+      "kind": "place",
+      "name": "Mole's Town",
+      "nameRu": "Кротовый городок",
+      "subtitle": "A Game of Thrones · Jon IX · поселение у Стены",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon IX; A Wiki of Ice and Fire, place entry and chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Mole's_Town",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        { "label": "Локатор", "value": "Jon IX" },
+        { "label": "Категория", "value": "поселение в Даре" },
+        { "label": "Сверка", "value": "вторичный указатель; выбранное издание не проверено" }
+      ],
+      "sections": [
+        { "title": "Опорный срез", "text": "Небольшое поселение неподалёку от Чёрного замка; точная карта и расстояния не заданы." }
+      ],
+      "links": [
+        { "label": "Castle Black", "ref": "place:castle-black" },
+        { "label": "The Wall", "ref": "place:the-wall" }
+      ]
+    }
+  ]
+}

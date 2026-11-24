@@ -4,6 +4,8 @@
 import { cleanup, fireEvent, render, screen, within } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { deriveCharacter, pcActor, type PcSpec } from '../../campaign';
+import { EventLog } from '../../engine';
+import { seedState } from '../../campaign';
 import { CharacterEditor } from './CharacterEditor';
 
 const EMOJI = /\p{Extended_Pictographic}/u;
@@ -58,6 +60,20 @@ function fillFighter(level = 1) {
 }
 
 describe('экран создания персонажа', () => {
+  it('карта развития уважает фильтр источников и не создаёт персонажа при просмотре', () => {
+    const { onCreate } = mount();
+    goto('Имя');
+    const sources = screen.getByRole('group', { name: 'Источники' });
+    fireEvent.click(within(sources).getByRole('button', { name: 'книга' }));
+    fireEvent.click(within(sources).getByRole('button', { name: 'HB' }));
+    goto('Класс');
+    fireEvent.click(screen.getByText('Карта развития класса', { selector: 'summary' }));
+    const preview = screen.getByRole('region', { name: /^Развитие:/ });
+    const select = within(preview).getByRole('combobox', { name: 'Подкласс для просмотра' });
+    expect([...select.querySelectorAll('option')].filter(o=>o.value).every(o=>o.textContent?.includes('SRD'))).toBe(true);
+    fireEvent.click(within(preview).getByRole('button', { name: 'Уровень 20: сводка' }));
+    expect(onCreate).not.toHaveBeenCalled();
+  });
   it('старт: шаги по порядку со «осталось», карточка уже живая (человек-воин 1-го: 12 хитов, AC 12), «В партию» выключена; пиктограмм нет', () => {
     mount();
     expect(editor()).not.toHaveTextContent(EMOJI);
@@ -115,6 +131,22 @@ describe('экран создания персонажа', () => {
     expect(stepButton('Раса')).toHaveTextContent('2'); // два навыка расы не выбраны
   });
 
+  it('показывает названия классов целиком и объясняет сброс класса как незавершённое изменение черновика', () => {
+    mount();
+    goto('Навыки');
+    fireEvent.click(within(group('Навыки')).getByTitle(/^Внимательность/));
+    goto('Класс');
+    const wizard = option('Классы', /^Волшебник/);
+    expect(wizard).toHaveTextContent('Волшебник');
+    expect(wizard.querySelector('span')?.className).toContain('whitespace-normal');
+    fireEvent.click(wizard);
+    const notice = within(editor()).getByRole('status');
+    expect(notice).toHaveTextContent('Сброшено: навыки класса');
+    expect(notice.parentElement).toHaveAttribute('data-part', 'choices');
+    expect(notice.closest('[role="region"]')).toBeNull();
+    expect(spawn()).toBeDisabled(); // смена остаётся в черновике, до ACTOR_SPAWNED дело не дошло
+  });
+
   it('навыки: предыстория сверх класса и снимает совпавший выбор; лимит класса держится; не предложенный классом — выключен с причиной', () => {
     mount();
     goto('Навыки');
@@ -150,6 +182,28 @@ describe('экран создания персонажа', () => {
     expect(actor).toMatchObject({ hp: { current: 44, max: 44 }, ac: 19, passivePerception: 13 });
     expect(actor.sheet!.attacks!.map(a => a.name)).toEqual(['Longsword', 'Handaxe']);
     expect(deriveCharacter(spec).abilities.str).toBe(18);
+  });
+
+  it('встроенный портрет выбирается явно, очищается вариантом без портрета и сохраняется через ACTOR_SPAWNED/replay', async () => {
+    const { onCreate } = mount([], 'card');
+    fillFighter();
+    const picker = group('Выбрать встроенный портрет');
+    expect(within(picker).getByRole('button', { name: 'Без портрета' })).toHaveAttribute('aria-pressed', 'true');
+    fireEvent.click(within(picker).getByRole('button', { name: 'Bo · живописный портрет' }));
+    expect(await within(sheet()).findByRole('img', { name: 'Портрет: Sildar Hallwinter' })).toBeInTheDocument();
+    fireEvent.click(within(picker).getByRole('button', { name: 'Без портрета' }));
+    expect(within(sheet()).queryByRole('img', { name: 'Портрет: Sildar Hallwinter' })).toBeNull();
+    fireEvent.click(within(picker).getByRole('button', { name: 'Bo · живописный портрет' }));
+
+    fireEvent.click(spawn());
+    const spec = onCreate.mock.calls[0][0];
+    expect(spec.portrait).toBe('bo-portrait');
+    const actor = pcActor(spec);
+    expect(actor.sheet?.portrait).toBe('bo-portrait');
+    const log = new EventLog(seedState());
+    log.dispatch({ type: 'ACTOR_SPAWNED', payload: { actor, party: true } });
+    const replayed = new EventLog(seedState(), log.entries);
+    expect(replayed.state.actors[actor.id].sheet?.portrait).toBe('bo-portrait');
   });
 
   it('волшебник: заговоры и книга заклинаний из списка SRD со счётчиками, описание дословно, карточка показывает Сл и списки', () => {
@@ -223,6 +277,18 @@ describe('экран создания персонажа', () => {
 describe('редактор-карточка (образец владельца dnd-character-editor.jsx, 30.10.2026)', () => {
   const ecard = () => within(editor()).getByRole('article', { name: 'Карта персонажа: редактор' });
   const numbers = () => within(ecard()).getByRole('group', { name: 'Числа листа' });
+
+  it('в узкой раскладке карточку можно отдельно открыть и закрыть без потери черновика', () => {
+    const { onCreate } = mount([], 'card');
+    const main = within(editor()).getByRole('complementary', { name: 'Лист' }).parentElement!;
+    const toggle = within(editor()).getByRole('button', { name: 'Предпросмотр' });
+    fireEvent.click(toggle);
+    expect(toggle).toHaveAttribute('aria-pressed', 'true');
+    expect(main).toHaveAttribute('data-mobile-preview', 'true');
+    fireEvent.click(within(editor()).getByRole('button', { name: 'К управлению' }));
+    expect(main).toHaveAttribute('data-mobile-preview', 'false');
+    expect(onCreate).not.toHaveBeenCalled();
+  });
 
   it('по умолчанию справа карта: числа мягкого вывода, имя на корешке — то же поле черновика, что в шаге «Имя»', () => {
     mount([], 'card');

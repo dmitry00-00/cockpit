@@ -1,0 +1,67 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "event",
+  "entities": [
+    {
+      "ref": "event:varys-pressures-ned-to-confess-and-save-sansa",
+      "kind": "event",
+      "name": "Varys presses Ned to confess with Sansa's safety at stake",
+      "nameRu": "Варис ставит Неда перед выбором, от которого зависит безопасность Сансы",
+      "subtitle": "A Game of Thrones · Eddard XV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard XV; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_58",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 58
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard XV"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "Варис тайно приходит к Неду и предлагает признаться; в этой главе решение Неда не показано"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Варис навещает Неда в чёрных камерах и предлагает признать измену, призвать Робба сложить оружие и отказаться от поддержки Станниса и Ренли. Когда Нед отказывается поступиться честью ради жизни, Варис напоминает, что Санса остаётся у королевы и её безопасность тоже зависит от решения Неда. Исход выбора не утверждается."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Varys",
+          "ref": "person:varys"
+        },
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        },
+        {
+          "label": "Black Cells",
+          "ref": "place:black-cells"
+        },
+        {
+          "label": "Red Keep",
+          "ref": "place:red-keep"
+        }
+      ]
+    }
+  ]
+}

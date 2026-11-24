@@ -9,7 +9,7 @@ import { tonePaths } from '../icons/Icon';
 import { ICONS } from '../icons/icons.generated';
 import { CONDITIONS } from '../rules/srd';
 import {
-  BattleGrid, TOKEN_CONDITIONS_MAX, battleTokenDescription, battleTokenOf, battleTokenShadow, battleTokenTitle, conePoints,
+  BattleGrid, TOKEN_CONDITIONS_MAX, battleTokenDescription, battleTokenOf, battleTokenShadow, battleTokenTitle, conePoints, fitBattleCell,
   type BattleToken,
 } from './BattleGrid';
 import { ENTITY } from './EntityCard';
@@ -84,6 +84,13 @@ describe('проекции и геометрия', () => {
 });
 
 describe('BattleGrid', () => {
+  it('подгоняет клетку под ширину карты, но сохраняет читаемый минимум и обычный размер на большом поле', () => {
+    expect(fitBattleCell(820, 12, 72)).toBe(68);
+    expect(fitBattleCell(390, 12, 72)).toBe(32);
+    expect(fitBattleCell(240, 12, 72)).toBe(32);
+    expect(fitBattleCell(1200, 12, 72)).toBe(72);
+  });
+
   it('group «Боевая сетка» на провале с фаской внутрь, размер cols×rows×cell; клетка по умолчанию 48', () => {
     const { rerender } = render(<BattleGrid cols={12} rows={8} tokens={[]} />);
     expect(grid()).toHaveClass('relative', 'bg-wl', 'shadow-bevel-in');

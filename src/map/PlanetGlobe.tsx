@@ -5,7 +5,7 @@
 import { useMemo, type ReactNode } from 'react';
 import { Globe, type GlobeMarker, type GlobeProps, type GlobeVector } from './Globe';
 import { PLANET_MASKS, lonLatToMap, mapScaleForGlobe, mapToLonLat, subsolarLon } from './planet';
-import type { MapPassport, MapPoint } from './projection';
+import type { MapPassport, MapPoint, MapView } from './projection';
 import type { MapSchema } from './schema';
 import { visibleBands } from './globeSchema';
 
@@ -19,6 +19,7 @@ export interface PlanetGlobeProps {
   onPick?: GlobeProps['onPick'];
   /** Возврат с плоской карты отдалением (M16): точка карты, что встанет в центр глобуса. */
   focusAt?: MapPoint;
+  fromFlat?: MapView;
   /** Колесо дальше предела глобуса — точка карты под центром и масштаб плоской карты, равный глобусу (M16). */
   onZoomIn?: (at: { point: MapPoint; scale: number }) => void;
   /** Векторная схема плоской карты (M16): на последних шагах колеса глобус рисует её. */
@@ -28,7 +29,7 @@ export interface PlanetGlobeProps {
   className?: string;
 }
 
-export function PlanetGlobe({ passport, points, party, sec, onPick, focusAt, onZoomIn, schema, tools, children, className }: PlanetGlobeProps) {
+export function PlanetGlobe({ passport, points, party, sec, onPick, focusAt, fromFlat, onZoomIn, schema, tools, children, className }: PlanetGlobeProps) {
   const mask = PLANET_MASKS[passport.id];
   const vector = useMemo((): GlobeVector | undefined => {
     if (!mask || !schema) return undefined;
@@ -38,6 +39,7 @@ export function PlanetGlobe({ passport, points, party, sec, onPick, focusAt, onZ
       return d <= lon1 - lon0;
     };
     return {
+      passport,
       schema,
       mapId: passport.id,
       toLonLat: p => mapToLonLat(mask, passport, p),
@@ -63,6 +65,7 @@ export function PlanetGlobe({ passport, points, party, sec, onPick, focusAt, onZ
       onPick={onPick}
       focus={focusAt ? { ...lonLat(focusAt), zoom: 1 } : undefined}
       onZoomIn={onZoomIn ? at => onZoomIn({ point: lonLatToMap(mask, passport, at), scale: mapScaleForGlobe(mask, passport, at.radiusPx, at.lat) }) : undefined}
+      fromFlat={fromFlat}
       vector={vector}
       tools={tools}
       className={className}

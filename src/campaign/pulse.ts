@@ -1,12 +1,14 @@
 // «Пульс мира» (F5, Q8): что происходит без партии — проекция состояния, ничего не меняет. Календарь на три
-// десятидневки вперёд (праздники, Selûne, святые дни богов партии, смена сезона, остывание нитей), фракции и их
+// десятидневки вперёд (праздники, Selûne, святые дни богов партии, смена сезона, сроки настроенных часов нитей), фракции и их
 // отношения, индексы цен поселений по товарам, веса встреч. Значение, которое ждёт решения, идёт рядом с нынешним
 // (`pending`), а не вместо него: симуляция не выглядит свершившимся фактом (CLAUDE.md «Правила экрана»).
 import { GOODS, SRD_GOODS, SECONDS_PER_DAY, type GoodsId, type Location, type State, type WorldPatch } from '../engine/state';
-import { SEASON_LABELS, harptos, moonState, seasonOf } from './calendar';
-import { eraOf } from './era';
+import { SEASON_LABELS, calendarAdapterForState, harptos, moonState, seasonOf } from './calendar';
+import { eraOfSetting } from './era';
 import { holyDaysOn, holyList, isAnnual, partyDeitiesOf } from './holyDays';
-import { THREAD_COLD_DAYS } from './simulation';
+import { THREAD_TICK_DAYS } from './simulation';
+import { deityById, serviceOf } from '../cosmos/deities';
+import { DEFAULT_SETTING_PACKAGE } from '../packages/registry';
 
 export const PULSE_DAYS = 30;
 
@@ -39,7 +41,8 @@ export interface PulsePriceRow { id: string; name: string; all: PulsePriceCell; 
 export interface PulseEncounter { key: string; weight: number; pending?: number }
 export interface PulseEncounterRow { id: string; name: string; entries: PulseEncounter[] }
 
-export interface PulseGod { id: string; name: string; worshippers: readonly string[] }
+export interface PulseGodRelation { id: string; name: string; kind: 'serves' | 'served-by' | 'aspect' }
+export interface PulseGod { id: string; name: string; worshippers: readonly string[]; relations: readonly PulseGodRelation[] }
 
 export interface Pulse {
   events: PulseEvent[];
@@ -59,29 +62,41 @@ const pendingPatches = (state: State): WorldPatch[] =>
 /** Календарь [сегодня, сегодня + days): по дням, в порядке дня, внутри дня — как перечислены виды. */
 export function pulseEvents(state: State, days = PULSE_DAYS): PulseEvent[] {
   const today = Math.floor(state.time.sec / DAY) * DAY;
-  const era = eraOf(harptos(today).year);
+  const settingPackageId = state.settingPackageId ?? DEFAULT_SETTING_PACKAGE;
+  const isForgottenRealms = settingPackageId === DEFAULT_SETTING_PACKAGE;
+  const calendar = calendarAdapterForState(state);
+  const year = calendar.yearAt(today);
+  const era = isForgottenRealms ? eraOfSetting(year, settingPackageId) : undefined;
   const party = new Set(partyDeitiesOf(state).keys());
   const out: PulseEvent[] = [];
   for (let i = 0; i < days; i++) {
     const sec = today + i * DAY;
-    const d = harptos(sec);
-    if (d.festival) out.push({ sec, days: i, kind: 'festival', label: d.festival });
-    // Полнолуние и новолуние — день самой фазы (daysToFull / daysToNew = 0), как «полнолуние через 3 дня» в полосе часов.
-    const moon = moonState(sec);
-    if (moon.daysToFull === 0) out.push({ sec, days: i, kind: 'moon-full', label: 'Полнолуние Selûne' });
-    if (moon.daysToNew === 0) out.push({ sec, days: i, kind: 'moon-new', label: 'Новолуние Selûne' });
-    if (party.size) {
+    const frDate = isForgottenRealms ? harptos(sec) : undefined;
+    if (frDate?.festival) out.push({ sec, days: i, kind: 'festival', label: frDate.festival });
+    // Лунные правила профиля календаря применяются по его собственному адаптеру; Selûne и её имя остаются механикой FR.
+    const moon = isForgottenRealms ? moonState(sec) : calendar.moonAt?.(sec);
+    if (moon?.daysToFull === 0) out.push({ sec, days: i, kind: 'moon-full', label: isForgottenRealms ? 'Полнолуние Selûne' : 'Полнолуние' });
+    if (moon?.daysToNew === 0) out.push({ sec, days: i, kind: 'moon-new', label: isForgottenRealms ? 'Новолуние Selûne' : 'Новолуние' });
+    if (isForgottenRealms && era && party.size) {
       const holy = holyDaysOn(sec, era, party).filter(h => isAnnual(h.rule));
       if (holy.length) out.push({ sec, days: i, kind: 'holy', label: `Святой день: ${holyList(holy)}` });
     }
-    if (i > 0 && seasonOf(sec) !== seasonOf(sec - DAY)) out.push({ sec, days: i, kind: 'season', label: `Сезон: ${SEASON_LABELS[seasonOf(sec)]}` });
+    const season = isForgottenRealms ? seasonOf(sec) : calendar.seasonAt?.(sec);
+    const previousSeason = isForgottenRealms ? seasonOf(sec - DAY) : calendar.seasonAt?.(sec - DAY);
+    if (i > 0 && season && previousSeason && season !== previousSeason) {
+      const label = isForgottenRealms
+        ? SEASON_LABELS[season as keyof typeof SEASON_LABELS]
+        : calendar.seasonLabelAt?.(sec) ?? season;
+      out.push({ sec, days: i, kind: 'season', label: `Сезон: ${label}` });
+    }
   }
-  // Нить без внимания остывает — симуляция предложит её закрыть (simulate, правило 1).
+  // Следующий сегмент настроенных часов появится предложением, когда пройдёт десять дней без внимания.
   for (const t of Object.values(state.world.threads)) {
-    if (t.status !== 'open') continue;
-    const cold = Math.floor((t.lastTouchedSec + THREAD_COLD_DAYS * DAY) / DAY) * DAY;
-    const i = Math.round((cold - today) / DAY);
-    if (i >= 0 && i < days) out.push({ sec: cold, days: i, kind: 'thread', label: `${t.name}: след остынет` });
+    if (t.status !== 'open' || !t.clock || t.clock.filled >= t.clock.segments) continue;
+    const baseline = Math.max(t.lastTouchedSec, t.clock.startedSec ?? t.lastTouchedSec);
+    const tick = Math.floor((baseline + THREAD_TICK_DAYS * DAY) / DAY) * DAY;
+    const i = Math.round((tick - today) / DAY);
+    if (i >= 0 && i < days) out.push({ sec: tick, days: i, kind: 'thread', label: `${t.name}: предложение тика часов` });
   }
   return out.sort((a, b) => a.days - b.days);
 }
@@ -143,8 +158,18 @@ export function pulseOf(state: State, days = PULSE_DAYS): Pulse {
   const encounters = encounterRowsOf(state);
 
   const gods = [...partyDeitiesOf(state)].map(([id, worshippers]) => {
-    const name = state.party.map(a => state.actors[a]?.sheet?.deity).find(d => d?.id === id)?.name ?? id;
-    return { id, name, worshippers };
+    const isForgottenRealms = (state.settingPackageId ?? DEFAULT_SETTING_PACKAGE) === DEFAULT_SETTING_PACKAGE;
+    const deity = isForgottenRealms ? deityById(id) : undefined;
+    const name = deity?.name ?? state.party.map(a => state.actors[a]?.sheet?.deity).find(d => d?.id === id)?.name ?? id;
+    const relations: PulseGodRelation[] = [];
+    if (deity) {
+      const settingPackageId = state.settingPackageId ?? DEFAULT_SETTING_PACKAGE;
+      const service = serviceOf(deity, eraOfSetting(calendarAdapterForState(state).yearAt(state.time.sec), settingPackageId));
+      for (const d of service.masters) relations.push({ id: d.id, name: d.name, kind: 'serves' });
+      for (const d of service.servants) relations.push({ id: d.id, name: d.name, kind: 'served-by' });
+      for (const d of service.aspects) relations.push({ id: d.id, name: d.name, kind: 'aspect' });
+    }
+    return { id, name, worshippers, relations };
   });
 
   return {

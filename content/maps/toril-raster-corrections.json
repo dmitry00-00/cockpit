@@ -1,0 +1,152 @@
+{
+  "map": "toril",
+  "version": "cockpit.raster-corrections/1",
+  "note": "M13: визуальная сверка исходного растра и существующего OCR/GIS. Только каталог, без активации мест в кампании. Классы и стабильные идентификаторы сохранены из GIS; исправлено отображаемое написание Teziir и положение Selgaunt.",
+  "places": [
+    {
+      "id": "f06be45a-ec62-4ddf-b814-5ce1ed3889f1",
+      "name": "Teziir",
+      "aliases": [
+        "Tezilr"
+      ],
+      "kind": "Town",
+      "x": 10733,
+      "y": 4108,
+      "approx": false,
+      "label": false,
+      "sources": [
+        "Toril GIS",
+        "HandsomeRob raster: OCR oTeziir (10758,4104), city marker (10733,4108); visual review 2026-11-03"
+      ],
+      "evidence": {
+        "ocrId": "ocr:10758_4104",
+        "raster": "maps/tiles/toril/7",
+        "symbol": {
+          "kind": "city",
+          "x": 10733,
+          "y": 4108
+        }
+      }
+    },
+    {
+      "id": "c3ce5fcf-94e0-4b36-a09a-bfc55af20959",
+      "name": "Selgaunt",
+      "nameRu": "Селгаунт",
+      "kind": "City",
+      "x": 11500,
+      "y": 3887,
+      "approx": false,
+      "label": false,
+      "sources": [
+        "Toril GIS",
+        "HandsomeRob raster: white circle (11500,3887) beside Selgaunt; visual review 2026-11-03"
+      ],
+      "evidence": {
+        "raster": "maps/tiles/toril/7",
+        "symbol": {
+          "source": "maps/ocr/toril-labels.json#marks",
+          "x": 11500,
+          "y": 3887,
+          "radius": 2.5
+        }
+      }
+    },
+    {
+      "id": "6374e17d-493c-463d-b050-4ee9d084fe7b",
+      "name": "Al Azra'Wadi",
+      "aliases": [
+        "al-Azra Wadi®"
+      ],
+      "kind": "Town",
+      "x": 14026,
+      "y": 7706,
+      "approx": false,
+      "label": false,
+      "sources": [
+        "Toril GIS",
+        "HandsomeRob raster: точное OCR-имя и привязанный к подписи значок village; визуальная сверка 2026-11-05"
+      ],
+      "evidence": {
+        "ocrId": "ocr:13979_7713",
+        "raster": "maps/tiles/toril/7/54_30.webp",
+        "symbol": {
+          "source": "maps/ocr/toril-labels.json#labels.icon",
+          "kind": "village",
+          "x": 14026,
+          "y": 7706
+        }
+      }
+    },
+    {
+      "id": "d78c5e77-2d27-4f60-b877-4ba909125485",
+      "name": "Lo'Shan",
+      "aliases": [
+        "Lo Shan"
+      ],
+      "kind": "City",
+      "x": 18314,
+      "y": 4958,
+      "approx": false,
+      "label": false,
+      "sources": [
+        "Toril GIS",
+        "HandsomeRob raster: подпись Lo Shan и соседний городской значок; визуальная сверка 2026-11-05"
+      ],
+      "evidence": {
+        "ocrId": "ocr:18275_4946",
+        "raster": "maps/tiles/toril/7/71_19.webp",
+        "symbol": {
+          "source": "maps/ocr/toril-labels.json#icons",
+          "kind": "city",
+          "x": 18314,
+          "y": 4958
+        }
+      }
+    },
+    {
+      "id": "40fbe5f7-1312-403c-8335-76736a310921",
+      "name": "Mezro",
+      "aliases": [
+        "Mezro®"
+      ],
+      "kind": "Town",
+      "x": 8531,
+      "y": 5936,
+      "approx": false,
+      "label": false,
+      "sources": [
+        "Toril GIS",
+        "HandsomeRob raster: OCR-подпись Mezro и соседний белый маркер; визуальная сверка 2026-11-05"
+      ],
+      "evidence": {
+        "ocrId": "ocr:8502_5934",
+        "raster": "maps/tiles/toril/7/33_23.webp",
+        "symbol": {
+          "source": "maps/ocr/toril-labels.json#marks",
+          "x": 8531,
+          "y": 5936,
+          "radius": 2.5
+        }
+      }
+    },
+    {
+      "id": "b66649ab-26c9-469f-861b-3653eeb19c1d",
+      "name": "Fokobi Forest",
+      "kind": "Temperate Forest",
+      "x": 20645,
+      "y": 4599,
+      "approx": false,
+      "label": true,
+      "sources": [
+        "Toril GIS",
+        "HandsomeRob raster: exact OCR name Fokobi Forest at (20645,4599), inside matching forest terrain; visual review 2026-11-05"
+      ],
+      "evidence": {
+        "ocrId": "ocr:20645_4599",
+        "raster": "maps/tiles/toril/7/80_17.webp",
+        "cleanRaster": "maps/tiles/toril-clean/7/80_17.webp",
+        "terrainClass": "f"
+      }
+    }
+  ]
+}

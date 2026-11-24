@@ -1,0 +1,412 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "event",
+  "entities": [
+    {
+      "ref": "event:robb-receives-sansas-letter-at-winterfell",
+      "kind": "event",
+      "name": "Robb receives Sansa’s letter at Winterfell",
+      "nameRu": "Робб получает письмо Сансы в Винтерфелле",
+      "subtitle": "A Game of Thrones · Bran VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran VI; A Wiki of Ice and Fire numeric chapter page (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_53",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 53
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Bran VI"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "Письмо Сансы прибывает в Винтерфелл и Робб читает его в этой главе; само письмо было написано раньше."
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; выбранное издание не сверялось"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Письмо, составленное Сансой под давлением двора, достигает Робба в Винтерфелле. Прочитав его, он разрывает письмо; это отдельное получение известия, а не повторное событие его написания или принятие изложенных в письме обвинений."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        },
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        },
+        {
+          "label": "House Stark",
+          "ref": "organization:house-stark"
+        },
+        {
+          "label": "Sansa writes the letters",
+          "ref": "event:sansa-writes-letters-to-starks-under-pressure"
+        }
+      ]
+    },
+    {
+      "ref": "event:vale-clans-ambush-catelyns-party-on-high-road",
+      "kind": "event",
+      "name": "Vale clans ambush Catelyn’s party on the High Road",
+      "nameRu": "Горные кланы Долины нападают на отряд Кэтлин на Высокой дороге",
+      "subtitle": "A Game of Thrones · Tyrion IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion IV; A Wiki of Ice and Fire numeric chapter page (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_31",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 31
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion IV"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "Нападение происходит во время пути к Орлиному гнезду; Тирион сражается и помогает Кэтлин отбить нападавших. Пленные из Catelyn V уже были взяты раньше."
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; выбранное издание не сверялось"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Отряд Кэтлин подвергается нападению горных кланов Долины на Высокой дороге. Тирион получает оружие и вступает в бой; вместе с Кэтлин он защищается от нападавших. После столкновения отряд продолжает путь к Орлиному гнезду."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Rodrik Cassel",
+          "ref": "person:rodrik-cassel"
+        },
+        {
+          "label": "Bronn",
+          "ref": "person:bronn"
+        },
+        {
+          "label": "High Road",
+          "ref": "place:high-road"
+        },
+        {
+          "label": "Mountains of the Moon",
+          "ref": "place:mountains-of-the-moon"
+        },
+        {
+          "label": "Tyrion’s earlier capture",
+          "ref": "event:tyrion-captured-at-crossroads"
+        }
+      ]
+    },
+    {
+      "ref": "event:joffrey-issues-first-court-appointments",
+      "kind": "event",
+      "name": "Joffrey announces new appointments at his first court session",
+      "nameRu": "Джоффри объявляет о новых назначениях на первом заседании двора",
+      "subtitle": "A Game of Thrones · Sansa V",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa V; A Wiki of Ice and Fire numeric chapter page (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_57",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 57
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Sansa V"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "В первой королевской аудиенции объявляются назначения Тайвина Десницей, Серсеи королевой-регентом в малом совете и Джаноса Слинта лордом Харренхолла и членом совета."
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; выбранное издание не сверялось"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "На первом заседании Джоффри как короля его двор объявляет о смене ключевых должностей. Тайвин получает должность Десницы, Серсея входит в малый совет как королева-регент, а Джанос Слинт получает Харренхолл и место в совете. Это изменение управления двором, отдельное от увольнения Барристана."
+        }
+      ],
+      "links": [
+        {
+          "label": "Joffrey Baratheon",
+          "ref": "person:joffrey-baratheon"
+        },
+        {
+          "label": "Tywin Lannister",
+          "ref": "person:tywin-lannister"
+        },
+        {
+          "label": "Cersei Lannister",
+          "ref": "person:cersei-lannister"
+        },
+        {
+          "label": "Janos Slynt",
+          "ref": "person:janos-slynt"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Red Keep",
+          "ref": "place:red-keep"
+        },
+        {
+          "label": "House Lannister",
+          "ref": "organization:house-lannister"
+        }
+      ]
+    },
+    {
+      "ref": "event:joffrey-refuses-practice-bout-with-robb",
+      "kind": "event",
+      "name": "Joffrey refuses a practice bout with Robb",
+      "nameRu": "Джоффри отказывается от учебного поединка с Роббом",
+      "subtitle": "A Game of Thrones · Arya I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Arya I; A Wiki of Ice and Fire numeric chapter page (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_7",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 7
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Arya I"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "Робба и Джоффри вызывают на учебный бой во дворе Винтерфелла, но Джоффри отказывается; поединка между ними не происходит."
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; выбранное издание не сверялось"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "После того как Бран и Томмен упражняются с деревянными мечами, мастер над оружием предлагает Роббу и Джоффри выйти на учебный бой. Джоффри отказывается и уходит после обмена колкостями. Карточка фиксирует отказ и напряжение между юношами, не выдумывая состоявшийся поединок."
+        }
+      ],
+      "links": [
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "Joffrey Baratheon",
+          "ref": "person:joffrey-baratheon"
+        },
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "Tommen Baratheon",
+          "ref": "person:tommen-baratheon"
+        },
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Rodrik Cassel",
+          "ref": "person:rodrik-cassel"
+        },
+        {
+          "label": "Winterfell practice yard",
+          "ref": "place:practice-yard-of-winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "event:grey-wind-bites-greatjon-as-robb-secures-command",
+      "kind": "event",
+      "name": "Grey Wind maims the Greatjon during Robb’s war council",
+      "nameRu": "Лето калечит Большого Джона на военном совете Робба",
+      "subtitle": "A Game of Thrones · Bran VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran VI; A Wiki of Ice and Fire numeric chapter page (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_53",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 53
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Bran VI"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "Большой Джон требует верховного командования и обнажает меч против Робба; Лето нападает на него. После этого Большой Джон становится сторонником Робба."
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; выбранное издание не сверялось"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Когда Большой Джон оспаривает руководство войском, он поднимает оружие против Робба. Лютоволк Лето бросается на него и откусывает ему пальцы. Инцидент меняет отношение умбера к молодому лорду и укрепляет власть Робба перед походом."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "Greatjon Umber",
+          "ref": "person:greatjon-umber"
+        },
+        {
+          "label": "Grey Wind",
+          "ref": "person:grey-wind"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        },
+        {
+          "label": "House Stark",
+          "ref": "organization:house-stark"
+        }
+      ]
+    },
+    {
+      "ref": "event:eddard-publicly-confesses-at-great-sept",
+      "kind": "event",
+      "name": "Eddard publicly confesses at the Great Sept",
+      "nameRu": "Эддард публично признаёт вину у Великой септы",
+      "subtitle": "A Game of Thrones · Arya V",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Arya V; A Wiki of Ice and Fire numeric chapter page (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_65",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 65
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Arya V"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "Эддард публично признаёт измену перед толпой и двором; казнь следует отдельно по приказу Джоффри, вопреки условно обещанной милости."
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; выбранное издание не сверялось"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Перед собравшимися у Великой септы Эддард публично признаёт измену. Несмотря на это и на ранее объявленное условное обещание милости, Джоффри приказывает казнить его. Признание и казнь представлены как разные последовательные действия."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        },
+        {
+          "label": "Joffrey Baratheon",
+          "ref": "person:joffrey-baratheon"
+        },
+        {
+          "label": "Great Sept of Baelor",
+          "ref": "place:great-sept-of-baelor"
+        },
+        {
+          "label": "Conditional promise of mercy",
+          "ref": "event:joffrey-promises-mercy-if-eddard-confesses"
+        },
+        {
+          "label": "Eddard’s execution",
+          "ref": "event:eddard-executed-at-kings-landing"
+        }
+      ]
+    }
+  ]
+}

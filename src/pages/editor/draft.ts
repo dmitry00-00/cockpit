@@ -8,6 +8,7 @@
 //   • заговоры и заклинания из списков SRD; стартовое снаряжение SRD вариантами (a)/(b)/(c), что надето.
 // Что предлагать и сколько — campaign/build.ts (те же функции читает derive); «сколько осталось» — deriveDraft.
 import type { PcSpec } from '../../campaign/derive';
+import type { PortraitRef } from '../../art/portrait';
 import { deriveDraft, srdClassOf } from '../../campaign/derive';
 import { inventoryOf, picksNeeded, spellcastingOf, startingKitOf, type KitSelection } from '../../campaign/build';
 import { ABILITY_IDS, SKILL_IDS, type AbilityId, type SkillId } from '../../rules/srd/abilities';
@@ -27,6 +28,8 @@ export type AbilityMethod = 'pointbuy' | 'array';
 
 export interface Draft {
   name: string;
+  /** Built-in id or compact user-supplied image stored with the campaign. */
+  portrait?: PortraitRef;
   alignment: string;
   height: string;
   weight: string;
@@ -70,6 +73,7 @@ export const CLERIC_CLASS = 'jrec';
 export function initialDraft(): Draft {
   return {
     name: '',
+    portrait: undefined,
     alignment: '',
     height: '',
     weight: '',
@@ -380,6 +384,7 @@ export function toSpec(draft: Draft, id: string): PcSpec {
   return {
     id,
     name: draft.name.trim(),
+    ...(draft.portrait ? { portrait: draft.portrait } : {}),
     raceId: draft.raceId,
     subraceId: draft.subraceId,
     classId: draft.classId,

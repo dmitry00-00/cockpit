@@ -3,6 +3,9 @@ import {
   type ColorToken,
 } from '../styles/tokens.generated';
 import IconSheet from '../icons/IconSheet';
+import { lazy, Suspense, useState } from 'react';
+
+const ArtSheet = lazy(() => import('../art/ArtSheet'));
 
 /** Группы палитры по префиксу имени токена; порядок — лестница снизу вверх, потом семейства. */
 const COLOR_GROUPS: readonly { title: string; test: (n: string) => boolean }[] = [
@@ -46,6 +49,7 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 }
 
 export function TokensPage() {
+  const [showArt, setShowArt] = useState(false);
   return (
     <main className="min-h-full p-6 flex flex-col gap-8 max-w-[1440px]">
       <header className="flex items-baseline gap-4">
@@ -118,6 +122,14 @@ export function TokensPage() {
 
       <Section title="Иконки">
         <IconSheet />
+      </Section>
+
+      <Section title="Каталог графики">
+        <button type="button" className="type-body-sm text-gd bg-cd shadow-bevel p-3 self-start"
+          aria-expanded={showArt} aria-controls="art-samples" onClick={() => setShowArt(v => !v)}>
+          {showArt ? 'Скрыть иллюстрации' : 'Показать иллюстрации'}
+        </button>
+        <div id="art-samples">{showArt ? <Suspense fallback={<p className="type-body-sm text-t2" role="status">Загрузка иллюстраций…</p>}><ArtSheet /></Suspense> : null}</div>
       </Section>
 
       <Section title="Сетка, размеры, радиус, прозрачность">

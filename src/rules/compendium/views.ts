@@ -1,6 +1,6 @@
 // Матрицы компендиума — проекции данных в форму таблиц-первоисточников: «раса × фасет», «уровень × подкласс»,
 // «черта × эффект». Здесь только данные и чистые функции; экран их рисует.
-import type { Ability, Asi, CharacterClass, Feat, FeatEffectKind, Race, Source, Subclass, SubclassFeature, Subrace, Trait, TraitKind } from './schema';
+import type { Ability, Asi, AsiChoice, CharacterClass, Feat, FeatEffectKind, Race, Source, Subclass, SubclassFeature, Subrace, Trait, TraitKind } from './schema';
 
 export const ABILITIES: readonly Ability[] = ['str', 'dex', 'con', 'int', 'wis', 'cha'];
 export const ABILITY_LABELS: Readonly<Record<Ability, string>> = { str: 'СИЛ', dex: 'ЛОВ', con: 'ТЕЛ', int: 'ИНТ', wis: 'МДР', cha: 'ХАР' };
@@ -43,6 +43,7 @@ export interface RaceFacetRow {
   nameRu: string;
   source: Source;
   asi: Asi | undefined;
+  asiChoice: AsiChoice | undefined;
   cells: Readonly<Record<TraitKind, readonly Trait[]>>;
   /** Серые отметки листа «Кратко» по фасетам: true — просто отмечено, строка — что именно («Когти»). Только у рас. */
   marks: Partial<Record<TraitKind, string | true>>;
@@ -86,9 +87,9 @@ export function raceFacetRows(races: readonly Race[], sources: readonly Source[]
   for (const r of races) {
     const subs = r.subraces.filter(s => allowed.has(s.source));
     if (!allowed.has(r.source) && subs.length === 0) continue;
-    rows.push({ key: r.id, level: 'race', id: r.id, name: r.name, nameRu: r.nameRu, source: r.source, asi: r.asi, cells: cellsOf(r.traits), marks: marksOf(r.facetMarks), spells: [] });
+    rows.push({ key: r.id, level: 'race', id: r.id, name: r.name, nameRu: r.nameRu, source: r.source, asi: r.asi, asiChoice: r.asiChoice, cells: cellsOf(r.traits), marks: marksOf(r.facetMarks), spells: [] });
     for (const s of subs) {
-      rows.push({ key: `${r.id}/${s.id}`, level: 'subrace', id: s.id, name: s.name, nameRu: s.nameRu, source: s.source, asi: s.asi, cells: cellsOf(s.traits), marks: {}, spells: s.spells });
+      rows.push({ key: `${r.id}/${s.id}`, level: 'subrace', id: s.id, name: s.name, nameRu: s.nameRu, source: s.source, asi: s.asi, asiChoice: s.asiChoice, cells: cellsOf(s.traits), marks: {}, spells: s.spells });
     }
   }
   return rows;
@@ -120,7 +121,7 @@ export interface ClassLevelRow {
   proficiencyBonus: number | null;
   resources: Readonly<Record<string, string>>;
   features: CharacterClass['levels'][number]['features'];
-  bySubclass: Readonly<Record<string, readonly SubclassFeature[]>>;
+  bySubclass: Readonly<Record<string, readonly (SubclassFeature & { nameEn?: string; srdId?: string })[]>>;
 }
 
 export interface ClassLevelGrid {
@@ -144,7 +145,18 @@ export function classLevelGrid(cls: CharacterClass, sources: readonly Source[]):
     // Заклинания подкласса (домен, клятва, покровитель) импортёр отделил от умений — в сетке они на своей строке, как в таблице.
     bySubclass: Object.fromEntries(subclasses.map(s => [s.id, [
       ...s.features.filter(f => f.level === lv.level),
-      ...(s.spells ?? []).filter(sp => sp.level === lv.level).map(sp => ({ level: sp.level, id: `spell-${sp.name}`, name: sp.name, text: s.spellLevel === 'spell' ? `Заклинание подкласса, ${sp.level} круг` : `Заклинание подкласса с ${sp.level}-го уровня` })),
+      ...(s.spells ?? []).filter(sp => sp.level === lv.level).map(sp => ({
+        level: sp.level,
+        id: `spell-${sp.terrain ?? sp.variant ?? ''}-${sp.srdId ?? sp.name}`,
+        name: sp.name,
+        ...(sp.nameEn ? { nameEn: sp.nameEn } : {}),
+        ...(sp.srdId ? { srdId: sp.srdId } : {}),
+        text: [
+          sp.terrain ? `Местность: ${sp.terrain}` : '',
+          sp.variant ? `Вид гения: ${sp.variant}` : '',
+          s.spellLevel === 'spell' ? `Заклинание подкласса, ${sp.level} круг` : `Заклинание подкласса с ${sp.level}-го уровня`,
+        ].filter(Boolean).join(' · '),
+      })),
     ]])),
   }));
   return { resourceKeys, subclasses, rows };

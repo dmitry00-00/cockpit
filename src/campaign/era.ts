@@ -1,24 +1,46 @@
-// Год кампании — фильтр канона (ROADMAP 0.6): из года мира (Харптос) — эпоха источников и космология по умолчанию.
-// Год не отдельное поле сида: его даёт время мира, шаг времени через Новый год сдвигает и эпоху, если она сменилась.
-// Границы — по датам редакций кампании: 3e описывает 1372 DR (FRCS), 4e — 1479 DR, 5e — с 1489 DR.
+// Эпохи канона и порядок чтения полей источника задаются профилем линз пакета сеттинга.
+import { DEFAULT_SETTING_PACKAGE, PACKAGE_REGISTRY, settingDataFor } from '../packages/registry';
+import { parseEditionLensProfile, type EditionLensProfile } from '../packages/settingData';
 
 export type Era = '3e' | '4e' | '5e';
 
-export function eraOf(year: number): Era {
-  if (year <= 1384) return '3e';
-  if (year <= 1487) return '4e';
-  return '5e';
+const lensCache = new Map<string, EditionLensProfile>();
+export function editionLensForSetting(settingPackageId: string): EditionLensProfile {
+  const cached = lensCache.get(settingPackageId);
+  if (cached) return cached;
+  const setting = PACKAGE_REGISTRY.find(p => p.id === settingPackageId && p.kind === 'setting');
+  if (!setting?.time?.lenses) throw new Error(`у пакета ${settingPackageId} не объявлена линза редакций`);
+  const profile = parseEditionLensProfile(settingDataFor(settingPackageId, 'lenses'), setting.time.lenses);
+  lensCache.set(settingPackageId, profile);
+  return profile;
 }
 
-/** Порядок редакций полей вики для эпохи: сначала своя, потом старшие — чего нет в своей, берётся из предыдущей. */
-export const EDITION_ORDER: Readonly<Record<Era, readonly string[]>> = {
-  '5e': ['5eR', '5e', '4e', '3e', '2e', '1e', ''],
-  '4e': ['4e', '3e', '2e', '1e', ''],
-  '3e': ['3e', '2e', '1e', ''],
-};
+const DEFAULT_LENSES = editionLensForSetting(DEFAULT_SETTING_PACKAGE);
+const knownEras = new Set(DEFAULT_LENSES.eras.map(era => era.id));
+for (const era of ['3e', '4e', '5e']) if (!knownEras.has(era)) throw new Error(`линза ${DEFAULT_LENSES.id} не содержит эпоху ${era}`);
 
-/**
- * Линза уровня «космология» по умолчанию: Великое древо — модель 3e (1372 DR), Великое колесо — 5e (1492 DR).
- * Мировой оси 4e в данных нет — в эпоху 4e показывается Колесо.
- */
-export const cosmologyOf = (year: number): 'wheel' | 'tree' => (eraOf(year) === '3e' ? 'tree' : 'wheel');
+export function eraOfSetting(year: number | null, settingPackageId: string): Era {
+  const profile = editionLensForSetting(settingPackageId);
+  if (year === null) return profile.default as Era;
+  const era = profile.eras.find(candidate => candidate.throughYear === undefined || year <= candidate.throughYear);
+  if (!era) throw new Error(`у линзы ${profile.id} нет эпохи для года ${year}`);
+  return era.id as Era;
+}
+
+export const eraOf = (year: number): Era => eraOfSetting(year, DEFAULT_SETTING_PACKAGE);
+
+/** Порядок редакций полей: вначале выбранная эпоха, затем более ранние источники. */
+export const EDITION_ORDER: Readonly<Record<Era, readonly string[]>> = Object.freeze(Object.fromEntries(
+  DEFAULT_LENSES.eras.map(era => [era.id, era.fieldOrder]),
+) as Record<Era, readonly string[]>);
+
+/** Космология берётся из той же линзы; для эпох без отдельной записи используется колесо профиля по умолчанию. */
+export function cosmologyOfSetting(year: number | null, settingPackageId: string): 'wheel' | 'tree' {
+  const profile = editionLensForSetting(settingPackageId);
+  const defaultCosmology = profile.eras.find(candidate => candidate.id === profile.default)?.cosmology ?? 'wheel';
+  const era = year === null ? undefined : profile.eras.find(candidate => candidate.throughYear === undefined || year <= candidate.throughYear);
+  const cosmology = era?.cosmology ?? defaultCosmology;
+  return cosmology === 'tree' ? 'tree' : 'wheel';
+}
+
+export const cosmologyOf = (year: number): 'wheel' | 'tree' => cosmologyOfSetting(year, DEFAULT_SETTING_PACKAGE);

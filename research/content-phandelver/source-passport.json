@@ -1,0 +1,478 @@
+{
+  "schemaVersion": 1,
+  "id": "lmop-ru-phantom-2015-local",
+  "status": "single-source-linked-sample-key-nodes-parts-1-to-4; source-statblocks-and-item-placements-indexed; partial-exact-runtime-cross-references-reviewed",
+  "availabilityAudit": {
+    "checkedOn": "2026-11-14",
+    "currentWorkspacePathPresent": false,
+    "expectedSha256": "cbdcc0898fd78a6f7d58263e0ae03eba0d174515e4521673aa3b14dbd7f59c1e",
+    "note": "Точный русский PDF получен для этой сессии из Library; SHA-256 совпал с паспортом, число страниц — 64. Проверочная копия остаётся вне репозитория; файл, иллюстрации и полный извлечённый текст не поставляются в пакете.",
+    "libraryCopySha256Verified": true
+  },
+  "selectedBy": "owner",
+  "identifiedOn": "2026-11-01",
+  "title": "Lost Mine of Phandelver",
+  "titleRu": "Затерянные рудники Фанделвера",
+  "rulesFamily": "D&D 5e / Starter Set",
+  "localSource": {
+    "path": "/Users/dmitrij/Downloads/5e starter set - Lost Mine of Phandelver RUS.pdf",
+    "bytes": 8275631,
+    "sha256": "cbdcc0898fd78a6f7d58263e0ae03eba0d174515e4521673aa3b14dbd7f59c1e",
+    "pdfPages": 64,
+    "latestDownloadConfirmed": true,
+    "copiedIntoRepository": false,
+    "sourceId": "book"
+  },
+  "edition": {
+    "versionIdentity": "exact-file-sha256",
+    "originalReleaseYear": null,
+    "originalReleaseYearVerified": false,
+    "translationCredit": {
+      "studio": "PHantom",
+      "imprintYear": 2015,
+      "editor": "Landor",
+      "translator": "StopForRS",
+      "page": 64
+    },
+    "fileMetadataCreation": "D:20160112093128+02'00'",
+    "fileMetadataModification": "D:20160112162502+08'00'",
+    "note": "Год перевода и даты PDF не выдаются за год оригинального издания."
+  },
+  "scope": {
+    "partySize": [
+      4,
+      5
+    ],
+    "startingLevel": 1,
+    "endingLevel": 5,
+    "scopeEvidencePdfPage": 2,
+    "campaignYear": null,
+    "campaignYearNote": "Дата сида приложения не является датой приключения из PDF."
+  },
+  "sections": [
+    {
+      "id": "goblin-arrows",
+      "sourceTitle": "Гоблинские стрелы",
+      "pdfPages": [
+        6,
+        13
+      ],
+      "sourceId": "book"
+    },
+    {
+      "id": "phandalin",
+      "sourceTitle": "Фандалин",
+      "pdfPages": [
+        14,
+        26
+      ],
+      "sourceId": "book"
+    },
+    {
+      "id": "spiders-web",
+      "sourceTitle": "Паутина",
+      "pdfPages": [
+        27,
+        40
+      ],
+      "sourceId": "book"
+    },
+    {
+      "id": "wave-echo-cave",
+      "sourceTitle": "Пещера Морского Эха",
+      "pdfPages": [
+        41,
+        49
+      ],
+      "sourceId": "book"
+    },
+    {
+      "id": "magic-items",
+      "sourceTitle": "Магические предметы",
+      "pdfPages": [
+        50,
+        51
+      ],
+      "sourceId": "book"
+    },
+    {
+      "id": "monsters",
+      "sourceTitle": "Чудовища",
+      "pdfPages": [
+        52,
+        62
+      ],
+      "sourceId": "book"
+    },
+    {
+      "id": "glossary-credits",
+      "sourceTitle": "Англо-русский словарь и выходные данные",
+      "pdfPages": [
+        63,
+        64
+      ],
+      "sourceId": "book"
+    }
+  ],
+  "firstPass": {
+    "proposal": "Связная выборка частей 1–4 размечена по точному русскому источнику. Статблоки приложения Б и размещения предметов приложения А указаны страницами; это ссылки на источник, а не автоматически принятые runtime-профили.",
+    "sourcePages": [
+      6,
+      26
+    ],
+    "isFullModuleImport": false,
+    "runtimePackageInstalled": false,
+    "nextTask": "БА23: точные стены/двери и подключение планов к line-of-sight и перемещению фигур",
+    "extendedCoverageBySource": {
+      "book": {
+        "selectedPdfPages": [
+          27,
+          62
+        ],
+        "coverage": "Выбранные места, сцены, статблоки и предметы частей 3–4; не полный импорт всех страниц."
+      },
+      "hb": {
+        "coverage": "Только авторская интерфейсная разметка без книжной пагинации."
+      }
+    }
+  },
+  "provenancePolicy": {
+    "adventure": "book:lmop-ru-phantom-2015; ссылки на PDF-страницу у каждой размеченной сущности/сцены/факта",
+    "setting": "существующие FR-данные имеют собственные источники, эпоху и координаты; не приписываются книге автоматически",
+    "rules": "движок SRD 5.1 отдельно; совпадение или расхождение конкретного правила проверяется при разметке",
+    "authoring": "связи интерфейса, оригинальный арт и предложения симуляции помечаются отдельно от текста приключения",
+    "demo": "The Missing Caravan остаётся самостоятельным демосидом, не импортом этой книги",
+    "names": "русские формы сохраняются как aliases; латинские имена/идентификаторы сверяются с каноническим каталогом, не восстанавливаются эвристикой"
+  },
+  "delivery": {
+    "mode": "user-provided-local-reference",
+    "pdfShipped": false,
+    "noticeObserved": "This document is for non commercial use only!",
+    "noticeEvidencePdfPage": 64,
+    "publicDemoPolicy": "П14: отдельный оригинальный/явно разрешённый материал и SRD с атрибуцией; исходный PDF не попадает в public/dist."
+  },
+  "audiencePolicy": {
+    "default": "dm",
+    "player": "только явно раскрытые факты и handout-проекции; скрытый текст отсутствует в DOM/данных игроков"
+  },
+  "validation": {
+    "visuallyCheckedPdfPages": [
+      1,
+      2,
+      3,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      36,
+      37,
+      42,
+      47,
+      48,
+      50,
+      51,
+      54,
+      55,
+      57,
+      60,
+      61,
+      64
+    ],
+    "extractor": "pypdf (первичная выборка) + PyMuPDF (страницы 27–62 и проверочные выдержки)",
+    "renderer": "PyMuPDF; визуально проверены планы PDF 9, 17, 36–37, 42 и книжные статблоки PDF 54–55, 57, 60–61; ранее проверены PDF 47–48, 50–51.",
+    "sourceModified": false,
+    "warnings": [
+      "pypdf сообщает о нечитаемом XRef-объекте 5313595; проверенные страницы читаются и отрисованы. Полная целостность всех объектов не подтверждена.",
+      "Проверка статблоков выполнена вручную для четырёх точных SRD-ссылок; похожие, но отличающиеся книжные блоки оставлены без binding. Визуальный просмотр всех страниц не заявляется."
+    ],
+    "textExtractedPdfPages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63,
+      64
+    ],
+    "sectionHeadingsVerifiedPdfPages": [
+      6,
+      14,
+      27,
+      28,
+      29,
+      34,
+      35,
+      41,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      52
+    ]
+  },
+  "remaining": [
+    "Семь из 11 профилей намеренно оставлены без SRD-binding: отсутствующий блок или несовпадающие черты/параметры исключают автоматическую подмену.",
+    "У четырёх планов есть редакторские области; замок и каменные комнаты шахты имеют частичный DM-only проход стен/дверей. Ещё нужны визуальная приёмка координат, трасса природного края убежища и позиции проломов; основные и альтернативные PDF не найдены в проверенных локальных путях, LOS/collision не подключены к этим планам.",
+    "Узел графа `mine` ссылается на PDF p.3, которая не включена в описанные диапазоны разделов. Исходный PDF отсутствует по локальному пути; роль p.3 не перепроверена, поэтому ссылка не признана ошибочной.",
+    "По решению владельца загрузка/подключение картинок отложена; перед возможным использованием отдельно проверить права и условия распространения."
+  ],
+  "availableProjectLayers": [
+    {
+      "id": "fr",
+      "manifest": "packages/fr/package.json",
+      "use": "География и канон мира с собственными источниками"
+    },
+    {
+      "id": "dnd5e-2014",
+      "manifest": "packages/dnd5e-2014/package.json",
+      "use": "Правила движка: соответствие каждой книжной механики проверяется отдельно"
+    },
+    {
+      "id": "owner-tables",
+      "manifest": "packages/owner-tables/package.json",
+      "use": "Таблицы владельца: дополнительные варианты не включаются без отдельного решения"
+    }
+  ],
+  "preparation": {
+    "graph": "research/content-phandelver/first-vertical.json",
+    "format": "dm-cockpit.adventure/1",
+    "nodeCount": 163,
+    "scope": "single-source-narrative-selection-parts-1-to-4-with-five-sourced-opening-scene-procedures-and-delivery-handoff-note-partial-editorial-plans-and-gm-revealed-player-handouts",
+    "runtimeActivation": false,
+    "catalogImportSupported": true
+  },
+  "browserAcceptance": {
+    "date": "2026-11-14",
+    "status": "accepted",
+    "acceptedVersion": "0.3.0",
+    "origin": "http://127.0.0.1:5181/#/workshop",
+    "dynamicHandoutOrigin": "http://127.0.0.1:5182/#/workshop",
+    "catalogNodeCount": 159,
+    "currentVersionPending": "0.4.0",
+    "checks": [
+      "пакет принят в изолированный каталог и открыт в предпросмотре",
+      "проверена начальная player projection без скрытых записей и ссылок",
+      "проверены четыре source-scale подписи планов",
+      "предложение исхода принято, отменено и повторено через журнал",
+      "два исхода проверены независимо",
+      "на изолированном origin :5182 раскрытие факта добавляет зацепку в player projection",
+      "Ctrl+Z скрывает зацепку, Ctrl+Shift+Z возвращает её"
+    ],
+    "pendingAfterChanges": [
+      "полная браузерная приёмка версии 0.4.0 (163 узла) не завершена; 22.11 в memory-only предпросмотре при 717×670 проверены только подсказка сцены arrival и переход к связанному NPC",
+    "новый целевой Vitest-прогон не дошёл до кейсов: процесс зависал после строки RUN и был остановлен",
+    "Vite не удалось поднять для браузерной проверки: sandbox вернул listen EPERM на изолированном порту 5190",
+    "три ошибки TypeScript в уже изменённых A5E-файлах проекта остаются вне БА23"
+    ],
+    "playerClientConnected": false,
+    "savedCampaignUsed": false,
+    "mainOriginTouched": false
+  },
+  "runtimeGeometryAcceptance": {
+    "status": "partial-manual-trace-and-source-linked-scene-run-sheet-added; visual-trace-and-v0.4-browser-acceptance-pending",
+    "implementation": [
+      "src/packages/phandelverRuntimePlans.ts",
+      "src/components/AdventurePlanView.tsx",
+      "src/packages/adventureRunSheet.ts",
+      "src/packages/adventureRunSheet.test.ts",
+      "src/components/AdventurePreview.tsx",
+      "src/components/AdventurePreview.test.tsx"
+    ],
+    "scope": "интерактивные редакторские области и частичный DM-only проход стен/дверей; лист сцены связывает источниковые узлы; без LOS/collision интеграции и движения фигур в кокпите",
+    "rasterImported": false,
+    "sourceReference": "https://5e.tools/adventure.html#lmop,-1",
+    "sourceMapsListed": [
+      "Cragmaw Hideout",
+      "Phandalin",
+      "Redbrand Hideout",
+      "Ruins of Thundertree",
+      "Cragmaw Castle",
+      "Wave Echo Cave"
+    ],
+    "runtimePlanCoverage": ["hideout-plan", "town-plan", "cragmaw-castle-plan", "wave-echo-cave-plan"],
+    "sourceMapPolicyObserved": "Карты ведущего содержат скрытые сведения; на странице также есть отдельная Player Version. Локальная геометрия остаётся DM-only.",
+    "localInteractionAcceptance": "Earlier 15.11 component tests covered region keyboard selection, linked-node navigation, bounds/scale/link validation for all four plans; 16.11 added tests for scene graph traversal, but Vitest remained at RUN with no cases and was stopped; new browser viewport/focus/responsive acceptance not run",
+    "tacticalGeometryStatus": "partial-manual-trace: Cragmaw Castle has 18 wall polylines and 15 door segments including secret door C; Wave Echo Cave has 9 stone-room outlines and 10 door segments; hideout natural boundary omitted and no door symbols found; region centers realigned to printed labels; visual trace acceptance, successful post-change tests, MapTool geometry export, LOS and token-movement integration pending",
+    "workingGridExtents": {
+      "hideout-plan": { "columns": 28, "rows": 20, "feetPerCell": 5, "status": "working-estimate; natural boundary not traced" },
+      "cragmaw-castle-plan": { "columns": 28, "rows": 20, "feetPerCell": 5, "status": "working-estimate; manual visual acceptance pending" },
+      "wave-echo-cave-plan": { "columns": 28, "rows": 38, "feetPerCell": 10, "status": "working-estimate; manual visual acceptance pending" }
+    },
+    "manualVisualReferences": {
+      "alternateSource": "26_D&D 5th - Espansione - La Miniera Perduta di Phandelver.pdf",
+      "alternatePdfPages": [9, 17, 37, 43],
+      "primaryRussianPdfPages": [9, 17, 37, 42]
+    }
+  },
+  "supplementalSources": [
+    {
+      "id": "5etools-lmop-dynamic-map-viewer",
+      "title": "Lost Mine of Phandelver — Dynamic Map Viewer",
+      "url": "https://5e.tools/adventure.html#lmop,-1",
+      "kind": "read-only-visual-reference",
+      "observedOn": "2026-11-14",
+      "artCredit": "Mike Schley",
+      "use": "Сверка поведения нумерованных областей, подписей масштаба и разделения DM map / Player Version; не используется для книжных evidence или копирования арта.",
+      "sourceArtworkImported": false
+    }
+  ],
+  "geometryDesignReferences": [
+    {
+      "fileName": "Dungeonscape.pdf",
+      "edition": "D&D 3.5",
+      "use": "По оглавлению составлен список слоёв для последующей трассировки: стены, пол, особая местность, двери, мосты и природные препятствия; механика не переносилась."
+    },
+    {
+      "fileName": "Cityscape.pdf",
+      "edition": "D&D 3.5",
+      "use": "По оглавлению составлен список слоёв городского плана: улицы, поверхности, канализация, укрепления и опасности; механика не переносилась."
+    },
+    {
+      "fileName": "11850 - Manual of the Planes.pdf",
+      "use": "Просмотрен как космологический источник, не определяет геометрию плана помещения."
+    }
+  ],
+  "primarySourceId": "book",
+  "examinedAlternateSources": [
+    {
+      "fileName": "26_D&D 5th - Espansione - La Miniera Perduta di Phandelver.pdf",
+      "sha256": "bce3d5b4bcb48afa91d8d52e1d0454337f81af1e68f6ca59d10c759d10cf2bb3",
+      "pdfPages": 51,
+      "visuallyCheckedPdfPages": [
+        1,
+        9,
+        17,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "sourceModified": false,
+      "textLayer": "absent",
+      "coverage": "Визуальная опора для геометрии планов 9, 17, 37 и 43; в пакете не используется как источник цитат или текстовых данных.",
+      "usedInCurrentGraph": false,
+      "usedForManualGeometryReference": true,
+      "reviewNote": "Использован только для ручных областей/ориентиров. Русские страницы остаются основным evidence; исходный растр не копируется."
+    }
+  ],
+  "scopeEvidenceNote": "PDF 2 задаёт стартовый состав 4–5 персонажей 1-го уровня и развитие до 5-го; календарный год и ростер действующей кампании не выводятся из книги.",
+  "runtimeAudit": {
+    "packageId": "dnd5e-2014",
+    "packageVersion": "2026.10.31",
+    "checkedAgainst": "content/srd/monsters.json",
+    "exactBindings": [
+      "goblin",
+      "wolf",
+      "bugbear",
+      "orc"
+    ],
+    "unboundProfiles": {
+      "skeleton": "Книжный блок PDF 61 не указывает иммунитет к истощению, присутствующий в SRD.",
+      "doppelganger-profile": "Книжный блок PDF 55 не содержит черты Ambusher и Surprise Attack из SRD.",
+      "redbrand": "Авторский блок приключения; не подменять существом thug.",
+      "nothic": "Профиля нет в установленном SRD-каталоге.",
+      "young-green-dragon": "Параметры скорости книжного профиля отличаются от установленного SRD-блока.",
+      "spectator": "Профиля нет в установленном SRD-каталоге.",
+      "wraith": "Мормеск — вариант с 45 HP и иным блоком; не подменять стандартным wraith."
+    },
+    "reviewedBy": "Ручное визуальное сравнение книжных блоков и локального SRD; ссылка не создаёт runtime-актёра."
+  }
+}

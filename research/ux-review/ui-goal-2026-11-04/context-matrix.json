@@ -1,0 +1,514 @@
+[
+  {
+    "context": "Сессия",
+    "clock": {
+      "bottom": 568,
+      "height": 68,
+      "left": 1204,
+      "right": 1272,
+      "top": 500,
+      "width": 68,
+      "x": 1204,
+      "y": 500
+    },
+    "document": [
+      1280,
+      720
+    ],
+    "ribbon": {
+      "bottom": 720,
+      "height": 144,
+      "left": 0,
+      "right": 1280,
+      "top": 576,
+      "width": 1280,
+      "x": 0,
+      "y": 576
+    },
+    "viewport": [
+      1280,
+      720
+    ],
+    "workspace": null
+  },
+  {
+    "context": "Живой мир",
+    "clock": {
+      "bottom": 568,
+      "height": 68,
+      "left": 1204,
+      "right": 1272,
+      "top": 500,
+      "width": 68,
+      "x": 1204,
+      "y": 500
+    },
+    "document": [
+      1280,
+      720
+    ],
+    "ribbon": {
+      "bottom": 720,
+      "height": 144,
+      "left": 0,
+      "right": 1280,
+      "top": 576,
+      "width": 1280,
+      "x": 0,
+      "y": 576
+    },
+    "viewport": [
+      1280,
+      720
+    ],
+    "workspace": null
+  },
+  {
+    "context": "Мастерская",
+    "clock": {
+      "bottom": 568,
+      "height": 68,
+      "left": 1204,
+      "right": 1272,
+      "top": 500,
+      "width": 68,
+      "x": 1204,
+      "y": 500
+    },
+    "document": [
+      1280,
+      720
+    ],
+    "ribbon": {
+      "bottom": 720,
+      "height": 144,
+      "left": 0,
+      "right": 1280,
+      "top": 576,
+      "width": 1280,
+      "x": 0,
+      "y": 576
+    },
+    "viewport": [
+      1280,
+      720
+    ],
+    "workspace": "workshop"
+  },
+  {
+    "context": "Библиотека",
+    "clock": {
+      "bottom": 568,
+      "height": 68,
+      "left": 1204,
+      "right": 1272,
+      "top": 500,
+      "width": 68,
+      "x": 1204,
+      "y": 500
+    },
+    "document": [
+      1280,
+      720
+    ],
+    "ribbon": {
+      "bottom": 720,
+      "height": 144,
+      "left": 0,
+      "right": 1280,
+      "top": 576,
+      "width": 1280,
+      "x": 0,
+      "y": 576
+    },
+    "viewport": [
+      1280,
+      720
+    ],
+    "workspace": "library"
+  },
+  {
+    "context": "Сессия",
+    "clock": {
+      "bottom": 616,
+      "height": 68,
+      "left": 1290,
+      "right": 1358,
+      "top": 548,
+      "width": 68,
+      "x": 1290,
+      "y": 548
+    },
+    "document": [
+      1366,
+      768
+    ],
+    "ribbon": {
+      "bottom": 768,
+      "height": 144,
+      "left": 0,
+      "right": 1366,
+      "top": 624,
+      "width": 1366,
+      "x": 0,
+      "y": 624
+    },
+    "viewport": [
+      1366,
+      768
+    ],
+    "workspace": null
+  },
+  {
+    "context": "Живой мир",
+    "clock": {
+      "bottom": 616,
+      "height": 68,
+      "left": 1290,
+      "right": 1358,
+      "top": 548,
+      "width": 68,
+      "x": 1290,
+      "y": 548
+    },
+    "document": [
+      1366,
+      768
+    ],
+    "ribbon": {
+      "bottom": 768,
+      "height": 144,
+      "left": 0,
+      "right": 1366,
+      "top": 624,
+      "width": 1366,
+      "x": 0,
+      "y": 624
+    },
+    "viewport": [
+      1366,
+      768
+    ],
+    "workspace": null
+  },
+  {
+    "context": "Мастерская",
+    "clock": {
+      "bottom": 616,
+      "height": 68,
+      "left": 1290,
+      "right": 1358,
+      "top": 548,
+      "width": 68,
+      "x": 1290,
+      "y": 548
+    },
+    "document": [
+      1366,
+      768
+    ],
+    "ribbon": {
+      "bottom": 768,
+      "height": 144,
+      "left": 0,
+      "right": 1366,
+      "top": 624,
+      "width": 1366,
+      "x": 0,
+      "y": 624
+    },
+    "viewport": [
+      1366,
+      768
+    ],
+    "workspace": "workshop"
+  },
+  {
+    "context": "Библиотека",
+    "clock": {
+      "bottom": 616,
+      "height": 68,
+      "left": 1290,
+      "right": 1358,
+      "top": 548,
+      "width": 68,
+      "x": 1290,
+      "y": 548
+    },
+    "document": [
+      1366,
+      768
+    ],
+    "ribbon": {
+      "bottom": 768,
+      "height": 144,
+      "left": 0,
+      "right": 1366,
+      "top": 624,
+      "width": 1366,
+      "x": 0,
+      "y": 624
+    },
+    "viewport": [
+      1366,
+      768
+    ],
+    "workspace": "library"
+  },
+  {
+    "context": "Сессия",
+    "clock": {
+      "bottom": 830,
+      "height": 68,
+      "left": 1436,
+      "right": 1504,
+      "top": 762,
+      "width": 68,
+      "x": 1436,
+      "y": 762
+    },
+    "document": [
+      1512,
+      982
+    ],
+    "ribbon": {
+      "bottom": 982,
+      "height": 144,
+      "left": 0,
+      "right": 1512,
+      "top": 838,
+      "width": 1512,
+      "x": 0,
+      "y": 838
+    },
+    "viewport": [
+      1512,
+      982
+    ],
+    "workspace": null
+  },
+  {
+    "context": "Живой мир",
+    "clock": {
+      "bottom": 830,
+      "height": 68,
+      "left": 1436,
+      "right": 1504,
+      "top": 762,
+      "width": 68,
+      "x": 1436,
+      "y": 762
+    },
+    "document": [
+      1512,
+      982
+    ],
+    "ribbon": {
+      "bottom": 982,
+      "height": 144,
+      "left": 0,
+      "right": 1512,
+      "top": 838,
+      "width": 1512,
+      "x": 0,
+      "y": 838
+    },
+    "viewport": [
+      1512,
+      982
+    ],
+    "workspace": null
+  },
+  {
+    "context": "Мастерская",
+    "clock": {
+      "bottom": 830,
+      "height": 68,
+      "left": 1436,
+      "right": 1504,
+      "top": 762,
+      "width": 68,
+      "x": 1436,
+      "y": 762
+    },
+    "document": [
+      1512,
+      982
+    ],
+    "ribbon": {
+      "bottom": 982,
+      "height": 144,
+      "left": 0,
+      "right": 1512,
+      "top": 838,
+      "width": 1512,
+      "x": 0,
+      "y": 838
+    },
+    "viewport": [
+      1512,
+      982
+    ],
+    "workspace": "workshop"
+  },
+  {
+    "context": "Библиотека",
+    "clock": {
+      "bottom": 830,
+      "height": 68,
+      "left": 1436,
+      "right": 1504,
+      "top": 762,
+      "width": 68,
+      "x": 1436,
+      "y": 762
+    },
+    "document": [
+      1512,
+      982
+    ],
+    "ribbon": {
+      "bottom": 982,
+      "height": 144,
+      "left": 0,
+      "right": 1512,
+      "top": 838,
+      "width": 1512,
+      "x": 0,
+      "y": 838
+    },
+    "viewport": [
+      1512,
+      982
+    ],
+    "workspace": "library"
+  },
+  {
+    "context": "Сессия",
+    "clock": {
+      "bottom": 928,
+      "height": 68,
+      "left": 1844,
+      "right": 1912,
+      "top": 860,
+      "width": 68,
+      "x": 1844,
+      "y": 860
+    },
+    "document": [
+      1920,
+      1080
+    ],
+    "ribbon": {
+      "bottom": 1080,
+      "height": 144,
+      "left": 0,
+      "right": 1920,
+      "top": 936,
+      "width": 1920,
+      "x": 0,
+      "y": 936
+    },
+    "viewport": [
+      1920,
+      1080
+    ],
+    "workspace": null
+  },
+  {
+    "context": "Живой мир",
+    "clock": {
+      "bottom": 928,
+      "height": 68,
+      "left": 1844,
+      "right": 1912,
+      "top": 860,
+      "width": 68,
+      "x": 1844,
+      "y": 860
+    },
+    "document": [
+      1920,
+      1080
+    ],
+    "ribbon": {
+      "bottom": 1080,
+      "height": 144,
+      "left": 0,
+      "right": 1920,
+      "top": 936,
+      "width": 1920,
+      "x": 0,
+      "y": 936
+    },
+    "viewport": [
+      1920,
+      1080
+    ],
+    "workspace": null
+  },
+  {
+    "context": "Мастерская",
+    "clock": {
+      "bottom": 928,
+      "height": 68,
+      "left": 1844,
+      "right": 1912,
+      "top": 860,
+      "width": 68,
+      "x": 1844,
+      "y": 860
+    },
+    "document": [
+      1920,
+      1080
+    ],
+    "ribbon": {
+      "bottom": 1080,
+      "height": 144,
+      "left": 0,
+      "right": 1920,
+      "top": 936,
+      "width": 1920,
+      "x": 0,
+      "y": 936
+    },
+    "viewport": [
+      1920,
+      1080
+    ],
+    "workspace": "workshop"
+  },
+  {
+    "context": "Библиотека",
+    "clock": {
+      "bottom": 928,
+      "height": 68,
+      "left": 1844,
+      "right": 1912,
+      "top": 860,
+      "width": 68,
+      "x": 1844,
+      "y": 860
+    },
+    "document": [
+      1920,
+      1080
+    ],
+    "ribbon": {
+      "bottom": 1080,
+      "height": 144,
+      "left": 0,
+      "right": 1920,
+      "top": 936,
+      "width": 1920,
+      "x": 0,
+      "y": 936
+    },
+    "viewport": [
+      1920,
+      1080
+    ],
+    "workspace": "library"
+  }
+]

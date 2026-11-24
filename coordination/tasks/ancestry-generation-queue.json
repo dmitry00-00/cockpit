@@ -1,0 +1,543 @@
+{
+  "schemaVersion": "ancestry-generation-queue/1",
+  "scope": "Generation queue only; visual briefs are authored concepts, not canon. No generation or manifest change. Local source snippets are short and do not reproduce source books.",
+  "source": "content/compendium/races.json",
+  "requiredBaseRecords": 38,
+  "existingBaseOriginals": [
+    {
+      "id": "celovek",
+      "label": "Человек",
+      "baseFamily": "ancestry-human",
+      "path": "design/art/world-and-travel-v1/ancestry-human.png"
+    },
+    {
+      "id": "el-f",
+      "label": "Эльф",
+      "baseFamily": "ancestry-elf",
+      "path": "design/art/world-and-travel-v1/ancestry-elf.png"
+    },
+    {
+      "id": "dvarf",
+      "label": "Дварф",
+      "baseFamily": "ancestry-dwarf",
+      "path": "design/art/world-and-travel-v1/ancestry-dwarf.png"
+    },
+    {
+      "id": "poluroslik",
+      "label": "Полурослик",
+      "baseFamily": "ancestry-halfling",
+      "path": "design/art/world-and-travel-v1/ancestry-halfling.png"
+    }
+  ],
+  "missingBaseOriginalCount": 34,
+  "items": [
+    {
+      "id": "gnom",
+      "label": "Гном",
+      "source": "srd",
+      "sourceRef": "content/compendium/races.json#/races/3",
+      "sourceShort": "В записи есть имя и игровые черты; отдельного описания внешности нет.",
+      "baseFamily": "ancestry-gnom",
+      "visualBrief": "Сдержанный авторский поясной портрет, компактный силуэт; простая одежда и крупные формы. Не утверждать рост, возраст, анатомию или особенности подрасы.",
+      "visualBriefStatus": "Авторская визуальная интерпретация для иллюстрации; не утверждение о канонической внешности, подрасе или механике.",
+      "subraceIds": [
+        "gnom-kamennyy-skal-nyy",
+        "gnom-lesnoy",
+        "gnom-metka-pis-ma",
+        "gnom-svirfneblin-glubinnye"
+      ],
+      "sameAncestrySubracesMayReuseBase": [
+        "gnom-kamennyy-skal-nyy",
+        "gnom-lesnoy",
+        "gnom-metka-pis-ma",
+        "gnom-svirfneblin-glubinnye"
+      ]
+    },
+    {
+      "id": "ork",
+      "label": "Орк",
+      "source": "book",
+      "sourceRef": "content/compendium/races.json#/races/5",
+      "sourceShort": "В записи есть имя и игровые черты; отдельного описания внешности нет.",
+      "baseFamily": "ancestry-ork",
+      "visualBrief": "Авторский портрет взрослого орка: широкий контур лица и нижние клыки как выбранная художественная трактовка; нейтральная простая одежда, без боевой сцены.",
+      "visualBriefStatus": "Авторская визуальная интерпретация для иллюстрации; не утверждение о канонической внешности, подрасе или механике.",
+      "subraceIds": [],
+      "sameAncestrySubracesMayReuseBase": []
+    },
+    {
+      "id": "poluork",
+      "label": "Полуорк",
+      "source": "srd",
+      "sourceRef": "content/compendium/races.json#/races/6",
+      "sourceShort": "В записи есть имя и игровые черты; отдельного описания внешности нет.",
+      "baseFamily": "ancestry-poluork",
+      "visualBrief": "Авторский портрет полуорка с индивидуальными чертами, отличающими его от двух отдельных семейств человек/орк; не наследовать изображение человека или орка.",
+      "visualBriefStatus": "Авторская визуальная интерпретация для иллюстрации; не утверждение о канонической внешности, подрасе или механике.",
+      "subraceIds": [
+        "poluork-metki-poiska"
+      ],
+      "sameAncestrySubracesMayReuseBase": [
+        "poluork-metki-poiska"
+      ]
+    },
+    {
+      "id": "poluel-f",
+      "label": "Полуэльф",
+      "source": "srd",
+      "sourceRef": "content/compendium/races.json#/races/7",
+      "sourceShort": "В записи есть имя и игровые черты; отдельного описания внешности нет.",
+      "baseFamily": "ancestry-poluel-f",
+      "visualBrief": "Авторский портрет полуэльфа с гибридной визуальной трактовкой; отдельное семейство, не повторять базовый образ человека или эльфа.",
+      "visualBriefStatus": "Авторская визуальная интерпретация для иллюстрации; не утверждение о канонической внешности, подрасе или механике.",
+      "subraceIds": [
+        "poluel-f-poluel-f",
+        "poluel-f-metki-obnarujenia",
+        "poluel-f-metki-buri",
+        "poluel-f-faeruna"
+      ],
+      "sameAncestrySubracesMayReuseBase": [
+        "poluel-f-poluel-f",
+        "poluel-f-metki-obnarujenia",
+        "poluel-f-metki-buri",
+        "poluel-f-faeruna"
+      ]
+    },
+    {
+      "id": "tifling",
+      "label": "Тифлинг",
+      "source": "srd",
+      "sourceRef": "content/compendium/races.json#/races/8",
+      "sourceShort": "В записи есть имя и игровые черты; отдельного описания внешности нет.",
+      "baseFamily": "ancestry-tifling",
+      "visualBrief": "Авторский портрет тифлинга с выбранными рогами и необычным контуром лица; это лишь вариант изображения, не утверждение общей внешности или конкретной линии.",
+      "visualBriefStatus": "Авторская визуальная интерпретация для иллюстрации; не утверждение о канонической внешности, подрасе или механике.",
+      "subraceIds": [
+        "tifling-mefistofela",
+        "tifling-f-erna",
+        "tifling-vel-zevul",
+        "tifling-levistus",
+        "tifling-glasia",
+        "tifling-asmodea",
+        "tifling-mammona",
+        "tifling-dispatera",
+        "tifling-zariel",
+        "tifling-faeruna"
+      ],
+      "sameAncestrySubracesMayReuseBase": [
+        "tifling-mefistofela",
+        "tifling-f-erna",
+        "tifling-vel-zevul",
+        "tifling-levistus",
+        "tifling-glasia",
+        "tifling-asmodea",
+        "tifling-mammona",
+        "tifling-dispatera",
+        "tifling-zariel",
+        "tifling-faeruna"
+      ]
+    },
+    {
+      "id": "drakonorojdennyy",
+      "label": "Драконорождённый",
+      "source": "srd",
+      "sourceRef": "content/compendium/races.json#/races/9",
+      "sourceShort": "Черты упоминают выбор драконьего наследия; фиксированный внешний облик в записи не описан.",
+      "baseFamily": "ancestry-drakonorojdennyy",
+      "visualBrief": "Авторская стилизованная голова с драконоподобным контуром и чешуйчатой фактурой; не указывать цвет, вид наследия, дыхание или подрасу.",
+      "visualBriefStatus": "Авторская визуальная интерпретация для иллюстрации; не утверждение о канонической внешности, подрасе или механике.",
+      "subraceIds": [
+        "drakonorojdennyy-drakonokrovnyy",
+        "drakonorojdennyy-ravenit"
+      ],
+      "sameAncestrySubracesMayReuseBase": [
+        "drakonorojdennyy-drakonokrovnyy",
+        "drakonorojdennyy-ravenit"
+      ]
+    },
+    {
+      "id": "goblinoidy",
+      "label": "Гоблиноиды",
+      "source": "book",
+      "sourceRef": "content/compendium/races.json#/races/10",
+      "sourceShort": "Запись — родитель «Гоблиноиды» с тремя отдельными подзаписями: гоблин, хобгоблин и багбир; единого описания внешности нет.",
+      "baseFamily": "ancestry-goblinoidy",
+      "visualBrief": "Составная эмблема-объединение из трёх отчётливо разных авторских силуэтов: гоблин, хобгоблин и багбир; не выдавать один силуэт за всех. Запретить наследование этого изображения каждому дочернему виду.",
+      "visualBriefStatus": "Авторская визуальная интерпретация для иллюстрации; не утверждение о канонической внешности, подрасе или механике.",
+      "subraceIds": [
+        "goblinoidy-gobliny",
+        "goblinoidy-hobgobliny",
+        "goblinoidy-bagbir"
+      ],
+      "compositeRequired": true,
+      "inheritanceProhibitedForSubraceIds": [
+        "goblinoidy-gobliny",
+        "goblinoidy-hobgobliny",
+        "goblinoidy-bagbir"
+      ]
+    },
+    {
+      "id": "gity",
+      "label": "Гиты",
+      "source": "book",
+      "sourceRef": "content/compendium/races.json#/races/11",
+      "sourceShort": "В записи есть имя и игровые черты; отдельного описания внешности нет.",
+      "baseFamily": "ancestry-gity",
+      "visualBrief": "Авторский нейтральный портрет с угловатой графикой лица и простой одеждой; не утверждать этнические или планарные детали.",
+      "visualBriefStatus": "Авторская визуальная интерпретация для иллюстрации; не утверждение о канонической внешности, подрасе или механике.",
+      "subraceIds": [
+        "gity-gitcerai",
+        "gity-git-anki"
+      ],
+      "sameAncestrySubracesMayReuseBase": [
+        "gity-gitcerai",
+        "gity-git-anki"
+      ]
+    },
+    {
+      "id": "djenazi",
+      "label": "Дженази",
+      "source": "book",
+      "sourceRef": "content/compendium/races.json#/races/12",
+      "sourceShort": "В записи есть имя и игровые черты; отдельного описания внешности нет.",
+      "baseFamily": "ancestry-djenazi",
+      "visualBrief": "Авторская общая композиция с четырьмя небольшими элементальными материалами вокруг одной центральной фигуры; ни один элемент не выдаётся за весь родительский набор.",
+      "visualBriefStatus": "Авторская визуальная интерпретация для иллюстрации; не утверждение о канонической внешности, подрасе или механике.",
+      "subraceIds": [
+        "djenazi-vody",
+        "djenazi-ogna",
+        "djenazi-zemli",
+        "djenazi-vozduha"
+      ],
+      "sameAncestrySubracesMayReuseBase": [
+        "djenazi-vody",
+        "djenazi-ogna",
+        "djenazi-zemli",
+        "djenazi-vozduha"
+      ]
+    },
+    {
+      "id": "sifter",
+      "label": "Шифтер",
+      "source": "book",
+      "sourceRef": "content/compendium/races.json#/races/13",
+      "sourceShort": "Черты говорят о временном изменении и бонусах подрасы; общее описание внешности не дано.",
+      "baseFamily": "ancestry-sifter",
+      "visualBrief": "Авторский нейтральный портрет с едва заметной переменной формой; не выбирать одну подрасу как общий облик.",
+      "visualBriefStatus": "Авторская визуальная интерпретация для иллюстрации; не утверждение о канонической внешности, подрасе или механике.",
+      "subraceIds": [
+        "sifter-dikiy-ohotnik",
+        "sifter-dlinnozuby",
+        "sifter-bystronogi",
+        "sifter-zveroskury"
+      ],
+      "sameAncestrySubracesMayReuseBase": [
+        "sifter-dikiy-ohotnik",
+        "sifter-dlinnozuby",
+        "sifter-bystronogi",
+        "sifter-zveroskury"
+      ]
+    },
+    {
+      "id": "aasimar",
+      "label": "Аасимар",
+      "source": "book",
+      "sourceRef": "content/compendium/races.json#/races/14",
+      "sourceShort": "В записи есть имя и игровые черты; отдельного описания внешности нет.",
+      "baseFamily": "ancestry-aasimar",
+      "visualBrief": "Авторский нейтральный портрет с мягким световым контуром; не добавлять крылья, божественный знак или особенности подрасы.",
+      "visualBriefStatus": "Авторская визуальная интерпретация для иллюстрации; не утверждение о канонической внешности, подрасе или механике.",
+      "subraceIds": [
+        "aasimar-zasitnik",
+        "aasimar-karatel",
+        "aasimar-pavsiy-aasimar"
+      ],
+      "sameAncestrySubracesMayReuseBase": [
+        "aasimar-zasitnik",
+        "aasimar-karatel",
+        "aasimar-pavsiy-aasimar"
+      ]
+    },
+    {
+      "id": "uan-ti",
+      "label": "Юань-ти",
+      "source": "book",
+      "sourceRef": "content/compendium/races.json#/races/15",
+      "sourceShort": "В записи есть имя и игровые черты; отдельного описания внешности нет.",
+      "baseFamily": "ancestry-uan-ti",
+      "visualBrief": "Авторский портрет с тонким абстрактным змеиным узором; не изображать полный змеиный облик или конкретную линию.",
+      "visualBriefStatus": "Авторская визуальная интерпретация для иллюстрации; не утверждение о канонической внешности, подрасе или механике.",
+      "subraceIds": [
+        "uan-ti-cistokrovnye"
+      ],
+      "sameAncestrySubracesMayReuseBase": [
+        "uan-ti-cistokrovnye"
+      ]
+    },
+    {
+      "id": "vedalkin",
+      "label": "Ведалкин",
+      "source": "book",
+      "sourceRef": "content/compendium/races.json#/races/16",
+      "sourceShort": "Черта упоминает поглощение кислорода через кожу; общего описания внешности нет.",
+      "baseFamily": "ancestry-vedalkin",
+      "visualBrief": "Авторский портрет с гладкой, спокойной геометрией и простой одеждой; не добавлять лабораторные предметы или магические знаки.",
+      "visualBriefStatus": "Авторская визуальная интерпретация для иллюстрации; не утверждение о канонической внешности, подрасе или механике.",
+      "subraceIds": [],
+      "sameAncestrySubracesMayReuseBase": []
+    },
+    {
+      "id": "verdan",
+      "label": "Вердан",
+      "source": "book",
+      "sourceRef": "content/compendium/races.json#/races/17",
+      "sourceShort": "Текст черты называет чёрную кровь; общего описания внешности нет.",
+      "baseFamily": "ancestry-verdan",
+      "visualBrief": "Авторский портрет с выбранным зеленоватым тоном кожи и спокойным выражением; это дизайн-вариант, не каноническая палитра или возраст.",
+      "visualBriefStatus": "Авторская визуальная интерпретация для иллюстрации; не утверждение о канонической внешности, подрасе или механике.",
+      "subraceIds": [],
+      "sameAncestrySubracesMayReuseBase": []
+    },
+    {
+      "id": "gibridy-simikov",
+      "label": "Гибриды симиков",
+      "source": "book",
+      "sourceRef": "content/compendium/races.json#/races/18",
+      "sourceShort": "Черты описывают изменение тела с выбранным животным усилением; один конкретный вариант не задан.",
+      "baseFamily": "ancestry-gibridy-simikov",
+      "visualBrief": "Авторский портрет с одной условной органической деталью; не изображать одновременно несколько вариантов животного усиления.",
+      "visualBriefStatus": "Авторская визуальная интерпретация для иллюстрации; не утверждение о канонической внешности, подрасе или механике.",
+      "subraceIds": [],
+      "sameAncestrySubracesMayReuseBase": []
+    },
+    {
+      "id": "grung",
+      "label": "Грунг",
+      "source": "book",
+      "sourceRef": "content/compendium/races.json#/races/19",
+      "sourceShort": "В записи есть имя и игровые черты; отдельного описания внешности нет.",
+      "baseFamily": "ancestry-grung",
+      "visualBrief": "Авторский портрет небольшой амфибийной фигуры с крупными формами; не добавлять яд, ярко-кодированную опасность или подрасу.",
+      "visualBriefStatus": "Авторская визуальная интерпретация для иллюстрации; не утверждение о канонической внешности, подрасе или механике.",
+      "subraceIds": [],
+      "sameAncestrySubracesMayReuseBase": []
+    },
+    {
+      "id": "tortl",
+      "label": "Тортл",
+      "source": "book",
+      "sourceRef": "content/compendium/races.json#/races/20",
+      "sourceShort": "Черта говорит, что персонаж может укрыться в панцире; другого описания внешности нет.",
+      "baseFamily": "ancestry-tortl",
+      "visualBrief": "Авторский портрет с округлым контуром панциря в кадре; без щита, пляжа или иных неподтверждённых атрибутов.",
+      "visualBriefStatus": "Авторская визуальная интерпретация для иллюстрации; не утверждение о канонической внешности, подрасе или механике.",
+      "subraceIds": [],
+      "sameAncestrySubracesMayReuseBase": []
+    },
+    {
+      "id": "triton",
+      "label": "Тритон",
+      "source": "book",
+      "sourceRef": "content/compendium/races.json#/races/21",
+      "sourceShort": "В записи есть имя и игровые черты; отдельного описания внешности нет.",
+      "baseFamily": "ancestry-triton",
+      "visualBrief": "Авторский водный мотив в силуэте лица и простом вороте; без указания конкретного подводного народа или божества.",
+      "visualBriefStatus": "Авторская визуальная интерпретация для иллюстрации; не утверждение о канонической внешности, подрасе или механике.",
+      "subraceIds": [],
+      "sameAncestrySubracesMayReuseBase": []
+    },
+    {
+      "id": "firbolg",
+      "label": "Фирболг",
+      "source": "book",
+      "sourceRef": "content/compendium/races.json#/races/22",
+      "sourceShort": "В записи есть имя и игровые черты; отдельного описания внешности нет.",
+      "baseFamily": "ancestry-firbolg",
+      "visualBrief": "Авторский спокойный портрет с широкими формами и природной фактурой; не добавлять рога или нечеловеческое тело.",
+      "visualBriefStatus": "Авторская визуальная интерпретация для иллюстрации; не утверждение о канонической внешности, подрасе или механике.",
+      "subraceIds": [],
+      "sameAncestrySubracesMayReuseBase": []
+    },
+    {
+      "id": "aarakokra",
+      "label": "Ааракокра",
+      "source": "book",
+      "sourceRef": "content/compendium/races.json#/races/23",
+      "sourceShort": "В записи есть имя и игровые черты; отдельного описания внешности нет.",
+      "baseFamily": "ancestry-aarakokra",
+      "visualBrief": "Авторская птицеподобная голова с перьевым контуром; не выбирать конкретный вид птицы или подрасу.",
+      "visualBriefStatus": "Авторская визуальная интерпретация для иллюстрации; не утверждение о канонической внешности, подрасе или механике.",
+      "subraceIds": [],
+      "sameAncestrySubracesMayReuseBase": []
+    },
+    {
+      "id": "satir",
+      "label": "Сатир",
+      "source": "book",
+      "sourceRef": "content/compendium/races.json#/races/24",
+      "sourceShort": "Запись указывает тип существа «фея»; внешность отдельно не описана.",
+      "baseFamily": "ancestry-satir",
+      "visualBrief": "Авторский портрет с выбранными козьими мотивами в ушах/рогах; не добавлять мифологические атрибуты, музыку или напитки.",
+      "visualBriefStatus": "Авторская визуальная интерпретация для иллюстрации; не утверждение о канонической внешности, подрасе или механике.",
+      "subraceIds": [],
+      "sameAncestrySubracesMayReuseBase": []
+    },
+    {
+      "id": "tabaksi",
+      "label": "Табакси",
+      "source": "book",
+      "sourceRef": "content/compendium/races.json#/races/25",
+      "sourceShort": "В записи есть имя и игровые черты; отдельного описания внешности нет.",
+      "baseFamily": "ancestry-tabaksi",
+      "visualBrief": "Авторский портрет с кошачьей мордой и усами; не утверждать окраску, вид кошки или подрасу.",
+      "visualBriefStatus": "Авторская визуальная интерпретация для иллюстрации; не утверждение о канонической внешности, подрасе или механике.",
+      "subraceIds": [],
+      "sameAncestrySubracesMayReuseBase": []
+    },
+    {
+      "id": "goliaf",
+      "label": "Голиаф",
+      "source": "book",
+      "sourceRef": "content/compendium/races.json#/races/26",
+      "sourceShort": "В записи есть имя и игровые черты; отдельного описания внешности нет.",
+      "baseFamily": "ancestry-goliaf",
+      "visualBrief": "Авторский портрет с суровой каменной фактурой и крупным силуэтом; не добавлять татуировки, оружие или конкретную культуру.",
+      "visualBriefStatus": "Авторская визуальная интерпретация для иллюстрации; не утверждение о канонической внешности, подрасе или механике.",
+      "subraceIds": [],
+      "sameAncestrySubracesMayReuseBase": []
+    },
+    {
+      "id": "izmenausiysa",
+      "label": "Изменяющийся",
+      "source": "book",
+      "sourceRef": "content/compendium/races.json#/races/27",
+      "sourceShort": "Черты позволяют менять внешность и выбирать её параметры; фиксированный облик не задан.",
+      "baseFamily": "ancestry-izmenausiysa",
+      "visualBrief": "Авторский андрогинный нейтральный портрет с мягким переходом света; без второго лица, маски или предположения об истинной форме.",
+      "visualBriefStatus": "Авторская визуальная интерпретация для иллюстрации; не утверждение о канонической внешности, подрасе или механике.",
+      "subraceIds": [],
+      "sameAncestrySubracesMayReuseBase": []
+    },
+    {
+      "id": "kalastar",
+      "label": "Калаштар",
+      "source": "book",
+      "sourceRef": "content/compendium/races.json#/races/28",
+      "sourceShort": "В записи есть имя и игровые черты; отдельного описания внешности нет.",
+      "baseFamily": "ancestry-kalastar",
+      "visualBrief": "Авторский портрет с тонким парным абстрактным эхом за головой; не изображать духа или конкретное происхождение.",
+      "visualBriefStatus": "Авторская визуальная интерпретация для иллюстрации; не утверждение о канонической внешности, подрасе или механике.",
+      "subraceIds": [],
+      "sameAncestrySubracesMayReuseBase": []
+    },
+    {
+      "id": "kenku",
+      "label": "Кенку",
+      "source": "book",
+      "sourceRef": "content/compendium/races.json#/races/29",
+      "sourceShort": "Черты описывают подражание звукам; отдельного описания внешности нет.",
+      "baseFamily": "ancestry-kenku",
+      "visualBrief": "Авторский птичий портрет с клювом и перьевым контуром; не добавлять текст, маску или конкретный вид птицы.",
+      "visualBriefStatus": "Авторская визуальная интерпретация для иллюстрации; не утверждение о канонической внешности, подрасе или механике.",
+      "subraceIds": [],
+      "sameAncestrySubracesMayReuseBase": []
+    },
+    {
+      "id": "kovanyy",
+      "label": "Кованый",
+      "source": "book",
+      "sourceRef": "content/compendium/races.json#/races/30",
+      "sourceShort": "Текст говорит, что персонажа создали; материалы или способ изготовления не описаны.",
+      "baseFamily": "ancestry-kovanyy",
+      "visualBrief": "Авторский портрет сконструированного существа из сочетаемых дерева/металла/камня; эти материалы — выбранная иллюстративная версия, не заданный в записи факт.",
+      "visualBriefStatus": "Авторская визуальная интерпретация для иллюстрации; не утверждение о канонической внешности, подрасе или механике.",
+      "subraceIds": [],
+      "sameAncestrySubracesMayReuseBase": []
+    },
+    {
+      "id": "kobol-d",
+      "label": "Кобольд",
+      "source": "book",
+      "sourceRef": "content/compendium/races.json#/races/31",
+      "sourceShort": "В записи есть имя и игровые черты; отдельного описания внешности нет.",
+      "baseFamily": "ancestry-kobol-d",
+      "visualBrief": "Авторский малый драконоподобный портрет с чешуйчатой фактурой; не задавать цвет, драконью линию, фракцию или броню.",
+      "visualBriefStatus": "Авторская визуальная интерпретация для иллюстрации; не утверждение о канонической внешности, подрасе или механике.",
+      "subraceIds": [],
+      "sameAncestrySubracesMayReuseBase": []
+    },
+    {
+      "id": "leonin",
+      "label": "Леонин",
+      "source": "book",
+      "sourceRef": "content/compendium/races.json#/races/32",
+      "sourceShort": "В записи есть имя и игровые черты; отдельного описания внешности нет.",
+      "baseFamily": "ancestry-leonin",
+      "visualBrief": "Авторский портрет с выбранной львиной гривой и кошачьими чертами; не добавлять корону, оружие или знаки клана.",
+      "visualBriefStatus": "Авторская визуальная интерпретация для иллюстрации; не утверждение о канонической внешности, подрасе или механике.",
+      "subraceIds": [],
+      "sameAncestrySubracesMayReuseBase": []
+    },
+    {
+      "id": "loksodon",
+      "label": "Локсодон",
+      "source": "book",
+      "sourceRef": "content/compendium/races.json#/races/33",
+      "sourceShort": "Черты прямо упоминают хобот и толстую кожу; иных деталей внешности в записи нет.",
+      "baseFamily": "ancestry-loksodon",
+      "visualBrief": "Портрет, опирающийся только на упомянутые локально хобот и толстую кожу; цвет/одежда — нейтральные авторские решения.",
+      "visualBriefStatus": "Авторская визуальная интерпретация для иллюстрации; не утверждение о канонической внешности, подрасе или механике.",
+      "subraceIds": [],
+      "sameAncestrySubracesMayReuseBase": []
+    },
+    {
+      "id": "lokata",
+      "label": "Локата",
+      "source": "book",
+      "sourceRef": "content/compendium/races.json#/races/34",
+      "sourceShort": "Черта прямо описывает жёсткую чешуйчатую кожу; иных деталей внешности в записи нет.",
+      "baseFamily": "ancestry-lokata",
+      "visualBrief": "Портрет с авторской рыбоподобной формой и жёсткой чешуйчатой фактурой, последняя названа в локальной записи; без трезубца/подводного фона.",
+      "visualBriefStatus": "Авторская визуальная интерпретация для иллюстрации; не утверждение о канонической внешности, подрасе или механике.",
+      "subraceIds": [],
+      "sameAncestrySubracesMayReuseBase": []
+    },
+    {
+      "id": "ludoaser",
+      "label": "Людоящер",
+      "source": "book",
+      "sourceRef": "content/compendium/races.json#/races/35",
+      "sourceShort": "Черты прямо упоминают жёсткую чешуйчатую кожу и зубастую пасть; иных деталей нет.",
+      "baseFamily": "ancestry-ludoaser",
+      "visualBrief": "Портрет с авторской рептильной фактурой и зубастой пастью, названными в локальных чертах; без костяной брони или хищной сцены.",
+      "visualBriefStatus": "Авторская визуальная интерпретация для иллюстрации; не утверждение о канонической внешности, подрасе или механике.",
+      "subraceIds": [],
+      "sameAncestrySubracesMayReuseBase": []
+    },
+    {
+      "id": "minotavr",
+      "label": "Минотавр",
+      "source": "book",
+      "sourceRef": "content/compendium/races.json#/races/36",
+      "sourceShort": "Черты прямо упоминают рога как естественное оружие; иных деталей внешности нет.",
+      "baseFamily": "ancestry-minotavr",
+      "visualBrief": "Портрет с рогами, которые прямо названы локальными чертами; форма/цвет и любые культурные атрибуты — авторские.",
+      "visualBriefStatus": "Авторская визуальная интерпретация для иллюстрации; не утверждение о канонической внешности, подрасе или механике.",
+      "subraceIds": [],
+      "sameAncestrySubracesMayReuseBase": []
+    },
+    {
+      "id": "kentavr",
+      "label": "Кентавр",
+      "source": "book",
+      "sourceRef": "content/compendium/races.json#/races/37",
+      "sourceShort": "В записи есть имя и игровые черты; отдельного описания внешности нет.",
+      "baseFamily": "ancestry-kentavr",
+      "visualBrief": "Авторская составная фигура: человеческая верхняя часть и конская нижняя часть как визуальная метафора названия; без всадника, оружия и пейзажа.",
+      "visualBriefStatus": "Авторская визуальная интерпретация для иллюстрации; не утверждение о канонической внешности, подрасе или механике.",
+      "subraceIds": [],
+      "sameAncestrySubracesMayReuseBase": []
+    }
+  ],
+  "inheritancePolicy": "A base image may be inherited only by listed subraces of that same parent ancestry. The goblinoid parent is a composite category image and must not be inherited as the individual appearance of goblin, hobgoblin, or bugbear."
+}

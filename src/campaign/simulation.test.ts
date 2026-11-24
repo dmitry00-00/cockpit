@@ -5,7 +5,7 @@ import { createEngineStore, journalEntries, cascadeOf } from '../engine';
 import { SECONDS_PER_DAY, type WorldPatch } from '../engine/state';
 import { TEMPO_SECONDS } from '../engine/events';
 import { dayPhase, fullMoonsBetween, inDays, moonState, seasonOf, secOf } from './calendar';
-import { NEAR_SCALES, THREAD_COLD_DAYS, placeChain, simulate, stepTime, tendaysCrossed } from './simulation';
+import { NEAR_SCALES, THREAD_TICK_DAYS, placeChain, simulate, stepTime, tendaysCrossed } from './simulation';
 import { SEED_SEC, seedEngine, seedState } from './seed';
 import { FACTION, LOCATION, THREAD } from './world';
 
@@ -74,14 +74,30 @@ describe('simulate — правила', () => {
     expect(out.find(d => d.id === 'sim-t2-season-summer')).toMatchObject({ scale: 'planet', subject: 'Сезон · Toril', was: 'весна', now: 'лето', causeId: 't2' });
   });
 
-  it('нить остывает: предложение закрыть появляется на том шаге, где пройден порог, и только раз; закрытая нить не предлагается', () => {
+  it('настроенные часы нити получают предложение за десять дней без внимания; заполнение не закрывает нить автоматически', () => {
     const state = seedState();
-    const idle = THREAD.oldOwlWell; // без внимания 9 дней на момент сида
-    const toCold = SEED_SEC + (THREAD_COLD_DAYS - 9) * SECONDS_PER_DAY;
-    expect(simulate({ state, fromSec: SEED_SEC, toSec: toCold - SECONDS_PER_DAY, timeEventId: 't' }).some(d => d.id.includes('cold'))).toBe(false);
-    const out = simulate({ state, fromSec: SEED_SEC, toSec: toCold, timeEventId: 't' });
-    expect(out.find(d => d.id === `sim-t-cold-${idle}`)).toMatchObject({ scale: 'region', was: 'открыта', now: 'закрыта: след остыл', causeId: idle, patch: { kind: 'thread', id: idle, status: 'closed' } });
-    expect(simulate({ state, fromSec: toCold, toSec: toCold + SECONDS_PER_DAY, timeEventId: 't3' }).some(d => d.id.includes('cold'))).toBe(false);
+    const idle = THREAD.oldOwlWell;
+    state.world.threads[idle].clock = { segments: 2, filled: 1, startedSec: SEED_SEC };
+    const due = SEED_SEC + THREAD_TICK_DAYS * SECONDS_PER_DAY;
+    expect(simulate({ state, fromSec: SEED_SEC, toSec: due - 1, timeEventId: 't' }).some(d => d.id.includes('thread-clock'))).toBe(false);
+    const delta = simulate({ state, fromSec: SEED_SEC, toSec: due, timeEventId: 't' }).find(d => d.id === `sim-t-thread-clock-${idle}`);
+    expect(delta).toMatchObject({ scale: 'region', was: '1/2', now: '2/2', causeId: idle, patch: { kind: 'threadClock', id: idle, clock: { segments: 2, filled: 2, startedSec: SEED_SEC } } });
+    expect(state.world.threads[idle].status).toBe('open');
+    const full = { ...state, world: { ...state.world, threads: { ...state.world.threads, [idle]: { ...state.world.threads[idle], clock: { segments: 2, filled: 2, startedSec: SEED_SEC } } } } };
+    expect(simulate({ state: full, fromSec: due, toSec: due + THREAD_TICK_DAYS * SECONDS_PER_DAY, timeEventId: 't3' }).some(d => d.id.includes('thread-clock'))).toBe(false);
+  });
+
+  it('заметка о нити сбрасывает десятидневный интервал часов', () => {
+    const state = seedState();
+    const idle = THREAD.oldOwlWell;
+    state.world.threads[idle].clock = { segments: 4, filled: 0, startedSec: SEED_SEC - THREAD_TICK_DAYS * SECONDS_PER_DAY };
+    const store = createEngineStore(state, fixed());
+    store.getState().dispatch({ type: 'NOTE_ADDED', payload: {
+      text: 'Мастер обновил сведения о Old Owl Well', threadIds: [idle], scale: 'region',
+    } });
+    const originalDue = SEED_SEC + (THREAD_TICK_DAYS - 1) * SECONDS_PER_DAY;
+    expect(store.getState().state.world.threads[idle].lastTouchedSec).toBe(SEED_SEC);
+    expect(simulate({ state: store.getState().state, fromSec: SEED_SEC, toSec: originalDue, timeEventId: 'not-due-after-note' }).some(delta => delta.id === `sim-not-due-after-note-thread-clock-${idle}`)).toBe(false);
   });
 
   it('правила модели мира (Q7): каждое — с causeId и патчем, мир не трогают; цены еды — за сменой сезона и праздником', () => {
@@ -102,10 +118,10 @@ describe('simulate — правила', () => {
     expect(shieldmeet.find(d => d.subject === 'Еда и ночлег · Neverwinter')).toBeUndefined();
     const after = simulate({ state, fromSec: eve + 2 * SECONDS_PER_DAY, toSec: eve + 3 * SECONDS_PER_DAY, timeEventId: 'ta' });
     expect(after.find(d => d.subject === 'Еда и ночлег · Neverwinter')).toMatchObject({ now: '-10%', cause: 'праздник прошёл' });
-    // Каждое предложение — с причиной; кроме смены сезона словами, у каждого патч.
+    // Каждое предложение — с причиной; кроме текстовой смены сезона и службы святого дня, у каждого патч.
     for (const d of [...summer, ...midsummer, ...after]) {
       expect(d.causeId, d.subject).toBeTruthy();
-      if (!d.subject.startsWith('Сезон')) expect(d.patch, d.subject).toBeDefined();
+      if (!d.subject.startsWith('Сезон') && !d.subject.startsWith('Святой день')) expect(d.patch, d.subject).toBeDefined();
     }
     expect(JSON.stringify(state)).toBe(frozen);
   });

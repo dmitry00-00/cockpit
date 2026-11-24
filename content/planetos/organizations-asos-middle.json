@@ -1,0 +1,412 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "organization",
+  "entities": [
+    {
+      "ref": "organization:stormcrows",
+      "kind": "organization",
+      "name": "Stormcrows",
+      "nameRu": "Буревестники",
+      "subtitle": "A Storm of Swords · Daenerys IV (Chapter 42)",
+      "status": "secondary-indexed-partial",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Daenerys IV (chapter 42); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_42",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 42,
+        "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summary; primary-edition verification pending."
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys IV, глава 42"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "место сцены или группа, участвующая в сцене"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не выполнена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Наёмная компания, чьи капитаны ведут переговоры с Дейенерис; позднее Дарио объявляет о переходе своей роты на её сторону."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Daario Naharis",
+          "ref": "person:daario-naharis"
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 42,
+          "chapterTitle": "Daenerys IV",
+          "relation": "group-appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_42"
+        }
+      ],
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "organization:second-sons",
+      "kind": "organization",
+      "name": "Second Sons",
+      "nameRu": "Вторые Сыны",
+      "subtitle": "A Storm of Swords · Daenerys IV (Chapter 42)",
+      "status": "secondary-indexed-partial",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Daenerys IV (chapter 42); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_42",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 42,
+        "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summary; primary-edition verification pending."
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys IV, глава 42"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "место сцены или группа, участвующая в сцене"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не выполнена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Наёмная компания, капитан которой ведёт переговоры с Дейенерис перед ночным нападением на Юнкай."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Yunkai",
+          "ref": "place:yunkai"
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 42,
+          "chapterTitle": "Daenerys IV",
+          "relation": "group-appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_42"
+        }
+      ],
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "organization:unsullied",
+      "kind": "organization",
+      "name": "Unsullied",
+      "nameRu": "Безупречные",
+      "subtitle": "A Storm of Swords · Daenerys IV (Chapter 42)",
+      "status": "secondary-indexed-partial",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Daenerys IV (chapter 42); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_42",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 42,
+        "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summary; primary-edition verification pending."
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys IV, глава 42"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "место сцены или группа, участвующая в сцене"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не выполнена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Военная сила Дейенерис, прибывающая вместе с ней к Юнкаю."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Yunkai",
+          "ref": "place:yunkai"
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 42,
+          "chapterTitle": "Daenerys IV",
+          "relation": "group-appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_42"
+        }
+      ],
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "organization:brotherhood-without-banners",
+      "kind": "organization",
+      "name": "Brotherhood without Banners",
+      "nameRu": "Братство без знамён",
+      "subtitle": "A Storm of Swords · Arya VIII (Chapter 43)",
+      "status": "secondary-indexed-partial",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Arya VIII (chapter 43); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_43",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 43,
+        "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summary; primary-edition verification pending."
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Arya VIII, глава 43"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "место сцены или группа, участвующая в сцене"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не выполнена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Группа, сопровождающая Арью к Высокому Сердцу."
+        }
+      ],
+      "links": [
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Beric Dondarrion",
+          "ref": "person:beric-dondarrion"
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 43,
+          "chapterTitle": "Arya VIII",
+          "relation": "group-appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_43"
+        }
+      ],
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "organization:brave-companions",
+      "kind": "organization",
+      "name": "Brave Companions",
+      "nameRu": "Отважные спутники",
+      "subtitle": "A Storm of Swords · Jaime VI (Chapter 44)",
+      "status": "secondary-indexed-partial",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Jaime VI (chapter 44); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_44",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 44,
+        "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summary; primary-edition verification pending."
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jaime VI, глава 44"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "место сцены или группа, участвующая в сцене"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не выполнена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Отряд под командованием Ворго Хоута, которому Руз Болтон оставляет Харренхолл."
+        }
+      ],
+      "links": [
+        {
+          "label": "Vargo Hoat",
+          "ref": "person:vargo-hoat"
+        },
+        {
+          "label": "Roose Bolton",
+          "ref": "person:roose-bolton"
+        },
+        {
+          "label": "Harrenhal",
+          "ref": "place:harrenhal"
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 44,
+          "chapterTitle": "Jaime VI",
+          "relation": "group-appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_44"
+        }
+      ],
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "organization:thenns",
+      "kind": "organization",
+      "name": "Thenns",
+      "nameRu": "Тенны",
+      "subtitle": "A Storm of Swords · Jon VII (Chapter 55)",
+      "status": "secondary-indexed-partial",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Jon VII (chapter 55); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_55",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 55,
+        "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summary; primary-edition verification pending."
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon VII, глава 55"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "место сцены или группа, участвующая в сцене"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не выполнена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Отряд Стайра, атаковавший Чёрный замок."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 55,
+          "chapterTitle": "Jon VII",
+          "relation": "group-appearing",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_55"
+        }
+      ],
+      "verification": {
+        "primaryBook": "pending"
+      }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "task": "БА21",
+  "tool": "built-in image_gen",
+  "reference": {
+    "role": "style-only",
+    "path": "assets/originals/stealth-sign.png"
+  },
+  "assets": [
+    {
+      "id": "stealth-cloak-v1",
+      "role": "skill:stealth",
+      "prompt": "Use case: stylized-concept. One original painted fantasy CRPG inventory emblem, matching the reference image's rich hand-painted leather/cloth/brass material quality, muted plum/brown/bone palette, soft upper-left light and grounded dimensional shadows. Reference image is for STYLE ONLY: do not reproduce its boot, silhouette or object. Smooth controlled brushwork, no pixel art, no pixel grid, no low-poly facets or posterized blocks. Centered square composition; object occupies about 82% with safe margins. Clear broad silhouette at 32/48/64px, detailed finish at larger sizes. Genuine transparent background. No UI tile, frame, letters, labels, logos, watermark or scenery. Subject: an empty deep-plum hood and short draped cloak, shown front three-quarter view as a tangible inventory object. The hood opening is a clear deep dark oval, WITHOUT a face, eyes, head or mannequin. Soft cloth folds flow down to the shoulders and a modest worn bronze clasp holds the cloak. The instantly recognizable HOOD AND CLOAK is the main shape; a few broad lit folds and restrained stitched edging. No boots or feet, no weapons, no magical glow."
+    },
+    {
+      "id": "survival-tracks-v1",
+      "role": "skill:survival",
+      "prompt": "Use case: stylized-concept. One original painted fantasy CRPG inventory emblem, matching the reference image's rich hand-painted leather/cloth/brass material quality, muted plum/brown/bone palette, soft upper-left light and grounded dimensional shadows. Reference image is for STYLE ONLY: do not reproduce its boot, silhouette or object. Smooth controlled brushwork, no pixel art, no pixel grid, no low-poly facets or posterized blocks. Centered square composition; object occupies about 82% with safe margins. Clear broad silhouette at 32/48/64px, detailed finish at larger sizes. Genuine transparent background. No UI tile, frame, letters, labels, logos, watermark or scenery. Subject: a small irregular, naturally edged patch of firm warm grey-brown earth with TWO deep walking-track impressions, one leading the other diagonally upward to the right. The impressions are simple recognizable elongated FOOTPRINTS with a separate heel and broad forefoot; clear dark recessed marks and softly lit raised edges, very few tread details. One tiny muted-green grass sprig at the patch edge may support the wilderness-tracking idea. It must read as evidence left on the GROUND, not a wearable boot, not actual feet, not a shoe illustration. No bows or arrows, no magnifying glass. The earth patch itself is isolated against actual transparency."
+    }
+  ]
+}

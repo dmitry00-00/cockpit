@@ -1,13 +1,18 @@
 // Ряд иконок листа: умения, черты, особенности расы, заклинания (решение владельца 27.10.2026). Наведение — имя в
 // тултипе, щелчок — текст под рядом; повторный щелчок или Esc закрывают. Тупой: пункты и тексты приходят пропсами.
-import { useState, type KeyboardEvent } from 'react';
+import { lazy, Suspense, useState, type KeyboardEvent } from 'react';
 import type { EntityRef } from '../entities';
 import { Icon, type IconName } from '../icons/Icon';
+import type { ArtId } from '../art/registry.generated';
 import { useOpenEntity } from './openEntity';
+
+const ArtImage = lazy(() => import('../art/ArtImage').then(module => ({ default: module.ArtImage })));
 
 export interface IconGridItem {
   key: string;
   icon: IconName;
+  /** Optional exact art link for an entity. Without it the existing glyph stays in use. */
+  art?: ArtId;
   name: string;
   /** Короткая пометка рядом с именем в раскрытом тексте и тултипе: «3 ур.», «раса», «1 круг · К». */
   meta?: string;
@@ -21,8 +26,8 @@ const TILE = 'size-10 flex-none grid place-items-center bg-linear-to-b from-pl t
 const TILE_OFF = 'shadow-bevel hover:from-pl hover:to-pl';
 const TILE_ON = 'shadow-[var(--bevel-in),inset_0_-3px_0_var(--gd)]';
 
-export function IconGrid({ items, label }: { items: readonly IconGridItem[]; label: string }) {
-  const [open, setOpen] = useState<string | null>(null);
+export function IconGrid({ items, label, initialOpenKey }: { items: readonly IconGridItem[]; label: string; initialOpenKey?: string }) {
+  const [open, setOpen] = useState<string | null>(initialOpenKey ?? null);
   const openEntity = useOpenEntity();
   if (items.length === 0) return null;
   const cur = items.find(i => i.key === open);
@@ -48,7 +53,9 @@ export function IconGrid({ items, label }: { items: readonly IconGridItem[]; lab
                 onClick={() => setOpen(on ? null : i.key)}
                 className={`${TILE} ${on ? TILE_ON : TILE_OFF}`}
               >
-                <Icon name={i.icon} size={32} title={title} />
+                {i.art ? <Suspense fallback={<Icon name={i.icon} size={32} title={title} />}>
+                  <ArtImage asset={i.art} alt={title} width={32} sizes="32px" className="size-8 object-contain" fallback={<Icon name={i.icon} size={32} title={title} />} />
+                </Suspense> : <Icon name={i.icon} size={32} title={title} />}
               </button>
             </li>
           );

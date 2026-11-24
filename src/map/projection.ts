@@ -13,6 +13,11 @@ export interface MapPassport {
   format: string;
   /** Откуда стол берёт тайлы: `${tiles}/${z}/${x}_${y}.${format}`. */
   tiles: string;
+  /** Source credit and notes for locally hosted third-party map rasters. */
+  attribution?: string;
+  sourceUrl?: string;
+  timelineUrl?: string;
+  note?: string;
   /** Сколько миль в пикселе исходника — калибровка паспорта, не геодезия. */
   milesPerPixel: number;
   /** Сетка местности рядом с тайлами (src/map/terrain.ts): картинка и пикселей исходника в клетке. */

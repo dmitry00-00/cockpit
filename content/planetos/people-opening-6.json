@@ -1,0 +1,1135 @@
+{
+  "format": 1,
+  "kind": "person",
+  "entities": [
+    {
+      "ref": "person:karyl-vance",
+      "kind": "person",
+      "name": "Karyl Vance",
+      "nameRu": "Карил Вэнс",
+      "subtitle": "A Game of Thrones · Eddard XI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard XI; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_43",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard XI"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Один из лордов, представляющих Эддарду разрушенные владения и просьбу о королевском правосудии."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Beric Dondarrion",
+          "ref": "person:beric-dondarrion"
+        },
+        {
+          "label": "Kings Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "person:robar-royce",
+      "kind": "person",
+      "name": "Robar Royce",
+      "nameRu": "Робар Ройс",
+      "subtitle": "A Game of Thrones · Eddard XI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard XI; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_43",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard XI"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Рыцарь из Долины, появляющийся среди придворных и лордов, собравшихся при королевском дворе."
+        }
+      ],
+      "links": [
+        {
+          "label": "Renly Baratheon",
+          "ref": "person:renly-baratheon"
+        },
+        {
+          "label": "Kings Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "person:arys-oakheart",
+      "kind": "person",
+      "name": "Arys Oakheart",
+      "nameRu": "Арис Окхарт",
+      "subtitle": "A Game of Thrones · Eddard XI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard XI; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_43",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard XI"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Рыцарь Королевской гвардии, присутствующий при дворе в Королевской Гавани."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Kings Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "person:thoros-of-myr",
+      "kind": "person",
+      "name": "Thoros of Myr",
+      "nameRu": "Торос из Мира",
+      "subtitle": "A Game of Thrones · Eddard XI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard XI; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_43",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard XI"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Красный жрец, присутствующий при дворе; его имя связано с королевским отрядом, отправленным в Речные земли."
+        }
+      ],
+      "links": [
+        {
+          "label": "Beric Dondarrion",
+          "ref": "person:beric-dondarrion"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        }
+      ]
+    },
+    {
+      "ref": "person:gladden-wylde",
+      "kind": "person",
+      "name": "Gladden Wylde",
+      "nameRu": "Гладден Уайлд",
+      "subtitle": "A Game of Thrones · Eddard XI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard XI; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_43",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard XI"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Рыцарь, отмеченный среди присутствующих при слушании жалобы Эддардом."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Kings Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "person:marq-piper",
+      "kind": "person",
+      "name": "Marq Piper",
+      "nameRu": "Марк Пайпер",
+      "subtitle": "A Game of Thrones · Eddard XI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard XI; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_43",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard XI"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Представитель дома Пайперов, присутствующий при разбирательстве о нападениях на речные земли."
+        }
+      ],
+      "links": [
+        {
+          "label": "Karyl Vance",
+          "ref": "person:karyl-vance"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        }
+      ]
+    },
+    {
+      "ref": "person:cayn",
+      "kind": "person",
+      "name": "Cayn",
+      "nameRu": "Кейн",
+      "subtitle": "A Game of Thrones · Eddard XIII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard XIII; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_47",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard XIII"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Человек из свиты Эддарда, присутствующий при событиях вокруг ранения и заключения короля."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Maegors Holdfast",
+          "ref": "place:maegors-holdfast"
+        }
+      ]
+    },
+    {
+      "ref": "person:preston-greenfield",
+      "kind": "person",
+      "name": "Preston Greenfield",
+      "nameRu": "Престон Гринфилд",
+      "subtitle": "A Game of Thrones · Eddard XIII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard XIII; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_47",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard XIII"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Рыцарь Королевской гвардии, дежурящий у королевских покоев во время болезни Роберта."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robert Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Maegors Holdfast",
+          "ref": "place:maegors-holdfast"
+        }
+      ]
+    },
+    {
+      "ref": "person:mandon-moore",
+      "kind": "person",
+      "name": "Mandon Moore",
+      "nameRu": "Мандон Мур",
+      "subtitle": "A Game of Thrones · Eddard XIV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard XIV; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_49",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard XIV"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Рыцарь Королевской гвардии, участвующий в столкновении в тронном зале."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Cersei Lannister",
+          "ref": "person:cersei-lannister"
+        },
+        {
+          "label": "Kings Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "person:greatjon-umber",
+      "kind": "person",
+      "name": "Greatjon Umber",
+      "nameRu": "Великан Джон Амбер",
+      "subtitle": "A Game of Thrones · Catelyn XI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn XI; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_71",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn XI"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Могущественный северный знаменосец; его речь становится поворотом совета, после которого Робба провозглашают Королём Севера."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Riverrun",
+          "ref": "place:riverrun"
+        }
+      ]
+    },
+    {
+      "ref": "person:rickard-karstark",
+      "kind": "person",
+      "name": "Rickard Karstark",
+      "nameRu": "Рикард Карстарк",
+      "subtitle": "A Game of Thrones · Catelyn XI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn XI; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_71",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn XI"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Лорд Кархолда и северный знаменосец, прибывающий с войском Робба к Риверрану."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "Riverrun",
+          "ref": "place:riverrun"
+        }
+      ]
+    },
+    {
+      "ref": "person:edmure-tully",
+      "kind": "person",
+      "name": "Edmure Tully",
+      "nameRu": "Эдмур Талли",
+      "subtitle": "A Game of Thrones · Catelyn XI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn XI; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_71",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn XI"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Брат Кэтлин, встречающий возвращающуюся в Риверран семью и войско Робба."
+        }
+      ],
+      "links": [
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Hoster Tully",
+          "ref": "person:hoster-tully"
+        },
+        {
+          "label": "Riverrun",
+          "ref": "place:riverrun"
+        }
+      ]
+    },
+    {
+      "ref": "person:hoster-tully",
+      "kind": "person",
+      "name": "Hoster Tully",
+      "nameRu": "Хостер Талли",
+      "subtitle": "A Game of Thrones · Catelyn XI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn XI; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_71",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn XI"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Отец Кэтлин, лорд Риверрана; Кэтлин навещает его после возвращения домой."
+        }
+      ],
+      "links": [
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Edmure Tully",
+          "ref": "person:edmure-tully"
+        },
+        {
+          "label": "Riverrun",
+          "ref": "place:riverrun"
+        }
+      ]
+    },
+    {
+      "ref": "person:tytos-blackwood",
+      "kind": "person",
+      "name": "Tytos Blackwood",
+      "nameRu": "Титос Блэквуд",
+      "subtitle": "A Game of Thrones · Catelyn XI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn XI; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_71",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn XI"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Речной лорд, встречающий Кэтлин и Робба у Риверрана вместе с другими знаменосцами."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Riverrun",
+          "ref": "place:riverrun"
+        }
+      ]
+    },
+    {
+      "ref": "person:jonos-bracken",
+      "kind": "person",
+      "name": "Jonos Bracken",
+      "nameRu": "Джонос Бреккен",
+      "subtitle": "A Game of Thrones · Catelyn XI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn XI; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_71",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn XI"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Лорд Бреккенов, присутствующий среди речных лордов при возвращении Кэтлин в Риверран."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "Riverrun",
+          "ref": "place:riverrun"
+        }
+      ]
+    },
+    {
+      "ref": "person:stevron-frey",
+      "kind": "person",
+      "name": "Stevron Frey",
+      "nameRu": "Стеврон Фрей",
+      "subtitle": "A Game of Thrones · Catelyn XI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn XI; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_71",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn XI"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Старший сын лорда Уолдера Фрея и представитель дома Фреев среди людей Робба."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "Riverrun",
+          "ref": "place:riverrun"
+        }
+      ]
+    },
+    {
+      "ref": "person:maege-mormont",
+      "kind": "person",
+      "name": "Maege Mormont",
+      "nameRu": "Мейдж Мормонт",
+      "subtitle": "A Game of Thrones · Catelyn XI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn XI; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_71",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn XI"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Леди Медвежьего острова и северная знаменосица, прибывающая к Риверрану с войском Робба."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "Dacey Mormont",
+          "ref": "person:dacey-mormont"
+        },
+        {
+          "label": "Riverrun",
+          "ref": "place:riverrun"
+        }
+      ]
+    },
+    {
+      "ref": "person:galbart-glover",
+      "kind": "person",
+      "name": "Galbart Glover",
+      "nameRu": "Галбарт Гловер",
+      "subtitle": "A Game of Thrones · Catelyn X",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn X; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_63",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn X"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Северный знаменосец, участвующий в движении войска Робба и засаде у Шепчущего леса."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Whispering Wood",
+          "ref": "place:whispering-wood"
+        }
+      ]
+    },
+    {
+      "ref": "person:olyvar-frey",
+      "kind": "person",
+      "name": "Olyvar Frey",
+      "nameRu": "Оливар Фрей",
+      "subtitle": "A Game of Thrones · Catelyn X",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn X; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_63",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn X"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Молодой представитель дома Фреев среди отряда Робба у Шепчущего леса."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "Stevron Frey",
+          "ref": "person:stevron-frey"
+        },
+        {
+          "label": "Whispering Wood",
+          "ref": "place:whispering-wood"
+        }
+      ]
+    },
+    {
+      "ref": "person:dacey-mormont",
+      "kind": "person",
+      "name": "Dacey Mormont",
+      "nameRu": "Дейси Мормонт",
+      "subtitle": "A Game of Thrones · Catelyn X",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn X; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_63",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn X"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Воительница из дома Мормонтов, находящаяся при Кэтлин во время ожидания у Шепчущего леса."
+        }
+      ],
+      "links": [
+        {
+          "label": "Maege Mormont",
+          "ref": "person:maege-mormont"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Whispering Wood",
+          "ref": "place:whispering-wood"
+        }
+      ]
+    },
+    {
+      "ref": "person:daryn-hornwood",
+      "kind": "person",
+      "name": "Daryn Hornwood",
+      "nameRu": "Дарин Хорнвуд",
+      "subtitle": "A Game of Thrones · Catelyn X",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn X; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_63",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn X"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Молодой северный рыцарь из войска Робба; его гибель названа среди потерь победы у Шепчущего леса."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "Jaime Lannister",
+          "ref": "person:jaime-lannister"
+        },
+        {
+          "label": "Whispering Wood",
+          "ref": "place:whispering-wood"
+        }
+      ]
+    },
+    {
+      "ref": "person:patrek-mallister",
+      "kind": "person",
+      "name": "Patrek Mallister",
+      "nameRu": "Патрек Маллистер",
+      "subtitle": "A Game of Thrones · Catelyn X",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn X; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_63",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn X"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Член дома Маллистеров, присоединяющийся к войску Робба перед засадой у Шепчущего леса."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "Whispering Wood",
+          "ref": "place:whispering-wood"
+        }
+      ]
+    },
+    {
+      "ref": "person:wendel-manderly",
+      "kind": "person",
+      "name": "Wendel Manderly",
+      "nameRu": "Вендел Мандерли",
+      "subtitle": "A Game of Thrones · Catelyn X",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn X; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_63",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn X"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Северный рыцарь из дома Мандерли, участвующий в походе Робба у Шепчущего леса."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "Whispering Wood",
+          "ref": "place:whispering-wood"
+        }
+      ]
+    }
+  ]
+}

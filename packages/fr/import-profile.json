@@ -1,0 +1,735 @@
+{
+  "format": 1,
+  "id": "fr",
+  "title": "Forgotten Realms",
+  "packageManifest": "packages/fr/package.json",
+  "sources": {
+    "wiki": {
+      "id": "forgotten-realms-wiki",
+      "url": "https://forgottenrealms.fandom.com",
+      "dumpId": "fr-wiki-2026-10-21",
+      "dumpPath": "{dump}",
+      "license": "CC-BY-SA-3.0",
+      "rightsHolder": "Wizards of the Coast (исходный сеттинг); текст статей — авторы Forgotten Realms Wiki",
+      "distribution": "internal",
+      "allowInternalExtraction": true,
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "policy": "SOURCES.md §2: материалы CC BY-SA остаются только внутри; не передавать наружу, включая внешнее тестирование."
+    },
+    "mapData": {
+      "id": "toril-gis",
+      "source": "SOURCES.md §3",
+      "distribution": "table",
+      "requiredArtifacts": [
+        "content/maps/toril-cards.json",
+        "content/maps/toril-places.json",
+        "content/maps/toril-labels.json"
+      ]
+    }
+  },
+  "fieldMaps": {
+    "place": {
+      "targetKind": "place",
+      "importer": "scripts/wiki-extract.py",
+      "templates": [
+        "Location",
+        "State",
+        "Dungeon",
+        "Celestial body",
+        "Settlement",
+        "Region",
+        "Building",
+        "Country",
+        "Body of water",
+        "Mountain",
+        "Forest",
+        "Road",
+        "River",
+        "Plane",
+        "Island",
+        "Geography"
+      ],
+      "fields": [
+        "type",
+        "size",
+        "region",
+        "location",
+        "government",
+        "rulertype",
+        "ruler",
+        "head of state",
+        "population",
+        "races",
+        "religion",
+        "aliases",
+        "alt spelling",
+        "demonym",
+        "allegiances",
+        "exports",
+        "organizations",
+        "plane",
+        "realm"
+      ],
+      "selection": "Namespace 0 articles with a recognized place infobox; redirect titles are retained separately.",
+      "output": "{placesExtract}"
+    },
+    "polity": {
+      "targetKind": "kingdom",
+      "importer": "scripts/import-kingdoms.py",
+      "templates": [
+        "Location",
+        "State"
+      ],
+      "selection": "Infobox plus polity categories or government/type rules; categories Locations in/on determine containment.",
+      "fields": [
+        "name",
+        "type",
+        "capital",
+        "largest city",
+        "government",
+        "rulertype",
+        "ruler",
+        "head of state",
+        "leader1",
+        "head of government",
+        "leader2",
+        "allegiances",
+        "religion",
+        "formed",
+        "disbanded",
+        "predecessor",
+        "successor"
+      ],
+      "relations": [
+        "capital/place",
+        "ruler/person-or-organization",
+        "deity",
+        "ally/polity-or-organization",
+        "predecessor/polity",
+        "successor/polity",
+        "chronology/event",
+        "gis/region"
+      ],
+      "output": "content/world/kingdoms.json"
+    },
+    "organization": {
+      "targetKind": "organization",
+      "importer": "scripts/import-organizations.py",
+      "templates": [
+        "Organization"
+      ],
+      "fields": [
+        "name",
+        "aliases",
+        "type",
+        "base",
+        "leader",
+        "favored deity",
+        "allegiances",
+        "enemies",
+        "alignment",
+        "races",
+        "symbol",
+        "members",
+        "formed",
+        "disbanded"
+      ],
+      "relations": [
+        "base/place",
+        "leader/person",
+        "favored deity/deity",
+        "allegiances/organization",
+        "enemies/organization"
+      ],
+      "outputs": [
+        "content/world/organizations.json",
+        "content/world/place-faiths.json"
+      ]
+    },
+    "person": {
+      "targetKind": "person",
+      "importer": "scripts/import-people.py",
+      "templates": [
+        "Person"
+      ],
+      "fields": [
+        "name",
+        "titles",
+        "race",
+        "gender",
+        "occupation",
+        "home",
+        "patron deity",
+        "deity",
+        "dob",
+        "death",
+        "reckoning"
+      ],
+      "relations": [
+        "home/place",
+        "patron deity/deity",
+        "Members of … category/organization"
+      ],
+      "outputs": [
+        "content/world/people-index.json",
+        "content/world/people/0.json",
+        "content/world/people/1.json",
+        "content/world/people/2.json",
+        "content/world/people/3.json",
+        "content/world/people/4.json",
+        "content/world/people/5.json",
+        "content/world/people/6.json",
+        "content/world/people/7.json",
+        "content/world/org-members.json"
+      ]
+    },
+    "deity": {
+      "targetKind": "deity",
+      "importer": "scripts/import-deities.py",
+      "templates": [
+        "Deity"
+      ],
+      "editionFields": [
+        "alignment",
+        "domains",
+        "portfolio",
+        "favored weapon",
+        "symbol",
+        "pantheon",
+        "realm",
+        "holydays"
+      ],
+      "calendarAdapter": "harptos",
+      "relations": [
+        "realm/plane-or-layer",
+        "pantheon/category",
+        "holy-day/calendar-rule"
+      ],
+      "outputs": [
+        "content/cosmos/deities.json",
+        "content/cosmos/holy-days.json"
+      ]
+    },
+    "chronology": {
+      "targetKind": "event",
+      "importer": "scripts/import-chronology.py",
+      "yearArticle": "N DR",
+      "sectionTemplate": "Yearbox/*",
+      "calendarAdapter": "harptos",
+      "editionLens": "Yearbox section kinds and source timeline markers; unknown kinds are omitted, not inferred.",
+      "outputs": [
+        "content/chronology/index.json",
+        "content/chronology/events/0.json",
+        "content/chronology/events/1.json",
+        "content/chronology/events/2.json",
+        "content/chronology/events/3.json",
+        "content/chronology/events/4.json",
+        "content/chronology/events/5.json",
+        "content/chronology/events/6.json",
+        "content/chronology/events/7.json",
+        "content/chronology/events/8.json",
+        "content/chronology/events/9.json",
+        "content/chronology/articles/index.json",
+        "content/chronology/articles/0.json",
+        "content/chronology/articles/1.json",
+        "content/chronology/articles/2.json",
+        "content/chronology/articles/3.json",
+        "content/chronology/articles/4.json",
+        "content/chronology/articles/5.json",
+        "content/chronology/articles/6.json",
+        "content/chronology/articles/7.json",
+        "content/chronology/articles/8.json",
+        "content/chronology/articles/9.json"
+      ]
+    }
+  },
+  "calendar": {
+    "id": "harptos",
+    "importer": "scripts/import-deities.py",
+    "sourceArticle": "Calendar of Harptos",
+    "months": [
+      "Hammer",
+      "Alturiak",
+      "Ches",
+      "Tarsakh",
+      "Mirtul",
+      "Kythorn",
+      "Flamerule",
+      "Eleasias",
+      "Eleint",
+      "Marpenoth",
+      "Uktar",
+      "Nightal"
+    ],
+    "intercalaryDays": [
+      "Midwinter",
+      "Greengrass",
+      "Midsummer",
+      "Shieldmeet",
+      "Highharvestide",
+      "Feast of the Moon"
+    ],
+    "implementation": "Calendar arithmetic lives in the FR package adapter; holy-day rules are imported from deity fields and Calendar of Harptos."
+  },
+  "artifacts": {
+    "dump": {
+      "kind": "external-input",
+      "path": "{dump}",
+      "outsideRepository": true
+    },
+    "gisPackage": {
+      "kind": "external-input",
+      "path": "{gisPackage}",
+      "optional": true
+    },
+    "placesExtract": {
+      "kind": "temporary-output",
+      "path": "{placesExtract}"
+    },
+    "mapCards": {
+      "kind": "existing-layer",
+      "path": "content/maps/toril-cards.json"
+    },
+    "mapPlaces": {
+      "kind": "existing-layer",
+      "path": "content/maps/toril-places.json"
+    },
+    "mapLabels": {
+      "kind": "existing-layer",
+      "path": "content/maps/toril-labels.json"
+    },
+    "holyDays": {
+      "kind": "existing-layer",
+      "path": "content/cosmos/holy-days.json"
+    },
+    "phlogiston": {
+      "kind": "existing-layer",
+      "path": "content/cosmos/phlogiston.json"
+    },
+    "realmspace": {
+      "kind": "existing-layer",
+      "path": "content/cosmos/realmspace.json"
+    },
+    "mapNeverwinter": {
+      "kind": "existing-layer",
+      "path": "content/maps/neverwinter.json"
+    },
+    "mapTorilClean": {
+      "kind": "existing-layer",
+      "path": "content/maps/toril-clean.json"
+    },
+    "mapTorilControl": {
+      "kind": "existing-layer",
+      "path": "content/maps/toril-control.json"
+    },
+    "mapTorilIcons": {
+      "kind": "existing-layer",
+      "path": "content/maps/toril-icons.json"
+    },
+    "mapTorilMissing": {
+      "kind": "existing-layer",
+      "path": "content/maps/toril-missing.json"
+    },
+    "mapTorilReview": {
+      "kind": "existing-layer",
+      "path": "content/maps/toril-review.jsonl"
+    },
+    "mapTorilUnderdark": {
+      "kind": "existing-layer",
+      "path": "content/maps/toril-underdark.json"
+    },
+    "mapToril": {
+      "kind": "existing-layer",
+      "path": "content/maps/toril.json"
+    },
+    "worldEconomy": {
+      "kind": "existing-layer",
+      "path": "content/world/econ.json"
+    },
+    "organizationMembers": {
+      "kind": "existing-layer",
+      "path": "content/world/org-members.json"
+    },
+    "mapRasterCorrections": {
+      "kind": "existing-layer",
+      "path": "content/maps/toril-raster-corrections.json"
+    },
+    "mapOcrClassification": {
+      "kind": "existing-layer",
+      "path": "content/maps/toril-ocr-classification.json"
+    },
+    "harptosCalendar": {
+      "kind": "existing-layer",
+      "path": "content/calendars/harptos.json"
+    },
+    "frEditions": {
+      "kind": "existing-layer",
+      "path": "content/lenses/forgotten-realms-editions.json"
+    },
+    "frLadder": {
+      "kind": "existing-layer",
+      "path": "content/ladders/forgotten-realms.json"
+    },
+    "wheelPlanes": {
+      "kind": "existing-layer",
+      "path": "content/cosmos/great-wheel.json"
+    },
+    "treePlanes": {
+      "kind": "existing-layer",
+      "path": "content/cosmos/world-tree.json"
+    },
+    "deities": {
+      "kind": "package-layer",
+      "path": "content/cosmos/deities.json"
+    },
+    "organizations": {
+      "kind": "package-layer",
+      "path": "content/world/organizations.json"
+    },
+    "placeFaiths": {
+      "kind": "package-layer",
+      "path": "content/world/place-faiths.json"
+    },
+    "people": {
+      "kind": "package-layer",
+      "path": "content/world/people-index.json"
+    },
+    "peopleRecords": {
+      "kind": "package-layer",
+      "path": "content/world/people"
+    },
+    "chronology": {
+      "kind": "package-layer",
+      "path": "content/chronology/index.json"
+    },
+    "kingdoms": {
+      "kind": "package-layer",
+      "path": "content/world/kingdoms.json"
+    },
+    "chronologyArticles": {
+      "kind": "package-layer",
+      "path": "content/chronology/articles/index.json"
+    },
+    "chronologyEventShards": {
+      "kind": "package-layer",
+      "path": "content/chronology/events"
+    },
+    "chronologyArticleShards": {
+      "kind": "package-layer",
+      "path": "content/chronology/articles"
+    },
+    "chronologyReview": {
+      "kind": "existing-layer",
+      "path": "research/chronology/article-classifications.json"
+    }
+  },
+  "pipeline": [
+    {
+      "id": "extract-places",
+      "script": "scripts/wiki-extract.py",
+      "args": [
+        "{dump}",
+        "{placesExtract}"
+      ],
+      "dependsOn": [],
+      "reads": [
+        "dump"
+      ],
+      "writes": [
+        "placesExtract"
+      ]
+    },
+    {
+      "id": "deities",
+      "script": "scripts/import-deities.py",
+      "contentRoot": true,
+      "args": [
+        "{dump}"
+      ],
+      "dependsOn": [],
+      "reads": [
+        "dump",
+        "wheelPlanes",
+        "treePlanes"
+      ],
+      "writes": [
+        "deities"
+      ],
+      "alsoWrites": [
+        "content/cosmos/holy-days.json"
+      ]
+    },
+    {
+      "id": "organizations-seed",
+      "script": "scripts/import-organizations.py",
+      "contentRoot": true,
+      "args": [
+        "{dump}",
+        "{placesExtract}",
+        "--skip-resolve-leaders"
+      ],
+      "dependsOn": [
+        "extract-places",
+        "deities"
+      ],
+      "reads": [
+        "dump",
+        "placesExtract",
+        "deities",
+        "mapCards",
+        "mapPlaces"
+      ],
+      "writes": [
+        "organizations",
+        "placeFaiths"
+      ]
+    },
+    {
+      "id": "people",
+      "script": "scripts/import-people.py",
+      "contentRoot": true,
+      "args": [
+        "{dump}"
+      ],
+      "dependsOn": [
+        "organizations-seed"
+      ],
+      "reads": [
+        "dump",
+        "organizations",
+        "deities",
+        "mapCards",
+        "mapPlaces"
+      ],
+      "writes": [
+        "people",
+        "peopleRecords"
+      ],
+      "alsoWrites": [
+        "content/world/people/0.json",
+        "content/world/people/1.json",
+        "content/world/people/2.json",
+        "content/world/people/3.json",
+        "content/world/people/4.json",
+        "content/world/people/5.json",
+        "content/world/people/6.json",
+        "content/world/people/7.json",
+        "content/world/org-members.json"
+      ]
+    },
+    {
+      "id": "organizations-resolve-leaders",
+      "script": "scripts/import-organizations.py",
+      "contentRoot": true,
+      "args": [
+        "{dump}",
+        "--skip-place-faiths"
+      ],
+      "dependsOn": [
+        "people"
+      ],
+      "reads": [
+        "dump",
+        "peopleRecords",
+        "deities",
+        "mapCards",
+        "mapPlaces"
+      ],
+      "writes": [
+        "organizations"
+      ]
+    },
+    {
+      "id": "chronology-seed",
+      "script": "scripts/import-chronology.py",
+      "contentRoot": true,
+      "args": [
+        "{dump}",
+        "--skip-kingdoms"
+      ],
+      "dependsOn": [
+        "organizations-resolve-leaders"
+      ],
+      "reads": [
+        "dump",
+        "peopleRecords",
+        "organizations",
+        "deities",
+        "mapCards",
+        "mapPlaces"
+      ],
+      "writes": [
+        "chronology",
+        "chronologyEventShards"
+      ],
+      "alsoWrites": [
+        "content/chronology/events/0.json",
+        "content/chronology/events/1.json",
+        "content/chronology/events/2.json",
+        "content/chronology/events/3.json",
+        "content/chronology/events/4.json",
+        "content/chronology/events/5.json",
+        "content/chronology/events/6.json",
+        "content/chronology/events/7.json",
+        "content/chronology/events/8.json",
+        "content/chronology/events/9.json"
+      ]
+    },
+    {
+      "id": "kingdoms-seed",
+      "script": "scripts/import-kingdoms.py",
+      "contentRoot": true,
+      "args": [
+        "{dump}",
+        "--skip-chronology-articles"
+      ],
+      "optionalInputs": [
+        {
+          "artifact": "gisPackage",
+          "flag": "--gis-package",
+          "fallback": [
+            "--skip-gis"
+          ]
+        }
+      ],
+      "dependsOn": [
+        "chronology-seed"
+      ],
+      "reads": [
+        "dump",
+        "gisPackage",
+        "peopleRecords",
+        "organizations",
+        "deities",
+        "chronology",
+        "mapCards",
+        "mapPlaces",
+        "mapLabels",
+        "chronologyEventShards"
+      ],
+      "writes": [
+        "kingdoms"
+      ]
+    },
+    {
+      "id": "chronology-resolve-polities",
+      "script": "scripts/import-chronology.py",
+      "contentRoot": true,
+      "args": [
+        "{dump}"
+      ],
+      "dependsOn": [
+        "kingdoms-seed"
+      ],
+      "reads": [
+        "dump",
+        "peopleRecords",
+        "organizations",
+        "deities",
+        "kingdoms",
+        "mapCards",
+        "mapPlaces"
+      ],
+      "writes": [
+        "chronology",
+        "chronologyEventShards"
+      ],
+      "alsoWrites": [
+        "content/chronology/events/0.json",
+        "content/chronology/events/1.json",
+        "content/chronology/events/2.json",
+        "content/chronology/events/3.json",
+        "content/chronology/events/4.json",
+        "content/chronology/events/5.json",
+        "content/chronology/events/6.json",
+        "content/chronology/events/7.json",
+        "content/chronology/events/8.json",
+        "content/chronology/events/9.json"
+      ]
+    },
+    {
+      "id": "chronology-articles",
+      "script": "scripts/import-chronology-articles.py",
+      "contentRoot": true,
+      "args": [
+        "{dump}",
+        "--classification-file",
+        "{chronologyReview}"
+      ],
+      "dependsOn": [
+        "chronology-resolve-polities"
+      ],
+      "reads": [
+        "dump",
+        "peopleRecords",
+        "organizations",
+        "deities",
+        "kingdoms",
+        "chronology",
+        "mapCards",
+        "mapPlaces",
+        "chronologyEventShards",
+        "chronologyReview"
+      ],
+      "writes": [
+        "chronologyArticles",
+        "chronologyArticleShards"
+      ],
+      "alsoWrites": [
+        "content/chronology/articles/0.json",
+        "content/chronology/articles/1.json",
+        "content/chronology/articles/2.json",
+        "content/chronology/articles/3.json",
+        "content/chronology/articles/4.json",
+        "content/chronology/articles/5.json",
+        "content/chronology/articles/6.json",
+        "content/chronology/articles/7.json",
+        "content/chronology/articles/8.json",
+        "content/chronology/articles/9.json"
+      ]
+    },
+    {
+      "id": "kingdoms-final",
+      "script": "scripts/import-kingdoms.py",
+      "contentRoot": true,
+      "args": [
+        "{dump}"
+      ],
+      "optionalInputs": [
+        {
+          "artifact": "gisPackage",
+          "flag": "--gis-package",
+          "fallback": [
+            "--skip-gis"
+          ]
+        }
+      ],
+      "dependsOn": [
+        "chronology-articles"
+      ],
+      "reads": [
+        "dump",
+        "gisPackage",
+        "peopleRecords",
+        "organizations",
+        "deities",
+        "chronology",
+        "chronologyArticles",
+        "mapCards",
+        "mapPlaces",
+        "mapLabels",
+        "chronologyEventShards",
+        "chronologyArticleShards"
+      ],
+      "writes": [
+        "kingdoms"
+      ]
+    }
+  ],
+  "limitations": [
+    "Изолированный запуск выполняет только этапы этого профиля; он не публикует результат в рабочий content и не превращает FR-импортёры в универсальные парсеры.",
+    "Скрипты пока не независимы от сеттинга: названия шаблонов, правила Харптоса, пути пакета, GIS-слои и разрешение ссылок остаются FR-специфичными.",
+    "Конвейеру нужны уже подготовленные слои карты Toril и локальный дамп вики; GeoPackage Toril GIS можно передать явно, иначе связь с GIS отключается. Дамп внешний, его нельзя помещать в репозиторий.",
+    "Виды событий и календарные значения, которые нельзя разобрать из источника, пропускаются или остаются исходным текстом; импортёр не должен их угадывать."
+  ]
+}

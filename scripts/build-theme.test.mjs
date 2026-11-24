@@ -34,19 +34,17 @@ describe('build-theme', () => {
     for (const k of Object.keys(tokens.type.families)) expect(css).toContain(`--font-${k}: `);
   });
 
-  // Нижний кегль — 12px; у пиксельного Press Start 2P глиф во весь кегль (заглавная 7 из 8 px — как у 10–11px
-  // гарнитуры с обычными метриками), поэтому ему — 8px, и только кратно 4 px: на экране с плотностью 2 пиксель глифа целый.
-  it('все стили типографики — утилиты type-* с кеглем не ниже 12px (пиксельный — не ниже 8px и кратно 4)', () => {
+  it('типографика читаема: числовые роли Georgia, текст не ниже 13px, короткие коды от 12px', () => {
     const { css } = buildTheme(tokens);
     const styles = tokens.type.groups.flatMap(g => g.styles.map(st => ({ ...st, family: g.family })));
     expect(styles.length).toBeGreaterThanOrEqual(12);
+    expect(JSON.stringify(tokens.type)).not.toMatch(/Press Start|pixel/);
+    expect(tokens.type.families.numeric).toContain('Georgia');
     for (const st of styles) {
       expect(css).toMatch(new RegExp(`@utility type-${st.name} \\{[^}]*font-size: ${st.fontSize};`));
       const px = parseInt(st.fontSize, 10);
-      if (st.family === 'pixel') {
-        expect(px, st.name).toBeGreaterThanOrEqual(8);
-        expect(px % 4, st.name).toBe(0);
-      } else expect(px, st.name).toBeGreaterThanOrEqual(12);
+      expect(px, st.name).toBeGreaterThanOrEqual(st.name === 'key' ? 12 : 13);
+      if (st.name.startsWith('num-') && !['num-12'].includes(st.name)) expect(st.family).toBe('numeric');
     }
   });
 

@@ -1,6 +1,6 @@
 // Общие помощники тестов стола: стор на сиде с детерминированными часами, монтирование страницы,
 // поиск корешков, карточек и зон по ролям.
-import { fireEvent, render, screen, within } from '@testing-library/react';
+import { act, fireEvent, render, screen, within } from '@testing-library/react';
 import { expect } from 'vitest';
 import { seedEngine, seedLog, seedState } from '../../campaign';
 import { createEngineStore, memoryStore, type EngineStoreApi } from '../../engine';
@@ -63,7 +63,24 @@ export const openJournal = () => fireEvent.keyDown(window, { key: 'j', code: 'Ke
 
 export const tempoGroup = () => screen.getByRole('group', { name: 'Темп времени' });
 export const timeView = () => screen.getByRole('region', { name: 'Шаг времени' });
-export const step = () => fireEvent.click(within(tempoGroup()).getByRole('button', { name: 'Шаг' }));
+/** Opens the compact clock controls only for scenarios that exercise time, rest, or calendar UI. */
+export const openTimeControls = () => {
+  const current = screen.queryByRole('dialog', { name: 'Управление временем' });
+  if (current) return current;
+  fireEvent.click(screen.getByRole('button', { name: 'Управление временем' }));
+  return screen.getByRole('dialog', { name: 'Управление временем' });
+};
+/** Асинхронные команды ждут настоящей подготовки правил; без моков и таймаутов. */
+export async function timeAction(action: () => void) {
+  const { prepareSimulation } = await import('../../campaign/prepareSimulation');
+  await act(async () => {
+    action();
+    await prepareSimulation();
+  });
+  const apply = screen.queryByRole('button', { name: 'Применить шаг' });
+  if (apply) await act(async () => { fireEvent.click(apply); });
+}
+export const step = () => timeAction(() => { fireEvent.click(within(tempoGroup()).getByRole('button', { name: 'Шаг' })); });
 
 /** Стол со всеми видами секретов: скрытый бросок, отклонённое и принятое предложения, ждущие предложения, факты мастера. */
 export function storeWithSecrets() {

@@ -1,10 +1,16 @@
 // Сид мок-кампании §13 поверх event log: начальное состояние + короткий лог. Одна команда — seedEngine().
 // Текущие хиты (41/49 у Bo, 45/65 у капитана) — не начальные значения, а урон в логе: так сид проходит
 // той же дорогой, что живая сессия, и Ctrl+Z работает на нём с первой секунды.
-import type { DomainEvent } from '../engine/events';
-import type { EventStore } from '../engine/persist';
-import { emptyState, type Actor, type CharacterSheet, type State } from '../engine/state';
+import type { CampaignProfile, DomainEvent } from '../engine/events';
+import { EventStoreReadError, memoryStore, type EventStore } from '../engine/persist';
+import { emptyState, SECONDS_PER_DAY, type Actor, type CharacterSheet, type State } from '../engine/state';
+import { ref, type EntityKind } from '../entities/ref';
+import { migrateLegacyInventory } from '../engine/inventory';
 import { createEngineStore, type CreateEngineOptions, type EngineStoreApi } from '../engine/store';
+import { settingDataFor } from '../packages/registry';
+import { builtInCampaignContent, builtInCampaignForId } from '../packages/campaigns';
+import { parseAdventureBundle } from '../packages/adventure';
+import { parseCalendarProfile, parseScaleLadderProfile } from '../packages/settingData';
 import { MONSTERS, type MonsterId } from '../rules/srd/monsters';
 import { secOf } from './calendar';
 import { abilityMod, deriveCharacter, passivePerception, type DerivedCharacter, type PcSpec } from './derive';
@@ -23,6 +29,7 @@ const INITIATIVE: Readonly<Record<string, number>> = {
 export function sheetOf(spec: PcSpec, d: DerivedCharacter): CharacterSheet {
   return {
     level: spec.level,
+    ...(spec.portrait ? { portrait: spec.portrait } : {}),
     raceId: spec.raceId,
     subraceId: spec.subraceId,
     classId: spec.classId,
@@ -104,7 +111,96 @@ export function seedState(): State {
   s.party = PARTY.map(p => p.id);
   s.facts = seedFacts();
   s.world = seedWorld(SEED_SEC);
-  return s;
+  return migrateLegacyInventory(s);
+}
+
+/** Build a clean campaign profile from its setting and optional authored scenario; rules remain independent. */
+export function createCampaignProfile(settingPackageId: string, campaignPackageId?: string): CampaignProfile {
+  const campaign = builtInCampaignForId(campaignPackageId);
+  if (campaignPackageId && !campaign) throw new Error(`Пакет кампании не найден: ${campaignPackageId}`);
+  if (campaign && campaign.settingPackageId !== settingPackageId) throw new Error(`Кампания ${campaignPackageId} требует сеттинг ${campaign.settingPackageId}.`);
+  const ladder = parseScaleLadderProfile(settingDataFor(settingPackageId, 'ladder'), settingPackageId);
+  const calendar = parseCalendarProfile(settingDataFor(settingPackageId, 'calendar'));
+  let defaultEntryLocationId: string | undefined;
+  let entryRank = -1;
+  for (const root of ladder.roots) {
+    const rank = ladder.rankOrder.indexOf(root.scale);
+    if (rank > entryRank) { entryRank = rank; defaultEntryLocationId = root.id; }
+  }
+  const entryLocationId = campaign?.entryLocationId ?? defaultEntryLocationId;
+  if (campaign?.entryLocationId && !ladder.roots.some(root => root.id === campaign.entryLocationId)) {
+    throw new Error(`Стартовая точка кампании ${campaignPackageId} отсутствует в лестнице ${settingPackageId}.`);
+  }
+  const startTimeSec = calendar.kind === 'counter'
+    ? (1 - calendar.epoch.day) * SECONDS_PER_DAY
+      - (calendar.epoch.hour ?? 0) * 3600 - (calendar.epoch.minute ?? 0) * 60 + 8 * 3600
+    : 0;
+  return {
+    schema: 'campaign-profile/1', baseline: 'empty-campaign', settingPackageId,
+    ...(campaignPackageId && campaign ? { campaignPackageId, campaignBundle: structuredClone(campaign.adventure) } : {}),
+    ...(entryLocationId ? { entryLocationId } : {}), rulesPackageId: null,
+    startTimeSec,
+  };
+}
+
+/** Setting roots are campaign navigation nodes; an optional template contributes catalog content only. */
+export function seedStateForProfile(profile: CampaignProfile): State {
+  const ladder = parseScaleLadderProfile(settingDataFor(profile.settingPackageId, 'ladder'), profile.settingPackageId);
+  const state = emptyState();
+  state.settingPackageId = profile.settingPackageId;
+  state.time = { sec: profile.startTimeSec ?? 0, tempo: 'hour' };
+  const roots = Object.fromEntries(ladder.roots.map(root => [root.id, {
+    id: root.id, name: root.name, scale: root.scale,
+    ...(root.parentId ? { parentId: root.parentId } : {}),
+    ...(root.ref ? { ref: ref(root.ref.kind as EntityKind, root.ref.id) } : {}),
+    ...(root.geo ? { geo: root.geo } : {}),
+  }]));
+  if (profile.entryLocationId && !roots[profile.entryLocationId]) throw new Error(`стартовое место ${profile.entryLocationId} отсутствует в лестнице ${profile.settingPackageId}`);
+  state.startLocationId = profile.entryLocationId;
+  const campaignBundle = profile.campaignPackageId
+    ? profile.campaignBundle
+      ? parseAdventureBundle(profile.campaignBundle)
+      : builtInCampaignForId(profile.campaignPackageId)?.adventure
+    : undefined;
+  if (profile.campaignPackageId && (!campaignBundle || campaignBundle.id !== profile.campaignPackageId || campaignBundle.setting !== profile.settingPackageId)) {
+    throw new Error(`Снимок кампании ${profile.campaignPackageId} не совпадает с выбранным сеттингом.`);
+  }
+  const campaignContent = profile.campaignPackageId && campaignBundle
+    ? builtInCampaignContent(profile.campaignPackageId, campaignBundle)
+    : undefined;
+  state.world = {
+    locations: roots,
+    factions: {},
+    threads: {},
+    ...(campaignContent ? { importedContent: { [campaignContent.id]: campaignContent } } : {}),
+  };
+  let settingRootId = profile.entryLocationId;
+  const seen = new Set<string>();
+  while (settingRootId && roots[settingRootId]?.parentId && !seen.has(settingRootId)) {
+    seen.add(settingRootId);
+    settingRootId = roots[settingRootId].parentId;
+  }
+  if (settingRootId && roots[settingRootId]) state.settingRootId = settingRootId;
+  return state;
+}
+
+/** Legacy event logs have no campaign root and continue to use the original FR demo seed. */
+export function campaignProfileFromEvents(events: readonly DomainEvent[]): CampaignProfile | undefined {
+  const first = events[0];
+  return first?.type === 'CAMPAIGN_CREATED' ? (first.payload as { profile?: CampaignProfile }).profile : undefined;
+}
+
+/** Choose the initial state from the immutable first event, preserving old FR log compatibility. */
+export function seedStateForEvents(events: readonly DomainEvent[]): State {
+  const profile = campaignProfileFromEvents(events);
+  return profile ? seedStateForProfile(profile) : seedState();
+}
+
+function initialEvents(profile?: CampaignProfile): DomainEvent[] {
+  if (!profile) return seedLog();
+  return [{
+    id: 'campaign-created', seq: 0, at: 0, worldSec: 0, type: 'CAMPAIGN_CREATED', payload: { profile },
+  }];
 }
 
 /**
@@ -132,29 +228,87 @@ export function seedLog(): DomainEvent[] {
  * (сид в нём первые две записи), иначе лог сида; всё, что стор запишет дальше, уходит в то же хранилище.
  *
  * Лог из хранилища может перестать реплеиться — сид изменился, формат другой, запись битая. Тогда стол
- * не должен падать навсегда: хранилище очищается, стор поднимается из сида, а причина уходит в `onRecover`
- * (по умолчанию — console.warn), чтобы потеря сессии не прошла молча.
+ * сохраняет исходную строку в копию, восстанавливается из сида и сообщает причину через `onRecover`.
+ * Если исходную строку нельзя надёжно скопировать или чтение недоступно, основной ключ не трогается.
  */
 export function seedEngine(opts: SeedEngineOptions = {}): EngineStoreApi {
-  const { persist, onRecover = reason => console.warn(`лог сессии не поднялся, стол собран из сида заново: ${reason}`), ...rest } = opts;
+  const { persist, campaignProfile, onRecover = reason => console.warn(`лог сессии не поднялся, стол собран из сида заново: ${reason}`), onRecoveryCopy, ...rest } = opts;
+  const reportExistingRecoveryCopy = () => {
+    try {
+      const raw = persist?.loadRecoveryCopy?.();
+      if (raw !== null && raw !== undefined) onRecoveryCopy?.(raw);
+    } catch { /* recovery copy is an optional export path */ }
+  };
+  reportExistingRecoveryCopy();
+  let cachedEvents: DomainEvent[] | null | undefined;
+  const storedEvents = () => {
+    if (cachedEvents === undefined) cachedEvents = persist?.load() ?? null;
+    return cachedEvents;
+  };
+  const defaults = () => initialEvents(campaignProfile);
   const primed: EventStore = {
-    load: () => persist?.load() ?? seedLog(),
+    load: () => storedEvents() ?? defaults(),
     save: events => persist?.save(events),
     clear: () => persist?.clear(),
   };
+  const baseEvents = (events: readonly DomainEvent[]) => {
+    const profile = campaignProfileFromEvents(events);
+    return profile ? seedStateForProfile(profile) : seedState();
+  };
+  const fallback = (profile = campaignProfile) => {
+    const events = initialEvents(profile);
+    const memory = memoryStore();
+    memory.save(events);
+    return createEngineStore(baseEvents(events), { ...rest, persist: memory });
+  };
   try {
-    return createEngineStore(seedState(), { ...rest, persist: primed });
+    const events = primed.load()!;
+    return createEngineStore(baseEvents(events), { ...rest, persist: primed });
   } catch (err) {
     if (!persist) throw err;
+    const reason = err instanceof Error ? err.message : String(err);
+
+    // A read failure does not prove that the saved log is invalid. Preserve the key and
+    // continue with a memory-only seed so the next user action cannot overwrite unseen data.
+    if (err instanceof EventStoreReadError) {
+      onRecover(reason, null);
+      return fallback();
+    }
+
+    // Keep the exact stored text available before replacing the main key. If the adapter cannot
+    // prove that it retained and can return that text, leave the source untouched and recover in memory.
+    let recoveryCopy: string | null = null;
+    try {
+      if (persist.preserveRecoveryCopy?.() === true) {
+        recoveryCopy = persist.loadRecoveryCopy?.() ?? null;
+      }
+    } catch { /* fall through to memory recovery without touching the source */ }
+    if (recoveryCopy === null) {
+      onRecover(reason, null);
+      return fallback(campaignProfileFromEvents(cachedEvents ?? []) ?? campaignProfile);
+    }
+
+    onRecover(reason, recoveryCopy);
+    // The source text is now recoverable from its copy. Do not read the failing store a second time;
+    // write the rebuilt seed through this adapter.
     persist.clear();
-    onRecover(err instanceof Error ? err.message : String(err));
-    const store = createEngineStore(seedState(), { ...rest, persist: primed });
+    const rebuiltEvents = initialEvents(campaignProfileFromEvents(cachedEvents ?? []) ?? campaignProfile);
+    const rebuilt: EventStore = {
+      load: () => rebuiltEvents,
+      save: events => persist.save(events),
+      clear: () => persist.clear(),
+    };
+    const store = createEngineStore(baseEvents(rebuiltEvents), { ...rest, persist: rebuilt });
     persist.save(store.getState().events); // битого лога больше нет — на его месте сразу сид
     return store;
   }
 }
 
 export interface SeedEngineOptions extends CreateEngineOptions {
-  /** Хранилище не поднялось и очищено: сюда — причина. Тесты и страница подставляют своё. */
-  onRecover?: (reason: string) => void;
+  /** Profile for a new empty campaign; legacy/demo sessions keep the historical FR seed. */
+  campaignProfile?: CampaignProfile;
+  /** Хранилище не поднялось: причина и точная исходная строка, если она надёжно сохранена. */
+  onRecover?: (reason: string, recoveryCopy?: string | null) => void;
+  /** Ранее сохранённая исходная строка доступна даже после перезагрузки. */
+  onRecoveryCopy?: (recoveryCopy: string) => void;
 }

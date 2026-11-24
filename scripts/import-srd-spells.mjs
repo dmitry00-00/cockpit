@@ -4,15 +4,11 @@
 // английские имена — по ним ищут в книгах. Списки классов — из поля `classes` каждого заклинания (это списки
 // заклинаний классов SRD); заклинания подклассов SRD (домен Жизни, клятва Преданности, круг Земли по местности,
 // покровитель Исчадие) — из /subclasses/<id> с уровнем класса, с которого они даются.
-// Руками не править — перезапустить: `node scripts/import-srd-spells.mjs`. Сеть нужна только импортёру;
+// Руками не править — перезапустить: `npm run import:srd -- spell`. Сеть нужна только импортёру;
 // ошибка сети — ошибка импорта, частичный файл не пишется.
-import { mkdir, writeFile } from 'node:fs/promises';
-import { dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { getSrdImportDefinition, writeSrdImport } from './srd-import-registry.mjs';
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const OUT = resolve(ROOT, 'content/srd/spells.json');
-const API = 'https://www.dnd5eapi.co/api/2014';
+const API = getSrdImportDefinition('spell').apiBase;
 
 /** Подклассы SRD с собственными списками заклинаний: индекс API → класс. */
 const SUBCLASSES = { life: 'cleric', devotion: 'paladin', land: 'druid', fiend: 'warlock' };
@@ -95,12 +91,7 @@ for (const [sub, v] of Object.entries(subclassSpells)) {
   for (const s of v.spells) if (!ids.has(s.id)) throw new Error(`${sub}: заклинания ${s.id} нет в списке SRD`);
 }
 
-await mkdir(dirname(OUT), { recursive: true });
-const out = {
-  source: `SRD 5.1 (CC-BY-4.0) via ${API}/spells`,
-  fetchedAt: new Date().toISOString().slice(0, 10),
+await writeSrdImport('spell', {
   spells,
   subclassSpells,
-};
-await writeFile(OUT, `${JSON.stringify(out, null, 1)}\n`);
-console.log(`→ ${OUT}`);
+});

@@ -1,0 +1,193 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "organization",
+  "entities": [
+    {
+      "ref": "organization:house-targaryen",
+      "kind": "organization",
+      "name": "House Targaryen",
+      "nameRu": "Дом Таргариенов",
+      "subtitle": "A Game of Thrones · Daenerys I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус",
+          "value": "упоминается или представлена в Daenerys I"
+        },
+        {
+          "label": "Сверка",
+          "value": "по вторичному указателю AWOIAF; первичный текст не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Дом, к которому принадлежат изгнанные Дейенерис и Визерис; сведения ограничены их положением в начальной главе."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Viserys Targaryen",
+          "ref": "person:viserys-targaryen"
+        }
+      ]
+    },
+    {
+      "ref": "organization:khalasar-of-drogo",
+      "kind": "organization",
+      "name": "Khalasar of Khal Drogo",
+      "nameRu": "Кхаласар Дрого",
+      "subtitle": "A Game of Thrones · Daenerys I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус",
+          "value": "упоминается или представлена в Daenerys I"
+        },
+        {
+          "label": "Сверка",
+          "value": "по вторичному указателю AWOIAF; первичный текст не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Свита Дрого; её представители присутствуют на встрече в Пентосе."
+        }
+      ],
+      "links": [
+        {
+          "label": "Drogo",
+          "ref": "person:drogo"
+        },
+        {
+          "label": "Pentos",
+          "ref": "place:pentos"
+        }
+      ]
+    },
+    {
+      "ref": "organization:house-clegane",
+      "kind": "organization",
+      "name": "House Clegane",
+      "nameRu": "Дом Клиганов",
+      "subtitle": "A Game of Thrones · Eddard I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_4",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус",
+          "value": "упоминается или представлена в Eddard I"
+        },
+        {
+          "label": "Сверка",
+          "value": "по вторичному указателю AWOIAF; первичный текст не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Дом Сандора Клигана; история и владения пока не описываются."
+        }
+      ],
+      "links": [
+        {
+          "label": "Sandor Clegane",
+          "ref": "person:sandor-clegane"
+        }
+      ]
+    },
+    {
+      "ref": "organization:house-cassel",
+      "kind": "organization",
+      "name": "House Cassel",
+      "nameRu": "Дом Касселей",
+      "subtitle": "A Game of Thrones · Arya I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Arya I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_7",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус",
+          "value": "упоминается или представлена в Arya I"
+        },
+        {
+          "label": "Сверка",
+          "value": "по вторичному указателю AWOIAF; первичный текст не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Дом, связанный с Бет и Родриком Касселями; дополнительные сведения ожидают проверки."
+        }
+      ],
+      "links": [
+        {
+          "label": "Beth Cassel",
+          "ref": "person:beth-cassel"
+        },
+        {
+          "label": "Rodrik Cassel",
+          "ref": "person:rodrik-cassel"
+        }
+      ]
+    },
+    {
+      "ref": "organization:house-poole",
+      "kind": "organization",
+      "name": "House Poole",
+      "nameRu": "Дом Пулей",
+      "subtitle": "A Game of Thrones · Arya I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Arya I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_7",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус",
+          "value": "упоминается или представлена в Arya I"
+        },
+        {
+          "label": "Сверка",
+          "value": "по вторичному указателю AWOIAF; первичный текст не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Дом, к которому принадлежит Джейни Пуль; детали не расширяются за пределы опорной главы."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jeyne Poole",
+          "ref": "person:jeyne-poole"
+        }
+      ]
+    }
+  ]
+}

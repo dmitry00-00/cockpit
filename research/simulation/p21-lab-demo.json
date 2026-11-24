@@ -1,0 +1,213 @@
+{
+  "reproducibility": {
+    "repeatedRunFingerprintEqual": true,
+    "repeatedOutputFingerprintEqual": true,
+    "savedDefinitionRoundTripPreservesRun": true,
+    "changedInputChangesRunFingerprint": true,
+    "missingNumericAttributionRejected": true,
+    "frozenInputMutationRejected": true,
+    "proposalRemainsDraft": true,
+    "campaignEventWrites": 0,
+    "activeCampaignWrites": 0
+  },
+  "report": {
+    "format": "dm-cockpit.isolated-lab-report",
+    "schemaVersion": 1,
+    "runFingerprint": "ed720df9ce890fb0346b4424806b243730683f2cd4c42c8845cbdd6487d41750",
+    "outputFingerprint": "0928d43e89dac5dc4b8b4a3560da5f7acdf570e9e2194caa212fcdf1b402d181",
+    "definition": {
+      "assumptions": [
+        {
+          "id": "demo-is-not-a-game-rule",
+          "sourceRef": "scripts/p21-lab-contract-demo.mjs#kernel",
+          "statement": "Демонстрационная сумма иллюстрирует только формат, а не механику D&D.",
+          "status": "assumed"
+        }
+      ],
+      "engine": {
+        "contentDigest": "sha256:c8ab06d49c952e70c1ab8b7f58c404ba9e1fc5e8aac334788651ef9df38bae54",
+        "id": "p21-contract-demo-kernel",
+        "sourceRef": "scripts/p21-lab-contract-demo.mjs#kernel",
+        "version": "1.0.0"
+      },
+      "format": "dm-cockpit.isolated-lab-run",
+      "inputs": [
+        {
+          "id": "saved-input-1",
+          "kind": "other",
+          "numericFacts": [
+            {
+              "id": "left-input",
+              "origin": {
+                "kind": "homebrew",
+                "note": "Условное число демонстрационного сценария.",
+                "rulesetId": "demo-homebrew-rules"
+              },
+              "path": "/left",
+              "value": 2
+            },
+            {
+              "id": "right-input",
+              "origin": {
+                "kind": "homebrew",
+                "note": "Условное число демонстрационного сценария.",
+                "rulesetId": "demo-homebrew-rules"
+              },
+              "path": "/right",
+              "value": 3
+            }
+          ],
+          "payload": {
+            "left": 2,
+            "right": 3
+          },
+          "sourceRef": "scripts/p21-lab-contract-demo.mjs#saved-input",
+          "version": "1.0.0"
+        }
+      ],
+      "packages": [],
+      "parameters": {
+        "id": "parameters-1",
+        "numericFacts": [
+          {
+            "id": "die-sides",
+            "origin": {
+              "kind": "homebrew",
+              "note": "Условный параметр демонстрационного генератора.",
+              "rulesetId": "demo-homebrew-rules"
+            },
+            "path": "/sides",
+            "value": 20
+          }
+        ],
+        "payload": {
+          "operation": "sum",
+          "sides": 20
+        },
+        "sourceRef": "scripts/p21-lab-contract-demo.mjs#parameters",
+        "version": "1.0.0"
+      },
+      "randomness": {
+        "algorithm": "mulberry32-v1",
+        "mode": "seeded",
+        "seed": "p21-demo-seed-1"
+      },
+      "rulesets": [
+        {
+          "contentDigest": "sha256:c8ab06d49c952e70c1ab8b7f58c404ba9e1fc5e8aac334788651ef9df38bae54",
+          "edition": "illustrative",
+          "id": "demo-homebrew-rules",
+          "layer": "HB",
+          "license": "internal demonstration",
+          "sourceRef": "scripts/p21-lab-contract-demo.mjs#kernel",
+          "system": "DM Cockpit contract demo",
+          "version": "1.0.0"
+        }
+      ],
+      "scenario": {
+        "id": "p21-contract-arithmetic-example",
+        "kind": "mechanic",
+        "sourceRef": "scripts/p21-lab-contract-demo.mjs#scenario",
+        "title": "Пример происхождения чисел",
+        "version": "1.0.0"
+      },
+      "schemaVersion": 1
+    },
+    "inputFingerprints": [
+      {
+        "id": "saved-input-1",
+        "version": "1.0.0",
+        "fingerprint": "a3cc8a4786af841adc5ad45eb26189c65ad962ca103711fae0d884a0c5a12f45"
+      }
+    ],
+    "parameterFingerprint": "a3e5b2d47b64135defe721b39c1f0f7c5280d0aae9129577af54962227a7317e",
+    "result": {
+      "id": "result-1",
+      "numericFacts": [
+        {
+          "id": "sum-result",
+          "origin": {
+            "formula": "left + right",
+            "kind": "derived",
+            "rulesetId": "demo-homebrew-rules",
+            "sourceFactIds": [
+              "left-input",
+              "right-input"
+            ]
+          },
+          "path": "/total",
+          "value": 5
+        },
+        {
+          "id": "seeded-die-result",
+          "origin": {
+            "formula": "mulberry32-v1(seed).die(sides)",
+            "kind": "derived",
+            "rulesetId": "demo-homebrew-rules",
+            "sourceFactIds": [
+              "die-sides"
+            ]
+          },
+          "path": "/randomSample",
+          "value": 5
+        }
+      ],
+      "payload": {
+        "randomSample": 5,
+        "total": 5
+      },
+      "sourceRef": "scripts/p21-lab-contract-demo.mjs#kernel-result",
+      "version": "1.0.0"
+    },
+    "findings": [],
+    "changes": [
+      {
+        "afterFactIds": [
+          "sum-result"
+        ],
+        "beforeFactIds": [
+          "left-input",
+          "right-input"
+        ],
+        "description": "Рассчитан результат демонстрационного примера.",
+        "id": "calculated-total",
+        "targetRef": "demo:total"
+      }
+    ],
+    "uncertainty": [
+      {
+        "affectedFactIds": [
+          "sum-result",
+          "seeded-die-result"
+        ],
+        "assumptionIds": [
+          "demo-is-not-a-game-rule"
+        ],
+        "description": "Этот kernel проверяет форму отчёта и не исполняет игровую механику.",
+        "id": "not-a-game-rule",
+        "level": "high"
+      }
+    ],
+    "proposalDrafts": [
+      {
+        "changeIds": [
+          "calculated-total"
+        ],
+        "summary": "Показывает форму отдельного предложения на проверку.",
+        "targetRef": "demo:total",
+        "title": "Демонстрационный черновик мастеру",
+        "id": "lab-proposal:ed720df9ce890fb0346b4424806b243730683f2cd4c42c8845cbdd6487d41750:1",
+        "status": "draft",
+        "reviewAudience": "gm",
+        "sourceRunFingerprint": "ed720df9ce890fb0346b4424806b243730683f2cd4c42c8845cbdd6487d41750"
+      }
+    ],
+    "executionBoundary": {
+      "mode": "isolated-read-only",
+      "campaignStateCapabilityProvided": false,
+      "campaignWriteCapabilityProvided": false,
+      "campaignEventWrites": 0,
+      "activeCampaignWrites": 0
+    }
+  }
+}

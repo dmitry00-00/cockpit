@@ -35,6 +35,7 @@ export const PARTY_LEVEL = 5;
 export const BO: PcSpec = {
   id: 'bo',
   name: 'Bo Tambernack',
+  portrait: 'bo-portrait',
   raceId: 'poluroslik',
   subraceId: 'poluroslik-legkonogiy',
   classId: 'sledopyt',
@@ -55,6 +56,7 @@ export const BO: PcSpec = {
 export const KORRIN: PcSpec = {
   id: 'korrin',
   name: 'Korrin Battlehammer',
+  portrait: 'codex-korrin-v1',
   raceId: 'dvarf',
   subraceId: 'dvarf-holmovoy',
   classId: 'voin',
@@ -71,6 +73,7 @@ export const KORRIN: PcSpec = {
 export const LYRA: PcSpec = {
   id: 'lyra',
   name: 'Lyra Moonwhisper',
+  portrait: 'codex-lyra-v1',
   raceId: 'el-f',
   subraceId: 'el-f-vyssiy',
   classId: 'volsebnik',
@@ -95,6 +98,7 @@ export const LYRA: PcSpec = {
 export const ALDRIC: PcSpec = {
   id: 'aldric',
   name: 'Brother Aldric',
+  portrait: 'codex-aldric-v1',
   raceId: 'celovek',
   classId: 'jrec',
   subclassId: 'jrec-jizni',

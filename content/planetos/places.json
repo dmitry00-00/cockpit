@@ -1,0 +1,335 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "place",
+  "entities": [
+    {
+      "ref": "place:westeros",
+      "kind": "place",
+      "name": "Westeros",
+      "nameRu": "Вестерос",
+      "subtitle": "A Game of Thrones · Prologue",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Prologue; A Wiki of Ice and Fire, chapter index (appearance/mention status)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Prologue",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Prologue"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Континент, названный в справочнике главы пролога; для пилота география не привязана к карте."
+        }
+      ],
+      "links": [
+        {
+          "label": "The North",
+          "ref": "place:the-north"
+        },
+        {
+          "label": "Стена",
+          "ref": "place:the-wall"
+        }
+      ]
+    },
+    {
+      "ref": "place:the-north",
+      "kind": "place",
+      "name": "The North",
+      "nameRu": "Север",
+      "subtitle": "A Game of Thrones · Catelyn I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn I; A Wiki of Ice and Fire, chapter index (appearance/mention status)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_2",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Catelyn I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Регион, связанный со Старками и Винтерфеллом; точные границы и координаты в пилоте не задаются."
+        }
+      ],
+      "links": [
+        {
+          "label": "Westeros",
+          "ref": "place:westeros"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "place:winterfell",
+      "kind": "place",
+      "name": "Winterfell",
+      "nameRu": "Винтерфелл",
+      "subtitle": "A Game of Thrones · Bran I; Catelyn I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran I; Catelyn I; A Wiki of Ice and Fire, chapter index (appearance/mention status)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_2",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется/назван"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Bran I; Catelyn I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Родовой замок Старков и место, куда возвращается отряд Эддарда; здесь ожидают короля и его двор."
+        }
+      ],
+      "links": [
+        {
+          "label": "The North",
+          "ref": "place:the-north"
+        },
+        {
+          "label": "House Stark",
+          "ref": "organization:house-stark"
+        },
+        {
+          "label": "Богороща Винтерфелла",
+          "ref": "place:godswood-of-winterfell"
+        },
+        {
+          "label": "королевский двор едет в Винтерфелл",
+          "ref": "event:royal-party-bound-for-winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "place:godswood-of-winterfell",
+      "kind": "place",
+      "name": "Godswood of Winterfell",
+      "nameRu": "Богороща Винтерфелла",
+      "subtitle": "A Game of Thrones · Catelyn I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn I; A Wiki of Ice and Fire, chapter index (appearance/mention status)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_2",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "место сцены"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Catelyn I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Место разговора Катлин и Эддарда; связанное со старой верой Старков."
+        }
+      ],
+      "links": [
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        }
+      ]
+    },
+    {
+      "ref": "place:hills-north-of-winterfell",
+      "kind": "place",
+      "name": "Hills north of Winterfell",
+      "nameRu": "Холмы к северу от Винтерфелла",
+      "subtitle": "A Game of Thrones · Bran I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran I; A Wiki of Ice and Fire, chapter index (appearance/mention status)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_1",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "место сцены"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Bran I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Холмы и укреплённая усадьба, где Эддард исполняет приговор; на обратном пути отряд находит волчат."
+        }
+      ],
+      "links": [
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        },
+        {
+          "label": "казнь дезертира",
+          "ref": "event:deserter-executed"
+        },
+        {
+          "label": "волчата найдены",
+          "ref": "event:direwolf-pups-found"
+        }
+      ]
+    },
+    {
+      "ref": "place:haunted-forest",
+      "kind": "place",
+      "name": "Haunted Forest",
+      "nameRu": "Призрачный лес",
+      "subtitle": "A Game of Thrones · Prologue",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Prologue; A Wiki of Ice and Fire, chapter index (appearance/mention status)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Prologue",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "место сцены"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Prologue"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Лес за Стеной, где патруль Ночного Дозора выслеживает одичалых."
+        }
+      ],
+      "links": [
+        {
+          "label": "Westeros",
+          "ref": "place:westeros"
+        },
+        {
+          "label": "Стена",
+          "ref": "place:the-wall"
+        },
+        {
+          "label": "Night's Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Beyond the Wall",
+          "ref": "place:beyond-the-wall"
+        }
+      ]
+    },
+    {
+      "ref": "place:the-wall",
+      "kind": "place",
+      "name": "The Wall",
+      "nameRu": "Стена",
+      "subtitle": "A Game of Thrones · Prologue; Catelyn I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Prologue; Catelyn I; A Wiki of Ice and Fire, chapter index (appearance/mention status)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Prologue",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "упоминается/служит ориентиром"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Prologue; Catelyn I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Северная граница королевств в стартовых главах; Бенджен служит в Ночном Дозоре."
+        }
+      ],
+      "links": [
+        {
+          "label": "Westeros",
+          "ref": "place:westeros"
+        },
+        {
+          "label": "Night's Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Призрачный лес",
+          "ref": "place:haunted-forest"
+        }
+      ]
+    }
+  ]
+}

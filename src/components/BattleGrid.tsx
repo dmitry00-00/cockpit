@@ -10,8 +10,10 @@
 // в нём есть, повторено токенами (клетка в сводке) и title. Строки классов полные: Tailwind ищет их в исходнике.
 
 import type { Actor } from '../engine';
-import { Icon, type IconName } from '../icons/Icon';
+import { useLayoutEffect, useRef, useState } from 'react';
+import { Icon } from '../icons/Icon';
 import { CONDITIONS, type ConditionId } from '../rules/srd';
+import { ConditionMark } from '../art/ConditionMark';
 import { ENTITY, type EntityType } from './EntityCard';
 import { hpText, hpWord, type HpTriple } from './HpBar';
 import { TokenHpStrip } from './InitiativeToken';
@@ -40,6 +42,8 @@ export interface BattleGridProps {
   rows: number;
   /** Сторона клетки в px, кратна 4; по умолчанию 48. */
   cell?: number;
+  /** Уменьшает клетки под доступную ширину контейнера. */
+  fitToWidth?: boolean;
   tokens: readonly BattleToken[];
   walls?: readonly BattleWall[];
   cone?: BattleCone;
@@ -53,6 +57,13 @@ export interface BattleGridProps {
 }
 
 export const BATTLE_CELL_DEFAULT = 48;
+
+/** Клетка под доступную ширину; минимум 32px, округление вниз до кратных 4. */
+export function fitBattleCell(availableWidth: number, cols: number, preferred: number, minimum = 32): number {
+  if (availableWidth <= 0 || cols <= 0) return preferred;
+  const fitting = Math.floor(availableWidth / cols / 4) * 4;
+  return Math.max(minimum, Math.min(preferred, fitting));
+}
 
 /** Сколько иконок состояний помещается над токеном. */
 export const TOKEN_CONDITIONS_MAX = 3;
@@ -141,20 +152,38 @@ export function battleTokenOf(actor: Actor, pos: { x: number; y: number }, opts:
 }
 
 export function BattleGrid({
-  cols, rows, cell = BATTLE_CELL_DEFAULT, tokens, walls = [], cone, affected = [], activeId, selectedId, onSelect, className = '',
+  cols, rows, cell = BATTLE_CELL_DEFAULT, fitToWidth = false, tokens, walls = [], cone, affected = [], activeId, selectedId, onSelect, className = '',
 }: BattleGridProps) {
-  const width = cols * cell;
-  const height = rows * cell;
+  const frameRef = useRef<HTMLDivElement>(null);
+  const [availableWidth, setAvailableWidth] = useState(0);
+  useLayoutEffect(() => {
+    if (!fitToWidth) return;
+    const frame = frameRef.current;
+    if (!frame) return;
+    const update = () => setAvailableWidth(frame.clientWidth);
+    update();
+    if (typeof ResizeObserver === 'undefined') {
+      window.addEventListener('resize', update);
+      return () => window.removeEventListener('resize', update);
+    }
+    const observer = new ResizeObserver(update);
+    observer.observe(frame);
+    return () => observer.disconnect();
+  }, [fitToWidth]);
+  const cellSize = fitToWidth ? fitBattleCell(availableWidth, cols, cell) : cell;
+  const width = cols * cellSize;
+  const height = rows * cellSize;
   const hit = new Set(affected);
   const lines: { key: string; x1: number; y1: number; x2: number; y2: number }[] = [];
-  for (let x = 0; x <= cols; x++) lines.push({ key: `v${x}`, x1: x * cell, y1: 0, x2: x * cell, y2: height });
-  for (let y = 0; y <= rows; y++) lines.push({ key: `h${y}`, x1: 0, y1: y * cell, x2: width, y2: y * cell });
-  return (
+  for (let x = 0; x <= cols; x++) lines.push({ key: `v${x}`, x1: x * cellSize, y1: 0, x2: x * cellSize, y2: height });
+  for (let y = 0; y <= rows; y++) lines.push({ key: `h${y}`, x1: 0, y1: y * cellSize, x2: width, y2: y * cellSize });
+  const grid = (
     <div
       role="group"
       aria-label="Боевая сетка"
       data-cols={cols}
       data-rows={rows}
+      data-cell={cellSize}
       className={`relative flex-none bg-wl shadow-bevel-in ${className}`}
       style={{ width, height }}
     >
@@ -164,10 +193,10 @@ export function BattleGrid({
           <rect
             key={`w${i}`}
             data-part="wall"
-            x={w.x * cell}
-            y={w.y * cell}
-            width={(w.w ?? 1) * cell}
-            height={(w.h ?? 1) * cell}
+            x={w.x * cellSize}
+            y={w.y * cellSize}
+            width={(w.w ?? 1) * cellSize}
+            height={(w.h ?? 1) * cellSize}
             fill="var(--cd)"
             stroke="var(--br)"
             strokeWidth={2}
@@ -178,7 +207,7 @@ export function BattleGrid({
         {cone ? (
           <polygon
             data-part="cone"
-            points={conePoints(cone, cell)}
+            points={conePoints(cone, cellSize)}
             fill="var(--fx-buff)"
             fillOpacity={0.28}
             stroke="var(--fx-buff-hi)"
@@ -207,7 +236,7 @@ export function BattleGrid({
             title={battleTokenTitle(t, inCone)}
             onClick={() => onSelect?.(t.id)}
             className={`absolute flex items-center justify-center cursor-pointer ${active ? 'bg-pl z-10' : 'bg-linear-to-b from-pl to-cd'} ${battleTokenShadow(active, selected, inCone)} ${t.down ? 'opacity-(--op-disabled)' : ''}`}
-            style={{ left: t.x * cell + 2, top: t.y * cell + 2, width: cell - 4, height: cell - 4 }}
+            style={{ left: t.x * cellSize + 2, top: t.y * cellSize + 2, width: cellSize - 4, height: cellSize - 4 }}
           >
             <span className="sr-only">{battleTokenDescription(t, inCone)}</span>
             <Icon name={ent.icon} size={24} color={t.down ? 'var(--t3)' : 'var(--tx)'} title={ent.label} />
@@ -217,9 +246,9 @@ export function BattleGrid({
                 {conds.map(id => {
                   const c = CONDITIONS[id];
                   return (
-                    <Icon
+                    <ConditionMark
                       key={id}
-                      name={`cond-${id}` as IconName}
+                      condition={id}
                       size={16}
                       color={c.kind === 'buff' ? 'var(--fx-buff-hi)' : 'var(--fx-debuff-hi)'}
                       title={c.label}
@@ -233,6 +262,7 @@ export function BattleGrid({
       })}
     </div>
   );
+  return fitToWidth ? <div ref={frameRef} className="w-full min-w-0 overflow-x-auto">{grid}</div> : grid;
 }
 
 export default BattleGrid;

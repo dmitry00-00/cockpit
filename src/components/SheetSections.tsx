@@ -5,13 +5,17 @@ import type { ReactNode } from 'react';
 import type { CharacterSheet } from '../engine/state';
 import { ABILITIES } from '../rules/srd/abilities';
 import { DAMAGE_LABEL, ITEMS, armorIdOfItem } from '../rules/srd/equipment';
+import { isCoinId } from '../rules/srd/coins';
 import { SCHOOL_LABEL, SPELLS, spellLevelLabel } from '../rules/srd/spells';
 import { featById } from '../rules/compendium';
-import { SKILL_LABEL } from './labels';
+import { ABILITY_LABEL, SKILL_LABEL } from './labels';
 import { IconGrid } from './IconGrid';
 import { featIcon, schoolIcon } from './sheetIcons';
 import type { InventoryItem, SlotId, SlotItem, Weapon } from './Paperdoll';
 import { signedMod } from './StatTile';
+import { useOpenEntity } from './openEntity';
+import { ref } from '../entities/ref';
+import { SPELL_ART, SPELL_SCHOOL_ART } from '../art/semanticBindings';
 
 function Section({ title, right, children }: { title: string; right?: ReactNode; children: ReactNode }) {
   return (
@@ -65,8 +69,10 @@ export function SheetFeats({ sheet }: { sheet: Pick<CharacterSheet, 'feats'> }) 
             key: `${f.at}:${f.id}`,
             icon: featIcon(feat),
             name: f.name,
-            meta: [f.at === 'race' ? 'раса' : `${f.at} ур.`, f.asi ? `+1 ${ABILITIES[f.asi].code}` : ''].filter(Boolean).join(' · '),
-            text: feat?.text ?? '',
+            meta: [f.at === 'race' ? 'раса' : `${f.at} ур.`, f.asi ? `+1 ${ABILITIES[f.asi].code}` : '',
+              (f.source ?? feat?.source) === 'srd' ? 'SRD 5.1' : (f.source ?? feat?.source) === 'book' ? 'книга · издание не указано' : ''].filter(Boolean).join(' · '),
+            text: [feat?.text, f.ruleset ? `Источник данных: ${f.ruleset.id} ${f.ruleset.version} · ${f.ruleset.layer}` : '',
+              (f.source ?? feat?.source) === 'book' ? 'Другие эффекты не автоматизированы.' : ''].filter(Boolean).join('\n\n'),
             ...(feat ? { ref: `feat:${feat.id}` as const } : {}),
           };
         })}
@@ -75,19 +81,32 @@ export function SheetFeats({ sheet }: { sheet: Pick<CharacterSheet, 'feats'> }) 
   );
 }
 
+/** Languages acquired through the supported A5E Train path; starting languages are not inferred here. */
+export function SheetLanguages({ sheet }: { sheet: Pick<CharacterSheet, 'trainedLanguages'> }) {
+  const list = sheet.trainedLanguages ?? [];
+  if (list.length === 0) return null;
+  return (
+    <Section title="Языки, выученные через Train">
+      <ul className="flex flex-col gap-1 type-body-sm text-tx" data-part="trained-languages">
+        {list.map(language => <li key={language.id}>{language.name}</li>)}
+      </ul>
+    </Section>
+  );
+}
+
 /** «1d8 + 3 рубящий» — урон с типом по-русски. */
 const damageText = (damage: string, type: string) => `${damage}${type ? ` ${DAMAGE_LABEL[type] ?? type}` : ''}`;
 
 /** Атаки оружием из снаряжения: бонус и урон уже посчитаны листом. Без владения — подпись, а не цвет. */
-export function SheetAttacks({ sheet, hints = {} }: { sheet: Pick<CharacterSheet, 'attacks'>; hints?: Readonly<Record<string, string>> }) {
+export function SheetAttacks({ sheet, hints = {}, onRoll }: { sheet: Pick<CharacterSheet, 'attacks'>; hints?: Readonly<Record<string, string>>; onRoll?: (attack: NonNullable<CharacterSheet['attacks']>[number]) => void }) {
   const list = sheet.attacks ?? [];
   if (list.length === 0) return null;
   return (
     <Section title="Атаки">
       <ul className="flex flex-col gap-0.5" aria-label="Атаки листа">
         {list.map(a => (
-          <li key={a.id} className="flex items-baseline gap-2 type-body-sm" title={`${a.name}: ${signedMod(a.toHit)} к попаданию, ${damageText(a.damage, a.damageType)}${a.range ? `, дистанция ${a.range} фт` : ''}${a.proficient ? '' : ' · без владения'}${a.disadvantage ? ` · с помехой: ${a.disadvantage}` : ''}${hints[a.id] ? `\nпопадание ${hints[a.id]}` : ''}`}>
-            <span className="type-num-12 text-gd w-7 flex-none">{signedMod(a.toHit)}</span>
+          <li key={a.id} className="flex items-baseline gap-2 type-body-sm" title={`${a.name}: ${signedMod(a.toHit)} к попаданию${a.ability ? ` (${ABILITIES[a.ability].code})` : ''}, ${damageText(a.damage, a.damageType)}${a.range ? `, дистанция ${a.range} фт` : ''}${a.proficient ? '' : ' · без владения'}${a.disadvantage ? ` · с помехой: ${a.disadvantage}` : ''}${hints[a.id] ? `\nпопадание ${hints[a.id]}` : ''}`}>
+            {onRoll ? <button type="button" aria-label={`Атака ${a.name} ${signedMod(a.toHit)}`} title={`Бросить атаку d20 ${signedMod(a.toHit)}${a.ability ? ` · ${ABILITY_LABEL[a.ability]}` : ''}${hints[a.id] ? `\n${hints[a.id]}` : ''}`} onClick={() => onRoll(a)} className="type-num-12 text-gd w-7 flex-none text-left hover:text-tx focus-visible:shadow-[var(--glow-gold)]">{signedMod(a.toHit)}</button> : <span className="type-num-12 text-gd w-7 flex-none">{signedMod(a.toHit)}</span>}
             <span className="text-tx flex-1 min-w-0 truncate">{a.name}{a.proficient ? '' : <span className="type-key text-t3"> без владения</span>}{a.disadvantage ? <span className="type-key text-t3"> с помехой</span> : ''}</span>
             <span className="type-num-12 text-t2 flex-none whitespace-nowrap">{a.damage}</span>
           </li>
@@ -109,7 +128,7 @@ export function spellTitle(id: string): string {
  * Заклинания листа: Сл спасброска и бонус атаки, заговоры, заклинания по кругам; «всегда подготовленные» (домен,
  * клятва) — с пометкой. Имена — английские, как в SRD (по ним ищут в книге).
  */
-export function SheetSpells({ sheet, extra, hint }: { sheet: Pick<CharacterSheet, 'spellcasting'>; extra?: ReactNode; hint?: string }) {
+export function SheetSpells({ sheet, extra, hint, onRollAttack, openSpellId }: { sheet: Pick<CharacterSheet, 'spellcasting'>; extra?: ReactNode; hint?: string; onRollAttack?: () => void; openSpellId?: string }) {
   const sc = sheet.spellcasting;
   if (!sc) return null;
   const leveled = [...sc.spells.map(id => ({ id, always: false })), ...sc.always.map(id => ({ id, always: true }))]
@@ -120,24 +139,28 @@ export function SheetSpells({ sheet, extra, hint }: { sheet: Pick<CharacterSheet
   const item = (id: string, always = false) => ({
     key: id,
     icon: schoolIcon(SPELLS[id].school),
+    art: SPELL_ART[id] ?? SPELL_SCHOOL_ART[SPELLS[id].school],
     name: SPELLS[id].name,
     meta: [SCHOOL_LABEL[SPELLS[id].school], SPELLS[id].concentration ? 'К' : '', always ? 'всегда' : ''].filter(Boolean).join(' · '),
     text: `${spellTitle(id)}\n\n${SPELLS[id].text}`,
     ref: `spell:${id}` as const,
   });
   return (
-    <Section title="Заклинания" right={<span className="type-key text-t2 whitespace-nowrap" title={`Заклинательная характеристика ${ABILITIES[sc.ability].code}: Сл спасброска ${sc.saveDc}, бонус атаки ${signedMod(sc.attack)}${hint ? `\n${hint}` : ''}`}>{ABILITIES[sc.ability].code} · Сл {sc.saveDc} · атака {signedMod(sc.attack)}</span>}>
+    <Section title="Заклинания" right={<div className="flex items-center gap-2 whitespace-nowrap" title={`Заклинательная характеристика ${ABILITIES[sc.ability].code}: Сл спасброска ${sc.saveDc}, бонус атаки ${signedMod(sc.attack)}${hint ? `\n${hint}` : ''}`}><span className="type-key text-t2">{ABILITIES[sc.ability].code} · Сл {sc.saveDc}</span>{onRollAttack ? <button type="button" aria-label={`Атака заклинанием ${signedMod(sc.attack)}`} title={`Бросить атаку заклинанием d20 ${signedMod(sc.attack)}`} onClick={onRollAttack} className="type-key text-gd hover:text-gd-hi focus-visible:shadow-[var(--glow-gold)]">атака {signedMod(sc.attack)}</button> : <span className="type-key text-t2">атака {signedMod(sc.attack)}</span>}</div>}>
       <div className="flex flex-col gap-2" data-part="spells">
         {sc.cantrips.length > 0 ? (
           <div className="flex flex-col gap-1">
             <span className="type-key uppercase text-t2">Заговоры</span>
-            <IconGrid label="Заговоры" items={sc.cantrips.filter(id => SPELLS[id]).map(id => item(id))} />
+            <IconGrid label="Заговоры" initialOpenKey={openSpellId} items={sc.cantrips.filter(id => SPELLS[id]).map(id => item(id))} />
           </div>
+        ) : null}
+        {sc.kind === 'prepared' && sc.preparedLimit !== undefined ? (
+          <p className="type-body-xs text-t3">Подготовлено {sc.spells.length} из {sc.preparedLimit}</p>
         ) : null}
         {levels.map(l => (
           <div key={l} className="flex flex-col gap-1">
             <span className="type-key uppercase text-t2">{l} круг · {kind}</span>
-            <IconGrid label={`Заклинания ${l} круга`} items={leveled.filter(x => SPELLS[x.id].level === l).map(x => item(x.id, x.always))} />
+            <IconGrid label={`Заклинания ${l} круга`} initialOpenKey={openSpellId} items={leveled.filter(x => SPELLS[x.id].level === l).map(x => item(x.id, x.always))} />
           </div>
         ))}
         {extra}
@@ -163,6 +186,7 @@ function itemTitle(id: string): string {
 
 /** Снаряжение списком: надетое — пометкой «надет», наборы — с содержимым в тултипе. */
 export function SheetEquipment({ sheet }: { sheet: Pick<CharacterSheet, 'equipment' | 'armor' | 'shield'> }) {
+  const openEntity = useOpenEntity();
   const list = sheet.equipment ?? [];
   if (list.length === 0) return null;
   const worn = (id: string) => (sheet.armor && armorIdOfItem(id) === sheet.armor) || (id === 'shield' && sheet.shield);
@@ -171,7 +195,7 @@ export function SheetEquipment({ sheet }: { sheet: Pick<CharacterSheet, 'equipme
       <ul className="grid grid-cols-2 gap-x-3 gap-y-0.5" aria-label="Снаряжение листа">
         {list.map(l => (
           <li key={l.id} className="type-body-sm text-tx truncate" title={itemTitle(l.id)}>
-            {itemLabel(l.id, l.qty)}{worn(l.id) ? <span className="type-key text-t3"> надет</span> : null}
+            {openEntity && ITEMS[l.id] ? <button type="button" className="text-gd underline cursor-pointer max-w-full truncate text-left focus-visible:shadow-[var(--glow-gold)]" aria-label={`Открыть предмет: ${ITEMS[l.id].name}`} onClick={() => openEntity(ref('item', l.id))}>{itemLabel(l.id, l.qty)}</button> : itemLabel(l.id, l.qty)}{worn(l.id) ? <span className="type-key text-t3"> надет</span> : null}
           </li>
         ))}
       </ul>
@@ -184,7 +208,7 @@ export function dollExtrasOf(sheet: Pick<CharacterSheet, 'attacks' | 'equipment'
   if (!sheet) return {};
   const weapons = (sheet.attacks ?? []).map(a => ({ name: a.name, hit: signedMod(a.toHit), dmg: a.damage }));
   const inventory = (sheet.equipment ?? [])
-    .filter(l => !ITEMS[l.id]?.weapon && !ITEMS[l.id]?.armor && l.id !== 'shield')
+    .filter(l => !ITEMS[l.id]?.weapon && !ITEMS[l.id]?.armor && l.id !== 'shield' && !isCoinId(l.id))
     .map(l => ({ name: itemLabel(l.id, l.qty), icon: 'ent-item' as const }));
   return { ...(weapons.length ? { weapons } : {}), ...(inventory.length ? { inventory } : {}) };
 }

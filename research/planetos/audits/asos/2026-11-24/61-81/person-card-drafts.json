@@ -1,0 +1,1169 @@
+{
+  "format": "cockpit.entity-layer-draft-set/1",
+  "packageSnapshot": "2026.11.24.38",
+  "sourcePolicy": {
+    "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original short summaries; primary-edition verification pending.",
+    "status": "secondary-indexed-partial",
+    "primaryVerification": "pending",
+    "scope": "ASOS chapters 61–81; P0/P1 appearing named people absent from package .38; candidates selected from local denominator audit; no project files edited."
+  },
+  "payloads": [
+    {
+      "format": "cockpit.entity-layer/1",
+      "kind": "person",
+      "entities": [
+        {
+          "ref": "person:merrett-frey",
+          "kind": "person",
+          "name": "Merrett Frey",
+          "draftPriority": "P0",
+          "subtitle": "A Storm of Swords · Epilogue (ch. 81)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords; Epilogue (ch. 81); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Epilogue",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 81,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Приоритет черновика",
+              "value": "P0"
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "Epilogue (ch. 81) — appearing"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "Ожидает сверки с выбранным изданием; роман в этом аудите не проверялся."
+            },
+            {
+              "label": "Русское имя",
+              "value": "Не задано; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "В POV-эпилоге Мерретт прибывает к Старым Камням с выкупом за Петира Пимпла и попадает в руки Братства без знамён. Эпизод связывает судьбу Фреев с последствиями Красной Свадьбы."
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 81,
+              "chapterTitle": "Epilogue",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Epilogue"
+            }
+          ],
+          "status": "secondary-indexed-partial",
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "manualReview": "Ключевой POV эпилога и носитель важной для кампании информации о Красной Свадьбе."
+        },
+        {
+          "ref": "person:oswell-kettleblack",
+          "kind": "person",
+          "name": "Oswell Kettleblack",
+          "draftPriority": "P1",
+          "subtitle": "A Storm of Swords · Sansa V (ch. 61), Sansa VI (ch. 68)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords; Sansa V (ch. 61), Sansa VI (ch. 68); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_61",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 61,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Приоритет черновика",
+              "value": "P1"
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "Sansa V (ch. 61) — appearing; Sansa VI (ch. 68) — appearing"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "Ожидает сверки с выбранным изданием; роман в этом аудите не проверялся."
+            },
+            {
+              "label": "Русское имя",
+              "value": "Не задано; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "В Sansa V Освелл ждёт Сансу и Донтоса на лодке и помогает им добраться до корабля Петира. Указатель также отмечает его появление в Sansa VI."
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 61,
+              "chapterTitle": "Sansa V",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_61"
+            },
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 68,
+              "chapterTitle": "Sansa VI",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_68"
+            }
+          ],
+          "status": "secondary-indexed-partial",
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "manualReview": "Важен для линии побега Сансы и сетки людей Петира; сверить точный род и роль по выбранному изданию."
+        },
+        {
+          "ref": "person:nage",
+          "kind": "person",
+          "name": "Nage",
+          "draftPriority": "P1",
+          "subtitle": "A Storm of Swords · Jaime VII (ch. 62), Jaime IX (ch. 72)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords; Jaime VII (ch. 62), Jaime IX (ch. 72); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_62",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 62,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Приоритет черновика",
+              "value": "P1"
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "Jaime VII (ch. 62) — appearing; Jaime IX (ch. 72) — appearing"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "Ожидает сверки с выбранным изданием; роман в этом аудите не проверялся."
+            },
+            {
+              "label": "Русское имя",
+              "value": "Не задано; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "AWOIAF отмечает Nage среди появляющихся в Jaime VII и Jaime IX; подробную роль сверх этих локаторов черновик не закрепляет."
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 62,
+              "chapterTitle": "Jaime VII",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_62"
+            },
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 72,
+              "chapterTitle": "Jaime IX",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_72"
+            }
+          ],
+          "status": "secondary-indexed-partial",
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "manualReview": "Два появления в линии Джейме; сверить написание имени и конкретную роль по первичному тексту."
+        },
+        {
+          "ref": "person:steelshanks-walton",
+          "kind": "person",
+          "name": "Steelshanks Walton",
+          "draftPriority": "P1",
+          "subtitle": "A Storm of Swords · Jaime VII (ch. 62), Jaime IX (ch. 72)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords; Jaime VII (ch. 62), Jaime IX (ch. 72); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_62",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 62,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Приоритет черновика",
+              "value": "P1"
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "Jaime VII (ch. 62) — appearing; Jaime IX (ch. 72) — appearing"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "Ожидает сверки с выбранным изданием; роман в этом аудите не проверялся."
+            },
+            {
+              "label": "Русское имя",
+              "value": "Не задано; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "AWOIAF отмечает Стилшенкса Уолтона среди появляющихся в Jaime VII и Jaime IX; подробную роль сверх этих локаторов черновик не закрепляет."
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 62,
+              "chapterTitle": "Jaime VII",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_62"
+            },
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 72,
+              "chapterTitle": "Jaime IX",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_72"
+            }
+          ],
+          "status": "secondary-indexed-partial",
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "manualReview": "Два появления в линии Джейме; сверить написание имени и конкретную роль по первичному тексту."
+        },
+        {
+          "ref": "person:andrew-estermont",
+          "kind": "person",
+          "name": "Andrew Estermont",
+          "draftPriority": "P1",
+          "subtitle": "A Storm of Swords · Davos VI (ch. 63)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords; Davos VI (ch. 63); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_63",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 63,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Приоритет черновика",
+              "value": "P1"
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "Davos VI (ch. 63) — appearing"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "Ожидает сверки с выбранным изданием; роман в этом аудите не проверялся."
+            },
+            {
+              "label": "Русское имя",
+              "value": "Не задано; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "В Davos VI Эндрю Эстермонт назван человеком, с которым Давос сообщает Эдрику, что тот отправится с сиром Эндрю Эстермонтом."
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 63,
+              "chapterTitle": "Davos VI",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_63"
+            }
+          ],
+          "status": "secondary-indexed-partial",
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "manualReview": "Поддерживает сюжетную линию спасения Эдрика Шторма."
+        },
+        {
+          "ref": "person:devan-seaworth",
+          "kind": "person",
+          "name": "Devan Seaworth",
+          "draftPriority": "P1",
+          "subtitle": "A Storm of Swords · Davos VI (ch. 63)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords; Davos VI (ch. 63); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_63",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 63,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Приоритет черновика",
+              "value": "P1"
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "Davos VI (ch. 63) — appearing"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "Ожидает сверки с выбранным изданием; роман в этом аудите не проверялся."
+            },
+            {
+              "label": "Русское имя",
+              "value": "Не задано; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "AWOIAF относит Девана Сиворта к появляющимся в Davos VI. Дополнительную роль по одной записи chapter index не приписываю."
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 63,
+              "chapterTitle": "Davos VI",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_63"
+            }
+          ],
+          "status": "secondary-indexed-partial",
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "manualReview": "Персонаж связан с линией Давоса; роль требует сверки с первичным текстом."
+        },
+        {
+          "ref": "person:rolland-storm",
+          "kind": "person",
+          "name": "Rolland Storm",
+          "draftPriority": "P1",
+          "subtitle": "A Storm of Swords · Davos VI (ch. 63)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords; Davos VI (ch. 63); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_63",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 63,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Приоритет черновика",
+              "value": "P1"
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "Davos VI (ch. 63) — appearing"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "Ожидает сверки с выбранным изданием; роман в этом аудите не проверялся."
+            },
+            {
+              "label": "Русское имя",
+              "value": "Не задано; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "AWOIAF относит Ролланда Шторма к появляющимся в Davos VI. Дополнительную роль по одной записи chapter index не приписываю."
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 63,
+              "chapterTitle": "Davos VI",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_63"
+            }
+          ],
+          "status": "secondary-indexed-partial",
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "manualReview": "Именованный участник линии Драконьего Камня; роль требует сверки с первичным текстом."
+        },
+        {
+          "ref": "person:mag-mar-tun-doh-weg",
+          "kind": "person",
+          "name": "Mag Mar Tun Doh Weg",
+          "draftPriority": "P1",
+          "subtitle": "A Storm of Swords · Jon VIII (ch. 64)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords; Jon VIII (ch. 64); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_64",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 64,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Приоритет черновика",
+              "value": "P1"
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "Jon VIII (ch. 64) — appearing"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "Ожидает сверки с выбранным изданием; роман в этом аудите не проверялся."
+            },
+            {
+              "label": "Русское имя",
+              "value": "Не задано; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "После боя у Стены Джон находит Мага Мар Тун Дох Вега мёртвым в туннеле рядом с Доналом Нойе."
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 64,
+              "chapterTitle": "Jon VIII",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_64"
+            }
+          ],
+          "status": "secondary-indexed-partial",
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "manualReview": "Связывает битву под Стеной с её последствиями и северной линией великанов."
+        },
+        {
+          "ref": "person:alerie-hightower",
+          "kind": "person",
+          "name": "Alerie Hightower",
+          "draftPriority": "P1",
+          "subtitle": "A Storm of Swords · Tyrion IX (ch. 66)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords; Tyrion IX (ch. 66); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_66",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 66,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Приоритет черновика",
+              "value": "P1"
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "Tyrion IX (ch. 66) — appearing"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "Ожидает сверки с выбранным изданием; роман в этом аудите не проверялся."
+            },
+            {
+              "label": "Русское имя",
+              "value": "Не задано; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "AWOIAF включает Алирию Хайтауэр в список появляющихся в Tyrion IX, в главе с судом над Тирионом. Черновик не добавляет ей действия, которого нет в указателе."
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 66,
+              "chapterTitle": "Tyrion IX",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_66"
+            }
+          ],
+          "status": "secondary-indexed-partial",
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "manualReview": "Именованный представитель дома Хайтауэров в политической сцене Королевской Гавани."
+        },
+        {
+          "ref": "person:taena-merryweather",
+          "kind": "person",
+          "name": "Taena Merryweather",
+          "draftPriority": "P1",
+          "subtitle": "A Storm of Swords · Tyrion IX (ch. 66)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords; Tyrion IX (ch. 66); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_66",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 66,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Приоритет черновика",
+              "value": "P1"
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "Tyrion IX (ch. 66) — appearing"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "Ожидает сверки с выбранным изданием; роман в этом аудите не проверялся."
+            },
+            {
+              "label": "Русское имя",
+              "value": "Не задано; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "В Tyrion IX Таэна Мерривезер выступает свидетельницей обвинения и утверждает, что видела, как Тирион подмешал нечто в вино короля."
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 66,
+              "chapterTitle": "Tyrion IX",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_66"
+            }
+          ],
+          "status": "secondary-indexed-partial",
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "manualReview": "Важна для судебного конфликта Тириона; формулировка свидетельства требует сверки по роману."
+        },
+        {
+          "ref": "person:olenna-tyrell",
+          "kind": "person",
+          "name": "Olenna Tyrell",
+          "draftPriority": "P1",
+          "subtitle": "A Storm of Swords · Tyrion IX (ch. 66)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords; Tyrion IX (ch. 66); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_66",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 66,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Приоритет черновика",
+              "value": "P1"
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "Tyrion IX (ch. 66) — appearing"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "Ожидает сверки с выбранным изданием; роман в этом аудите не проверялся."
+            },
+            {
+              "label": "Русское имя",
+              "value": "Не задано; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "AWOIAF включает Оленну Тирелл в список появляющихся в Tyrion IX, в главе с судом над Тирионом."
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 66,
+              "chapterTitle": "Tyrion IX",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_66"
+            }
+          ],
+          "status": "secondary-indexed-partial",
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "manualReview": "Политически значимый персонаж; черновик фиксирует только chapter-index locator."
+        },
+        {
+          "ref": "person:dalla",
+          "kind": "person",
+          "name": "Dalla",
+          "draftPriority": "P1",
+          "subtitle": "A Storm of Swords · Jon IX (ch. 69), Jon X (ch. 73)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords; Jon IX (ch. 69), Jon X (ch. 73); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_69",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 69,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Приоритет черновика",
+              "value": "P1"
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "Jon IX (ch. 69) — appearing; Jon X (ch. 73) — appearing"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "Ожидает сверки с выбранным изданием; роман в этом аудите не проверялся."
+            },
+            {
+              "label": "Русское имя",
+              "value": "Не задано; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "В Jon X Далла находится в шатре Манса во время родов; Вал помогает ей. Указатель также отмечает Даллу в Jon IX."
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 69,
+              "chapterTitle": "Jon IX",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_69"
+            },
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 73,
+              "chapterTitle": "Jon X",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_73"
+            }
+          ],
+          "status": "secondary-indexed-partial",
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "manualReview": "Ключевой участник линии Мансa и переговоров со Стражей Ночи."
+        },
+        {
+          "ref": "person:val",
+          "kind": "person",
+          "name": "Val",
+          "draftPriority": "P1",
+          "subtitle": "A Storm of Swords · Jon IX (ch. 69), Jon X (ch. 73), Samwell IV (ch. 75), Jon XII (ch. 79)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords; Jon IX (ch. 69), Jon X (ch. 73), Samwell IV (ch. 75), Jon XII (ch. 79); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_69",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 69,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Приоритет черновика",
+              "value": "P1"
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "Jon IX (ch. 69) — appearing; Jon X (ch. 73) — appearing; Samwell IV (ch. 75) — appearing; Jon XII (ch. 79) — appearing"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "Ожидает сверки с выбранным изданием; роман в этом аудите не проверялся."
+            },
+            {
+              "label": "Русское имя",
+              "value": "Не задано; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "В Jon X Вал помогает Далле во время родов в шатре Манса. AWOIAF также указывает её в Jon IX, Samwell IV и Jon XII."
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 69,
+              "chapterTitle": "Jon IX",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_69"
+            },
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 73,
+              "chapterTitle": "Jon X",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_73"
+            },
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 75,
+              "chapterTitle": "Samwell IV",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_75"
+            },
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 79,
+              "chapterTitle": "Jon XII",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_79"
+            }
+          ],
+          "status": "secondary-indexed-partial",
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "manualReview": "Повторяющееся появление в северной линии; подходит как важный контакт для кампании за Стеной."
+        },
+        {
+          "ref": "person:varamyr-sixskins",
+          "kind": "person",
+          "name": "Varamyr Sixskins",
+          "draftPriority": "P1",
+          "subtitle": "A Storm of Swords · Jon IX (ch. 69)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords; Jon IX (ch. 69); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_69",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 69,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Приоритет черновика",
+              "value": "P1"
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "Jon IX (ch. 69) — appearing"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "Ожидает сверки с выбранным изданием; роман в этом аудите не проверялся."
+            },
+            {
+              "label": "Русское имя",
+              "value": "Не задано; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "AWOIAF отмечает Варамир Шестишкурого среди появляющихся в Jon IX. Отдельную запись «Варамир» из Jon X этот черновик с ним не объединяет."
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 69,
+              "chapterTitle": "Jon IX",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_69"
+            }
+          ],
+          "status": "secondary-indexed-partial",
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "manualReview": "Важная фигура среди одичалых; первичную проверку имени и идентичности провести до объединения локаторов."
+        },
+        {
+          "ref": "person:ben-plumm",
+          "kind": "person",
+          "name": "Ben Plumm",
+          "draftPriority": "P1",
+          "subtitle": "A Storm of Swords · Daenerys VI (ch. 71)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords; Daenerys VI (ch. 71); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_71",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 71,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Приоритет черновика",
+              "value": "P1"
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "Daenerys VI (ch. 71) — appearing"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "Ожидает сверки с выбранным изданием; роман в этом аудите не проверялся."
+            },
+            {
+              "label": "Русское имя",
+              "value": "Не задано; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "AWOIAF указывает Бена Пламма среди появляющихся в Daenerys VI, когда Дейенерис принимает дела в Миэрине."
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 71,
+              "chapterTitle": "Daenerys VI",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_71"
+            }
+          ],
+          "status": "secondary-indexed-partial",
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "manualReview": "Полезный наёмник/контакт для миэринской линии; конкретную роль в этой главе сверить по первичному тексту."
+        },
+        {
+          "ref": "person:dagos-manwoody",
+          "kind": "person",
+          "name": "Dagos Manwoody",
+          "draftPriority": "P1",
+          "subtitle": "A Storm of Swords · Tyrion X (ch. 70)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords; Tyrion X (ch. 70); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_70",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 70,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Приоритет черновика",
+              "value": "P1"
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "Tyrion X (ch. 70) — appearing"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "Ожидает сверки с выбранным изданием; роман в этом аудите не проверялся."
+            },
+            {
+              "label": "Русское имя",
+              "value": "Не задано; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "AWOIAF включает Дагоса Манвуди в список появляющихся в Tyrion X. Черновик фиксирует главу суда и поединка, не добавляя отсутствующую в указателе биографию."
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 70,
+              "chapterTitle": "Tyrion X",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_70"
+            }
+          ],
+          "status": "secondary-indexed-partial",
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "manualReview": "Именованный участник дornийской политической линии; проверить присутствие и контекст по роману."
+        },
+        {
+          "ref": "person:daemon-sand",
+          "kind": "person",
+          "name": "Daemon Sand",
+          "draftPriority": "P1",
+          "subtitle": "A Storm of Swords · Tyrion X (ch. 70)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords; Tyrion X (ch. 70); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_70",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 70,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Приоритет черновика",
+              "value": "P1"
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "Tyrion X (ch. 70) — appearing"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "Ожидает сверки с выбранным изданием; роман в этом аудите не проверялся."
+            },
+            {
+              "label": "Русское имя",
+              "value": "Не задано; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "AWOIAF включает Деймона Сэнда в список появляющихся в Tyrion X. Черновик фиксирует только chapter-index locator."
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 70,
+              "chapterTitle": "Tyrion X",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_70"
+            }
+          ],
+          "status": "secondary-indexed-partial",
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "manualReview": "Полезная фигура для дornийской линии; проверить конкретный контекст появления."
+        },
+        {
+          "ref": "person:ellaria-sand",
+          "kind": "person",
+          "name": "Ellaria Sand",
+          "draftPriority": "P1",
+          "subtitle": "A Storm of Swords · Tyrion X (ch. 70)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords; Tyrion X (ch. 70); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_70",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 70,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Приоритет черновика",
+              "value": "P1"
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "Tyrion X (ch. 70) — appearing"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "Ожидает сверки с выбранным изданием; роман в этом аудите не проверялся."
+            },
+            {
+              "label": "Русское имя",
+              "value": "Не задано; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "AWOIAF включает Элларию Сэнд в список появляющихся в Tyrion X. Черновик фиксирует только chapter-index locator."
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 70,
+              "chapterTitle": "Tyrion X",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_70"
+            }
+          ],
+          "status": "secondary-indexed-partial",
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "manualReview": "Именованный участник дornийской линии в Королевской Гавани; сверить роль по первичному тексту."
+        },
+        {
+          "ref": "person:tom-of-sevenstreams",
+          "kind": "person",
+          "name": "Tom of Sevenstreams",
+          "draftPriority": "P1",
+          "subtitle": "A Storm of Swords · Epilogue (ch. 81)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords; Epilogue (ch. 81); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Epilogue",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 81,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Приоритет черновика",
+              "value": "P1"
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "Epilogue (ch. 81) — appearing"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "Ожидает сверки с выбранным изданием; роман в этом аудите не проверялся."
+            },
+            {
+              "label": "Русское имя",
+              "value": "Не задано; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "В эпилоге Том участвует вместе с Лемом в сцене, где Мерретта приводят к Братству без знамён. В локальном аудите имя нормализовано как «Том из Семи Ручьёв»."
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 81,
+              "chapterTitle": "Epilogue",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Epilogue"
+            }
+          ],
+          "status": "secondary-indexed-partial",
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "manualReview": "Повторяющийся участник Братства; проверить форму имени и алиасы (включая Tom Sevenstrings) перед интеграцией."
+        }
+      ]
+    }
+  ]
+}

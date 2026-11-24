@@ -1,0 +1,756 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "place",
+  "entities": [
+    {
+      "ref": "place:small-council-chamber-of-red-keep",
+      "kind": "place",
+      "name": "Small council chamber",
+      "nameRu": "Зал Малого совета",
+      "subtitle": "A Game of Thrones · Eddard IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard IV (ch. 20); A Wiki of Ice and Fire, chapter index; CC-BY-SA-3.0. Первичная сверка по изданию ожидается.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_20",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 20
+      },
+      "facts": [
+        {
+          "label": "Тип места",
+          "value": "помещение в Красном замке"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; проверка по первичному изданию ожидается"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "В этом помещении проходит заседание Малого совета, на котором Эддард получает распоряжение о турнире и узнаёт о состоянии королевской казны."
+        }
+      ],
+      "links": [
+        {
+          "label": "Red Keep",
+          "ref": "place:red-keep"
+        },
+        {
+          "label": "Small Council",
+          "ref": "organization:small-council"
+        }
+      ]
+    },
+    {
+      "ref": "place:armory-of-castle-black",
+      "kind": "place",
+      "name": "Armory of Castle Black",
+      "nameRu": "Оружейная Замка Чёрного",
+      "subtitle": "A Game of Thrones · Jon III",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon III (ch. 19); A Wiki of Ice and Fire, chapter index; CC-BY-SA-3.0. Первичная сверка по изданию ожидается.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_19",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 19
+      },
+      "facts": [
+        {
+          "label": "Тип места",
+          "value": "оружейная при Замке Чёрного"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; проверка по первичному изданию ожидается"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "В Jon III Джон оказывается в оружейной, где несколько рекрутов нападают на него; оружейник Донал Ной вмешивается."
+        }
+      ],
+      "links": [
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        },
+        {
+          "label": "Night's Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Donal Noye",
+          "ref": "person:donal-noye"
+        }
+      ]
+    },
+    {
+      "ref": "place:practice-yard-of-castle-black",
+      "kind": "place",
+      "name": "Training yard of Castle Black",
+      "nameRu": "Тренировочный двор Замка Чёрного",
+      "subtitle": "A Game of Thrones · Jon IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon IV (ch. 26); A Wiki of Ice and Fire, chapter index; CC-BY-SA-3.0. Первичная сверка по изданию ожидается.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_26",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 26
+      },
+      "facts": [
+        {
+          "label": "Тип места",
+          "value": "тренировочная площадка при Замке Чёрного"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; проверка по первичному изданию ожидается"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "На тренировочном дворе Сэмвелл впервые присоединяется к занятиям рекрутов; Джон и его товарищи вмешиваются, когда избиение продолжают после сдачи Сэма."
+        }
+      ],
+      "links": [
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        },
+        {
+          "label": "Night's Watch",
+          "ref": "organization:nights-watch"
+        }
+      ]
+    },
+    {
+      "ref": "place:horse-gate-of-vaes-dothrak",
+      "kind": "place",
+      "name": "Horse Gate of Vaes Dothrak",
+      "nameRu": "Ворота Коней Ваэс Дотрака",
+      "subtitle": "A Game of Thrones · Daenerys IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys IV (ch. 36); A Wiki of Ice and Fire, chapter index; CC-BY-SA-3.0. Первичная сверка по изданию ожидается.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_36",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 36
+      },
+      "facts": [
+        {
+          "label": "Тип места",
+          "value": "входная арка на Божьем пути"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; проверка по первичному изданию ожидается"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Кхаласар въезжает в Ваэс Дотрак под парной аркой в виде вставших на дыбы коней и продолжает путь по Божьему пути."
+        }
+      ],
+      "links": [
+        {
+          "label": "Vaes Dothrak",
+          "ref": "place:vaes-dothrak"
+        },
+        {
+          "label": "Godsway of Vaes Dothrak",
+          "ref": "place:godsway-of-vaes-dothrak"
+        }
+      ]
+    },
+    {
+      "ref": "place:giant-s-lance",
+      "kind": "place",
+      "name": "Giant's Lance",
+      "nameRu": "Копьё Великана",
+      "subtitle": "A Game of Thrones · Catelyn VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn VI (ch. 34); A Wiki of Ice and Fire, chapter index; CC-BY-SA-3.0. Первичная сверка по изданию ожидается.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_34",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 34
+      },
+      "facts": [
+        {
+          "label": "Тип места",
+          "value": "горный массив в Долине Аррен"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; проверка по первичному изданию ожидается"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "После прохождения Лунных Врат отряд Катлин видит Копьё Великана и поднимается к Орлиному Гнезду через горные заставы."
+        }
+      ],
+      "links": [
+        {
+          "label": "Vale of Arryn",
+          "ref": "place:vale-of-arryn"
+        },
+        {
+          "label": "Bloody Gate",
+          "ref": "place:bloody-gate"
+        },
+        {
+          "label": "Gates of the Moon",
+          "ref": "place:gates-of-the-moon"
+        },
+        {
+          "label": "Eyrie",
+          "ref": "place:the-eyrie"
+        }
+      ]
+    },
+    {
+      "ref": "place:stone-waycastle",
+      "kind": "place",
+      "name": "Stone",
+      "nameRu": "Застава Стоун",
+      "subtitle": "A Game of Thrones · Catelyn VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn VI (ch. 34); A Wiki of Ice and Fire, chapter index; CC-BY-SA-3.0. Первичная сверка по изданию ожидается.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_34",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 34
+      },
+      "facts": [
+        {
+          "label": "Тип места",
+          "value": "первая горная застава на подъёме к Орлиному Гнезду"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; проверка по первичному изданию ожидается"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Одна из застав на подъёме по Копью Великана; путники меняют здесь мулов перед следующим отрезком пути."
+        }
+      ],
+      "links": [
+        {
+          "label": "Giant's Lance",
+          "ref": "place:giant-s-lance"
+        },
+        {
+          "label": "Eyrie",
+          "ref": "place:the-eyrie"
+        },
+        {
+          "label": "Gates of the Moon",
+          "ref": "place:gates-of-the-moon"
+        }
+      ]
+    },
+    {
+      "ref": "place:snow-waycastle",
+      "kind": "place",
+      "name": "Snow",
+      "nameRu": "Застава Сноу",
+      "subtitle": "A Game of Thrones · Catelyn VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn VI (ch. 34); A Wiki of Ice and Fire, chapter index; CC-BY-SA-3.0. Первичная сверка по изданию ожидается.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_34",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 34
+      },
+      "facts": [
+        {
+          "label": "Тип места",
+          "value": "горная застава на пути к Орлиному Гнезду"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; проверка по первичному изданию ожидается"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Застава на подъёме по Копью Великана; название объясняют тем, что снег начинается на этой высоте."
+        }
+      ],
+      "links": [
+        {
+          "label": "Giant's Lance",
+          "ref": "place:giant-s-lance"
+        },
+        {
+          "label": "Eyrie",
+          "ref": "place:the-eyrie"
+        },
+        {
+          "label": "Gates of the Moon",
+          "ref": "place:gates-of-the-moon"
+        }
+      ]
+    },
+    {
+      "ref": "place:sky-waycastle",
+      "kind": "place",
+      "name": "Sky",
+      "nameRu": "Застава Скай",
+      "subtitle": "A Game of Thrones · Catelyn VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn VI (ch. 34); A Wiki of Ice and Fire, chapter index; CC-BY-SA-3.0. Первичная сверка по изданию ожидается.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_34",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 34
+      },
+      "facts": [
+        {
+          "label": "Тип места",
+          "value": "верхняя горная застава перед Орлиным Гнездом"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; проверка по первичному изданию ожидается"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Последняя застава на подъёме; от неё к Орлиному Гнезду идут пешком или поднимаются в корзинах."
+        }
+      ],
+      "links": [
+        {
+          "label": "Giant's Lance",
+          "ref": "place:giant-s-lance"
+        },
+        {
+          "label": "Eyrie",
+          "ref": "place:the-eyrie"
+        },
+        {
+          "label": "Gates of the Moon",
+          "ref": "place:gates-of-the-moon"
+        }
+      ]
+    },
+    {
+      "ref": "place:tower-of-joy",
+      "kind": "place",
+      "name": "Tower of Joy",
+      "nameRu": "Башня Радости",
+      "subtitle": "A Game of Thrones · Eddard X (Chapter 39)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard X (Chapter 39); AWOIAF numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_39",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 39
+      },
+      "facts": [
+        {
+          "label": "Локаторы",
+          "value": "A Game of Thrones, Eddard X (Chapter 39)"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Категория",
+          "value": "историческое место; в локаторе — сон/воспоминание"
+        },
+        {
+          "label": "География",
+          "value": "точные координаты не выводятся из вторичного указателя"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; первичный текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Названная башня в Дорне, связанная со сном и воспоминанием Эддарда о столкновении спутников с гвардейцами Эйриса. Здесь место показано через сон; точные координаты и дата столкновения не установлены."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Arthur Dayne",
+          "ref": "person:arthur-dayne"
+        },
+        {
+          "label": "Howland Reed",
+          "ref": "person:howland-reed"
+        },
+        {
+          "label": "Eddard dreams of the Tower of Joy",
+          "ref": "event:eddard-dreams-of-tower-of-joy"
+        }
+      ]
+    },
+    {
+      "ref": "place:throne-room-of-red-keep",
+      "kind": "place",
+      "name": "Throne Room of the Red Keep",
+      "nameRu": "Тронный зал Красного замка",
+      "subtitle": "A Game of Thrones · Eddard XI (Chapter 43)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard XI (Chapter 43); AWOIAF numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_43",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 43
+      },
+      "facts": [
+        {
+          "label": "Локаторы",
+          "value": "A Game of Thrones, Eddard XI (Chapter 43); A Game of Thrones, Eddard XIV (Chapter 49)"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Категория",
+          "value": "помещение в крепости"
+        },
+        {
+          "label": "География",
+          "value": "точные координаты не выводятся из вторичного указателя"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; первичный текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Зал с Железным троном, где Эддард выносит решение по набегам Григора и где позже происходит столкновение двора с Эддардом. Это отдельная сцена внутри Красного замка."
+        }
+      ],
+      "links": [
+        {
+          "label": "Red Keep",
+          "ref": "place:red-keep"
+        },
+        {
+          "label": "Eddard sends Beric after Gregor",
+          "ref": "event:eddard-sends-beric-after-gregor"
+        },
+        {
+          "label": "Stark coup and Ned arrested",
+          "ref": "event:stark-coup-and-ned-arrested"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Game of Thrones, Eddard XIV (Chapter 49); AWOIAF numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_49",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "agot",
+          "chapterNo": 49
+        }
+      ]
+    },
+    {
+      "ref": "place:sept-at-castle-black",
+      "kind": "place",
+      "name": "Sept at Castle Black",
+      "nameRu": "Септа Чёрного замка",
+      "subtitle": "A Game of Thrones · Jon VI (Chapter 48)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon VI (Chapter 48); AWOIAF numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_48",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 48
+      },
+      "facts": [
+        {
+          "label": "Локаторы",
+          "value": "A Game of Thrones, Jon VI (Chapter 48)"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Категория",
+          "value": "культовое помещение в замке"
+        },
+        {
+          "label": "География",
+          "value": "точные координаты не выводятся из вторичного указателя"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; первичный текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Внутренняя сцена перед выходом Джона и Сэма за Стену для произнесения обетов. Уточняет маршрут церемонии, свёрнутый в заголовке главы до Чёрного замка и рощи чардрева."
+        }
+      ],
+      "links": [
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        },
+        {
+          "label": "Jon and Sam take Watch vows",
+          "ref": "event:jon-and-sam-take-watch-vows"
+        }
+      ]
+    },
+    {
+      "ref": "place:gatehouse-tower-of-moat-cailin",
+      "kind": "place",
+      "name": "Gatehouse Tower of Moat Cailin",
+      "nameRu": "Башня ворот Рва Кейлин",
+      "subtitle": "A Game of Thrones · Catelyn VIII (Chapter 55)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn VIII (Chapter 55); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_55",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 55
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn VIII (Chapter 55)"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Дата",
+          "value": "Не установлена; дата не выводится из порядка глав."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Вторичный указатель помещает военный совет Робба в Башню ворот Рва Кейлин. Текущий ledger связывает главу с местом Ров Кейлин в целом; вложенную локацию стоит добавить только если нужна такая детализация сцены."
+        }
+      ],
+      "links": [
+        {
+          "label": "Moat Cailin",
+          "ref": "place:moat-cailin"
+        },
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        }
+      ]
+    },
+    {
+      "ref": "place:storm-dancer",
+      "kind": "place",
+      "name": "Storm Dancer",
+      "subtitle": "A Game of Thrones · Catelyn IV (chapter 18)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones · Catelyn IV (chapter 18; AWOIAF secondary index)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_18",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 18
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn IV · глава 18"
+        },
+        {
+          "label": "Статус",
+          "value": "именованное судно и место сцены"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; первичный текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Тип места",
+          "value": "судно / торговая галера"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Торговая галера, на которой Катлин и Родрик прибывают в Королевскую Гавань. Судно упоминается как отдельная точка сцены; маршрут и характеристики не восстанавливаются."
+        }
+      ],
+      "links": [
+        {
+          "label": "Blackwater Bay",
+          "ref": "place:blackwater-bay"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Moreo Tumitis",
+          "ref": "person:moreo-tumitis"
+        }
+      ]
+    },
+    {
+      "ref": "place:eel-alley",
+      "kind": "place",
+      "name": "Eel Alley",
+      "subtitle": "A Game of Thrones · Catelyn IV (chapter 18)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones · Catelyn IV (chapter 18; AWOIAF secondary index)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_18",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 18
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn IV · глава 18"
+        },
+        {
+          "label": "Статус",
+          "value": "названная городская улица"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; первичный текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Тип места",
+          "value": "улица / городская местность"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Улица Королевской Гавани, на которой расположена старая гостиница, где Катлин останавливается после прибытия."
+        }
+      ],
+      "links": [
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Old inn on Eel Alley",
+          "ref": "place:old-inn-on-eel-alley"
+        }
+      ]
+    },
+    {
+      "ref": "place:old-inn-on-eel-alley",
+      "kind": "place",
+      "name": "Old inn on Eel Alley",
+      "subtitle": "A Game of Thrones · Catelyn IV (chapter 18)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones · Catelyn IV (chapter 18; AWOIAF secondary index)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_18",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 18
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn IV · глава 18"
+        },
+        {
+          "label": "Статус",
+          "value": "неназванное место сцены; описательная метка AWOIAF"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; первичный текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Тип места",
+          "value": "гостиница; личное название не установлено"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Неназванная старая гостиница на Улице Угря, куда Катлин и Родрик заселяются после высадки. Имя владельца и точное положение не задаются."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eel Alley",
+          "ref": "place:eel-alley"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    }
+  ]
+}

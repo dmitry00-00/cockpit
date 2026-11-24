@@ -241,6 +241,32 @@ describe('промпт концентрации (тупые пропсы)', () =
     expect(prompt()).toBeNull();
   });
 
+  it('автобросок спасброска концентрации сравнивает итог с DC и вызывает исходящий колбэк', () => {
+    const store = seedEngine();
+    const bo = actorOf(store, 'bo');
+    const kept = vi.fn();
+    const lost = vi.fn();
+    const roll = vi.fn(() => 12);
+    const view = (id: string, onRoll: () => number) => (
+      <HpControl actor={bo} {...noop()} conSave={3} lastDamage={{ id, amount: 8 }}
+        onConcentrationKept={kept} onConcentrationLost={lost} onConcentrationCheck={onRoll} />
+    );
+    const { rerender } = render(view('seed-1', roll));
+    rerender(view('e1', roll));
+    fireEvent.click(btn('Бросить спасбросок'));
+    expect(roll).toHaveBeenCalledExactlyOnceWith();
+    expect(kept).toHaveBeenCalledExactlyOnceWith();
+    expect(lost).not.toHaveBeenCalled();
+    expect(prompt()).toBeNull();
+
+    const failRoll = vi.fn(() => 9);
+    rerender(view('e2', failRoll));
+    fireEvent.click(btn('Бросить спасбросок'));
+    expect(failRoll).toHaveBeenCalledExactlyOnceWith();
+    expect(lost).toHaveBeenCalledExactlyOnceWith();
+    expect(prompt()).toBeNull();
+  });
+
   it('lastDamage → null (урон отменён) гасит промпт; тот же id без ответа возвращает его (повтор); отвеченный — уже нет', () => {
     const store = seedEngine();
     const bo = actorOf(store, 'bo');

@@ -1,0 +1,34 @@
+/* Линия класса и параллельная ветвь: геометрия не подразумевает талантных очков или требований. */
+.class-path { container-type: inline-size; }
+.path-title { display: flex; align-items: center; gap: calc(var(--spacing) * 3); padding: calc(var(--spacing) * 2) 0; border-bottom: 1px solid var(--br); }
+.path-emblem { flex: none; width: 44px; height: 44px; display: grid; place-items: center; overflow: hidden; border: 1px solid var(--gd); background: var(--wl); box-shadow: var(--bevel), inset 0 0 0 3px var(--cd); }
+.path-emblem img { width: 32px; height: 32px; object-fit: contain; filter: drop-shadow(0 1px 2px rgb(0 0 0 / .35)); }
+.path-title-copy { display: flex; min-width: 0; flex-direction: column; gap: calc(var(--spacing) * .5); }
+.path-title-caption { color: var(--gd-hi); letter-spacing: .14em; }
+.path-body { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(15rem, 1fr); align-items: start; gap: calc(var(--spacing) * 3); min-width: 0; min-height: 0; }
+.path-tree, .path-inspector { min-width: 0; }
+.path-columns, .path-level { display: grid; grid-template-columns: calc(var(--spacing) * 11) minmax(0, 1fr) minmax(0, 1fr); gap: calc(var(--spacing) * 2); }
+.class-path[data-has-branch="false"] .path-columns, .class-path[data-has-branch="false"] .path-level { grid-template-columns: calc(var(--spacing) * 11) minmax(0, 1fr); }
+.class-path[data-has-branch="false"] .path-columns > :last-child, .class-path[data-has-branch="false"] .path-branch { display: none; }
+.path-columns { padding-bottom: calc(var(--spacing) * 2); }
+.path-columns > *, .path-inspector { overflow-wrap: anywhere; }
+.path-levels { list-style: none; margin: 0; padding: 0 calc(var(--spacing) * 1) 0 0; max-height: min(52vh, 430px); overflow: auto; overscroll-behavior: contain; }
+.path-level { padding-bottom: calc(var(--spacing) * 3); }
+.path-level-number { align-self: start; min-height: calc(var(--spacing) * 10); display: flex; flex-direction: column; align-items: center; color: var(--t2); border-left: 1px solid var(--br); cursor: pointer; }
+.path-level[aria-current] > .path-level-number { color: var(--gd-hi); border-left: 3px solid var(--gd); }
+.path-lane { display: flex; flex-direction: column; gap: var(--spacing); border-top: 1px solid var(--hi); padding-top: var(--spacing); min-width: 0; }
+.path-branch { border-top-color: var(--br); }
+.path-node { display: flex; flex-direction: column; text-align: left; gap: var(--spacing); min-height: calc(var(--spacing) * 9); padding: calc(var(--spacing) * 2); background-color: var(--cd); background-image: var(--material-panel); color: var(--tx); box-shadow: var(--bevel); cursor: pointer; overflow-wrap: anywhere; }
+.path-node:hover { background-color: var(--pl); }
+.path-node:focus-visible, .path-level-number:focus-visible { box-shadow: var(--glow-gold); }
+.path-node[aria-pressed="true"], .path-level-number[aria-pressed="true"] { box-shadow: var(--glow-gold); }
+.path-node[data-status="acquired"] { border-left: 2px solid var(--br); }
+.path-resources > div { display: flex; justify-content: space-between; gap: calc(var(--spacing) * 2); }
+.path-resources dd { margin: 0; color: var(--tx); }
+.path-inspector { align-self: start; box-shadow: var(--bevel-in); }
+.path-inspector summary { cursor: pointer; padding-block: var(--spacing); }
+
+@container (max-width: 720px) {
+  .path-body { grid-template-columns: minmax(0, 1fr); }
+  .path-levels { max-height: min(40vh, 320px); }
+}

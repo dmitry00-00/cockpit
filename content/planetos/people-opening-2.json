@@ -1,0 +1,980 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "person",
+  "entities": [
+    {
+      "ref": "person:mycah",
+      "kind": "person",
+      "name": "Mycah",
+      "nameRu": "Майка",
+      "subtitle": "A Game of Thrones · Sansa I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa I; A Wiki of Ice and Fire, chapter locator (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_15",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Sansa I"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Сын мясника, который подружился с Арьей в пути на юг. На берегу Трезубца они упражняются с палками, когда их встречают Санса и Джоффри."
+        }
+      ],
+      "links": [
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        },
+        {
+          "label": "Joffrey Baratheon",
+          "ref": "person:joffrey-baratheon"
+        },
+        {
+          "label": "Sandor Clegane",
+          "ref": "person:sandor-clegane"
+        },
+        {
+          "label": "Riverlands",
+          "ref": "place:riverlands"
+        }
+      ]
+    },
+    {
+      "ref": "person:ilyn-payne",
+      "kind": "person",
+      "name": "Ilyn Payne",
+      "nameRu": "Илин Пейн",
+      "subtitle": "A Game of Thrones · Sansa I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa I; A Wiki of Ice and Fire, chapter locator (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_15",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Sansa I"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Королевский правосудник при дворе. Во время остановки королевской свиты Сансе объясняют, кто он."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robert I Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "Joffrey Baratheon",
+          "ref": "person:joffrey-baratheon"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Red Keep",
+          "ref": "place:red-keep"
+        }
+      ]
+    },
+    {
+      "ref": "person:barristan-selmy",
+      "kind": "person",
+      "name": "Barristan Selmy",
+      "nameRu": "Барристан Селми",
+      "subtitle": "A Game of Thrones · Sansa I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa I; A Wiki of Ice and Fire, chapter locator (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_15",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Sansa I"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Лорд-командующий Королевской гвардии. Прибывает к королевскому двору и представляется Сансе во время остановки в пути."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robert I Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "person:pycelle",
+      "kind": "person",
+      "name": "Pycelle",
+      "nameRu": "Пицель",
+      "subtitle": "A Game of Thrones · Eddard IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard IV; A Wiki of Ice and Fire, chapter locator (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_20",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard IV"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Великий мейстер и член малого совета в Королевской Гавани; участвует во встрече совета после прибытия Эддарда."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Robert I Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "House Lannister",
+          "ref": "organization:house-lannister"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Red Keep",
+          "ref": "place:red-keep"
+        }
+      ]
+    },
+    {
+      "ref": "person:vayon-poole",
+      "kind": "person",
+      "name": "Vayon Poole",
+      "nameRu": "Вайон Пул",
+      "subtitle": "A Game of Thrones · Eddard III",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard III; A Wiki of Ice and Fire, chapter locator (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_16",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard III"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Стюард Винтерфелла и служитель дома Пулов при Старках; помогает Эддарду управлять его свитой."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Poole",
+          "ref": "organization:house-poole"
+        },
+        {
+          "label": "House Stark",
+          "ref": "organization:house-stark"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Jeyne Poole",
+          "ref": "person:jeyne-poole"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "person:old-nan",
+      "kind": "person",
+      "name": "Old Nan",
+      "nameRu": "Старая Нэн",
+      "subtitle": "A Game of Thrones · Bran IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran IV; A Wiki of Ice and Fire, chapter locator (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_24",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Bran IV"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Пожилая служительница дома Старков в Винтерфелле. Рассказывает Брану истории, которые слышала от прежних поколений."
+        }
+      ],
+      "links": [
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "Rickon Stark",
+          "ref": "person:rickon-stark"
+        },
+        {
+          "label": "House Stark",
+          "ref": "organization:house-stark"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "person:osha",
+      "kind": "person",
+      "name": "Osha",
+      "nameRu": "Оша",
+      "subtitle": "A Game of Thrones · Bran V",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran V; A Wiki of Ice and Fire, chapter locator (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_37",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Bran V"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Женщина из свободного народа за Стеной; попадает под стражу Старков после встречи с Браном и его спутниками в Волчьем лесу."
+        }
+      ],
+      "links": [
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "House Stark",
+          "ref": "organization:house-stark"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        },
+        {
+          "label": "Haunted Forest",
+          "ref": "place:haunted-forest"
+        }
+      ]
+    },
+    {
+      "ref": "person:samwell-tarly",
+      "kind": "person",
+      "name": "Samwell Tarly",
+      "nameRu": "Сэмвелл Тарли",
+      "subtitle": "A Game of Thrones · Jon IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon IV; A Wiki of Ice and Fire, chapter locator (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_26",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon IV"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Новоприбывший рекрут Ночного дозора. Джон вступается за него во время подготовки новобранцев в Чёрном замке."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Night's Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        }
+      ]
+    },
+    {
+      "ref": "person:gendry",
+      "kind": "person",
+      "name": "Gendry",
+      "nameRu": "Джендри",
+      "subtitle": "A Game of Thrones · Eddard VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard VI; A Wiki of Ice and Fire, chapter locator (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_27",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard VI"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Ученик кузнеца в Королевской Гавани. Эддард встречает его, расспрашивая о прежних знакомых Джона Аррена."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "person:bronn",
+      "kind": "person",
+      "name": "Bronn",
+      "nameRu": "Бронн",
+      "subtitle": "A Game of Thrones · Tyrion VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion VI; A Wiki of Ice and Fire, chapter locator (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_42",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion VI"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Наёмный воин, находящийся при дворе Арренов. Предлагает сражаться за Тириона в поединке."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "The Eyrie",
+          "ref": "place:the-eyrie"
+        },
+        {
+          "label": "Vale of Arryn",
+          "ref": "place:vale-of-arryn"
+        }
+      ]
+    },
+    {
+      "ref": "person:tywin-lannister",
+      "kind": "person",
+      "name": "Tywin Lannister",
+      "nameRu": "Тайвин Ланнистер",
+      "subtitle": "A Game of Thrones · Tyrion VII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion VII; A Wiki of Ice and Fire, chapter locator (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_56",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion VII"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Лорд дома Ланнистеров и командующий его войском. Встречает Тириона у постоялого двора на перекрёстке и обсуждает движение армий."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Lannister",
+          "ref": "organization:house-lannister"
+        },
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Inn at the Crossroads",
+          "ref": "place:inn-at-crossroads"
+        },
+        {
+          "label": "Riverlands",
+          "ref": "place:riverlands"
+        }
+      ]
+    },
+    {
+      "ref": "person:lancel-lannister",
+      "kind": "person",
+      "name": "Lancel Lannister",
+      "nameRu": "Лансель Ланнистер",
+      "subtitle": "A Game of Thrones · Eddard VII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard VII; A Wiki of Ice and Fire, chapter locator (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_30",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard VII"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Молодой представитель дома Ланнистеров, служащий при дворе Роберта. Присутствует среди придворных во время турнира в Королевской Гавани."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Lannister",
+          "ref": "organization:house-lannister"
+        },
+        {
+          "label": "Cersei Lannister",
+          "ref": "person:cersei-lannister"
+        },
+        {
+          "label": "Robert I Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "person:mikken",
+      "kind": "person",
+      "name": "Mikken",
+      "nameRu": "Миккен",
+      "subtitle": "A Game of Thrones · Bran II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran II; A Wiki of Ice and Fire, chapter locator (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_8",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Bran II"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Кузнец в Винтерфелле, работает при замке."
+        }
+      ],
+      "links": [
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "House Stark",
+          "ref": "organization:house-stark"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "person:hallis-mollen",
+      "kind": "person",
+      "name": "Hallis Mollen",
+      "nameRu": "Халлис Моллен",
+      "subtitle": "A Game of Thrones · Bran IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran IV; A Wiki of Ice and Fire, chapter locator (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_24",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Bran IV"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Один из стражников дома Старков в Винтерфелле; присутствует при жизни замка после отъезда Эддарда."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "House Stark",
+          "ref": "organization:house-stark"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "person:hullen",
+      "kind": "person",
+      "name": "Hullen",
+      "nameRu": "Халлен",
+      "subtitle": "A Game of Thrones · Bran I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran I; A Wiki of Ice and Fire, chapter locator (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_1",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Bran I"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Старший конюший в Винтерфелле и член свиты Старков; сопровождает выезд Эддарда на север."
+        }
+      ],
+      "links": [
+        {
+          "label": "Harwin",
+          "ref": "person:harwin"
+        },
+        {
+          "label": "House Stark",
+          "ref": "organization:house-stark"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "person:harwin",
+      "kind": "person",
+      "name": "Harwin",
+      "nameRu": "Харвин",
+      "subtitle": "A Game of Thrones · Bran I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran I; A Wiki of Ice and Fire, chapter locator (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_1",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Bran I"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Член домашней стражи Старков и свиты, сопровождающей Брана и Эддарда."
+        }
+      ],
+      "links": [
+        {
+          "label": "Hullen",
+          "ref": "person:hullen"
+        },
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "House Stark",
+          "ref": "organization:house-stark"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "person:tomard",
+      "kind": "person",
+      "name": "Tomard",
+      "nameRu": "Томард",
+      "subtitle": "A Game of Thrones · Arya II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Arya II; A Wiki of Ice and Fire, chapter locator (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_22",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Arya II"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Один из людей Эддарда Старка, служащий в его свите в Королевской Гавани."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "House Stark",
+          "ref": "organization:house-stark"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "person:lady",
+      "kind": "person",
+      "name": "Lady",
+      "nameRu": "Леди",
+      "subtitle": "A Game of Thrones · Bran I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran I; A Wiki of Ice and Fire, chapter locator (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_1",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Bran I"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Лютоволчонок из найденного у Винтерфелла выводка; Санса принимает её как своего волка."
+        }
+      ],
+      "links": [
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        },
+        {
+          "label": "House Stark",
+          "ref": "organization:house-stark"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    }
+  ]
+}

@@ -28,6 +28,7 @@ describe('журнал и нити', () => {
     expect(cardOf('Bo Tambernack')).toBeInTheDocument();
   });
 
+
   it('заметка — NOTE_ADDED с нитями фильтра и масштабом; упоминание актёра в записи открывает его карточку', () => {
     const { store } = mount();
     openJournal();

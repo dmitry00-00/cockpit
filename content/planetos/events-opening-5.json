@@ -1,0 +1,652 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "event",
+  "entities": [
+    {
+      "ref": "event:robb-chooses-southern-campaign",
+      "kind": "event",
+      "name": "Robb chooses to march south",
+      "nameRu": "Робб решает идти на юг",
+      "subtitle": "A Game of Thrones · Catelyn VIII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn VIII; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_55",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 55
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn VIII"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "решение и военный план приняты в главе; само движение войска здесь не фиксируется"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "После совета с матерью Робб решает оставить позицию у Рва Кейлин и идти на юг поддержать Риверран; ложный манёвр по Королевскому тракту должен удержать силы Тайвина. Это план, а не совершившийся поход или бой."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Brynden Tully",
+          "ref": "person:brynden-tully"
+        },
+        {
+          "label": "Moat Cailin",
+          "ref": "place:moat-cailin"
+        },
+        {
+          "label": "Riverrun",
+          "ref": "place:riverrun"
+        },
+        {
+          "label": "Kingsroad",
+          "ref": "place:kingsroad"
+        },
+        {
+          "label": "Tywin Lannister",
+          "ref": "person:tywin-lannister"
+        }
+      ]
+    },
+    {
+      "ref": "event:jaime-defeats-tully-force-at-golden-tooth",
+      "kind": "event",
+      "name": "Jaime defeats the Tully force at the Golden Tooth",
+      "nameRu": "Джейме разбивает речное войско у Золотого Зуба",
+      "subtitle": "A Game of Thrones · Catelyn VIII · reported earlier event",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn VIII (report of an earlier battle); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_55",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 55
+      },
+      "facts": [
+        {
+          "label": "Локатор сообщения",
+          "value": "Catelyn VIII"
+        },
+        {
+          "label": "Дата",
+          "value": "точный момент неизвестен; персонажи сообщают, что битва произошла раньше"
+        },
+        {
+          "label": "Статус",
+          "value": "раннее событие пересказывается Роббом; это не событие сцены Catelyn VIII"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Робб сообщает, что силы Джейме разбили войско речных лордов у прохода под Золотым Зубом; лорд Вэнс погиб, лорд Пайпер отступил. Глава не задаёт точной даты этого боя."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jaime Lannister",
+          "ref": "person:jaime-lannister"
+        },
+        {
+          "label": "Karyl Vance",
+          "ref": "person:karyl-vance"
+        },
+        {
+          "label": "Golden Tooth",
+          "ref": "place:golden-tooth"
+        },
+        {
+          "label": "Riverlands",
+          "ref": "place:riverlands"
+        },
+        {
+          "label": "House Lannister",
+          "ref": "organization:house-lannister"
+        }
+      ]
+    },
+    {
+      "ref": "event:tywin-ambushes-berics-justice-party",
+      "kind": "event",
+      "name": "Tywin's host ambushes Beric's party",
+      "nameRu": "Войско Тайвина нападает на отряд Берика",
+      "subtitle": "A Game of Thrones · Catelyn VIII · reported earlier event",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn VIII (report of an earlier ambush); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_55",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 55
+      },
+      "facts": [
+        {
+          "label": "Локатор сообщения",
+          "value": "Catelyn VIII"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; сообщение относится к более раннему нападению"
+        },
+        {
+          "label": "Статус",
+          "value": "событие пересказывается Роббом как уже произошедшее; неизвестно, выжил ли Берик"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Робб сообщает, что войско Тайвина устроило засаду отряду Берика, посланному привести Григора Клигана к правосудию. Реймун Дарри и большинство людей из Винтерфелла погибли; судьба Берика на момент разговора неизвестна."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tywin Lannister",
+          "ref": "person:tywin-lannister"
+        },
+        {
+          "label": "Beric Dondarrion",
+          "ref": "person:beric-dondarrion"
+        },
+        {
+          "label": "Raymun Darry",
+          "ref": "person:raymun-darry"
+        },
+        {
+          "label": "Riverlands",
+          "ref": "place:riverlands"
+        },
+        {
+          "label": "House Lannister",
+          "ref": "organization:house-lannister"
+        }
+      ]
+    },
+    {
+      "ref": "event:robert-wounded-by-boar",
+      "kind": "event",
+      "name": "Robert is mortally wounded by a boar",
+      "nameRu": "Кабан смертельно ранит Роберта",
+      "subtitle": "A Game of Thrones · Eddard XIII · reported event",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard XIII (account of Robert's hunting injury); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_47",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 47
+      },
+      "facts": [
+        {
+          "label": "Локатор сообщения",
+          "value": "Eddard XIII"
+        },
+        {
+          "label": "Дата",
+          "value": "точный момент и дата охоты не установлены"
+        },
+        {
+          "label": "Статус",
+          "value": "ранение произошло до сцены и сообщается Неду; не датировать по номеру главы"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Во время королевской охоты кабан тяжело ранит Роберта. В Eddard XIII Нед узнаёт о ранении и видит, что король умирает; виновность или заговор вокруг охоты эта запись не утверждает."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robert Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        }
+      ]
+    },
+    {
+      "ref": "event:robert-names-ned-regent",
+      "kind": "event",
+      "name": "Robert names Ned regent",
+      "nameRu": "Роберт назначает Неда регентом",
+      "subtitle": "A Game of Thrones · Eddard XIII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard XIII; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_47",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 47
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard XIII"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; глава — локатор сцены, не календарная дата"
+        },
+        {
+          "label": "Статус",
+          "value": "распоряжение Роберта оформляется в главе"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "В предсмертном распоряжении Роберт назначает Эддарда регентом и защитником королевства до совершеннолетия наследника. Эддард тайно меняет формулировку документа, не сообщая королю об истинном происхождении Джоффри."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robert Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Joffrey Baratheon",
+          "ref": "person:joffrey-baratheon"
+        },
+        {
+          "label": "Maegor's Holdfast",
+          "ref": "place:maegors-holdfast"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "event:robert-dies-from-hunting-wounds",
+      "kind": "event",
+      "name": "Robert dies from his hunting wounds",
+      "nameRu": "Роберт умирает от ран после охоты",
+      "subtitle": "A Game of Thrones · Eddard XIV · reported event",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard XIV (Pycelle's report of Robert's death); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_49",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 49
+      },
+      "facts": [
+        {
+          "label": "Локатор сообщения",
+          "value": "Eddard XIV"
+        },
+        {
+          "label": "Дата",
+          "value": "умер до сообщения Пицеля; точный момент неизвестен"
+        },
+        {
+          "label": "Статус",
+          "value": "смерть произошла раньше сцены, Нед узнаёт о ней от Пицеля"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Пицель сообщает Неду, что Роберт умер от полученных на охоте ран. Это отдельное событие от сообщения о смерти: сам момент смерти не показан и не получает точной даты."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robert Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "Pycelle",
+          "ref": "person:pycelle"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Report of Robert’s death to Ned",
+          "ref": "event:robert-death-reported-to-ned"
+        }
+      ]
+    },
+    {
+      "ref": "event:stark-coup-and-ned-arrested",
+      "kind": "event",
+      "name": "The royal coup ends with Ned's arrest",
+      "nameRu": "Королевский переворот заканчивается арестом Неда",
+      "subtitle": "A Game of Thrones · Eddard XIV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard XIV; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_49",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 49
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard XIV"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; событие локализовано главой, не календарной датой"
+        },
+        {
+          "label": "Статус",
+          "value": "переворот и арест происходят в главе"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "После смерти Роберта Серсея уничтожает его завещание и поддерживает коронационные притязания Джоффри. Городская стража переходит на сторону королевы; люди Неда гибнут, а сам Нед оказывается под стражей после предательства Бейлиша."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Cersei Lannister",
+          "ref": "person:cersei-lannister"
+        },
+        {
+          "label": "Joffrey Baratheon",
+          "ref": "person:joffrey-baratheon"
+        },
+        {
+          "label": "Janos Slynt",
+          "ref": "person:janos-slynt"
+        },
+        {
+          "label": "Petyr Baelish",
+          "ref": "person:petyr-baelish"
+        },
+        {
+          "label": "Red Keep",
+          "ref": "place:red-keep"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Robert's death",
+          "ref": "event:robert-dies-from-hunting-wounds"
+        }
+      ]
+    },
+    {
+      "ref": "event:arya-escapes-red-keep",
+      "kind": "event",
+      "name": "Arya escapes the Red Keep",
+      "nameRu": "Арья бежит из Красного замка",
+      "subtitle": "A Game of Thrones · Arya IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Arya IV; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_50",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 50
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Arya IV"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; глава — временной локатор, не календарная дата"
+        },
+        {
+          "label": "Статус",
+          "value": "побег происходит в главе; судьба Сирио отдельно не утверждается"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Когда Меррин Трант и ланнистерские стражники приходят за Арьей, Сирио задерживает их. Арья добирается до конюшни, убивает конюшего, который пытается её схватить, и выбирается из Красного замка."
+        }
+      ],
+      "links": [
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Syrio Forel",
+          "ref": "person:syrio-forel"
+        },
+        {
+          "label": "Meryn Trant",
+          "ref": "person:meryn-trant"
+        },
+        {
+          "label": "Small Hall of the Tower of the Hand",
+          "ref": "place:small-hall-of-tower-of-the-hand"
+        },
+        {
+          "label": "Red Keep",
+          "ref": "place:red-keep"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "event:drogo-falls-and-bloodriders-die",
+      "kind": "event",
+      "name": "Drogo falls and the bloodriders fight",
+      "nameRu": "Падение Дрого приводит к схватке в кхаласаре",
+      "subtitle": "A Game of Thrones · Daenerys VIII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys VIII; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_64",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 64
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys VIII"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; глава — временной локатор, не календарная дата"
+        },
+        {
+          "label": "Статус",
+          "value": "падение, раскол и схватка происходят; запись отделена от начавшегося обряда"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Дрого падает с коня, и его неспособность ехать становится известна кхаласару. После начала обряда кровные всадники пытаются добраться до Дейенерис и Мирри; Джорах получает ранение, а Дрого теряет своих кровных всадников. Это отдельный узел от решения начать кровавый ритуал."
+        }
+      ],
+      "links": [
+        {
+          "label": "Drogo",
+          "ref": "person:drogo"
+        },
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Jorah Mormont",
+          "ref": "person:jorah-mormont"
+        },
+        {
+          "label": "Mirri Maz Duur",
+          "ref": "person:mirri-maz-duur"
+        },
+        {
+          "label": "Qotho",
+          "ref": "person:qotho"
+        },
+        {
+          "label": "Haggo",
+          "ref": "person:haggo"
+        },
+        {
+          "label": "Cohollo",
+          "ref": "person:cohollo"
+        },
+        {
+          "label": "Quaro",
+          "ref": "person:quaro"
+        },
+        {
+          "label": "Dothraki Sea",
+          "ref": "place:dothraki-sea"
+        },
+        {
+          "label": "Drogo's khalasar",
+          "ref": "organization:khalasar-of-drogo"
+        },
+        {
+          "label": "Blood-magic ritual",
+          "ref": "event:daenerys-invokes-blood-magic-to-save-drogo"
+        }
+      ]
+    },
+    {
+      "ref": "event:rhaego-born-dead",
+      "kind": "event",
+      "name": "Rhaego is born dead",
+      "nameRu": "Рейего рождается мёртвым",
+      "subtitle": "A Game of Thrones · Daenerys IX",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys IX; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_68",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 68
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys IX"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; глава — временной локатор, не календарная дата"
+        },
+        {
+          "label": "Статус",
+          "value": "смерть ребёнка становится известна Дейенерис в главе"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "После долгого беспамятства Дейенерис узнаёт, что её ребёнок не выжил при рождении. Глава связывает это с последствиями обряда, но карточка сохраняет судьбу Рейего отдельно от смерти Дрого."
+        }
+      ],
+      "links": [
+        {
+          "label": "Rhaego",
+          "ref": "person:rhaego"
+        },
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Drogo",
+          "ref": "person:drogo"
+        },
+        {
+          "label": "Mirri Maz Duur",
+          "ref": "person:mirri-maz-duur"
+        },
+        {
+          "label": "Dothraki Sea",
+          "ref": "place:dothraki-sea"
+        }
+      ]
+    }
+  ]
+}

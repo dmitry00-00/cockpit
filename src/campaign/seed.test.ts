@@ -4,7 +4,7 @@
 import { describe, expect, it } from 'vitest';
 import { EventLog } from '../engine/log';
 import { journalEntries } from '../engine/journal';
-import { memoryStore } from '../engine/persist';
+import { localStorageStore, memoryStore, parseLog, serializeLog } from '../engine/persist';
 import { emptyState } from '../engine/state';
 import { MONSTERS } from '../rules/srd/monsters';
 import { formatHarptos } from './calendar';
@@ -38,6 +38,7 @@ describe('одна команда', () => {
     const b = seedEngine({ persist, ...fixed() });
     expect(b.getState().events).toHaveLength(9);
     expect(b.getState().state).toEqual(a.getState().state);
+    expect(b.getState().state.actors.bo.sheet?.portrait).toBe('bo-portrait');
     expect(b.getState().state.actors.korrin.hp.current).toBe(42);
   });
 });
@@ -64,6 +65,18 @@ describe('партия §13', () => {
     expect(a.conditions).toEqual({});
   });
 
+  it('четыре портрета партии явно связаны со своими листами и переживают seed/replay', () => {
+    const state = seedEngine(fixed()).getState().state;
+    expect(PARTY.find(p => p.id === 'bo')?.portrait).toBe('bo-portrait');
+    expect(state.actors.bo.sheet?.portrait).toBe('bo-portrait');
+    expect(PARTY.find(p => p.id === 'korrin')?.portrait).toBe('codex-korrin-v1');
+    expect(state.actors.korrin.sheet?.portrait).toBe('codex-korrin-v1');
+    expect(PARTY.find(p => p.id === 'lyra')?.portrait).toBe('codex-lyra-v1');
+    expect(state.actors.lyra.sheet?.portrait).toBe('codex-lyra-v1');
+    expect(PARTY.find(p => p.id === 'aldric')?.portrait).toBe('codex-aldric-v1');
+    expect(state.actors.aldric.sheet?.portrait).toBe('codex-aldric-v1');
+  });
+
   it('снаряжение — стартовые наборы SRD (29.10): атаки на листе у всех четверых, доспех §13 из набора', () => {
     const actors = seedEngine(fixed()).getState().state.actors;
     const attacks = (id: string) => (actors[id].sheet?.attacks ?? []).map(x => `${x.name} ${x.toHit >= 0 ? '+' : ''}${x.toHit} ${x.damage}${x.disadvantage ? ' (помеха)' : ''}`);
@@ -88,18 +101,115 @@ describe('партия §13', () => {
     expect(actors.aldric.sheet?.subclassId).toBe('jrec-jizni');
   });
 
-  it('битый лог в хранилище не роняет стол: хранилище очищается, стор поднимается из сида, причина — в onRecover', () => {
+  it('нереплеящийся лог сохраняется отдельной строкой до восстановления из сида', () => {
     const persist = memoryStore();
     // Событие, которое не пройдёт validate: урон по актёру, которого в сиде нет.
-    persist.save([{ id: 'x', seq: 0, at: 0, worldSec: 0, type: 'DAMAGE_APPLIED', payload: { targetId: 'nobody', amount: 1 } }]);
+    const source = [{ id: 'x', seq: 0, at: 0, worldSec: 0, type: 'DAMAGE_APPLIED' as const, payload: { targetId: 'nobody', amount: 1 } }];
+    persist.save(source);
     const reasons: string[] = [];
-    const store = seedEngine({ persist, ...fixed(), onRecover: r => reasons.push(r) });
+    let recoveryCopy: string | null | undefined;
+    const store = seedEngine({ persist, ...fixed(), onRecover: (r, raw) => { reasons.push(r); recoveryCopy = raw; } });
     expect(reasons).toHaveLength(1);
     expect(reasons[0]).toMatch(/nobody/);
+    expect(recoveryCopy).toBe(serializeLog(source));
+    expect(persist.loadRecoveryCopy?.()).toBe(serializeLog(source));
     expect(store.getState().state.actors.bo.hp.current).toBe(41);
     expect(persist.load()).toHaveLength(8); // сид записан заново, битого лога больше нет
     // Без хранилища ошибка не глотается: ловить нечего и чистить нечего.
     expect(() => seedEngine({ ...fixed(), persist: undefined })).not.toThrow();
+  });
+
+  it('пустой ключ запускает сид, повреждённый JSON сохраняется дословно и доступен после перезагрузки', () => {
+    const values = new Map<string, string>();
+    let removes = 0;
+    const persist = localStorageStore('campaign', {
+      getItem: key => values.get(key) ?? null,
+      setItem: (key, value) => { values.set(key, value); },
+      removeItem: key => { removes++; values.delete(key); },
+    });
+    const missingReasons: string[] = [];
+    const missing = seedEngine({ persist, ...fixed(), onRecover: reason => missingReasons.push(reason) });
+    expect(missing.getState().events).toHaveLength(8);
+    expect(missingReasons).toEqual([]);
+
+    values.set('campaign', '{broken');
+    const reasons: string[] = [];
+    let recoveryCopy: string | null | undefined;
+    const recovered = seedEngine({ persist, ...fixed(), onRecover: (reason, raw) => { reasons.push(reason); recoveryCopy = raw; } });
+    expect(recovered.getState().events).toHaveLength(8);
+    expect(reasons).toHaveLength(1);
+    expect(reasons[0]).toMatch(/JSON/);
+    expect(recoveryCopy).toBe('{broken');
+    expect(values.get('campaign.recovery-original')).toBe('{broken');
+    expect(removes).toBe(1);
+    expect(parseLog(values.get('campaign')!)).toHaveLength(8);
+
+    let copyAfterReload: string | null | undefined;
+    const reloaded = seedEngine({ persist, ...fixed(), onRecoveryCopy: raw => { copyAfterReload = raw; } });
+    expect(reloaded.getState().events).toHaveLength(8);
+    expect(copyAfterReload).toBe('{broken');
+  });
+
+  it('если резервную копию нельзя записать, источник повреждённого журнала не очищается и не заменяется сидом', () => {
+    const values = new Map<string, string>([['campaign', '{broken']]);
+    let removes = 0;
+    let writes = 0;
+    const persist = localStorageStore('campaign', {
+      getItem: key => values.get(key) ?? null,
+      setItem: (key, value) => {
+        if (key === 'campaign.recovery-original') throw new Error('quota');
+        writes++;
+        values.set(key, value);
+      },
+      removeItem: key => { removes++; values.delete(key); },
+    });
+    const store = seedEngine({ persist, ...fixed() });
+    expect(store.getState().events).toHaveLength(8);
+    expect(values.get('campaign')).toBe('{broken');
+    expect(values.has('campaign.recovery-original')).toBe(false);
+    expect(removes).toBe(0);
+    expect(writes).toBe(0);
+  });
+
+  it('нереплеящийся localStorage сохраняет исходное форматирование перед заменой основного журнала', () => {
+    const raw = ' { "format": 1, "events": [{"id":"x","seq":0,"at":0,"worldSec":0,"type":"DAMAGE_APPLIED","payload":{"targetId":"nobody","amount":1}}] }\n';
+    const values = new Map<string, string>([['campaign', raw]]);
+    const persist = localStorageStore('campaign', {
+      getItem: key => values.get(key) ?? null,
+      setItem: (key, value) => { values.set(key, value); },
+      removeItem: key => { values.delete(key); },
+    });
+    let recoveryCopy: string | null | undefined;
+    const store = seedEngine({ persist, ...fixed(), onRecover: (_reason, copy) => { recoveryCopy = copy; } });
+    expect(store.getState().events).toHaveLength(8);
+    expect(recoveryCopy).toBe(raw);
+    expect(values.get('campaign.recovery-original')).toBe(raw);
+    expect(parseLog(values.get('campaign')!)).toHaveLength(8);
+  });
+
+  it('ошибка чтения localStorage не удаляет и не перезаписывает недоступный сохранённый лог', () => {
+    const saved = serializeLog(seedLog());
+    let stored = saved;
+    let removes = 0;
+    let writes = 0;
+    const persist = localStorageStore('campaign', {
+      getItem: () => { throw new Error('storage denied'); },
+      setItem: (_key, value) => { writes++; stored = value; },
+      removeItem: () => { removes++; stored = ''; },
+    });
+    const reasons: string[] = [];
+    const store = seedEngine({ persist, ...fixed(), onRecover: reason => reasons.push(reason) });
+    expect(store.getState().events).toHaveLength(8);
+    expect(store.getState().state.actors.bo.hp.current).toBe(41);
+    expect(reasons).toHaveLength(1);
+    expect(reasons[0]).toMatch(/не удалось прочитать/);
+
+    store.getState().damage('bo', 1);
+    expect(store.getState().state.actors.bo.hp.current).toBe(40);
+    expect(removes).toBe(0);
+    expect(writes).toBe(0);
+    expect(stored).toBe(saved);
+    expect(parseLog(stored)).toHaveLength(8);
   });
 
   it('текущие хиты — не начальное состояние, а урон в логе; начальное состояние — все целы', () => {
@@ -165,6 +275,14 @@ describe('противники §13', () => {
 });
 
 describe('мир §13', () => {
+  it('пакет FR предоставляет корни лестницы, а сид продолжает их устойчивыми id', () => {
+    const { world } = seedEngine(fixed()).getState().state;
+    expect(world.locations[LOCATION.greatWheel]).toMatchObject({ name: 'Великое Колесо', scale: 'cosmology' });
+    expect(world.locations[LOCATION.realmspace]).toMatchObject({ name: 'Realmspace', scale: 'system', parentId: LOCATION.material });
+    expect(world.locations[LOCATION.toril]).toMatchObject({ name: 'Toril', scale: 'planet', parentId: LOCATION.realmspace, geo: { map: 'toril' } });
+    expect(world.locations[LOCATION.faerun]).toMatchObject({ name: 'Faerûn', scale: 'continent', parentId: LOCATION.toril, ref: 'place:0b786ca2-0cb5-413e-9e75-a7962ca03cfe' });
+  });
+
   it('Neverwinter 23k, опасность средняя, цены +10%; фракции; нити со сроками от времени сида', () => {
     const { world } = seedEngine(fixed()).getState().state;
     expect(world.locations[LOCATION.neverwinter]).toMatchObject({ name: 'Neverwinter', scale: 'settlement', population: 23_000, danger: 'medium', pricePercent: 10 });
@@ -229,6 +347,16 @@ describe('сид и движок', () => {
     expect(a).toEqual(b);
     expect(a.actors.bo).not.toBe(b.actors.bo);
     expect(emptyState().world).toEqual({ locations: {}, factions: {}, threads: {} });
+  });
+
+  it('встроенный портрет входит в снимок ACTOR_SPAWNED и возвращается при реплее', () => {
+    const store = seedEngine(fixed());
+    const actor = { ...structuredClone(store.getState().state.actors.bo), id: 'bo-copy', name: 'Bo copy' };
+    store.getState().spawn(actor, false);
+    const snapshotEvent = store.getState().events.at(-1)!;
+    expect(snapshotEvent).toMatchObject({ type: 'ACTOR_SPAWNED', payload: { actor: { sheet: { portrait: 'bo-portrait' } } } });
+    const replay = new EventLog(seedState(), JSON.parse(JSON.stringify(store.getState().events)), fixed());
+    expect(replay.state.actors['bo-copy'].sheet?.portrait).toBe('bo-portrait');
   });
 
   it('начать бой, ход, урон, состояние — обычная работа движка на сиде', () => {

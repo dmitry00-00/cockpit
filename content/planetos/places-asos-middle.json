@@ -1,0 +1,479 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "place",
+  "entities": [
+    {
+      "ref": "place:queenscrown",
+      "kind": "place",
+      "name": "Queenscrown",
+      "nameRu": "Куинс-кроун",
+      "subtitle": "A Storm of Swords · Jon V (Chapter 41)",
+      "status": "secondary-indexed-partial",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Jon V (chapter 41); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_41",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 41,
+        "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summary; primary-edition verification pending."
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon V, глава 41"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "место сцены или группа, участвующая в сцене"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не выполнена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Место главы, где Джон находится среди людей Стайра и пытается вырваться, чтобы предупредить Чёрный замок."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 41,
+          "chapterTitle": "Jon V",
+          "relation": "scene",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_41"
+        }
+      ],
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "place:high-heart",
+      "kind": "place",
+      "name": "High Heart",
+      "nameRu": "Высокое Сердце",
+      "subtitle": "A Storm of Swords · Arya VIII (Chapter 43)",
+      "status": "secondary-indexed-partial",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Arya VIII (chapter 43); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_43",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 43,
+        "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summary; primary-edition verification pending."
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Arya VIII, глава 43"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "место сцены или группа, участвующая в сцене"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не выполнена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Место встречи Арьи и Братства без знамён с Призраком Высокого Сердца; в этой сцене она рассказывает свои сны."
+        }
+      ],
+      "links": [
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 43,
+          "chapterTitle": "Arya VIII",
+          "relation": "scene",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_43"
+        }
+      ],
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "place:oldstones",
+      "kind": "place",
+      "name": "Oldstones",
+      "nameRu": "Старые Камни",
+      "subtitle": "A Storm of Swords · Catelyn V (Chapter 45)",
+      "status": "secondary-indexed-partial",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Catelyn V (chapter 45); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_45",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 45,
+        "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summary; primary-edition verification pending."
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn V, глава 45"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "место сцены или группа, участвующая в сцене"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не выполнена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Остановка на пути к Близнецам и место разговора Робба с Кейтлин о наследнике."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 45,
+          "chapterTitle": "Catelyn V",
+          "relation": "scene",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_45"
+        }
+      ],
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "place:hags-mire",
+      "kind": "place",
+      "name": "Hag's Mire",
+      "nameRu": "Хэгс-Майр",
+      "subtitle": "A Storm of Swords · Catelyn V (Chapter 45)",
+      "status": "secondary-indexed-partial",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Catelyn V (chapter 45); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_45",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 45,
+        "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summary; primary-edition verification pending."
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn V, глава 45"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "место сцены или группа, участвующая в сцене"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не выполнена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Место, где к отряду Робба присоединяется Джейсон Маллистер."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jason Mallister",
+          "ref": "person:jason-mallister"
+        },
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 45,
+          "chapterTitle": "Catelyn V",
+          "relation": "scene",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_45"
+        }
+      ],
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "place:lord-harroways-town",
+      "kind": "place",
+      "name": "Lord Harroway's Town",
+      "nameRu": "Город Лорда Харровея",
+      "subtitle": "A Storm of Swords · Arya IX (Chapter 47)",
+      "status": "secondary-indexed-partial",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Arya IX (chapter 47); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_47",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 47,
+        "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summary; primary-edition verification pending."
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Arya IX, глава 47"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "место сцены или группа, участвующая в сцене"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не выполнена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Затопленный город, через который Арья и Сандор пытаются найти переправу через Трезубец."
+        }
+      ],
+      "links": [
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Sandor Clegane",
+          "ref": "person:sandor-clegane"
+        },
+        {
+          "label": "Trident",
+          "ref": "place:trident"
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 47,
+          "chapterTitle": "Arya IX",
+          "relation": "scene",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_47"
+        }
+      ],
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "place:nightfort",
+      "kind": "place",
+      "name": "Nightfort",
+      "nameRu": "Ночной Форт",
+      "subtitle": "A Storm of Swords · Bran IV (Chapter 56)",
+      "status": "secondary-indexed-partial",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Bran IV (chapter 56); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_56",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 56,
+        "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summary; primary-edition verification pending."
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Bran IV, глава 56"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "место сцены или группа, участвующая в сцене"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не выполнена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Заброшенная крепость у Стены, где пути Брана и Сэма пересекаются."
+        }
+      ],
+      "links": [
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "Samwell Tarly",
+          "ref": "person:samwell-tarly"
+        },
+        {
+          "label": "The Wall",
+          "ref": "place:the-wall"
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 56,
+          "chapterTitle": "Bran IV",
+          "relation": "scene",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_56"
+        }
+      ],
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "ref": "place:black-gate",
+      "kind": "place",
+      "name": "Black Gate",
+      "nameRu": "Чёрные Врата",
+      "subtitle": "A Storm of Swords · Bran IV (Chapter 56)",
+      "status": "secondary-indexed-partial",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Bran IV (chapter 56); A Wiki of Ice and Fire numeric chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_56",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 56,
+        "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summary; primary-edition verification pending."
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Bran IV, глава 56"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "место сцены или группа, участвующая в сцене"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не выполнена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным русским изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Древний проход под Стеной через Ночной Форт; Сэм открывает его, произнося клятву Ночного дозора."
+        }
+      ],
+      "links": [
+        {
+          "label": "Samwell Tarly",
+          "ref": "person:samwell-tarly"
+        },
+        {
+          "label": "The Wall",
+          "ref": "place:the-wall"
+        },
+        {
+          "label": "Nightfort",
+          "ref": "place:nightfort"
+        }
+      ],
+      "locators": [
+        {
+          "book": "A Storm of Swords",
+          "chapterNo": 56,
+          "chapterTitle": "Bran IV",
+          "relation": "scene-subplace",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_56"
+        }
+      ],
+      "verification": {
+        "primaryBook": "pending"
+      }
+    }
+  ]
+}

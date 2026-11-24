@@ -1,7 +1,8 @@
+import { timeAction } from './testkit';
 // Бой на столе, живой стол (инициатива, появление, «Мир спокоен») и предложения концентрации.
 import { act, fireEvent, screen, waitFor, within } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { mount, rowOf, cardOf, hpOf, lastEvent, damageViaPopover, bar, grid, tokenIn, activeIn, startCombat } from './testkit';
+import { mount, rowOf, cardOf, hpOf, lastEvent, damageViaPopover, bar, grid, tokenIn, activeIn, startCombat, openTimeControls } from './testkit';
 import { monsterActor } from '../../campaign';
 import { loadMonsterLibraries } from '../../rules/srd/monsters';
 
@@ -10,7 +11,7 @@ afterEach(() => { vi.useRealTimers(); vi.restoreAllMocks(); });
 /* ---------- Бой (шаг 6): сценарий F2 мышью — урон → промпт концентрации → следующий ход → отмена ---------- */
 
 describe('бой на столе', () => {
-  it('«Начать бой» → ENCOUNTER_STARTED из бросков сида: полоса инициативы с восемью токенами, ход Korrin, раунд 1, сетка вместо карточки', () => {
+  it('«Начать бой» → ENCOUNTER_STARTED из бросков сида: полоса инициативы с восемью токенами, ход Korrin, раунд 1, сетка вместо карточки', async () => {
     const { store } = mount();
     expect(screen.queryByLabelText('Бой', { selector: 'footer' })).toBeNull();
     expect(screen.queryByRole('group', { name: 'Боевая сетка' })).toBeNull();
@@ -20,7 +21,9 @@ describe('бой на столе', () => {
     expect(ids).toEqual(['korrin', 'bo', 'captain', 'lyra', 'bandit-1', 'aldric', 'bandit-2', 'bandit-3']);
     expect(activeIn(bar())).toBe('korrin');
     expect(activeIn(grid())).toBe('korrin');
-    expect(screen.getByLabelText('Мировые часы')).toHaveTextContent('Раунд 1');
+    openTimeControls();
+    expect(screen.getByRole('dialog', { name: 'Управление временем' })).toHaveTextContent('Раунд 1');
+    fireEvent.click(screen.getByRole('button', { name: 'Закрыть управление временем' }));
     expect(screen.queryByRole('button', { name: 'Начать бой' })).toBeNull();
     // Карточка в бою — по кнопке, а не всегда: главная зона отдана сетке.
     expect(screen.queryByRole('region', { name: 'Bo Tambernack' })).toBeNull();
@@ -28,7 +31,7 @@ describe('бой на столе', () => {
     expect(grid().querySelectorAll('[data-actor]')).toHaveLength(8);
   });
 
-  it('F2: урон с токена → число на токене, в корешке и в журнале; промпт концентрации «Удержал»; «Ход» → Bo; Ctrl+Z → снова Korrin', () => {
+  it('F2: урон с токена → число на токене, в корешке и в журнале; промпт концентрации «Удержал»; «Ход» → Bo; Ctrl+Z → снова Korrin', async () => {
     const { store } = mount();
     startCombat();
     fireEvent.click(tokenIn(grid(), 'bo')!);
@@ -62,7 +65,7 @@ describe('бой на столе', () => {
     expect(store.getState().state.encounter.turnIndex).toBe(0);
   });
 
-  it('Space — следующий ход, но не из поля попапа; после круга раунд 2; клик по токену полосы открывает попап от него', () => {
+  it('Space — следующий ход, но не из поля попапа; после круга раунд 2; клик по токену полосы открывает попап от него', async () => {
     const { store } = mount();
     startCombat();
     fireEvent.keyDown(window, { key: ' ', code: 'Space' });
@@ -74,10 +77,11 @@ describe('бой на столе', () => {
     fireEvent.keyDown(dialog, { key: 'Escape' });
     for (let i = 0; i < 7; i++) fireEvent.keyDown(window, { key: ' ', code: 'Space' });
     expect(store.getState().state.encounter).toMatchObject({ round: 2, turnIndex: 0 });
-    expect(screen.getByLabelText('Мировые часы')).toHaveTextContent('Раунд 2');
+    openTimeControls();
+    expect(screen.getByRole('dialog', { name: 'Управление временем' })).toHaveTextContent('Раунд 2');
   });
 
-  it('«Убрать из боя» с токена — ACTOR_REMOVED: токен уходит из полосы и с сетки, «Выбыл (убит)» в журнале; Ctrl+Z возвращает', () => {
+  it('«Убрать из боя» с токена — ACTOR_REMOVED: токен уходит из полосы и с сетки, «Выбыл (убит)» в журнале; Ctrl+Z возвращает', async () => {
     const { store } = mount();
     startCombat();
     act(() => store.getState().damage('bandit-3', 11));
@@ -96,7 +100,7 @@ describe('бой на столе', () => {
     expect(tokenIn(grid(), 'bandit-3')).not.toBeNull();
   });
 
-  it('«Карточка» в бою показывает карточку выбранного рядом с сеткой; «Закончить бой» → ENCOUNTER_ENDED, стол как до боя', () => {
+  it('«Карточка» в бою показывает карточку выбранного рядом с сеткой; «Закончить бой» → ENCOUNTER_ENDED, стол как до боя', async () => {
     const { store } = mount();
     startCombat();
     fireEvent.click(tokenIn(grid(), 'captain')!);
@@ -110,7 +114,7 @@ describe('бой на столе', () => {
     expect(screen.getByRole('group', { name: 'Противники' })).toBeInTheDocument();
   });
 
-  it('бросок с плитки → карточка броска в правой колонке: формула, итог из лога; «скрытый бросок» — следующий бросок скрытый; R — переброс; крестик закрывает до следующего броска', () => {
+  it('бросок с плитки → карточка броска в правой колонке: формула, итог из лога; «скрытый бросок» — следующий бросок скрытый; R — переброс; крестик закрывает до следующего броска', async () => {
     const { store } = mount();
     expect(screen.queryByRole('region', { name: /^Бросок/ })).toBeNull();
     fireEvent.click(screen.getByRole('button', { name: /^DEX/ }));
@@ -140,7 +144,7 @@ describe('живой стол: инициатива, появление прот
   const spawnDialog = () => screen.getByRole('dialog', { name: 'Добавить противника' });
   const foesStack = () => screen.getByRole('group', { name: 'Противники' });
 
-  it('«Начать бой» открывает редактор с бросками сида; правка и бросок монстру меняют порядок; «Начать бой» в нём — ENCOUNTER_STARTED с этим порядком', () => {
+  it('«Начать бой» открывает редактор с бросками сида; правка и бросок монстру меняют порядок; «Начать бой» в нём — ENCOUNTER_STARTED с этим порядком', async () => {
     vi.spyOn(Math, 'random').mockReturnValue(0.999);
     const { store } = mount();
     fireEvent.click(screen.getByRole('button', { name: 'Начать бой' }));
@@ -166,7 +170,7 @@ describe('живой стол: инициатива, появление прот
     expect(screen.getByRole('button', { name: 'Порядок' })).toBeInTheDocument();
   });
 
-  it('в бою «Порядок» → «Применить» пишет INITIATIVE_SET снимком; ход остаётся у того, чей был; пустая строка выбывает из порядка', () => {
+  it('в бою «Порядок» → «Применить» пишет INITIATIVE_SET снимком; ход остаётся у того, чей был; пустая строка выбывает из порядка', async () => {
     const { store } = mount();
     startCombat();
     fireEvent.click(screen.getByRole('button', { name: 'Ход' }));
@@ -195,7 +199,7 @@ describe('живой стол: инициатива, появление прот
     fireEvent.change(within(dlg).getByRole('searchbox', { name: 'Найти блок' }), { target: { value: 'bandit' } });
     const found = within(within(dlg).getByRole('group', { name: 'Блок' })).getAllByRole('button');
     expect(found.length).toBeGreaterThan(2);
-    expect(found[0]).toHaveAttribute('title', 'Bandit (SRD): CR 1/8, AC 12, 11 хитов');
+    expect(found[0]).toHaveAttribute('title', 'Bandit (SRD): humanoid, Medium, CR 1/8, AC 12, 11 хитов');
     expect(within(dlg).getByRole('textbox', { name: 'Имя' })).toHaveValue('Bandit 4');
     fireEvent.click(within(dlg).getByRole('button', { name: 'Добавить' }));
     expect(lastEvent(store)).toMatchObject({ type: 'ACTOR_SPAWNED', payload: { actor: { id: 'bandit-4', name: 'Bandit 4', monsterId: 'bandit', hp: { current: 11, max: 11 } } } });
@@ -208,7 +212,7 @@ describe('живой стол: инициатива, появление прот
     expect(store.getState().state.actors['bandit-4']).toBeUndefined();
   });
 
-  it('«Добавить» в бою: две штуки → два ACTOR_SPAWNED, два броска инициативы и один INITIATIVE_SET; оба на полосе; Ctrl+Z снимает порядок, актёры остаются', () => {
+  it('«Добавить» в бою: две штуки → два ACTOR_SPAWNED, два броска инициативы и один INITIATIVE_SET; оба на полосе; Ctrl+Z снимает порядок, актёры остаются', async () => {
     vi.spyOn(Math, 'random').mockReturnValue(0);
     const { store } = mount();
     startCombat();
@@ -233,7 +237,7 @@ describe('живой стол: инициатива, появление прот
     expect(store.getState().state.actors['bandit-captain-2']).toBeDefined();
   });
 
-  it('«Концентрация» в карточке: Lyra, «Hold Person», 1 мин → CONCENTRATION_STARTED с untilSec = +60 с; чип в корешке; у Bo форма называет, что сменит', () => {
+  it('«Концентрация» в карточке: Lyra, «Hold Person», 1 мин → CONCENTRATION_STARTED с untilSec = +60 с; чип в корешке; у Bo форма называет, что сменит', async () => {
     const { store } = mount();
     const bo = cardOf('Bo Tambernack');
     fireEvent.click(within(bo).getByRole('button', { name: 'Концентрация' }));
@@ -259,7 +263,7 @@ describe('живой стол: инициатива, появление прот
     expect(screen.getByRole('dialog', { name: /^Хиты: / })).toHaveTextContent('удержит с шансом 65%');
   });
 
-  it('форма концентрации берёт заклинание с листа и срок SRD (ROADMAP 5.5): Hunter\'s Mark у Bo — 1 час', () => {
+  it('форма концентрации берёт заклинание с листа и срок SRD (ROADMAP 5.5): Hunter\'s Mark у Bo — 1 час', async () => {
     const { store } = mount();
     fireEvent.click(within(cardOf('Bo Tambernack')).getByRole('button', { name: 'Концентрация' }));
     const dlg = screen.getByRole('dialog', { name: 'Концентрация' });
@@ -271,7 +275,7 @@ describe('живой стол: инициатива, появление прот
     expect(lastEvent(store)).toMatchObject({ type: 'CONCENTRATION_STARTED', payload: { actorId: 'bo', spell: "Hunter's Mark", untilSec: sec + 3600 } });
   });
 
-  it('пустые входящие — «Мир спокоен», ближайший праздник (Midsummer через 76 дней) и святой день бога партии в тот же день; с предложениями строки нет; у игроков нет и её', () => {
+  it('пустые входящие — «Мир спокоен», ближайший праздник (Midsummer через 76 дней) и святой день бога партии в тот же день; с предложениями строки нет; у игроков нет и её', async () => {
     const { store } = mount();
     expect(screen.queryByText(/Мир спокоен/)).toBeNull();
     act(() => { for (const d of Object.values(store.getState().state.deltas)) store.getState().reject(d.id); });
@@ -289,17 +293,17 @@ describe('живой стол: инициатива, появление прот
 describe('система предлагает, мастер решает: концентрация', () => {
   const reminders = () => screen.queryByRole('list', { name: 'Напоминания' });
 
-  it('срок Hunter\'s Mark вышел после часа (T): напоминание «срок вышел»; «Позже» прячет и помнит это заклинание', () => {
+  it('срок Hunter\'s Mark вышел после часа (T): напоминание «срок вышел»; «Позже» прячет и помнит это заклинание', async () => {
     mount();
     expect(reminders()).toBeNull();
-    fireEvent.keyDown(window, { key: 't', code: 'KeyT' });
+    await timeAction(() => { fireEvent.keyDown(window, { key: 't', code: 'KeyT' }); });
     fireEvent.keyDown(window, { key: 'Escape', code: 'Escape' });
     const list = reminders()!;
     expect(list).toHaveTextContent("Bo Tambernack: срок концентрации Hunter's Mark вышел");
     fireEvent.click(within(list).getByRole('button', { name: 'Позже' }));
     expect(reminders()).toBeNull();
     // Второй шаг времени — напоминание не возвращается: «Позже» помнит это заклинание с этим сроком.
-    fireEvent.keyDown(window, { key: 't', code: 'KeyT' });
+    await timeAction(() => { fireEvent.keyDown(window, { key: 't', code: 'KeyT' }); });
     fireEvent.keyDown(window, { key: 'Escape', code: 'Escape' });
     expect(reminders()).toBeNull();
     fireEvent.keyDown(window, { key: 'z', code: 'KeyZ', ctrlKey: true });
@@ -307,9 +311,9 @@ describe('система предлагает, мастер решает: кон
     expect(reminders()).toBeNull();
   });
 
-  it('«Снять» по сроку пишет CONCENTRATION_ENDED expired; чип гаснет; Ctrl+Z возвращает чип и напоминание', () => {
+  it('«Снять» по сроку пишет CONCENTRATION_ENDED expired; чип гаснет; Ctrl+Z возвращает чип и напоминание', async () => {
     const { store } = mount();
-    fireEvent.keyDown(window, { key: 't', code: 'KeyT' });
+    await timeAction(() => { fireEvent.keyDown(window, { key: 't', code: 'KeyT' }); });
     fireEvent.keyDown(window, { key: 'Escape', code: 'Escape' });
     fireEvent.click(within(reminders()!).getByRole('button', { name: 'Снять' }));
     expect(lastEvent(store)).toMatchObject({ type: 'CONCENTRATION_ENDED', payload: { actorId: 'bo', reason: 'expired' } });
@@ -322,7 +326,7 @@ describe('система предлагает, мастер решает: кон
     expect(reminders()).toBeNull();
   });
 
-  it('0 хитов при концентрации: в попапе вместо DC — «Без сознания», «Снять» → CONCENTRATION_ENDED unconscious; напоминание в панели о том же', () => {
+  it('0 хитов при концентрации: в попапе вместо DC — «Без сознания», «Снять» → CONCENTRATION_ENDED unconscious; напоминание в панели о том же', async () => {
     const { store } = mount();
     const dialog = damageViaPopover(cardOf('Bo Tambernack'), 41);
     expect(hpOf(store, 'bo').current).toBe(0);

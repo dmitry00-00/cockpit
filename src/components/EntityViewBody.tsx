@@ -20,7 +20,7 @@ export function cardTypeOf(kind: EntityKind): EntityType {
     // Держава — грань фракции: она и станет фракцией кампании, когда мастер возьмёт её в игру.
     case 'faction': case 'organization': case 'kingdom': return 'faction';
     case 'actor': case 'person': return 'npc';
-    case 'thread': return 'event';
+    case 'thread': case 'event': return 'event';
     default: return 'rule';
   }
 }
@@ -103,16 +103,27 @@ export function EntityViewBody({ view, onOpen, factAction, className = '' }: Ent
       ) : null}
       <footer className="flex items-start gap-1 type-body-xs text-t2" data-part="source">
         <Icon name="src-canon" size={16} color="var(--src-canon)" title="Источник" />
-        <span className="break-words [overflow-wrap:anywhere]">
-          {view.source.cite}
-          {view.source.license ? ` · ${view.source.license}` : ''}
-          {view.source.url ? (
-            <>
-              {' · '}
-              <a href={view.source.url} target="_blank" rel="noreferrer" className="underline text-tx hover:text-gd-hi">статья</a>
-            </>
+        <div className="flex flex-col gap-1 min-w-0 break-words [overflow-wrap:anywhere]">
+          <span>
+            {view.source.cite}
+            {view.source.license ? ` · ${view.source.license}` : ''}
+            {!view.sources?.length && view.source.url ? (
+              <>
+                {' · '}
+                <a href={view.source.url} target="_blank" rel="noreferrer" className="underline text-tx hover:text-gd-hi">статья</a>
+              </>
+            ) : null}
+          </span>
+          {view.sources?.length ? (
+            <div className="flex flex-wrap gap-x-2 gap-y-1" aria-label="Точные источники глав">
+              {view.sources.map((source, index) => (
+                <a key={`${source.url ?? source.cite}-${index}`} href={source.url} target="_blank" rel="noreferrer" className="underline text-tx hover:text-gd-hi">
+                  {source.cite}
+                </a>
+              ))}
+            </div>
           ) : null}
-        </span>
+        </div>
       </footer>
     </div>
   );

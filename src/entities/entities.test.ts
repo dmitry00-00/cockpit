@@ -32,8 +32,9 @@ describe('справочник после загрузки', () => {
 
   const all = () => REFERENCE_KINDS.flatMap(k => refsOf(k));
 
-  it('у каждого вида есть записи; у каждой — источник, вид и ссылка совпадают с запрошенными', () => {
-    for (const k of REFERENCE_KINDS) expect(refsOf(k).length, k).toBeGreaterThan(0);
+  it('у каждого вида справочника FR есть записи; пакетные виды могут отсутствовать в выбранном сеттинге', () => {
+    for (const k of REFERENCE_KINDS.filter(kind => kind !== 'event')) expect(refsOf(k).length, k).toBeGreaterThan(0);
+    expect(refsOf('event')).toEqual([]);
     for (const r of all()) {
       const v = resolve(r)!;
       expect(v, r).toBeDefined();

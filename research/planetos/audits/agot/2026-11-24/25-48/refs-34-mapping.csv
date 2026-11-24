@@ -1,0 +1,101 @@
+chapter_no,role,candidate_name,ref,decision,note
+27,appearance,Pycelle,person:pycelle,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+28,appearance,Kurleket,person:kurleket,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+30,appearance,Jory Cassel,person:jory-cassel,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+30,appearance,Arya Stark,person:arya-stark,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+34,appearance,Whitey,,no-card,No stable ref in package .34. Candidate ID only: person:whitey. Create/resolve the entity before linking; primary verification pending.
+37,appearance,Grey Wind,person:grey-wind,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+37,appearance,Hali,,no-card,No stable ref in package .34. Candidate ID only: person:hali. Create/resolve the entity before linking; primary verification pending.
+37,appearance,Joseth,,no-card,No stable ref in package .34. Candidate ID only: person:joseth. Create/resolve the entity before linking; primary verification pending.
+37,appearance,Kyra,person:kyra,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+37,appearance,Quent,,no-card,No stable ref in package .34. Candidate ID only: person:quent. Create/resolve the entity before linking; primary verification pending.
+37,appearance,Stiv,,no-card,No stable ref in package .34. Candidate ID only: person:stiv. Create/resolve the entity before linking; primary verification pending.
+37,appearance,Wallen,,no-card,No stable ref in package .34. Candidate ID only: person:wallen. Create/resolve the entity before linking; primary verification pending.
+37,appearance,Wayn,,no-card,No stable ref in package .34. Candidate ID only: person:wayn. Create/resolve the entity before linking; primary verification pending.
+40,appearance,Lyn Corbray,person:lyn-corbray,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+41,appearance,Albett,person:albett,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+41,appearance,Dareon,person:dareon,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+41,appearance,Grenn,person:grenn,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+41,appearance,Halder,person:halder,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+41,appearance,Jeren,person:jeren,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+41,appearance,Bowen Marsh,person:bowen-marsh,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+41,appearance,Pypar,person:pypar,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+41,appearance,Rast,person:rast,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+41,appearance,Samwell Tarly,person:samwell-tarly,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+41,appearance,Alliser Thorne,person:alliser-thorne,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+41,appearance,Todder,person:todder,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+42,appearance,Jaggot,,no-card,No stable ref in package .34. Candidate ID only: person:jaggot. Create/resolve the entity before linking; primary verification pending.
+42,appearance,Torrek,,no-card,No stable ref in package .34. Candidate ID only: person:torrek. Create/resolve the entity before linking; primary verification pending.
+43,appearance,Alyn,person:alyn,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+43,appearance,Raymun Darry,person:raymun-darry,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+43,appearance,Joss,,no-card,No stable ref in package .34. Candidate ID only: person:joss. Create/resolve the entity before linking; primary verification pending.
+43,appearance,Lothar Mallery,,no-card,No stable ref in package .34. Candidate ID only: person:lothar-mallery. Create/resolve the entity before linking; primary verification pending.
+43,appearance,Porther,person:porther,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+44,appearance,Alyn,person:alyn,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+45,appearance,Tomard,person:tomard,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+45,appearance,Varly,person:varly,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+46,appearance,Fogo,person:fogo,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+46,appearance,Jommo,,no-card,No stable ref in package .34. Candidate ID only: person:jommo. Create/resolve the entity before linking; primary verification pending.
+46,appearance,Ogo,person:ogo,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+47,appearance,Desmond,person:desmond,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+39,dream-figure,Eddard Stark,person:eddard-stark,ambiguous,"This is the POV/dreamer, not a dream figure; remove from dream-figure relation after primary-edition review."
+36,appearance,Silver mare,,ambiguous,Unnamed mount; exclude from person denominator Primary verification pending.
+37,appearance,Dancer,,ambiguous,Named horse; decide whether package models named mounts as character entities Primary verification pending.
+46,appearance,One-eyed crone,,ambiguous,Unidentified individual; no personal name Primary verification pending.
+25,mention,Robert Arryn,person:robert-arryn,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+25,mention,Renly Baratheon,person:renly-baratheon,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+25,mention,Colemon,,no-card,No stable ref in package .34. Candidate ID only: person:colemon. Create/resolve the entity before linking; primary verification pending.
+25,mention,Vardis Egen,person:vardis-egen,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+25,mention,Syrio Forel,person:syrio-forel,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+25,mention,Tywin Lannister,person:tywin-lannister,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+25,mention,Old Nan,person:old-nan,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+25,mention,Barristan Selmy,person:barristan-selmy,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+25,mention,Rickard Stark,person:rickard-stark,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+25,mention,Varys,person:varys,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+39,mention,Petyr Baelish,person:petyr-baelish,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+39,mention,Barra,person:barra,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+39,mention,Willem Darry,person:willem-darry,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+39,mention,Tywin Lannister,person:tywin-lannister,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+39,mention,Pycelle,person:pycelle,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+39,mention,Brandon Stark,person:brandon-stark,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+39,mention,Aerys II Targaryen,person:aerys-ii-targaryen,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+39,mention,Rhaegar Targaryen,person:rhaegar-targaryen,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+39,mention,Rhaella Targaryen,person:rhaella-targaryen,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+39,mention,Tregar,person:tregar,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+39,mention,Mace Tyrell,person:mace-tyrell,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+27,place-reference,Casterly Rock,place:casterly-rock,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+27,place-reference,Dragonstone,place:dragonstone,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+27,place-reference,Great Sept of Baelor,place:great-sept-of-baelor,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+27,place-reference,Storm's End,place:storms-end,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+37,place-reference-in-message,King's Landing,place:kings-landing,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+37,place-reference,Eyrie,place:the-eyrie,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+37,place-reference,Kingsroad,place:kingsroad,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+37,place-reference,Moat Cailin,place:moat-cailin,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+41,place-reference,Eastwatch,,no-card,No stable ref in package .34. Candidate ID only: place:eastwatch. Create/resolve the entity before linking; primary verification pending.
+41,place-reference,Haunted forest,place:haunted-forest,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+41,place-reference,Isle of Faces,,no-card,No stable ref in package .34. Candidate ID only: place:isle-of-faces. Create/resolve the entity before linking; primary verification pending.
+41,place-reference,Shadow Tower,place:shadow-tower,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+41,place-reference,Braavos,,no-card,No stable ref in package .34. Candidate ID only: place:braavos. Create/resolve the entity before linking; primary verification pending.
+43,place-reference,Mummer's Ford,,no-card,No stable ref in package .34. Candidate ID only: place:mummers-ford. Create/resolve the entity before linking; primary verification pending.
+43,place-reference,Golden Tooth,place:golden-tooth,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+43,place-reference,Wendish Town,,no-card,No stable ref in package .34. Candidate ID only: place:wendish-town. Create/resolve the entity before linking; primary verification pending.
+45,place-reference,Casterly Rock,place:casterly-rock,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+45,place-reference,Dorne,place:dorne,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+45,place-reference,Free Cities,place:free-cities,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+45,place-reference,Kingswood,,no-card,No stable ref in package .34. Candidate ID only: place:kingswood. Create/resolve the entity before linking; primary verification pending.
+45,place-reference,Port of Ibben,,no-card,No stable ref in package .34. Candidate ID only: place:port-of-ibben. Create/resolve the entity before linking; primary verification pending.
+45,place-reference,Summer Isles,,no-card,No stable ref in package .34. Candidate ID only: place:summer-isles. Create/resolve the entity before linking; primary verification pending.
+47,dream-place,Crypts of Winterfell,place:crypts-of-winterfell,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+37,event-report,Jaime ambushes Ned and kills Jory,event:jaime-ambushes-ned-and-kills-jory,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.
+40,event-report,Lannister army gathers at Casterly Rock,,no-card,No stable ref in package .34. Candidate ID only: event:lannister-army-gathering-at-casterly-rock. Create/resolve the entity before linking; primary verification pending.
+43,event-order/outcome-boundary,Eddard sends Beric to bring Gregor to justice,event:eddard-sends-beric-after-gregor,ambiguous,Relation already exists. The order/request is evidenced; do not imply that the mission or later outcome occurred in this chapter.
+25,mention,Brandon the Builder,,no-card,No stable ref in package .34. Candidate ID only: person:brandon-the-builder. Create/resolve the entity before linking; primary verification pending.
+25,mention,Malleon,,no-card,No stable ref in package .34. Candidate ID only: person:malleon. Create/resolve the entity before linking; primary verification pending.
+25,mention,Aegon V Targaryen,,no-card,No stable ref in package .34. Candidate ID only: person:aegon-v-targaryen. Create/resolve the entity before linking; primary verification pending.
+25,mention,Jaehaerys II Targaryen,,no-card,No stable ref in package .34. Candidate ID only: person:jaehaerys-ii-targaryen. Create/resolve the entity before linking; primary verification pending.
+25,mention,Maekar I Targaryen,,no-card,No stable ref in package .34. Candidate ID only: person:maekar-i-targaryen. Create/resolve the entity before linking; primary verification pending.
+30,appearance-list-discrepancy,Joffrey Baratheon,person:joffrey-baratheon,ambiguous,Present in ledger but absent from AWOIAF Appearing list; do not add/remove until physical presence is checked in the chosen edition.
+30,appearance-list-discrepancy,Cersei Lannister,person:cersei-lannister,ambiguous,Present in ledger but absent from AWOIAF Appearing list; do not add/remove until physical presence is checked in the chosen edition.
+30,appearance-list-discrepancy,Boros Blount,person:boros-blount,ambiguous,Present in ledger but absent from AWOIAF Appearing list; do not add/remove until physical presence is checked in the chosen edition.
+30,appearance-list-discrepancy,Meryn Trant,person:meryn-trant,ambiguous,Present in ledger but absent from AWOIAF Appearing list; do not add/remove until physical presence is checked in the chosen edition.
+25,mention,Aerys II Targaryen,person:aerys-ii-targaryen,add,Stable ref exists in package .34; add this chapter relation after source/edition review. AWOIAF secondary index; primary verification pending.

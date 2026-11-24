@@ -1,0 +1,226 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "event",
+  "entities": [
+    {
+      "ref": "event:jon-arryn-dead",
+      "kind": "event",
+      "name": "Jon Arryn dies",
+      "nameRu": "Смерть Джона Аррена",
+      "subtitle": "A Game of Thrones · Catelyn I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn I; A Wiki of Ice and Fire, chapter index (appearance/mention status)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_2",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 2
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "сообщение получено до сцены"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Catelyn I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "день и дата неизвестны"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Катлин сообщает Эддарду о смерти Джона Аррена; точная дата в пилоте не назначается."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Arryn",
+          "ref": "person:jon-arryn"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "House Arryn",
+          "ref": "organization:house-arryn"
+        }
+      ]
+    },
+    {
+      "ref": "event:deserter-executed",
+      "kind": "event",
+      "name": "Night’s Watch deserter executed",
+      "nameRu": "Казнь дезертира Ночного Дозора",
+      "subtitle": "A Game of Thrones · Bran I; Catelyn I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran I; Catelyn I; A Wiki of Ice and Fire, chapter index (appearance/mention status)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_1",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 1
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "происходит до разговора в Catelyn I"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Bran I; Catelyn I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка источника",
+          "value": "В указателе Bran I дезертир назван Гаредом; точный день не указан, основной текст выбранного издания ещё не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Эддард исполняет приговор дезертиру Ночного Дозора; Катлин позже называет его четвёртым казнённым за год."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Gared",
+          "ref": "person:gared"
+        },
+        {
+          "label": "Night's Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "холмы к северу от Винтерфелла",
+          "ref": "place:hills-north-of-winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "event:direwolf-pups-found",
+      "kind": "event",
+      "name": "Direwolf pups discovered",
+      "nameRu": "Найдены волчата лютоволчицы",
+      "subtitle": "A Game of Thrones · Bran I; Catelyn I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran I; Catelyn I; A Wiki of Ice and Fire, chapter index (appearance/mention status)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_1",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 1
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "происходит до разговора в Catelyn I"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Bran I; Catelyn I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "На обратном пути к Винтерфеллу Робб и Джон находят шестерых волчат рядом с погибшей лютоволчицей."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Theon Greyjoy",
+          "ref": "person:theon-greyjoy"
+        },
+        {
+          "label": "холмы к северу от Винтерфелла",
+          "ref": "place:hills-north-of-winterfell"
+        },
+        {
+          "label": "Direwolf Mother",
+          "ref": "person:direwolf-mother"
+        }
+      ]
+    },
+    {
+      "ref": "event:royal-party-bound-for-winterfell",
+      "kind": "event",
+      "name": "King Robert’s party heads to Winterfell",
+      "nameRu": "Королевский двор едет в Винтерфелл",
+      "subtitle": "A Game of Thrones · Catelyn I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn I; A Wiki of Ice and Fire, chapter index (appearance/mention status)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_2",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 2
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "объявлено до/во время сцены"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Catelyn I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Эддард получает известие, что король Роберт, королева, дети и двор направляются в Винтерфелл."
+        }
+      ],
+      "links": [
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        },
+        {
+          "label": "House Baratheon",
+          "ref": "organization:house-baratheon"
+        },
+        {
+          "label": "House Lannister",
+          "ref": "organization:house-lannister"
+        }
+      ]
+    }
+  ]
+}

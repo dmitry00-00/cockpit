@@ -1,0 +1,30 @@
+import { readFileSync } from 'node:fs';
+import { fireEvent, screen, within } from '@testing-library/react';
+import { expect, it } from 'vitest';
+import { seedEngine } from '../../campaign';
+import { memoryStore } from '../../engine';
+import { parseContentImport } from '../../import/content';
+import { mount } from './testkit';
+
+it('adventure preview remains DM-only before/after acceptance and never activates its source entities', async () => {
+  const data = readFileSync(`${process.cwd()}/research/content-phandelver/first-vertical.json`,'utf8');
+  const [content] = parseContentImport('first-vertical.json',data);
+  const store = seedEngine({persist:memoryStore()});
+  store.getState().propose({id:'local-adventure',scale:'settlement',subject:content.name,was:'нет',now:'каталог',cause:'локальный файл',causeId:'local-file',status:'pending',patch:{kind:'importedContent',content}});
+  const actors = structuredClone(store.getState().state.actors);
+  const locations = structuredClone(store.getState().state.world.locations);
+  mount(store,true);
+  fireEvent.click(screen.getByRole('button',{name:'Открыть все входящие предложения'}));
+  const summary = await screen.findByText('Просмотреть импорт · Приключение · json');
+  fireEvent.click(summary);
+  expect(screen.getByRole('region',{name:`Разметка приключения: ${content.name}`})).toBeInTheDocument();
+  const offer = screen.getByRole('article',{name:`Предложение: ${content.name}`});
+  fireEvent.click(within(offer).getByRole('button',{name:'Принять'}));
+  expect(store.getState().state.world.importedContent?.[content.id]).toBeDefined();
+  expect(store.getState().state.actors).toEqual(actors);
+  expect(store.getState().state.world.locations).toEqual(locations);
+  fireEvent.keyDown(window, {key:'p',code:'KeyP'});
+  expect(screen.getByRole('main', {name:'Стол игроков'})).toHaveAttribute('data-view','players');
+  expect(document.body.innerHTML).not.toMatch(/Фанделвер|first-vertical|Ярно|Стеклянного|Роксикер|PHantom|Разметка приключения/);
+  expect(screen.queryByRole('region',{name:/Разметка приключения/})).toBeNull();
+});

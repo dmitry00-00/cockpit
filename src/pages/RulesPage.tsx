@@ -21,7 +21,8 @@ const Tag = ({ id }: { id: LayerId }) => (
   <span data-layer={id} title={LAYERS[id].cite} className={`type-key whitespace-nowrap px-1.5 py-0.5 shadow-bevel-in ${LAYERS[id].public ? 'text-tx' : 'text-gd'}`}>{LAYERS[id].label}</span>
 );
 
-export function RulesPage() {
+export interface RulesPageProps { strifeEnabled?: boolean; onStrifeThemeChange?: (enabled: boolean) => void }
+export function RulesPage({strifeEnabled=false,onStrifeThemeChange}:RulesPageProps = {}) {
   const divergences = raceDivergences();
   const notes = importNotes(report);
   return (
@@ -31,6 +32,15 @@ export function RulesPage() {
         <span className="type-num-12 text-t2">механик {CAMPAIGN_RULES.length} · расхождений с SRD {divergences.length} · замечаний импорта {notes.length}</span>
         <span className="type-body-xs text-t3">для стола мастера: таблицы владельца вовне не показываются</span>
       </header>
+
+      <section aria-label="Тема стресса и морали" className="max-w-5xl bg-cd shadow-bevel p-3 flex flex-col gap-2">
+        <h2 className="type-h-20 text-tx">Тема стресса и морали</h2>
+        <label className="flex items-start gap-2 type-body-sm text-tx">
+          <input type="checkbox" aria-label="Включить тему стресса и морали" checked={strifeEnabled} disabled={!onStrifeThemeChange} onChange={e=>onStrifeThemeChange?.(e.target.checked)} />
+          <span>Применять A5E Strife к проверкам персонажей. Тема выключена по умолчанию; изменение сохраняется в журнале кампании и отменяется.</span>
+        </label>
+        <p className="type-body-xs text-t2">Источник: A5E SRD · Tracked Conditions, уровни 1–7 · CC BY 4.0. Эффекты 5-го и 7-го уровней пока требуют выбора/учёта вручную.</p>
+      </section>
 
       <section aria-label="Манифест" className="flex flex-col gap-2">
         <h2 className="type-h-20 text-tx">Что откуда</h2>

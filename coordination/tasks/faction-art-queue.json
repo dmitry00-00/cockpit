@@ -1,0 +1,184 @@
+{
+  "schemaVersion": "faction-art-queue/1",
+  "scope": "Source-aware queue for active organizations/faith in the campaign world and the prepared first-region adventure graph. Six semantic icon originals; church and deity references sharing the same 5e symbol share one original. Research only: no image generation or manifest changes.",
+  "selection": {
+    "count": 6,
+    "basis": [
+      "src/campaign/world.ts#FACTION and seedWorld: three region factions plus Church of Lathander and Church of Helm are active modeled entities.",
+      "src/campaign/party.ts#ALDRIC: owner-selected deity Lathander for the seed party.",
+      "research/content-phandelver/first-vertical.json#redbrand-thread: Redbrands are a named first-region thread with source evidence; included as sixth distinct mark, not asserted to be live in the current seed."
+    ],
+    "deduplication": "Church of Lathander and deity Lathander map to one image; Church of Helm and deity Helm map to one image. No separate church marks."
+  },
+  "visualReferenceAudit": [
+    {
+      "entity": "organization:harpers",
+      "officialImageUrl": "https://www.dndbeyond.com/attachments/thumbnails/5/924/290/504/br-harpers.png",
+      "officialPrimaryPage": "https://www.dndbeyond.com/sources/dnd/basic-rules-2014/appendix-c-the-five-factions",
+      "visualReferenceVerified": false,
+      "method": "Checked the official Basic Rules page and opened its linked official image URL with web tools; the response exposed only the URL, not image pixels. Attempted the host computer-use browser, but inventory reported the Mac locked and browser transport closed. No contour/color description has been visually verified here."
+    },
+    {
+      "entity": "organization:lords-alliance",
+      "officialImageUrl": "https://www.dndbeyond.com/attachments/thumbnails/5/926/290/504/br-lordsalliance.png",
+      "officialPrimaryPage": "https://www.dndbeyond.com/sources/dnd/basic-rules-2014/appendix-c-the-five-factions",
+      "visualReferenceVerified": false,
+      "method": "Checked the official Basic Rules page and opened its linked official image URL with web tools; the response exposed only the URL, not image pixels. Attempted the host computer-use browser, but inventory reported the Mac locked and browser transport closed. No contour/color description has been visually verified here."
+    },
+    {
+      "entity": "organization:zhentarim",
+      "officialImageUrl": "https://www.dndbeyond.com/attachments/thumbnails/5/927/290/504/br-zhentarim.png",
+      "officialPrimaryPage": "https://www.dndbeyond.com/sources/dnd/basic-rules-2014/appendix-c-the-five-factions",
+      "visualReferenceVerified": false,
+      "method": "Checked the official Basic Rules page and its linked official image URL with web tools; the image endpoint failed to render pixels. Attempted the host computer-use browser, but inventory reported the Mac locked and browser transport closed. No contour/color description has been visually verified here."
+    }
+  ],
+  "assets": [
+    {
+      "assetId": "faction-harpers-v1",
+      "entities": ["organization:harpers", "campaign:faction:fac-harpers"],
+      "label": "Harpers",
+      "currentIconRole": "organization-emblem",
+      "existingOriginal": false,
+      "activeEvidence": "src/campaign/world.ts#FACTION.harpers; seedWorld creates fac-harpers with renown 5. Local organization row is content/world/organizations.json#harpers.",
+      "sourceExcerpt": {
+        "localPath": "content/world/organizations.json#harpers.symbol",
+        "text": "Silver harp and crescent moon over black or royal blue",
+        "sourceRefs": ["The Code of the Harpers, pp. 3–6, 12–13"]
+      },
+      "officialSources": [
+        {
+          "url": "https://www.dndbeyond.com/sources/dnd/basic-rules-2014/appendix-c-the-five-factions",
+          "excerpt": "This clandestine network of spellcasters and spies seeks to tip the scales in favor of the innocent, the weak, and the poor within the Realms."
+        },
+        {
+          "url": "https://www.dndbeyond.com/attachments/thumbnails/5/924/290/504/br-harpers.png",
+          "note": "Official Basic Rules faction emblem image; use as visual source reference, not as a file to copy into the project."
+        }
+      ],
+      "visualBrief": "Single transparent, compact silver harp with crescent moon; use the official 5e faction emblem as the reference. No background shield, text, or invented faction variant."
+    },
+    {
+      "assetId": "faction-zhentarim-v1",
+      "entities": ["organization:zhentarim", "campaign:faction:fac-zhentarim"],
+      "label": "Zhentarim / Black Network",
+      "currentIconRole": "organization-emblem",
+      "existingOriginal": false,
+      "activeEvidence": "src/campaign/world.ts#FACTION.zhentarim; seedWorld creates fac-zhentarim (goal: influence on Triboar Trail). Local row: content/world/organizations.json#zhentarim.",
+      "sourceExcerpt": {
+        "localPath": "content/world/organizations.json#zhentarim.symbol",
+        "text": "Silhouette of a winged snake biting a coin",
+        "note": "The same field lists two other historical variants; this queue deliberately selects only the winged snake motif."
+      },
+      "officialSources": [
+        {
+          "url": "https://www.dndbeyond.com/sources/dnd/basic-rules-2014/appendix-c-the-five-factions",
+          "excerpt": "The Zhentarim, or Black Network, is an organization of well-trained mercenaries, savvy rogues, and crafty warlocks."
+        },
+        {
+          "url": "https://www.dndbeyond.com/attachments/thumbnails/5/927/290/504/br-zhentarim.png",
+          "note": "Official Basic Rules faction emblem image; visual source reference."
+        }
+      ],
+      "visualBrief": "One black winged snake, compact and legible, following the official 5e faction image. Do not add the coin from a separately versioned local variant unless the chosen official image clearly supports it."
+    },
+    {
+      "assetId": "faction-lords-alliance-v1",
+      "entities": ["organization:lords-alliance", "campaign:faction:fac-lords-alliance"],
+      "label": "Lords' Alliance",
+      "currentIconRole": "organization-emblem",
+      "existingOriginal": false,
+      "activeEvidence": "src/campaign/world.ts#FACTION.lordsAlliance; seedWorld creates fac-lords-alliance with renown 12. Local row: content/world/organizations.json#lords-alliance.",
+      "sourceExcerpt": {
+        "localPath": "content/world/organizations.json#lords-alliance",
+        "text": "The local organization record has no symbol field; do not infer a canonical device from its name."
+      },
+      "officialSources": [
+        {
+          "url": "https://www.dndbeyond.com/sources/dnd/basic-rules-2014/appendix-c-the-five-factions",
+          "excerpt": "The Lords’ Alliance is an association of rulers from cities and towns across Faerûn (primarily in the North)."
+        },
+        {
+          "url": "https://www.dndbeyond.com/attachments/thumbnails/5/926/290/504/br-lordsalliance.png",
+          "note": "Official Basic Rules faction emblem image; use as visual source reference."
+        }
+      ],
+      "visualBrief": "Create one transparent icon following the official Basic Rules Lords' Alliance emblem reference. Preserve its identifying silhouette; no newly invented house crest, lettering, or city-specific seal."
+    },
+    {
+      "assetId": "faith-lathander-v1",
+      "entities": ["deity:lathander", "organization:church-of-lathander", "campaign:faction:fac-church-of-lathander"],
+      "label": "Lathander / Church of Lathander",
+      "currentIconRole": "deity-and-faith-emblem",
+      "existingOriginal": false,
+      "activeEvidence": "src/campaign/party.ts#ALDRIC.deity selects Lathander (owner decision noted 28.10.2026); src/campaign/world.ts#FACTION.churchOfLathander creates the church faction. Local organization row: content/world/organizations.json#church-of-lathander.",
+      "sourceExcerpt": {
+        "localPath": "content/cosmos/deities.json#lathander.fields.symbol.5e",
+        "text": "Road traveling into a sunrise",
+        "sourceRefs": ["Player's Handbook 5th edition, pp. 60–61, 294", "Sword Coast Adventurer's Guide, p. 32"]
+      },
+      "officialSources": [
+        {
+          "url": "https://www.dndbeyond.com/sources/dnd/basic-rules-2014/appendix-b-gods-of-the-multiverse",
+          "excerpt": "Lathander, god of birth and renewal — Symbol: Road traveling into a sunrise."
+        }
+      ],
+      "visualBrief": "One small road leading toward a rising sun, using the official 5e deity mark. Reuse this exact original for Lathander and his church; no second church badge or invented rays/holy text."
+    },
+    {
+      "assetId": "faith-helm-v1",
+      "entities": ["deity:helm", "organization:church-of-helm", "campaign:faction:fac-church-of-helm"],
+      "label": "Helm / Church of Helm",
+      "currentIconRole": "deity-and-faith-emblem",
+      "existingOriginal": false,
+      "activeEvidence": "src/campaign/world.ts comments identify Helm as the deity of Neverwinter; seedWorld creates fac-church-of-helm. Local organization row: content/world/organizations.json#church-of-helm.",
+      "sourceExcerpt": {
+        "localPath": "content/cosmos/deities.json#helm.fields.symbol.5e",
+        "text": "An upright left gauntlet with a staring eye on it",
+        "sourceRefs": ["Player's Handbook 5th edition, pp. 60–61, 294", "Sword Coast Adventurer's Guide, pp. 21, 29", "Tasha's Cauldron of Everything, pp. 34–35"]
+      },
+      "officialSources": [
+        {
+          "url": "https://www.dndbeyond.com/sources/dnd/basic-rules-2014/appendix-b-gods-of-the-multiverse",
+          "excerpt": "Helm, god of protection — Symbol: Staring eye on upright left gauntlet."
+        }
+      ],
+      "visualBrief": "An upright left gauntlet bearing one staring eye, following the official 5e deity mark. Reuse the same original for Helm's church; no separate generic eye or alternate-hand version."
+    },
+    {
+      "assetId": "faction-redbrands-v1",
+      "entities": ["organization:redbrands", "adventure:lmop-ru-phantom-2015-local#redbrand-thread"],
+      "label": "Redbrands / Redbrand Ruffians",
+      "currentIconRole": "region-gang-marker",
+      "existingOriginal": false,
+      "activeEvidence": "The local campaign world does not currently model a Redbrands faction; the named group and thread are in research/content-phandelver/first-vertical.json#redbrands and #redbrand-thread (book evidence pp. 14, 18–21). Queue as a first-region extension only.",
+      "sourceExcerpt": {
+        "localPath": "research/content-phandelver/first-vertical.json#redbrand",
+        "text": "Противники городской сцены и подвального логова.",
+        "note": "The catalog also records Lost Mine of Phandelver pp. 19, 21 for the creature node; the organization record content/world/organizations.json#redbrands has no symbol field."
+      },
+      "officialSources": [
+        {
+          "url": "https://www.dndbeyond.com/sources/dnd/pbtso",
+          "excerpt": "Lost Mine of Phandelver; Redbrand Ruffians Appear",
+          "note": "Official source table of contents confirms the faction in the adventure; local page citations remain the exact source for this seed graph."
+        }
+      ],
+      "visualBrief": "Optional noncanonical UI adaptation: one folded red cloth strip or plain red cloak fragment as a color-coded marker. Do not depict it as a canonical heraldic badge, logo, rune, or verified uniform insignia; the local organization record has no symbol description."
+    }
+  ],
+  "notSelected": [
+    {
+      "id": "church-of-lathander-versus-lathander",
+      "decision": "One image only; official 5e deity mark supplies the shared visual."
+    },
+    {
+      "id": "emerald-enclave",
+      "decision": "Not modeled as active in src/campaign/world.ts or seed party; not added just to increase the count."
+    },
+    {
+      "id": "order-of-the-gauntlet",
+      "decision": "Regional organization, but no active model/thread/party link establishes it in this local scope."
+    }
+  ]
+}

@@ -22,6 +22,6 @@ declare module '*=bandit,bandit-captain' {
 // Необязательные файлы данных — `import.meta.glob` Vite: нет файла — пустой объект, а не ошибка сборки (держав до
 // импорта scripts/import-kingdoms.py нет — справочник пуст). Типы vite/client в проекте не подключены — только это.
 interface ImportMeta {
-  glob<T = unknown>(pattern: string, options: { eager: true }): Record<string, T>;
-  glob<T = unknown>(pattern: string, options?: { eager?: false }): Record<string, () => Promise<T>>;
+  glob<T = unknown>(pattern: string | readonly string[], options: { eager: true; import?: string }): Record<string, T>;
+  glob<T = unknown>(pattern: string | readonly string[], options?: { eager?: false; import?: string }): Record<string, () => Promise<T>>;
 }

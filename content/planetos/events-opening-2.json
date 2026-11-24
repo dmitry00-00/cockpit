@@ -1,0 +1,770 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "event",
+  "entities": [
+    {
+      "ref": "event:daenerys-marries-drogo",
+      "kind": "event",
+      "name": "Daenerys and Drogo marry",
+      "nameRu": "Дейенерис и Дрого вступают в брак",
+      "subtitle": "A Game of Thrones · Daenerys II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys II; A Wiki of Ice and Fire chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_11",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 11
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys II"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "брак заключается в главе"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Свадьба Дейенерис и кхала Дрого проходит под открытым небом за пределами Пентоса. Политические ожидания Визериса и будущие действия кхаласара не фиксируются как свершившиеся события."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Drogo",
+          "ref": "person:drogo"
+        },
+        {
+          "label": "Viserys Targaryen",
+          "ref": "person:viserys-targaryen"
+        },
+        {
+          "label": "Pentos (за пределами города)",
+          "ref": "place:pentos"
+        },
+        {
+          "label": "The silver mare",
+          "ref": "person:silver-mare"
+        },
+        {
+          "label": "Dothraki wedding ground outside Pentos",
+          "ref": "place:dothraki-wedding-ground-outside-pentos"
+        }
+      ]
+    },
+    {
+      "ref": "event:jon-and-sam-take-watch-vows",
+      "kind": "event",
+      "name": "Jon and Sam take the Night’s Watch vows",
+      "nameRu": "Джон и Сэм приносят обеты Ночного Дозора",
+      "subtitle": "A Game of Thrones · Jon VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon VI; A Wiki of Ice and Fire chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_48",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 48
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon VI"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "обеты произнесены в главе"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Джон и Сэм произносят обеты перед старыми богами в роще чардрева за Стеной. Сама церемония не устанавливает их последующие назначения: служебные роли записаны отдельно."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Samwell Tarly",
+          "ref": "person:samwell-tarly"
+        },
+        {
+          "label": "Jeor Mormont",
+          "ref": "person:jeor-mormont"
+        },
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "The Wall (широкая локация)",
+          "ref": "place:the-wall"
+        },
+        {
+          "label": "Weirwood grove beyond the Wall",
+          "ref": "place:weirwood-grove-near-castle-black"
+        }
+      ]
+    },
+    {
+      "ref": "event:tyrion-requests-trial-by-combat",
+      "kind": "event",
+      "name": "Tyrion requests trial by combat",
+      "nameRu": "Тирион требует суда поединком",
+      "subtitle": "A Game of Thrones · Tyrion V",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion V; A Wiki of Ice and Fire chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_38",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 38
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion V"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "Тирион требует суда, Бронн вызывается его защитником; исхода поединка в этой главе нет"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "В Высоком зале Орлиного гнезда Тирион добивается суда поединком, а Бронн объявляет себя его бойцом. Сам поединок относится к отдельному локатору."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Bronn",
+          "ref": "person:bronn"
+        },
+        {
+          "label": "Lysa Arryn",
+          "ref": "person:lysa-arryn"
+        },
+        {
+          "label": "The Eyrie",
+          "ref": "place:the-eyrie"
+        }
+      ]
+    },
+    {
+      "ref": "event:bronn-defeats-vardis-egen",
+      "kind": "event",
+      "name": "Bronn wins Tyrion’s trial by combat",
+      "nameRu": "Бронн выигрывает поединок Тириона",
+      "subtitle": "A Game of Thrones · Catelyn VII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn VII; A Wiki of Ice and Fire chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_40",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 40
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn VII"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "поединок завершается победой Бронна; Лиза отпускает его и Тириона"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Бронн убивает сира Вардиса Эгена в поединке; Лиза отпускает Бронна и Тириона у Кровавых Врат, предоставляя им самим искать путь в Долине."
+        }
+      ],
+      "links": [
+        {
+          "label": "Bronn",
+          "ref": "person:bronn"
+        },
+        {
+          "label": "Vardis Egen",
+          "ref": "person:vardis-egen"
+        },
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Lysa Arryn",
+          "ref": "person:lysa-arryn"
+        },
+        {
+          "label": "The Eyrie",
+          "ref": "place:the-eyrie"
+        },
+        {
+          "label": "Bloody Gate",
+          "ref": "place:bloody-gate"
+        }
+      ]
+    },
+    {
+      "ref": "event:stark-host-secures-passage-at-twins",
+      "kind": "event",
+      "name": "Robb secures passage through the Twins",
+      "nameRu": "Робб договаривается о проходе через Близнецы",
+      "subtitle": "A Game of Thrones · Catelyn IX",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn IX; A Wiki of Ice and Fire chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_59",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 59
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn IX"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "условия прохода согласованы; часть войска пересекает реку в главе"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Катлин договаривается с лордом Уолдером Фреем о переходе войска Робба через Зелёный Зубец и союзе, включающем семейные обязательства. Робб соглашается на условия; конница начинает переправу в этой главе."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Theon Greyjoy",
+          "ref": "person:theon-greyjoy"
+        },
+        {
+          "label": "House Stark",
+          "ref": "organization:house-stark"
+        },
+        {
+          "label": "The Twins",
+          "ref": "place:the-twins"
+        },
+        {
+          "label": "Green Fork",
+          "ref": "place:green-fork"
+        }
+      ]
+    },
+    {
+      "ref": "event:battle-of-green-fork",
+      "kind": "event",
+      "name": "Battle of the Green Fork",
+      "nameRu": "Битва на Зелёном Зубце",
+      "subtitle": "A Game of Thrones · Tyrion VIII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion VIII; A Wiki of Ice and Fire chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_62",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 62
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion VIII"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "сражение происходит; войско северян разбито"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Тирион и горные кланы участвуют в сражении на левом фланге войска Ланнистеров. После битвы Тайвин узнаёт, что Робб обманул его относительно направления главного удара."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Bronn",
+          "ref": "person:bronn"
+        },
+        {
+          "label": "Tywin Lannister",
+          "ref": "person:tywin-lannister"
+        },
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "House Lannister",
+          "ref": "organization:house-lannister"
+        },
+        {
+          "label": "Green Fork",
+          "ref": "place:green-fork"
+        }
+      ]
+    },
+    {
+      "ref": "event:robb-captures-jaime-at-whispering-wood",
+      "kind": "event",
+      "name": "Robb captures Jaime at the Whispering Wood",
+      "nameRu": "Робб захватывает Джейме в Шепчущем лесу",
+      "subtitle": "A Game of Thrones · Catelyn X",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn X; A Wiki of Ice and Fire chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_63",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 63
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn X"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "засада и битва происходят; Джейме захвачен"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Войско Робба внезапно атакует лагерь Джейме Ланнистера у Риверрана. После боя Джейме приводят пленником; победу омрачают потери среди людей Робба."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "Jaime Lannister",
+          "ref": "person:jaime-lannister"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Theon Greyjoy",
+          "ref": "person:theon-greyjoy"
+        },
+        {
+          "label": "Hallis Mollen",
+          "ref": "person:hallis-mollen"
+        },
+        {
+          "label": "House Stark",
+          "ref": "organization:house-stark"
+        },
+        {
+          "label": "House Lannister",
+          "ref": "organization:house-lannister"
+        },
+        {
+          "label": "Whispering Wood",
+          "ref": "place:whispering-wood"
+        },
+        {
+          "label": "Riverrun",
+          "ref": "place:riverrun"
+        }
+      ]
+    },
+    {
+      "ref": "event:robert-death-reported-to-ned",
+      "kind": "event",
+      "name": "Pycelle tells Ned that Robert is dead",
+      "nameRu": "Пицель сообщает Неду о смерти Роберта",
+      "subtitle": "A Game of Thrones · Eddard XIV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard XIV; A Wiki of Ice and Fire chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_49",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 49
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard XIV"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "сообщение получено в главе; смерть Роберта произошла до этой сцены"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Великий мейстер Пицель сообщает Неду, что король Роберт умер. Карточка фиксирует получение сообщения, а не смерть как событие этой главы."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robert Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Pycelle",
+          "ref": "person:pycelle"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "event:yoren-takes-arya-from-crowd",
+      "kind": "event",
+      "name": "Yoren takes Arya from the crowd",
+      "nameRu": "Йорен уводит Арью из толпы",
+      "subtitle": "A Game of Thrones · Arya V",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Arya V; A Wiki of Ice and Fire chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_65",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 65
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Arya V"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "Йорен останавливает Арью после казни и говорит, что она отправится с ним"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "После казни отца Арья пытается пробраться к нему через толпу. Йорен останавливает её, а позже объявляет, что она поедет с ним. Сама казнь уже вынесена отдельной карточкой."
+        }
+      ],
+      "links": [
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "event:joffrey-forces-sansa-to-court",
+      "kind": "event",
+      "name": "Joffrey forces Sansa to attend court",
+      "nameRu": "Джоффри принуждает Сансу явиться ко двору",
+      "subtitle": "A Game of Thrones · Sansa VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa VI; A Wiki of Ice and Fire chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_67",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 67
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Sansa VI"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "Джоффри силой вызывает Сансу из её комнаты и требует присутствовать при дворе"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "После казни Эддарда Санса остаётся в своей комнате в Маэгоровом Держателе. Джоффри приходит за ней, приказывает явиться ко двору, а затем ведёт её к стенам, чтобы показать головы её отца и людей дома Старков."
+        }
+      ],
+      "links": [
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        },
+        {
+          "label": "Joffrey Baratheon",
+          "ref": "person:joffrey-baratheon"
+        },
+        {
+          "label": "Sandor Clegane",
+          "ref": "person:sandor-clegane"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Red Keep",
+          "ref": "place:red-keep"
+        },
+        {
+          "label": "Maegor’s Holdfast",
+          "ref": "place:maegors-holdfast"
+        }
+      ]
+    },
+    {
+      "ref": "event:daenerys-protects-lhazareen-women",
+      "kind": "event",
+      "name": "Daenerys claims the Lhazareen women for her protection",
+      "nameRu": "Дейенерис берёт лхазарянок под свою защиту",
+      "subtitle": "A Game of Thrones · Daenerys VII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys VII; A Wiki of Ice and Fire chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_61",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 61
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys VII"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "Дейенерис вмешивается; Дрого запрещает воинам забирать этих женщин"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "После нападения кхаласара на поселение Дейенерис настаивает, чтобы захваченные лхазарянки стали жёнами и получили место в кхаласаре. Дрого подтверждает, что они находятся под защитой кхалиси; пленение остальных жителей не отменяется."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Drogo",
+          "ref": "person:drogo"
+        },
+        {
+          "label": "Jorah Mormont",
+          "ref": "person:jorah-mormont"
+        },
+        {
+          "label": "Qotho",
+          "ref": "person:qotho"
+        },
+        {
+          "label": "Khalasar of Drogo",
+          "ref": "organization:khalasar-of-drogo"
+        },
+        {
+          "label": "Dothraki Sea (широкая локация)",
+          "ref": "place:dothraki-sea"
+        }
+      ]
+    },
+    {
+      "ref": "event:daenerys-ends-drogo-life",
+      "kind": "event",
+      "name": "Daenerys ends Drogo’s life",
+      "nameRu": "Дейенерис прекращает жизнь Дрого",
+      "subtitle": "A Game of Thrones · Daenerys IX",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys IX; A Wiki of Ice and Fire chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_68",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 68
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys IX"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "Дейенерис душит Дрого подушкой; смерть происходит в главе"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "После неудачной попытки вернуть Дрого к жизни Дейенерис понимает, что он больше не очнётся, и душит его подушкой. Рождение мёртвого ребёнка и последствия обряда — отдельные факты главы."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Drogo",
+          "ref": "person:drogo"
+        },
+        {
+          "label": "Jorah Mormont",
+          "ref": "person:jorah-mormont"
+        },
+        {
+          "label": "Dothraki Sea",
+          "ref": "place:dothraki-sea"
+        },
+        {
+          "label": "Khalasar of Drogo",
+          "ref": "organization:khalasar-of-drogo"
+        }
+      ]
+    }
+  ]
+}

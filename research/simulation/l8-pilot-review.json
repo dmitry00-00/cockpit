@@ -1,0 +1,732 @@
+{
+  "format": "dm-cockpit.l8-pilot-review/1",
+  "created_on": "2026-11-04",
+  "scope": {
+    "kingdom_titles": 442,
+    "additional_linked_titles": [
+      "Purple Dragons",
+      "High Captains (Luskan)",
+      "Ship Taerl",
+      "Ship Baram",
+      "Ship Kurth",
+      "Ship Suljack",
+      "Ship Rethnor"
+    ]
+  },
+  "review_policy": {
+    "candidate_is_fact": false,
+    "world_activation": false,
+    "manual_review_basis": "Exact wikitext excerpt, page title/revision/timestamp/hash, section and inline citation markers from the local MediaWiki XML dump.",
+    "external_source_books_independently_checked": false,
+    "unknown_year_rule": "Use null unless the excerpt itself gives one explicit DR year; preserve approximate or ranged date text separately."
+  },
+  "manual_review_candidates": [
+    {
+      "review_id": "LUSKAN_ARMY_1370",
+      "status": "source_quote_verified_candidate",
+      "accepted_fact": false,
+      "subject": "Luskan",
+      "subject_status": "source_explicit",
+      "force_type": "army",
+      "amount_raw": "300",
+      "unit_raw": "spearmen",
+      "year": 1370,
+      "year_precision": "exact",
+      "reported_time_text": "As of 1370 DR",
+      "excerpt": "As of 1370 DR, Luskan had an army of 300 spearmen and a navy of 19 dragonships.",
+      "quantity_match": {
+        "text": "300",
+        "start": 37,
+        "end": 40,
+        "mention_kind": "unresolved_number",
+        "context": "As of 1370 DR, Luskan had an army of 300 spearmen and a navy of 19 dragonships.",
+        "nearest_military_term": "spearmen",
+        "term_distance_chars": 1,
+        "quantity_candidate": true
+      },
+      "source": {
+        "title": "Luskan",
+        "revision_id": "1102198",
+        "timestamp": "2026-08-08T18:59:31Z",
+        "license": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0",
+        "license_id": "CC BY-SA 3.0",
+        "url": "https://forgottenrealms.fandom.com/wiki/Luskan",
+        "section": "Militia",
+        "raw_page_wikitext_sha256": "367d6cb0f6fcb16cf5fd1458e2fc3025b602897642a3e7840ca8ce5778e49d22"
+      },
+      "source_location": {
+        "line": 81,
+        "column": 1
+      },
+      "source_citations": [
+        "VoloN-p112-113 (adjacent sentence; scope requires review)"
+      ],
+      "review_notes": [
+        "The article sentence explicitly links Luskan, army, 300 and spearmen. This remains a source candidate, not an activated world fact.",
+        "A nearby VoloN-p112-113 citation is attached to the following dragonship-archer sentence; confirm whether it also sources this sentence before using it."
+      ],
+      "source_excerpt_verified": true
+    },
+    {
+      "review_id": "LUSKAN_NAVY_1370",
+      "status": "source_quote_verified_candidate",
+      "accepted_fact": false,
+      "subject": "Luskan",
+      "subject_status": "source_explicit",
+      "force_type": "navy",
+      "amount_raw": "19",
+      "unit_raw": "dragonships",
+      "year": 1370,
+      "year_precision": "exact",
+      "reported_time_text": "As of 1370 DR",
+      "excerpt": "As of 1370 DR, Luskan had an army of 300 spearmen and a navy of 19 dragonships.",
+      "quantity_match": {
+        "text": "19",
+        "start": 64,
+        "end": 66,
+        "mention_kind": "unresolved_number",
+        "context": "an had an army of 300 spearmen and a navy of 19 dragonships.",
+        "nearest_military_term": "navy",
+        "term_distance_chars": 4,
+        "quantity_candidate": true
+      },
+      "source": {
+        "title": "Luskan",
+        "revision_id": "1102198",
+        "timestamp": "2026-08-08T18:59:31Z",
+        "license": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0",
+        "license_id": "CC BY-SA 3.0",
+        "url": "https://forgottenrealms.fandom.com/wiki/Luskan",
+        "section": "Militia",
+        "raw_page_wikitext_sha256": "367d6cb0f6fcb16cf5fd1458e2fc3025b602897642a3e7840ca8ce5778e49d22"
+      },
+      "source_location": {
+        "line": 81,
+        "column": 1
+      },
+      "source_citations": [
+        "VoloN-p112-113 (adjacent sentence; scope requires review)"
+      ],
+      "review_notes": [
+        "The article sentence explicitly links Luskan, navy, 19 and dragonships. The citation scope for this sentence is not explicit in the excerpt; verify it before using the candidate."
+      ],
+      "source_excerpt_verified": true
+    },
+    {
+      "review_id": "LUSKAN_ARCHERS_PER_DRAGONSHIP",
+      "status": "source_quote_verified_candidate",
+      "accepted_fact": false,
+      "subject": "Luskan dragonships",
+      "subject_status": "resolved_from_immediate_context",
+      "force_type": "ship complement",
+      "amount_raw": "70",
+      "unit_raw": "archers per dragonship",
+      "year": null,
+      "year_precision": "unknown",
+      "reported_time_text": "The preceding sentence says “As of 1370 DR”; this sentence itself gives no date.",
+      "excerpt": "The dragonships were each armed with 70 archers.<ref name=\"VoloN-p112-113\">{{Cite book/Volo's Guide to the North|112-113}}</ref> The North Gate was guarded by soldiers with spears and crossbows; in the winter they wore fur caps.<ref name=\"RGLoD-142-143\" />",
+      "quantity_match": {
+        "text": "70",
+        "start": 37,
+        "end": 39,
+        "mention_kind": "unresolved_number",
+        "context": "The dragonships were each armed with 70 archers.<ref name=\"VoloN-p112-113\">{{Cite bo",
+        "nearest_military_term": "archers",
+        "term_distance_chars": 1,
+        "quantity_candidate": true
+      },
+      "source": {
+        "title": "Luskan",
+        "revision_id": "1102198",
+        "timestamp": "2026-08-08T18:59:31Z",
+        "license": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0",
+        "license_id": "CC BY-SA 3.0",
+        "url": "https://forgottenrealms.fandom.com/wiki/Luskan",
+        "section": "Militia",
+        "raw_page_wikitext_sha256": "367d6cb0f6fcb16cf5fd1458e2fc3025b602897642a3e7840ca8ce5778e49d22"
+      },
+      "source_location": {
+        "line": 81,
+        "column": 81
+      },
+      "source_citations": [
+        "VoloN-p112-113: {{Cite book/Volo's Guide to the North|112-113}}"
+      ],
+      "review_notes": [
+        "“Each” scopes 70 archers to each dragonship. The immediately preceding sentence identifies the dragonships as Luskan's navy; the subject is resolved from that context. Year remains null because the dated 1370 sentence is adjacent but the detail itself gives no date.",
+        "The inline source marker resolves to Volo’s Guide to the North, pages 112–113; the cited pages have not been independently inspected."
+      ],
+      "source_excerpt_verified": true
+    },
+    {
+      "review_id": "PURPLE_DRAGONS_TOTAL_CIRCA_1367",
+      "status": "source_quote_verified_candidate",
+      "accepted_fact": false,
+      "subject": "Purple Dragons",
+      "subject_status": "source_explicit",
+      "force_type": "standing army",
+      "amount_raw": "over 12,000",
+      "unit_raw": "soldiers",
+      "year": 1367,
+      "year_precision": "circa",
+      "reported_time_text": "circa 1367 DR",
+      "excerpt": "The Purple Dragons numbered over 12,000 soldiers ''circa'' 1367 DR, stationed across all the realm's cities and fortifications.<ref name=\"AGTotR-p43\" />",
+      "quantity_match": {
+        "text": "over 12,000",
+        "start": 28,
+        "end": 39,
+        "mention_kind": "unresolved_number",
+        "context": "The Purple Dragons numbered over 12,000 soldiers ''circa'' 1367 DR, stationed across",
+        "nearest_military_term": "soldiers",
+        "term_distance_chars": 1,
+        "quantity_candidate": true
+      },
+      "source": {
+        "title": "Purple Dragons",
+        "revision_id": "1106859",
+        "timestamp": "2026-09-15T03:50:18Z",
+        "license": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0",
+        "license_id": "CC BY-SA 3.0",
+        "url": "https://forgottenrealms.fandom.com/wiki/Purple_Dragons",
+        "section": "Numbers",
+        "raw_page_wikitext_sha256": "b92d0a52f37eb6d168756363c76a072e0b76438157ecccb33a5c00aa6794ee47"
+      },
+      "source_location": {
+        "line": 97,
+        "column": 1
+      },
+      "source_citations": [
+        "AGTotR-p43: {{Cite book/Forgotten Realms Campaign Setting 2nd edition (revised)/A Grand Tour of the Realms|43}}"
+      ],
+      "review_notes": [
+        "The lead defines Purple Dragons as Cormyr’s standing army; this section directly gives the count and approximate year.",
+        "The number remains in original approximate form. It is not rounded to an exact count."
+      ],
+      "source_excerpt_verified": true
+    },
+    {
+      "review_id": "PURPLE_DRAGONS_CITY_GARRISON_1300S",
+      "status": "source_quote_verified_candidate",
+      "accepted_fact": false,
+      "subject": "Citadel of the Purple Dragons garrison, Suzail",
+      "subject_status": "source_explicit",
+      "force_type": "city garrison",
+      "amount_raw": "4,500",
+      "unit_raw": "soldiers",
+      "year": null,
+      "year_precision": "unknown",
+      "reported_time_text": "mid-to-late 1300s DR",
+      "excerpt": "They had their headquarters in the [[Citadel of the Purple Dragons]] in the capital city, [[Suzail]]. This also served as garrison for the city.<ref name=\"CotR-p84\">{{Cite book/Forgotten Realms Campaign Set/Cyclopedia of the Realms|84}}</ref><ref name=\"AGTotR-p44,55\" /><ref name=\"Corm-p9,12\">{{Cite book/Cormyr|9,12}}</ref><ref name=\"FRCS3e-p112-113\">{{Cite book/Forgotten Realms Campaign Setting 3rd edition|112,113}}</ref><ref name=\"FRCG-p104\" /> In the mid-to-late 1300s DR, the garrison numbered a large force of 4,500 soldiers and were commanded by Lord Magister of the City [[Sthavar]].<ref name=\"FRA-p108\">{{Cite book/Forgotten Realms Adventures|108}}</ref><ref name=\"AGTotR-p44,55\">{{Cite book/Forgotten Realms Campaign Setting 2nd edition (revised)/A Grand Tour of the Realms|44,55}}</ref><ref name=\"Corm-p9,12\" />",
+      "quantity_match": {
+        "text": "4,500",
+        "start": 416,
+        "end": 421,
+        "mention_kind": "unresolved_number",
+        "context": "s DR, the garrison numbered a large force of 4,500 soldiers and were commanded by Lord Magister",
+        "nearest_military_term": "soldiers",
+        "term_distance_chars": 1,
+        "quantity_candidate": true
+      },
+      "source": {
+        "title": "Purple Dragons",
+        "revision_id": "1106859",
+        "timestamp": "2026-09-15T03:50:18Z",
+        "license": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0",
+        "license_id": "CC BY-SA 3.0",
+        "url": "https://forgottenrealms.fandom.com/wiki/Purple_Dragons",
+        "section": "Bases of Operations",
+        "raw_page_wikitext_sha256": "b92d0a52f37eb6d168756363c76a072e0b76438157ecccb33a5c00aa6794ee47"
+      },
+      "source_location": {
+        "line": 247,
+        "column": 103
+      },
+      "source_citations": [
+        "FRA-p108: {{Cite book/Forgotten Realms Adventures|108}}",
+        "AGTotR-p44,55: {{Cite book/Forgotten Realms Campaign Setting 2nd edition (revised)/A Grand Tour of the Realms|44,55}}",
+        "Corm-p9,12: {{Cite book/Cormyr|9,12}}"
+      ],
+      "review_notes": [
+        "The quote explicitly connects the city garrison to the Citadel of the Purple Dragons in Suzail. Year remains null; the source gives only the broad phrase “mid-to-late 1300s DR”.",
+        "Verify the cited book text and temporal scope before using as a state-force measurement; this is a local garrison, not the total Purple Dragons force."
+      ],
+      "source_excerpt_verified": true
+    },
+    {
+      "review_id": "ARABEL_GARRISON_LATE_1350S_1360S",
+      "status": "source_quote_verified_candidate",
+      "accepted_fact": false,
+      "subject": "Arabel garrison",
+      "subject_status": "source_explicit",
+      "force_type": "garrison",
+      "amount_raw": "2,020",
+      "unit_raw": "men",
+      "year": null,
+      "year_precision": "unknown",
+      "reported_time_text": "late 1350s and 1360s DR",
+      "excerpt": "In the city of [[Arabel]] in the late 1350s and 1360s DR, the garrison numbered 2,020 men, including palace guard, road patrols, and surrounding waypost personnel.",
+      "quantity_match": {
+        "text": "2,020",
+        "start": 80,
+        "end": 85,
+        "mention_kind": "unresolved_number",
+        "context": "te 1350s and 1360s DR, the garrison numbered 2,020 men, including palace guard, road patrols, a",
+        "nearest_military_term": "garrison",
+        "term_distance_chars": 10,
+        "quantity_candidate": true
+      },
+      "source": {
+        "title": "Purple Dragons",
+        "revision_id": "1106859",
+        "timestamp": "2026-09-15T03:50:18Z",
+        "license": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0",
+        "license_id": "CC BY-SA 3.0",
+        "url": "https://forgottenrealms.fandom.com/wiki/Purple_Dragons",
+        "section": "Bases of Operations",
+        "raw_page_wikitext_sha256": "b92d0a52f37eb6d168756363c76a072e0b76438157ecccb33a5c00aa6794ee47"
+      },
+      "source_location": {
+        "line": 249,
+        "column": 1
+      },
+      "source_citations": [],
+      "review_notes": [
+        "The article gives a multi-decade window, not one year. Year stays null and the source phrase is retained verbatim.",
+        "No inline citation occurs in this sentence; source-to-book support requires separate review."
+      ],
+      "source_excerpt_verified": true
+    },
+    {
+      "review_id": "EVENINGSTAR_PURPLE_DRAGONS_LATE_1350S",
+      "status": "source_quote_verified_candidate",
+      "accepted_fact": false,
+      "subject": "Purple Dragons contingent at Eveningstar",
+      "subject_status": "source_explicit",
+      "force_type": "military contingent",
+      "amount_raw": "nine",
+      "unit_raw": "Purple Dragons",
+      "year": null,
+      "year_precision": "unknown",
+      "reported_time_text": "late 1350s DR",
+      "excerpt": "In the village of [[Eveningstar]] in the late 1350s DR, a contingent of nine Purple Dragons led the local militia.<ref name=\"Dr157-p64\" />",
+      "quantity_match": {
+        "text": "nine",
+        "start": 72,
+        "end": 76,
+        "mention_kind": "unresolved_number",
+        "context": "star]] in the late 1350s DR, a contingent of nine Purple Dragons led the local militia.<ref na",
+        "nearest_military_term": "militia",
+        "term_distance_chars": 30,
+        "quantity_candidate": true
+      },
+      "source": {
+        "title": "Purple Dragons",
+        "revision_id": "1106859",
+        "timestamp": "2026-09-15T03:50:18Z",
+        "license": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0",
+        "license_id": "CC BY-SA 3.0",
+        "url": "https://forgottenrealms.fandom.com/wiki/Purple_Dragons",
+        "section": "Bases of Operations",
+        "raw_page_wikitext_sha256": "b92d0a52f37eb6d168756363c76a072e0b76438157ecccb33a5c00aa6794ee47"
+      },
+      "source_location": {
+        "line": 253,
+        "column": 1
+      },
+      "source_citations": [
+        "Dr157-p64: {{Cite dragon/157/Next Stop: Eveningstar|64}}"
+      ],
+      "review_notes": [
+        "The quote directly counts nine Purple Dragons; they led the local militia, whose own total is not stated. Year remains null because only a decade span is stated.",
+        "Inline citation identifies Dragon #157, “Next Stop: Eveningstar,” p.64; the cited issue/page has not been independently inspected."
+      ],
+      "source_excerpt_verified": true
+    },
+    {
+      "review_id": "CORMYR_PURPLE_DRAGONS_14TH_CENTURY",
+      "status": "source_quote_verified_candidate",
+      "accepted_fact": false,
+      "subject": "Purple Dragons",
+      "subject_status": "source_explicit_in_same_paragraph",
+      "force_type": "standing army",
+      "amount_raw": "more then 12.000",
+      "unit_raw": "soldiers",
+      "year": null,
+      "year_precision": "century",
+      "reported_time_text": "In the 14th century DR",
+      "excerpt": "The [[Purple Dragons]] were the main standing force of Cormyr, whose name and banner coincided with Cormyr's crest. They were a large professional army, composed of highly trained, skilled, and loyal warriors, garrisoned in major cities and fortifications. The Purple Dragons were royal soldiers, sworn to the crown and the monarch. In the 14th century DR, the Dragons numbered at more then 12.000 soldiers. <ref name= \"CormyrMilitary-p55-60\"/><ref name= \"FRCS2E-p43-44\"/><ref name=\"Dragon-365-p47-48\"/><ref name= \"FRCS2E-p43-44\"/><ref name=\"FRCS-p44\">{{Cite book/Forgotten Realms Campaign Setting 3rd edition|44}}</ref>",
+      "quantity_match": {
+        "text": "12.000",
+        "start": 58,
+        "end": 64,
+        "mention_kind": "unresolved_number",
+        "context": "In the 14th century DR, the Dragons numbered at more then 12.000 soldiers.",
+        "nearest_military_term": "soldiers",
+        "term_distance_chars": 1,
+        "quantity_candidate": true
+      },
+      "source": {
+        "title": "Cormyr",
+        "revision_id": "1087344",
+        "timestamp": "2026-05-02T04:36:03Z",
+        "license": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0",
+        "license_id": "CC BY-SA 3.0",
+        "url": "https://forgottenrealms.fandom.com/wiki/Cormyr",
+        "section": "Purple Dragons",
+        "raw_page_wikitext_sha256": "92ac742956a2ca5271903e50e848135f989085300033c7e942ce71bbdef52f7e"
+      },
+      "source_location": {
+        "line": 152,
+        "column": 334
+      },
+      "source_citations": [
+        "CormyrMilitary-p55-60: {{Cite book/Cormyr|55-60}}",
+        "FRCS2E-p43-44: {{Cite book/Forgotten Realms Campaign Setting 2nd edition (revised)/A Grand Tour of the Realms|43-44}}",
+        "Dragon-365-p47-48: {{Cite dragon/365/Backdrop: Cormyr|47-48}}",
+        "FRCS-p44: {{Cite book/Forgotten Realms Campaign Setting 3rd edition|44}}"
+      ],
+      "review_notes": [
+        "The same paragraph explicitly identifies the Purple Dragons as Cormyr’s main standing force, a professional army, and royal soldiers; the “Dragons” antecedent is clear.",
+        "Preserve the raw wording “more then 12.000”; do not normalize its punctuation to an exact numeric value. The only temporal scope in this passage is the 14th century DR, not an exact year.",
+        "The article provides four named book references, recorded above; the underlying book pages have not been independently checked. This remains a source-quote candidate and is not an accepted or active world fact. A separate Purple Dragons article reports over 12,000 circa 1367 DR; keep the two temporal claims separate."
+      ],
+      "source_excerpt_verified": true
+    },
+    {
+      "review_id": "EVERMEET_PEGASUS_CAVALRY_OVER_1000",
+      "status": "source_quote_verified_candidate",
+      "accepted_fact": false,
+      "subject": "Pegasus Cavalry",
+      "subject_status": "source_explicit_section_heading",
+      "force_type": "mounted aerial battalion",
+      "amount_raw": "over 1000",
+      "unit_raw": "plate-armored sun elves",
+      "year": null,
+      "year_precision": "unknown",
+      "reported_time_text": null,
+      "excerpt": ": This battalion of over 1000 [[Plate mail|plate]]-armored [[sun elves]] defended the skies of their kingdom mounted upon [[pegasi]] from the [[Eagle Hills]]<ref name=\"EoE-p88\">{{Cite book/Elves of Evermeet|88}}</ref>",
+      "quantity_match": {
+        "text": "over 1000",
+        "start": 20,
+        "end": 29,
+        "mention_kind": "unresolved_number",
+        "context": ": This battalion of over 1000 [[Plate mail|plate]]-ar",
+        "nearest_military_term": "battalion",
+        "term_distance_chars": 4,
+        "quantity_candidate": true
+      },
+      "source": {
+        "title": "Evermeet",
+        "revision_id": "1032947",
+        "timestamp": "2025-06-28T10:06:41Z",
+        "license": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0",
+        "license_id": "CC BY-SA 3.0",
+        "url": "https://forgottenrealms.fandom.com/wiki/Evermeet",
+        "section": "Aerial forces",
+        "raw_page_wikitext_sha256": "527b34865580aaa8e60791ec8dac100565096b4c79cac71df88e029d31be807f"
+      },
+      "source_location": {
+        "line": 133,
+        "column": 1
+      },
+      "source_citations": [
+        "EoE-p88: {{Cite book/Elves of Evermeet|88}}"
+      ],
+      "review_notes": [
+        "The article section is Aerial forces and the list item heading is Pegasus Cavalry; the item states a battalion of over 1000 plate-armored sun elves mounted on pegasi. The count is people, not pegasi.",
+        "No date is stated. The inline citation resolves to Elves of Evermeet p.88, but the book page has not been independently inspected."
+      ],
+      "source_excerpt_verified": true
+    },
+    {
+      "review_id": "EVERMEET_AERIAL_NAVY_SIX_WARSHIPS",
+      "status": "source_quote_verified_candidate",
+      "accepted_fact": false,
+      "subject": "Evermeet Aerial Navy",
+      "subject_status": "source_explicit_section_heading",
+      "force_type": "aerial fleet",
+      "amount_raw": "six",
+      "unit_raw": "aerial spelljamming-capable warships",
+      "year": null,
+      "year_precision": "unknown",
+      "reported_time_text": null,
+      "excerpt": ": The island of Evermeet was defended by a fleet of six aerial, and [[spelljammer|spelljamming]]-capable, ''[[Ruathimaer]]'' warships<ref name=\"EoE-p87\" />",
+      "quantity_match": {
+        "text": "six",
+        "start": 52,
+        "end": 55,
+        "mention_kind": "unresolved_number",
+        "context": ": The island of Evermeet was defended by a fleet of six aerial, and [[spelljammer|spelljamming]]-capable,",
+        "nearest_military_term": "fleet",
+        "term_distance_chars": 4,
+        "quantity_candidate": true
+      },
+      "source": {
+        "title": "Evermeet",
+        "revision_id": "1032947",
+        "timestamp": "2025-06-28T10:06:41Z",
+        "license": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0",
+        "license_id": "CC BY-SA 3.0",
+        "url": "https://forgottenrealms.fandom.com/wiki/Evermeet",
+        "section": "Aerial forces",
+        "raw_page_wikitext_sha256": "527b34865580aaa8e60791ec8dac100565096b4c79cac71df88e029d31be807f"
+      },
+      "source_location": {
+        "line": 139,
+        "column": 1
+      },
+      "source_citations": [
+        "EoE-p87: {{Cite book/Elves of Evermeet|87}}"
+      ],
+      "review_notes": [
+        "The Aerial Navy subsection explicitly says that the fleet consists of six aerial warships; the count is ships, not crew or fleet personnel.",
+        "No date is stated. The inline citation resolves to Elves of Evermeet p.87, but the book page has not been independently inspected."
+      ],
+      "source_excerpt_verified": true
+    },
+    {
+      "review_id": "BALDURS_GATE_FLAMING_FIST_1700_PLUS",
+      "subject": "Flaming Fist",
+      "subject_status": "source_explicit",
+      "force_type": "military personnel",
+      "amount_raw": "1,700-plus",
+      "unit_raw": "soldiers",
+      "status": "source_quote_verified_candidate",
+      "accepted_fact": false,
+      "year": null,
+      "year_precision": "unknown",
+      "reported_time_text": null,
+      "excerpt": "In addition to the 1,700-plus soldiers of the Flaming Fist, the Grand Dukes commanded a navy of a half dozen ships with crews of at least 40 men each.<ref name=\"FRPG-p82\" />",
+      "quantity_match": {
+        "text": "1,700-plus",
+        "start": 19,
+        "end": 29,
+        "mention_kind": "unresolved_number",
+        "context": "In addition to the 1,700-plus soldiers of the Flaming Fist, the Grand Dukes",
+        "nearest_military_term": "soldiers",
+        "term_distance_chars": 6,
+        "quantity_candidate": true,
+        "term_relation": "number_before_term",
+        "proximity": "nearby"
+      },
+      "source": {
+        "title": "Baldur's Gate",
+        "revision_id": "1109358",
+        "timestamp": "2026-10-07T14:05:08Z",
+        "license": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0",
+        "license_id": "CC BY-SA 3.0",
+        "url": "https://forgottenrealms.fandom.com/wiki/Baldur's_Gate",
+        "section": "Military",
+        "raw_page_wikitext_sha256": "8332847f77d5f3fd26ef2836ddb6e106eed08c9e476c9c4536f3ffb28a2406fb"
+      },
+      "source_location": {
+        "line": 197,
+        "column": 1
+      },
+      "source_citations": [
+        "FRPG-p82: {{Cite book/Forgotten Realms Player's Guide|82}}"
+      ],
+      "review_notes": [
+        "The sentence counts soldiers belonging to the Flaming Fist; preserve the plus wording rather than normalizing to an exact total.",
+        "The citation resolves in this article to Forgotten Realms Player's Guide p.82; the book page itself has not been independently checked. No year is stated."
+      ],
+      "source_excerpt_verified": true
+    },
+    {
+      "review_id": "BALDURS_GATE_NAVY_HALF_DOZEN_SHIPS",
+      "subject": "Baldur's Gate navy commanded by the Grand Dukes",
+      "subject_status": "source_explicit_in_article_context",
+      "force_type": "navy",
+      "amount_raw": "a half dozen",
+      "unit_raw": "ships",
+      "status": "source_quote_verified_candidate",
+      "accepted_fact": false,
+      "year": null,
+      "year_precision": "unknown",
+      "reported_time_text": null,
+      "excerpt": "In addition to the 1,700-plus soldiers of the Flaming Fist, the Grand Dukes commanded a navy of a half dozen ships with crews of at least 40 men each.<ref name=\"FRPG-p82\" />",
+      "quantity_match": {
+        "text": "a half dozen",
+        "start": 96,
+        "end": 108,
+        "mention_kind": "unresolved_number",
+        "context": "the Grand Dukes commanded a navy of a half dozen ships with crews",
+        "nearest_military_term": "ships",
+        "term_distance_chars": 4,
+        "quantity_candidate": true,
+        "term_relation": "term_before_number",
+        "proximity": "nearby"
+      },
+      "source": {
+        "title": "Baldur's Gate",
+        "revision_id": "1109358",
+        "timestamp": "2026-10-07T14:05:08Z",
+        "license": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0",
+        "license_id": "CC BY-SA 3.0",
+        "url": "https://forgottenrealms.fandom.com/wiki/Baldur's_Gate",
+        "section": "Military",
+        "raw_page_wikitext_sha256": "8332847f77d5f3fd26ef2836ddb6e106eed08c9e476c9c4536f3ffb28a2406fb"
+      },
+      "source_location": {
+        "line": 197,
+        "column": 1
+      },
+      "source_citations": [
+        "FRPG-p82: {{Cite book/Forgotten Realms Player's Guide|82}}"
+      ],
+      "review_notes": [
+        "“A half dozen” counts ships in the navy; keep the source wording and do not add a separate personnel total.",
+        "The citation resolves in this article to Forgotten Realms Player's Guide p.82; the book page itself has not been independently checked. No year is stated."
+      ],
+      "source_excerpt_verified": true
+    },
+    {
+      "review_id": "BALDURS_GATE_NAVY_CREW_40_PER_SHIP",
+      "subject": "crews of Baldur's Gate navy ships",
+      "subject_status": "source_explicit_in_same_sentence",
+      "force_type": "ship crews",
+      "amount_raw": "at least 40",
+      "unit_raw": "men per ship",
+      "status": "source_quote_verified_candidate",
+      "accepted_fact": false,
+      "year": null,
+      "year_precision": "unknown",
+      "reported_time_text": null,
+      "excerpt": "In addition to the 1,700-plus soldiers of the Flaming Fist, the Grand Dukes commanded a navy of a half dozen ships with crews of at least 40 men each.<ref name=\"FRPG-p82\" />",
+      "quantity_match": {
+        "text": "at least 40",
+        "start": 129,
+        "end": 140,
+        "mention_kind": "unresolved_number",
+        "context": "a navy of a half dozen ships with crews of at least 40 men each.",
+        "nearest_military_term": "ships",
+        "term_distance_chars": 15,
+        "quantity_candidate": true,
+        "term_relation": "term_before_number",
+        "proximity": "nearby"
+      },
+      "source": {
+        "title": "Baldur's Gate",
+        "revision_id": "1109358",
+        "timestamp": "2026-10-07T14:05:08Z",
+        "license": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0",
+        "license_id": "CC BY-SA 3.0",
+        "url": "https://forgottenrealms.fandom.com/wiki/Baldur's_Gate",
+        "section": "Military",
+        "raw_page_wikitext_sha256": "8332847f77d5f3fd26ef2836ddb6e106eed08c9e476c9c4536f3ffb28a2406fb"
+      },
+      "source_location": {
+        "line": 197,
+        "column": 1
+      },
+      "source_citations": [
+        "FRPG-p82: {{Cite book/Forgotten Realms Player's Guide|82}}"
+      ],
+      "review_notes": [
+        "“Each” scopes the lower bound to every ship crew; this is not the total crew count across the fleet.",
+        "The citation resolves in this article to Forgotten Realms Player's Guide p.82; the book page itself has not been independently checked. No year is stated."
+      ],
+      "source_excerpt_verified": true
+    },
+    {
+      "review_id": "WATERDEEP_FORCE_GREY_DOZEN_APPROX",
+      "status": "source_quote_verified_candidate",
+      "accepted_fact": false,
+      "subject": "Force Grey",
+      "subject_status": "source_explicit_in_same_sentence",
+      "force_type": "elite force",
+      "amount_raw": "a dozen or so",
+      "unit_raw": "skilled spellcasters and cunning warriors",
+      "year": null,
+      "year_precision": "unknown",
+      "reported_time_text": null,
+      "excerpt": "The Watch was the local police force, acting as a constabulary within the city.<ref name=\"FRCS-pp178-180\" /> More delicate missions taken in the name of the City of Splendors were handled by [[Force Grey]], an elite force of a dozen or so skilled [[spellcaster]]s and cunning warriors.<ref name=\"CoS.CG-p73\">{{Cite book/City of Splendors (boxed set)/Campaign Guide|73}}</ref>",
+      "quantity_match": {
+        "text": "a dozen or so",
+        "start": 225,
+        "end": 238,
+        "mention_kind": "unresolved_number",
+        "context": "handled by [[Force Grey]], an elite force of a dozen or so skilled [[spellcaster]]s and cunning warriors.",
+        "nearest_military_term": "warriors",
+        "term_distance_chars": 38,
+        "quantity_candidate": true,
+        "term_relation": "number_before_term",
+        "proximity": "nearby"
+      },
+      "source": {
+        "title": "Waterdeep",
+        "revision_id": "1102206",
+        "timestamp": "2026-08-08T21:50:58Z",
+        "license": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0",
+        "license_id": "CC BY-SA 3.0",
+        "url": "https://forgottenrealms.fandom.com/wiki/Waterdeep",
+        "section": "Defenses",
+        "raw_page_wikitext_sha256": "0a96cd718314f280d844f3700fce9903a9cef067040322292e42bdf13ee3059d"
+      },
+      "source_location": {
+        "line": 245,
+        "column": 291
+      },
+      "source_citations": [
+        "CoS.CG-p73: {{Cite book/City of Splendors (boxed set)/Campaign Guide|73}}"
+      ],
+      "review_notes": [
+        "The same sentence explicitly names Force Grey and calls it an elite force of “a dozen or so” spellcasters and warriors. Preserve the approximate raw wording; no exact count or date is asserted.",
+        "The inline citation resolves to City of Splendors (boxed set): Campaign Guide p.73; the book page has not been independently checked."
+      ],
+      "source_excerpt_verified": true
+    },
+    {
+      "review_id": "NEVERWINTER_GRAYCLOAKS_400_COMBINED",
+      "status": "source_quote_verified_candidate",
+      "accepted_fact": false,
+      "subject": "Graycloaks of Neverwinter",
+      "subject_status": "source_explicit_in_same_paragraph",
+      "force_type": "standing army",
+      "amount_raw": "400",
+      "unit_raw": "archers and spearmen combined; split not stated",
+      "year": null,
+      "year_precision": "unknown",
+      "reported_time_text": "mid-to-late 1300s DR",
+      "excerpt": "Since at least the mid-1300s DR, Neverwinter had a standing army, the [[Graycloaks of Neverwinter|Graycloaks]],<ref name=\"WatN-p9\"/><ref name=\"NCS-p118\">{{Cite book/Neverwinter Campaign Setting|118}}</ref> In the mid-to-late 1300s DR, they were composed of 400 archers and spearmen, who served as a city guard at the walls and harbor, operated as a police force, and patrolled the High Road from Port Llast to Leilon.<ref name=\"WatN-p9\"/><ref name=\"TSF-p31\"/><ref name=\"VGttN-p130\"/> At any one time in peacetime, sixty were on duty, sixty were on leave, and sixty were in training.",
+      "quantity_match": {
+        "text": "400",
+        "start": 257,
+        "end": 260,
+        "mention_kind": "unresolved_number",
+        "context": " mid-to-late 1300s DR, they were composed of 400 archers and spearmen, who served as a city g",
+        "nearest_military_term": "archers",
+        "term_distance_chars": 1,
+        "quantity_candidate": true,
+        "term_relation": "number_before_term",
+        "proximity": "adjacent"
+      },
+      "source": {
+        "title": "Neverwinter",
+        "revision_id": "1100055",
+        "timestamp": "2026-07-22T07:53:04Z",
+        "license": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0",
+        "license_id": "CC BY-SA 3.0",
+        "url": "https://forgottenrealms.fandom.com/wiki/Neverwinter",
+        "section": "Defenses",
+        "raw_page_wikitext_sha256": "7c18edad85c9d5a5b1f2be87b40f6c60b1516070aca81731503dec3ba0f08fdd"
+      },
+      "source_location": {
+        "line": 151,
+        "column": 1
+      },
+      "source_citations": [
+        "WatN-p9: {{Cite book/Waterdeep and the North|3,6,9}}",
+        "NCS-p118: {{Cite book/Neverwinter Campaign Setting|118}}",
+        "TSF-p31: {{Cite book/The Savage Frontier|31-32}}",
+        "VGttN-p130: {{Cite book/Volo's Guide to the North|130-131}}"
+      ],
+      "review_notes": [
+        "The article grammatically attributes 400 people to the combined archers-and-spearmen force; it gives no separate subtotal for either role.",
+        "The same paragraph separately says sixty were on duty, sixty on leave, and sixty in training in peacetime; it does not reconcile those rotation counts with 400, so do not infer a remainder or substitute 180 for the stated force size.",
+        "Exact excerpt, citation markers, revision, and local XML page hash were checked. The four cited book pages were not independently checked; keep accepted_fact false."
+      ],
+      "source_excerpt_verified": true
+    }
+  ]
+}

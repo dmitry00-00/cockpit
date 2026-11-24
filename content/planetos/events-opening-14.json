@@ -1,0 +1,603 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "event",
+  "entities": [
+    {
+      "ref": "event:jon-attacked-by-recruits-in-castle-black-armory",
+      "kind": "event",
+      "name": "Recruits attack Jon in the armory",
+      "nameRu": "Рекруты нападают на Джона в оружейной",
+      "subtitle": "A Game of Thrones · Jon III",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon III (ch. 19); A Wiki of Ice and Fire, chapter index; CC-BY-SA-3.0. Первичная сверка по изданию ожидается.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_19",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 19
+      },
+      "facts": [
+        {
+          "label": "Статус",
+          "value": "событие произошло"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; проверка по первичному изданию ожидается"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Несколько рекрутов нападают на Джона в оружейной после оскорбления его матери; Донал Ной останавливает драку и затем объясняет Джону, почему он должен изменить отношение к другим рекрутам."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Donal Noye",
+          "ref": "person:donal-noye"
+        },
+        {
+          "label": "Alliser Thorne",
+          "ref": "person:alliser-thorne"
+        },
+        {
+          "label": "Grenn",
+          "ref": "person:grenn"
+        },
+        {
+          "label": "Armory of Castle Black",
+          "ref": "place:armory-of-castle-black"
+        },
+        {
+          "label": "Night's Watch",
+          "ref": "organization:nights-watch"
+        }
+      ]
+    },
+    {
+      "ref": "event:ned-meets-barra-at-chatayas-brothel",
+      "kind": "event",
+      "name": "Eddard meets Barra at Chataya's brothel",
+      "nameRu": "Эддард встречает Барру в борделе Чатаи",
+      "subtitle": "A Game of Thrones · Eddard IX",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard IX (ch. 35); A Wiki of Ice and Fire, chapter index; CC-BY-SA-3.0. Первичная сверка по изданию ожидается.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_35",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 35
+      },
+      "facts": [
+        {
+          "label": "Статус",
+          "value": "встреча произошла; отцовство передано как утверждение матери"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; проверка по первичному изданию ожидается"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Эддард встречает младенца Барру и её мать в борделе Чатаи. Женщина говорит, что отец девочки — король Роберт; сходство с королём служит наблюдением персонажей, а не независимым доказательством родства."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Barra",
+          "ref": "person:barra"
+        },
+        {
+          "label": "Chataya",
+          "ref": "person:chataya"
+        },
+        {
+          "label": "Chataya's brothel",
+          "ref": "place:chatayas-brothel"
+        },
+        {
+          "label": "Robert Baratheon",
+          "ref": "person:robert-baratheon"
+        }
+      ]
+    },
+    {
+      "ref": "event:robert-arryn-threatens-tyrion-at-eyrie",
+      "kind": "event",
+      "name": "Robert Arryn threatens Tyrion",
+      "nameRu": "Роберт Аррен угрожает Тириону",
+      "subtitle": "A Game of Thrones · Catelyn VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn VI (ch. 34); A Wiki of Ice and Fire, chapter index; CC-BY-SA-3.0. Первичная сверка по изданию ожидается.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_34",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 34
+      },
+      "facts": [
+        {
+          "label": "Статус",
+          "value": "угроза и возможность, озвученные в разговоре; исполнение не показано"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; проверка по первичному изданию ожидается"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "В разговоре о том, что делать с Тирионом, юный Роберт предлагает расправу, а Лиза допускает этот исход. Это угроза или возможный план, а не совершившееся событие."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robert Arryn",
+          "ref": "person:robert-arryn"
+        },
+        {
+          "label": "Lysa Arryn",
+          "ref": "person:lysa-arryn"
+        },
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Eyrie",
+          "ref": "place:the-eyrie"
+        }
+      ]
+    },
+    {
+      "ref": "event:eddard-dreams-of-tower-of-joy",
+      "kind": "event",
+      "name": "Eddard dreams of the Tower of Joy",
+      "nameRu": "Эддарду снится Башня Радости",
+      "subtitle": "A Game of Thrones · Eddard X (Chapter 39)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard X (Chapter 39); AWOIAF numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_39",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 39
+      },
+      "facts": [
+        {
+          "label": "Локаторы",
+          "value": "A Game of Thrones, Eddard X (Chapter 39)"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как абсолютная дата"
+        },
+        {
+          "label": "Статус",
+          "value": "сон/воспоминание; не датировать как текущее событие и не считать сон исчерпывающим первичным свидетельством"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; первичный текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Под действием молочного мака Эддард видит сон о столкновении у Башни Радости и обещании Лианне. Карточка фиксирует сцену сна и доступное в ней воспоминание, а не текущую встречу или полный проверенный отчёт о прошлом бое."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Howland Reed",
+          "ref": "person:howland-reed"
+        },
+        {
+          "label": "Arthur Dayne",
+          "ref": "person:arthur-dayne"
+        },
+        {
+          "label": "Gerold Hightower",
+          "ref": "person:gerold-hightower"
+        },
+        {
+          "label": "Lyanna Stark",
+          "ref": "person:lyanna-stark"
+        },
+        {
+          "label": "Tower of Joy",
+          "ref": "place:tower-of-joy"
+        },
+        {
+          "label": "Willam Dustin",
+          "ref": "person:willam-dustin"
+        },
+        {
+          "label": "Ethan Glover",
+          "ref": "person:ethan-glover"
+        },
+        {
+          "label": "Martyn Cassel",
+          "ref": "person:martyn-cassel"
+        },
+        {
+          "label": "Theo Wull",
+          "ref": "person:theo-wull"
+        },
+        {
+          "label": "Mark Ryswell",
+          "ref": "person:mark-ryswell"
+        },
+        {
+          "label": "Oswell Whent",
+          "ref": "person:oswell-whent"
+        }
+      ]
+    },
+    {
+      "ref": "event:othor-and-jafer-found-near-wall",
+      "kind": "event",
+      "name": "Othor and Jafer Flowers are found near the Wall",
+      "nameRu": "У Стены находят Отора и Яфера Цветка",
+      "subtitle": "A Game of Thrones · Jon VII (Chapter 52)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon VII (Chapter 52); AWOIAF numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_52",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 52
+      },
+      "facts": [
+        {
+          "label": "Локаторы",
+          "value": "A Game of Thrones, Jon VII (Chapter 52)"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как абсолютная дата"
+        },
+        {
+          "label": "Статус",
+          "value": "обнаружение тел и наблюдения происходят; версия об убийцах остаётся неподтверждённой"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; первичный текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Дозорные находят тела пропавших Отора и Яфера. Причину смерти обсуждают и связывают с одичалыми как гипотезу; Сэм указывает на признаки длительного разложения без обычного запаха. Не утверждать, что виновник уже установлен."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Samwell Tarly",
+          "ref": "person:samwell-tarly"
+        },
+        {
+          "label": "Jaremy Rykker",
+          "ref": "person:jaremy-rykker"
+        },
+        {
+          "label": "Dywen",
+          "ref": "person:dywen"
+        },
+        {
+          "label": "Othor",
+          "ref": "person:othor"
+        },
+        {
+          "label": "Jafer Flowers",
+          "ref": "person:jafer-flowers"
+        },
+        {
+          "label": "Haunted Forest",
+          "ref": "place:haunted-forest"
+        },
+        {
+          "label": "The Wall",
+          "ref": "place:the-wall"
+        },
+        {
+          "label": "Later attack by a wight in the same chapter",
+          "ref": "event:wight-attacks-lord-commanders-tower"
+        }
+      ]
+    },
+    {
+      "ref": "event:daenerys-learns-of-assassination-bounty",
+      "kind": "event",
+      "name": "Daenerys learns of the bounty on her life",
+      "nameRu": "Дейенерис узнаёт о награде за её убийство",
+      "subtitle": "A Game of Thrones · Daenerys VI (Chapter 54)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys VI (Chapter 54); AWOIAF numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_54",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 54
+      },
+      "facts": [
+        {
+          "label": "Локаторы",
+          "value": "A Game of Thrones, Daenerys VI (Chapter 54)"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как абсолютная дата"
+        },
+        {
+          "label": "Статус",
+          "value": "сообщение по письму Иллирио; отдельно от факта приказа и отдельного покушения"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; первичный текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Джорах пересказывает содержание письма Иллирио: Роберт предложил землю и титул тому, кто убьёт Дейенерис и её ребёнка либо брата. Это получение известия, не новое распоряжение Роберта и не само покушение."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Jorah Mormont",
+          "ref": "person:jorah-mormont"
+        },
+        {
+          "label": "Illyrio Mopatis",
+          "ref": "person:illyrio-mopatis"
+        },
+        {
+          "label": "Vaes Dothrak",
+          "ref": "place:vaes-dothrak"
+        },
+        {
+          "label": "Separate incident: wineseller’s poisoning attempt",
+          "ref": "event:wineseller-attempts-to-poison-daenerys"
+        }
+      ]
+    },
+    {
+      "ref": "event:jeor-mormont-gives-longclaw-to-jon",
+      "kind": "event",
+      "name": "Jeor Mormont gives Longclaw to Jon",
+      "nameRu": "Джейор Мормонт передаёт Джону Длинный Коготь",
+      "subtitle": "A Game of Thrones · Jon VIII (Chapter 60)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon VIII (Chapter 60); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_60",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 60
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon VIII (Chapter 60)"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Дата",
+          "value": "Не установлена; дата не выводится из порядка глав."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Джейор передаёт Джону фамильный валирийский меч Длинный Коготь. Карточка фиксирует передачу меча; дальнейшие последствия для Джона описываются отдельно."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jeor Mormont",
+          "ref": "person:jeor-mormont"
+        },
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        },
+        {
+          "label": "раскрытие личности Мейстера Эйемона",
+          "ref": "event:maester-aemon-reveals-his-identity"
+        }
+      ]
+    },
+    {
+      "ref": "event:bran-and-rickon-share-dream-of-eddard-in-crypts",
+      "kind": "event",
+      "name": "Bran and Rickon share a dream of Eddard in the crypts",
+      "nameRu": "Бран и Рикон видят общий сон об Эддарде в криптах",
+      "subtitle": "A Game of Thrones · Bran VII (Chapter 66)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran VII (Chapter 66); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_66",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 66
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Bran VII (Chapter 66)"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Дата",
+          "value": "Не установлена; дата не выводится из порядка глав."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Бран и Рикон рассказывают о сне, в котором Эддард находится в криптах Винтерфелла. Это именно общий сон персонажей, а не физическое посещение и не датированное событие мира."
+        }
+      ],
+      "links": [
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "Rickon Stark",
+          "ref": "person:rickon-stark"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Crypts of Winterfell",
+          "ref": "place:crypts-of-winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "event:jorah-proposes-selling-captives-in-meereen",
+      "kind": "event",
+      "name": "Jorah proposes taking captives to Meereen",
+      "nameRu": "Джорах предлагает отвезти пленников в Миэрин",
+      "subtitle": "A Game of Thrones · Daenerys VII (Chapter 61)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys VII (Chapter 61); A Wiki of Ice and Fire chapter index and synopsis (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_61",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 61
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys VII (Chapter 61)"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Статус",
+          "value": "План/предложение; поездка и продажа в этой главе не происходят."
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Дата",
+          "value": "Не установлена; дата не выводится из порядка глав."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Джорах предлагает перегнать пленников после разгрома кхаласара Ого в Миэрин, где их можно выгоднее продать и на выручку нанять корабли. Это прозвучавший в сцене план; он не означает, что пленников туда доставили или продали."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jorah Mormont",
+          "ref": "person:jorah-mormont"
+        },
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Meereen",
+          "ref": "place:meereen"
+        },
+        {
+          "label": "Защита лхазарянок",
+          "ref": "event:daenerys-protects-lhazareen-women"
+        }
+      ]
+    }
+  ]
+}

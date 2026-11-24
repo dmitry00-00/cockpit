@@ -1,0 +1,139 @@
+{
+  "format": "cockpit.entity-layer-draft-set/1",
+  "packageSnapshot": "2026.11.24.41",
+  "sourcePolicy": {
+    "attribution": "A Wiki of Ice and Fire chapter-index and place-entry contributors; CC BY-SA 3.0. Original brief summary; primary-edition verification pending.",
+    "status": "secondary-indexed-partial",
+    "primaryVerification": "pending",
+    "coordinateAndAbsoluteDatePolicy": "no coordinates or absolute dates added.",
+    "scope": "P2 place gaps in card-gaps-at-2026-11-24-41.csv checked against live .41 place refs and the previous P1 triage."
+  },
+  "summary": {
+    "p2PlaceRowsInGapsCsv": 1,
+    "missingFromCurrent41": 1,
+    "overlapWithPreviousP1Triage": 0,
+    "durableNamedPlacesProposed": 1,
+    "aliasesOrDuplicates": 0,
+    "sceneOrInteriorOnly": 0,
+    "unclearIds": 0,
+    "decision": "Add one durable district card: Flea Bottom. The source row is a reference to a named urban district, not a physical scene locator."
+  },
+  "payloads": [
+    {
+      "format": "cockpit.entity-layer/1",
+      "kind": "place",
+      "entities": [
+        {
+          "ref": "place:flea-bottom",
+          "kind": "place",
+          "name": "Flea Bottom",
+          "nameRu": "Блошиное Дно",
+          "subtitle": "A Storm of Swords · Tyrion VI (Chapter 53)",
+          "status": "secondary-indexed-partial",
+          "priority": "P2",
+          "placeType": "urban-district",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Tyrion VI (Chapter 53), A Wiki of Ice and Fire numeric chapter index; A Wiki of Ice and Fire place entry “Flea Bottom”; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/Flea_Bottom",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 53,
+            "attribution": "A Wiki of Ice and Fire chapter-index and place-entry contributors; CC BY-SA 3.0. Original brief summary; primary-edition verification pending.",
+            "supportingUrls": [
+              "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_53"
+            ]
+          },
+          "facts": [
+            {
+              "label": "Тип места",
+              "value": "городской район"
+            },
+            {
+              "label": "Приоритет",
+              "value": "P2"
+            },
+            {
+              "label": "Связь с главой",
+              "value": "упоминается как подместо; глава не локализована там"
+            },
+            {
+              "label": "Локатор",
+              "value": "Tyrion VI, глава 53"
+            },
+            {
+              "label": "Поле ledger",
+              "value": "places_referenced_ids"
+            },
+            {
+              "label": "Статус проверки",
+              "value": "secondary-indexed-partial; сверка с выбранным изданием ожидает выполнения."
+            },
+            {
+              "label": "Русское имя",
+              "value": "рабочий перевод; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Устойчивый именованный район Королевской Гавани. В главе Tyrion VI район упоминается как место столкновения людей двух домов; карточка пригодна для городской сцены и поиска внутри столицы."
+            }
+          ],
+          "links": [
+            {
+              "label": "King’s Landing",
+              "ref": "place:kings-landing"
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 53,
+              "chapterTitle": "Tyrion VI",
+              "relation": "reference",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_53"
+            }
+          ],
+          "verification": {
+            "primaryBook": "pending"
+          }
+        }
+      ]
+    }
+  ],
+  "candidateDecisions": [
+    {
+      "ref": "place:flea-bottom",
+      "name": "Flea Bottom",
+      "priority": "P2",
+      "candidateRelation": "mentioned-subplace",
+      "decision": "add-card",
+      "reason": "Flea Bottom is a stable, named district of King’s Landing and adds useful district-level context for city play. The chapter row is a reference, so the locator is not labeled as a scene.",
+      "locator": {
+        "book": "A Storm of Swords",
+        "chapterNo": 53,
+        "chapterTitle": "Tyrion VI",
+        "relation": "reference",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_53"
+      },
+      "sourceRow": "planetos-asos-range-41-60-2026-11-24/candidate-reconciliation.csv:24",
+      "status": "secondary-indexed-partial",
+      "verification": {
+        "primaryBook": "pending"
+      },
+      "ledgerField": "places_referenced_ids",
+      "ledgerRelation": "reference"
+    }
+  ],
+  "validation": {
+    "refAbsentBeforeDraft": true,
+    "refUnique": true,
+    "linkResolves": true,
+    "chapterLocatorNumeric": true,
+    "license": "CC-BY-SA-3.0",
+    "status": "secondary-indexed-partial",
+    "primaryBook": "pending",
+    "p1Overlap": false
+  }
+}

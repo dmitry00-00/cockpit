@@ -1,0 +1,362 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "place",
+  "entities": [
+    {
+      "ref": "place:mountains-of-the-moon",
+      "kind": "place",
+      "name": "Mountains of the Moon",
+      "nameRu": "Лунные горы",
+      "subtitle": "A Game of Thrones · Tyrion IV / Tyrion VI · горы",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Wiki of Ice and Fire, Mountains of the Moon place entry; A Game of Thrones, Tyrion IV and Tyrion VI (secondary chapter index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Mountains_of_the_Moon",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локаторы",
+          "value": "Tyrion IV; Tyrion VI"
+        },
+        {
+          "label": "Категория",
+          "value": "горная область Долины Аррен"
+        },
+        {
+          "label": "География",
+          "value": "точные границы и координаты не заданы"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF places both Tyrion IV and Tyrion VI on the High Road in the Mountains of the Moon; primary edition not verified"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Горная область на пути из Речных земель в Долину Аррен; часть пути проходит по Высокой дороге."
+        }
+      ],
+      "links": [
+        {
+          "label": "Vale of Arryn",
+          "ref": "place:vale-of-arryn"
+        },
+        {
+          "label": "High Road",
+          "ref": "place:high-road"
+        }
+      ]
+    },
+    {
+      "ref": "place:gates-of-the-moon",
+      "kind": "place",
+      "name": "Gates of the Moon",
+      "nameRu": "Врата Луны",
+      "subtitle": "A Game of Thrones · Catelyn VI · замок",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn VI; A Wiki of Ice and Fire, place entry and chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/The_Gates",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn VI"
+        },
+        {
+          "label": "Категория",
+          "value": "замок у подножия Гигантского копья"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель; выбранное издание не проверено"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Замок у подножия Гигантского копья, где спутники Кэтлин останавливаются перед подъёмом к Орлиному Гнезду."
+        }
+      ],
+      "links": [
+        {
+          "label": "Vale of Arryn",
+          "ref": "place:vale-of-arryn"
+        },
+        {
+          "label": "The Eyrie",
+          "ref": "place:the-eyrie"
+        }
+      ]
+    },
+    {
+      "ref": "place:maegors-holdfast",
+      "kind": "place",
+      "name": "Maegor's Holdfast",
+      "nameRu": "Мейегорова твердыня",
+      "subtitle": "A Game of Thrones · Eddard XIII / Sansa IV · укрепление",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard XIII; Sansa IV; A Wiki of Ice and Fire, place entry and chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Maegor's_Holdfast",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локаторы",
+          "value": "Eddard XIII; Sansa IV"
+        },
+        {
+          "label": "Категория",
+          "value": "укрепление внутри Красного замка"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель; выбранное издание не проверено"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Укреплённая часть Красного замка; внутри находятся королевские покои."
+        }
+      ],
+      "links": [
+        {
+          "label": "Red Keep",
+          "ref": "place:red-keep"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "place:black-cells",
+      "kind": "place",
+      "name": "Black Cells",
+      "nameRu": "Чёрные камеры",
+      "subtitle": "A Game of Thrones · Eddard XV · тюремные камеры",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard XV; A Wiki of Ice and Fire, place entry and chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Black_cells",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard XV"
+        },
+        {
+          "label": "Категория",
+          "value": "тюремный уровень под Красным замком"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель; выбранное издание не проверено"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Уровень подземелий Красного замка с небольшими камерами без окон."
+        }
+      ],
+      "links": [
+        {
+          "label": "Red Keep",
+          "ref": "place:red-keep"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "place:whispering-wood",
+      "kind": "place",
+      "name": "Whispering Wood",
+      "nameRu": "Шепчущий лес",
+      "subtitle": "A Game of Thrones · Catelyn X · лесистая долина",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn X; A Wiki of Ice and Fire, place entry and chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Whispering_Wood",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn X"
+        },
+        {
+          "label": "Категория",
+          "value": "лесистая долина в северо-западной части Речных земель"
+        },
+        {
+          "label": "География",
+          "value": "точные координаты не заданы; карта источника не включена"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель; выбранное издание не проверено"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Лесистая долина в Речных землях; глава Catelyn X связывает это место с ожиданием войска Робба Старка."
+        }
+      ],
+      "links": [
+        {
+          "label": "Riverlands",
+          "ref": "place:riverlands"
+        }
+      ]
+    },
+    {
+      "ref": "place:trident",
+      "kind": "place",
+      "name": "Trident",
+      "nameRu": "Трезубец",
+      "subtitle": "A Game of Thrones · Sansa I / Tyrion VIII · река",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa I; Tyrion VIII; A Wiki of Ice and Fire, place entry and chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Trident",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локаторы",
+          "value": "Sansa I; Tyrion VIII"
+        },
+        {
+          "label": "Категория",
+          "value": "речная система Речных земель"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель; выбранное издание не проверено"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Крупная речная система Речных земель, состоящая из трёх главных рукавов. В Sansa I сцена проходит у её берега."
+        }
+      ],
+      "links": [
+        {
+          "label": "Riverlands",
+          "ref": "place:riverlands"
+        }
+      ]
+    },
+    {
+      "ref": "place:kingsroad",
+      "kind": "place",
+      "name": "Kingsroad",
+      "nameRu": "Королевский тракт",
+      "subtitle": "A Game of Thrones · Tyrion II / Sansa I · путь",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion II; Sansa I; A Wiki of Ice and Fire, place entry and chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Kingsroad",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локаторы",
+          "value": "Tyrion II; Sansa I"
+        },
+        {
+          "label": "Категория",
+          "value": "главный сухопутный путь"
+        },
+        {
+          "label": "География",
+          "value": "точная трасса и расстояния не заданы"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель; выбранное издание не проверено"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Длинный путь, по которому королевский двор движется между Винтерфеллом и Королевской Гаванью; в Речных землях он соединяется с другими большими дорогами."
+        }
+      ],
+      "links": [
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Inn at the Crossroads",
+          "ref": "place:inn-at-crossroads"
+        }
+      ]
+    },
+    {
+      "ref": "place:green-fork",
+      "kind": "place",
+      "name": "Green Fork",
+      "nameRu": "Зелёный рукав",
+      "subtitle": "A Game of Thrones · Tyrion VIII · река",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion VIII; A Wiki of Ice and Fire, place entry and chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Green_Fork",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion VIII"
+        },
+        {
+          "label": "Категория",
+          "value": "один из главных рукавов Трезубца"
+        },
+        {
+          "label": "География",
+          "value": "точные координаты не заданы"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель; выбранное издание не проверено"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Река в Речных землях; глава Tyrion VIII происходит у её берега."
+        }
+      ],
+      "links": [
+        {
+          "label": "Trident",
+          "ref": "place:trident"
+        },
+        {
+          "label": "Riverlands",
+          "ref": "place:riverlands"
+        }
+      ]
+    }
+  ]
+}

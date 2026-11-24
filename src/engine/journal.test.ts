@@ -2,7 +2,7 @@
 // состояния, фильтр «пусто = всё», каскады по causeId (не по времени), сводка нитей. Всё считается из лога
 // и состояния при каждом чтении; проверяется на маленьком синтетическом мире, а не на сиде.
 import { describe, expect, it } from 'vitest';
-import { cascadeOf, filterJournal, journalEntries, journalParts, journalScales, threadSummaries } from './journal';
+import { cascadeOf, filterJournal, journalEntries, journalInteractionGroups, journalParts, journalScales, publicProcessClocks, threadSummaries } from './journal';
 import { emptyState, type Actor, type State } from './state';
 import { createEngineStore, nextVariantId } from './store';
 
@@ -74,6 +74,19 @@ describe('journalParts — упоминания и нити', () => {
     expect(journalParts({ text: 'Тишина', threadIds: ['nope'] }, world())).toEqual([
       { kind: 'text', text: 'Тишина' }, { kind: 'text', text: ' ' }, { kind: 'thread', id: 'nope', name: 'nope' },
     ]);
+  });
+});
+
+describe('история концентрации', () => {
+  it('берёт снятое заклинание из следа события, даже если позже началась другая концентрация', () => {
+    const store = createEngineStore(world(), fixed());
+    const api = store.getState();
+    api.startConcentration('bo', "Hunter's Mark", 40 * DAY);
+    api.endConcentration('bo', 'dm');
+    api.startConcentration('bo', 'Shield', 41 * DAY);
+    const ended = journalEntries(store.getState().events, store.getState().state).find(entry => entry.type === 'CONCENTRATION_ENDED');
+    expect(ended?.text).toContain("Hunter's Mark");
+    expect(ended?.text).not.toContain('Shield');
   });
 });
 
@@ -152,6 +165,26 @@ describe('filterJournal и journalScales', () => {
     expect(filterJournal(entries, { dmView: false }).some(e => e.secret)).toBe(false);
     expect(filterJournal(entries, { dmView: true }).some(e => e.secret)).toBe(true);
   });
+  it('группирует рядом стоящие события одной встречи после audience-фильтра; скрытый бросок не входит в группу игроков', () => {
+    const store = createEngineStore(world(), fixed());
+    const api = store.getState();
+    api.dispatchInInteraction('public-meeting', { type: 'NOTE_ADDED', payload: { text: 'Открытая договорённость', threadIds: [], scale: 'settlement', visible: true } });
+    api.dispatchInInteraction('public-meeting', { type: 'DICE_ROLLED', payload: { formula: '1d20', dice: [5], mod: 0, total: 5, hidden: true, label: 'Скрытая проверка' } });
+    api.dispatchInInteraction('public-meeting', { type: 'NOTE_ADDED', payload: { text: 'Открытый итог', threadIds: [], scale: 'settlement', visible: true } });
+    const current = store.getState();
+    const entries = journalEntries(current.events, current.state);
+
+    const dmGroups = journalInteractionGroups(filterJournal(entries, { dmView: true }));
+    const playerEntries = filterJournal(entries, { dmView: false });
+    const playerGroups = journalInteractionGroups(playerEntries);
+
+    expect(dmGroups).toHaveLength(1);
+    expect(dmGroups[0].entries).toHaveLength(3);
+    expect(playerEntries.every(entry => !entry.secret)).toBe(true);
+    expect(playerGroups).toHaveLength(1);
+    expect(playerGroups[0].entries.map(entry => entry.text)).toEqual(['Открытая договорённость', 'Открытый итог']);
+    expect(playerGroups.flatMap(group => group.entries).some(entry => entry.text.includes('Скрытая проверка'))).toBe(false);
+  });
   it('journalScales — встречающиеся уровни в порядке лестницы', () => {
     expect(journalScales(entries)).toEqual(['region', 'settlement', 'battle']);
   });
@@ -198,6 +231,8 @@ describe('cascadeOf — по ссылкам, не по времени', () => {
 describe('threadSummaries', () => {
   it('только открытые нити; записи без компенсаций и отменённых; сроки в днях; секреты и каскад последнего принятого', () => {
     const s = world();
+    s.world.threads.caravan.clock = { segments: 6, filled: 2, startedSec: s.time.sec, playerVisible: true };
+    s.world.threads.well.clock = { segments: 4, filled: 1, startedSec: s.time.sec };
     s.deltas = { rumor: { id: 'rumor', scale: 'settlement', subject: 'Слух', was: 'тишина', now: 'мертвецы', cause: 'видели', causeId: 'undead', status: 'pending', threadIds: ['well'] } };
     const store = createEngineStore(s, fixed());
     const api = store.getState();
@@ -216,9 +251,25 @@ describe('threadSummaries', () => {
     expect(well).toMatchObject({ count: 1, openedDays: 20, idleDays: 0 });
     expect(well.secrets.map(f => f.id)).toEqual(['undead']);
     expect(well.cascade.map(c => c.kind)).toEqual(['fact', 'delta']);
+    const players = threadSummaries(journalEntries(st.events, st.state), st.state, st.state.time.sec, false);
+    expect(players.flatMap(t => t.secrets)).toEqual([]);
+    expect(players.find(t => t.id === 'caravan')?.clock).toEqual({ segments: 6, filled: 2 });
+    expect(players.find(t => t.id === 'well')).not.toHaveProperty('clock');
     // Без записей — «без внимания» считается от lastTouchedSec.
     const fresh = createEngineStore(world(), fixed()).getState();
     expect(threadSummaries([], fresh.state, fresh.state.time.sec).find(t => t.id === 'well')).toMatchObject({ count: 0, idleDays: 9 });
+  });
+});
+
+describe('publicProcessClocks', () => {
+  it('возвращает только открытые часы с подписью и счётчиком — без ID, имени процесса, стадии, причины и маршрута', () => {
+    const state = emptyState();
+    state.world.processes = {
+      private: { id: 'private-id', kind: 'caravan', name: 'Secret caravan', scale: 'region', stage: 'transit', parties: [], startedSec: 0, nextSec: 1, vars: { routeIndex: 2 }, clock: { segments: 5, filled: 2, playerVisible: false, playerLabel: 'скрытая подпись' } },
+      public: { id: 'public-id', kind: 'caravan', name: 'Secret route A → B', scale: 'region', stage: 'transit', parties: [], startedSec: 0, nextSec: 1, vars: { routeIndex: 2 }, clock: { segments: 5, filled: 2, playerVisible: true, playerLabel: 'Караван идёт' } },
+      ended: { id: 'ended-id', kind: 'caravan', name: 'Finished', scale: 'region', stage: 'arrived', parties: [], startedSec: 0, nextSec: 1, vars: {}, ended: true, clock: { segments: 5, filled: 5, playerVisible: true, playerLabel: 'Прибытие' } },
+    };
+    expect(publicProcessClocks(state)).toEqual([{ label: 'Караван идёт', segments: 5, filled: 2 }]);
   });
 });
 

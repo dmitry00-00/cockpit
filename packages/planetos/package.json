@@ -1,0 +1,976 @@
+{
+  "format": 1,
+  "id": "planetos",
+  "kind": "setting",
+  "title": "A Song of Ice and Fire — North pilot",
+  "titleRu": "Песнь льда и пламени — пилот Севера",
+  "version": "2026.11.24.42",
+  "layers": [
+    {
+      "id": "planetos-people",
+      "path": "content/planetos/people.json",
+      "kinds": [
+        "person"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), авторы карточек глав и участников; CC BY-SA 3.0. Русские рабочие передачи — собственные, проверить по изданию владельца.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-places",
+      "path": "content/planetos/places.json",
+      "kinds": [
+        "place"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), авторы карточек глав и участников; CC BY-SA 3.0. Географические координаты и карты не включены.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-organizations",
+      "path": "content/planetos/organizations.json",
+      "kinds": [
+        "organization"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), авторы карточек глав и участников; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-events",
+      "path": "content/planetos/events.json",
+      "kinds": [
+        "event"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), авторы карточек глав и участников; CC BY-SA 3.0. Даты не выводятся из порядка глав.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-people-opening",
+      "path": "content/planetos/people-opening.json",
+      "kinds": [
+        "person"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; secondary chapter index, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-places-opening",
+      "path": "content/planetos/places-opening.json",
+      "kinds": [
+        "place"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; secondary chapter index, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-people-opening-2",
+      "path": "content/planetos/people-opening-2.json",
+      "kinds": [
+        "person"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; secondary chapter index, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-places-opening-2",
+      "path": "content/planetos/places-opening-2.json",
+      "kinds": [
+        "place"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; secondary chapter index, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-organizations-opening",
+      "path": "content/planetos/organizations-opening.json",
+      "kinds": [
+        "organization"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; secondary chapter index, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-events-opening",
+      "path": "content/planetos/events-opening.json",
+      "kinds": [
+        "event"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; secondary chapter index, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-counter-calendar",
+      "path": "content/calendars/planetos-days.json",
+      "kinds": [
+        "calendar"
+      ],
+      "license": "CC0-1.0",
+      "distribution": "open",
+      "attribution": "Проектная шкала дней кампании; не канонический календарь Вестероса."
+    },
+    {
+      "id": "planetos-book-lens",
+      "path": "content/lenses/asoiaf-books.json",
+      "kinds": [
+        "canon-lens"
+      ],
+      "license": "CC0-1.0",
+      "distribution": "open",
+      "attribution": "Проектная линза канона: опубликованные книги; отдельная непрерывность сериала не включена."
+    },
+    {
+      "id": "planetos-scale-ladder",
+      "path": "content/ladders/planetos.json",
+      "kinds": [
+        "scale-ladder"
+      ],
+      "license": "CC0-1.0",
+      "distribution": "open",
+      "attribution": "Собственная структура продукта; геометки — приблизительные ориентиры, снятые с фан-карты theMountainGoat v1.0 (2012), а ref связывает метку с карточкой каталога."
+    },
+    {
+      "id": "planetos-people-opening-3",
+      "path": "content/planetos/people-opening-3.json",
+      "kinds": [
+        "person"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; secondary chapter index, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-places-opening-3",
+      "path": "content/planetos/places-opening-3.json",
+      "kinds": [
+        "place"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; secondary chapter index, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-events-opening-2",
+      "path": "content/planetos/events-opening-2.json",
+      "kinds": [
+        "event"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; secondary chapter index, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-events-opening-3",
+      "path": "content/planetos/events-opening-3.json",
+      "kinds": [
+        "event"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; secondary chapter index, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-people-opening-4",
+      "path": "content/planetos/people-opening-4.json",
+      "kinds": [
+        "person"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; secondary chapter index, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-people-opening-5",
+      "path": "content/planetos/people-opening-5.json",
+      "kinds": [
+        "person"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; secondary chapter index, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-people-opening-6",
+      "path": "content/planetos/people-opening-6.json",
+      "kinds": [
+        "person"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; secondary chapter index, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-events-opening-4",
+      "path": "content/planetos/events-opening-4.json",
+      "kinds": [
+        "event"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; secondary chapter index, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-places-opening-4",
+      "path": "content/planetos/places-opening-4.json",
+      "kinds": [
+        "place"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; secondary chapter index, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-events-opening-5",
+      "path": "content/planetos/events-opening-5.json",
+      "kinds": [
+        "event"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; secondary chapter index, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-events-opening-6",
+      "path": "content/planetos/events-opening-6.json",
+      "kinds": [
+        "event"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; secondary chapter index, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-events-opening-7",
+      "path": "content/planetos/events-opening-7.json",
+      "kinds": [
+        "event"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; secondary reference pages, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-people-opening-7",
+      "path": "content/planetos/people-opening-7.json",
+      "kinds": [
+        "person"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; secondary chapter index, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-people-opening-8",
+      "path": "content/planetos/people-opening-8.json",
+      "kinds": [
+        "person"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; secondary chapter index, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-events-opening-8",
+      "path": "content/planetos/events-opening-8.json",
+      "kinds": [
+        "event"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; secondary chapter index, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-people-opening-9",
+      "path": "content/planetos/people-opening-9.json",
+      "kinds": [
+        "person"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; secondary chapter index, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-events-opening-9",
+      "path": "content/planetos/events-opening-9.json",
+      "kinds": [
+        "event"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; secondary chapter index, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-places-opening-5",
+      "path": "content/planetos/places-opening-5.json",
+      "kinds": [
+        "place"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; secondary chapter index, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-events-opening-10",
+      "path": "content/planetos/events-opening-10.json",
+      "kinds": [
+        "event"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; secondary chapter index, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-organizations-opening-2",
+      "path": "content/planetos/organizations-opening-2.json",
+      "kinds": [
+        "organization"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; secondary chapter indexes, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-events-opening-11",
+      "path": "content/planetos/events-opening-11.json",
+      "kinds": [
+        "event"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; secondary chapter index, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-people-opening-10",
+      "path": "content/planetos/people-opening-10.json",
+      "kinds": [
+        "person"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; secondary chapter indexes, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-events-opening-12",
+      "path": "content/planetos/events-opening-12.json",
+      "kinds": [
+        "event"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; secondary chapter index, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-events-opening-13",
+      "path": "content/planetos/events-opening-13.json",
+      "kinds": [
+        "event"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; secondary chapter indexes, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-people-opening-11",
+      "path": "content/planetos/people-opening-11.json",
+      "kinds": [
+        "person"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; secondary chapter indexes, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-people-opening-12",
+      "path": "content/planetos/people-opening-12.json",
+      "kinds": [
+        "person"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; secondary chapter indexes, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-people-core-books-2-5",
+      "path": "content/planetos/people-core-books-2-5.json",
+      "kinds": [
+        "person"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; вторичный указатель главы, сверка по первичному изданию ожидается.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-places-core-books-2-5",
+      "path": "content/planetos/places-core-books-2-5.json",
+      "kinds": [
+        "place"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; вторичный указатель главы, сверка по первичному изданию ожидается.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-events-core-books-2-5",
+      "path": "content/planetos/events-core-books-2-5.json",
+      "kinds": [
+        "event"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; вторичный указатель главы, сверка по первичному изданию ожидается.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-organizations-core-books-2-5",
+      "path": "content/planetos/organizations-core-books-2-5.json",
+      "kinds": [
+        "organization"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; вторичный указатель главы, сверка по первичному изданию ожидается.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-people-opening-13",
+      "path": "content/planetos/people-opening-13.json",
+      "kinds": [
+        "person"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; вторичный указатель главы, сверка по первичному изданию ожидается.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-places-opening-6",
+      "path": "content/planetos/places-opening-6.json",
+      "kinds": [
+        "place"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; вторичный указатель главы, сверка по первичному изданию ожидается.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-organizations-opening-3",
+      "path": "content/planetos/organizations-opening-3.json",
+      "kinds": [
+        "organization"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; вторичный указатель главы, сверка по первичному изданию ожидается.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-people-opening-14",
+      "path": "content/planetos/people-opening-14.json",
+      "kinds": [
+        "person"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), авторы chapter-level индексов и карточек; CC BY-SA 3.0. Первичная сверка по выбранному изданию ожидается.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-places-opening-7",
+      "path": "content/planetos/places-opening-7.json",
+      "kinds": [
+        "place"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), авторы chapter-level индексов и карточек; CC BY-SA 3.0. Первичная сверка по выбранному изданию ожидается.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-organizations-opening-4",
+      "path": "content/planetos/organizations-opening-4.json",
+      "kinds": [
+        "organization"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), авторы chapter-level индексов и карточек; CC BY-SA 3.0. Первичная сверка по выбранному изданию ожидается.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-events-opening-14",
+      "path": "content/planetos/events-opening-14.json",
+      "kinds": [
+        "event"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), авторы chapter-level индексов и карточек; CC BY-SA 3.0. Первичная сверка по выбранному изданию ожидается.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-people-acok",
+      "path": "content/planetos/persons-acok.json",
+      "kinds": [
+        "person"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Secondary chapter indexing only; primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "acok-chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-places-acok",
+      "path": "content/planetos/places-acok.json",
+      "kinds": [
+        "place"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Secondary chapter indexing only; primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "acok-chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-organizations-acok",
+      "path": "content/planetos/organizations-acok.json",
+      "kinds": [
+        "organization"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Secondary chapter indexing only; primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "acok-chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-events-acok",
+      "path": "content/planetos/events-acok.json",
+      "kinds": [
+        "event"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Secondary chapter indexing only; primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "acok-chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-events-opening-historical",
+      "path": "content/planetos/events-opening-historical.json",
+      "kinds": [
+        "event"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire chapter indexes and event articles; CC BY-SA 3.0. Original short summaries; secondary source only, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-people-opening-15",
+      "path": "content/planetos/people-opening-15.json",
+      "kinds": [
+        "person"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire numeric chapter indexes; CC BY-SA 3.0. Original brief entries; secondary-indexed-partial, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-places-opening-8",
+      "path": "content/planetos/places-opening-8.json",
+      "kinds": [
+        "place"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire numeric chapter and entity indexes; CC BY-SA 3.0. Original brief entries; secondary-indexed-partial, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-people-opening-16",
+      "path": "content/planetos/people-opening-16.json",
+      "kinds": [
+        "person"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; secondary chapter index, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-places-opening-9",
+      "path": "content/planetos/places-opening-9.json",
+      "kinds": [
+        "place"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; secondary chapter index, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-events-opening-15",
+      "path": "content/planetos/events-opening-15.json",
+      "kinds": [
+        "event"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire; CC BY-SA 3.0; secondary chapter index, primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org",
+        "dump": "chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-people-asos-opening",
+      "path": "content/planetos/people-asos-opening.json",
+      "kinds": [
+        "person"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summaries; primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org/index.php/Chapters_Table_of_contents",
+        "dump": "asos-chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-places-asos-middle",
+      "path": "content/planetos/places-asos-middle.json",
+      "kinds": [
+        "place"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summaries; primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org/index.php/Chapters_Table_of_contents",
+        "dump": "asos-chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-organizations-asos-middle",
+      "path": "content/planetos/organizations-asos-middle.json",
+      "kinds": [
+        "organization"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summaries; primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org/index.php/Chapters_Table_of_contents",
+        "dump": "asos-chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-events-asos-middle",
+      "path": "content/planetos/events-asos-middle.json",
+      "kinds": [
+        "event"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original brief summaries; primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org/index.php/Chapters_Table_of_contents",
+        "dump": "asos-chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-places-asos-p1-late",
+      "path": "content/planetos/places-asos-p1-late.json",
+      "kinds": [
+        "place"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original short summaries; primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org/index.php/Chapters_Table_of_contents",
+        "dump": "asos-chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-events-asos-p1-late",
+      "path": "content/planetos/events-asos-p1-late.json",
+      "kinds": [
+        "event"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original short summaries; primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org/index.php/Chapters_Table_of_contents",
+        "dump": "asos-chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-people-asos-p1-final",
+      "path": "content/planetos/people-asos-p1-final.json",
+      "kinds": [
+        "person"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original concise locator summaries; primary-edition verification pending.",
+      "source": {
+        "url": "https://awoiaf.westeros.org/index.php/Chapters_Table_of_contents",
+        "dump": "asos-chapter-index-2026-11-24"
+      }
+    },
+    {
+      "id": "planetos-known-world-map",
+      "path": "content/maps/asoiaf-known-world.json",
+      "kinds": [
+        "map"
+      ],
+      "license": "CC-BY-NC-SA-3.0",
+      "distribution": "internal",
+      "attribution": "A Song of Ice and Fire Speculative World Map: theMountainGoat, version 1.0 (2012-02-27), CC BY-NC-SA 3.0 Unported. Non-commercial fan use; source marks this map as speculative and approximate.",
+      "source": {
+        "url": "https://www.sermountaingoat.co.uk/map/index.php",
+        "dump": "no-label-map-v1.0-2012-02-27"
+      }
+    }
+  ],
+  "distribution": "internal",
+  "canary": "dmck-planetos-north-pilot-20261124",
+  "time": {
+    "calendar": "planetos-days",
+    "calendarData": "content/calendars/planetos-days.json",
+    "lenses": "asoiaf-books",
+    "lensesData": "content/lenses/asoiaf-books.json"
+  },
+  "ladder": "content/ladders/planetos.json",
+  "maps": [
+    "content/maps/asoiaf-known-world.json"
+  ],
+  "kinds": {
+    "person": {
+      "labelRu": "Персонаж"
+    },
+    "place": {
+      "labelRu": "Место"
+    },
+    "organization": {
+      "labelRu": "Дом / организация"
+    },
+    "event": {
+      "labelRu": "Событие"
+    }
+  }
+}

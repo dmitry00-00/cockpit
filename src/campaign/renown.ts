@@ -4,6 +4,7 @@
 // число в мире, Ctrl+Z — обратно.
 import type { State, WorldDelta } from '../engine';
 import { ref, type EntityRef } from '../entities/ref';
+import { planReferenceActivation } from './activation';
 
 /** Свободный id предложения: основа и номер при совпадении. */
 const freeId = (state: State, base: string) => {
@@ -24,6 +25,19 @@ export function renownDelta(state: State, factionId: string, step: number): Worl
   };
 }
 
+/** Предложение изменить standing фракции к партии; ограничено диапазоном −3…+3. */
+export function standingDelta(state: State, factionId: string, step: -1 | 1): WorldDelta {
+  const f = state.world.factions[factionId];
+  if (!f) throw new Error(`нет фракции ${factionId}`);
+  const was = f.standing ?? 0;
+  const value = Math.max(-3, Math.min(3, was + step));
+  return {
+    id: freeId(state, `d-standing-${factionId}`), scale: 'continent', subject: `Отношение к партии · ${f.name}`,
+    was: String(was), now: String(value), cause: step > 0 ? 'мастер: отношение фракции к партии улучшилось' : 'мастер: отношение фракции к партии ухудшилось',
+    causeId: factionId, status: 'pending', patch: { kind: 'faction', id: factionId, field: 'standing', value },
+  };
+}
+
 /** Фракция кампании, которая ссылается на организацию или державу справочника (`organization:…`, `kingdom:…`), — если есть. */
 export const factionOf = (state: State, r: EntityRef) => Object.values(state.world.factions).find(f => f.ref === r);
 
@@ -32,13 +46,13 @@ export const factionOf = (state: State, r: EntityRef) => Object.values(state.wor
  * Держава (TASKS К) — тем же путём, что организация (E10): дальше её ведут процессы мира (война держав, С4).
  */
 export function referenceFactionDelta(state: State, kind: 'organization' | 'kingdom', item: { id: string; name: string }): WorldDelta {
-  let id = `fac-${item.id}`;
-  for (let n = 2; state.world.factions[id]; n++) id = `fac-${item.id}-${n}`;
   const r = ref(kind, item.id);
+  const plan = planReferenceActivation(state, { kind: 'faction', reference: r, name: item.name });
+  if (plan.kind !== 'faction' || !plan.patch) throw new Error(`${item.name} уже активна как фракция кампании.`);
   return {
     id: freeId(state, `d-faction-${item.id}`), scale: 'continent', subject: `Новая фракция · ${item.name}`,
     was: 'нет в кампании', now: 'фракция, известность партии 0', cause: `мастер добавил из справочника ${kind === 'kingdom' ? 'держав' : 'организаций'}`,
     causeId: r, status: 'pending',
-    patch: { kind: 'newFaction', faction: { id, name: item.name, renown: 0, ref: r } },
+    patch: plan.patch,
   };
 }

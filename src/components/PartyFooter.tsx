@@ -39,6 +39,9 @@ export interface PartyFooterProps {
   defaultOpen?: boolean;
   /** Общий запас партии: сколько есть, сколько унесут (null — не у всех есть лист), сколько едят в день; onChange — запись. */
   supply?: { value: number; capacity: number | null; perDay: number; onChange?: (reason: SupplyReason, amount: number) => void };
+  /** Навыки выбранных участников для проверки группой; выбор без листа остаётся неподдержанным. */
+  groupMembers?: readonly { id: string; name: string; mods: Partial<Record<SkillId, number>> }[];
+  onGroupCheck?: (skill: SkillId, dc: number, members: readonly { actorId: string; name: string; modifier: number }[]) => void;
 }
 
 /** Причины, которые мастер пишет руками; «съедено» пишут отдых и поход сами. */
@@ -87,8 +90,14 @@ function DockSection({ title, children }: { title: string; children: ReactNode }
   );
 }
 
-export function PartyFooter({ total, selected, summary, onCompare, onClear, dmView = true, renown = [], defaultOpen = false, supply }: PartyFooterProps) {
+export function PartyFooter({ total, selected, summary, onCompare, onClear, dmView = true, renown = [], defaultOpen = false, supply, groupMembers = [], onGroupCheck }: PartyFooterProps) {
   const [dock, setDock] = useState(defaultOpen);
+  const [groupSkill, setGroupSkill] = useState<SkillId>('stealth');
+  const [groupDc, setGroupDc] = useState('15');
+  const dc = Number(groupDc);
+  const allHaveSkill = groupMembers.length === selected && groupMembers.every(m => m.mods[groupSkill] !== undefined);
+  const groupRolls = groupMembers.map(m => ({ actorId: m.id, name: m.name, modifier: m.mods[groupSkill] ?? 0 }));
+  const canGroupCheck = selected >= 2 && allHaveSkill && Number.isInteger(dc) && dc >= 1 && dc <= 30 && !!onGroupCheck;
   const scope = selected > 0 ? `выбранных ${selected}` : `партии ${total}`;
   return (
     <div data-part="party-footer" className="flex-none flex flex-col bg-pn shadow-plate">
@@ -109,6 +118,23 @@ export function PartyFooter({ total, selected, summary, onCompare, onClear, dmVi
               ))}
             </ul>
           </DockSection>
+          {selected > 0 ? (
+            <DockSection title="Проверка группой">
+              <div className="flex items-center gap-1">
+                <select aria-label="Навык групповой проверки" value={groupSkill} onChange={e => setGroupSkill(e.target.value as SkillId)} className="min-w-0 flex-1 h-7 px-1 type-body-sm text-tx bg-wl shadow-bevel-in focus-visible:shadow-[var(--bevel-in),var(--glow-gold)]">
+                  {summary.leaders.map(l => <option key={l.skill} value={l.skill}>{SKILL_LABEL[l.skill]}</option>)}
+                </select>
+                <label className="flex items-center gap-1 type-body-sm text-t2" title="Сложность проверки: от 1 до 30">
+                  Сл
+                  <input aria-label="Сложность групповой проверки" inputMode="numeric" value={groupDc} onChange={e => setGroupDc(e.target.value.replace(/\D/g, '').slice(0, 2))} className="w-10 h-7 px-1 text-center type-num-12 text-tx bg-wl shadow-bevel-in focus-visible:shadow-[var(--bevel-in),var(--glow-gold)]" />
+                </label>
+                <button type="button" className={BTN_PRI} disabled={!canGroupCheck} onClick={() => onGroupCheck?.(groupSkill, dc, groupRolls)} title={!allHaveSkill ? 'Для проверки нужны листы и выбранный навык у всех отмеченных' : selected < 2 ? 'Отметьте минимум двух персонажей' : 'Проверка группой'}>
+                  Бросить
+                </button>
+              </div>
+              {groupMembers.length !== selected ? <p className="type-body-xs text-fx-debuff-hi">У части выбранных нет листа с навыками.</p> : null}
+            </DockSection>
+          ) : null}
           {renown.length > 0 ? (
             <DockSection title="Известность">
               <dl className="grid grid-cols-[1fr_auto] gap-x-2 type-body-sm" aria-label="Известность партии">

@@ -1,0 +1,1285 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "person",
+  "entities": [
+    {
+      "ref": "person:maester-aemon",
+      "kind": "person",
+      "name": "Aemon",
+      "nameRu": "Эйемон",
+      "subtitle": "A Game of Thrones · Tyrion III",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion III; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_21",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion III"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Слепой мейстер Ночного дозора участвует в трапезе с Тирионом и называет его гигантом на краю света."
+        }
+      ],
+      "links": [
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        },
+        {
+          "label": "Jeor Mormont",
+          "ref": "person:jeor-mormont"
+        }
+      ]
+    },
+    {
+      "ref": "person:bowen-marsh",
+      "kind": "person",
+      "name": "Bowen Marsh",
+      "nameRu": "Боуэн Марш",
+      "subtitle": "A Game of Thrones · Tyrion III",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion III; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_21",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion III"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Лорд-стюард Ночного дозора за общим столом замечает, что маленький Тирион много пьет."
+        }
+      ],
+      "links": [
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        },
+        {
+          "label": "Alliser Thorne",
+          "ref": "person:alliser-thorne"
+        }
+      ]
+    },
+    {
+      "ref": "person:jaremy-rykker",
+      "kind": "person",
+      "name": "Jaremy Rykker",
+      "nameRu": "Джареми Риккер",
+      "subtitle": "A Game of Thrones · Tyrion III",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion III; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_21",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion III"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Офицер Ночного дозора рассказывает Тириону, как он и Аллисер Торн попали в дозор после взятия Королевской Гавани."
+        }
+      ],
+      "links": [
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        },
+        {
+          "label": "Alliser Thorne",
+          "ref": "person:alliser-thorne"
+        }
+      ]
+    },
+    {
+      "ref": "person:grenn",
+      "kind": "person",
+      "name": "Grenn",
+      "nameRu": "Гренн",
+      "subtitle": "A Game of Thrones · Jon III",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon III; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_19",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon III"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Новобранец Ночного дозора: во время тренировки Джон случайно ранит его, а позже предлагает научить защищаться от этого приема."
+        }
+      ],
+      "links": [
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        },
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        }
+      ]
+    },
+    {
+      "ref": "person:pypar",
+      "kind": "person",
+      "name": "Pypar",
+      "nameRu": "Пипар",
+      "subtitle": "A Game of Thrones · Jon III",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon III; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_19",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon III"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Новобранец Ночного дозора, присутствующий среди товарищей Джона в тренировочной группе Черного замка."
+        }
+      ],
+      "links": [
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        },
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        }
+      ]
+    },
+    {
+      "ref": "person:yoren",
+      "kind": "person",
+      "name": "Yoren",
+      "nameRu": "Йорен",
+      "subtitle": "A Game of Thrones · Tyrion II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion II; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_13",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion II"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Брат Ночного дозора присоединяется к северному отряду Бенджена Старка и ведет с собой двух осужденных новобранцев."
+        }
+      ],
+      "links": [
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Wolfswood",
+          "ref": "place:wolfswood"
+        },
+        {
+          "label": "Benjen Stark",
+          "ref": "person:benjen-stark"
+        }
+      ]
+    },
+    {
+      "ref": "person:masha-heddle",
+      "kind": "person",
+      "name": "Masha Heddle",
+      "nameRu": "Маша Хеддл",
+      "subtitle": "A Game of Thrones · Catelyn V",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn V; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_28",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn V"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Хозяйка постоялого двора на перекрестке принимает Катлин и ее спутников; затем ей приходится реагировать на появление Тириона."
+        }
+      ],
+      "links": [
+        {
+          "label": "Inn at the Crossroads",
+          "ref": "place:inn-at-crossroads"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        }
+      ]
+    },
+    {
+      "ref": "person:donnel-waynwood",
+      "kind": "person",
+      "name": "Donnel Waynwood",
+      "nameRu": "Доннел Вейнвуд",
+      "subtitle": "A Game of Thrones · Catelyn VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn VI; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_34",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn VI"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Рыцарь у Кровавых Врат предупреждает Катлин, что горная дорога стала опасной, и объясняет, почему долинные кланы осмелели."
+        }
+      ],
+      "links": [
+        {
+          "label": "Bloody Gate",
+          "ref": "place:bloody-gate"
+        },
+        {
+          "label": "Vale of Arryn",
+          "ref": "place:vale-of-arryn"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        }
+      ]
+    },
+    {
+      "ref": "person:brynden-tully",
+      "kind": "person",
+      "name": "Brynden Tully",
+      "nameRu": "Бринден Талли",
+      "subtitle": "A Game of Thrones · Catelyn VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn VI; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_34",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn VI"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Дядя Катлин встречает ее у Кровавых Врат и обсуждает состояние Долины Аррен и угрозу для Риверрана."
+        }
+      ],
+      "links": [
+        {
+          "label": "Bloody Gate",
+          "ref": "place:bloody-gate"
+        },
+        {
+          "label": "House Arryn",
+          "ref": "organization:house-arryn"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        }
+      ]
+    },
+    {
+      "ref": "person:vardis-egen",
+      "kind": "person",
+      "name": "Vardis Egen",
+      "nameRu": "Вардис Эген",
+      "subtitle": "A Game of Thrones · Catelyn VII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn VII; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_40",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn VII"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Рыцарь при дворе Лизы Аррен принимает вызов стать ее защитником в поединке по суду."
+        }
+      ],
+      "links": [
+        {
+          "label": "The Eyrie",
+          "ref": "place:the-eyrie"
+        },
+        {
+          "label": "House Arryn",
+          "ref": "organization:house-arryn"
+        },
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        }
+      ]
+    },
+    {
+      "ref": "person:maester-colemon",
+      "kind": "person",
+      "name": "Maester Colemon",
+      "nameRu": "Мейстер Колемон",
+      "subtitle": "A Game of Thrones · Catelyn VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn VI; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_34",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn VI"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Мейстер Орлиного Гнезда; Катлин просит его осмотреть раненого Родрика, но Лиза не разрешает ему покинуть замок."
+        }
+      ],
+      "links": [
+        {
+          "label": "The Eyrie",
+          "ref": "place:the-eyrie"
+        },
+        {
+          "label": "House Arryn",
+          "ref": "organization:house-arryn"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        }
+      ]
+    },
+    {
+      "ref": "person:mya-stone",
+      "kind": "person",
+      "name": "Mya Stone",
+      "nameRu": "Мия Стоун",
+      "subtitle": "A Game of Thrones · Catelyn VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn VI; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_34",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn VI"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Проводница из Горных Врат ведет Катлин по ночному подъему к Орлиному Гнезду и помогает ей пройти опасные участки пути."
+        }
+      ],
+      "links": [
+        {
+          "label": "Gates of the Moon",
+          "ref": "place:gates-of-the-moon"
+        },
+        {
+          "label": "Vale of Arryn",
+          "ref": "place:vale-of-arryn"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        }
+      ]
+    },
+    {
+      "ref": "person:loras-tyrell",
+      "kind": "person",
+      "name": "Loras Tyrell",
+      "nameRu": "Лорас Тирелл",
+      "subtitle": "A Game of Thrones · Sansa II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa II; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_29",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Sansa II"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Рыцарь по прозвищу Рыцарь Цветов выступает на турнире Десницы и дарит Сансе красную розу."
+        }
+      ],
+      "links": [
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        },
+        {
+          "label": "Joffrey Baratheon",
+          "ref": "person:joffrey-baratheon"
+        }
+      ]
+    },
+    {
+      "ref": "person:harys-swyft",
+      "kind": "person",
+      "name": "Harys Swyft",
+      "nameRu": "Харис Свифт",
+      "subtitle": "A Game of Thrones · Tyrion IX",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion IX; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_69",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion IX"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Рыцарь в лагере Тайвина спорит о положении Ланнистеров после сообщений о поражениях и предлагает просить о мире."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Lannister",
+          "ref": "organization:house-lannister"
+        },
+        {
+          "label": "Inn at the Crossroads",
+          "ref": "place:inn-at-crossroads"
+        },
+        {
+          "label": "Tywin Lannister",
+          "ref": "person:tywin-lannister"
+        },
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        }
+      ]
+    },
+    {
+      "ref": "person:aggo",
+      "kind": "person",
+      "name": "Aggo",
+      "nameRu": "Агго",
+      "subtitle": "A Game of Thrones · Daenerys VIII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys VIII; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_64",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys VIII"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Воин из кхаласара Дрого помогает удержать испуганного коня во время обряда и защищает Дейенерис в начавшейся схватке."
+        }
+      ],
+      "links": [
+        {
+          "label": "Khalasar of Khal Drogo",
+          "ref": "organization:khalasar-of-drogo"
+        },
+        {
+          "label": "Dothraki Sea",
+          "ref": "place:dothraki-sea"
+        },
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        }
+      ]
+    },
+    {
+      "ref": "person:doreah",
+      "kind": "person",
+      "name": "Doreah",
+      "nameRu": "Дорея",
+      "subtitle": "A Game of Thrones · Daenerys II, Daenerys III, Daenerys VI, Daenerys VII, Daenerys VIII, Daenerys IX, Daenerys X",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys II, Daenerys III, Daenerys VI, Daenerys VII, Daenerys VIII, Daenerys IX, Daenerys X; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_11",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys II, Daenerys III, Daenerys VI, Daenerys VII, Daenerys VIII, Daenerys IX, Daenerys X"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Лисенийская служанка Дейенерис сообщает Джораху, что остальные служанки считают кхалиси проклятой и покинули лагерь."
+        }
+      ],
+      "links": [
+        {
+          "label": "Khalasar of Khal Drogo",
+          "ref": "organization:khalasar-of-drogo"
+        },
+        {
+          "label": "Dothraki Sea",
+          "ref": "place:dothraki-sea"
+        },
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        }
+      ]
+    },
+    {
+      "ref": "person:irri",
+      "kind": "person",
+      "name": "Irri",
+      "nameRu": "Ирри",
+      "subtitle": "A Game of Thrones · Daenerys II, Daenerys III, Daenerys VI, Daenerys VII, Daenerys VIII, Daenerys IX, Daenerys X",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys II, Daenerys III, Daenerys VI, Daenerys VII, Daenerys VIII, Daenerys IX, Daenerys X; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_11",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys II, Daenerys III, Daenerys VI, Daenerys VII, Daenerys VIII, Daenerys IX, Daenerys X"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Служанка Дейенерис вместе с Дореей вспоминает, что Мирри Маз Дуур знает повивальное дело."
+        }
+      ],
+      "links": [
+        {
+          "label": "Khalasar of Khal Drogo",
+          "ref": "organization:khalasar-of-drogo"
+        },
+        {
+          "label": "Dothraki Sea",
+          "ref": "place:dothraki-sea"
+        },
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        }
+      ]
+    },
+    {
+      "ref": "person:jhiqui",
+      "kind": "person",
+      "name": "Jhiqui",
+      "nameRu": "Джику",
+      "subtitle": "A Game of Thrones · Daenerys II, Daenerys III, Daenerys VI, Daenerys IX, Daenerys X",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys II, Daenerys III, Daenerys VI, Daenerys IX, Daenerys X; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_11",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys II, Daenerys III, Daenerys VI, Daenerys IX, Daenerys X"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "После пробуждения Дейенерис Джику находится рядом с ней в шатре и отвечает на её зов; позднее вместе с Ирри она помогает ухаживать за ней."
+        }
+      ],
+      "links": [
+        {
+          "label": "Khalasar of Khal Drogo",
+          "ref": "organization:khalasar-of-drogo"
+        },
+        {
+          "label": "Dothraki Sea",
+          "ref": "place:dothraki-sea"
+        },
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        }
+      ]
+    },
+    {
+      "ref": "person:jhogo",
+      "kind": "person",
+      "name": "Jhogo",
+      "nameRu": "Джого",
+      "subtitle": "A Game of Thrones · Daenerys VIII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys VIII; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_64",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys VIII"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Кровный всадник Дрого возражает против обряда Мирри и просит Дейенерис позволить ему убить знахарку."
+        }
+      ],
+      "links": [
+        {
+          "label": "Khalasar of Khal Drogo",
+          "ref": "organization:khalasar-of-drogo"
+        },
+        {
+          "label": "Dothraki Sea",
+          "ref": "place:dothraki-sea"
+        },
+        {
+          "label": "Drogo",
+          "ref": "person:drogo"
+        }
+      ]
+    },
+    {
+      "ref": "person:quaro",
+      "kind": "person",
+      "name": "Quaro",
+      "nameRu": "Кваро",
+      "subtitle": "A Game of Thrones · Daenerys VIII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys VIII; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_64",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys VIII"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Воин кхаласара помогает удерживать коня у купели во время обряда Мирри."
+        }
+      ],
+      "links": [
+        {
+          "label": "Khalasar of Khal Drogo",
+          "ref": "organization:khalasar-of-drogo"
+        },
+        {
+          "label": "Dothraki Sea",
+          "ref": "place:dothraki-sea"
+        },
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        }
+      ]
+    },
+    {
+      "ref": "person:rakharo",
+      "kind": "person",
+      "name": "Rakharo",
+      "nameRu": "Ракхаро",
+      "subtitle": "A Game of Thrones · Daenerys VIII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys VIII; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_64",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys VIII"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Кровный всадник Дрого помогает удержать коня, а затем участвует в схватке у шатра."
+        }
+      ],
+      "links": [
+        {
+          "label": "Khalasar of Khal Drogo",
+          "ref": "organization:khalasar-of-drogo"
+        },
+        {
+          "label": "Dothraki Sea",
+          "ref": "place:dothraki-sea"
+        },
+        {
+          "label": "Drogo",
+          "ref": "person:drogo"
+        }
+      ]
+    },
+    {
+      "ref": "person:mirri-maz-duur",
+      "kind": "person",
+      "name": "Mirri Maz Duur",
+      "nameRu": "Мирри Маз Дуур",
+      "subtitle": "A Game of Thrones · Daenerys VIII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys VIII; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_64",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys VIII"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Лхазарианская богожена и целительница приходит к Дейенерис; объясняет, что для обряда спасения Дрого потребуется цена."
+        }
+      ],
+      "links": [
+        {
+          "label": "Dothraki Sea",
+          "ref": "place:dothraki-sea"
+        },
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Drogo",
+          "ref": "person:drogo"
+        }
+      ]
+    },
+    {
+      "ref": "person:shagga",
+      "kind": "person",
+      "name": "Shagga",
+      "nameRu": "Шагга",
+      "subtitle": "A Game of Thrones · Tyrion VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion VI; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_42",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion VI"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Воин Каменных Воронов входит в отряд, который встречает Тириона в горах; участвует в переговорах о плате и оружии."
+        }
+      ],
+      "links": [
+        {
+          "label": "Mountains of the Moon",
+          "ref": "place:mountains-of-the-moon"
+        },
+        {
+          "label": "High Road",
+          "ref": "place:high-road"
+        },
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        }
+      ]
+    },
+    {
+      "ref": "person:conn",
+      "kind": "person",
+      "name": "Conn",
+      "nameRu": "Конн",
+      "subtitle": "A Game of Thrones · Tyrion VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion VI; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_42",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion VI"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Каменный Ворон отвечает Тириону во время переговоров и напоминает, что горцы могут забрать его вещи после смерти."
+        }
+      ],
+      "links": [
+        {
+          "label": "Mountains of the Moon",
+          "ref": "place:mountains-of-the-moon"
+        },
+        {
+          "label": "High Road",
+          "ref": "place:high-road"
+        },
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        }
+      ]
+    },
+    {
+      "ref": "person:gunthor",
+      "kind": "person",
+      "name": "Gunthor",
+      "nameRu": "Гунтор",
+      "subtitle": "A Game of Thrones · Tyrion VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion VI; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_42",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion VI"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Предводитель Каменных Воронов ведет переговоры с Тирионом и спрашивает, чем тот может заплатить клану за жизнь своих спутников."
+        }
+      ],
+      "links": [
+        {
+          "label": "Mountains of the Moon",
+          "ref": "place:mountains-of-the-moon"
+        },
+        {
+          "label": "High Road",
+          "ref": "place:high-road"
+        },
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        }
+      ]
+    }
+  ]
+}

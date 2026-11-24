@@ -1,3 +1,4 @@
+import { timeAction } from './testkit';
 // Лестница масштабов и её уровни: карта мира, справочник мест, глобус, космос.
 import { act, fireEvent, screen, waitFor, within } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
@@ -6,7 +7,7 @@ import { createEngineStore, memoryStore, type DomainEvent } from '../../engine';
 import { loadGazetteer } from '../../map/gazetteer';
 import {
   EMOJI, mount, cardOf, lastEvent, bar, grid, startCombat, journalView, openJournal, ladderNav, stepOf, currentStep, worldView, levelHead, here,
-  up, down, tempoOn,
+  up, down, tempoOn, openTimeControls,
 } from './testkit';
 
 afterEach(() => { vi.useRealTimers(); vi.restoreAllMocks(); });
@@ -14,13 +15,18 @@ afterEach(() => { vi.useRealTimers(); vi.restoreAllMocks(); });
 /* ---------- Лестница масштабов (шаг 10): `[` и `]` двигают уровень, точка фокуса сохраняется ---------- */
 
 describe('лестница масштабов', () => {
-  it('на старте — регион Sword Coast North: по имени текущая и соседи, дальние иконкой; «Здесь» — четыре места, на пути выбран Neverwinter', () => {
+  it('на старте — вертикальная лестница: иконки имеют доступные имена без дублирующей подписи места; «Здесь» — четыре места, на пути выбран Neverwinter', () => {
     mount();
     expect(currentStep()).toBe('region');
     expect(ladderNav().querySelectorAll('[data-scale]')).toHaveLength(8); // бой не идёт — ступени боя нет
-    expect(stepOf('region')).toHaveTextContent('Sword Coast North');
-    expect(stepOf('continent')).toHaveTextContent('Faerûn');
-    expect(stepOf('settlement')).toHaveTextContent('Neverwinter');
+    expect(ladderNav()).toHaveAttribute('data-orientation', 'vertical');
+    expect(ladderNav().querySelector('[data-part="current-scale"]')).toBeNull();
+    expect(stepOf('region')).toHaveAttribute('aria-label', 'Регион');
+    expect(stepOf('continent')).toHaveAttribute('aria-label', 'Континент');
+    expect(stepOf('settlement')).toHaveAttribute('aria-label', 'Поселение');
+    expect(stepOf('region').querySelector('span')).toBeNull();
+    expect(stepOf('continent').querySelector('span')).toBeNull();
+    expect(stepOf('settlement').querySelector('span')).toBeNull();
     expect(stepOf('cosmology').querySelector('span')).toBeNull(); // далеко — только иконка
     expect(stepOf('region')).toHaveAttribute('title', expect.stringContaining('[ и ]'));
     expect(levelHead()).toHaveTextContent('Регион · Sword Coast North');
@@ -35,7 +41,7 @@ describe('лестница масштабов', () => {
     expect(screen.getByRole('group', { name: 'Противники' })).toBeInTheDocument();
   });
 
-  it('`]` и `[`: вниз до здания, вверх до Колеса и обратно — та же ветка; темп следует за уровнем; ни одного события в логе', () => {
+  it('`]` и `[`: вниз до здания, вверх до Колеса и обратно — та же ветка; рекомендация меняется, выбранный темп сохраняется; ни одного события в логе', () => {
     const { store } = mount();
     const before = store.getState().events.length;
     down();
@@ -48,17 +54,17 @@ describe('лестница масштабов', () => {
     expect(within(nw).getByRole('tab', { name: 'DM' })).toBeInTheDocument(); // секрет об агенте у ворот
     expect(within(nw).getByRole('button', { name: /Sword Coast North/ })).toBeInTheDocument(); // «внутри» — ссылка вверх
     expect(within(here()!).getAllByRole('button').map(r => r.textContent)).toEqual(['МестоЮжные ворота']);
-    expect(tempoOn()).toBe('Час');
+    openTimeControls(); expect(tempoOn()).toBe('Час'); fireEvent.click(screen.getByRole('button', { name: 'Закрыть управление временем' }));
     down();
     expect(currentStep()).toBe('building');
     expect(cardOf('Южные ворота')).toBeInTheDocument();
     expect(here()).toBeNull(); // у ворот детей нет — секции нет
-    expect(tempoOn()).toBe('10 мин');
+    openTimeControls(); expect(tempoOn()).toBe('Час'); fireEvent.click(screen.getByRole('button', { name: 'Закрыть управление временем' }));
     down();
     expect(currentStep()).toBe('building'); // боя нет — ниже некуда
     for (const lvl of ['settlement', 'region', 'continent', 'planet', 'system', 'plane', 'cosmology', 'cosmology']) { up(); expect(currentStep()).toBe(lvl); }
     expect(levelHead()).toHaveTextContent('Космология · Великое Колесо');
-    expect(tempoOn()).toBe('Год');
+    openTimeControls(); expect(tempoOn()).toBe('Час'); fireEvent.click(screen.getByRole('button', { name: 'Закрыть управление временем' }));
     expect(stepOf('building').querySelector('span')).toBeNull(); // далеко — иконка; но путь его помнит:
     for (const lvl of ['plane', 'system', 'planet', 'continent', 'region', 'settlement', 'building']) { down(); expect(currentStep()).toBe(lvl); }
     expect(cardOf('Южные ворота')).toBeInTheDocument();
@@ -197,7 +203,7 @@ describe('лестница масштабов', () => {
     fireEvent.click(within(bar()).getByRole('button', { name: 'Закончить бой' }));
     expect(currentStep()).toBe('building');
     expect(ladderNav().querySelector('[data-scale="battle"]')).toBeNull();
-    expect(tempoOn()).toBe('10 мин');
+    openTimeControls(); expect(tempoOn()).toBe('Час'); fireEvent.click(screen.getByRole('button', { name: 'Закрыть управление временем' }));
     act(() => { store.getState().undo(); });
     expect(store.getState().state.encounter.active).toBe(true);
     expect(currentStep()).toBe('battle');
@@ -285,8 +291,10 @@ describe('карта мира (27.10.2026)', () => {
     expect([...m.querySelectorAll('[data-pin]')].map(p => p.getAttribute('data-pin')).sort()).toEqual(['loc-neverwinter', 'loc-neverwinter-wood', 'loc-old-owl-well', 'loc-triboar-trail']);
     expect(m.querySelector('[data-pin="loc-neverwinter"]')).toHaveAttribute('data-pending', 'true');
     expect(m.querySelector('[data-part="party"]')).not.toBeNull();
-    // Корешки и карточка — внутри карты, поверх неё.
-    expect(within(m).getByRole('group', { name: 'Здесь' })).toBeInTheDocument();
+    // БА2: окружение раскрывается в инспекторе отдельно от карты.
+    expect(within(m).queryByRole('group', { name: 'Здесь' })).toBeNull();
+    fireEvent.click(screen.getByText('Места и участники'));
+    expect(within(screen.getByRole('complementary', { name: 'Объект и окружение' })).getByRole('group', { name: 'Здесь' })).toBeInTheDocument();
   });
 
   it('пин — то же, что строка «Здесь»: подрегион становится фокусом уровня, карта смотрит на него; событий нет', () => {
@@ -298,12 +306,12 @@ describe('карта мира (27.10.2026)', () => {
     expect(store.getState().events.length).toBe(before);
   });
 
-  it('поход к Old Owl Well: время на дни пути вперёд, PARTY_TRAVELED, припасы за дни пути; Ctrl+Z снимает припасы, потом поход', () => {
+  it('поход к Old Owl Well: время на дни пути вперёд, PARTY_TRAVELED, припасы за дни пути; Ctrl+Z снимает припасы, потом поход', async () => {
     const { store } = mount();
     const t0 = store.getState().state.time.sec;
     fireEvent.click(within(map()).getByRole('button', { name: 'Поход' }));
     fireEvent.click(map().querySelector('[data-pin="loc-old-owl-well"]')!);
-    fireEvent.click(within(screen.getByRole('group', { name: 'Поход' })).getByRole('button', { name: /^обычный/ }));
+    await timeAction(() => { fireEvent.click(within(screen.getByRole('group', { name: 'Поход' })).getByRole('button', { name: /^обычный/ })); });
     const travel = store.getState().events.filter(e => e.type === 'PARTY_TRAVELED');
     expect(travel).toHaveLength(1);
     expect(travel[0].payload).toMatchObject({ fromId: 'loc-neverwinter', toId: 'loc-old-owl-well', map: 'toril', pace: 'normal' });

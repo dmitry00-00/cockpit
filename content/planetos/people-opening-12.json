@@ -1,0 +1,618 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "person",
+  "entities": [
+    {
+      "ref": "person:bass",
+      "kind": "person",
+      "name": "Bass",
+      "nameRu": "Басс",
+      "subtitle": "A Game of Thrones · Jon VII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon VII (Chapter 52); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_52",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon VII (Chapter 52)"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF включает его в список появляющихся; первичный текст не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Смотритель псарни Ночного дозора. Его гончие тревожатся у тел Яфера и Отора в Чёрном замке."
+        }
+      ],
+      "links": [
+        {
+          "label": "Night's Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Jafer Flowers",
+          "ref": "person:jafer-flowers"
+        },
+        {
+          "label": "Othor",
+          "ref": "person:othor"
+        }
+      ]
+    },
+    {
+      "ref": "person:hake",
+      "kind": "person",
+      "name": "Hake",
+      "nameRu": "Хейк",
+      "subtitle": "A Game of Thrones · Jon VII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon VII (Chapter 52); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_52",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon VII (Chapter 52)"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF включает его в список появляющихся; первичный текст не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Стюард Ночного дозора и повар. Вместе с Джиором Мормонтом осматривает тела Яфера и Отора."
+        }
+      ],
+      "links": [
+        {
+          "label": "Night's Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Jeor Mormont",
+          "ref": "person:jeor-mormont"
+        },
+        {
+          "label": "Jafer Flowers",
+          "ref": "person:jafer-flowers"
+        },
+        {
+          "label": "Othor",
+          "ref": "person:othor"
+        }
+      ]
+    },
+    {
+      "ref": "person:joyeuse-erenford",
+      "kind": "person",
+      "name": "Joyeuse Erenford",
+      "nameRu": "Джойеза Эренфорд",
+      "subtitle": "A Game of Thrones · Catelyn IX",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn IX (Chapter 59); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_59",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn IX (Chapter 59)"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF включает её в список появляющихся; первичный текст не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Жена Уолдера Фрея, присутствующая среди его семьи во время переговоров Кейтлин в Близнецах."
+        }
+      ],
+      "links": [
+        {
+          "label": "Walder Frey",
+          "ref": "person:walder-frey"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "The Twins",
+          "ref": "place:the-twins"
+        }
+      ]
+    },
+    {
+      "ref": "person:whalen-frey",
+      "kind": "person",
+      "name": "Whalen Frey",
+      "nameRu": "Уэйлен Фрей",
+      "subtitle": "A Game of Thrones · Catelyn IX",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn IX (Chapter 59); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_59",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn IX (Chapter 59)"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF включает его в список появляющихся; первичный текст не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Помогает Уолдеру Фрею занять место перед переговорами с Кэтлин в Близнецах."
+        }
+      ],
+      "links": [
+        {
+          "label": "Walder Frey",
+          "ref": "person:walder-frey"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "The Twins",
+          "ref": "place:the-twins"
+        }
+      ]
+    },
+    {
+      "ref": "person:ryger-rivers",
+      "kind": "person",
+      "name": "Ryger Rivers",
+      "nameRu": "Райгер Риверс",
+      "subtitle": "A Game of Thrones · Catelyn IX",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn IX (Chapter 59); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_59",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn IX (Chapter 59)"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF включает его в список появляющихся; первичный текст не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Бастард Уолдера Фрея. Во время переговоров советует отцу проявить учтивость к Кейтлин, за что тот его одёргивает."
+        }
+      ],
+      "links": [
+        {
+          "label": "Walder Frey",
+          "ref": "person:walder-frey"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "The Twins",
+          "ref": "place:the-twins"
+        }
+      ]
+    },
+    {
+      "ref": "person:flement-brax",
+      "kind": "person",
+      "name": "Flement Brax",
+      "nameRu": "Флемент Бракс",
+      "subtitle": "A Game of Thrones · Tyrion VII; Tyrion VIII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion VII (Chapter 56) and Tyrion VIII (Chapter 62); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_56",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion VII (56); Tyrion VIII (62)"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется в главе 56; упоминается в главе 62"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Различение",
+          "value": "Не смешивать с Титосом Браксом: это два разных человека."
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF отмечает появление в главе 56 и упоминание в главе 62; первичный текст не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "В Tyrion VII возглавляет конный отряд, встречающий Тириона, и провожает его к шатру Тайвина. В следующей главе его лишь упоминают."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Tywin Lannister",
+          "ref": "person:tywin-lannister"
+        },
+        {
+          "label": "House Lannister",
+          "ref": "organization:house-lannister"
+        }
+      ]
+    },
+    {
+      "ref": "person:leo-lefford",
+      "kind": "person",
+      "name": "Leo Lefford",
+      "nameRu": "Лео Леффорд",
+      "subtitle": "A Game of Thrones · Tyrion VIII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion VIII (Chapter 62); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_62",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion VIII (Chapter 62)"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF включает его в список появляющихся; первичный текст не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Квартирмейстер армии Тайвина. На трапезе в лагере у Зелёного Зубца говорит о снабжении горцев Тириона."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tywin Lannister",
+          "ref": "person:tywin-lannister"
+        },
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "House Lannister",
+          "ref": "organization:house-lannister"
+        }
+      ]
+    },
+    {
+      "ref": "person:lewys-lydden",
+      "kind": "person",
+      "name": "Lewys Lydden",
+      "nameRu": "Льюис Лидден",
+      "subtitle": "A Game of Thrones · Tyrion VIII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion VIII (Chapter 62); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_62",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion VIII (Chapter 62)"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF включает его в список появляющихся; первичный текст не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Назван среди участников трапезы в шатре Тайвина у Зелёного Зубца; отдельное действие в сцене не уточняется."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tywin Lannister",
+          "ref": "person:tywin-lannister"
+        },
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "House Lannister",
+          "ref": "organization:house-lannister"
+        }
+      ]
+    },
+    {
+      "ref": "person:tytos-brax",
+      "kind": "person",
+      "name": "Tytos Brax",
+      "nameRu": "Титос Бракс",
+      "subtitle": "A Game of Thrones · Catelyn X",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn X (Chapter 63); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_63",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn X (Chapter 63)"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Различение",
+          "value": "Не смешивать с Флементом Браксом или Титосом Блэквудом; это разные персонажи."
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF включает его в список упоминаемых; первичный текст не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Рыцарь из дома Браксов, названный среди захваченных в плен в битве у Шепчущего леса; в сцене Catelyn X не появляется."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jaime Lannister",
+          "ref": "person:jaime-lannister"
+        },
+        {
+          "label": "House Lannister",
+          "ref": "organization:house-lannister"
+        }
+      ]
+    },
+    {
+      "ref": "person:regenard-estren",
+      "kind": "person",
+      "name": "Regenard Estren",
+      "nameRu": "Регенард Эстрен",
+      "subtitle": "A Game of Thrones · Catelyn X",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn X (Chapter 63); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_63",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn X (Chapter 63)"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF включает его в список упоминаемых; первичный текст не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Лорд Уиндхолла, захваченный при разгроме войска Джейме у Шепчущего леса; в Catelyn X назван среди пленников, находящихся у Фреев."
+        }
+      ],
+      "links": [
+        {
+          "label": "The Twins",
+          "ref": "place:the-twins"
+        },
+        {
+          "label": "Jaime Lannister",
+          "ref": "person:jaime-lannister"
+        }
+      ]
+    },
+    {
+      "ref": "person:garth-greenfield",
+      "kind": "person",
+      "name": "Garth Greenfield",
+      "nameRu": "Гарт Гринфилд",
+      "subtitle": "A Game of Thrones · Catelyn X",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn X (Chapter 63); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_63",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn X (Chapter 63)"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Различение",
+          "value": "Не смешивать с Престоном Гринфилдом: карточки обозначают разных людей."
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF включает его в список упоминаемых; первичный текст не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Назван среди участников и пленных войска Джейме после битвы у Шепчущего леса; в сцене Catelyn X не появляется."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jaime Lannister",
+          "ref": "person:jaime-lannister"
+        }
+      ]
+    },
+    {
+      "ref": "person:mallor-the-dornishman",
+      "kind": "person",
+      "name": "Mallor the Dornishman",
+      "nameRu": "Маллор Дорниец",
+      "subtitle": "A Game of Thrones · Catelyn X",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn X (Chapter 63); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_63",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn X (Chapter 63)"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF включает его в список упоминаемых; первичный текст не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Дорнийский наёмник на службе у Ланнистеров. Участвовал в осаде Риверрана и был захвачен в битве у Шепчущего леса; в Catelyn X лишь упоминается."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Lannister",
+          "ref": "organization:house-lannister"
+        },
+        {
+          "label": "Riverrun",
+          "ref": "place:riverrun"
+        },
+        {
+          "label": "Jaime Lannister",
+          "ref": "person:jaime-lannister"
+        }
+      ]
+    }
+  ]
+}

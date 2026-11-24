@@ -2,6 +2,7 @@
 // 20 тысяч записей — несколько мегабайт: восемь кусков по хэшу id грузятся вместе, только когда нужна карточка NPC;
 // индекс «место → жители» — отдельно и меньше, его читает карточка места. Год кампании — фильтр «жив»: родился не
 // позже и не умер к этому году; годы неизвестны — считается живым.
+import { DEFAULT_SETTING_PACKAGE, loadPackageJson, loadSettingJson, packageLayerPaths } from '../packages/registry';
 
 export interface Person {
   id: string;
@@ -40,25 +41,21 @@ export const aliveIn = (born: number | null | undefined, died: number | null | u
   (born == null || born <= year) && (died == null || died > year);
 
 // Восемь кусков по хэшу id (import-people.py, BUCKETS): каждый — свой файл сборки, путь — строкой, чтобы сборщик их видел.
-const CHUNKS: readonly (() => Promise<{ default: unknown }>)[] = [
-  () => import('../../content/world/people/0.json'), () => import('../../content/world/people/1.json'),
-  () => import('../../content/world/people/2.json'), () => import('../../content/world/people/3.json'),
-  () => import('../../content/world/people/4.json'), () => import('../../content/world/people/5.json'),
-  () => import('../../content/world/people/6.json'), () => import('../../content/world/people/7.json'),
-];
+const CHUNKS = packageLayerPaths(DEFAULT_SETTING_PACKAGE, 'content/world/people')
+  .map(path => () => loadPackageJson(DEFAULT_SETTING_PACKAGE, path));
 
 let all: Promise<ReadonlyMap<string, Person>> | null = null;
 /** Все NPC — восемь кусков разом; повторный вызов — тот же промис. */
 export function loadPeople(): Promise<ReadonlyMap<string, Person>> {
   all ??= Promise.all(CHUNKS.map(load => load()))
-    .then(chunks => new Map(chunks.flatMap(c => (c.default as { people: Person[] }).people).map(p => [p.id, p])));
+    .then(chunks => new Map(chunks.flatMap(c => (c as { people: Person[] }).people).map(p => [p.id, p])));
   return all;
 }
 
 let index: Promise<Readonly<Record<string, readonly Resident[]>>> | null = null;
 /** Место справочника карты → жители. */
 export function loadResidents(): Promise<Readonly<Record<string, readonly Resident[]>>> {
-  index ??= import('../../content/world/people-index.json').then(m => (m.default as unknown as { places: Record<string, Resident[]> }).places);
+  index ??= loadSettingJson('content/world/people-index.json').then(raw => (raw as { places: Record<string, Resident[]> }).places);
   return index;
 }
 

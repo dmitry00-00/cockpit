@@ -30,20 +30,45 @@ export const LEVEL_TEMPO: Readonly<Record<ScaleLevel, Tempo>> = {
 
 const levelIndex = (level: ScaleLevel) => SCALE_LEVELS.indexOf(level);
 
+function locationsInSetting(state: State): Location[] {
+  const root = state.settingRootId ? state.world.locations[state.settingRootId] : undefined;
+  return Object.values(state.world.locations).filter(location => !root || isWithin(state, location.id, root.id));
+}
+
 /** Уровни, которые есть в сеттинге: на уровне есть хоть одно место; бой — пока идёт бой. Порядок — SCALE_LEVELS. */
 export function ladderLevels(state: State): ScaleLevel[] {
-  const present = new Set(Object.values(state.world.locations).map(l => l.scale));
+  const present = new Set(locationsInSetting(state).map(l => l.scale));
   if (state.encounter.active) present.add('battle');
   return SCALE_LEVELS.filter(l => present.has(l));
 }
 
-/** Где партия: место первого персонажа партии с locationId, иначе первое поселение мира. */
+/**
+ * Общее место партии: только подтверждённая позиция каждого активного участника.
+ * Старый сид без единой позиции сохраняет исходное поселение как стартовый контекст.
+ */
 export function partyPlaceId(state: State): string | undefined {
-  for (const id of state.party) {
-    const loc = state.actors[id]?.locationId;
-    if (loc && state.world.locations[loc]) return loc;
-  }
-  return Object.values(state.world.locations).find(l => l.scale === 'settlement')?.id;
+  const members = state.party.map(id => state.actors[id]).filter(actor => actor && !actor.removed);
+  if (!members.length) return undefined;
+  const places = members.map(actor => actor.locationId && state.world.locations[actor.locationId] ? actor.locationId : undefined);
+  const anyAssigned = members.some(actor => !!actor.locationId);
+  if (!anyAssigned) return Object.values(state.world.locations).find(l => l.scale === 'settlement')?.id;
+  if (places.some(place => !place)) return undefined;
+  const unique = [...new Set(places)];
+  return unique.length === 1 ? unique[0] : undefined;
+}
+
+/** У живых участников более одной явно записанной позиции. */
+export function partyIsSplit(state: State): boolean {
+  return new Set(state.party.map(id => state.actors[id]).filter(actor => actor && !actor.removed)
+    .map(actor => actor.locationId).filter((id): id is string => !!id && !!state.world.locations[id])).size > 1;
+}
+
+/** Часть, но не все, участники имеют подтверждённое место. */
+export function partyLocationIncomplete(state: State): boolean {
+  const members = state.party.map(id => state.actors[id]).filter(actor => actor && !actor.removed);
+  const known = members.filter(actor => actor.locationId && state.world.locations[actor.locationId]).length;
+  const anyAssigned = members.some(actor => !!actor.locationId);
+  return anyAssigned && known < members.length;
 }
 
 /** Предки места снизу вверх, без самого места; цикл в данных обрывается. */
@@ -129,7 +154,7 @@ export function jumpTo(state: State, ladder: Ladder, level: ScaleLevel): Ladder 
   const anchor = focus ?? base;
   if (!anchor) {
     // Пути нет вовсе — берём первое место уровня.
-    const first = Object.values(state.world.locations).find(l => l.scale === level);
+    const first = locationsInSetting(state).find(l => l.scale === level);
     return first ? { level, path: pathTo(state, first.id) } : ladder;
   }
   if (levelIndex(level) < levelIndex(anchor.scale)) {
@@ -167,13 +192,30 @@ export function moveLevel(state: State, ladder: Ladder, dir: -1 | 1): Ladder {
 
 /** Лестница на старте: путь — к месту партии, уровень — регион (F1: главная зона — карта региона), если он есть. */
 export function initialLadder(state: State, level: ScaleLevel = 'region'): Ladder {
+  const settingRoot = state.settingRootId ? state.world.locations[state.settingRootId] : undefined;
   const party = partyPlaceId(state);
+  if (settingRoot && party && !isWithin(state, party, settingRoot.id)) {
+    const scoped = locationsInSetting(state);
+    const mapRoot = scoped.find(location => location.scale === 'planet' && location.geo)
+      ?? scoped.find(location => location.geo);
+    if (mapRoot) return { level: mapRoot.scale, path: pathTo(state, mapRoot.id) };
+    return { level: settingRoot.scale, path: pathTo(state, settingRoot.id) };
+  }
   const path = party ? pathTo(state, party) : {};
   if (path[level]) return { level, path };
   const lowest = lowestPathLevel({ level, path });
   if (lowest) return { level: lowest, path };
+  const entry = state.startLocationId ? state.world.locations[state.startLocationId] : undefined;
+  if (entry && (!settingRoot || isWithin(state, entry.id, settingRoot.id))) return { level: entry.scale, path: pathTo(state, entry.id) };
+  if (settingRoot) {
+    const scoped = locationsInSetting(state);
+    const mapRoot = scoped.find(location => location.scale === 'planet' && location.geo)
+      ?? scoped.find(location => location.geo);
+    if (mapRoot) return { level: mapRoot.scale, path: pathTo(state, mapRoot.id) };
+    return { level: settingRoot.scale, path: pathTo(state, settingRoot.id) };
+  }
   const first = ladderLevels(state)[0];
-  const place = first ? Object.values(state.world.locations).find(l => l.scale === first) : undefined;
+  const place = first ? locationsInSetting(state).find(l => l.scale === first) : undefined;
   return place ? { level: first!, path: pathTo(state, place.id) } : { level, path: {} };
 }
 
@@ -183,11 +225,13 @@ export function initialLadder(state: State, level: ScaleLevel = 'region'): Ladde
  * Ничего не менять — вернуть тот же объект.
  */
 export function normalizeLadder(state: State, ladder: Ladder): Ladder {
-  if (ladderLevels(state).includes(ladder.level) && (ladder.level === 'battle' || focusOf(state, ladder))) return ladder;
+  const root = state.settingRootId ? state.world.locations[state.settingRootId] : undefined;
+  const focus = focusOf(state, ladder);
+  if (ladderLevels(state).includes(ladder.level) && (ladder.level === 'battle' || (focus && (!root || isWithin(state, focus.id, root.id))))) return ladder;
   for (let i = SCALE_LEVELS.length - 1; i >= 0; i--) {
     const l = SCALE_LEVELS[i];
     const id = ladder.path[l];
-    if (l !== 'battle' && id && state.world.locations[id]) return { ...ladder, level: l };
+    if (l !== 'battle' && id && state.world.locations[id] && (!root || isWithin(state, id, root.id))) return { ...ladder, level: l };
   }
   return initialLadder(state);
 }
@@ -228,11 +272,27 @@ export function patchTargets(patch: WorldPatch): string[] {
   switch (patch.kind) {
     case 'relation': return [patch.id, patch.other];
     case 'newLocation': return patch.location.parentId ? [patch.location.parentId] : [];
+    case 'territoryControl': return [];
+    case 'kingdomOrder': return [];
     case 'newFaction': return [];
     case 'newThread': return [];
+    case 'settlementPlan': return [patch.plan.locationId];
+    case 'removeSettlementPlan': return [patch.id];
+    case 'settlementPolity': return [patch.locationId];
+    case 'importedContent': return [];
+    case 'removeImportedContent': return [];
+    case 'newFact': return [];
+    case 'removeFact': return [];
+    case 'adventureSession': return [];
+    case 'removeAdventureSession': return [];
+    case 'homebrewMechanicRuntime': return [];
+    case 'removeHomebrewMechanicRuntime': return [];
     // Процесс трогает место, где идёт, и участников-записи кампании (ссылки справочника — не записи стола).
     case 'process': return [...new Set([...(patch.process.at ? [patch.process.at] : []), ...patch.process.parties.filter(x => !x.includes(':'))])];
     case 'removeProcess': return [];
+    case 'epidemicExposure':
+    case 'epidemicExposureRestore': return [patch.locationId];
+    case 'epidemicState': return patch.process.at ? [patch.process.at] : [];
     case 'batch': return [...new Set(patch.patches.flatMap(patchTargets))];
     default: return [patch.id];
   }

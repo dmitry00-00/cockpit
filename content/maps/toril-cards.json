@@ -1,6 +1,6 @@
 {
  "map": "toril",
- "source": "Карточки мест по-русски: пересказ локальной модели (ночная разметка L3, scripts/llm-markup.py) по Forgotten Realms Wiki и описаниям Toril GIS; на стол — только прошедшие проверку имён",
+ "source": "Карточки мест: L3-пересказы по Forgotten Realms Wiki; записи со статусом review прошли ручную сверку M12 по статье и координатному реестру Toril; неподтверждённые, спорные и подземные записи не включены",
  "license": "CC BY-SA 3.0 — текст основан на статьях Forgotten Realms Wiki (forgottenrealms.fandom.com), ссылка на статью — в sources карточки; Toril GIS — Fan Content, авторов указываем",
  "places": [
   {
@@ -5686,21 +5686,6 @@
    "card": {
     "what": "Лес, расположенный в Kozakura.",
     "summary": "Fokobi Forest - это лес, расположенный в Kozakura. Он является частью региона Hinomoto, Kozakura и Kara-Tur."
-   },
-   "sources": [
-    "https://forgottenrealms.fandom.com/wiki/Fokobi_Forest"
-   ]
-  },
-  {
-   "id": "ocr:20645_4599",
-   "name": "Fokobi Forest",
-   "kind": "forest",
-   "x": 20645,
-   "y": 4599,
-   "label": true,
-   "card": {
-    "what": "Лес, расположенный в Kozakura.",
-    "summary": "Лес Fokobi находился в Kozakura. О других деталях не сообщается."
    },
    "sources": [
     "https://forgottenrealms.fandom.com/wiki/Fokobi_Forest"
@@ -23376,6 +23361,2473 @@
    },
    "sources": [
     "https://forgottenrealms.fandom.com/wiki/Skull_Gorge"
+   ]
+  },
+  {
+   "id": "ba806ef3-63cf-4d4a-a928-e455b42bc113",
+   "name": "Aurilssbarg",
+   "kind": "Town",
+   "x": 7919,
+   "y": 2206,
+   "card": {
+    "what": "Город",
+    "summary": "Крупнейшее поселение на Ice Peak Island в Frozenfar.",
+    "ruler": "First Captain"
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Aurilssbarg"
+   ]
+  },
+  {
+   "id": "3d28216a-08c7-4416-a91d-23485a311612",
+   "name": "Berdusk",
+   "kind": "Town",
+   "x": 9864,
+   "y": 4034,
+   "card": {
+    "what": "Город",
+    "summary": "Город на Uldoon Trail и River Chionthar в Sunset Vale; здесь находится Twilight Hall, база Harpers.",
+    "ruler": "High Lady Cylyria Dragonbreast"
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Berdusk"
+   ]
+  },
+  {
+   "id": "8d96af6c-e30c-486b-9641-5d782f8f2320",
+   "name": "Beregost",
+   "kind": "Town",
+   "x": 9217,
+   "y": 4160,
+   "card": {
+    "what": "Город",
+    "summary": "Город на Coast Way между Baldur’s Gate и Amn, популярная остановка караванов."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Beregost"
+   ]
+  },
+  {
+   "id": "dbe90b12-58e6-43dd-9341-495428b7b74d",
+   "name": "Dorset",
+   "kind": "Town",
+   "x": 8362,
+   "y": 4174,
+   "card": {
+    "what": "Город",
+    "summary": "Небольшой город Callidyrr на Alaron в Moonshae Isles."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Dorset"
+   ]
+  },
+  {
+   "id": "f793244b-2aa6-4c4e-a445-824f0e931002",
+   "name": "Forgotten Keep",
+   "kind": "Fortification",
+   "x": 10590,
+   "y": 3687,
+   "card": {
+    "what": "Руины",
+    "summary": "Разрушенная обзорная башня Netherese в южных Stonelands, Cormyr."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Forgotten_Keep"
+   ]
+  },
+  {
+   "id": "cbe600f2-1f0f-4599-8c6f-436645c9bcac",
+   "name": "Luskan",
+   "kind": "Town",
+   "x": 8437,
+   "y": 2365,
+   "card": {
+    "what": "Город",
+    "summary": "Порт в устье River Mirar на Sword Coast North; до Spellplague пострадал от Arklem Greeth.",
+    "ruler": "The Five High Captains (1372 DR):; Taerl, Baram, Kurth, Suljack and Rethnor; None (1480 DR); Jarlaxle Baenre (1489 DR)"
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Luskan"
+   ]
+  },
+  {
+   "id": "085d4f37-0cf1-4fd0-90f0-27fa33a62af6",
+   "name": "Mirabar",
+   "kind": "Town",
+   "x": 8811,
+   "y": 2188,
+   "card": {
+    "what": "Город",
+    "summary": "Шахтёрский город Sword Coast, где добывали руду и производили металлические изделия.",
+    "ruler": "Marchion"
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Mirabar"
+   ]
+  },
+  {
+   "id": "830f3a7a-8bca-4634-9739-027145ce347d",
+   "name": "Murann",
+   "kind": "Town",
+   "x": 9223,
+   "y": 4856,
+   "card": {
+    "what": "Город",
+    "summary": "Портовый город, второй по величине в Amn; после завоевания Sothillisian Empire стал столицей Muranndin.",
+    "ruler": "Harbor King"
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Murann"
+   ]
+  },
+  {
+   "id": "ccbd49c7-0e06-4b0c-9d95-3ceaed33e757",
+   "name": "Ruathym",
+   "kind": "Town",
+   "x": 7745,
+   "y": 3127,
+   "card": {
+    "what": "Остров",
+    "summary": "Остров Trackless Sea к северу от Moonshae Isles, родина Northlanders."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Ruathym"
+   ]
+  },
+  {
+   "id": "a9d44ef0-dde6-4adf-92d9-34793b092328",
+   "name": "Scornubel",
+   "kind": "Town",
+   "x": 9781,
+   "y": 3898,
+   "card": {
+    "what": "Город",
+    "summary": "Торговый пункт на северном берегу River Chionthar, у места, где Trade Way достигает реки."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Scornubel"
+   ]
+  },
+  {
+   "id": "1e8bcb61-a74a-43dd-8f68-e4326b23f3ec",
+   "name": "Thundertree",
+   "kind": "Village",
+   "x": 8584,
+   "y": 2606,
+   "card": {
+    "what": "Город",
+    "summary": "Деревня к востоку от Neverwinter у Neverwinter Wood; уничтожена извержением Mount Hotenow в середине 15 века DR."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Thundertree"
+   ]
+  },
+  {
+   "id": "d5d892cd-1554-46d5-863a-dbab0755c0f8",
+   "name": "Triboar",
+   "kind": "Town",
+   "x": 8908,
+   "y": 2753,
+   "card": {
+    "what": "Город",
+    "summary": "Торговый город North и перекрёсток купцов, караванщиков и путешественников.",
+    "ruler": "Lord Protector"
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Triboar"
+   ]
+  },
+  {
+   "id": "797da8dd-8562-44cd-bdcd-841ef19d3693",
+   "name": "Velen",
+   "kind": "Town",
+   "x": 8782,
+   "y": 4887,
+   "card": {
+    "what": "Город",
+    "summary": "Порт у Sea of Swords на Tethyrian Peninsula; столица Cape Velen в Tethyr."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Velen"
+   ]
+  },
+  {
+   "id": "486944df-90e6-4894-a6fe-5e5e524ad76d",
+   "name": "White Rock",
+   "kind": "Town",
+   "x": 8302,
+   "y": 3910,
+   "card": {
+    "what": "Город",
+    "summary": "Небольшой шахтёрский город Callidyrr на Alaron в Moonshae Isles."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/White_Rock"
+   ]
+  },
+  {
+   "id": "aa745588-79cc-4488-ac04-e96fd15d7cae",
+   "name": "Achelar",
+   "kind": "Town",
+   "x": 11488,
+   "y": 6912,
+   "card": {
+    "what": "Город",
+    "summary": "Небольшой город Halruaa в 14 веке DR."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Achelar"
+   ]
+  },
+  {
+   "id": "a37a0695-97ef-4f50-acaa-aa5d3e10289e",
+   "name": "Akkaido",
+   "kind": "City",
+   "x": 19803,
+   "y": 4772,
+   "card": {
+    "what": "Город",
+    "summary": "Крупный порт Tsukishima, Wa, для морских кораблей и spelljammers."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Akkaido"
+   ]
+  },
+  {
+   "id": "2e52e1a4-2dcd-4b04-ab94-c44f0ae9053b",
+   "name": "Almorel",
+   "kind": "Town",
+   "x": 14770,
+   "y": 3841,
+   "card": {
+    "what": "Город",
+    "summary": "Космополитичный, преимущественно людской торговый город на Golden Way."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Almorel"
+   ]
+  },
+  {
+   "id": "934b6b6b-9bd8-4eec-bdf3-92c9f62b9f0c",
+   "name": "Amruthar",
+   "kind": "City",
+   "x": 13552,
+   "y": 4248,
+   "card": {
+    "what": "Город",
+    "summary": "Независимый город Eastern Way, tharch of Lapendrar; в 14 веке DR противостоял Szass Tam."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Amruthar"
+   ]
+  },
+  {
+   "id": "9e4693c5-9a75-42f2-b8d6-3e0e92d69fc7",
+   "name": "Assam",
+   "kind": "Town",
+   "x": 10842,
+   "y": 4537,
+   "card": {
+    "what": "Город",
+    "summary": "Небольшой город и караванный центр на севере Shining Plains.",
+    "ruler": "Mayor"
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Assam"
+   ]
+  },
+  {
+   "id": "12c546fb-7a22-4fea-9307-9390bb35bac3",
+   "name": "Beland",
+   "kind": "Town",
+   "x": 14263,
+   "y": 5898,
+   "card": {
+    "what": "Город",
+    "summary": "Город восточной части Eastern Shaar в середине 14 века DR."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Beland"
+   ]
+  },
+  {
+   "id": "c3036b7f-ef04-41af-a2e7-e7e3c4e36458",
+   "name": "Beluir",
+   "kind": "Town",
+   "x": 13548,
+   "y": 6766,
+   "card": {
+    "what": "Город",
+    "summary": "Крупнейший город Luiren, обычно считавшийся столицей; здесь были иностранные представители и крупнейший храм Yondalla."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Beluir"
+   ]
+  },
+  {
+   "id": "f6420a0f-c5ac-4caf-ba66-ddd1535fae25",
+   "name": "Budennov",
+   "kind": "Town",
+   "x": 14508,
+   "y": 3892,
+   "card": {
+    "what": "Город",
+    "summary": "Небольшой город у Lake of Mists в Hordelands в середине — конце 14 века DR."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Budennov"
+   ]
+  },
+  {
+   "id": "40850f11-b0ad-4fcc-8abb-39395ab37634",
+   "name": "Cham Fau",
+   "kind": "City",
+   "x": 18814,
+   "y": 6098,
+   "card": {
+    "what": "Город",
+    "summary": "Процветающий речной порт Hai Yuan, Shou Lung."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Cham_Fau"
+   ]
+  },
+  {
+   "id": "a839b98d-6c3e-48ba-b7cf-65c2e33f0d71",
+   "name": "Damara",
+   "kind": "Region",
+   "x": 12472,
+   "y": 2930,
+   "label": true,
+   "card": {
+    "what": "Регион",
+    "summary": "Малонаселённое королевство Cold Lands на северо-востоке Faerûn.",
+    "ruler": "Monarch"
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Damara"
+   ]
+  },
+  {
+   "id": "a7c26e9f-83b8-4d26-a93d-194e2736069f",
+   "name": "Deikhou",
+   "kind": "Town",
+   "x": 21256,
+   "y": 7300,
+   "card": {
+    "what": "Деревня",
+    "summary": "Город Laothan в Malatra, на побережье Eastern Sea."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Deikhou"
+   ]
+  },
+  {
+   "id": "e179f4bb-cc95-48ab-b429-5d54841ad35e",
+   "name": "Edouura",
+   "kind": "Town",
+   "x": 11290,
+   "y": 6943,
+   "card": {
+    "what": "Город",
+    "summary": "Небольшой город Halruaa в 14 веке DR."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Edouura"
+   ]
+  },
+  {
+   "id": "44891c78-fc60-400e-a1ff-159a9bc55ef5",
+   "name": "Elventree",
+   "kind": "Town",
+   "x": 11609,
+   "y": 3205,
+   "card": {
+    "what": "Город",
+    "summary": "Лесная община West Branch of the Moonsea, Cormanthor."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Elventree"
+   ]
+  },
+  {
+   "id": "80319fb0-174b-43ba-914b-7df5880b2acc",
+   "name": "Fahhas",
+   "kind": "City",
+   "x": 14760,
+   "y": 9918,
+   "card": {
+    "what": "Город",
+    "summary": "Крупный город Pantheist League в Zakhara, также City of Searching.",
+    "ruler": "Caliph"
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Fahhas"
+   ]
+  },
+  {
+   "id": "a4e8446e-dc47-4009-848e-32b25b5c3620",
+   "name": "Gana",
+   "kind": "City",
+   "x": 14049,
+   "y": 10213,
+   "card": {
+    "what": "Город",
+    "summary": "Город западного Zakhara; вместе с Jumlat входит в Pearl Cities, где добывали жемчуг.",
+    "ruler": "Sultan"
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Gana"
+   ]
+  },
+  {
+   "id": "6e96369f-e6a6-40f9-b1c2-a16d4e80b833",
+   "name": "Gotokok",
+   "kind": "Town",
+   "x": 12322,
+   "y": 2214,
+   "card": {
+    "what": "Деревня",
+    "summary": "Деревня Iulutiun в Alpuk, известная ежегодной ярмаркой оружия."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Gotokok"
+   ]
+  },
+  {
+   "id": "18a2251d-6111-4123-bee5-3f36848d8460",
+   "name": "Great Sea",
+   "kind": "Water/Oceanic expanse",
+   "x": 10636,
+   "y": 8462,
+   "label": true,
+   "card": {
+    "what": "Море",
+    "summary": "Одно из крупнейших морей Toril между Faerûn и Zakhara; после Spellplague также отделяло их от Laerakond."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Great_Sea"
+   ]
+  },
+  {
+   "id": "70333405-99f9-4a85-8036-3d634515756d",
+   "name": "Gronne",
+   "kind": "Town",
+   "x": 12838,
+   "y": 1946,
+   "card": {
+    "what": "Деревня",
+    "summary": "Деревня Alpuk на Great Glacier."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Gronne"
+   ]
+  },
+  {
+   "id": "335c8449-15cf-4730-8332-0334d8ab4a31",
+   "name": "Heliogabalus",
+   "kind": "Town",
+   "x": 12409,
+   "y": 3015,
+   "card": {
+    "what": "Город",
+    "summary": "Крупнейший город Damara, прежде известный как Heliogabalus; ранее резиденция правительства."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Helgabal"
+   ]
+  },
+  {
+   "id": "09358498-cfe6-4fa6-a32a-db8fce88aea1",
+   "name": "Hills of the Dead Kings",
+   "kind": "Hills",
+   "x": 12874,
+   "y": 6998,
+   "label": true,
+   "card": {
+    "what": "Холмы",
+    "summary": "Холмистая местность центрального Dambrath, связанная с Gnollwatch Mountains."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Hills_of_the_Dead_Kings"
+   ]
+  },
+  {
+   "id": "d7d310db-2afd-418a-b721-831051878f57",
+   "name": "Hilm",
+   "kind": "City",
+   "x": 14876,
+   "y": 9784,
+   "card": {
+    "what": "Город",
+    "summary": "Самый северный город Pantheist League в Zakhara, City of Kindness.",
+    "ruler": "Caliph"
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Hilm"
+   ]
+  },
+  {
+   "id": "445b4cfb-a00b-484c-8813-279f4233c3fa",
+   "name": "Igotak Sea",
+   "kind": "Lake",
+   "x": 11990,
+   "y": 1808,
+   "label": true,
+   "card": {
+    "what": "Озеро",
+    "summary": "Крупнейшее озеро Nakvaligach на Great Glacier."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Igotak_Sea"
+   ]
+  },
+  {
+   "id": "20d2c360-f3f3-4e3f-8bde-39a9e4defc3f",
+   "name": "Kadarasto",
+   "kind": "City",
+   "x": 15366,
+   "y": 10247,
+   "card": {
+    "what": "Город",
+    "summary": "Город в джунглях Cities of the Ancients восточного Zakhara, City Most Sinister.",
+    "ruler": "Khedive"
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Kadarasto"
+   ]
+  },
+  {
+   "id": "654663b1-931a-4051-a234-08feeccfe388",
+   "name": "Kethid",
+   "kind": "Swamp",
+   "x": 11955,
+   "y": 7363,
+   "label": true,
+   "card": {
+    "what": "Государство",
+    "summary": "Государство lizardfolk в Great Swamp; около 1372 DR им правил King Ghassis."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Kethid"
+   ]
+  },
+  {
+   "id": "f48b05eb-893d-44ed-a2d0-f29a4fb72198",
+   "name": "Khaerbaal",
+   "kind": "Town",
+   "x": 10699,
+   "y": 7307,
+   "card": {
+    "what": "Город",
+    "summary": "Город Halruaa у Great Sea."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Khaerbaal"
+   ]
+  },
+  {
+   "id": "088dbe9c-9598-4263-b76a-d68190b8470d",
+   "name": "Klondor",
+   "kind": "Town",
+   "x": 13949,
+   "y": 5477,
+   "card": {
+    "what": "Город",
+    "summary": "Город Mulhorand в середине 14 века DR.",
+    "ruler": "Precept Haskrayth in 1357 DR"
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Klondor"
+   ]
+  },
+  {
+   "id": "2d44f730-3291-4d28-9aea-4f450180201a",
+   "name": "Kresttet",
+   "kind": "Town",
+   "x": 12215,
+   "y": 1654,
+   "card": {
+    "what": "Деревня",
+    "summary": "Крупнейшее поселение Nakulutiun в Nakvaligach на Great Glacier."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Kresttet"
+   ]
+  },
+  {
+   "id": "f5ff8c56-a764-42a4-9129-d331feecd9f5",
+   "name": "Lake of the Long Arm",
+   "kind": "Lake",
+   "x": 10917,
+   "y": 4312,
+   "label": true,
+   "card": {
+    "what": "Озеро",
+    "summary": "Большое озеро Dragon Coast, Eastern Heartlands; прежде Lake of the Long Arm."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Long_Arm_Lake"
+   ]
+  },
+  {
+   "id": "c604d7d7-209e-458d-a998-320801465980",
+   "name": "Lapalgard",
+   "kind": "Town",
+   "x": 10682,
+   "y": 6678,
+   "card": {
+    "what": "Город",
+    "summary": "Большой город Lapaliiya вокруг древней Fortress of Lapalgard.",
+    "ruler": "Knight-Commander of the Fortress"
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Lapalgard"
+   ]
+  },
+  {
+   "id": "76686d9a-b59a-4da9-bd14-bd8bec90c96e",
+   "name": "Lapaliiya",
+   "kind": "Region",
+   "x": 10439,
+   "y": 6537,
+   "label": true,
+   "card": {
+    "what": "Место",
+    "summary": "Конфедерация городов-государств на юго-восточном берегу Shining Sea.",
+    "ruler": "Overking"
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Lapaliiya"
+   ]
+  },
+  {
+   "id": "11d16949-04fe-4384-a0aa-5f648e000d06",
+   "name": "Lhair",
+   "kind": "Town",
+   "x": 10667,
+   "y": 7280,
+   "card": {
+    "what": "Город",
+    "summary": "Небольшой город Halruaa в 14 веке DR."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Lhair"
+   ]
+  },
+  {
+   "id": "1b7834dc-ea32-4cee-a330-2a6d7f120f4e",
+   "name": "Manass",
+   "kind": "Town",
+   "x": 16537,
+   "y": 4946,
+   "card": {
+    "what": "Город",
+    "summary": "Один из пяти великих городов Khazari, City of White Walls."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Manass"
+   ]
+  },
+  {
+   "id": "3bb34591-60b7-43f8-98c8-183f78063b67",
+   "name": "Marabaya",
+   "kind": "City",
+   "x": 20648,
+   "y": 8365,
+   "card": {
+    "what": "Город",
+    "summary": "Порт Kuong Kingdom, Malatra; крупнейший порт региона в середине 14 века DR."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Marabaya"
+   ]
+  },
+  {
+   "id": "ef7059b5-21ad-45f0-bdd3-9a36fca8116e",
+   "name": "Mazti",
+   "kind": "Town",
+   "x": 5138,
+   "y": 5782,
+   "card": {
+    "what": "Город",
+    "summary": "Уединённый Payitlan town на берегу Gulf of Cordell."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Mazti"
+   ]
+  },
+  {
+   "id": "d368c432-d57d-44ce-b21b-06072cd6f131",
+   "name": "Medina al-Afyal",
+   "kind": "City",
+   "x": 16200,
+   "y": 10026,
+   "card": {
+    "what": "Город",
+    "summary": "Столица и единственный крупный город Afyal, Isle of the Elephant, восточный Zakhara.",
+    "ruler": "Padishah"
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Medina_al-Afyal"
+   ]
+  },
+  {
+   "id": "98d8fb90-e067-4fb2-b45e-e0b9fe129122",
+   "name": "Michaca",
+   "kind": "Town",
+   "x": 3418,
+   "y": 4781,
+   "card": {
+    "what": "Город",
+    "summary": "Город Azuposi в Pasocada Basin, City of Gold."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Michaca"
+   ]
+  },
+  {
+   "id": "d064e7e6-7c16-4a15-8d7b-b85efd9f887c",
+   "name": "Mishtan",
+   "kind": "Town",
+   "x": 13966,
+   "y": 5585,
+   "card": {
+    "what": "Деревня",
+    "summary": "Поселение Great Vale, ставшее малым городом и одним из 16 preceptual governments Mulhorand; центр почитания Osiris.",
+    "ruler": "Precept"
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Mishtan"
+   ]
+  },
+  {
+   "id": "7fc396b6-3862-4f32-9876-6e0104725dc8",
+   "name": "Nad Ho Ting",
+   "kind": "Lake",
+   "x": 16971,
+   "y": 6343,
+   "label": true,
+   "card": {
+    "what": "Озеро",
+    "summary": "Озеро Tabot, также Nad Ho Ting Tso; «tso» на Tabotan значит «озеро»."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Nad_Ho_Ting"
+   ]
+  },
+  {
+   "id": "24c40370-1007-4281-b049-0098c75f7568",
+   "name": "Nagarr",
+   "kind": "Town",
+   "x": 11416,
+   "y": 5377,
+   "card": {
+    "what": "Деревня",
+    "summary": "Укреплённая деревня Vilhon Reach между Sespech и Lake of Steam; в 1370 DR протекторат Ankhapur.",
+    "ruler": "Mayor"
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Nagarr"
+   ]
+  },
+  {
+   "id": "465ea27b-df2b-4076-80de-9a51b9994f09",
+   "name": "Nakalpgotak Sea",
+   "kind": "Lake",
+   "x": 12508,
+   "y": 1805,
+   "label": true,
+   "card": {
+    "what": "Море",
+    "summary": "Большое море Alpuk на Great Glacier."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Nakalpgotak_Sea"
+   ]
+  },
+  {
+   "id": "01347064-4284-4e2c-892d-07cc541ade55",
+   "name": "Okahira",
+   "kind": "Town",
+   "x": 20817,
+   "y": 4208,
+   "card": {
+    "what": "Город",
+    "summary": "Крупный город Miyama Province; в 1357 DR третий по величине город Kozakura, около 6000 жителей, три района."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Okahira"
+   ]
+  },
+  {
+   "id": "36fb2195-f408-4b88-92f1-d22dff9724ef",
+   "name": "Ormpetarr",
+   "kind": "City",
+   "x": 11434,
+   "y": 5215,
+   "card": {
+    "what": "Город",
+    "summary": "Столица Sespech в Vilhon Reach; после Spellplague называлась City of the Scar."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Ormpetarr"
+   ]
+  },
+  {
+   "id": "3ceb71ec-8723-4c10-8c2e-53f1f49c3165",
+   "name": "Saelmur",
+   "kind": "City",
+   "x": 10666,
+   "y": 5522,
+   "card": {
+    "what": "Город",
+    "summary": "Город-государство Land of the Lions на северном берегу Lake of Steam, юг Faerûn."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Saelmur"
+   ]
+  },
+  {
+   "id": "de548e55-0d1c-42dd-85b5-cc668e1d0039",
+   "name": "Saerb",
+   "kind": "Town",
+   "x": 11214,
+   "y": 3865,
+   "card": {
+    "what": "Город",
+    "summary": "Небольшое поселение северной Sembia у пересечения Dawnpost, Thunder Way и Belduuk Road."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Saerb"
+   ]
+  },
+  {
+   "id": "4fe21fc5-2e78-45c3-ac86-6ab57bad5963",
+   "name": "Saikhoi",
+   "kind": "Town",
+   "x": 16312,
+   "y": 5199,
+   "card": {
+    "what": "Город",
+    "summary": "Столица Ra-Khati, прежде Thakos; древняя столица восточной Imaskar Empire и Anok-Imaskar."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Saikhoi"
+   ]
+  },
+  {
+   "id": "be5d4548-3a85-40ac-92a6-1220b619f9f2",
+   "name": "Sams Bandar",
+   "kind": "Town",
+   "x": 13515,
+   "y": 11330,
+   "card": {
+    "what": "Город",
+    "summary": "Крупнейшее поселение Jazirat al-Qraidis в Jazayir al-Sartan."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Sams_Bandar"
+   ]
+  },
+  {
+   "id": "452d8697-1514-4916-a99a-b67b1c4a8af8",
+   "name": "Saradush",
+   "kind": "Town",
+   "x": 10193,
+   "y": 5339,
+   "card": {
+    "what": "Город",
+    "summary": "Мегаполис Tethyr."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Saradush"
+   ]
+  },
+  {
+   "id": "1d2b4fad-6fcf-40a8-97c9-1d564eb1f151",
+   "name": "Saraq",
+   "kind": "Town",
+   "x": 14481,
+   "y": 9600,
+   "card": {
+    "what": "Город",
+    "summary": "Небольшой город внутренних земель Zakhara, Cities of the Heart."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Saraq"
+   ]
+  },
+  {
+   "id": "68a6c03e-bbe2-442d-99eb-19e9fea36b25",
+   "name": "Semkhrun",
+   "kind": "Fortification",
+   "x": 15379,
+   "y": 5332,
+   "card": {
+    "what": "Город",
+    "summary": "Древний город и форпост First Mulhorand Empire на юге Semphar."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Semkhrun"
+   ]
+  },
+  {
+   "id": "5f80b5dd-6b61-49ed-9e61-9a05eae7a511",
+   "name": "Sikak",
+   "kind": "City",
+   "x": 14183,
+   "y": 9962,
+   "card": {
+    "what": "Город",
+    "summary": "Богатый Pearl City западного Zakhara, City of Coins.",
+    "ruler": "Sultan"
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Sikak"
+   ]
+  },
+  {
+   "id": "69b6eea3-795a-43cd-bd20-6552bdcb021b",
+   "name": "Simbaya",
+   "kind": "Town",
+   "x": 14150,
+   "y": 8280,
+   "card": {
+    "what": "Город",
+    "summary": "Небольшой город Free Coast северного Zakhara.",
+    "ruler": "Sultana"
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Simbaya"
+   ]
+  },
+  {
+   "id": "2e3628d3-7e0a-444a-aadf-4459c9617cde",
+   "name": "Skarou",
+   "kind": "Town",
+   "x": 16449,
+   "y": 5058,
+   "card": {
+    "what": "Город",
+    "summary": "Столица Khazari."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Skarou"
+   ]
+  },
+  {
+   "id": "a4828d64-c60a-4953-8b8b-40c0ce49c28b",
+   "name": "Sulasspryn",
+   "kind": "Ruins",
+   "x": 11936,
+   "y": 2990,
+   "card": {
+    "what": "Руины",
+    "summary": "Город Moonsea, внезапно провалившийся в sinkhole."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Sulasspryn"
+   ]
+  },
+  {
+   "id": "63f4941f-01be-4b54-92bc-f6d81f3bd40a",
+   "name": "Talab",
+   "kind": "City",
+   "x": 15105,
+   "y": 9832,
+   "card": {
+    "what": "Город",
+    "summary": "Единственный внутренний город Pantheist League в Zakhara в 1367 DR, City of Questing.",
+    "ruler": "Caliph"
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Talab"
+   ]
+  },
+  {
+   "id": "3cb27dcf-d796-4f38-a0c4-899d1bfe70a9",
+   "name": "Taruin",
+   "kind": "Town",
+   "x": 8830,
+   "y": 6739,
+   "card": {
+    "what": "Город",
+    "summary": "Крупный город Samarach, City of Seven Spices."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Taruin"
+   ]
+  },
+  {
+   "id": "99196018-1335-4bc1-99db-b7c1b7b6529f",
+   "name": "Three Swords",
+   "kind": "Town",
+   "x": 12473,
+   "y": 6446,
+   "card": {
+    "what": "Город",
+    "summary": "Укреплённый город у Landrise в Eastern Shaar; разрушен Spellplague в 1385 DR."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Three_Swords"
+   ]
+  },
+  {
+   "id": "2ccc575c-d13c-4f63-8105-b69ad5823170",
+   "name": "Tran",
+   "kind": "Town",
+   "x": 21161,
+   "y": 7275,
+   "card": {
+    "what": "Город",
+    "summary": "Порт Laothan в Malatra."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Tran"
+   ]
+  },
+  {
+   "id": "d6692667-93d5-4391-b6f7-d2ab0e1de466",
+   "name": "Tran",
+   "kind": "Town",
+   "x": 19640,
+   "y": 6529,
+   "card": {
+    "what": "Город",
+    "summary": "Порт Laothan в Malatra."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Tran"
+   ]
+  },
+  {
+   "id": "74bd2b95-2698-45be-879d-e860637e63da",
+   "name": "Unthalass",
+   "kind": "City",
+   "x": 13394,
+   "y": 5319,
+   "card": {
+    "what": "Город",
+    "summary": "Столица Unther, некогда считавшаяся величайшим городом Realms."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Unthalass"
+   ]
+  },
+  {
+   "id": "eb19cdb8-783c-4eba-b449-e09e57de1cf8",
+   "name": "Urling",
+   "kind": "Town",
+   "x": 13810,
+   "y": 3312,
+   "card": {
+    "what": "Город",
+    "summary": "Уединённое поселение Urlingwood, Rashemen, дом ведьм Wychlaran."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Urling"
+   ]
+  },
+  {
+   "id": "b85ea04c-feca-4327-acfd-f2d944d796a8",
+   "name": "Uthmere",
+   "kind": "Village",
+   "x": 12692,
+   "y": 3411,
+   "card": {
+    "what": "Деревня",
+    "summary": "Порт Great Dale на Easting Reach; после отступления Sea of Fallen Stars стал укреплённой деревней вдали от воды."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Uthmere"
+   ]
+  },
+  {
+   "id": "156b98f9-625c-41a8-9d90-5e49c3653cd0",
+   "name": "Westgate",
+   "kind": "Town",
+   "x": 11013,
+   "y": 4103,
+   "card": {
+    "what": "Город",
+    "summary": "Город Dragon Coast с историей пиратства, преступных синдикатов и вампирских лордов; известен чёрным рынком и коррупцией."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Westgate"
+   ]
+  },
+  {
+   "id": "47f94c2d-4ed6-4e33-966a-30a89b1179d7",
+   "name": "Yhep",
+   "kind": "Town",
+   "x": 11293,
+   "y": 5580,
+   "card": {
+    "what": "Город",
+    "summary": "Укреплённый город на Lake of Steam."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Yhep"
+   ]
+  },
+  {
+   "id": "275a8b8f-a6d0-4ebf-befb-244a136cd06c",
+   "name": "Zhentil Keep",
+   "kind": "Town",
+   "x": 11409,
+   "y": 3078,
+   "card": {
+    "what": "Город",
+    "summary": "Город Moonsea, главная база Zhentarim, позднее разрушенная Shadovar."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Zhentil_Keep"
+   ]
+  },
+  {
+   "id": "21d05246-f36f-4050-b706-ee4459f8f1d1",
+   "name": "Amn",
+   "kind": "Region",
+   "x": 9664,
+   "y": 4536,
+   "label": true,
+   "card": {
+    "what": "Регион",
+    "summary": "Богатое государство западного Faerûn, Merchant’s Domain; до Spellplague имело колонии в Maztica."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Amn"
+   ]
+  },
+  {
+   "id": "7e243b80-8918-42fa-b60e-03cec8bdb184",
+   "name": "Neverwinter",
+   "kind": "Town",
+   "x": 8522,
+   "y": 2610,
+   "card": {
+    "what": "Город",
+    "summary": "Космополитичный город-государство северо-запада Faerûn, City of Skilled Hands и Jewel of the North."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Neverwinter"
+   ]
+  },
+  {
+   "id": "53be7969-eb6b-40ff-baaa-a88417d8af01",
+   "name": "Rogarsheim",
+   "kind": "Fortification",
+   "x": 7906,
+   "y": 3919,
+   "card": {
+    "what": "Город",
+    "summary": "Столица Norland на острове Norland в Moonshae Isles."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Rogarsheim"
+   ]
+  },
+  {
+   "id": "16f47dee-5685-4185-a916-b77ac232fe10",
+   "name": "Silverymoon",
+   "kind": "City",
+   "x": 9427,
+   "y": 2377,
+   "card": {
+    "what": "Город",
+    "summary": "Город-государство North, центр человеческой культуры, образования и искусства Savage Frontier."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Silverymoon"
+   ]
+  },
+  {
+   "id": "e37dd71f-f84a-4ba1-a21c-2c98f6ad3cc2",
+   "name": "Waterdeep",
+   "kind": "City",
+   "x": 8770,
+   "y": 3045,
+   "card": {
+    "what": "Город",
+    "summary": "Важнейший город North и Faerûn, City of Splendors и Crown of the North."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Waterdeep"
+   ]
+  },
+  {
+   "id": "cf4f9e34-c83d-436f-a445-68324ff60c6c",
+   "name": "Waterdeep",
+   "kind": "Region",
+   "x": 8725,
+   "y": 3050,
+   "label": true,
+   "card": {
+    "what": "Регион",
+    "summary": "Важнейший город North и Faerûn, City of Splendors и Crown of the North."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Waterdeep"
+   ]
+  },
+  {
+   "id": "c07f621b-172f-42b2-b52b-171d7b386949",
+   "name": "Westphal",
+   "kind": "Fortification",
+   "x": 8358,
+   "y": 4414,
+   "card": {
+    "what": "Город",
+    "summary": "Крупнейший город Snowdown в Moonshae Isles и центр Kingdom of Snowdown.",
+    "ruler": "Erliza Daressin"
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Caer_Westphal"
+   ]
+  },
+  {
+   "id": "4e293219-962f-40d9-b0ba-b11fe3bf9923",
+   "name": "Calimport",
+   "kind": "City",
+   "x": 9479,
+   "y": 5860,
+   "card": {
+    "what": "Город",
+    "summary": "Столица Calimshan, долгое время крупнейший город Faerûn.",
+    "ruler": "Syl-pasha"
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Calimport"
+   ]
+  },
+  {
+   "id": "4353cf1d-fb57-4c9b-8bdb-caa342c4c392",
+   "name": "Krak al-Uruj",
+   "kind": "Fortification",
+   "x": 15277,
+   "y": 9849,
+   "card": {
+    "what": "Укрепление",
+    "summary": "Укрепление qal’at в Cities of the Ancients восточного Zakhara, упомянутое в 1367 DR."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Krak_al-Uruj"
+   ]
+  },
+  {
+   "id": "8de09ec2-bbc5-4c80-9dbc-329ec3bd17d0",
+   "name": "Lake Lhespen",
+   "kind": "Lake",
+   "x": 11516,
+   "y": 6147,
+   "label": true,
+   "card": {
+    "what": "Озеро",
+    "summary": "Озеро среднего размера на равнинах Shaar."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Lake_Lhespen"
+   ]
+  },
+  {
+   "id": "cc1000dc-e1c3-4ca7-9ca3-1ff6c16b0fd3",
+   "name": "Myth Drannor",
+   "kind": "Ruins",
+   "x": 11414,
+   "y": 3283,
+   "card": {
+    "what": "Город",
+    "summary": "Бывшая столица Cormanthyr в Cormanthor, City of Song и City of Love.",
+    "ruler": "Coronal"
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Myth_Drannor"
+   ]
+  },
+  {
+   "id": "b1975406-8a03-4b72-97b4-d98baf358619",
+   "name": "Surthay",
+   "kind": "City",
+   "x": 13654,
+   "y": 3627,
+   "card": {
+    "what": "Город",
+    "summary": "Столица tharch of Surthay на севере Thay, в гавани Lake Mulsantir."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Surthay"
+   ]
+  },
+  {
+   "id": "ocr:10775_5078",
+   "name": "Ahlarkhem",
+   "kind": "ruins",
+   "x": 10775,
+   "y": 5078,
+   "label": true,
+   "card": {
+    "what": "Барония",
+    "summary": "Барония Erlkazar, включающая High Peaks и окрестности.",
+    "ruler": "Baron/Baroness"
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Ahlarkhem"
+   ]
+  },
+  {
+   "id": "ocr:9578_3880",
+   "name": "Anga Vled",
+   "kind": "settlement",
+   "x": 9578,
+   "y": 3880,
+   "label": true,
+   "card": {
+    "what": "Город",
+    "summary": "Деревня гномов Fields of the Dead, Western Heartlands, около 1370 DR."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Anga_Vled"
+   ]
+  },
+  {
+   "id": "ocr:8508_1948",
+   "name": "Caer-Konig",
+   "kind": "settlement",
+   "x": 8508,
+   "y": 1948,
+   "label": true,
+   "card": {
+    "what": "Город",
+    "summary": "Один из городов Ten Towns в Icewind Dale.",
+    "ruler": "Speaker; (Council spokesman)"
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Caer-Konig"
+   ]
+  },
+  {
+   "id": "ocr:9950_3299",
+   "name": "Dekanter",
+   "kind": "settlement",
+   "x": 9950,
+   "y": 3299,
+   "label": true,
+   "card": {
+    "what": "Руины",
+    "summary": "Руины Mines of Dekanter под Graypeak Mountains, Savage Frontier."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Dekanter"
+   ]
+  },
+  {
+   "id": "ocr:8430_3417",
+   "name": "Dennik",
+   "kind": "settlement",
+   "x": 8430,
+   "y": 3417,
+   "label": true,
+   "card": {
+    "what": "Остров",
+    "summary": "Остров Korinn Archipelago, Moonshae Isles; в середине 14 века DR был самым западным островом архипелага, не полностью контролируемым пиратами."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Dennik"
+   ]
+  },
+  {
+   "id": "ocr:8431_3593",
+   "name": "Highport",
+   "kind": "settlement",
+   "x": 8431,
+   "y": 3593,
+   "label": true,
+   "card": {
+    "what": "Остров",
+    "summary": "Остров Korinn Archipelago в Moonshae Isles."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Highport"
+   ]
+  },
+  {
+   "id": "ocr:10385_4557",
+   "name": "Impresk",
+   "kind": "fortress",
+   "x": 10385,
+   "y": 4557,
+   "label": true,
+   "card": {
+    "what": "Барония",
+    "summary": "Барония Erlkazar, охватывающая Snowflake Mountains.",
+    "ruler": "Baron/Baroness"
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Impresk"
+   ]
+  },
+  {
+   "id": "f401baa3-e48b-4d33-a444-2b832383dc99",
+   "name": "Ogden",
+   "kind": "Town",
+   "x": 8332,
+   "y": 4006,
+   "label": true,
+   "card": {
+    "what": "Деревня",
+    "summary": "Небольшой город Callidyrr на Alaron в Moonshae Isles."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Ogden"
+   ]
+  },
+  {
+   "id": "ocr:10055_3481",
+   "name": "Pelleor's Prairie",
+   "kind": "region",
+   "x": 10055,
+   "y": 3481,
+   "label": true,
+   "card": {
+    "what": "Равнина",
+    "summary": "Большая равнина Backlands, Western Heartlands; Prairie of Pelleor."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Pelleor's_Prairie"
+   ]
+  },
+  {
+   "id": "ocr:8432_3485",
+   "name": "Rabin's Reef",
+   "kind": "island",
+   "x": 8432,
+   "y": 3485,
+   "label": true,
+   "card": {
+    "what": "Остров",
+    "summary": "Небольшой остров Korinn Archipelago, Moonshae Isles."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Rabin's_Reef"
+   ]
+  },
+  {
+   "id": "ocr:8857_3024",
+   "name": "River Dessarin",
+   "kind": "river",
+   "x": 8857,
+   "y": 3024,
+   "label": true,
+   "card": {
+    "what": "Река",
+    "summary": "Крупная река Savage Frontier на северо-западе Faerûn."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/River_Dessarin"
+   ]
+  },
+  {
+   "id": "ocr:8607_2286",
+   "name": "River Mirar",
+   "kind": "river",
+   "x": 8607,
+   "y": 2286,
+   "label": true,
+   "card": {
+    "what": "Река",
+    "summary": "Река North, известная древним дварфам как Tanlur."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/River_Mirar"
+   ]
+  },
+  {
+   "id": "ocr:8370_4862",
+   "name": "Rookery",
+   "kind": "settlement",
+   "x": 8370,
+   "y": 4862,
+   "label": true,
+   "card": {
+    "what": "Городской район",
+    "summary": "Район City of Brass на Elemental Plane of Fire."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/City_of_Brass/Rookery"
+   ]
+  },
+  {
+   "id": "ocr:9117_4263",
+   "name": "St. Carwell's Vale",
+   "kind": "pass",
+   "x": 9117,
+   "y": 4263,
+   "label": true,
+   "card": {
+    "what": "Город",
+    "summary": "Небольшая деревня Hamlar Hills, Amn."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/St._Carwell's_Vale"
+   ]
+  },
+  {
+   "id": "8c1892dd-a717-4357-9ea8-3dc24b5666bc",
+   "name": "Trollclaw Range",
+   "kind": "Mountains",
+   "x": 7806,
+   "y": 4156,
+   "label": true,
+   "card": {
+    "what": "Горный хребет",
+    "summary": "Горный хребет на острове Moray в Moonshae Isles."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Trollclaw_Range"
+   ]
+  },
+  {
+   "id": "ocr:9947_4547",
+   "name": "Trollford",
+   "kind": "settlement",
+   "x": 9947,
+   "y": 4547,
+   "label": true,
+   "card": {
+    "what": "Брод",
+    "summary": "Брод через Amstel River у South Road в Amn."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Trollford"
+   ]
+  },
+  {
+   "id": "ocr:9416_4774",
+   "name": "Umar Hills",
+   "kind": "hills",
+   "x": 9416,
+   "y": 4774,
+   "label": true,
+   "card": {
+    "what": "Холмы",
+    "summary": "Предгорья Small Teeth Mountains, названные в честь легендарной Umar Witch."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Umar_Hills"
+   ]
+  },
+  {
+   "id": "ocr:9868_3496",
+   "name": "Winding River",
+   "kind": "river",
+   "x": 9868,
+   "y": 3496,
+   "label": true,
+   "card": {
+    "what": "Река",
+    "summary": "Самая длинная и бурная река Old Empires; протекает в восточном Chessenta и северо-западном Unther."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Winding_River"
+   ]
+  },
+  {
+   "id": "ocr:9236_3727",
+   "name": "Winding River",
+   "kind": "river",
+   "x": 9236,
+   "y": 3727,
+   "label": true,
+   "card": {
+    "what": "Река",
+    "summary": "Самая длинная и бурная река Old Empires; протекает в восточном Chessenta и северо-западном Unther."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Winding_River"
+   ]
+  },
+  {
+   "id": "557424fa-1e9c-43c0-b1c3-f985fdb409b0",
+   "name": "Ama Basin",
+   "kind": "Swamp",
+   "x": 18278,
+   "y": 2330,
+   "approx": true,
+   "card": {
+    "what": "Место",
+    "summary": "Южная часть Northern Wastes, Kara-Tur, названа в честь реки Ama."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Ama_Basin"
+   ]
+  },
+  {
+   "id": "ocr:12185_3133",
+   "name": "Arcata",
+   "kind": "mine",
+   "x": 12185,
+   "y": 3133,
+   "label": true,
+   "card": {
+    "what": "Место",
+    "summary": "Герцогство и провинция Kingdom of Damara в Cold Lands.",
+    "ruler": "Duke William Horgath"
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Arcata"
+   ]
+  },
+  {
+   "id": "c4839028-f82d-4d2b-b2ef-fea36f7ceff7",
+   "name": "Bezentil",
+   "kind": "Town",
+   "x": 12864,
+   "y": 3529,
+   "approx": true,
+   "card": {
+    "what": "Город",
+    "summary": "Укреплённое торговое поселение Great Dale, прежде территория Nars; здесь находилось святилище Malar.",
+    "ruler": "Head councilor"
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Bezentil"
+   ]
+  },
+  {
+   "id": "b9ce560e-ba80-498e-b43c-24fa5343c618",
+   "name": "Chukei Province",
+   "kind": "Subregion",
+   "x": 18180,
+   "y": 3607,
+   "approx": true,
+   "card": {
+    "what": "Провинция",
+    "summary": "Севернейшая провинция Shou Lung в Kara-Tur; в древности Chu’ta Te."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Chukei_Province"
+   ]
+  },
+  {
+   "id": "ocr:15669_6966",
+   "name": "Doegan",
+   "kind": "region",
+   "x": 15669,
+   "y": 6966,
+   "label": true,
+   "card": {
+    "what": "Государство",
+    "summary": "Одно из Five Kingdoms в Utter East на юго-востоке Faerûn."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Doegan"
+   ]
+  },
+  {
+   "id": "ocr:14104_3978",
+   "name": "Denzar",
+   "kind": "settlement",
+   "x": 14104,
+   "y": 3978,
+   "label": true,
+   "card": {
+    "what": "Город",
+    "summary": "Пограничный шахтёрский город tharch of Gauros в Thay."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Denzar"
+   ]
+  },
+  {
+   "id": "ocr:10110_6508",
+   "name": "Dolphingulf",
+   "kind": "sea",
+   "x": 10110,
+   "y": 6508,
+   "label": true,
+   "card": {
+    "what": "Залив",
+    "summary": "Залив Chultan Peninsula, обращённый к Shining Sea между Lapaliiya и Tashalar."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Dolphingulf"
+   ]
+  },
+  {
+   "id": "ocr:12921_1987",
+   "name": "Ertyky Valley",
+   "kind": "pass",
+   "x": 12921,
+   "y": 1987,
+   "label": true,
+   "card": {
+    "what": "Место",
+    "summary": "Долина Keryjek Ridge на Great Glacier."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Ertyky_Valley"
+   ]
+  },
+  {
+   "id": "ocr:13596_3785",
+   "name": "First Escarpment",
+   "kind": "hills",
+   "x": 13596,
+   "y": 3785,
+   "label": true,
+   "card": {
+    "what": "Место",
+    "summary": "Серия обрывов у края Thayan Plateau; полное название First Escarpment of the Priador."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/First_Escarpment"
+   ]
+  },
+  {
+   "id": "ocr:13689_4452",
+   "name": "First Escarpment",
+   "kind": "hills",
+   "x": 13689,
+   "y": 4452,
+   "label": true,
+   "card": {
+    "what": "Место",
+    "summary": "Серия обрывов у края Thayan Plateau; полное название First Escarpment of the Priador."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/First_Escarpment"
+   ]
+  },
+  {
+   "id": "ocr:19536_4678",
+   "name": "Fochu Peninsula",
+   "kind": "peninsula",
+   "x": 19536,
+   "y": 4678,
+   "label": true,
+   "card": {
+    "what": "Полуостров",
+    "summary": "Часть острова Tsukishima в Wa."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Fochu_Peninsula"
+   ]
+  },
+  {
+   "id": "9befeb5e-ce3b-4c82-b93f-f74808ade456",
+   "name": "Forgotten Forest",
+   "kind": "Temperate Forest",
+   "x": 10133,
+   "y": 3253,
+   "approx": true,
+   "card": {
+    "what": "Лес",
+    "summary": "Небольшой лес treants и fey creatures в Backlands, Western Heartlands.",
+    "ruler": "Fuorn"
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Forgotten_Forest"
+   ]
+  },
+  {
+   "id": "6894ece4-fb29-4a6d-969a-bf0081196678",
+   "name": "Iliphanar",
+   "kind": "Town",
+   "x": 15210,
+   "y": 5342,
+   "label": true,
+   "card": {
+    "what": "Город",
+    "summary": "Торговый город Semphar.",
+    "ruler": "Emir"
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Iliphanar"
+   ]
+  },
+  {
+   "id": "ocr:19312_4827",
+   "name": "Isle of Firando",
+   "kind": "island",
+   "x": 19312,
+   "y": 4827,
+   "label": true,
+   "card": {
+    "what": "Остров",
+    "summary": "Один из Outer Isles в Celestial Sea к юго-западу от Wa, Kara-Tur; холмистый остров."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Isle_of_Firando"
+   ]
+  },
+  {
+   "id": "ocr:14003_6766",
+   "name": "Isle of Quelthiir",
+   "kind": "island",
+   "x": 14003,
+   "y": 6766,
+   "label": true,
+   "card": {
+    "what": "Остров",
+    "summary": "Остров у Luiren, отделяющий Luirenstrand Bay от Great Sea."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Isle_of_Quelthiir"
+   ]
+  },
+  {
+   "id": "ocr:3609_4882",
+   "name": "Keshtin Pueblo",
+   "kind": "settlement",
+   "x": 3609,
+   "y": 4882,
+   "label": true,
+   "card": {
+    "what": "Город",
+    "summary": "Поселение Azuposi около 750 жителей, известно узорами тканых одеял; у водопада Keshtin высотой 67 м."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Keshtin_Pueblo"
+   ]
+  },
+  {
+   "id": "4a6374ff-5ee0-4e23-9604-5e5750920ee2",
+   "name": "Kora Shan",
+   "kind": "Mountains",
+   "x": 15477,
+   "y": 3780,
+   "approx": true,
+   "card": {
+    "what": "Горный хребет",
+    "summary": "Горный хребет Hordelands, Swordrise Mountains."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Kora_Shan"
+   ]
+  },
+  {
+   "id": "964388a4-a680-4cd2-818b-3edba9090556",
+   "name": "Koryaz Mountains",
+   "kind": "Hills",
+   "x": 18202,
+   "y": 3149,
+   "approx": true,
+   "card": {
+    "what": "Горный хребет",
+    "summary": "Высшая часть Ama Basin в Northern Wastes, Kara-Tur; окружена лесами и болотами."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Koryaz_Mountains"
+   ]
+  },
+  {
+   "id": "ocr:9907_7096",
+   "name": "Lapalgulph",
+   "kind": "river",
+   "x": 9907,
+   "y": 7096,
+   "label": true,
+   "card": {
+    "what": "Залив",
+    "summary": "Естественный залив Great Sea у южного берега Chultan Peninsula, Tashalar."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Lapalgulph"
+   ]
+  },
+  {
+   "id": "ocr:3632_4732",
+   "name": "Long Canyon",
+   "kind": "pass",
+   "x": 3632,
+   "y": 4732,
+   "label": true,
+   "card": {
+    "what": "Каньон",
+    "summary": "Каньон около 90 миль в Pasocada Basin, Maztica; через него протекает Pasocada River."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Long_Canyon"
+   ]
+  },
+  {
+   "id": "8db9082d-f75d-4157-a964-54227adc1242",
+   "name": "Lopango",
+   "kind": "Continent",
+   "x": 5112,
+   "y": 7580,
+   "approx": true,
+   "card": {
+    "what": "Место",
+    "summary": "Земля на юге Maztica, Land of Fire; леса, джунгли и высокие горы."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Lopango"
+   ]
+  },
+  {
+   "id": "c66e3fb7-4da3-4172-b259-3e0664d6100f",
+   "name": "Mistcliffs",
+   "kind": "Mountains",
+   "x": 8495,
+   "y": 6230,
+   "approx": true,
+   "card": {
+    "what": "Горный хребет",
+    "summary": "Горный хребет вдоль северо-западного побережья Chult."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Mistcliffs"
+   ]
+  },
+  {
+   "id": "ocr:12396_2973",
+   "name": "Morov",
+   "kind": "region",
+   "x": 12396,
+   "y": 2973,
+   "label": true,
+   "card": {
+    "what": "Барония",
+    "summary": "Небольшая барония и городская провинция Damara в середине 14 века DR."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Morov"
+   ]
+  },
+  {
+   "id": "9544cdb3-c864-42eb-b944-881305b5d111",
+   "name": "Mountains of Creation",
+   "kind": "Hills",
+   "x": 14819,
+   "y": 9596,
+   "approx": true,
+   "card": {
+    "what": "Холмы",
+    "summary": "Горный хребет внутренних земель Zakhara, Al-Akara Mountains."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Al-Akara_Mountains"
+   ]
+  },
+  {
+   "id": "126bb4e8-c1e8-4ad7-8e96-f810aa8b3371",
+   "name": "Mountains of the Lizard's Tongue",
+   "kind": "Mountains",
+   "x": 13428,
+   "y": 9308,
+   "approx": true,
+   "card": {
+    "what": "Горный хребет",
+    "summary": "Горный хребет West Zakhara, господствующий над северо-западом High Desert."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Mountains_of_the_Lizard's_Tongue"
+   ]
+  },
+  {
+   "id": "ocr:16532_5622",
+   "name": "Muren Khi",
+   "kind": "lake",
+   "x": 16532,
+   "y": 5622,
+   "label": true,
+   "card": {
+    "what": "Река",
+    "summary": "Река Hordelands; название значит «Река Земли»."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Muren_Khi"
+   ]
+  },
+  {
+   "id": "c7755ca3-1732-4e08-80b9-9d874c689933",
+   "name": "Narfell",
+   "kind": "Region",
+   "x": 13279,
+   "y": 2904,
+   "label": true,
+   "card": {
+    "what": "Государство",
+    "summary": "Древняя человеческая империя Cold Lands, почти уничтоженная в войне с Raumathar."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Narfell"
+   ]
+  },
+  {
+   "id": "833277ec-9274-41f0-ace7-aea74333d082",
+   "name": "Nathlekh",
+   "kind": "Town",
+   "x": 10872,
+   "y": 4432,
+   "label": true,
+   "card": {
+    "what": "Город",
+    "summary": "Город Dragon Coast и столица Nathlan в конце 15 века DR; позднее отнесён к Shining Plains, Vilhon Reach."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Nathlekh"
+   ]
+  },
+  {
+   "id": "d81f9e79-9fb2-467e-8826-c510988dccd1",
+   "name": "Nor Tso",
+   "kind": "Lake",
+   "x": 15689,
+   "y": 5475,
+   "approx": true,
+   "card": {
+    "what": "Озеро",
+    "summary": "Озеро Hordelands в центре Katakoro Plateau, Sky Lake."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Nor_Tso"
+   ]
+  },
+  {
+   "id": "ocr:16270_5543",
+   "name": "Nor Tso",
+   "kind": "lake",
+   "x": 16270,
+   "y": 5543,
+   "label": true,
+   "card": {
+    "what": "Озеро",
+    "summary": "Озеро Hordelands в центре Katakoro Plateau, Sky Lake."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Nor_Tso"
+   ]
+  },
+  {
+   "id": "2d623a2b-c1c0-40d4-ad6b-65a1ad623974",
+   "name": "O'Malley",
+   "kind": "Town",
+   "x": 8233,
+   "y": 4418,
+   "approx": true,
+   "card": {
+    "what": "Деревня",
+    "summary": "Небольшой город Cantrev O’Malley на острове Gwynneth в Moonshae Isles."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/O'Malley"
+   ]
+  },
+  {
+   "id": "ocr:10986_4761",
+   "name": "Pikemen's Folly",
+   "kind": "settlement",
+   "x": 10986,
+   "y": 4761,
+   "label": true,
+   "card": {
+    "what": "Торговый путь",
+    "summary": "Торговый путь между Hlondeth и Ormath в Shining Plains, Vilhon Reach; также ошибочное имя Pikeman’s Folly."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Pikemen's_Folly"
+   ]
+  },
+  {
+   "id": "ocr:15419_5711",
+   "name": "Phoenix",
+   "kind": "ruins",
+   "x": 15419,
+   "y": 5711,
+   "label": true,
+   "card": {
+    "what": "Руины",
+    "summary": "Древний город Raurin, ранее Carthag; курорты и дома отдыха, позднее оставлен из-за опустынивания."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Phoenix_(city)"
+   ]
+  },
+  {
+   "id": "23d78e87-6eae-4f52-a8d0-e4bf7ae06338",
+   "name": "Raurinshield Mountains",
+   "kind": "Mountains",
+   "x": 15299,
+   "y": 5521,
+   "label": true,
+   "card": {
+    "what": "Горный хребет",
+    "summary": "Горный хребет Hordelands и восточного Faerûn, Raurin Alta."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Raurin_Alta"
+   ]
+  },
+  {
+   "id": "ocr:12971_6314",
+   "name": "Rift River",
+   "kind": "river",
+   "x": 12971,
+   "y": 6314,
+   "label": true,
+   "card": {
+    "what": "Река",
+    "summary": "Река Eastern Shaar, приток Riftlake."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Rift_River"
+   ]
+  },
+  {
+   "id": "ocr:11949_6502",
+   "name": "River Channath",
+   "kind": "river",
+   "x": 11949,
+   "y": 6502,
+   "label": true,
+   "card": {
+    "what": "Река",
+    "summary": "Река южного Shaar у границы Lapaliiya."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/River_Channath"
+   ]
+  },
+  {
+   "id": "ocr:9550_6837",
+   "name": "River Dolsel",
+   "kind": "river",
+   "x": 9550,
+   "y": 6837,
+   "label": true,
+   "card": {
+    "what": "Река",
+    "summary": "Река Guthland на Chultan Peninsula."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/River_Dolsel"
+   ]
+  },
+  {
+   "id": "ocr:10977_7127",
+   "name": "River Halar",
+   "kind": "river",
+   "x": 10977,
+   "y": 7127,
+   "label": true,
+   "card": {
+    "what": "Река",
+    "summary": "Небольшая река западного Halruaa."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/River_Halar"
+   ]
+  },
+  {
+   "id": "ocr:13246_4372",
+   "name": "River Lapendrar",
+   "kind": "river",
+   "x": 13246,
+   "y": 4372,
+   "label": true,
+   "card": {
+    "what": "Река",
+    "summary": "Река — западная граница Thay в 1357 DR; также River of Sorrows."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/River_Lapendrar"
+   ]
+  },
+  {
+   "id": "ocr:11329_7151",
+   "name": "River Maeru",
+   "kind": "river",
+   "x": 11329,
+   "y": 7151,
+   "label": true,
+   "card": {
+    "what": "Река",
+    "summary": "Небольшая река восточного Halruaa."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/River_Maeru"
+   ]
+  },
+  {
+   "id": "ocr:11943_6037",
+   "name": "River Shaar",
+   "kind": "river",
+   "x": 11943,
+   "y": 6037,
+   "label": true,
+   "card": {
+    "what": "Река",
+    "summary": "Река земли Shaar."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/River_Shaar"
+   ]
+  },
+  {
+   "id": "39da7d7b-a16b-424b-84e1-d3fb95e28554",
+   "name": "Sea of Moving Ice",
+   "kind": "Water/Coastal sea",
+   "x": 9056,
+   "y": 1729,
+   "approx": true,
+   "card": {
+    "what": "Место",
+    "summary": "Айсберги и покрытые льдом острова северо-западного Faerûn; у Reghedmen — Floating Land."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Sea_of_Moving_Ice"
+   ]
+  },
+  {
+   "id": "ocr:12347_4446",
+   "name": "Shamandra",
+   "kind": "settlement",
+   "x": 12347,
+   "y": 4446,
+   "label": true,
+   "card": {
+    "what": "Остров",
+    "summary": "Третий по величине из южных островов Archipelago of Altumbel на Sea of Fallen Stars."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Shamandra"
+   ]
+  },
+  {
+   "id": "ocr:12890_2307",
+   "name": "Shistak Pass",
+   "kind": "pass",
+   "x": 12890,
+   "y": 2307,
+   "label": true,
+   "card": {
+    "what": "Перевал",
+    "summary": "Перевал Keryjek Ridge на Great Glacier."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Shistak_Pass"
+   ]
+  },
+  {
+   "id": "c3872a32-448c-44f7-8e5c-4719f685880d",
+   "name": "Sulaziir",
+   "kind": "Town",
+   "x": 11260,
+   "y": 7203,
+   "label": true,
+   "card": {
+    "what": "Город",
+    "summary": "Небольшой город Halruaa в 14 веке DR."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Sulaziir"
+   ]
+  },
+  {
+   "id": "ocr:12994_4728",
+   "name": "Threskel",
+   "kind": "mountain",
+   "x": 12994,
+   "y": 4728,
+   "label": true,
+   "card": {
+    "what": "Государство",
+    "summary": "Бедное королевство восточного Faerûn, одно из Old Empires, Land of the Bone Wyrm."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Threskel"
+   ]
+  },
+  {
+   "id": "ocr:13925_4511",
+   "name": "Thazalhar",
+   "kind": "settlement",
+   "x": 13925,
+   "y": 4511,
+   "label": true,
+   "card": {
+    "what": "Город",
+    "summary": "Небольшая малонаселённая область Thay; до 1382 DR ею правил Milsantos Daramos.",
+    "ruler": "Milsantos Daramos"
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Thazalhar"
+   ]
+  },
+  {
+   "id": "ocr:12581_2538",
+   "name": "Utaak Stream",
+   "kind": "river",
+   "x": 12581,
+   "y": 2538,
+   "label": true,
+   "card": {
+    "what": "Ручей",
+    "summary": "Ручей юго-восточного Alpuk; после отступления Great Glacier изменил русло."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Utaak_Stream"
+   ]
+  },
+  {
+   "id": "21ac5b8c-e8b4-418c-a96c-d26313b7ad83",
+   "name": "Utter East",
+   "kind": "Region",
+   "x": 15578,
+   "y": 6773,
+   "approx": true,
+   "card": {
+    "what": "Регион",
+    "summary": "Земля крайнего юго-востока Faerûn у границ Kara-Tur и Zakhara, родина Five Kingdoms."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Utter_East"
+   ]
+  },
+  {
+   "id": "ocr:12403_4367",
+   "name": "Vosos",
+   "kind": "island",
+   "x": 12403,
+   "y": 4367,
+   "label": true,
+   "card": {
+    "what": "Остров",
+    "summary": "Крупнейший остров Archipelago of Altumbel на Sea of Fallen Stars, Thonn’s Fist."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Thonn's_Fist"
+   ]
+  },
+  {
+   "id": "fc854eb1-e59d-42cc-8741-bcb15c3b58e8",
+   "name": "Western Heartlands",
+   "kind": "Macroregion",
+   "x": 9745,
+   "y": 3626,
+   "approx": true,
+   "card": {
+    "what": "Регион",
+    "summary": "Регион западного Faerûn от побережья Sea of Swords до Storm Horn Mountains."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Western_Heartlands"
+   ]
+  },
+  {
+   "id": "6c7edeb1-56a9-4432-ac94-7cc7c86a3ab8",
+   "name": "Wood of Sharp Teeth",
+   "kind": "Temperate Forest",
+   "x": 9692,
+   "y": 4062,
+   "approx": true,
+   "card": {
+    "what": "Лес",
+    "summary": "Густой лес к югу от River Chionthar между Baldur’s Gate и Scornubel; здесь находится Durlag’s Tower."
+   },
+   "sources": [
+    "Toril GIS",
+    "https://forgottenrealms.fandom.com/wiki/Wood_of_Sharp_Teeth"
+   ]
+  },
+  {
+   "id": "ocr:15268_10300",
+   "name": "Ysawis",
+   "kind": "forest",
+   "x": 15268,
+   "y": 10300,
+   "label": true,
+   "card": {
+    "what": "Место",
+    "summary": "Разрушенный город Nog Empire под Grey Jungle в Ruined Kingdoms восточного Zakhara, 1367 DR."
+   },
+   "sources": [
+    "https://forgottenrealms.fandom.com/wiki/Ysawis"
    ]
   }
  ]

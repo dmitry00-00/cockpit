@@ -1,26 +1,28 @@
+import { timeAction } from './testkit';
 // Шаг времени (F6) и отдых / новая сессия.
 import { fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { harptos, seedEngine, seedState } from '../../campaign';
 import { createEngineStore, memoryStore } from '../../engine';
 import { DeskPage } from '../DeskPage';
-import { fixed, mount, rowOf, cardOf, hpOf, lastEvent, damageViaPopover, startCombat, inbox, deltaCard, tempoGroup, timeView, step } from './testkit';
+import { fixed, mount, rowOf, cardOf, hpOf, lastEvent, damageViaPopover, startCombat, inbox, deltaCard, tempoGroup, timeView, step, openTimeControls } from './testkit';
 
 afterEach(() => { vi.useRealTimers(); vi.restoreAllMocks(); });
 
 /* ---------- «Перейти к этому дню» (Д5): будущий день календаря — шаг днями до него ---------- */
 
 describe('календарь: перейти к дню', () => {
-  it('будущий день — кнопка; клик — TIME_ADVANCED днями до него, время суток то же; прошлый и сегодняшний — не кнопки', () => {
+  it('будущий день — кнопка; клик — TIME_ADVANCED днями до него, время суток то же; прошлый и сегодняшний — не кнопки', async () => {
     const { store } = mount();
-    step();
+    openTimeControls();
+    await step();
     const cal = within(timeView()).getByRole('region', { name: 'Календарь Харптоса' });
     const before = store.getState().state.time.sec;
     const now = harptos(before);
     const month = within(cal).getByRole('table', { name: `${now.month} ${now.year} DR` });
     expect(within(month).queryByRole('button', { name: String(now.day) })).toBeNull();
     expect(within(month).queryByRole('button', { name: String(now.day - 1) })).toBeNull();
-    fireEvent.click(within(month).getByRole('button', { name: String(now.day + 5) }));
+    await timeAction(() => { fireEvent.click(within(month).getByRole('button', { name: String(now.day + 5) })); });
     expect([...store.getState().events].reverse().find(e => e.type === 'TIME_ADVANCED')).toMatchObject({ payload: { tempo: 'day', steps: 5 } });
     expect(harptos(store.getState().state.time.sec)).toMatchObject({ day: now.day + 5, hour: now.hour, minute: now.minute });
   });
@@ -29,50 +31,64 @@ describe('календарь: перейти к дню', () => {
 /* ---------- Шаг времени (шаг 8): сценарий F6 — темп, фаза суток, небесные тела, сводка, решения, отмена ---------- */
 
 describe('шаг времени', () => {
-  it('погода в полосе часов — из календаря (§13): «Облачно, +14 °C, лёгкий ветер», с иконкой неба; после шага «День» — другая, но та же для этого дня', () => {
+  it('погода в полосе часов — из календаря (§13): «Облачно, +14 °C, лёгкий ветер», с иконкой неба; после шага «День» — другая, но та же для этого дня', async () => {
     mount();
+    openTimeControls();
     const w = screen.getByTitle('Погода: Облачно, +14 °C, лёгкий ветер');
     expect(w).toHaveTextContent('Облачно, +14 °C, лёгкий ветер');
     expect(w.querySelector('svg')).not.toBeNull();
+    openTimeControls();
     fireEvent.click(within(tempoGroup()).getByRole('radio', { name: /День/ }));
-    fireEvent.keyDown(window, { key: 't', code: 'KeyT' });
+    fireEvent.click(screen.getByRole('button', { name: 'Закрыть управление временем' }));
+    await timeAction(() => { fireEvent.keyDown(window, { key: 't', code: 'KeyT' }); });
+    openTimeControls();
     const next = screen.getByTitle(/^Погода: /).getAttribute('title');
+    fireEvent.click(screen.getByRole('button', { name: 'Закрыть управление временем' }));
     fireEvent.keyDown(window, { key: 'Escape', code: 'Escape' });
     fireEvent.keyDown(window, { key: 'z', code: 'KeyZ', ctrlKey: true });
-    expect(screen.getByTitle(/^Погода: /)).toHaveAttribute('title', 'Погода: Облачно, +14 °C, лёгкий ветер');
+    openTimeControls();
+    expect(screen.getByTitle('Погода: Облачно, +14 °C, лёгкий ветер')).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Закрыть управление временем' }));
     expect(next).toMatch(/^Погода: (Ясно|Облачно|Дождь|Гроза), [+\u2212]\d+ °C, /);
   });
 
-  it('полоса часов: утро, Selûne растёт, полнолуние через 3 дня; три шага «Час» по T — день и 11:00; шаг «День» — полнолуние через 2 дня', () => {
+  it('полоса часов: утро, Selûne растёт, полнолуние через 3 дня; три шага «Час» по T — день и 11:00; шаг «День» — полнолуние через 2 дня', async () => {
     const { store } = mount();
-    const clock = screen.getByLabelText('Мировые часы');
-    expect(clock).toHaveTextContent('Утро');
-    expect(clock).toHaveTextContent('Selûne растёт');
-    expect(clock).toHaveTextContent('через 3 дня');
-    for (let i = 0; i < 3; i++) fireEvent.keyDown(window, { key: 't', code: 'KeyT' });
+    openTimeControls();
+    expect(screen.getByRole('dialog', { name: 'Управление временем' })).toHaveTextContent('Утро');
+    expect(screen.getByRole('dialog', { name: 'Управление временем' })).toHaveTextContent('Selûne растёт');
+    expect(screen.getByRole('dialog', { name: 'Управление временем' })).toHaveTextContent('через 3 дня');
+    fireEvent.click(screen.getByRole('button', { name: 'Закрыть управление временем' }));
+    for (let i = 0; i < 3; i++) await timeAction(() => { fireEvent.keyDown(window, { key: 't', code: 'KeyT' }); });
     expect(store.getState().events.filter(e => e.type === 'TIME_ADVANCED')).toHaveLength(3);
     expect(lastEvent(store)).toMatchObject({ type: 'TIME_ADVANCED', payload: { tempo: 'hour', steps: 1 } });
-    expect(clock).toHaveTextContent('11:00');
-    expect(clock).toHaveTextContent('День');
+    openTimeControls();
+    expect(screen.getByRole('dialog', { name: 'Управление временем' })).toHaveTextContent('11:00');
+    expect(screen.getByRole('dialog', { name: 'Управление временем' })).toHaveTextContent('День');
+    fireEvent.click(screen.getByRole('button', { name: 'Закрыть управление временем' }));
     // Сводка поднимается после шага: главная зона — «Шаг времени», фаза «День» — текущая.
     const view = timeView();
     expect(within(within(view).getByRole('list', { name: 'Фаза суток' })).getByRole('listitem', { current: true })).toHaveTextContent('День');
     expect(within(view).getByRole('region', { name: 'Что изменилось' })).toHaveTextContent('Всё решено');
+    openTimeControls();
     fireEvent.click(within(tempoGroup()).getByRole('radio', { name: /День/ }));
-    step();
+    await step();
     expect(lastEvent(store)).toMatchObject({ type: 'TIME_ADVANCED', payload: { tempo: 'day' } });
-    expect(clock).toHaveTextContent('16 Mirtul 1492 DR, 11:00');
-    expect(clock).toHaveTextContent('через 2 дня');
+    openTimeControls();
+    expect(screen.getByRole('dialog', { name: 'Управление временем' })).toHaveTextContent('16 Mirtul 1492 DR, 11:00');
+    expect(screen.getByRole('dialog', { name: 'Управление временем' })).toHaveTextContent('через 2 дня');
   });
 
-  it('F6: десятидневка → сводка по уровням: Faerûn свёрнут с «Принять пачкой», Neverwinter развёрнут; принять цены → +15% в мире; принять пачкой; отклонить и перебросить во входящих; Ctrl+Z возвращает отклонённое', () => {
+  it('F6: десятидневка → сводка по уровням: Faerûn свёрнут с «Принять пачкой», Neverwinter развёрнут; принять цены → +15% в мире; принять пачкой; отклонить и перебросить во входящих; Ctrl+Z возвращает отклонённое', async () => {
     const { store } = mount();
+    openTimeControls();
+    fireEvent.click(within(tempoGroup()).getByRole('button', { name: 'Другие темпы' }));
     fireEvent.click(within(tempoGroup()).getByRole('radio', { name: /Десятидневка/ }));
-    step();
+    await step();
     // Влияние Zhentarim, цены Neverwinter и две вражды растущей Zhentarim (Q7).
     const types = store.getState().events.slice(-5).map(e => e.type);
     expect(types).toEqual(['TIME_ADVANCED', ...Array(4).fill('WORLD_DELTA_PROPOSED')]);
-    expect(screen.getByLabelText('Мировые часы')).toHaveTextContent('25 Mirtul 1492 DR');
+    expect(screen.getByRole('button', { name: 'Управление временем' })).toHaveAttribute('title', expect.stringContaining('25 Mirtul 1492 DR'));
     expect(within(inbox()).getAllByRole('listitem')).toHaveLength(8);
 
     const summary = within(timeView()).getByRole('region', { name: 'Что изменилось' });
@@ -117,12 +133,13 @@ describe('шаг времени', () => {
     expect(within(timeView()).getByRole('button', { name: 'Принять пачкой' })).toBeInTheDocument();
   });
 
-  it('в бою темп — раунды и переключатель недоступен; «Шаг» двигает часы на 6 секунд', () => {
+  it('в бою темп — раунды и переключатель недоступен; «Шаг» двигает часы на 6 секунд', async () => {
     const { store } = mount();
     startCombat();
+    openTimeControls();
     expect(within(tempoGroup()).getByRole('radio', { name: /Раунд/ })).toHaveAttribute('aria-checked', 'true');
     expect(within(tempoGroup()).getByRole('radio', { name: /День/ })).toBeDisabled();
-    step();
+    await step();
     expect(lastEvent(store)).toMatchObject({ type: 'TIME_ADVANCED', payload: { tempo: 'round', fromSec: seedState().time.sec, toSec: seedState().time.sec + 6 } });
   });
 });
@@ -130,9 +147,10 @@ describe('шаг времени', () => {
 describe('отдых и новая сессия', () => {
   const restDialog = () => screen.getByRole('dialog', { name: 'Отдых' });
 
-  it('короткий отдых: кости Bo → «Бросить» 2d10+6 → «Отдохнуть»: DICE_ROLLED, TIME_ADVANCED на час, REST_TAKEN; Bo 49/49 и две кости потрачены; Ctrl+Z снимает отдых, потом час', () => {
+  it('короткий отдых: кости Bo → «Бросить» 2d10+6 → «Отдохнуть»: DICE_ROLLED, TIME_ADVANCED на час, REST_TAKEN; Bo 49/49 и две кости потрачены; Ctrl+Z снимает отдых, потом час', async () => {
     vi.spyOn(Math, 'random').mockReturnValue(0.999);
     const { store } = mount();
+    openTimeControls();
     fireEvent.click(screen.getByRole('button', { name: 'Отдых' }));
     const dlg = restDialog();
     expect(within(dlg).getByTitle('Отдыхают')).toHaveTextContent('4 из 4');
@@ -141,47 +159,60 @@ describe('отдых и новая сессия', () => {
     expect(lastEvent(store)).toMatchObject({ type: 'DICE_ROLLED', payload: { formula: '2d10+6', total: 26, label: 'Кости хитов · Bo Tambernack' } });
     expect(within(dlg).getByRole('textbox', { name: 'Хиты: Bo Tambernack' })).toHaveValue('26');
     const before = store.getState().events.length;
-    fireEvent.click(within(dlg).getByRole('button', { name: 'Отдохнуть' }));
+    await timeAction(() => { fireEvent.click(within(dlg).getByRole('button', { name: 'Отдохнуть' })); });
     expect(store.getState().events.slice(before).map(e => e.type)).toEqual(['TIME_ADVANCED', 'REST_TAKEN']);
     expect(lastEvent(store)).toMatchObject({ type: 'REST_TAKEN', payload: { kind: 'short', actorIds: ['bo', 'korrin', 'lyra', 'aldric'], hitDice: [{ actorId: 'bo', dice: 2, healed: 26 }] } });
     expect(screen.queryByRole('dialog', { name: 'Отдых' })).toBeNull();
     expect(hpOf(store, 'bo').current).toBe(49);
     expect(store.getState().state.actors.bo.hitDiceSpent).toBe(2);
-    expect(screen.getByTitle('Дата и время мира')).toHaveTextContent('15 Mirtul 1492 DR, 09:00');
+    expect(screen.getByRole('dialog', { name: 'Управление временем' })).toHaveTextContent('15 Mirtul 1492 DR, 09:00');
+    fireEvent.click(screen.getByRole('button', { name: 'Закрыть управление временем' }));
     // Час без событий мира — предложений нет, стол остаётся столом.
     expect(screen.getByRole('button', { name: 'Стол' })).toHaveAttribute('aria-pressed', 'true');
     expect(screen.getByRole('list', { name: 'Записи журнала' })).toHaveTextContent('Короткий отдых: @Bo Tambernack +26 (2 кости хитов)');
     fireEvent.keyDown(window, { key: 'z', code: 'KeyZ', ctrlKey: true });
     expect(hpOf(store, 'bo').current).toBe(41);
     expect(store.getState().state.actors.bo.hitDiceSpent).toBeUndefined();
-    expect(screen.getByTitle('Дата и время мира')).toHaveTextContent('09:00');
+    openTimeControls();
+    expect(screen.getByRole('dialog', { name: 'Управление временем' })).toHaveTextContent('09:00');
+    fireEvent.click(screen.getByRole('button', { name: 'Закрыть управление временем' }));
     fireEvent.keyDown(window, { key: 'z', code: 'KeyZ', ctrlKey: true });
-    expect(screen.getByTitle('Дата и время мира')).toHaveTextContent('08:00');
+    openTimeControls();
+    expect(screen.getByRole('dialog', { name: 'Управление временем' })).toHaveTextContent('08:00');
   });
 
-  it('долгий отдых: восемь часов, хиты полны, кости назад; в бою кнопки «Отдых» нет; у игроков — тоже', () => {
+  it('долгий отдых: восемь часов, хиты полны, кости назад; в бою кнопки «Отдых» нет; у игроков — тоже', async () => {
     const { store } = mount();
     damageViaPopover(cardOf('Bo Tambernack'), 20);
     fireEvent.keyDown(window, { key: 'Escape', code: 'Escape' });
+    openTimeControls();
     fireEvent.click(screen.getByRole('button', { name: 'Отдых' }));
     const dlg = restDialog();
     fireEvent.click(within(dlg).getByRole('radio', { name: 'Долгий · 8 ч' }));
     fireEvent.click(within(dlg).getByRole('checkbox', { name: 'Отдыхает: Brother Aldric' }));
-    fireEvent.click(within(dlg).getByRole('button', { name: 'Отдохнуть' }));
-    expect(lastEvent(store)).toMatchObject({ type: 'REST_TAKEN', payload: { kind: 'long', actorIds: ['bo', 'korrin', 'lyra'] } });
+    await timeAction(() => { fireEvent.click(within(dlg).getByRole('button', { name: 'Отдохнуть' })); });
+    // Долгий отдых теперь также списывает припасы после REST_TAKEN.
+    expect([...store.getState().events].reverse().find(e => e.type === 'REST_TAKEN')).toMatchObject({ payload: { kind: 'long', actorIds: ['bo', 'korrin', 'lyra'] } });
+    expect(lastEvent(store)).toMatchObject({ type: 'SUPPLY_CHANGED', payload: { reason: 'eaten', amount: 0, shortfall: 3 } });
     expect(hpOf(store, 'bo').current).toBe(49);
-    expect(screen.getByTitle('Дата и время мира')).toHaveTextContent('15 Mirtul 1492 DR, 16:00');
+    expect(screen.getByRole('dialog', { name: 'Управление временем' })).toHaveTextContent('15 Mirtul 1492 DR, 16:00');
+    fireEvent.click(screen.getByRole('button', { name: 'Закрыть управление временем' }));
     expect(screen.getByRole('list', { name: 'Записи журнала' })).toHaveTextContent('Долгий отдых: @Bo Tambernack, @Korrin Battlehammer, @Lyra Moonwhisper');
     startCombat();
+    openTimeControls();
     expect(screen.queryByRole('button', { name: 'Отдых' })).toBeNull();
+    fireEvent.click(screen.getByRole('button', { name: 'Закрыть управление временем' }));
     fireEvent.click(screen.getByRole('button', { name: 'Закончить бой' }));
+    openTimeControls();
     expect(screen.getByRole('button', { name: 'Отдых' })).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button', { name: 'Закрыть управление временем' }));
     fireEvent.keyDown(window, { key: 'p', code: 'KeyP' });
+    openTimeControls();
     expect(screen.queryByRole('button', { name: 'Отдых' })).toBeNull();
     expect(screen.queryByRole('button', { name: 'Новая сессия' })).toBeNull();
   });
 
-  it('«Новая сессия» — в два клика: «Оставить» ничего не трогает; «Стереть» чистит хранилище и поднимает сид заново — Bo снова 41/49, журнал сида', () => {
+  it('«Новая сессия» — в два клика: «Оставить» ничего не трогает; «Стереть» чистит хранилище и поднимает сид заново — Bo снова 41/49, журнал сида', async () => {
     const persist = memoryStore();
     const store = seedEngine({ persist, ...fixed() });
     render(<DeskPage cardFace="sheet" store={store} persist={persist} />);
@@ -190,6 +221,7 @@ describe('отдых и новая сессия', () => {
     expect(within(rowOf('Bo Tambernack')).getByText('33/49')).toBeInTheDocument();
     expect(persist.load()?.length).toBeGreaterThan(0);
 
+    fireEvent.click(screen.getByText('Кампания', { selector: 'summary span' }));
     fireEvent.click(screen.getByRole('button', { name: 'Новая сессия' }));
     const ask = screen.getByRole('alertdialog', { name: 'Новая сессия' });
     expect(ask).toHaveTextContent('Стереть журнал сессии и начать заново?');
@@ -210,13 +242,14 @@ describe('отдых и новая сессия', () => {
 });
 
 describe('часы Харптоса: мини-циферблат и календарь (28.10.2026)', () => {
-  it('мини-циферблат в полосе часов открывает откидную панель: 15 Mirtul — сегодня, десятидневка вторая, полнолуние 18-го, Greengrass в году; Esc закрывает', () => {
+  it('мини-циферблат в нижней панели открывает календарь: 15 Mirtul — сегодня, десятидневка вторая, полнолуние 18-го, Greengrass в году; Esc закрывает', async () => {
     mount();
     const clock = screen.getByLabelText('Мировые часы');
-    const dial = within(clock).getByRole('button', { name: 'Календарь Харптоса' });
+    const dial = within(clock).getByRole('button', { name: 'Управление временем' });
     expect(within(dial).getByRole('img', { name: 'Время суток: 08:00, утро' })).toBeInTheDocument();
     fireEvent.click(dial);
-    const cal = screen.getByRole('region', { name: 'Календарь Харптоса' });
+    const timeControls = screen.getByRole('dialog', { name: 'Управление временем' });
+    const cal = within(timeControls).getByRole('region', { name: 'Календарь Харптоса' });
     expect(within(cal).getByText('15 Mirtul')).toBeInTheDocument();
     expect(cal).toHaveTextContent('вторая, день 5');
     const month = within(cal).getByRole('table', { name: 'Mirtul 1492 DR' });
@@ -225,14 +258,14 @@ describe('часы Харптоса: мини-циферблат и календ
     expect(within(month).getByTitle('18 Mirtul 1492 DR · Selûne полная')).toBeInTheDocument();
     expect(within(month).getAllByRole('row')).toHaveLength(3);
     expect(within(cal).getByRole('list', { name: 'Год 1492 DR' })).toHaveTextContent('Greengrass');
-    fireEvent.keyDown(document.activeElement ?? document.body, { key: 'Escape', code: 'Escape' });
+    fireEvent.keyDown(timeControls, { key: 'Escape', code: 'Escape' });
     expect(screen.queryByRole('region', { name: 'Календарь Харптоса' })).toBeNull();
   });
 
-  it('листать месяцы — вид, не событие: › — Kythorn, праздник после Tarsakh виден на своём месяце, «Сегодня» возвращает', () => {
+  it('листать месяцы — вид, не событие: › — Kythorn, праздник после Tarsakh виден на своём месяце, «Сегодня» возвращает', async () => {
     const { store } = mount();
     const before = store.getState().events.length;
-    fireEvent.click(within(screen.getByLabelText('Мировые часы')).getByRole('button', { name: 'Календарь Харптоса' }));
+    openTimeControls();
     const cal = screen.getByRole('region', { name: 'Календарь Харптоса' });
     fireEvent.click(within(cal).getByRole('button', { name: 'Следующий месяц' }));
     expect(within(cal).getByRole('table', { name: 'Kythorn 1492 DR' })).toBeInTheDocument();
@@ -247,7 +280,7 @@ describe('часы Харптоса: мини-циферблат и календ
   it('святые дни (E4): ближайший в сводке, отметка и список месяца, праздник с богами, «все пантеоны» — вид; имя бога открывает карточку', async () => {
     const { store } = mount();
     const before = store.getState().events.length;
-    fireEvent.click(within(screen.getByLabelText('Мировые часы')).getByRole('button', { name: 'Календарь Харптоса' }));
+    openTimeControls();
     const cal = screen.getByRole('region', { name: 'Календарь Харптоса' });
     // У Aldric в сиде Lathander — вид «партия» по умолчанию: ближайший — его Midsummer.
     expect(within(cal).getByRole('button', { name: 'партия' })).toHaveAttribute('aria-pressed', 'true');
@@ -284,7 +317,7 @@ describe('часы Харптоса: мини-циферблат и календ
     // Без лога сида: предложений нет — входящие пусты, строка «Мир спокоен» видна сразу.
     mount(createEngineStore({ ...seed, actors: { ...seed.actors, aldric: { ...aldric, sheet: { ...aldric.sheet!, deity: { id: 'torm', name: 'Torm' } } } } }, { persist: memoryStore() }));
     expect(screen.getByText(/Мир спокоен/)).toHaveTextContent(/Святой день бога партии через \d+ дн\S* — The Divine Death: Torm\.$/);
-    fireEvent.click(within(screen.getByLabelText('Мировые часы')).getByRole('button', { name: 'Календарь Харптоса' }));
+    openTimeControls();
     const cal = screen.getByRole('region', { name: 'Календарь Харптоса' });
     expect(within(cal).getByRole('button', { name: 'партия' })).toHaveAttribute('aria-pressed', 'true');
     expect(cal.querySelector('[data-part="holy-next"]')).toHaveTextContent('The Divine Death: Torm');
@@ -296,8 +329,10 @@ describe('часы Харптоса: мини-циферблат и календ
     await waitFor(() => expect(line()).toHaveTextContent('Torm· White right gauntlet'), { timeout: 10000 });
   }, 20000);
 
-  it('вкладка «Время» показывает тот же календарь под фазами суток', () => {
+  it('вкладка «Время» показывает тот же календарь под фазами суток', async () => {
     mount();
+    openTimeControls();
+    fireEvent.click(screen.getByRole('button', { name: 'Закрыть управление временем' }));
     fireEvent.click(within(screen.getByRole('group', { name: 'Вид главной зоны' })).getByRole('button', { name: /Время/ }));
     const view = timeView();
     expect(within(view).getByRole('region', { name: 'Календарь Харптоса' })).toBeInTheDocument();

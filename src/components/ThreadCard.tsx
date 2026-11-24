@@ -6,13 +6,18 @@
 // Строки классов полные: Tailwind ищет их в исходнике.
 
 import { plural } from '../engine';
+import type { ProgressValue } from '../engine/progress';
 import { Icon } from '../icons/Icon';
+import { ProgressMeter } from './ProgressMeter';
 
 export interface ThreadCardRow {
   key: string;
   /** Подпись слева (72px, type-key uppercase): «12 дней», «сейчас», «через 16», «секрет», «каскад». */
   label: string;
   text: string;
+  /** Normalized progress projection shared by process, thread, and front displays. */
+  progress?: ProgressValue;
+  progressLabel?: string;
   /** Тон текста: tx (по умолчанию), t2, gd, sim → src-sim. */
   tone?: 'tx' | 't2' | 'gd' | 'sim';
   /** Секрет мастера: текст приглушён, перед ним перечёркнутый глаз. */
@@ -86,9 +91,10 @@ export function ThreadCard({ id, name, count, rows, selected = false, onSelect, 
           {rows.map(r => (
             <div key={r.key} data-row={r.key} data-secret={r.secret ? 'true' : undefined} className="grid grid-cols-[72px_1fr] gap-2 items-start">
               <dt className="type-key uppercase text-t2 truncate pt-px" title={r.label}>{r.label}</dt>
-              <dd className={`min-w-0 flex items-start gap-1 type-body-sm ${ROW_TONE[r.tone ?? 'tx']}`}>
+              <dd className={`min-w-0 flex flex-col items-start gap-1 type-body-sm ${ROW_TONE[r.tone ?? 'tx']}`}>
                 {r.secret ? <Icon name="hidden" size={16} color="var(--src-players)" title="Скрыто от игроков" className="mt-px" /> : null}
-                <span className={r.secret ? 'opacity-(--op-hidden-from-players)' : undefined}>{r.text}</span>
+                {r.text ? <span className={r.secret ? 'opacity-(--op-hidden-from-players)' : undefined}>{r.text}</span> : null}
+                {r.progress ? <ProgressMeter value={r.progress} label={r.progressLabel ?? r.label} className="w-full" /> : null}
               </dd>
             </div>
           ))}

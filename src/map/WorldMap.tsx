@@ -4,15 +4,29 @@
 // Тайлы — <img> с прямоугольником в целых пикселях экрана (projection.tilesAt): на растровой пирамиде
 // канвас ничего не добавляет, а DOM-картинки браузер кэширует и декодирует сам. Под тайлами текущего
 // уровня лежит уровень на два мельче — пока грузятся крупные, карта не мигает пустотой.
-import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type KeyboardEvent, type PointerEvent, type ReactNode, type WheelEvent } from 'react';
+import { Fragment, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState, type KeyboardEvent, type PointerEvent, type ReactNode, type WheelEvent } from 'react';
 import { ENTITY, type EntityType } from '../components/EntityCard';
 import { useOpenEntity } from '../components/openEntity';
 import { Icon } from '../icons/Icon';
 import type { IconName } from '../icons/icons.generated';
+import { SemanticMark } from '../art/SemanticMark';
+import type { ArtId } from '../art/registry.generated';
+import { PLACE_KIND_ART } from '../art/semanticBindings';
 import { TRAVEL_PACE_IDS, TRAVEL_PACES, travelDays, travelDaysOver, type TravelPaceId } from '../rules/srd/travel';
 import { DIFFICULT, difficultLabel, routeTerrain, type RoadGrid, type RouteTerrain, type TerrainGrid } from './terrain';
 import { ENCOUNTER_TYPE_LABEL, JOURNEY_REGIONS, UNDERGROUND_REGION, journeyLegs, roadMilesAsPace, settlementMarks, supplyNeeded, type RegionTier } from '../rules/a5e/journey';
 import { underdarkAlong, type UnderdarkRegion } from './underdark';
+import { CourseCompass } from './CourseCompass';
+import type { Wind, WindDirection } from '../campaign/weather';
+import type { ProcessMapMarker } from './processMarkers';
+import { loadClean } from './cleanMap';
+import { RasterLayer } from './RasterLayer';
+import { forceCanvas, mapPixelRatio } from './renderer';
+import { SphereSurfaceLayer } from './SphereSurfaceLayer';
+import { useSurfaceSession } from './SurfaceHost';
+import { PLANET_MASKS } from './planet';
+import type { GeographicExtent, SurfaceCamera } from './surfaceProjection';
+import { planetFitBox, planetPanBy, planetResizeView, planetStartView, planetZoomAt } from './planetView';
 import { RegionLayer, SchemaLayer } from '../lazyParts';
 import type { MapSchema } from './schema';
 import type { LabelHit } from './schemaLabels';
@@ -24,12 +38,16 @@ import {
   FEET_PER_MILE, clampView, fitBox, hexCenters, panBy, pathMiles, scaleBar, scaleBounds, tilesAt, toMap, toScreen, zoomAt, zoomLevelFor,
   type MapBox, type MapPassport, type MapPoint, type MapView, type Viewport,
 } from './projection';
+import type { WarFrontMapLine } from './warFronts';
 
 export interface MapPinItem extends MapPoint {
   id: string;
   name: string;
   type: EntityType;
   icon?: IconName;
+  /** Exact type art from a referenced catalog place; the owning page supplies it only in the DM view. */
+  art?: ArtId;
+  artTitle?: string;
   /** Сколько о месте записей и фактов — как бейдж корешка «Здесь». */
   count?: number;
   /** Место на пути лестницы. */
@@ -58,7 +76,7 @@ export interface WorldMapProps {
   /** Туман знаний: что открыто игрокам. forced — стол игроков, туман всегда; иначе — слой мастера по кнопке. */
   fog?: { explored: Explored; forced: boolean };
   /** Поход — только мастеру: путь начинается у партии, кончается на пине места, темп — по таблице SRD. */
-  travel?: { from: MapPoint; onGo: (route: TravelRoute) => void; journey?: JourneyProps };
+  travel?: { from: MapPoint; onGo: (route: TravelRoute) => void; journey?: JourneyProps; wind?: { strength: Wind; from: WindDirection } };
   /** Сетка местности (src/map/terrain.ts): есть — линейка и поход сами считают мили по трудной местности. */
   terrain?: TerrainGrid | null;
   /** Дороги растра (ROADMAP 6.3): есть — путь вдоль пунктира идёт регионом Open Roads, быстрее на милю в час (A5E). */
@@ -74,6 +92,8 @@ export interface WorldMapProps {
   start?: MapView;
   /** Колесо «дальше» на целой карте — вернуться выше (с плоской карты планеты — на глобус, M16). */
   onZoomOut?: (at: MapView) => void;
+  /** Current flat camera for the projection handoff; never a world event. */
+  onViewChange?: (view:MapView) => void;
   /**
    * Слои по регионам A5E (ROADMAP 6.4) — линзы, не события; нужны сетка местности. «Опасность» — только мастеру:
    * подкраска регионов, уровень и DC, веса встреч на пинах; «Погода» — d20 регионов на этот день из лога.
@@ -94,6 +114,10 @@ export interface WorldMapProps {
    * именами; места напряжений — значком с числом. Зон в милях нет: их радиуса не дают ни вики, ни кампания.
    */
   influence?: { bases: ReadonlyMap<string, readonly string[]>; tensions: ReadonlyMap<string, readonly string[]> };
+  /** Active campaign war routes, supplied only by the DM view; these are routes, not claimed territorial borders. */
+  warFronts?: readonly WarFrontMapLine[];
+  /** Active process markers for mapped campaign places; supplied only by the DM view. */
+  processMarkers?: readonly ProcessMapMarker[];
   /** Место справочника — сцена «Сейчас здесь» (Д2, ROADMAP 6.2): кнопка в карточке места под щелчком. */
   onScene?: (placeId: string) => void;
   /**
@@ -102,6 +126,11 @@ export interface WorldMapProps {
    * принятием. `scales` — какие уровни можно выбрать на этой карте.
    */
   newPlace?: { scales: readonly ScaleLevel[]; scaleLabel: (s: ScaleLevel) => string; onPropose: (draft: NewPlaceDraft) => void };
+  /** Assign an active campaign place to a point on this map; acceptance writes only this map's raster coordinates. */
+  georeference?: {
+    places: readonly { id: string; name: string; scaleLabel: string; geoMap?: string }[];
+    onPropose: (locationId: string, point: MapPoint) => void;
+  };
   /** Свои кнопки страницы в начале панели карты (переключатель «Глобус» на уровне планеты). */
   tools?: ReactNode;
   /** Слева сверху поверх карты — корешки и карточка страницы. */
@@ -157,7 +186,7 @@ export interface TravelRoute {
   difficultMiles?: number;
 }
 
-type Tool = 'none' | 'ruler' | 'travel' | 'place';
+type Tool = 'none' | 'ruler' | 'travel' | 'place' | 'georeference';
 
 /** Размер окна, пока его не измерили (jsdom, первый кадр). */
 const FALLBACK_VP: Viewport = { w: 960, h: 540 };
@@ -169,9 +198,9 @@ const FOUND_R = 200;
 /** Щелчок ловит место справочника не дальше стольких пикселей экрана от значка и от середины подписи. */
 const PICK_PX = 12;
 const PICK_LABEL_PX = 48;
-const INPUT = 'h-7 w-44 px-2 type-body-sm text-tx bg-wl shadow-bevel-in placeholder:text-t3 focus-visible:shadow-[var(--bevel-in),var(--glow-gold)]';
+const INPUT = 'min-h-7 w-full min-w-0 px-2 py-0.5 type-body-sm text-tx bg-wl shadow-bevel-in placeholder:text-t3 focus-visible:shadow-[var(--bevel-in),var(--glow-gold)]';
 
-const BTN = 'type-num-12 uppercase whitespace-nowrap px-2 py-1 bg-cd shadow-bevel text-t2 cursor-pointer enabled:hover:text-tx enabled:active:shadow-bevel-in focus-visible:shadow-[var(--bevel),var(--glow-gold)] disabled:cursor-default disabled:opacity-(--op-disabled) aria-pressed:text-gd-hi aria-pressed:shadow-[var(--bevel),inset_0_-2px_0_var(--gd)]';
+const BTN = 'type-num-12 uppercase px-2 py-1 bg-cd shadow-bevel text-t2 cursor-pointer enabled:hover:text-tx enabled:active:shadow-bevel-in focus-visible:shadow-[var(--bevel),var(--glow-gold)] disabled:cursor-default disabled:opacity-(--op-disabled) aria-pressed:text-gd-hi aria-pressed:shadow-[var(--bevel),inset_0_-2px_0_var(--gd)]';
 
 const fmt = (n: number, digits = 1) => n.toLocaleString('ru-RU', { maximumFractionDigits: digits });
 
@@ -262,18 +291,19 @@ function PlaceSearch({ places, onPick }: { places: readonly GazetteerPlace[]; on
         className={INPUT}
       />
       {hits.length > 0 ? (
-        <ul role="listbox" aria-label="Найденные места" className="absolute right-0 top-full mt-1 w-72 flex flex-col bg-pn shadow-float z-10">
+        <ul role="listbox" aria-label="Найденные места" className="absolute left-0 top-full mt-1 w-full flex flex-col bg-pn shadow-float z-10 max-h-56 overflow-y-auto">
           {hits.map((p, i) => (
             <li key={p.id} role="option" aria-selected={i === active}>
               <button
                 type="button"
                 onClick={() => pick(p)}
                 onMouseEnter={() => setActive(i)}
-                className={`w-full flex items-baseline gap-2 px-2 py-1 text-left cursor-pointer ${i === active ? 'bg-cd' : ''}`}
+                className={`w-full flex flex-wrap items-baseline gap-2 px-2 py-1 text-left cursor-pointer ${i === active ? 'bg-cd' : ''}`}
               >
-                <span className="type-body-sm text-tx truncate">{p.name}</span>
-                <span className="type-body-sm text-t2 flex-none">{KIND_LABEL[p.kind] ?? ''}</span>
-                {p.card ? null : <span className="type-body-sm text-t3 flex-none ml-auto" title="Описания нет: только имя и класс GIS">без описания</span>}
+                {PLACE_KIND_ART[p.kind] ? <SemanticMark asset={PLACE_KIND_ART[p.kind]!} icon="ent-location" size={16} title={`Тип места: ${KIND_LABEL[p.kind] ?? p.kind}`} /> : null}
+                <span className="type-body-sm text-tx min-w-0 flex-1 whitespace-normal break-words">{p.name}</span>
+                <span className="type-body-sm text-t2 max-w-full whitespace-normal break-words">{KIND_LABEL[p.kind] ?? ''}</span>
+                {p.card ? null : <span className="type-body-sm text-t3 ml-auto max-w-full whitespace-normal break-words" title="Описания нет: только имя и класс GIS">без описания</span>}
               </button>
             </li>
           ))}
@@ -291,13 +321,14 @@ function PlaceInfo({ place, onClose, onScene }: { place: GazetteerPlace; onClose
   const url = wikiUrl(place);
   const gis = !place.sources || place.sources.includes('Toril GIS');
   return (
-    <div data-part="place-info" aria-live="polite" className="absolute right-3 bottom-3 w-96 max-w-[45%] flex flex-col gap-1.5 p-3 bg-pn shadow-float cursor-default">
-      <div className="flex items-baseline gap-2">
-        <span className="type-h-17 text-tx truncate" title={place.name}>{place.name}</span>
-        {KIND_LABEL[place.kind] ? <span className="type-body-sm text-t2 flex-none">{KIND_LABEL[place.kind]}</span> : null}
-        {openEntity ? <button type="button" title="Общая карточка места по вики: боги, церкви, организации, жители" onClick={() => openEntity(`place:${place.id}`)} className={`${BTN} ml-auto flex-none`}>Карточка</button> : null}
-        {onScene ? <button type="button" title="Карточка места на вкладке «Сейчас»: день, вера, силы, люди, округа" onClick={() => onScene(place.id)} className={`${BTN} ${openEntity ? '' : 'ml-auto '}flex-none`}>Сейчас здесь</button> : null}
-        <button type="button" title="Закрыть · Esc" onClick={onClose} className={`${BTN} ${onScene || openEntity ? '' : 'ml-auto '}flex-none`}>Закрыть</button>
+    <div data-part="place-info" aria-live="polite" className="absolute right-[17rem] bottom-3 w-96 max-w-[calc(100%-18rem)] max-h-[calc(100%-1.5rem)] overflow-y-auto overscroll-contain flex flex-col gap-1.5 p-3 bg-pn shadow-float cursor-default">
+      <div data-part="place-info-header" className="flex flex-wrap items-start gap-2">
+        {PLACE_KIND_ART[place.kind] ? <SemanticMark asset={PLACE_KIND_ART[place.kind]!} icon="ent-location" size={24} title={`Тип места: ${KIND_LABEL[place.kind] ?? place.kind}`} /> : null}
+        <span className="type-h-17 text-tx min-w-0 flex-1 whitespace-normal break-words" title={place.name}>{place.name}</span>
+        {KIND_LABEL[place.kind] ? <span className="type-body-sm text-t2 max-w-full whitespace-normal break-words">{KIND_LABEL[place.kind]}</span> : null}
+        {openEntity ? <button type="button" title="Общая карточка места по вики: боги, церкви, организации, жители" onClick={() => openEntity(`place:${place.id}`)} className={`${BTN} max-w-full whitespace-normal break-words ml-auto flex-none`}>Карточка</button> : null}
+        {onScene ? <button type="button" title="Карточка места на вкладке «Сейчас»: день, вера, силы, люди, округа" onClick={() => onScene(place.id)} className={`${BTN} max-w-full whitespace-normal break-words ${openEntity ? '' : 'ml-auto '}flex-none`}>Сейчас здесь</button> : null}
+        <button type="button" title="Закрыть · Esc" onClick={onClose} className={`${BTN} max-w-full whitespace-normal break-words ${onScene || openEntity ? '' : 'ml-auto '}flex-none`}>Закрыть</button>
       </div>
       {place.approx ? <span className="type-body-sm text-t3">Позиция по Toril GIS: на растре место не подписано</span> : null}
       {c?.what ? <p className="type-body text-tx">{c.what}</p> : null}
@@ -331,8 +362,8 @@ function JourneyLegs({ terrain, under, journey, days }: { terrain?: RouteTerrain
     <div data-part="journey" className="flex flex-col gap-0.5" title={`A5E: путь — цепочка регионов; в каждом хотя бы одна встреча. Уровень опасности ${journey.tier}`}>
       {legs.map(l => (
         <div key={l.region.id} className="flex flex-col gap-1">
-          <span className="flex items-center gap-2">
-            <span className="truncate" title={`${l.region.description}${l.region.fields['Journey Activities'] ? `\n\nЗанятия в пути: ${l.region.fields['Journey Activities']}` : ''}`}>
+          <span className="flex flex-wrap items-start gap-2">
+            <span className="min-w-0 flex-1 whitespace-normal break-words" title={`${l.region.description}${l.region.fields['Journey Activities'] ? `\n\nЗанятия в пути: ${l.region.fields['Journey Activities']}` : ''}`}>
               {l.region.name} · {milesLabel(l.miles)} · DC {l.dc}
             </span>
             <button
@@ -355,8 +386,8 @@ function JourneyLegs({ terrain, under, journey, days }: { terrain?: RouteTerrain
             ) : null}
           </span>
           {journey.encounter?.regionId === l.region.id ? (
-            <span className="flex items-center gap-2 pl-2" data-part="encounter-result">
-              <span className="text-tx truncate">{journey.encounter.text}</span>
+            <span className="flex flex-wrap items-start gap-2 pl-2" data-part="encounter-result">
+              <span className="text-tx min-w-0 flex-1 whitespace-normal break-words">{journey.encounter.text}</span>
               {journey.encounter.onAppear ? (
                 <button type="button" title="Блок встречи — в форму «Добавить»: имя, сколько штук" onClick={journey.encounter.onAppear} className={BTN}>Появился</button>
               ) : null}
@@ -373,22 +404,50 @@ function JourneyLegs({ terrain, under, journey, days }: { terrain?: RouteTerrain
   );
 }
 
-export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMiles, travel, fog, terrain, roads, underdark, schema, start, onZoomOut, layers, gazetteer, eventMarks, influence, onScene, newPlace, tools, children, className = '' }: WorldMapProps) {
+export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMiles, travel, fog, terrain, roads, underdark, schema, start, onZoomOut, onViewChange, layers, gazetteer, eventMarks, influence, warFronts, processMarkers, onScene, newPlace, georeference, tools, children, className = '' }: WorldMapProps) {
   const rootRef = useRef<HTMLDivElement>(null);
   const hexRef = useRef<HTMLCanvasElement>(null);
+  const planetMode = !!onZoomOut;
   const [vp, setVp] = useState<Viewport>(FALLBACK_VP);
-  const [view, setView] = useState<MapView>(() => fitBox(passport, FALLBACK_VP, frame));
+  const [view, setView] = useState<MapView>(() => planetMode && start ? planetStartView(start) : fitBox(passport, FALLBACK_VP, frame));
+  const reportView=useRef(onViewChange);reportView.current=onViewChange;
+  useLayoutEffect(()=>{reportView.current?.(view);},[view]);
   const [hexOn, setHexOn] = useState(true);
   const [fogOn, setFogOn] = useState(false);
   /** Слой «Справочник»: места с карточками маркерами (29.10, только мастеру — справочник у игроков не передаётся). */
   const [layerOn, setLayerOn] = useState(true);
   /** Слой «Влияние» — по кнопке: значков напряжений на карте мира около сотни. */
   const [influenceOn, setInfluenceOn] = useState(false);
+  const [warFrontsOn, setWarFrontsOn] = useState(false);
+  const [processesOn, setProcessesOn] = useState(false);
   /** Слой по регионам A5E (6.4): один за раз — подкраска у них общая. */
   const [regionLayer, setRegionLayer] = useState<'danger' | 'weather' | null>(null);
   /** Вид подложки (M16): схема — по умолчанию, когда она есть; растр — кнопкой «Карта». */
-  const [look, setLook] = useState<'schema' | 'raster'>('schema');
+  const surfaceSession=useSurfaceSession();
+  const [look, setLook] = useState<'schema' | 'raster' | 'clean'>(surfaceSession.look);
+  useEffect(()=>{surfaceSession.look=look;},[look,surfaceSession]);
   const schemaOn = !!schema && look === 'schema';
+  const surfaceMask = PLANET_MASKS[passport.id];
+  const surfaceCandidate = !!surfaceMask && !!schema && !forceCanvas() && typeof Path2D !== 'undefined';
+  const [surfaceAvailable, setSurfaceAvailable] = useState<boolean | null>(null);
+  const sharedSurface = surfaceCandidate && surfaceAvailable !== false;
+  const surfaceExtent = useMemo((): GeographicExtent | null => {
+    if (!surfaceMask) return null;
+    const [lon0,lon1,latTop,latBottom] = surfaceMask.source.extent;
+    return {lon0,lon1,latTop,latBottom,width:passport.width,height:passport.height};
+  }, [surfaceMask,passport]);
+  const surfaceCamera = useMemo((): SurfaceCamera => ({view,vp,globe:{lon:0,lat:0,radius:1},morph:1}), [view,vp]);
+  const [cleanResult, setCleanResult] = useState<{ base: MapPassport; clean: MapPassport | null } | null>(null);
+  // Новый паспорт не должен даже на один кадр использовать очищенную подложку предыдущей карты.
+  const cleanPassport = cleanResult?.base === passport ? cleanResult.clean : null;
+  useEffect(() => {
+    let live = true;
+    setCleanResult(null);
+    void loadClean(passport).then(clean => { if (live) setCleanResult({ base: passport, clean }); });
+    return () => { live = false; };
+  }, [passport]);
+  const cleanOn = look === 'clean' && !!cleanPassport;
+  const tilePassport = cleanOn ? cleanPassport! : passport;
   const [tool, setTool] = useState<Tool>('none');
   const [ruler, setRuler] = useState<MapPoint[]>([]);
   /** Конец похода — пин места; пока его нет, отправиться некуда. */
@@ -401,6 +460,9 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
   /** Место справочника под карточкой: найдено поиском или щелчком по значку. */
   const [found, setFound] = useState<GazetteerPlace | null>(null);
   const [draft, setDraft] = useState<NewPlaceDraft | null>(null);
+  const [geoTargetId, setGeoTargetId] = useState('');
+  const [geoDraft, setGeoDraft] = useState<{ locationId: string; x: number; y: number } | null>(null);
+  const [geoError, setGeoError] = useState<string | null>(null);
   const [inset, setInset] = useState(0);
   const drag = useRef<{ id: number; x: number; y: number; moved: boolean } | null>(null);
   const fitted = useRef<string>('');
@@ -440,7 +502,10 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
   // Новая рамка — вписать заново и стереть линейку; новый размер окна или панелей — вписать, пока мастер не
   // трогал карту, иначе только удержать вид в границах. frame — данные того же ключа: пересчёт по ключу.
   const fitKey = `${passport.id}:${frameKey}`;
-  const fit = () => fitBox(passport, vp, frame, 24, inset);
+  const fit = () => planetMode
+    ? planetFitBox(passport, vp, frame, 24, inset)
+    : fitBox(passport, vp, frame, 24, inset);
+  const resizeView = (value: MapView) => planetMode ? planetResizeView(value) : clampView(passport, vp, value);
   useLayoutEffect(() => {
     if (fitted.current !== fitKey) {
       fitted.current = fitKey;
@@ -448,21 +513,21 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
       setRuler([]);
       setDest(null);
       setFound(null);
-      // Переход с глобуса: вид задан, вписывать не надо — дальше только держать в границах.
+      // В planet mode старт с глобуса сохраняет исходный flat camera без прямоугольного clamp.
       if (start) {
         touched.current = true;
-        setView(clampView(passport, vp, start));
+        setView(planetMode ? planetStartView(start) : clampView(passport, vp, start));
         return;
       }
     }
-    setView(v => (touched.current ? clampView(passport, vp, v) : fit()));
-  }, [fitKey, vp, inset, passport]);
+    setView(v => (touched.current ? resizeView(v) : fit()));
+  }, [fitKey, vp, inset, passport, planetMode]);
 
-  const dpr = typeof window !== 'undefined' ? window.devicePixelRatio || 1 : 1;
+  const dpr = mapPixelRatio();
   const z = zoomLevelFor(passport, view.scale, dpr);
   const under = Math.max(0, z - 2);
   // В режиме «Схема» тайлы не грузятся вовсе: подложка — векторная.
-  const tiles = schemaOn ? [] : [...(under < z ? tilesAt(passport, vp, view, under) : []), ...tilesAt(passport, vp, view, z)];
+  const tiles = schemaOn ? [] : [...(under < z ? tilesAt(tilePassport, vp, view, under) : []), ...tilesAt(tilePassport, vp, view, z)];
   const overzoom = view.scale > 1;
 
   const hex = hexMiles && hexOn ? hexCenters(passport, vp, view, hexMiles) : null;
@@ -489,9 +554,11 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
   const zoomBy = useCallback(
     (factor: number, at?: MapPoint) => {
       touched.current = true;
-      setView(v => zoomAt(passport, vp, v, factor, at ?? { x: vp.w / 2, y: vp.h / 2 }));
+      setView(v => planetMode
+        ? planetZoomAt(passport, vp, v, factor, at ?? { x: vp.w / 2, y: vp.h / 2 })
+        : zoomAt(passport, vp, v, factor, at ?? { x: vp.w / 2, y: vp.h / 2 }));
     },
-    [passport, vp],
+    [passport, vp, planetMode],
   );
 
   const local = (e: { clientX: number; clientY: number }): MapPoint => {
@@ -523,7 +590,7 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
     touched.current = true;
     d.x = e.clientX;
     d.y = e.clientY;
-    setView(v => panBy(passport, vp, v, dx, dy));
+    setView(v => planetMode ? planetPanBy(v, dx, dy) : panBy(passport, vp, v, dx, dy));
   };
   const onPointerUp = (e: PointerEvent<HTMLDivElement>) => {
     const d = drag.current;
@@ -536,6 +603,13 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
       setDraft(near
         ? { x: near.x, y: near.y, name: near.name, scale: scaleForKind(near.kind, newPlace.scales), gazetteerId: near.id }
         : { x: Math.round(pt.x), y: Math.round(pt.y), name: draft?.name ?? '', scale: draft?.scale ?? newPlace.scales[0] });
+    } else if (tool === 'georeference' && georeference) {
+      const target = georeference.places.find(place => place.id === geoTargetId) ?? georeference.places[0];
+      if (target) {
+        const pt = toMap(view, vp, local(e));
+        setGeoDraft({ locationId: target.id, x: Math.round(pt.x), y: Math.round(pt.y) });
+        setGeoError(null);
+      }
     } else if (tool !== 'none') {
       const pt = toMap(view, vp, local(e));
       setRuler(r => [...r, pt]);
@@ -550,7 +624,8 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
   const showPlace = (p: GazetteerPlace) => {
     touched.current = true;
     setFound(p);
-    setView(fitBox(passport, vp, { x0: p.x - FOUND_R, y0: p.y - FOUND_R, x1: p.x + FOUND_R, y1: p.y + FOUND_R }, 24, inset));
+    const box = { x0: p.x - FOUND_R, y0: p.y - FOUND_R, x1: p.x + FOUND_R, y1: p.y + FOUND_R };
+    setView(planetMode ? planetFitBox(passport, vp, box, 24, inset) : fitBox(passport, vp, box, 24, inset));
   };
   const onWheel = (e: WheelEvent<HTMLDivElement>) => {
     if ((e.target as HTMLElement).closest('[data-part="map-ui"]')) return;
@@ -567,7 +642,7 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
     const moves: Record<string, [number, number]> = { ArrowLeft: [step, 0], ArrowRight: [-step, 0], ArrowUp: [0, step], ArrowDown: [0, -step] };
     if (moves[e.key]) {
       touched.current = true;
-      setView(v => panBy(passport, vp, v, ...moves[e.key]));
+      setView(v => planetMode ? planetPanBy(v, ...moves[e.key]) : panBy(passport, vp, v, ...moves[e.key]));
     }
     else if (e.key === '+' || e.key === '=') zoomBy(1.5);
     else if (e.key === '-') zoomBy(1 / 1.5);
@@ -575,6 +650,7 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
       setRuler([]);
       setDest(null);
     }
+    else if (e.key === 'Escape' && geoDraft) setGeoDraft(null);
     else if (e.key === 'Escape' && draft) setDraft(null);
     else if (e.key === 'Escape' && found) setFound(null);
     else return;
@@ -584,6 +660,7 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
 
   const bar = scaleBar(passport, view.scale);
   const route = tool === 'travel' && travel ? [travel.from, ...ruler] : ruler;
+  const destinationPin = dest ? pins.find(pin => pin.id === dest.id) : undefined;
   const rulerPts = route.map(p => toScreen(view, vp, p));
   const rulerMiles = pathMiles(passport, route);
   // Поселения справочника на пути (6.3): круги значков City, Town, Village — регионы A5E внутри.
@@ -602,6 +679,8 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
     setRuler([]);
     setDest(null);
     setDraft(null);
+    setGeoDraft(null);
+    setGeoError(null);
   };
   const propose = () => {
     if (!newPlace || !draft || !draft.name.trim()) return;
@@ -609,7 +688,19 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
     setDraft(null);
     setTool('none');
   };
+  const proposeGeo = () => {
+    if (!georeference || !geoDraft || !georeference.places.some(place => place.id === geoDraft.locationId)) return;
+    try {
+      georeference.onPropose(geoDraft.locationId, { x: geoDraft.x, y: geoDraft.y });
+      setGeoDraft(null);
+      setGeoError(null);
+      setTool('none');
+    } catch (error) {
+      setGeoError(error instanceof Error ? error.message : String(error));
+    }
+  };
   const draftAt = draft ? toScreen(view, vp, draft) : null;
+  const geoDraftAt = geoDraft ? toScreen(view, vp, geoDraft) : null;
   const go = (pace: TravelPaceId) => {
     if (!travel || !dest) return;
     travel.onGo({
@@ -629,6 +720,40 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
   const partyAt = party ? toScreen(view, vp, party) : null;
   const foundAt = found ? toScreen(view, vp, found) : null;
   const inside = (p: MapPoint) => p.x > -200 && p.y > -40 && p.x < vp.w + 200 && p.y < vp.h + 40;
+  // Pin names are screen labels, so keep nearby places readable without moving their geographic points.
+  const pinLabels = useMemo(() => {
+    type Box = { left: number; right: number; top: number; bottom: number };
+    const items = pins
+      .map(pin => ({ pin, at: toScreen(view, vp, pin) }))
+      .filter(item => item.at.x > -200 && item.at.y > -40 && item.at.x < vp.w + 200 && item.at.y < vp.h + 40)
+      .sort((a, b) => Number(!!b.pin.selected) - Number(!!a.pin.selected) || a.pin.id.localeCompare(b.pin.id));
+    const placed: Box[] = [];
+    const layouts: Array<{ pin: MapPinItem; at: MapPoint; labelX: number; labelY: number; box: Box }> = [];
+    const candidates: Array<[number, number]> = [
+      [0, 0], [0, -28], [0, 28], [64, 0], [-64, 0], [0, -56], [0, 56],
+      [104, -28], [-104, -28], [104, 28], [-104, 28], [0, -84], [0, 84],
+      [64, -56], [-64, -56], [64, 56], [-64, 56],
+    ];
+    const score = (box: Box) => {
+      const overlap = placed.reduce((n, other) => n + (box.left < other.right + 4 && other.left < box.right + 4 && box.top < other.bottom + 4 && other.top < box.bottom + 4 ? 1 : 0), 0);
+      const coversPoint = items.reduce((n, other) => n + (other.at.x >= box.left - 3 && other.at.x <= box.right + 3 && other.at.y >= box.top - 3 && other.at.y <= box.bottom + 3 ? 1 : 0), 0);
+      const overflow = Math.max(0, 2 - box.left) + Math.max(0, box.right - vp.w + 2) + Math.max(0, 2 - box.top) + Math.max(0, box.bottom - vp.h + 2);
+      return overlap * 10000 + coversPoint * 1000 + overflow * 10;
+    };
+    for (const { pin, at } of items) {
+      const width = Math.min(224, 34 + pin.name.length * 7 + (pin.count ? 24 : 0) + (pin.facts?.length ?? 0) * 16 + (pin.tensions?.length ? 20 : 0) + (pin.encounters?.length ? 24 : 0));
+      const height = 23;
+      const options = candidates.map(([dx, dy]) => {
+        const labelX = at.x + dx;
+        const labelY = at.y + dy;
+        return { labelX, labelY, box: { left: labelX - width / 2, right: labelX + width / 2, top: labelY - height - 6, bottom: labelY - 6 } };
+      });
+      const chosen = options.reduce((best, option) => score(option.box) < score(best.box) ? option : best);
+      placed.push(chosen.box);
+      layouts.push({ pin, at, ...chosen });
+    }
+    return layouts;
+  }, [pins, view, vp]);
   // Слой справочника — по рамке экрана в координатах исходника; пины кампании рисуются поверх.
   const layer = gazetteer && layerOn && tool === 'none' ? (() => {
     const a = toMap(view, vp, { x: 0, y: 0 });
@@ -655,21 +780,10 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
       onKeyDown={onKeyDown}
       className={`relative overflow-hidden bg-wl select-none touch-none outline-none focus-visible:shadow-[inset_0_0_0_2px_var(--gd)] ${tool !== 'none' ? 'cursor-crosshair' : overLabel ? 'cursor-pointer' : 'cursor-grab active:cursor-grabbing'} ${className}`}
     >
-      <div aria-hidden="true" className="absolute inset-0" style={{ imageRendering: overzoom ? 'pixelated' : undefined }}>
-        {tiles.map(t => (
-          <img
-            key={t.key}
-            src={t.url}
-            alt=""
-            draggable={false}
-            data-tile={t.key}
-            onError={t.z === under ? () => setMissing(true) : undefined}
-            className="absolute max-w-none pointer-events-none"
-            style={{ left: t.left, top: t.top, width: t.width, height: t.height }}
-          />
-        ))}
-      </div>
-      {schemaOn ? <SchemaLayer schema={schema} vp={vp} view={view} mapId={passport.id} pins={pins} legend={!regionOn} onHits={h => (labelHits.current = h)} /> : null}
+      {surfaceCandidate && surfaceExtent && schema ? <SphereSurfaceLayer passport={passport} extent={surfaceExtent} schema={schema} mask={surfaceMask} camera={surfaceCamera} sun={0} raster={schemaOn?undefined:tilePassport} onAvailable={setSurfaceAvailable}/> : null}
+      {!schemaOn && !sharedSurface ? <RasterLayer key={tilePassport.tiles} tiles={tiles} view={view} vp={vp} dpr={dpr} pixelated={overzoom} onError={() => setMissing(true)} /> : null}
+      {schemaOn ? <SchemaLayer schema={schema} vp={vp} view={view} mapId={passport.id} pins={pins} labelsOnly={sharedSurface} legend={!regionOn} onHits={h => (labelHits.current = h)} /> : null}
+      {cleanOn && schema ? <SchemaLayer schema={schema} vp={vp} view={view} mapId={passport.id} pins={pins} labelsOnly supplementalRasterLabels rasterIconPlaces={gazetteer ?? []} legend={false} onHits={h => (labelHits.current = h)} /> : null}
       {fog && (fog.forced || fogOn) ? (
         // Туман — тёмная заливка с прорезями: круги открытых мест и коридоры пройденных путей шириной в обзор.
         <svg aria-hidden="true" data-part="fog" data-forced={fog.forced || undefined} className="absolute inset-0 size-full pointer-events-none">
@@ -711,6 +825,36 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
           ))}
         </svg>
       ) : null}
+      {warFrontsOn && warFronts?.length ? (
+        <svg role="img" aria-label={`Маршруты фронтов войны: ${warFronts.map(front => front.label).join('; ')}`}
+          className="absolute inset-0 size-full pointer-events-none" data-part="war-fronts">
+          {warFronts.map(front => {
+            const points = front.nodes.map(node => toScreen(view, vp, node));
+            const coordinates = points.map(point => `${point.x},${point.y}`).join(' ');
+            return <g key={front.id} data-war-process={front.id}>
+              <title>Маршрут фронта войны: {front.label}</title>
+              <polyline points={coordinates} fill="none" stroke="var(--lo)" strokeWidth={7} strokeLinecap="round" strokeLinejoin="round" />
+              <polyline points={coordinates} fill="none" stroke="var(--fx-damage-hi)" strokeWidth={3} strokeDasharray="10 6" strokeLinecap="round" strokeLinejoin="round" />
+              {points.map((point, index) => <circle key={`${front.id}:${front.nodes[index]!.id}`} cx={point.x} cy={point.y} r={4} fill="var(--fx-damage-hi)" stroke="var(--lo)" strokeWidth={1.5} />)}
+            </g>;
+          })}
+        </svg>
+      ) : null}
+
+      {processesOn && processMarkers?.length ? (
+        <svg role="img" aria-label={`Активные процессы на карте: ${processMarkers.map(marker => `${marker.locationName}: ${marker.labels.join(', ')}`).join('; ')}`}
+          className="absolute inset-0 size-full pointer-events-none" data-part="map-processes">
+          {processMarkers.map(marker => {
+            const point = toScreen(view, vp, marker);
+            if (!inside(point)) return null;
+            return <g key={marker.locationId} data-process-location={marker.locationId}>
+              <title>{`${marker.locationName}: ${marker.labels.join('; ')}`}</title>
+              <circle cx={point.x} cy={point.y} r={11} strokeWidth={2} style={{ fill: 'var(--src-sim)', stroke: 'var(--lo)' }} />
+              <text x={point.x} y={point.y + 3.5} textAnchor="middle" style={{ fill: 'var(--lo)', fontSize: 10, fontWeight: 700 }}>{marker.labels.length > 9 ? '9+' : marker.labels.length}</text>
+            </g>;
+          })}
+        </svg>
+      ) : null}
 
       {partyAt && inside(partyAt) ? (
         <div
@@ -729,6 +873,15 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
           data-part="new-place"
           className="absolute size-3 -translate-x-1/2 -translate-y-1/2 pointer-events-none bg-src-sim shadow-[0_0_0_2px_var(--lo)]"
           style={{ left: draftAt.x, top: draftAt.y }}
+        />
+      ) : null}
+
+      {geoDraftAt ? (
+        <span
+          aria-hidden="true"
+          data-part="georeference-point"
+          className="absolute size-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-src-sim shadow-[0_0_0_2px_var(--lo)] pointer-events-none"
+          style={{ left: geoDraftAt.x, top: geoDraftAt.y }}
         />
       ) : null}
 
@@ -820,9 +973,17 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
         );
       }) : null}
 
-      {pins.map(pin => {
-        const at = toScreen(view, vp, pin);
-        if (!inside(at)) return null;
+      {pinLabels.some(({ at, labelX, labelY }) => labelX !== at.x || labelY !== at.y) ? (
+        <svg aria-hidden="true" data-part="pin-leaders" className="absolute inset-0 size-full pointer-events-none z-10">
+          {pinLabels.map(({ pin, at, labelX, labelY, box }) => {
+            if (labelX === at.x && labelY === at.y) return null;
+            const x2 = Math.max(box.left + 6, Math.min(at.x, box.right - 6));
+            const y2 = Math.max(box.top + 6, Math.min(at.y, box.bottom - 6));
+            return <line key={pin.id} x1={at.x} y1={at.y} x2={x2} y2={y2} stroke="var(--lo)" strokeWidth="1" strokeOpacity="0.75" />;
+          })}
+        </svg>
+      ) : null}
+      {pinLabels.map(({ pin, at, labelX, labelY }) => {
         const ent = ENTITY[pin.type];
         const shadow = pin.pending
           ? 'shadow-[var(--float),var(--glow-sim)]'
@@ -830,28 +991,35 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
             ? 'shadow-[var(--float),inset_0_-2px_0_var(--gd)]'
             : 'shadow-float';
         return (
-          <button
-            key={pin.id}
-            type="button"
-            data-pin={pin.id}
-            data-selected={pin.selected || undefined}
-            data-pending={pin.pending || undefined}
-            aria-current={pin.selected ? 'true' : undefined}
-            title={`${ent.label} · ${pin.name}${pin.pending ? ' · ждёт решения' : ''}`}
-            onClick={() => {
-              // В походе пин — конец пути, а не переход по лестнице.
-              if (tool === 'travel') {
-                setRuler(r => [...r, { x: pin.x, y: pin.y }]);
-                setDest({ id: pin.id, name: pin.name });
-              } else onPin?.(pin.id);
-            }}
-            className={`absolute flex items-center gap-1.5 px-1.5 py-0.5 bg-cd ${shadow} cursor-pointer hover:bg-pl focus-visible:shadow-[var(--float),var(--glow-gold)] max-w-56`}
-            style={{ left: at.x, top: at.y, transform: 'translate(-50%, calc(-100% - 6px))' }}
-          >
-            {/* Точка места: плашка стоит над ней и не закрывает подпись самой карты. */}
-            <span aria-hidden="true" data-part="pin-point" className="absolute left-1/2 -bottom-[9px] size-1.5 -translate-x-1/2 shadow-[0_0_0_1px_var(--lo)]" style={{ background: ent.color }} />
-            <Icon name={pin.icon ?? ent.icon} size={16} color={ent.color} title={ent.label} />
-            <span className={`type-body-sm truncate ${pin.selected ? 'text-gd-hi' : 'text-tx'}`}>{pin.name}</span>
+          <Fragment key={pin.id}>
+            <span
+              aria-hidden="true"
+              data-part="pin-point"
+              data-pin-point-for={pin.id}
+              className="absolute z-20 size-1.5 -translate-x-1/2 -translate-y-1/2 shadow-[0_0_0_1px_var(--lo)] pointer-events-none"
+              style={{ left: at.x, top: at.y, background: ent.color }}
+            />
+            <button
+              type="button"
+              data-pin={pin.id}
+              data-selected={pin.selected || undefined}
+              data-pending={pin.pending || undefined}
+              aria-current={pin.selected ? 'true' : undefined}
+              title={`${ent.label} · ${pin.name}${pin.pending ? ' · ждёт решения' : ''}`}
+              onClick={() => {
+                // В походе пин — конец пути, а не переход по лестнице.
+                if (tool === 'travel') {
+                  setRuler(r => [...r, { x: pin.x, y: pin.y }]);
+                  setDest({ id: pin.id, name: pin.name });
+                } else onPin?.(pin.id);
+              }}
+              className={`absolute z-20 flex items-center gap-1.5 px-1.5 py-0.5 bg-cd ${shadow} cursor-pointer hover:bg-pl focus-visible:shadow-[var(--float),var(--glow-gold)] max-w-56`}
+              style={{ left: labelX, top: labelY, transform: 'translate(-50%, calc(-100% - 6px))' }}
+            >
+              {pin.art
+                ? <SemanticMark asset={pin.art} icon={pin.icon ?? ent.icon} size={16} color={ent.color} title={pin.artTitle ?? ent.label} />
+                : <Icon name={pin.icon ?? ent.icon} size={16} color={ent.color} title={ent.label} />}
+              <span className={`type-body-sm truncate ${pin.selected ? 'text-gd-hi' : 'text-tx'}`}>{pin.name}</span>
             {regionOn === 'danger' && pin.encounters?.length ? (
               <span
                 data-part="pin-danger"
@@ -878,28 +1046,46 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
               />
             ))}
             {pin.count ? <span className="type-num-12 flex-none px-1 py-px bg-cd shadow-bevel text-t2" title="Записей и фактов о месте">{pin.count}</span> : null}
-          </button>
+            </button>
+          </Fragment>
         );
       })}
 
       {/* Панели стола (стопки, карточка) — под панелью карты: сверху отступ на её высоту, иначе кнопки закрывают верхнюю кромку карточки. */}
       {children ? <div ref={panelsRef} data-part="map-ui" className="absolute left-0 top-0 bottom-0 p-4 pt-12 flex items-start gap-4 pointer-events-none [&>*]:pointer-events-auto">{children}</div> : null}
 
-      <div data-part="map-ui" className="absolute right-3 top-3 flex items-center gap-1 cursor-default" role="toolbar" aria-label="Карта">
-        {gazetteer && gazetteer.length > 0 ? <PlaceSearch places={gazetteer} onPick={showPlace} /> : null}
+      <div data-part="map-ui" className="absolute z-30 right-16 top-3 bottom-3 w-48 max-w-[calc(100%-5.5rem)] overflow-y-auto overflow-x-hidden flex flex-col items-stretch gap-1 p-2 bg-pn/95 shadow-float cursor-default overscroll-contain" role="toolbar" aria-label="Карта" tabIndex={0}>
+        {passport.attribution || passport.note || passport.sourceUrl ? <details data-part="map-source" className="relative">
+          <summary title="Источник, статус и условия карты" className={`${BTN} w-full text-left list-none cursor-pointer focus-visible:shadow-[var(--bevel),var(--glow-gold)] [&::-webkit-details-marker]:hidden`}>Источник карты</summary>
+          <div className="relative mt-1 flex flex-col gap-1 p-2 bg-cd shadow-bevel-in type-body-xs text-t2">
+            {passport.attribution ? <p>{passport.attribution}</p> : null}
+            {passport.note ? <p>{passport.note}</p> : null}
+            {passport.sourceUrl ? <a className="underline text-gd-hi" href={passport.sourceUrl} target="_blank" rel="noreferrer">Страница карты и лицензия</a> : null}
+            {passport.timelineUrl ? <a className="underline text-gd-hi" href={passport.timelineUrl} target="_blank" rel="noreferrer">Хронология автора</a> : null}
+          </div>
+        </details> : null}
+        {gazetteer && gazetteer.length > 0 ? <div className="w-full"><PlaceSearch places={gazetteer} onPick={showPlace} /></div> : null}
         {schema ? (
-          <span role="group" aria-label="Вид карты" className="flex">
-            <button type="button" aria-pressed={schemaOn} title="Схема: регионы местности, береговая линия и дороги — векторная разметка по сетке растра, чёткая на любом приближении" onClick={() => setLook('schema')} className={BTN}>Схема</button>
-            <button type="button" aria-pressed={!schemaOn} title={`Карта: растр ${passport.label} — тайлы исходника`} onClick={() => setLook('raster')} className={BTN}>Карта</button>
+          <span role="group" aria-label="Вид карты" className="flex flex-col gap-1">
+            <button type="button" aria-pressed={schemaOn} title="Схема: регионы местности, береговая линия и дороги — векторная разметка по сетке растра, чёткая на любом приближении" onClick={() => setLook('schema')} className={`${BTN} w-full text-left`}>Схема</button>
+            <button type="button" aria-pressed={cleanOn || (!cleanPassport && look === 'raster')} title={cleanPassport ? 'Карта: очищенный растр с заново наложенными подписями и местами' : `Карта: растр ${passport.label}`} onClick={() => setLook(cleanPassport ? 'clean' : 'raster')} className={`${BTN} w-full text-left`}>Карта</button>
+            {cleanPassport ? <button type="button" aria-pressed={look === 'raster'} title="Исходная карта с надписями и значками HandsomeRob" onClick={() => setLook('raster')} className={`${BTN} w-full text-left`}>Исходник</button> : null}
           </span>
         ) : null}
-        {tools}
-        <button type="button" title="Отдалить · −" aria-label="Отдалить" onClick={() => zoomBy(1 / 1.5)} className={BTN}>−</button>
-        <button type="button" title="Приблизить · +" aria-label="Приблизить" onClick={() => zoomBy(1.5)} className={BTN}>+</button>
+        {tools ? <div className="flex flex-col gap-1 [&>button]:w-full [&>button]:text-left">{tools}</div> : null}
+        <div role="group" aria-label="Масштаб карты" className="flex gap-1">
+          <button type="button" title="Отдалить · −" aria-label="Отдалить" onClick={() => zoomBy(1 / 1.5)} className={`${BTN} flex-1`}>−</button>
+          <button type="button" title="Приблизить · +" aria-label="Приблизить" onClick={() => zoomBy(1.5)} className={`${BTN} flex-1`}>+</button>
+        </div>
         <button type="button" title="Вписать место уровня" onClick={() => {
             touched.current = false;
             setView(fit());
-          }} className={BTN}>Вписать</button>
+          }} className={`${BTN} w-full text-left`}>Вписать</button>
+        <details data-part="map-layers" className="relative">
+          <summary title="Дополнительные слои карты" className={`${BTN} w-full text-left list-none cursor-pointer focus-visible:shadow-[var(--bevel),var(--glow-gold)] [&::-webkit-details-marker]:hidden`}>
+            Слои
+          </summary>
+          <div data-part="map-layer-menu" role="group" aria-label="Дополнительные слои карты" className="relative mt-1 flex flex-col items-stretch gap-1 p-1 bg-cd shadow-bevel-in">
         {hexMiles ? (
           <button
             type="button"
@@ -914,6 +1100,16 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
         {influence && gazetteer && gazetteer.length > 0 && (influence.bases.size > 0 || influence.tensions.size > 0) ? (
           <button type="button" aria-pressed={influenceOn} title={`Влияние: базы фракций кампании по вики (${influence.bases.size}) и места напряжений (${influence.tensions.size}); щелчок — карточка места`} onClick={() => setInfluenceOn(v => !v)} className={BTN}>
             Влияние
+          </button>
+        ) : null}
+        {warFronts?.length ? (
+          <button type="button" aria-pressed={warFrontsOn} title="Маршруты фронтов активных войн; линия показывает путь, а не границу владения" onClick={() => setWarFrontsOn(value => !value)} className={BTN}>
+            Фронты
+          </button>
+        ) : null}
+        {processMarkers?.length ? (
+          <button type="button" aria-pressed={processesOn} title="Активные принятые процессы по последней записанной точке; слой только для мастера" onClick={() => setProcessesOn(value => !value)} className={BTN}>
+            Процессы
           </button>
         ) : null}
         {terrain && layers?.danger ? (
@@ -936,16 +1132,23 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
             Туман
           </button>
         ) : null}
-        <button type="button" aria-pressed={tool === 'ruler'} title="Линейка: щелчки по карте ставят точки пути, Esc — стереть" onClick={() => pickTool('ruler')} className={BTN}>
+          </div>
+        </details>
+        <button type="button" aria-pressed={tool === 'ruler'} title="Линейка: щелчки по карте ставят точки пути, Esc — стереть" onClick={() => pickTool('ruler')} className={`${BTN} w-full text-left`}>
           Линейка
         </button>
         {newPlace ? (
-          <button type="button" aria-pressed={tool === 'place'} title="Новое место: щелчок по карте — точка, имя и уровень; во входящие ляжет предложение, мир изменит только «Принять»" onClick={() => pickTool('place')} className={BTN}>
+          <button type="button" aria-pressed={tool === 'place'} title="Новое место: щелчок по карте — точка, имя и уровень; во входящие ляжет предложение, мир изменит только «Принять»" onClick={() => pickTool('place')} className={`${BTN} w-full text-left`}>
             Место
           </button>
         ) : null}
+        {georeference?.places.length ? (
+          <button type="button" aria-pressed={tool === 'georeference'} title="Геопривязка: выбрать активное место, отметить точку на этой карте и отправить изменение во «Входящие»" onClick={() => pickTool('georeference')} className={`${BTN} w-full text-left`}>
+            Привязать место
+          </button>
+        ) : null}
         {travel ? (
-          <button type="button" aria-pressed={tool === 'travel'} title="Поход: путь от партии щелчками, конец — пин места; время пойдёт на дни пути" onClick={() => pickTool('travel')} className={BTN}>
+          <button type="button" aria-pressed={tool === 'travel'} title="Поход: путь от партии щелчками, конец — пин места; время пойдёт на дни пути" onClick={() => pickTool('travel')} className={`${BTN} w-full text-left`}>
             Поход
           </button>
         ) : null}
@@ -987,10 +1190,34 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
             )}
           </div>
         ) : null}
+        {tool === 'georeference' && georeference ? (
+          <div data-part="georeference-form" role="group" aria-label="Геопривязка места" className="flex flex-col gap-1 px-2 py-1.5 bg-cd shadow-float type-body-sm text-tx pointer-events-auto">
+            <label className="flex flex-col gap-1">
+              Место кампании
+              <select aria-label="Место для геопривязки" value={georeference.places.some(place => place.id === geoTargetId) ? geoTargetId : georeference.places[0]?.id ?? ''} onChange={event => { setGeoTargetId(event.target.value); setGeoDraft(null); setGeoError(null); }} className={INPUT}>
+                {georeference.places.map(place => <option key={place.id} value={place.id}>{place.name} · {place.scaleLabel}{place.geoMap ? ` · сейчас: ${place.geoMap}` : ' · без точки'}</option>)}
+              </select>
+            </label>
+            {geoDraft ? (
+              <>
+                <span className="text-t2">{georeference.places.find(place => place.id === geoDraft.locationId)?.name ?? geoDraft.locationId} · {passport.label} · пиксель ({geoDraft.x}, {geoDraft.y})</span>
+                <span className="flex items-center gap-1">
+                  <button type="button" onClick={proposeGeo} className={BTN}>Предложить</button>
+                  <button type="button" onClick={() => setGeoDraft(null)} className={BTN}>Отмена точки</button>
+                </span>
+              </>
+            ) : <span className="text-t2">Выберите место и щёлкните по карте. Координаты будут предложены мастеру и сохранятся только после принятия.</span>}
+            {geoError ? <span role="alert" className="text-fx-damage-hi">{geoError}</span> : null}
+            <button type="button" onClick={() => pickTool('georeference')} className={BTN}>Закрыть</button>
+          </div>
+        ) : null}
         {tool === 'travel' ? (
           <div data-part="travel" role="group" aria-label="Поход" className="flex flex-col gap-1 px-2 py-1.5 bg-cd shadow-float type-body-sm text-tx pointer-events-auto">
             {dest ? (
               <>
+                {passport.id === 'toril' && destinationPin && travel ? (
+                  <CourseCompass from={travel.from} to={destinationPin} target={dest.name} wind={travel.wind} />
+                ) : null}
                 <span>
                   {party?.label ?? 'Партия'} → {dest.name} · {milesLabel(rulerMiles)}
                 </span>
@@ -1047,7 +1274,7 @@ export function WorldMap({ passport, frame, frameKey, pins, party, onPin, hexMil
 
       {missing && !schemaOn ? (
         <div role="status" className="absolute inset-x-0 top-1/3 mx-auto w-fit max-w-[90%] px-4 py-3 bg-cd shadow-float type-body text-tx">
-          Тайлы карты {passport.label} не нарезаны. В корне проекта: <span className="type-num-12">.venv/bin/python scripts/tile-map.py content/maps/{passport.id}.json</span>
+          Изображение карты {passport.label} недоступно.
         </div>
       ) : null}
     </div>

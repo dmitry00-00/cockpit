@@ -34,9 +34,11 @@
 # GIS: continent, within, place, gis, cats, former, forms, milestones, orgs, events и др.). Порядок запуска: после
 # import-organizations.py и import-people.py; затем import-chronology.py (ссылки kingdom: в событиях) и
 # import-chronology-articles.py; затем import-kingdoms.py ещё раз — годы и события держав по обоим слоям хронологии.
+# Первый проход до статей-хроник использует --skip-chronology-articles, чтобы не читать старые shards.
 # После него — econ-from-wiki.py: товары держав для торговли (content/world/econ.json).
 #
-# Запуск: .venv/bin/python -I scripts/import-kingdoms.py <dump.xml>
+# Запуск: .venv/bin/python -I scripts/import-kingdoms.py <dump.xml> [--skip-chronology-articles] [--content-root <content-dir>]
+import argparse
 import csv
 import glob
 import html
@@ -46,7 +48,6 @@ import os
 import re
 import shutil
 import subprocess
-import sys
 import tempfile
 import urllib.parse
 import xml.etree.ElementTree as ET
@@ -61,6 +62,7 @@ def _load(name, file):
     return mod
 
 
+content_paths = _load('content_paths', 'content-paths.py')
 sj = _load('spelljammer', 'import-spelljammer.py')
 dz = _load('deities', 'import-deities.py')
 pp = _load('people', 'import-people.py')
@@ -325,10 +327,17 @@ def scan(path):
     return boxed, redirects, members
 
 
-def gis_regions():
+def gis_regions(gpkg_override=None, skip_gis=False):
     """Именованные регионы Toril GIS: uuid, имя, класс, url_en, путь. Нет GeoPackage или GDAL — пусто."""
-    gpkg = next(iter(sorted(glob.glob(os.path.join(ROOT, 'maps/gis/toril-gis-*/toril_gis_layers.gpkg')))), None)
+    if skip_gis:
+        print('kingdoms: GIS-вход отключён профилем — без связи с полигонами')
+        return []
+    gpkg = gpkg_override or next(iter(sorted(glob.glob(os.path.join(ROOT, 'maps/gis/toril-gis-*/toril_gis_layers.gpkg')))), None)
+    if gpkg_override and not os.path.isfile(gpkg_override):
+        raise FileNotFoundError(f'GeoPackage не найден: {gpkg_override}')
     ogr = shutil.which('ogr2ogr') or next((os.path.join(d, 'ogr2ogr') for d in GDAL_DIRS if os.access(os.path.join(d, 'ogr2ogr'), os.X_OK)), None)
+    if gpkg_override and not ogr:
+        raise RuntimeError('ogr2ogr не найден для явно заданного GeoPackage Toril GIS')
     if not gpkg or not ogr:
         print('kingdoms: нет GeoPackage Toril GIS или ogr2ogr — без связи с полигонами')
         return []
@@ -344,18 +353,30 @@ def gis_regions():
 # ── импорт ─────────────────────────────────────────────────────────────────────────────────────────────────────────
 
 def main():
-    if len(sys.argv) != 2:
-        sys.exit('usage: import-kingdoms.py <dump.xml>')
-    boxed, redirects, members = scan(sys.argv[1])
+    parser = argparse.ArgumentParser(description='Импорт держав Forgotten Realms.')
+    parser.add_argument('dump', help='XML-дамп вики')
+    parser.add_argument('--content-root', help='корень слоёв content; по умолчанию <корень проекта>/content')
+    parser.add_argument('--gis-package', help='GeoPackage Toril GIS; если задан, автоматический поиск не используется')
+    parser.add_argument('--skip-gis', action='store_true', help='не читать GeoPackage и не искать GIS в каталоге проекта')
+    parser.add_argument(
+        '--skip-chronology-articles',
+        action='store_true',
+        help='не читать старые статьи-хроники на первом проходе до их импорта',
+    )
+    args = parser.parse_args()
+    if args.gis_package and args.skip_gis:
+        parser.error('--gis-package и --skip-gis нельзя использовать вместе')
+    content_paths.set_content_root(args.content_root)
+    boxed, redirects, members = scan(args.dump)
     follow = pp.follower(redirects)
     place, deity_of = pp.place_resolver(follow), pp.deity_resolver(follow)
-    with open(os.path.join(ROOT, 'content', 'chronology', 'index.json'), encoding='utf-8') as fh:
+    with open(content_paths.content_path(ROOT, 'chronology', 'index.json'), encoding='utf-8') as fh:
         years = {y['year']: y['name'] for y in json.load(fh)['years'] if y.get('name')}
     person_of_title = {}
-    for path in glob.glob(os.path.join(ROOT, 'content', 'world', 'people', '*.json')):
+    for path in glob.glob(content_paths.content_path(ROOT, 'world', 'people', '*.json')):
         with open(path, encoding='utf-8') as fh:
             person_of_title.update({p['title']: p['id'] for p in json.load(fh)['people']})
-    with open(os.path.join(ROOT, 'content', 'world', 'organizations.json'), encoding='utf-8') as fh:
+    with open(content_paths.content_path(ROOT, 'world', 'organizations.json'), encoding='utf-8') as fh:
         org_of_title = {o['title']: o['id'] for o in json.load(fh)['organizations']}
     of = lambda table: (lambda link: table.get(follow(link)) or table.get(link))
     person_of, org_of = of(person_of_title), of(org_of_title)
@@ -385,7 +406,7 @@ def main():
         for p, n in cat_names(t, box['fields']):
             parent_cat[f'Locations {p} {n}'] = t
 
-    regions = gis_regions()
+    regions = gis_regions(args.gis_package, args.skip_gis)
     gis_of = {}
     for r in regions:
         url = r.get('url_en') or ''
@@ -396,7 +417,7 @@ def main():
         if k and k not in gis_of:
             path = json.loads(r.get('location_paths') or '{}').get('en') or []
             gis_of[k] = {'uuid': r['uuid'], 'name': r['name_en'], 'class': r['feature_class'], **({'path': path} if path else {})}
-    with open(os.path.join(ROOT, 'content', 'maps', 'toril-labels.json'), encoding='utf-8') as fh:
+    with open(content_paths.content_path(ROOT, 'maps', 'toril-labels.json'), encoding='utf-8') as fh:
         labels = {}
         for name, kind, x, y, *_ in json.load(fh)['labels']:
             if kind in ('region', 'realm', 'city', 'town', 'label', 'island', 'site'):
@@ -404,8 +425,9 @@ def main():
 
     # Хронология: событие → державы по ссылкам (через перенаправления).
     chrono = {}
-    for layer in ('events', 'articles'):
-        for path in sorted(glob.glob(os.path.join(ROOT, 'content', 'chronology', layer, '*.json'))):
+    layers = ('events',) if args.skip_chronology_articles else ('events', 'articles')
+    for layer in layers:
+        for path in sorted(glob.glob(content_paths.content_path(ROOT, 'chronology', layer, '*.json'))):
             with open(path, encoding='utf-8') as fh:
                 for e in json.load(fh).get('events', []):
                     for k in dict.fromkeys(x for x in (kingdom_of(l['t']) for l in e.get('links', [])) if x):
@@ -586,7 +608,7 @@ def main():
         }
         out.append(rec)
 
-    path = os.path.join(ROOT, 'content', 'world', 'kingdoms.json')
+    path = content_paths.content_path(ROOT, 'world', 'kingdoms.json')
     with open(path, 'w', encoding='utf-8') as fh:
         json.dump({'attribution': sj.ATTRIBUTION, 'license': sj.LICENSE,
                    'note': 'Державы из карточек {{Location}}/{{State}} вики: поля и первый абзац статьи по-английски, как в вики; '

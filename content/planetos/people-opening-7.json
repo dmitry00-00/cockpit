@@ -1,0 +1,1060 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "person",
+  "entities": [
+    {
+      "ref": "person:grey-wind",
+      "kind": "person",
+      "name": "Grey Wind",
+      "nameRu": "Серый Ветер",
+      "subtitle": "A Game of Thrones · Bran I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran I; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_1",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Bran I"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется как щенок из найденного помёта"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Один из шести щенков лютоволчицы, найденных к северу от Винтерфелла; позднее становится лютоволком Робба."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "место находки щенков",
+          "ref": "place:hills-north-of-winterfell"
+        },
+        {
+          "label": "найдены щенки лютоволка",
+          "ref": "event:direwolf-pups-found"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Game of Thrones · Catelyn X (chapter 63; AWOIAF secondary index)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_63",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "agot",
+          "chapterNo": 63
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Game of Thrones · Catelyn XI (chapter 71; AWOIAF secondary index)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_71",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "agot",
+          "chapterNo": 71
+        }
+      ]
+    },
+    {
+      "ref": "person:shaggydog",
+      "kind": "person",
+      "name": "Shaggydog",
+      "nameRu": "Лохматый Пёс",
+      "subtitle": "A Game of Thrones · Bran I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran I; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_1",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Bran I"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется как щенок из найденного помёта"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Тёмный щенок из помёта, найденного братьями Старк к северу от Винтерфелла; позднее становится лютоволком Рикона."
+        }
+      ],
+      "links": [
+        {
+          "label": "Rickon Stark",
+          "ref": "person:rickon-stark"
+        },
+        {
+          "label": "место находки щенков",
+          "ref": "place:hills-north-of-winterfell"
+        },
+        {
+          "label": "найдены щенки лютоволка",
+          "ref": "event:direwolf-pups-found"
+        }
+      ]
+    },
+    {
+      "ref": "person:mance-rayder",
+      "kind": "person",
+      "name": "Mance Rayder",
+      "nameRu": "Манс Налётчик",
+      "subtitle": "A Game of Thrones · Bran I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran I; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_1",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Bran I"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Предводитель одичалых, чьё имя Робб связывает с возможными рейдерами, которых встретили в северных холмах."
+        }
+      ],
+      "links": []
+    },
+    {
+      "ref": "person:willem-darry",
+      "kind": "person",
+      "name": "Willem Darry",
+      "nameRu": "Уиллем Дарри",
+      "subtitle": "A Game of Thrones · Daenerys I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys I; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys I"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Верный рыцарь, у которого дети Рейгара и Элии нашли приют в изгнании; Дейенерис вспоминает его как часть своего раннего дома."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Viserys Targaryen",
+          "ref": "person:viserys-targaryen"
+        }
+      ]
+    },
+    {
+      "ref": "person:elia-martell",
+      "kind": "person",
+      "name": "Elia Martell",
+      "nameRu": "Элия Мартелл",
+      "subtitle": "A Game of Thrones · Daenerys I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys I; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys I"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Принцесса Дорна и жена Рейгара Таргариена; её гибель вместе с детьми всплывает в рассказе Дейенерис о падении династии."
+        }
+      ],
+      "links": [
+        {
+          "label": "Rhaegar Targaryen",
+          "ref": "person:rhaegar-targaryen"
+        },
+        {
+          "label": "House Targaryen",
+          "ref": "organization:house-targaryen"
+        },
+        {
+          "label": "Aegon Targaryen, son of Rhaegar",
+          "ref": "person:aegon-targaryen-son-of-rhaegar"
+        },
+        {
+          "label": "Rhaenys Targaryen, daughter of Rhaegar",
+          "ref": "person:rhaenys-targaryen-daughter-of-rhaegar"
+        }
+      ]
+    },
+    {
+      "ref": "person:aegon-targaryen-son-of-rhaegar",
+      "kind": "person",
+      "name": "Aegon Targaryen (son of Rhaegar)",
+      "nameRu": "Эйгон Таргариен (сын Рейгара)",
+      "subtitle": "A Game of Thrones · Daenerys I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys I; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys I"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Младенец, сын Рейгара и Элии, чья гибель при разгроме Королевской Гавани стала частью семейной трагедии Таргариенов."
+        }
+      ],
+      "links": [
+        {
+          "label": "Rhaegar Targaryen",
+          "ref": "person:rhaegar-targaryen"
+        },
+        {
+          "label": "Elia Martell",
+          "ref": "person:elia-martell"
+        },
+        {
+          "label": "House Targaryen",
+          "ref": "organization:house-targaryen"
+        }
+      ]
+    },
+    {
+      "ref": "person:rhaenys-targaryen-daughter-of-rhaegar",
+      "kind": "person",
+      "name": "Rhaenys Targaryen (daughter of Rhaegar)",
+      "nameRu": "Рейнис Таргариен (дочь Рейгара)",
+      "subtitle": "A Game of Thrones · Daenerys I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys I; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys I"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Дочь Рейгара и Элии; её убийство во время разграбления столицы Дейенерис вспоминает как одно из преступлений против её семьи."
+        }
+      ],
+      "links": [
+        {
+          "label": "Rhaegar Targaryen",
+          "ref": "person:rhaegar-targaryen"
+        },
+        {
+          "label": "Elia Martell",
+          "ref": "person:elia-martell"
+        },
+        {
+          "label": "House Targaryen",
+          "ref": "organization:house-targaryen"
+        }
+      ]
+    },
+    {
+      "ref": "person:rhaella-targaryen",
+      "kind": "person",
+      "name": "Rhaella Targaryen",
+      "nameRu": "Рейла Таргариен",
+      "subtitle": "A Game of Thrones · Daenerys I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys I; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys I"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Королева, мать Дейенерис и Визериса; имя появляется в воспоминаниях Дейенерис о родителях и изгнании."
+        }
+      ],
+      "links": [
+        {
+          "label": "Aerys II Targaryen",
+          "ref": "person:aerys-ii-targaryen"
+        },
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Viserys Targaryen",
+          "ref": "person:viserys-targaryen"
+        },
+        {
+          "label": "House Targaryen",
+          "ref": "organization:house-targaryen"
+        }
+      ]
+    },
+    {
+      "ref": "person:aegon-i-targaryen",
+      "kind": "person",
+      "name": "Aegon I Targaryen",
+      "nameRu": "Эйгон I Таргариен",
+      "subtitle": "A Game of Thrones · Daenerys I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys I; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys I"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Завоеватель и первый король из династии Таргариенов; Дейенерис вспоминает его как начало её рода на Железном троне."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Targaryen",
+          "ref": "organization:house-targaryen"
+        }
+      ]
+    },
+    {
+      "ref": "person:visenya-targaryen",
+      "kind": "person",
+      "name": "Visenya Targaryen",
+      "nameRu": "Висенья Таргариен",
+      "subtitle": "A Game of Thrones · Daenerys I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys I; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys I"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Сестра-жена Эйгона Завоевателя и одна из первых владык династии Таргариенов, упоминаемая в семейной истории Дейенерис."
+        }
+      ],
+      "links": [
+        {
+          "label": "Aegon I Targaryen",
+          "ref": "person:aegon-i-targaryen"
+        },
+        {
+          "label": "House Targaryen",
+          "ref": "organization:house-targaryen"
+        }
+      ]
+    },
+    {
+      "ref": "person:rhaenys-targaryen",
+      "kind": "person",
+      "name": "Rhaenys Targaryen (wife of Aegon I)",
+      "nameRu": "Рейнис Таргариен (сестра Эйгона I)",
+      "subtitle": "A Game of Thrones · Daenerys I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys I; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys I"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Сестра-жена Эйгона Завоевателя, чьё имя Дейенерис слышит в рассказе о ранних правителях Таргариенов."
+        }
+      ],
+      "links": [
+        {
+          "label": "Aegon I Targaryen",
+          "ref": "person:aegon-i-targaryen"
+        },
+        {
+          "label": "Visenya Targaryen",
+          "ref": "person:visenya-targaryen"
+        },
+        {
+          "label": "House Targaryen",
+          "ref": "organization:house-targaryen"
+        }
+      ]
+    },
+    {
+      "ref": "person:howland-reed",
+      "kind": "person",
+      "name": "Howland Reed",
+      "nameRu": "Хоуленд Рид",
+      "subtitle": "A Game of Thrones · Eddard I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard I; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_4",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard I"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Северный лорд и близкий друг Эддарда; Нэд вспоминает, что Хоуленд был рядом с ним при смерти Лианны."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Lyanna Stark",
+          "ref": "person:lyanna-stark"
+        }
+      ]
+    },
+    {
+      "ref": "person:brandon-stark",
+      "kind": "person",
+      "name": "Brandon Stark (brother of Eddard)",
+      "nameRu": "Брандон Старк (брат Эддарда)",
+      "subtitle": "A Game of Thrones · Eddard I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard I; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_4",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard I"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Старший брат Эддарда, погибший до начала повествования; Роберт вспоминает о нём в разговоре о семье Старков."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "House Stark",
+          "ref": "organization:house-stark"
+        }
+      ]
+    },
+    {
+      "ref": "person:rickard-stark",
+      "kind": "person",
+      "name": "Rickard Stark",
+      "nameRu": "Рикард Старк",
+      "subtitle": "A Game of Thrones · Eddard I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard I; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_4",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard I"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Отец Эддарда и бывший лорд Винтерфелла; его статуя стоит в криптах рядом с могилами Брандона и Лианны."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Brandon Stark",
+          "ref": "person:brandon-stark"
+        },
+        {
+          "label": "House Stark",
+          "ref": "organization:house-stark"
+        },
+        {
+          "label": "Crypt of Winterfell",
+          "ref": "place:crypt-of-winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "person:ashara-dayne",
+      "kind": "person",
+      "name": "Ashara Dayne",
+      "nameRu": "Ашара Дейн",
+      "subtitle": "A Game of Thrones · Catelyn II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn II; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_6",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn II"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается как предмет слуха"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Дейни из Дома Дейн, имя которой Катлин вспоминает среди слухов о происхождении Джона; глава не подтверждает эту версию."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Arthur Dayne",
+          "ref": "person:arthur-dayne"
+        }
+      ]
+    },
+    {
+      "ref": "person:arthur-dayne",
+      "kind": "person",
+      "name": "Arthur Dayne",
+      "nameRu": "Артур Дейн",
+      "subtitle": "A Game of Thrones · Catelyn II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn II; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_6",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn II"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Знаменитый рыцарь из Дома Дейн; в воспоминании Катлин его имя связано с рассказами о юности Эддарда на юге."
+        }
+      ],
+      "links": [
+        {
+          "label": "Ashara Dayne",
+          "ref": "person:ashara-dayne"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        }
+      ]
+    },
+    {
+      "ref": "person:wylla",
+      "kind": "person",
+      "name": "Wylla",
+      "nameRu": "Уилла",
+      "subtitle": "A Game of Thrones · Eddard II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard II; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_12",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard II"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Имя женщины, которое Эддард называет Роберту в ответ на вопрос о матери Джона; сцена не раскрывает дополнительных обстоятельств."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        }
+      ]
+    },
+    {
+      "ref": "person:alyn",
+      "kind": "person",
+      "name": "Alyn",
+      "nameRu": "Алин",
+      "subtitle": "A Game of Thrones · Eddard II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard II; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_12",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard II"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Гвардеец Эддарда Старка; будит его перед утренней поездкой короля, во время которой Роберт обсуждает с Нэдом дела короны."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "House Stark",
+          "ref": "organization:house-stark"
+        },
+        {
+          "label": "Barrowlands",
+          "ref": "place:barrowlands"
+        }
+      ]
+    },
+    {
+      "ref": "person:catspaw",
+      "kind": "person",
+      "name": "Catspaw (unnamed assassin)",
+      "nameRu": "Безымянный убийца (Catspaw)",
+      "subtitle": "A Game of Thrones · Catelyn III",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn III; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_14",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn III"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется; собственного имени в тексте не названо"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача эпитета; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Безымянный убийца, который проникает в комнату спящего Брана с кинжалом; Катлин мешает ему добраться до мальчика."
+        }
+      ],
+      "links": [
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "person:three-eyed-crow",
+      "kind": "person",
+      "name": "Three-eyed crow",
+      "nameRu": "Трёхглазый ворон",
+      "subtitle": "A Game of Thrones · Bran III",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran III; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_17",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Bran III"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется во сне Брана"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Во сне Брана таинственная птица учит его летать и ведёт через видения родных, Севера и угроз за Стеной."
+        }
+      ],
+      "links": [
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "The Wall",
+          "ref": "place:the-wall"
+        }
+      ]
+    },
+    {
+      "ref": "person:moreo-tumitis",
+      "kind": "person",
+      "name": "Moreo Tumitis",
+      "nameRu": "Морео Тумитис",
+      "subtitle": "A Game of Thrones · Catelyn IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn IV; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_18",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 18
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn IV"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Капитан корабля Storm Dancer, который доставляет Катлин и Родрика в Королевскую Гавань и подсказывает место для ночлега."
+        }
+      ],
+      "links": [
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Rodrik Cassel",
+          "ref": "person:rodrik-cassel"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Blackwater Bay",
+          "ref": "place:blackwater-bay"
+        }
+      ]
+    }
+  ]
+}

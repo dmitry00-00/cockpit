@@ -1,0 +1,27 @@
+{
+  "id": "asoiaf-known-world",
+  "label": "Known World · speculative",
+  "note": "Подложка No labels из статической карты: подписи убраны, но рисунок сохраняет маркеры мест и линии автора. Источник прямо помечает карту как спекулятивную и неофициальную; позиции некоторых мест и регионы за Slaver's Bay приблизительны. Масштабная линейка — только ориентир.",
+  "source": {
+    "file": "maps/ASOIAF/map_no_labels.jpg",
+    "author": "theMountainGoat",
+    "url": "https://www.sermountaingoat.co.uk/map/index.php",
+    "timelineUrl": "https://www.sermountaingoat.co.uk/timeline/index.php",
+    "version": "1.0",
+    "published": "2012-02-27",
+    "license": "CC BY-NC-SA 3.0 Unported"
+  },
+  "attribution": "A Song of Ice and Fire Speculative World Map · theMountainGoat · v1.0 · 27 Feb 2012 · CC BY-NC-SA 3.0 Unported · non-commercial fan project",
+  "sourceUrl": "https://www.sermountaingoat.co.uk/map/index.php",
+  "timelineUrl": "https://www.sermountaingoat.co.uk/timeline/index.php",
+  "width": 4642,
+  "height": 4642,
+  "tileSize": 256,
+  "maxZoom": 5,
+  "format": "webp",
+  "quality": 82,
+  "tiles": "/maps/tiles/asoiaf-known-world",
+  "milesPerPixel": 1.41,
+  "calibration": "Approx. 1.41 miles/source-pixel from the 500-mile scale bar in the paired labelled image (about 354 source pixels per 500 miles). The source says its scale is based on the Wall being 300 miles and may be slightly inaccurate; do not treat route distances or travel times as authoritative.",
+  "distribution": "internal"
+}

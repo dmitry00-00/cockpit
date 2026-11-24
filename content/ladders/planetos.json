@@ -1,0 +1,1426 @@
+{
+  "format": 1,
+  "id": "planetos",
+  "rankOrder": [
+    "cosmology",
+    "plane",
+    "system",
+    "planet",
+    "continent",
+    "region",
+    "settlement",
+    "building",
+    "battle"
+  ],
+  "ranks": [
+    {
+      "id": "cosmology",
+      "labelRu": "Мироздание",
+      "tempo": "year",
+      "view": "wheel"
+    },
+    {
+      "id": "plane",
+      "labelRu": "План бытия",
+      "tempo": "year",
+      "view": "flowgraph"
+    },
+    {
+      "id": "system",
+      "labelRu": "Система",
+      "tempo": "season",
+      "view": "orrery"
+    },
+    {
+      "id": "planet",
+      "labelRu": "Мир",
+      "tempo": "season",
+      "view": "globe"
+    },
+    {
+      "id": "continent",
+      "labelRu": "Континент",
+      "tempo": "tenday",
+      "view": "map"
+    },
+    {
+      "id": "region",
+      "labelRu": "Регион",
+      "tempo": "day",
+      "view": "map"
+    },
+    {
+      "id": "settlement",
+      "labelRu": "Поселение",
+      "tempo": "hour",
+      "view": "city-plan"
+    },
+    {
+      "id": "building",
+      "labelRu": "Здание",
+      "tempo": "10min",
+      "view": "floor-plan"
+    },
+    {
+      "id": "battle",
+      "labelRu": "Сцена",
+      "tempo": "round",
+      "view": "battle-grid"
+    }
+  ],
+  "roots": [
+    {
+      "id": "known-world",
+      "name": "Known World",
+      "scale": "planet",
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 2321,
+        "y": 2321,
+        "r": 2321
+      }
+    },
+    {
+      "id": "westeros",
+      "name": "Westeros",
+      "scale": "continent",
+      "parentId": "known-world",
+      "ref": {
+        "kind": "place",
+        "id": "westeros"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 680,
+        "y": 1770,
+        "r": 1580
+      }
+    },
+    {
+      "id": "essos",
+      "name": "Essos",
+      "scale": "continent",
+      "parentId": "known-world",
+      "ref": {
+        "kind": "place",
+        "id": "essos"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 2960,
+        "y": 2450,
+        "r": 1780
+      }
+    },
+    {
+      "id": "summer-isles",
+      "name": "Summer Isles",
+      "scale": "continent",
+      "parentId": "known-world",
+      "ref": {
+        "kind": "place",
+        "id": "summer-isles"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 650,
+        "y": 3900,
+        "r": 300
+      }
+    },
+    {
+      "id": "the-north",
+      "name": "The North",
+      "scale": "region",
+      "parentId": "westeros",
+      "ref": {
+        "kind": "place",
+        "id": "the-north"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 735,
+        "y": 1190,
+        "r": 760
+      }
+    },
+    {
+      "id": "beyond-the-wall",
+      "name": "Beyond the Wall",
+      "scale": "region",
+      "parentId": "westeros",
+      "ref": {
+        "kind": "place",
+        "id": "beyond-the-wall"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 835,
+        "y": 560,
+        "r": 420
+      }
+    },
+    {
+      "id": "the-wall",
+      "name": "The Wall",
+      "scale": "region",
+      "parentId": "westeros",
+      "ref": {
+        "kind": "place",
+        "id": "the-wall"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 930,
+        "y": 755,
+        "r": 350
+      }
+    },
+    {
+      "id": "neck",
+      "name": "Neck",
+      "scale": "region",
+      "parentId": "westeros",
+      "ref": {
+        "kind": "place",
+        "id": "neck"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 630,
+        "y": 1645,
+        "r": 260
+      }
+    },
+    {
+      "id": "riverlands",
+      "name": "Riverlands",
+      "scale": "region",
+      "parentId": "westeros",
+      "ref": {
+        "kind": "place",
+        "id": "riverlands"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 760,
+        "y": 2050,
+        "r": 430
+      }
+    },
+    {
+      "id": "vale-of-arryn",
+      "name": "Vale of Arryn",
+      "scale": "region",
+      "parentId": "westeros",
+      "ref": {
+        "kind": "place",
+        "id": "vale-of-arryn"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 1035,
+        "y": 1920,
+        "r": 360
+      }
+    },
+    {
+      "id": "iron-islands",
+      "name": "Iron Islands",
+      "scale": "region",
+      "parentId": "westeros",
+      "ref": {
+        "kind": "place",
+        "id": "iron-islands"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 310,
+        "y": 1985,
+        "r": 300
+      }
+    },
+    {
+      "id": "westerlands",
+      "name": "Westerlands",
+      "scale": "region",
+      "parentId": "westeros",
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 410,
+        "y": 2405,
+        "r": 360
+      }
+    },
+    {
+      "id": "crownlands",
+      "name": "Crownlands",
+      "scale": "region",
+      "parentId": "westeros",
+      "ref": {
+        "kind": "place",
+        "id": "crownlands"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 950,
+        "y": 2315,
+        "r": 330
+      }
+    },
+    {
+      "id": "reach",
+      "name": "Reach",
+      "scale": "region",
+      "parentId": "westeros",
+      "ref": {
+        "kind": "place",
+        "id": "reach"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 650,
+        "y": 2705,
+        "r": 480
+      }
+    },
+    {
+      "id": "stormlands",
+      "name": "Stormlands",
+      "scale": "region",
+      "parentId": "westeros",
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 1045,
+        "y": 2595,
+        "r": 370
+      }
+    },
+    {
+      "id": "dorne",
+      "name": "Dorne",
+      "scale": "region",
+      "parentId": "westeros",
+      "ref": {
+        "kind": "place",
+        "id": "dorne"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 835,
+        "y": 2980,
+        "r": 420
+      }
+    },
+    {
+      "id": "winterfell",
+      "name": "Winterfell",
+      "scale": "settlement",
+      "parentId": "the-north",
+      "ref": {
+        "kind": "place",
+        "id": "winterfell"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 731,
+        "y": 1173,
+        "r": 135
+      }
+    },
+    {
+      "id": "winter-town",
+      "name": "Winter Town",
+      "scale": "settlement",
+      "parentId": "the-north",
+      "ref": {
+        "kind": "place",
+        "id": "winter-town"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 743,
+        "y": 1195,
+        "r": 120
+      }
+    },
+    {
+      "id": "dreadfort",
+      "name": "Dreadfort",
+      "scale": "settlement",
+      "parentId": "the-north",
+      "ref": {
+        "kind": "place",
+        "id": "dreadfort"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 990,
+        "y": 1115,
+        "r": 130
+      }
+    },
+    {
+      "id": "white-harbor",
+      "name": "White Harbor",
+      "scale": "settlement",
+      "parentId": "the-north",
+      "ref": {
+        "kind": "place",
+        "id": "white-harbor"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 850,
+        "y": 1427,
+        "r": 130
+      }
+    },
+    {
+      "id": "bear-island",
+      "name": "Bear Island",
+      "scale": "settlement",
+      "parentId": "the-north",
+      "ref": {
+        "kind": "place",
+        "id": "bear-island"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 536,
+        "y": 876,
+        "r": 150
+      }
+    },
+    {
+      "id": "greywater-watch",
+      "name": "Greywater Watch",
+      "scale": "settlement",
+      "parentId": "the-north",
+      "ref": {
+        "kind": "place",
+        "id": "greywater-watch"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 510,
+        "y": 1620,
+        "r": 130
+      }
+    },
+    {
+      "id": "wolfswood",
+      "name": "Wolfswood",
+      "scale": "settlement",
+      "parentId": "the-north",
+      "ref": {
+        "kind": "place",
+        "id": "wolfswood"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 535,
+        "y": 1060,
+        "r": 180
+      }
+    },
+    {
+      "id": "moat-cailin",
+      "name": "Moat Cailin",
+      "scale": "settlement",
+      "parentId": "neck",
+      "ref": {
+        "kind": "place",
+        "id": "moat-cailin"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 741,
+        "y": 1494,
+        "r": 125
+      }
+    },
+    {
+      "id": "frostfangs",
+      "name": "Frostfangs",
+      "scale": "region",
+      "parentId": "beyond-the-wall",
+      "ref": {
+        "kind": "place",
+        "id": "frostfangs"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 700,
+        "y": 560,
+        "r": 200
+      }
+    },
+    {
+      "id": "fist-of-the-first-men",
+      "name": "Fist of the First Men",
+      "scale": "settlement",
+      "parentId": "beyond-the-wall",
+      "ref": {
+        "kind": "place",
+        "id": "fist-of-the-first-men"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 815,
+        "y": 615,
+        "r": 130
+      }
+    },
+    {
+      "id": "hardhome",
+      "name": "Hardhome",
+      "scale": "settlement",
+      "parentId": "beyond-the-wall",
+      "ref": {
+        "kind": "place",
+        "id": "hardhome"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 1050,
+        "y": 607,
+        "r": 130
+      }
+    },
+    {
+      "id": "crasters-keep",
+      "name": "Craster’s Keep",
+      "scale": "settlement",
+      "parentId": "beyond-the-wall",
+      "ref": {
+        "kind": "place",
+        "id": "crasters-keep"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 880,
+        "y": 684,
+        "r": 125
+      }
+    },
+    {
+      "id": "castle-black",
+      "name": "Castle Black",
+      "scale": "settlement",
+      "parentId": "the-wall",
+      "ref": {
+        "kind": "place",
+        "id": "castle-black"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 930,
+        "y": 750,
+        "r": 120
+      }
+    },
+    {
+      "id": "shadow-tower",
+      "name": "Shadow Tower",
+      "scale": "settlement",
+      "parentId": "the-wall",
+      "ref": {
+        "kind": "place",
+        "id": "shadow-tower"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 825,
+        "y": 748,
+        "r": 120
+      }
+    },
+    {
+      "id": "eastwatch",
+      "name": "Eastwatch-by-the-Sea",
+      "scale": "settlement",
+      "parentId": "the-wall",
+      "ref": {
+        "kind": "place",
+        "id": "eastwatch"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 1030,
+        "y": 758,
+        "r": 120
+      }
+    },
+    {
+      "id": "moles-town",
+      "name": "Mole's Town",
+      "scale": "settlement",
+      "parentId": "the-wall",
+      "ref": {
+        "kind": "place",
+        "id": "moles-town"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 945,
+        "y": 775,
+        "r": 120
+      }
+    },
+    {
+      "id": "whitetree",
+      "name": "Whitetree",
+      "scale": "settlement",
+      "parentId": "the-wall",
+      "ref": {
+        "kind": "place",
+        "id": "whitetree"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 912,
+        "y": 735,
+        "r": 120
+      }
+    },
+    {
+      "id": "queenscrown",
+      "name": "Queenscrown",
+      "scale": "settlement",
+      "parentId": "the-wall",
+      "ref": {
+        "kind": "place",
+        "id": "queenscrown"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 850,
+        "y": 815,
+        "r": 120
+      }
+    },
+    {
+      "id": "riverrun",
+      "name": "Riverrun",
+      "scale": "settlement",
+      "parentId": "riverlands",
+      "ref": {
+        "kind": "place",
+        "id": "riverrun"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 670,
+        "y": 2030,
+        "r": 130
+      }
+    },
+    {
+      "id": "the-twins",
+      "name": "The Twins",
+      "scale": "settlement",
+      "parentId": "riverlands",
+      "ref": {
+        "kind": "place",
+        "id": "the-twins"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 660,
+        "y": 1773,
+        "r": 130
+      }
+    },
+    {
+      "id": "harrenhal",
+      "name": "Harrenhal",
+      "scale": "settlement",
+      "parentId": "riverlands",
+      "ref": {
+        "kind": "place",
+        "id": "harrenhal"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 850,
+        "y": 2055,
+        "r": 145
+      }
+    },
+    {
+      "id": "inn-at-crossroads",
+      "name": "Inn at the Crossroads",
+      "scale": "settlement",
+      "parentId": "riverlands",
+      "ref": {
+        "kind": "place",
+        "id": "inn-at-crossroads"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 855,
+        "y": 1940,
+        "r": 120
+      }
+    },
+    {
+      "id": "darry",
+      "name": "Darry",
+      "scale": "settlement",
+      "parentId": "riverlands",
+      "ref": {
+        "kind": "place",
+        "id": "darry"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 910,
+        "y": 1950,
+        "r": 120
+      }
+    },
+    {
+      "id": "maidenpool",
+      "name": "Maidenpool",
+      "scale": "settlement",
+      "parentId": "riverlands",
+      "ref": {
+        "kind": "place",
+        "id": "maidenpool"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 1000,
+        "y": 1950,
+        "r": 120
+      }
+    },
+    {
+      "id": "stone-hedge",
+      "name": "Stone Hedge",
+      "scale": "settlement",
+      "parentId": "riverlands",
+      "ref": {
+        "kind": "place",
+        "id": "stone-hedge"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 775,
+        "y": 2130,
+        "r": 120
+      }
+    },
+    {
+      "id": "high-heart",
+      "name": "High Heart",
+      "scale": "settlement",
+      "parentId": "riverlands",
+      "ref": {
+        "kind": "place",
+        "id": "high-heart"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 700,
+        "y": 2020,
+        "r": 120
+      }
+    },
+    {
+      "id": "whispering-wood",
+      "name": "Whispering Wood",
+      "scale": "settlement",
+      "parentId": "riverlands",
+      "ref": {
+        "kind": "place",
+        "id": "whispering-wood"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 555,
+        "y": 1980,
+        "r": 160
+      }
+    },
+    {
+      "id": "gods-eye",
+      "name": "Gods Eye",
+      "scale": "settlement",
+      "parentId": "riverlands",
+      "ref": {
+        "kind": "place",
+        "id": "gods-eye"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 825,
+        "y": 2055,
+        "r": 150
+      }
+    },
+    {
+      "id": "the-eyrie",
+      "name": "The Eyrie",
+      "scale": "settlement",
+      "parentId": "vale-of-arryn",
+      "ref": {
+        "kind": "place",
+        "id": "the-eyrie"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 1000,
+        "y": 1980,
+        "r": 125
+      }
+    },
+    {
+      "id": "bloody-gate",
+      "name": "Bloody Gate",
+      "scale": "settlement",
+      "parentId": "vale-of-arryn",
+      "ref": {
+        "kind": "place",
+        "id": "bloody-gate"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 975,
+        "y": 1940,
+        "r": 120
+      }
+    },
+    {
+      "id": "gates-of-the-moon",
+      "name": "Gates of the Moon",
+      "scale": "settlement",
+      "parentId": "vale-of-arryn",
+      "ref": {
+        "kind": "place",
+        "id": "gates-of-the-moon"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 1015,
+        "y": 1995,
+        "r": 120
+      }
+    },
+    {
+      "id": "pyke",
+      "name": "Pyke",
+      "scale": "settlement",
+      "parentId": "iron-islands",
+      "ref": {
+        "kind": "place",
+        "id": "pyke"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 335,
+        "y": 1920,
+        "r": 120
+      }
+    },
+    {
+      "id": "lordsport",
+      "name": "Lordsport",
+      "scale": "settlement",
+      "parentId": "iron-islands",
+      "ref": {
+        "kind": "place",
+        "id": "lordsport"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 300,
+        "y": 1950,
+        "r": 120
+      }
+    },
+    {
+      "id": "great-wyk",
+      "name": "Great Wyk",
+      "scale": "settlement",
+      "parentId": "iron-islands",
+      "ref": {
+        "kind": "place",
+        "id": "great-wyk"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 260,
+        "y": 1910,
+        "r": 120
+      }
+    },
+    {
+      "id": "old-wyk",
+      "name": "Old Wyk",
+      "scale": "settlement",
+      "parentId": "iron-islands",
+      "ref": {
+        "kind": "place",
+        "id": "old-wyk"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 300,
+        "y": 1930,
+        "r": 120
+      }
+    },
+    {
+      "id": "casterly-rock",
+      "name": "Casterly Rock",
+      "scale": "settlement",
+      "parentId": "westerlands",
+      "ref": {
+        "kind": "place",
+        "id": "casterly-rock"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 350,
+        "y": 2210,
+        "r": 130
+      }
+    },
+    {
+      "id": "lannisport",
+      "name": "Lannisport",
+      "scale": "settlement",
+      "parentId": "westerlands",
+      "ref": {
+        "kind": "place",
+        "id": "lannisport"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 390,
+        "y": 2250,
+        "r": 130
+      }
+    },
+    {
+      "id": "golden-tooth",
+      "name": "Golden Tooth",
+      "scale": "settlement",
+      "parentId": "westerlands",
+      "ref": {
+        "kind": "place",
+        "id": "golden-tooth"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 465,
+        "y": 2220,
+        "r": 125
+      }
+    },
+    {
+      "id": "the-crag",
+      "name": "The Crag",
+      "scale": "settlement",
+      "parentId": "westerlands",
+      "ref": {
+        "kind": "place",
+        "id": "the-crag"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 320,
+        "y": 2110,
+        "r": 125
+      }
+    },
+    {
+      "id": "kings-landing",
+      "name": "King's Landing",
+      "scale": "settlement",
+      "parentId": "crownlands",
+      "ref": {
+        "kind": "place",
+        "id": "kings-landing"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 950,
+        "y": 2300,
+        "r": 130
+      }
+    },
+    {
+      "id": "dragonstone",
+      "name": "Dragonstone",
+      "scale": "settlement",
+      "parentId": "crownlands",
+      "ref": {
+        "kind": "place",
+        "id": "dragonstone"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 1200,
+        "y": 2190,
+        "r": 125
+      }
+    },
+    {
+      "id": "highgarden",
+      "name": "Highgarden",
+      "scale": "settlement",
+      "parentId": "reach",
+      "ref": {
+        "kind": "place",
+        "id": "highgarden"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 550,
+        "y": 2640,
+        "r": 130
+      }
+    },
+    {
+      "id": "bitterbridge",
+      "name": "Bitterbridge",
+      "scale": "settlement",
+      "parentId": "reach",
+      "ref": {
+        "kind": "place",
+        "id": "bitterbridge"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 690,
+        "y": 2505,
+        "r": 120
+      }
+    },
+    {
+      "id": "oldtown",
+      "name": "Oldtown",
+      "scale": "settlement",
+      "parentId": "reach",
+      "ref": {
+        "kind": "place",
+        "id": "oldtown"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 390,
+        "y": 2820,
+        "r": 130
+      }
+    },
+    {
+      "id": "storms-end",
+      "name": "Storm's End",
+      "scale": "settlement",
+      "parentId": "stormlands",
+      "ref": {
+        "kind": "place",
+        "id": "storms-end"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 1090,
+        "y": 2530,
+        "r": 125
+      }
+    },
+    {
+      "id": "sunspear",
+      "name": "Sunspear",
+      "scale": "settlement",
+      "parentId": "dorne",
+      "ref": {
+        "kind": "place",
+        "id": "sunspear"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 1200,
+        "y": 2975,
+        "r": 130
+      }
+    },
+    {
+      "id": "free-cities",
+      "name": "Free Cities",
+      "scale": "region",
+      "parentId": "essos",
+      "ref": {
+        "kind": "place",
+        "id": "free-cities"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 1840,
+        "y": 2310,
+        "r": 850
+      }
+    },
+    {
+      "id": "dothraki-sea",
+      "name": "Dothraki Sea",
+      "scale": "region",
+      "parentId": "essos",
+      "ref": {
+        "kind": "place",
+        "id": "dothraki-sea"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 3240,
+        "y": 2550,
+        "r": 850
+      }
+    },
+    {
+      "id": "slavers-bay",
+      "name": "Slaver's Bay",
+      "scale": "region",
+      "parentId": "essos",
+      "ref": {
+        "kind": "place",
+        "id": "slavers-bay"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 3260,
+        "y": 3100,
+        "r": 510
+      }
+    },
+    {
+      "id": "red-waste",
+      "name": "Red Waste",
+      "scale": "region",
+      "parentId": "essos",
+      "ref": {
+        "kind": "place",
+        "id": "red-waste"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 4000,
+        "y": 2900,
+        "r": 650
+      }
+    },
+    {
+      "id": "jade-sea",
+      "name": "Jade Sea",
+      "scale": "region",
+      "parentId": "essos",
+      "ref": {
+        "kind": "place",
+        "id": "jade-sea"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 4395,
+        "y": 4165,
+        "r": 330
+      }
+    },
+    {
+      "id": "valyria",
+      "name": "Valyria",
+      "scale": "region",
+      "parentId": "essos",
+      "ref": {
+        "kind": "place",
+        "id": "valyria"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 1925,
+        "y": 3610,
+        "r": 340
+      }
+    },
+    {
+      "id": "ibben",
+      "name": "Ibben",
+      "scale": "region",
+      "parentId": "essos",
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 2450,
+        "y": 740,
+        "r": 310
+      }
+    },
+    {
+      "id": "braavos",
+      "name": "Braavos",
+      "scale": "settlement",
+      "parentId": "free-cities",
+      "ref": {
+        "kind": "place",
+        "id": "braavos"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 1550,
+        "y": 1700,
+        "r": 125
+      }
+    },
+    {
+      "id": "pentos",
+      "name": "Pentos",
+      "scale": "settlement",
+      "parentId": "free-cities",
+      "ref": {
+        "kind": "place",
+        "id": "pentos"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 1555,
+        "y": 2250,
+        "r": 125
+      }
+    },
+    {
+      "id": "norvos",
+      "name": "Norvos",
+      "scale": "settlement",
+      "parentId": "free-cities",
+      "ref": {
+        "kind": "place",
+        "id": "norvos"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 1900,
+        "y": 2050,
+        "r": 125
+      }
+    },
+    {
+      "id": "qohor",
+      "name": "Qohor",
+      "scale": "settlement",
+      "parentId": "free-cities",
+      "ref": {
+        "kind": "place",
+        "id": "qohor"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 2250,
+        "y": 2275,
+        "r": 125
+      }
+    },
+    {
+      "id": "forest-of-qohor",
+      "name": "Forest of Qohor",
+      "scale": "settlement",
+      "parentId": "free-cities",
+      "ref": {
+        "kind": "place",
+        "id": "forest-of-qohor"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 2240,
+        "y": 2130,
+        "r": 180
+      }
+    },
+    {
+      "id": "myr",
+      "name": "Myr",
+      "scale": "settlement",
+      "parentId": "free-cities",
+      "ref": {
+        "kind": "place",
+        "id": "myr"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 1680,
+        "y": 2650,
+        "r": 125
+      }
+    },
+    {
+      "id": "tyrosh",
+      "name": "Tyrosh",
+      "scale": "settlement",
+      "parentId": "free-cities",
+      "ref": {
+        "kind": "place",
+        "id": "tyrosh"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 1430,
+        "y": 2680,
+        "r": 125
+      }
+    },
+    {
+      "id": "lys",
+      "name": "Lys",
+      "scale": "settlement",
+      "parentId": "free-cities",
+      "ref": {
+        "kind": "place",
+        "id": "lys"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 1580,
+        "y": 2940,
+        "r": 125
+      }
+    },
+    {
+      "id": "volantis",
+      "name": "Volantis",
+      "scale": "settlement",
+      "parentId": "free-cities",
+      "ref": {
+        "kind": "place",
+        "id": "volantis"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 2200,
+        "y": 3010,
+        "r": 125
+      }
+    },
+    {
+      "id": "port-of-ibben",
+      "name": "Port of Ibben",
+      "scale": "settlement",
+      "parentId": "ibben",
+      "ref": {
+        "kind": "place",
+        "id": "port-of-ibben"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 2450,
+        "y": 740,
+        "r": 125
+      }
+    },
+    {
+      "id": "vaes-dothrak",
+      "name": "Vaes Dothrak",
+      "scale": "settlement",
+      "parentId": "dothraki-sea",
+      "ref": {
+        "kind": "place",
+        "id": "vaes-dothrak"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 3240,
+        "y": 2550,
+        "r": 135
+      }
+    },
+    {
+      "id": "womb-of-the-world",
+      "name": "Womb of the World",
+      "scale": "settlement",
+      "parentId": "dothraki-sea",
+      "ref": {
+        "kind": "place",
+        "id": "womb-of-the-world"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 3210,
+        "y": 2580,
+        "r": 125
+      }
+    },
+    {
+      "id": "meereen",
+      "name": "Meereen",
+      "scale": "settlement",
+      "parentId": "slavers-bay",
+      "ref": {
+        "kind": "place",
+        "id": "meereen"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 3360,
+        "y": 3010,
+        "r": 125
+      }
+    },
+    {
+      "id": "yunkai",
+      "name": "Yunkai",
+      "scale": "settlement",
+      "parentId": "slavers-bay",
+      "ref": {
+        "kind": "place",
+        "id": "yunkai"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 3300,
+        "y": 3120,
+        "r": 125
+      }
+    },
+    {
+      "id": "astapor",
+      "name": "Astapor",
+      "scale": "settlement",
+      "parentId": "slavers-bay",
+      "ref": {
+        "kind": "place",
+        "id": "astapor"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 3000,
+        "y": 3250,
+        "r": 125
+      }
+    },
+    {
+      "id": "qarth",
+      "name": "Qarth",
+      "scale": "settlement",
+      "parentId": "jade-sea",
+      "ref": {
+        "kind": "place",
+        "id": "qarth"
+      },
+      "geo": {
+        "map": "asoiaf-known-world",
+        "x": 4395,
+        "y": 4165,
+        "r": 125
+      }
+    },
+    {
+      "id": "winterfell-godswood",
+      "name": "Godswood of Winterfell",
+      "scale": "building",
+      "parentId": "winterfell",
+      "ref": {
+        "kind": "place",
+        "id": "godswood-of-winterfell"
+      }
+    }
+  ]
+}

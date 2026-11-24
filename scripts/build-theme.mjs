@@ -48,6 +48,7 @@ export function buildTheme(tokens) {
   for (const s of tokens.radius.tokens) L(`  --${s.name}: ${s.value};${comment(s.usage)}`);
   for (const s of tokens.size.tokens) L(`  --${s.name}: ${s.value};${comment(s.usage)}`);
   for (const s of tokens.opacity.tokens) L(`  --${s.name}: ${s.value};${comment(s.usage)}`);
+  for (const s of tokens.material.tokens) L(`  --${s.name}: ${s.value};${comment(s.usage)}`);
   L('}', '');
 
   // 2. Тема Tailwind — переопределяется целиком: утилиты не вводят значений, которых нет в токенах.
@@ -68,7 +69,7 @@ export function buildTheme(tokens) {
     for (const st of g.styles) {
       const ls = st.letterSpacing ? ` letter-spacing: ${st.letterSpacing};` : '';
       const tt = st.textTransform ? ` text-transform: ${st.textTransform};` : '';
-      const fv = g.family === 'mono' ? ' font-variant-numeric: tabular-nums;' : '';
+      const fv = ['mono', 'numeric'].includes(g.family) ? ' font-variant-numeric: lining-nums tabular-nums;' : '';
       L(`@utility type-${st.name} { font-family: var(--font-${g.family}); font-size: ${st.fontSize}; line-height: ${st.lineHeight}; font-weight: ${st.fontWeight};${ls}${tt}${fv} }`);
     }
     L('');
@@ -99,14 +100,21 @@ export function buildTheme(tokens) {
     '',
   ].join('\n');
 
-  return { css: lines.join('\n'), ts };
+  // Статический каталог использует те же значения и стили, без Tailwind-директив.
+  const reference = ['/* Сгенерировано scripts/build-theme.mjs из design/tokens.json. */',
+    ...lines.slice(2, lines.indexOf('@theme {')),
+    ':root {', ...Object.entries(fam).map(([k, v]) => `  --font-${k}: ${v};`), '}',
+    ...lines.filter(l => l.startsWith('@utility type-')).map(l => l.replace('@utility type-', '.')),
+  ].join('\n');
+  return { css: lines.join('\n'), ts, reference };
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1]) {
   const tokens = JSON.parse(readFileSync(join(ROOT, 'design/tokens.json'), 'utf8'));
-  const { css, ts } = buildTheme(tokens);
+  const { css, ts, reference } = buildTheme(tokens);
   mkdirSync(join(ROOT, 'src/styles'), { recursive: true });
   writeFileSync(join(ROOT, 'src/styles/theme.generated.css'), css);
   writeFileSync(join(ROOT, 'src/styles/tokens.generated.ts'), ts);
+  writeFileSync(join(ROOT, 'design/tokens.css'), reference);
   console.log(`тема: ${tokens.color.tokens.length} цветов, ${tokens.type.groups.reduce((n, g) => n + g.styles.length, 0)} стилей, ${tokens.shadow.tokens.length} рецептов поверхностей`);
 }

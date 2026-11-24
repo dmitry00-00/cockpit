@@ -1,0 +1,445 @@
+{
+  "format": "cockpit.entity-layer-draft-set/1",
+  "packageSnapshot": "2026.11.24.39",
+  "sourcePolicy": {
+    "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original short locator summaries; primary-edition verification pending.",
+    "status": "secondary-indexed-partial",
+    "primaryVerification": "pending",
+    "scope": "ASOS chapter-index candidates from chapters 41–60 only; P1 named human candidates absent from .39 and earlier drafts, with exact stable refs in global reconciliation; selective candidate window, not full-cast denominator; no project files edited."
+  },
+  "selectionSummary": {
+    "selectedUniquePeople": 7,
+    "selectedChapterLocators": 8,
+    "inputRange": "41–60; selective",
+    "excludedNotes": {
+      "existingCurrentRefsOrDrafts": "Excluded where candidate ref already exists in .39 or another provisional ASOS draft.",
+      "aliasOrIdentityReview": "Excluded Brown Ben Plumm due unresolved possible duplicate against provisional Ben Plumm draft; excluded Ghost of High Heart because global type review flags nonhuman/boundary uncertainty.",
+      "nonP1OrUnclearRelation": "Excluded P2, non-appearing relations, animals, and rows without a stable human ref."
+    }
+  },
+  "payloads": [
+    {
+      "format": "cockpit.entity-layer/1",
+      "kind": "person",
+      "entities": [
+        {
+          "ref": "person:mero",
+          "kind": "person",
+          "name": "Mero",
+          "draftPriority": "P1",
+          "subtitle": "A Storm of Swords · Daenerys IV (ch. 42), Daenerys V (ch. 57)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords; Daenerys IV (ch. 42), Daenerys V (ch. 57); A Wiki of Ice and Fire chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_42",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 42,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original minimal locator summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Приоритет черновика",
+              "value": "P1"
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "Daenerys IV (ch. 42) — appearing; Daenerys V (ch. 57) — appearing"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Объём выборки",
+              "value": "Диапазон 41–60 выборочный; список не является полным составом персонажей."
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "Ожидает сверки с выбранным изданием; роман в этом проходе не проверялся."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Вторичный chapter index AWOIAF указывает Mero среди appearing в Daenerys IV (ch. 42) and Daenerys V (ch. 57). Черновик фиксирует только эти локаторы; дополнительные биографические и сценовые сведения здесь не подтверждаются."
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 42,
+              "chapterTitle": "Daenerys IV",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_42"
+            },
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 57,
+              "chapterTitle": "Daenerys V",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_57"
+            }
+          ],
+          "status": "secondary-indexed-partial",
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "manualReview": "Сверить форму имени и appearing-локаторы с выбранным изданием; не выводить отсутствие персонажа в других главах из этого выборочного диапазона."
+        },
+        {
+          "ref": "person:ryman-frey",
+          "kind": "person",
+          "name": "Ryman Frey",
+          "draftPriority": "P1",
+          "subtitle": "A Storm of Swords · Catelyn VI (ch. 49)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords; Catelyn VI (ch. 49); A Wiki of Ice and Fire chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_49",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 49,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original minimal locator summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Приоритет черновика",
+              "value": "P1"
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "Catelyn VI (ch. 49) — appearing"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Объём выборки",
+              "value": "Диапазон 41–60 выборочный; список не является полным составом персонажей."
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "Ожидает сверки с выбранным изданием; роман в этом проходе не проверялся."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Вторичный chapter index AWOIAF указывает Ryman Frey среди appearing в Catelyn VI (ch. 49). Черновик фиксирует только эти локаторы; дополнительные биографические и сценовые сведения здесь не подтверждаются."
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 49,
+              "chapterTitle": "Catelyn VI",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_49"
+            }
+          ],
+          "status": "secondary-indexed-partial",
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "manualReview": "Сверить форму имени и appearing-локаторы с выбранным изданием; не выводить отсутствие персонажа в других главах из этого выборочного диапазона."
+        },
+        {
+          "ref": "person:edwyn-frey",
+          "kind": "person",
+          "name": "Edwyn Frey",
+          "draftPriority": "P1",
+          "subtitle": "A Storm of Swords · Catelyn VI (ch. 49)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords; Catelyn VI (ch. 49); A Wiki of Ice and Fire chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_49",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 49,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original minimal locator summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Приоритет черновика",
+              "value": "P1"
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "Catelyn VI (ch. 49) — appearing"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Объём выборки",
+              "value": "Диапазон 41–60 выборочный; список не является полным составом персонажей."
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "Ожидает сверки с выбранным изданием; роман в этом проходе не проверялся."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Вторичный chapter index AWOIAF указывает Edwyn Frey среди appearing в Catelyn VI (ch. 49). Черновик фиксирует только эти локаторы; дополнительные биографические и сценовые сведения здесь не подтверждаются."
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 49,
+              "chapterTitle": "Catelyn VI",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_49"
+            }
+          ],
+          "status": "secondary-indexed-partial",
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "manualReview": "Сверить форму имени и appearing-локаторы с выбранным изданием; не выводить отсутствие персонажа в других главах из этого выборочного диапазона."
+        },
+        {
+          "ref": "person:black-walder-frey",
+          "kind": "person",
+          "name": "Black Walder Frey",
+          "draftPriority": "P1",
+          "subtitle": "A Storm of Swords · Catelyn VI (ch. 49)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords; Catelyn VI (ch. 49); A Wiki of Ice and Fire chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_49",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 49,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original minimal locator summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Приоритет черновика",
+              "value": "P1"
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "Catelyn VI (ch. 49) — appearing"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Объём выборки",
+              "value": "Диапазон 41–60 выборочный; список не является полным составом персонажей."
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "Ожидает сверки с выбранным изданием; роман в этом проходе не проверялся."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Вторичный chapter index AWOIAF указывает Black Walder Frey среди appearing в Catelyn VI (ch. 49). Черновик фиксирует только эти локаторы; дополнительные биографические и сценовые сведения здесь не подтверждаются."
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 49,
+              "chapterTitle": "Catelyn VI",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_49"
+            }
+          ],
+          "status": "secondary-indexed-partial",
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "manualReview": "Сверить форму имени и appearing-локаторы с выбранным изданием; не выводить отсутствие персонажа в других главах из этого выборочного диапазона."
+        },
+        {
+          "ref": "person:aegon-jinglebell-frey",
+          "kind": "person",
+          "name": "Aegon “Jinglebell” Frey",
+          "draftPriority": "P1",
+          "subtitle": "A Storm of Swords · Catelyn VII (ch. 51)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords; Catelyn VII (ch. 51); A Wiki of Ice and Fire chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_51",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 51,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original minimal locator summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Приоритет черновика",
+              "value": "P1"
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "Catelyn VII (ch. 51) — appearing"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Объём выборки",
+              "value": "Диапазон 41–60 выборочный; список не является полным составом персонажей."
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "Ожидает сверки с выбранным изданием; роман в этом проходе не проверялся."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Вторичный chapter index AWOIAF указывает Aegon “Jinglebell” Frey среди appearing в Catelyn VII (ch. 51). Черновик фиксирует только эти локаторы; дополнительные биографические и сценовые сведения здесь не подтверждаются."
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 51,
+              "chapterTitle": "Catelyn VII",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_51"
+            }
+          ],
+          "status": "secondary-indexed-partial",
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "manualReview": "Сверить форму имени и appearing-локаторы с выбранным изданием; не выводить отсутствие персонажа в других главах из этого выборочного диапазона."
+        },
+        {
+          "ref": "person:smalljon-umber",
+          "kind": "person",
+          "name": "Smalljon Umber",
+          "draftPriority": "P1",
+          "subtitle": "A Storm of Swords · Catelyn VII (ch. 51)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords; Catelyn VII (ch. 51); A Wiki of Ice and Fire chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_51",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 51,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original minimal locator summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Приоритет черновика",
+              "value": "P1"
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "Catelyn VII (ch. 51) — appearing"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Объём выборки",
+              "value": "Диапазон 41–60 выборочный; список не является полным составом персонажей."
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "Ожидает сверки с выбранным изданием; роман в этом проходе не проверялся."
+            },
+            {
+              "label": "Различение ID",
+              "value": "Global reconciliation сохраняет Smalljon Umber отдельным персонажем от Greatjon Umber; не объединять refs."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Вторичный chapter index AWOIAF указывает Smalljon Umber среди appearing в Catelyn VII (ch. 51). Черновик фиксирует только эти локаторы; дополнительные биографические и сценовые сведения здесь не подтверждаются."
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 51,
+              "chapterTitle": "Catelyn VII",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_51"
+            }
+          ],
+          "status": "secondary-indexed-partial",
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "manualReview": "Сверить форму имени и appearing-локаторы с выбранным изданием; не выводить отсутствие персонажа в других главах из этого выборочного диапазона."
+        },
+        {
+          "ref": "person:oznak-zo-pahl",
+          "kind": "person",
+          "name": "Oznak zo Pahl",
+          "draftPriority": "P1",
+          "subtitle": "A Storm of Swords · Daenerys V (ch. 57)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords; Daenerys V (ch. 57); A Wiki of Ice and Fire chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_57",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 57,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original minimal locator summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Приоритет черновика",
+              "value": "P1"
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "Daenerys V (ch. 57) — appearing"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Объём выборки",
+              "value": "Диапазон 41–60 выборочный; список не является полным составом персонажей."
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "Ожидает сверки с выбранным изданием; роман в этом проходе не проверялся."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Вторичный chapter index AWOIAF указывает Oznak zo Pahl среди appearing в Daenerys V (ch. 57). Черновик фиксирует только эти локаторы; дополнительные биографические и сценовые сведения здесь не подтверждаются."
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 57,
+              "chapterTitle": "Daenerys V",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_57"
+            }
+          ],
+          "status": "secondary-indexed-partial",
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "manualReview": "Сверить форму имени и appearing-локаторы с выбранным изданием; не выводить отсутствие персонажа в других главах из этого выборочного диапазона."
+        }
+      ]
+    }
+  ]
+}

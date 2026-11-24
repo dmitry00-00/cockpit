@@ -1,0 +1,317 @@
+kind,ref,name,relations_in_ledger,chapter_locators,denominator_class,coverage_in_2026.11.24.32,cleanup_notes
+event,event:arya-escapes-red-keep,Arya escapes the Red Keep,occurred-or-scene-event,AGOT ch.50 Arya IV,event-candidate,existing-card,
+event,event:barristan-selmy-leaves-the-kingsguard,Barristan Selmy lays down his white cloak,occurred-or-scene-event,AGOT ch.57 Sansa V,event-candidate,existing-card,
+event,event:battle-of-green-fork,Battle of the Green Fork,occurred-or-scene-event;reported-or-referenced-event,AGOT ch.62 Tyrion VIII;AGOT ch.63 Catelyn X;AGOT ch.71 Catelyn XI,event-candidate,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+event,event:battle-of-the-camps-at-riverrun,Robb relieves Riverrun in the Battle of the Camps,reported-or-referenced-event,AGOT ch.69 Tyrion IX;AGOT ch.71 Catelyn XI,event-candidate,existing-card,
+event,event:bran-and-rickon-share-dream-of-eddard-in-crypts,Bran and Rickon share a dream of Eddard in the crypts,occurred-or-scene-event,AGOT ch.66 Bran VII,dream-event-separate,existing-card,"Событие сна, не фактическое событие хронологии мира."
+event,event:bran-receives-news-of-eddards-execution,Bran receives news of Eddard’s execution,occurred-or-scene-event,AGOT ch.66 Bran VII,event-candidate,existing-card,
+event,event:cersei-tells-sansa-betrothal-cannot-proceed,Cersei tells Sansa the betrothal cannot proceed,occurred-or-scene-event,AGOT ch.51 Sansa IV,event-candidate,existing-card,
+event,event:daenerys-claims-the-remnant-khalasar,Daenerys claims the remnant as her khalasar,occurred-or-scene-event,AGOT ch.72 Daenerys X,event-candidate,existing-card,
+event,event:daenerys-dragons-hatch,Daenerys’s dragons hatch,occurred-or-scene-event,AGOT ch.72 Daenerys X,event-candidate,existing-card,
+event,event:daenerys-ends-drogo-life,Daenerys ends Drogo’s life,occurred-or-scene-event,AGOT ch.68 Daenerys IX,event-candidate,existing-card,
+event,event:daenerys-invokes-blood-magic-to-save-drogo,Daenerys seeks blood magic to treat Drogo,occurred-or-scene-event;reported-or-referenced-event,AGOT ch.64 Daenerys VIII;AGOT ch.68 Daenerys IX,event-candidate,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+event,event:daenerys-learns-of-assassination-bounty,Daenerys learns of the bounty on her life,occurred-or-scene-event,AGOT ch.54 Daenerys VI,event-candidate,existing-card,
+event,event:daenerys-loses-most-of-drogo-khalasar,Most of Drogo’s khalasar abandons Daenerys,reported-or-referenced-event,AGOT ch.68 Daenerys IX,event-candidate,existing-card,
+event,event:daenerys-protects-lhazareen-women,Daenerys claims the Lhazareen women for her protection,occurred-or-scene-event,AGOT ch.61 Daenerys VII,event-candidate,existing-card,
+event,event:drogo-falls-and-bloodriders-die,Drogo falls and the bloodriders fight,occurred-or-scene-event;reported-or-referenced-event,AGOT ch.64 Daenerys VIII;AGOT ch.68 Daenerys IX,event-candidate,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+event,event:drogo-vows-to-invade-westeros,Drogo vows to lead his khalasar west,occurred-or-scene-event,AGOT ch.54 Daenerys VI,event-candidate,existing-card,
+event,event:drogo-wounded-during-lhazareen-raid,Drogo is wounded during the raid on a Lhazareen village,occurred-or-scene-event,AGOT ch.61 Daenerys VII,event-candidate,existing-card,
+event,event:eddard-executed-at-kings-landing,Eddard is executed in King’s Landing,occurred-or-scene-event;reported-or-referenced-event,AGOT ch.65 Arya V;AGOT ch.66 Bran VII;AGOT ch.67 Sansa VI,event-candidate,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+event,event:eddard-publicly-confesses-at-great-sept,Eddard publicly confesses at the Great Sept,occurred-or-scene-event,AGOT ch.65 Arya V,event-candidate,existing-card,
+event,event:grey-wind-bites-greatjon-as-robb-secures-command,Grey Wind maims the Greatjon during Robb’s war council,occurred-or-scene-event,AGOT ch.53 Bran VI,event-candidate,existing-card,
+event,event:jaime-defeats-tully-force-at-golden-tooth,Jaime defeats the Tully force at the Golden Tooth,reported-or-referenced-event,AGOT ch.55 Catelyn VIII,event-candidate,existing-card,
+event,event:jeor-mormont-gives-longclaw-to-jon,Jeor Mormont gives Longclaw to Jon,occurred-or-scene-event,AGOT ch.60 Jon VIII,event-candidate,existing-card,
+event,event:joffrey-forces-sansa-to-court,Joffrey forces Sansa to attend court,occurred-or-scene-event,AGOT ch.67 Sansa VI,event-candidate,existing-card,
+event,event:joffrey-issues-first-court-appointments,Joffrey announces new appointments at his first court session,occurred-or-scene-event,AGOT ch.57 Sansa V,event-candidate,existing-card,
+event,event:joffrey-promises-mercy-if-eddard-confesses,Joffrey makes mercy conditional on Eddard’s confession,occurred-or-scene-event;reported-or-referenced-event,AGOT ch.57 Sansa V;AGOT ch.65 Arya V,event-candidate,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+event,event:jon-receives-news-of-robert-death-and-ned-arrest,Jon learns of Robert’s death and Eddard’s arrest,occurred-or-scene-event,AGOT ch.52 Jon VII,event-candidate,existing-card,
+event,event:jon-returns-from-desertion,Jon returns from desertion and remains with the Watch,occurred-or-scene-event,AGOT ch.70 Jon IX,event-candidate,existing-card,
+event,event:jorah-proposes-selling-captives-in-meereen,Jorah proposes taking captives to Meereen,occurred-or-scene-event,AGOT ch.61 Daenerys VII,event-candidate,existing-card,
+event,event:maester-aemon-reveals-his-identity,Maester Aemon reveals his Targaryen identity,occurred-or-scene-event,AGOT ch.60 Jon VIII,event-candidate,existing-card,
+event,event:othor-and-jafer-found-near-wall,Othor and Jafer Flowers are found near the Wall,occurred-or-scene-event,AGOT ch.52 Jon VII,event-candidate,existing-card,
+event,event:rhaego-born-dead,Rhaego is born dead,occurred-or-scene-event,AGOT ch.68 Daenerys IX,event-candidate,existing-card,
+event,event:robb-captures-jaime-at-whispering-wood,Robb captures Jaime at the Whispering Wood,occurred-or-scene-event;reported-or-referenced-event,AGOT ch.63 Catelyn X;AGOT ch.69 Tyrion IX;AGOT ch.71 Catelyn XI,event-candidate,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+event,event:robb-chooses-southern-campaign,Robb chooses to march south,occurred-or-scene-event;reported-or-referenced-event,AGOT ch.53 Bran VI;AGOT ch.55 Catelyn VIII,event-candidate,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+event,event:robb-marches-south-leaving-bran-as-lord,Robb marches south and leaves Bran in Winterfell,occurred-or-scene-event,AGOT ch.53 Bran VI,event-candidate,existing-card,
+event,event:robb-proclaimed-king-in-the-north,Robb is proclaimed King in the North,occurred-or-scene-event,AGOT ch.71 Catelyn XI,event-candidate,existing-card,
+event,event:robb-receives-sansas-letter-at-winterfell,Robb receives Sansa’s letter at Winterfell,occurred-or-scene-event,AGOT ch.53 Bran VI,event-candidate,existing-card,
+event,event:robert-death-announced-by-great-sept-bells,Bells announce Robert’s death in King’s Landing,occurred-or-scene-event,AGOT ch.51 Sansa IV,event-candidate,existing-card,
+event,event:robert-death-reported-to-ned,Pycelle tells Ned that Robert is dead,occurred-or-scene-event,AGOT ch.49 Eddard XIV,event-candidate,existing-card,
+event,event:robert-dies-from-hunting-wounds,Robert dies from his hunting wounds,reported-or-referenced-event,AGOT ch.49 Eddard XIV;AGOT ch.51 Sansa IV;AGOT ch.52 Jon VII;AGOT ch.60 Jon VIII,event-candidate,existing-card,
+event,event:robert-orders-daenerys-assassination,Robert approves a plan to kill Daenerys,reported-or-referenced-event,AGOT ch.54 Daenerys VI,event-candidate,existing-card,
+event,event:sansa-writes-letters-to-starks-under-pressure,Sansa writes letters to her family under pressure,occurred-or-scene-event;reported-or-referenced-event,AGOT ch.51 Sansa IV;AGOT ch.53 Bran VI,event-candidate,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+event,event:stark-coup-and-ned-arrested,The royal coup ends with Ned's arrest,occurred-or-scene-event;reported-or-referenced-event,AGOT ch.49 Eddard XIV;AGOT ch.52 Jon VII;AGOT ch.57 Sansa V,event-candidate,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+event,event:stark-host-secures-passage-at-twins,Robb secures passage through the Twins,occurred-or-scene-event,AGOT ch.59 Catelyn IX,event-candidate,existing-card,
+event,event:tyrion-learns-robert-is-dead,Tyrion learns that Robert is dead,occurred-or-scene-event,AGOT ch.56 Tyrion VII,event-candidate,existing-card,
+event,event:tywin-ambushes-berics-justice-party,Tywin's host ambushes Beric's party,reported-or-referenced-event,AGOT ch.55 Catelyn VIII,event-candidate,existing-card,
+event,event:tywin-orders-riverlands-raids,Tywin orders raids across the Riverlands,occurred-or-scene-event,AGOT ch.69 Tyrion IX,event-candidate,existing-card,
+event,event:tywin-prepares-to-meet-robb,Tywin prepares to meet Robb’s host,occurred-or-scene-event;reported-or-referenced-event,AGOT ch.56 Tyrion VII;AGOT ch.62 Tyrion VIII,event-candidate,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+event,event:tywin-receives-news-of-jaimes-capture-and-riverrun-defeat,Tywin receives news of Jaime’s capture and defeat at Riverrun,occurred-or-scene-event,AGOT ch.69 Tyrion IX,event-candidate,existing-card,
+event,event:tywin-sends-tyrion-to-kings-landing-as-acting-hand,Tywin sends Tyrion to King’s Landing as acting Hand,occurred-or-scene-event,AGOT ch.69 Tyrion IX,event-candidate,existing-card,
+event,event:varys-pressures-ned-to-confess-and-save-sansa,Varys presses Ned to confess with Sansa's safety at stake,occurred-or-scene-event,AGOT ch.58 Eddard XV,event-candidate,existing-card,
+event,event:wight-attacks-lord-commanders-tower,A wight attacks the Lord Commander’s Tower,occurred-or-scene-event,AGOT ch.52 Jon VII,event-candidate,existing-card,
+event,event:wineseller-attempts-to-poison-daenerys,A wineseller attempts to poison Daenerys,occurred-or-scene-event,AGOT ch.54 Daenerys VI,event-candidate,existing-card,
+event,event:yoren-takes-arya-from-crowd,Yoren takes Arya from the crowd,occurred-or-scene-event,AGOT ch.65 Arya V,event-candidate,existing-card,
+organization,organization:house-arryn,House Arryn,organization-reference,AGOT ch.55 Catelyn VIII;AGOT ch.59 Catelyn IX,organization-separate,existing-card,Группа/дом отделён от персонажей.
+organization,organization:house-baratheon,House Baratheon,organization-reference,AGOT ch.49 Eddard XIV;AGOT ch.51 Sansa IV;AGOT ch.52 Jon VII;AGOT ch.53 Bran VI;AGOT ch.55 Catelyn VIII;AGOT ch.56 Tyrion VII;AGOT ch.57 Sansa V;AGOT ch.58 Eddard XV;AGOT ch.59 Catelyn IX;AGOT ch.60 Jon VIII;AGOT ch.62 Tyrion VIII;AGOT ch.63 Catelyn X;AGOT ch.65 Arya V;AGOT ch.66 Bran VII;AGOT ch.67 Sansa VI;AGOT ch.69 Tyrion IX;AGOT ch.71 Catelyn XI,organization-separate,existing-card,Группа/дом отделён от персонажей.
+organization,organization:house-frey,House Frey,organization-reference,AGOT ch.59 Catelyn IX,organization-separate,existing-card,Группа/дом отделён от персонажей.
+organization,organization:house-greyjoy,House Greyjoy,organization-reference,AGOT ch.53 Bran VI;AGOT ch.55 Catelyn VIII;AGOT ch.63 Catelyn X;AGOT ch.66 Bran VII,organization-separate,existing-card,Группа/дом отделён от персонажей.
+organization,organization:house-lannister,House Lannister,organization-reference,AGOT ch.49 Eddard XIV;AGOT ch.50 Arya IV;AGOT ch.51 Sansa IV;AGOT ch.52 Jon VII;AGOT ch.55 Catelyn VIII;AGOT ch.56 Tyrion VII;AGOT ch.57 Sansa V;AGOT ch.58 Eddard XV;AGOT ch.59 Catelyn IX;AGOT ch.62 Tyrion VIII;AGOT ch.63 Catelyn X;AGOT ch.65 Arya V;AGOT ch.67 Sansa VI;AGOT ch.69 Tyrion IX;AGOT ch.71 Catelyn XI,organization-separate,existing-card,Группа/дом отделён от персонажей.
+organization,organization:house-stark,House Stark,organization-reference,AGOT ch.49 Eddard XIV;AGOT ch.50 Arya IV;AGOT ch.51 Sansa IV;AGOT ch.52 Jon VII;AGOT ch.53 Bran VI;AGOT ch.55 Catelyn VIII;AGOT ch.56 Tyrion VII;AGOT ch.57 Sansa V;AGOT ch.58 Eddard XV;AGOT ch.59 Catelyn IX;AGOT ch.60 Jon VIII;AGOT ch.62 Tyrion VIII;AGOT ch.63 Catelyn X;AGOT ch.65 Arya V;AGOT ch.66 Bran VII;AGOT ch.67 Sansa VI;AGOT ch.69 Tyrion IX;AGOT ch.70 Jon IX;AGOT ch.71 Catelyn XI,organization-separate,existing-card,Группа/дом отделён от персонажей.
+organization,organization:house-targaryen,House Targaryen,organization-reference,AGOT ch.54 Daenerys VI;AGOT ch.58 Eddard XV;AGOT ch.60 Jon VIII;AGOT ch.61 Daenerys VII;AGOT ch.64 Daenerys VIII;AGOT ch.68 Daenerys IX;AGOT ch.72 Daenerys X,organization-separate,existing-card,Группа/дом отделён от персонажей.
+organization,organization:khalasar-of-drogo,Khalasar of Khal Drogo,organization-reference,AGOT ch.54 Daenerys VI;AGOT ch.61 Daenerys VII;AGOT ch.64 Daenerys VIII;AGOT ch.68 Daenerys IX;AGOT ch.72 Daenerys X,organization-separate,existing-card,Группа/дом отделён от персонажей.
+organization,organization:nights-watch,Night's Watch,organization-reference,AGOT ch.52 Jon VII;AGOT ch.60 Jon VIII;AGOT ch.65 Arya V;AGOT ch.70 Jon IX,organization-separate,existing-card,Группа/дом отделён от персонажей.
+person,person:addam-marbrand,Addam Marbrand,appearance,AGOT ch.62 Tyrion VIII;AGOT ch.69 Tyrion IX,named-human-character,existing-card,
+person,person:aerys-ii-targaryen,Aerys II Targaryen,mention,AGOT ch.58 Eddard XV,named-human-character,existing-card,
+person,person:aggo,Aggo,appearance,AGOT ch.54 Daenerys VI;AGOT ch.61 Daenerys VII;AGOT ch.64 Daenerys VIII;AGOT ch.68 Daenerys IX;AGOT ch.72 Daenerys X,named-human-character,existing-card,
+person,person:albar-royce,Albar Royce,mention,AGOT ch.57 Sansa V,named-human-character,existing-card,
+person,person:alliser-thorne,Alliser Thorne,appearance;mention,AGOT ch.52 Jon VII;AGOT ch.60 Jon VIII,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:aron-santagar,Aron Santagar,appearance,AGOT ch.57 Sansa V,named-human-character,existing-card,
+person,person:arthur-dayne,Arthur Dayne,mention,AGOT ch.58 Eddard XV,named-human-character,existing-card,
+person,person:arya-stark,Arya Stark,appearance;mention,AGOT ch.49 Eddard XIV;AGOT ch.50 Arya IV;AGOT ch.51 Sansa IV;AGOT ch.52 Jon VII;AGOT ch.53 Bran VI;AGOT ch.55 Catelyn VIII;AGOT ch.57 Sansa V;AGOT ch.59 Catelyn IX;AGOT ch.60 Jon VIII;AGOT ch.63 Catelyn X;AGOT ch.65 Arya V;AGOT ch.69 Tyrion IX;AGOT ch.70 Jon IX;AGOT ch.71 Catelyn XI,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:arys-oakheart,Arys Oakheart,appearance,AGOT ch.57 Sansa V;AGOT ch.67 Sansa VI,named-human-character,existing-card,
+person,person:balerion-the-cat,Balerion (black cat),mention,AGOT ch.58 Eddard XV,named-nonhuman-character-separate,existing-card,Животное/дракон: не считать человеческой персоной; оставить как отдельный игровой персонаж-компаньон.
+person,person:balon-swann,Balon Swann,appearance,AGOT ch.57 Sansa V,named-human-character,existing-card,
+person,person:barristan-selmy,Barristan Selmy,appearance;mention,AGOT ch.52 Jon VII;AGOT ch.57 Sansa V;AGOT ch.58 Eddard XV;AGOT ch.60 Jon VIII;AGOT ch.69 Tyrion IX,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:bass,Bass,appearance,AGOT ch.52 Jon VII,named-human-character,existing-card,
+person,person:benjen-stark,Benjen Stark,mention,AGOT ch.52 Jon VII;AGOT ch.58 Eddard XV;AGOT ch.60 Jon VIII;AGOT ch.70 Jon IX,named-human-character,existing-card,
+person,person:beric-dondarrion,Beric Dondarrion,mention,AGOT ch.55 Catelyn VIII;AGOT ch.56 Tyrion VII;AGOT ch.57 Sansa V;AGOT ch.69 Tyrion IX,named-human-character,existing-card,
+person,person:bethany-redwyne,Bethany Redwyne,mention,AGOT ch.71 Catelyn XI,named-human-character,existing-card,
+person,person:boros-blount,Boros Blount,appearance,AGOT ch.49 Eddard XIV;AGOT ch.51 Sansa IV;AGOT ch.57 Sansa V,named-human-character,existing-card,
+person,person:bowen-marsh,Bowen Marsh,appearance,AGOT ch.52 Jon VII,named-human-character,existing-card,
+person,person:bran-stark,Bran Stark,appearance;mention,AGOT ch.50 Arya IV;AGOT ch.51 Sansa IV;AGOT ch.52 Jon VII;AGOT ch.53 Bran VI;AGOT ch.58 Eddard XV;AGOT ch.59 Catelyn IX;AGOT ch.65 Arya V;AGOT ch.66 Bran VII;AGOT ch.70 Jon IX,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:brandon-stark,Brandon Stark (brother of Eddard),mention,AGOT ch.53 Bran VI;AGOT ch.66 Bran VII,named-human-character,existing-card,
+person,person:bronn,Bronn,appearance,AGOT ch.56 Tyrion VII;AGOT ch.62 Tyrion VIII,named-human-character,existing-card,
+person,person:brynden-tully,Brynden Tully,appearance;mention,AGOT ch.55 Catelyn VIII;AGOT ch.59 Catelyn IX;AGOT ch.63 Catelyn X;AGOT ch.69 Tyrion IX;AGOT ch.71 Catelyn XI,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:byan-votyris,Byan Votyris,appearance,AGOT ch.54 Daenerys VI,named-human-character,existing-card,
+person,person:catelyn-stark,Catelyn Stark,appearance;mention,AGOT ch.50 Arya IV;AGOT ch.51 Sansa IV;AGOT ch.52 Jon VII;AGOT ch.53 Bran VI;AGOT ch.55 Catelyn VIII;AGOT ch.56 Tyrion VII;AGOT ch.58 Eddard XV;AGOT ch.59 Catelyn IX;AGOT ch.62 Tyrion VIII;AGOT ch.63 Catelyn X;AGOT ch.65 Arya V;AGOT ch.71 Catelyn XI,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:cersei-lannister,Cersei Lannister,appearance;mention,AGOT ch.49 Eddard XIV;AGOT ch.51 Sansa IV;AGOT ch.52 Jon VII;AGOT ch.53 Bran VI;AGOT ch.55 Catelyn VIII;AGOT ch.56 Tyrion VII;AGOT ch.57 Sansa V;AGOT ch.58 Eddard XV;AGOT ch.65 Arya V;AGOT ch.66 Bran VII;AGOT ch.67 Sansa VI;AGOT ch.69 Tyrion IX,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:chella,Chella,appearance,AGOT ch.56 Tyrion VII;AGOT ch.62 Tyrion VIII,named-human-character,existing-card,
+person,person:chett,Chett,appearance,AGOT ch.52 Jon VII,named-human-character,existing-card,
+person,person:cleos-frey,Cleos Frey,mention,AGOT ch.63 Catelyn X,named-human-character,existing-card,
+person,person:cohollo,Cohollo,appearance;mention,AGOT ch.54 Daenerys VI;AGOT ch.61 Daenerys VII;AGOT ch.64 Daenerys VIII;AGOT ch.68 Daenerys IX,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:conn,Conn,appearance,AGOT ch.56 Tyrion VII;AGOT ch.62 Tyrion VIII,named-human-character,existing-card,
+person,person:dacey-mormont,Dacey Mormont,appearance,AGOT ch.63 Catelyn X,named-human-character,existing-card,
+person,person:daenerys-targaryen,Daenerys Targaryen,appearance,AGOT ch.54 Daenerys VI;AGOT ch.61 Daenerys VII;AGOT ch.64 Daenerys VIII;AGOT ch.68 Daenerys IX;AGOT ch.72 Daenerys X,named-human-character,existing-card,
+person,person:danwell-frey,Danwell Frey,appearance,AGOT ch.59 Catelyn IX,named-human-character,existing-card,
+person,person:daryn-hornwood,Daryn Hornwood,appearance,AGOT ch.63 Catelyn X,named-human-character,existing-card,
+person,person:desmond,Desmond,appearance,AGOT ch.50 Arya IV,named-human-character,existing-card,
+person,person:donal-noye,Donal Noye,appearance;mention,AGOT ch.52 Jon VII;AGOT ch.60 Jon VIII;AGOT ch.70 Jon IX,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:dontos-hollard,Dontos Hollard,appearance,AGOT ch.57 Sansa V,named-human-character,existing-card,
+person,person:doreah,Doreah,appearance,AGOT ch.54 Daenerys VI;AGOT ch.61 Daenerys VII;AGOT ch.64 Daenerys VIII;AGOT ch.68 Daenerys IX;AGOT ch.72 Daenerys X,named-human-character,existing-card,
+person,person:drogo,Drogo,appearance;dream-presence,AGOT ch.54 Daenerys VI;AGOT ch.61 Daenerys VII;AGOT ch.64 Daenerys VIII;AGOT ch.68 Daenerys IX;AGOT ch.72 Daenerys X,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:drogo-stallion,Drogo's stallion,appearance,AGOT ch.64 Daenerys VIII,named-nonhuman-character-separate,existing-card,Животное/дракон: не считать человеческой персоной; оставить как отдельный игровой персонаж-компаньон.
+person,person:drogon,Drogon,appearance,AGOT ch.72 Daenerys X,named-nonhuman-character-separate,existing-card,Животное/дракон: не считать человеческой персоной; оставить как отдельный игровой персонаж-компаньон.
+person,person:dywen,Dywen,appearance,AGOT ch.52 Jon VII,named-human-character,existing-card,
+person,person:eddard-karstark,Eddard Karstark,appearance,AGOT ch.63 Catelyn X,named-human-character,existing-card,
+person,person:eddard-stark,Eddard Stark,appearance;dream-presence;mention,AGOT ch.49 Eddard XIV;AGOT ch.50 Arya IV;AGOT ch.51 Sansa IV;AGOT ch.52 Jon VII;AGOT ch.53 Bran VI;AGOT ch.55 Catelyn VIII;AGOT ch.56 Tyrion VII;AGOT ch.57 Sansa V;AGOT ch.58 Eddard XV;AGOT ch.59 Catelyn IX;AGOT ch.60 Jon VIII;AGOT ch.62 Tyrion VIII;AGOT ch.63 Catelyn X;AGOT ch.65 Arya V;AGOT ch.66 Bran VII;AGOT ch.67 Sansa VI;AGOT ch.69 Tyrion IX;AGOT ch.70 Jon IX;AGOT ch.71 Catelyn XI,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:edmure-tully,Edmure Tully,appearance;mention,AGOT ch.55 Catelyn VIII;AGOT ch.56 Tyrion VII;AGOT ch.59 Catelyn IX;AGOT ch.63 Catelyn X;AGOT ch.69 Tyrion IX;AGOT ch.71 Catelyn XI,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:elia-martell,Elia Martell,mention,AGOT ch.64 Daenerys VIII,named-human-character,existing-card,
+person,person:endrew-tarth,Endrew Tarth,mention,AGOT ch.60 Jon VIII,named-human-character,existing-card,
+person,person:eroeh,Eroeh,appearance;mention,AGOT ch.61 Daenerys VII;AGOT ch.64 Daenerys VIII;AGOT ch.68 Daenerys IX,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:flement-brax,Flement Brax,appearance,AGOT ch.56 Tyrion VII;AGOT ch.69 Tyrion IX,named-human-character,existing-card,
+person,person:fogo,Fogo,mention,AGOT ch.61 Daenerys VII,named-human-character,existing-card,
+person,person:galbart-glover,Galbart Glover,appearance,AGOT ch.53 Bran VI;AGOT ch.55 Catelyn VIII;AGOT ch.59 Catelyn IX;AGOT ch.63 Catelyn X;AGOT ch.71 Catelyn XI,named-human-character,existing-card,
+person,person:gared,Gared,mention,AGOT ch.70 Jon IX,named-human-character,existing-card,
+person,person:garth-greenfield,Garth Greenfield,mention,AGOT ch.63 Catelyn X,named-human-character,existing-card,
+person,person:gawen-westerling,Gawen Westerling,mention,AGOT ch.63 Catelyn X,named-human-character,existing-card,
+person,person:genna-lannister,Genna Lannister,mention,AGOT ch.63 Catelyn X,named-human-character,existing-card,
+person,person:ghost,Ghost,appearance,AGOT ch.52 Jon VII;AGOT ch.60 Jon VIII;AGOT ch.70 Jon IX,named-nonhuman-character-separate,existing-card,Животное/дракон: не считать человеческой персоной; оставить как отдельный игровой персонаж-компаньон.
+person,person:greatjon-umber,Greatjon Umber,appearance;mention,AGOT ch.53 Bran VI;AGOT ch.55 Catelyn VIII;AGOT ch.59 Catelyn IX;AGOT ch.63 Catelyn X;AGOT ch.69 Tyrion IX;AGOT ch.71 Catelyn XI,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:gregor-clegane,Gregor Clegane,appearance;mention,AGOT ch.58 Eddard XV;AGOT ch.62 Tyrion VIII;AGOT ch.69 Tyrion IX,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:grenn,Grenn,appearance,AGOT ch.52 Jon VII;AGOT ch.60 Jon VIII;AGOT ch.70 Jon IX,named-human-character,existing-card,
+person,person:grey-wind,Grey Wind,appearance,AGOT ch.55 Catelyn VIII;AGOT ch.59 Catelyn IX;AGOT ch.63 Catelyn X;AGOT ch.71 Catelyn XI,named-nonhuman-character-separate,existing-card,Животное/дракон: не считать человеческой персоной; оставить как отдельный игровой персонаж-компаньон.
+person,person:gunthor,Gunthor,mention,AGOT ch.56 Tyrion VII,named-human-character,existing-card,
+person,person:gyles-rosby,Gyles Rosby,appearance,AGOT ch.57 Sansa V,named-human-character,existing-card,
+person,person:haggo,Haggo,appearance;mention,AGOT ch.61 Daenerys VII;AGOT ch.64 Daenerys VIII;AGOT ch.68 Daenerys IX,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:hake,Hake,appearance,AGOT ch.52 Jon VII,named-human-character,existing-card,
+person,person:halder,Halder,appearance,AGOT ch.60 Jon VIII;AGOT ch.70 Jon IX,named-human-character,existing-card,
+person,person:hallis-mollen,Hallis Mollen,appearance,AGOT ch.63 Catelyn X,named-human-character,existing-card,
+person,person:halys-hornwood,Halys Hornwood,appearance;mention,AGOT ch.53 Bran VI;AGOT ch.55 Catelyn VIII;AGOT ch.62 Tyrion VIII,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:harrion-karstark,Harrion Karstark,mention,AGOT ch.71 Catelyn XI,named-human-character,existing-card,
+person,person:harwin,Harwin,mention,AGOT ch.58 Eddard XV,named-human-character,existing-card,
+person,person:harys-swyft,Harys Swyft,appearance,AGOT ch.69 Tyrion IX,named-human-character,existing-card,
+person,person:helman-tallhart,Helman Tallhart,appearance;mention,AGOT ch.55 Catelyn VIII;AGOT ch.59 Catelyn IX;AGOT ch.71 Catelyn XI,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:hobber-redwyne,Hobber Redwyne,appearance,AGOT ch.57 Sansa V;AGOT ch.65 Arya V,named-human-character,existing-card,
+person,person:hodor,Hodor,appearance;mention,AGOT ch.53 Bran VI;AGOT ch.66 Bran VII,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:horas-redwyne,Horas Redwyne,appearance,AGOT ch.57 Sansa V;AGOT ch.65 Arya V,named-human-character,existing-card,
+person,person:hosteen-frey,Hosteen Frey,appearance,AGOT ch.59 Catelyn IX,named-human-character,existing-card,
+person,person:hoster-tully,Hoster Tully,appearance;mention,AGOT ch.51 Sansa IV;AGOT ch.55 Catelyn VIII;AGOT ch.57 Sansa V;AGOT ch.59 Catelyn IX;AGOT ch.63 Catelyn X;AGOT ch.71 Catelyn XI,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:illyrio-mopatis,Illyrio Mopatis,mention,AGOT ch.50 Arya IV;AGOT ch.54 Daenerys VI;AGOT ch.61 Daenerys VII,named-human-character,existing-card,
+person,person:ilyn-payne,Ilyn Payne,appearance;mention,AGOT ch.62 Tyrion VIII;AGOT ch.65 Arya V;AGOT ch.67 Sansa VI,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:irri,Irri,appearance,AGOT ch.54 Daenerys VI;AGOT ch.61 Daenerys VII;AGOT ch.64 Daenerys VIII;AGOT ch.68 Daenerys IX;AGOT ch.72 Daenerys X,named-human-character,existing-card,
+person,person:jafer-flowers,Jafer Flowers,appearance,AGOT ch.52 Jon VII,named-human-character,existing-card,
+person,person:jaime-lannister,Jaime Lannister,appearance;mention,AGOT ch.49 Eddard XIV;AGOT ch.50 Arya IV;AGOT ch.55 Catelyn VIII;AGOT ch.56 Tyrion VII;AGOT ch.57 Sansa V;AGOT ch.58 Eddard XV;AGOT ch.59 Catelyn IX;AGOT ch.63 Catelyn X;AGOT ch.67 Sansa VI;AGOT ch.69 Tyrion IX;AGOT ch.71 Catelyn XI,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:jalabhar-xho,Jalabhar Xho,appearance,AGOT ch.57 Sansa V,named-human-character,existing-card,
+person,person:janos-slynt,Janos Slynt,appearance;mention,AGOT ch.49 Eddard XIV;AGOT ch.57 Sansa V;AGOT ch.58 Eddard XV;AGOT ch.65 Arya V;AGOT ch.67 Sansa VI;AGOT ch.69 Tyrion IX,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:jared-frey,Jared Frey,appearance,AGOT ch.59 Catelyn IX,named-human-character,existing-card,
+person,person:jaremy-rykker,Jaremy Rykker,appearance;mention,AGOT ch.52 Jon VII;AGOT ch.70 Jon IX,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:jason-mallister,Jason Mallister,appearance;mention,AGOT ch.57 Sansa V;AGOT ch.71 Catelyn XI,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:jeor-mormont,Jeor Mormont,appearance,AGOT ch.52 Jon VII;AGOT ch.60 Jon VIII;AGOT ch.70 Jon IX,named-human-character,existing-card,
+person,person:jeyne-poole,Jeyne Poole,appearance;mention,AGOT ch.51 Sansa IV;AGOT ch.65 Arya V,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:jhaqo,Jhaqo,mention,AGOT ch.61 Daenerys VII;AGOT ch.64 Daenerys VIII;AGOT ch.68 Daenerys IX,named-human-character,existing-card,
+person,person:jhiqui,Jhiqui,appearance,AGOT ch.54 Daenerys VI;AGOT ch.61 Daenerys VII;AGOT ch.64 Daenerys VIII;AGOT ch.68 Daenerys IX;AGOT ch.72 Daenerys X,named-human-character,existing-card,
+person,person:jhogo,Jhogo,appearance,AGOT ch.54 Daenerys VI;AGOT ch.61 Daenerys VII;AGOT ch.64 Daenerys VIII;AGOT ch.68 Daenerys IX;AGOT ch.72 Daenerys X,named-human-character,existing-card,
+person,person:joffrey-baratheon,Joffrey Baratheon,appearance;mention,AGOT ch.49 Eddard XIV;AGOT ch.51 Sansa IV;AGOT ch.52 Jon VII;AGOT ch.53 Bran VI;AGOT ch.56 Tyrion VII;AGOT ch.57 Sansa V;AGOT ch.58 Eddard XV;AGOT ch.59 Catelyn IX;AGOT ch.60 Jon VIII;AGOT ch.65 Arya V;AGOT ch.67 Sansa VI;AGOT ch.69 Tyrion IX;AGOT ch.71 Catelyn XI,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:jon-arryn,Jon Arryn,mention,AGOT ch.59 Catelyn IX,named-human-character,existing-card,
+person,person:jon-snow,Jon Snow,appearance;mention,AGOT ch.50 Arya IV;AGOT ch.52 Jon VII;AGOT ch.58 Eddard XV;AGOT ch.60 Jon VIII;AGOT ch.65 Arya V;AGOT ch.66 Bran VII;AGOT ch.70 Jon IX,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:jon-umber-son-of-jon,Jon Umber (son of Jon),appearance,AGOT ch.63 Catelyn X,named-human-character,existing-card,
+person,person:jonelle-cerwyn,Jonelle Cerwyn,appearance,AGOT ch.53 Bran VI,named-human-character,existing-card,
+person,person:jonos-bracken,Jonos Bracken,appearance;mention,AGOT ch.55 Catelyn VIII;AGOT ch.57 Sansa V;AGOT ch.71 Catelyn XI,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:jorah-mormont,Jorah Mormont,appearance;dream-presence;mention,AGOT ch.52 Jon VII;AGOT ch.54 Daenerys VI;AGOT ch.60 Jon VIII;AGOT ch.61 Daenerys VII;AGOT ch.64 Daenerys VIII;AGOT ch.68 Daenerys IX;AGOT ch.70 Jon IX;AGOT ch.72 Daenerys X,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:jory-cassel,Jory Cassel,mention,AGOT ch.50 Arya IV;AGOT ch.53 Bran VI,named-human-character,existing-card,
+person,person:joyeuse-erenford,Joyeuse Erenford,appearance,AGOT ch.59 Catelyn IX,named-human-character,existing-card,
+person,person:jyck,Jyck,mention,AGOT ch.56 Tyrion VII,named-human-character,existing-card,
+person,person:karyl-vance,Karyl Vance,appearance;mention,AGOT ch.55 Catelyn VIII;AGOT ch.56 Tyrion VII;AGOT ch.71 Catelyn XI,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:kevan-lannister,Kevan Lannister,appearance;mention,AGOT ch.56 Tyrion VII;AGOT ch.62 Tyrion VIII;AGOT ch.69 Tyrion IX;AGOT ch.71 Catelyn XI,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:lancel-lannister,Lancel Lannister,mention,AGOT ch.58 Eddard XV,named-human-character,existing-card,
+person,person:leo-lefford,Leo Lefford,appearance,AGOT ch.62 Tyrion VIII;AGOT ch.69 Tyrion IX,named-human-character,existing-card,
+person,person:lewys-lydden,Lewys Lydden,appearance,AGOT ch.62 Tyrion VIII,named-human-character,existing-card,
+person,person:loras-tyrell,Loras Tyrell,mention,AGOT ch.57 Sansa V;AGOT ch.71 Catelyn XI,named-human-character,existing-card,
+person,person:lord-serrett,Lord Serrett,appearance,AGOT ch.62 Tyrion VIII,named-human-character,existing-card,
+person,person:lyman-darry,Lyman Darry,appearance,AGOT ch.71 Catelyn XI,named-human-character,existing-card,
+person,person:lysa-arryn,Lysa Arryn,mention,AGOT ch.51 Sansa IV;AGOT ch.55 Catelyn VIII;AGOT ch.57 Sansa V;AGOT ch.59 Catelyn IX;AGOT ch.71 Catelyn XI,named-human-character,existing-card,
+person,person:mace-tyrell,Mace Tyrell,mention,AGOT ch.57 Sansa V,named-human-character,existing-card,
+person,person:maege-mormont,Maege Mormont,appearance;mention,AGOT ch.53 Bran VI;AGOT ch.55 Catelyn VIII;AGOT ch.60 Jon VIII;AGOT ch.63 Catelyn X;AGOT ch.70 Jon IX;AGOT ch.71 Catelyn XI,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:maester-aemon,Aemon,appearance;mention,AGOT ch.52 Jon VII;AGOT ch.60 Jon VIII;AGOT ch.70 Jon IX,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:maester-luwin,Maester Luwin,appearance;mention,AGOT ch.53 Bran VI;AGOT ch.66 Bran VII;AGOT ch.70 Jon IX,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:mago,Mago,appearance;mention,AGOT ch.61 Daenerys VII;AGOT ch.68 Daenerys IX,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:mallor-the-dornishman,Mallor the Dornishman,mention,AGOT ch.63 Catelyn X,named-human-character,existing-card,
+person,person:mance-rayder,Mance Rayder,mention,AGOT ch.53 Bran VI;AGOT ch.70 Jon IX,named-human-character,existing-card,
+person,person:mandon-moore,Mandon Moore,appearance,AGOT ch.49 Eddard XIV;AGOT ch.51 Sansa IV;AGOT ch.57 Sansa V,named-human-character,existing-card,
+person,person:margaery-tyrell,Margaery Tyrell,mention,AGOT ch.69 Tyrion IX,named-human-character,existing-card,
+person,person:marq-piper,Marq Piper,appearance;mention,AGOT ch.55 Catelyn VIII;AGOT ch.56 Tyrion VII;AGOT ch.71 Catelyn XI,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:masha-heddle,Masha Heddle,appearance,AGOT ch.56 Tyrion VII;AGOT ch.69 Tyrion IX,named-human-character,existing-card,
+person,person:mathis-rowan,Mathis Rowan,mention,AGOT ch.71 Catelyn XI,named-human-character,existing-card,
+person,person:matthar,Matthar,appearance,AGOT ch.52 Jon VII;AGOT ch.60 Jon VIII;AGOT ch.70 Jon IX,named-human-character,existing-card,
+person,person:medger-cerwyn,Medger Cerwyn,appearance;mention,AGOT ch.53 Bran VI;AGOT ch.62 Tyrion VIII,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:meryn-trant,Meryn Trant,appearance,AGOT ch.49 Eddard XIV;AGOT ch.50 Arya IV;AGOT ch.51 Sansa IV;AGOT ch.57 Sansa V;AGOT ch.65 Arya V;AGOT ch.67 Sansa VI,named-human-character,existing-card,
+person,person:mikken,Mikken,mention,AGOT ch.53 Bran VI,named-human-character,existing-card,
+person,person:mirri-maz-duur,Mirri Maz Duur,appearance,AGOT ch.61 Daenerys VII;AGOT ch.64 Daenerys VIII;AGOT ch.68 Daenerys IX;AGOT ch.72 Daenerys X,named-human-character,existing-card,
+person,person:mormonts-raven,Mormont's raven,appearance;mention,AGOT ch.52 Jon VII;AGOT ch.60 Jon VIII,named-nonhuman-character-separate,existing-card,Животное/дракон: не считать человеческой персоной; оставить как отдельный игровой персонаж-компаньон. Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:myrcella-baratheon,Myrcella Baratheon,appearance;mention,AGOT ch.49 Eddard XIV;AGOT ch.57 Sansa V,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:nymeria-direwolf,Nymeria (direwolf),mention,AGOT ch.51 Sansa IV,named-nonhuman-character-separate,existing-card,Животное/дракон: не считать человеческой персоной; оставить как отдельный игровой персонаж-компаньон.
+person,person:ogo,Ogo,mention,AGOT ch.61 Daenerys VII,named-human-character,existing-card,
+person,person:old-nan,Old Nan,mention,AGOT ch.52 Jon VII;AGOT ch.53 Bran VI;AGOT ch.65 Arya V;AGOT ch.66 Bran VII,named-human-character,existing-card,
+person,person:olyvar-frey,Olyvar Frey,appearance;mention,AGOT ch.59 Catelyn IX;AGOT ch.63 Catelyn X,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:osha,Osha,appearance,AGOT ch.66 Bran VII,named-human-character,existing-card,
+person,person:othor,Othor,appearance,AGOT ch.52 Jon VII,named-human-character,existing-card,
+person,person:patrek-mallister,Patrek Mallister,appearance,AGOT ch.63 Catelyn X,named-human-character,existing-card,
+person,person:perwyn-frey,Perwyn Frey,appearance,AGOT ch.59 Catelyn IX,named-human-character,existing-card,
+person,person:petyr-baelish,Petyr Baelish,appearance;mention,AGOT ch.51 Sansa IV;AGOT ch.57 Sansa V;AGOT ch.58 Eddard XV;AGOT ch.65 Arya V;AGOT ch.67 Sansa VI;AGOT ch.69 Tyrion IX;AGOT ch.71 Catelyn XI,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:podrick-payne,Podrick Payne,appearance,AGOT ch.62 Tyrion VIII,named-human-character,existing-card,
+person,person:pono,Pono,mention,AGOT ch.64 Daenerys VIII;AGOT ch.68 Daenerys IX,named-human-character,existing-card,
+person,person:preston-greenfield,Preston Greenfield,appearance,AGOT ch.57 Sansa V,named-human-character,existing-card,
+person,person:pycelle,Pycelle,appearance;mention,AGOT ch.51 Sansa IV;AGOT ch.52 Jon VII;AGOT ch.57 Sansa V;AGOT ch.67 Sansa VI,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:pypar,Pypar,appearance,AGOT ch.52 Jon VII;AGOT ch.60 Jon VIII;AGOT ch.70 Jon IX,named-human-character,existing-card,
+person,person:qotho,Qotho,appearance,AGOT ch.61 Daenerys VII;AGOT ch.64 Daenerys VIII,named-human-character,existing-card,
+person,person:quaro,Quaro,appearance,AGOT ch.54 Daenerys VI;AGOT ch.61 Daenerys VII;AGOT ch.64 Daenerys VIII,named-human-character,existing-card,
+person,person:quenten-banefort,Quenten Banefort,mention,AGOT ch.63 Catelyn X,named-human-character,existing-card,
+person,person:rakharo,Rakharo,appearance,AGOT ch.54 Daenerys VI;AGOT ch.61 Daenerys VII;AGOT ch.64 Daenerys VIII;AGOT ch.68 Daenerys IX;AGOT ch.72 Daenerys X,named-human-character,existing-card,
+person,person:raymun-darry,Raymun Darry,mention,AGOT ch.55 Catelyn VIII;AGOT ch.71 Catelyn XI,named-human-character,existing-card,
+person,person:regenard-estren,Regenard Estren,mention,AGOT ch.63 Catelyn X,named-human-character,existing-card,
+person,person:renly-baratheon,Renly Baratheon,mention,AGOT ch.49 Eddard XIV;AGOT ch.52 Jon VII;AGOT ch.53 Bran VI;AGOT ch.57 Sansa V;AGOT ch.58 Eddard XV;AGOT ch.65 Arya V;AGOT ch.67 Sansa VI;AGOT ch.69 Tyrion IX;AGOT ch.71 Catelyn XI,named-human-character,existing-card,
+person,person:rhaegal,Rhaegal,appearance,AGOT ch.72 Daenerys X,named-nonhuman-character-separate,existing-card,Животное/дракон: не считать человеческой персоной; оставить как отдельный игровой персонаж-компаньон.
+person,person:rhaegar-targaryen,Rhaegar Targaryen,dream-presence;mention,AGOT ch.58 Eddard XV;AGOT ch.61 Daenerys VII;AGOT ch.64 Daenerys VIII;AGOT ch.68 Daenerys IX;AGOT ch.69 Tyrion IX,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:rhaego,Rhaego,dream-presence;mention,AGOT ch.54 Daenerys VI;AGOT ch.61 Daenerys VII;AGOT ch.64 Daenerys VIII;AGOT ch.68 Daenerys IX;AGOT ch.72 Daenerys X,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:rhaenys-targaryen,Rhaenys Targaryen (wife of Aegon I),mention,AGOT ch.64 Daenerys VIII,named-human-character,existing-card,
+person,person:rickard-karstark,Rickard Karstark,appearance,AGOT ch.53 Bran VI;AGOT ch.55 Catelyn VIII;AGOT ch.59 Catelyn IX;AGOT ch.63 Catelyn X;AGOT ch.71 Catelyn XI,named-human-character,existing-card,
+person,person:rickon-stark,Rickon Stark,appearance;mention,AGOT ch.50 Arya IV;AGOT ch.51 Sansa IV;AGOT ch.53 Bran VI;AGOT ch.59 Catelyn IX;AGOT ch.65 Arya V;AGOT ch.66 Bran VII,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:robar-royce,Robar Royce,mention,AGOT ch.57 Sansa V,named-human-character,existing-card,
+person,person:robb-stark,Robb Stark,appearance;mention,AGOT ch.50 Arya IV;AGOT ch.51 Sansa IV;AGOT ch.52 Jon VII;AGOT ch.53 Bran VI;AGOT ch.55 Catelyn VIII;AGOT ch.56 Tyrion VII;AGOT ch.57 Sansa V;AGOT ch.59 Catelyn IX;AGOT ch.60 Jon VIII;AGOT ch.62 Tyrion VIII;AGOT ch.63 Catelyn X;AGOT ch.66 Bran VII;AGOT ch.67 Sansa VI;AGOT ch.69 Tyrion IX;AGOT ch.70 Jon IX;AGOT ch.71 Catelyn XI,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:robert-arryn,Robert Arryn,mention,AGOT ch.57 Sansa V;AGOT ch.59 Catelyn IX,named-human-character,existing-card,
+person,person:robert-baratheon,Robert I Baratheon,mention,AGOT ch.51 Sansa IV;AGOT ch.52 Jon VII;AGOT ch.53 Bran VI;AGOT ch.55 Catelyn VIII;AGOT ch.56 Tyrion VII;AGOT ch.57 Sansa V;AGOT ch.58 Eddard XV;AGOT ch.65 Arya V;AGOT ch.66 Bran VII;AGOT ch.67 Sansa VI;AGOT ch.69 Tyrion IX,named-human-character,existing-card,
+person,person:robett-glover,Robett Glover,appearance,AGOT ch.53 Bran VI;AGOT ch.55 Catelyn VIII;AGOT ch.59 Catelyn IX,named-human-character,existing-card,
+person,person:robin-flint,Robin Flint,appearance,AGOT ch.63 Catelyn X,named-human-character,existing-card,
+person,person:rodrik-cassel,Rodrik Cassel,appearance;mention,AGOT ch.52 Jon VII;AGOT ch.53 Bran VI;AGOT ch.55 Catelyn VIII;AGOT ch.66 Bran VII,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:ronel-rivers,Ronel Rivers,appearance,AGOT ch.59 Catelyn IX,named-human-character,existing-card,
+person,person:roose-bolton,Roose Bolton,appearance;mention,AGOT ch.53 Bran VI;AGOT ch.55 Catelyn VIII;AGOT ch.56 Tyrion VII;AGOT ch.59 Catelyn IX;AGOT ch.62 Tyrion VIII;AGOT ch.69 Tyrion IX;AGOT ch.71 Catelyn XI,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:ryger-rivers,Ryger Rivers,appearance,AGOT ch.59 Catelyn IX,named-human-character,existing-card,
+person,person:samwell-tarly,Samwell Tarly,appearance,AGOT ch.52 Jon VII;AGOT ch.60 Jon VIII;AGOT ch.70 Jon IX,named-human-character,existing-card,
+person,person:sandor-clegane,Sandor Clegane,appearance;mention,AGOT ch.49 Eddard XIV;AGOT ch.51 Sansa IV;AGOT ch.53 Bran VI;AGOT ch.57 Sansa V;AGOT ch.60 Jon VIII;AGOT ch.65 Arya V;AGOT ch.67 Sansa VI;AGOT ch.69 Tyrion IX,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:sansa-stark,Sansa Stark,appearance;mention,AGOT ch.49 Eddard XIV;AGOT ch.51 Sansa IV;AGOT ch.52 Jon VII;AGOT ch.53 Bran VI;AGOT ch.55 Catelyn VIII;AGOT ch.57 Sansa V;AGOT ch.58 Eddard XV;AGOT ch.59 Catelyn IX;AGOT ch.60 Jon VIII;AGOT ch.63 Catelyn X;AGOT ch.65 Arya V;AGOT ch.67 Sansa VI;AGOT ch.69 Tyrion IX;AGOT ch.71 Catelyn XI,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:septa-mordane,Mordane,appearance;mention,AGOT ch.49 Eddard XIV;AGOT ch.51 Sansa IV;AGOT ch.67 Sansa VI,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:shae,Shae,appearance,AGOT ch.62 Tyrion VIII;AGOT ch.69 Tyrion IX,named-human-character,existing-card,
+person,person:shagga,Shagga,appearance,AGOT ch.56 Tyrion VII;AGOT ch.62 Tyrion VIII,named-human-character,existing-card,
+person,person:shaggydog,Shaggydog,appearance;mention,AGOT ch.53 Bran VI;AGOT ch.66 Bran VII,named-nonhuman-character-separate,existing-card,Животное/дракон: не считать человеческой персоной; оставить как отдельный игровой персонаж-компаньон. Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:shireen-baratheon,Shireen Baratheon,mention,AGOT ch.57 Sansa V,named-human-character,existing-card,
+person,person:silver-mare,The silver mare,appearance,AGOT ch.54 Daenerys VI;AGOT ch.64 Daenerys VIII,named-nonhuman-character-separate,existing-card,Животное/дракон: не считать человеческой персоной; оставить как отдельный игровой персонаж-компаньон.
+person,person:stannis-baratheon,Stannis Baratheon,mention,AGOT ch.52 Jon VII;AGOT ch.53 Bran VI;AGOT ch.56 Tyrion VII;AGOT ch.57 Sansa V;AGOT ch.58 Eddard XV;AGOT ch.59 Catelyn IX;AGOT ch.67 Sansa VI;AGOT ch.69 Tyrion IX;AGOT ch.71 Catelyn XI,named-human-character,existing-card,
+person,person:stevron-frey,Stevron Frey,appearance;mention,AGOT ch.55 Catelyn VIII;AGOT ch.57 Sansa V;AGOT ch.59 Catelyn IX;AGOT ch.63 Catelyn X;AGOT ch.71 Catelyn XI,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:summer-direwolf,Summer,appearance;mention,AGOT ch.53 Bran VI;AGOT ch.62 Tyrion VIII;AGOT ch.66 Bran VII,named-nonhuman-character-separate,existing-card,Животное/дракон: не считать человеческой персоной; оставить как отдельный игровой персонаж-компаньон. Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:syrio-forel,Syrio Forel,mention,AGOT ch.65 Arya V,named-human-character,existing-card,
+person,person:theon-greyjoy,Theon Greyjoy,appearance;mention,AGOT ch.53 Bran VI;AGOT ch.55 Catelyn VIII;AGOT ch.59 Catelyn IX;AGOT ch.63 Catelyn X;AGOT ch.66 Bran VII;AGOT ch.70 Jon IX;AGOT ch.71 Catelyn XI,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:thoros-of-myr,Thoros of Myr,mention,AGOT ch.56 Tyrion VII,named-human-character,existing-card,
+person,person:three-finger-hobb,Three-Finger Hobb,appearance,AGOT ch.52 Jon VII;AGOT ch.70 Jon IX,named-human-character,existing-card,
+person,person:timett,Timett,appearance,AGOT ch.56 Tyrion VII;AGOT ch.62 Tyrion VIII,named-human-character,existing-card,
+person,person:tion-frey,Tion Frey,mention,AGOT ch.63 Catelyn X,named-human-character,existing-card,
+person,person:todder,Todder,appearance,AGOT ch.60 Jon VIII;AGOT ch.70 Jon IX,named-human-character,existing-card,
+person,person:tommen-baratheon,Tommen Baratheon,appearance;mention,AGOT ch.49 Eddard XIV;AGOT ch.66 Bran VII,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:torrhen-karstark,Torrhen Karstark,appearance,AGOT ch.63 Catelyn X,named-human-character,existing-card,
+person,person:tyrion-lannister,Tyrion Lannister,appearance;mention,AGOT ch.52 Jon VII;AGOT ch.53 Bran VI;AGOT ch.55 Catelyn VIII;AGOT ch.56 Tyrion VII;AGOT ch.62 Tyrion VIII;AGOT ch.69 Tyrion IX,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:tytos-blackwood,Tytos Blackwood,appearance;mention,AGOT ch.55 Catelyn VIII;AGOT ch.56 Tyrion VII;AGOT ch.57 Sansa V;AGOT ch.59 Catelyn IX;AGOT ch.69 Tyrion IX;AGOT ch.71 Catelyn XI,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:tytos-brax,Tytos Brax,mention,AGOT ch.63 Catelyn X,named-human-character,existing-card,
+person,person:tywin-lannister,Tywin Lannister,appearance;mention,AGOT ch.53 Bran VI;AGOT ch.55 Catelyn VIII;AGOT ch.56 Tyrion VII;AGOT ch.57 Sansa V;AGOT ch.59 Catelyn IX;AGOT ch.62 Tyrion VIII;AGOT ch.63 Catelyn X;AGOT ch.69 Tyrion IX;AGOT ch.71 Catelyn XI,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:ulf,Ulf,appearance,AGOT ch.56 Tyrion VII;AGOT ch.62 Tyrion VIII,named-human-character,existing-card,
+person,person:utherydes-wayn,Utherydes Wayn,appearance,AGOT ch.71 Catelyn XI,named-human-character,existing-card,
+person,person:vaes-dothrak-wineseller,Wineseller of Vaes Dothrak,appearance,AGOT ch.54 Daenerys VI,exclude-unnamed-actor,existing-card,"Неименованный торговец, выделен по роли в сцене; исключить из знаменателя именованных лиц, связь с попыткой отравления сохранить."
+person,person:varys,Varys,appearance,AGOT ch.51 Sansa IV;AGOT ch.57 Sansa V;AGOT ch.58 Eddard XV;AGOT ch.65 Arya V,named-human-character,existing-card,
+person,person:viserion,Viserion,appearance,AGOT ch.72 Daenerys X,named-nonhuman-character-separate,existing-card,Животное/дракон: не считать человеческой персоной; оставить как отдельный игровой персонаж-компаньон.
+person,person:viserys-targaryen,Viserys Targaryen,dream-presence;mention,AGOT ch.54 Daenerys VI;AGOT ch.61 Daenerys VII;AGOT ch.64 Daenerys VIII;AGOT ch.68 Daenerys IX;AGOT ch.72 Daenerys X,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:vyman,Vyman,mention,AGOT ch.71 Catelyn XI,named-human-character,existing-card,
+person,person:walder-frey,Walder Frey,appearance;mention,AGOT ch.59 Catelyn IX;AGOT ch.63 Catelyn X,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:wendel-manderly,Wendel Manderly,appearance,AGOT ch.55 Catelyn VIII;AGOT ch.59 Catelyn IX;AGOT ch.63 Catelyn X,named-human-character,existing-card,
+person,person:whalen-frey,Whalen Frey,appearance,AGOT ch.59 Catelyn IX,named-human-character,existing-card,
+person,person:willem-lannister,Willem Lannister,mention,AGOT ch.63 Catelyn X,named-human-character,existing-card,
+person,person:wylis-manderly,Wylis Manderly,appearance;mention,AGOT ch.55 Catelyn VIII;AGOT ch.59 Catelyn IX;AGOT ch.62 Tyrion VIII,named-human-character,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+person,person:yoren,Yoren,appearance,AGOT ch.65 Arya V,named-human-character,existing-card,
+place,place:black-cells,Black Cells,scene,AGOT ch.58 Eddard XV,named-place,existing-card,
+place,place:bridge-of-the-twins,Bridge of the Twins,scene,AGOT ch.59 Catelyn IX,named-place,existing-card,
+place,place:castle-black,Castle Black,scene,AGOT ch.52 Jon VII;AGOT ch.60 Jon VIII;AGOT ch.70 Jon IX,named-place,existing-card,
+place,place:castle-black-stables,Stables of Castle Black,scene,AGOT ch.70 Jon IX,named-place,existing-card,
+place,place:city-of-the-lamb-men,City of the Lamb Men (unnamed Lhazareen settlement),scene,AGOT ch.61 Daenerys VII,named-place,existing-card,
+place,place:crypts-of-winterfell,Crypts of Winterfell,dream-setting;scene,AGOT ch.66 Bran VII,named-place,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+place,place:dothraki-sea,Dothraki Sea,dream-setting;scene,AGOT ch.61 Daenerys VII;AGOT ch.64 Daenerys VIII;AGOT ch.68 Daenerys IX;AGOT ch.72 Daenerys X,named-place,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+place,place:drogos-tent,Drogo's tent,scene,AGOT ch.64 Daenerys VIII;AGOT ch.68 Daenerys IX;AGOT ch.72 Daenerys X,named-place,existing-card,
+place,place:essos,Essos,reference,AGOT ch.72 Daenerys X,named-place,existing-card,
+place,place:free-cities,Free Cities,reference,AGOT ch.54 Daenerys VI;AGOT ch.61 Daenerys VII;AGOT ch.64 Daenerys VIII,named-place,existing-card,
+place,place:gatehouse-tower-of-moat-cailin,Gatehouse Tower of Moat Cailin,scene,AGOT ch.55 Catelyn VIII,named-place,existing-card,
+place,place:godsway-of-vaes-dothrak,Godsway of Vaes Dothrak,scene,AGOT ch.54 Daenerys VI,named-place,existing-card,
+place,place:godswood-of-riverrun,Godswood of Riverrun,scene,AGOT ch.71 Catelyn XI,named-place,existing-card,
+place,place:godswood-of-winterfell,Godswood of Winterfell,scene,AGOT ch.53 Bran VI,named-place,existing-card,
+place,place:golden-tooth,Golden Tooth,reference,AGOT ch.55 Catelyn VIII;AGOT ch.71 Catelyn XI,named-place,existing-card,
+place,place:great-hall-of-riverrun,Great Hall of Riverrun,scene,AGOT ch.71 Catelyn XI,named-place,existing-card,
+place,place:great-hall-of-the-twins,Great Hall of the Twins,scene,AGOT ch.59 Catelyn IX,named-place,existing-card,
+place,place:great-sept-of-baelor,Great Sept of Baelor,reference;scene,AGOT ch.51 Sansa IV;AGOT ch.65 Arya V,named-place,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+place,place:green-fork,Green Fork,reference;scene,AGOT ch.56 Tyrion VII;AGOT ch.62 Tyrion VIII;AGOT ch.63 Catelyn X;AGOT ch.69 Tyrion IX;AGOT ch.71 Catelyn XI,named-place,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+place,place:haunted-forest,Haunted Forest,scene,AGOT ch.52 Jon VII,named-place,existing-card,
+place,place:hosters-solar-at-riverrun,Hoster Tully's solar at Riverrun,scene,AGOT ch.71 Catelyn XI,named-place,existing-card,
+place,place:inn-at-crossroads,Inn at the Crossroads,scene,AGOT ch.56 Tyrion VII;AGOT ch.69 Tyrion IX,named-place,existing-card,
+place,place:kings-landing,King's Landing,reference;scene,AGOT ch.49 Eddard XIV;AGOT ch.50 Arya IV;AGOT ch.51 Sansa IV;AGOT ch.52 Jon VII;AGOT ch.57 Sansa V;AGOT ch.58 Eddard XV;AGOT ch.60 Jon VIII;AGOT ch.65 Arya V;AGOT ch.66 Bran VII;AGOT ch.67 Sansa VI;AGOT ch.69 Tyrion IX,named-place,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+place,place:kingsroad,Kingsroad,reference,AGOT ch.55 Catelyn VIII;AGOT ch.56 Tyrion VII;AGOT ch.65 Arya V,named-place,existing-card,
+place,place:lords-commanders-tower-at-castle-black,Lord Commander's Tower at Castle Black,scene,AGOT ch.52 Jon VII,named-place,existing-card,
+place,place:maegors-holdfast,Maegor's Holdfast,scene,AGOT ch.51 Sansa IV,named-place,existing-card,
+place,place:maesters-turret-of-winterfell,Maester's turret at Winterfell,scene,AGOT ch.66 Bran VII,named-place,existing-card,
+place,place:meereen,Meereen,reference,AGOT ch.61 Daenerys VII,named-place,existing-card,
+place,place:moat-cailin,Moat Cailin,reference;scene,AGOT ch.55 Catelyn VIII;AGOT ch.56 Tyrion VII;AGOT ch.69 Tyrion IX,named-place,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+place,place:moles-town,Mole's Town,scene,AGOT ch.70 Jon IX,named-place,existing-card,
+place,place:pentos,Pentos,reference,AGOT ch.54 Daenerys VI;AGOT ch.61 Daenerys VII,named-place,existing-card,
+place,place:red-keep,Red Keep,reference;scene,AGOT ch.49 Eddard XIV;AGOT ch.50 Arya IV;AGOT ch.51 Sansa IV;AGOT ch.57 Sansa V;AGOT ch.58 Eddard XV;AGOT ch.65 Arya V;AGOT ch.67 Sansa VI,named-place,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+place,place:riverlands,Riverlands,reference,AGOT ch.53 Bran VI;AGOT ch.55 Catelyn VIII;AGOT ch.56 Tyrion VII;AGOT ch.59 Catelyn IX;AGOT ch.60 Jon VIII;AGOT ch.62 Tyrion VIII;AGOT ch.63 Catelyn X;AGOT ch.66 Bran VII;AGOT ch.69 Tyrion IX;AGOT ch.71 Catelyn XI,named-place,existing-card,
+place,place:riverrun,Riverrun,reference;scene,AGOT ch.51 Sansa IV;AGOT ch.55 Catelyn VIII;AGOT ch.56 Tyrion VII;AGOT ch.59 Catelyn IX;AGOT ch.62 Tyrion VIII;AGOT ch.63 Catelyn X;AGOT ch.69 Tyrion IX;AGOT ch.71 Catelyn XI,named-place,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+place,place:shadow-tower,Shadow Tower,reference,AGOT ch.60 Jon VIII,named-place,existing-card,
+place,place:small-hall-of-tower-of-the-hand,Small Hall of the Tower of the Hand,scene,AGOT ch.50 Arya IV,named-place,existing-card,
+place,place:street-of-flour,Street of Flour,scene,AGOT ch.65 Arya V,named-place,existing-card,
+place,place:the-eyrie,The Eyrie,reference,AGOT ch.71 Catelyn XI,named-place,existing-card,
+place,place:the-north,The North,reference,AGOT ch.53 Bran VI;AGOT ch.59 Catelyn IX;AGOT ch.66 Bran VII;AGOT ch.70 Jon IX,named-place,existing-card,
+place,place:the-twins,The Twins,reference;scene,AGOT ch.55 Catelyn VIII;AGOT ch.59 Catelyn IX;AGOT ch.62 Tyrion VIII;AGOT ch.69 Tyrion IX,named-place,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+place,place:the-wall,The Wall,reference,AGOT ch.52 Jon VII;AGOT ch.58 Eddard XV;AGOT ch.60 Jon VIII;AGOT ch.66 Bran VII;AGOT ch.70 Jon IX,named-place,existing-card,
+place,place:trident,Trident,reference,AGOT ch.62 Tyrion VIII;AGOT ch.65 Arya V;AGOT ch.71 Catelyn XI,named-place,existing-card,
+place,place:vaes-dothrak,Vaes Dothrak,reference;scene,AGOT ch.54 Daenerys VI;AGOT ch.61 Daenerys VII;AGOT ch.64 Daenerys VIII;AGOT ch.68 Daenerys IX;AGOT ch.72 Daenerys X,named-place,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+place,place:vale-of-arryn,Vale of Arryn,reference,AGOT ch.71 Catelyn XI,named-place,existing-card,
+place,place:water-gate-of-riverrun,Water Gate of Riverrun,scene,AGOT ch.71 Catelyn XI,named-place,existing-card,
+place,place:weirwood-grove-near-castle-black,Weirwood grove near Castle Black,reference,AGOT ch.52 Jon VII,named-place,existing-card,
+place,place:western-market-of-vaes-dothrak,Western Market of Vaes Dothrak,scene,AGOT ch.54 Daenerys VI,named-place,existing-card,
+place,place:whispering-wood,Whispering Wood,scene,AGOT ch.63 Catelyn X,named-place,existing-card,
+place,place:winterfell,Winterfell,reference;scene,AGOT ch.51 Sansa IV;AGOT ch.52 Jon VII;AGOT ch.53 Bran VI;AGOT ch.57 Sansa V;AGOT ch.58 Eddard XV;AGOT ch.59 Catelyn IX;AGOT ch.60 Jon VIII;AGOT ch.62 Tyrion VIII;AGOT ch.63 Catelyn X;AGOT ch.65 Arya V;AGOT ch.66 Bran VII;AGOT ch.67 Sansa VI;AGOT ch.70 Jon IX;AGOT ch.71 Catelyn XI,named-place,existing-card,Один стабильный ref встречается в нескольких типах связи; не дублировать карточку.
+place,place:wolfswood,Wolfswood,reference,AGOT ch.53 Bran VI,named-place,existing-card,

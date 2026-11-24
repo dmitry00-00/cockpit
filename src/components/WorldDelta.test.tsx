@@ -83,6 +83,18 @@ describe('WorldDelta', () => {
     expect(arrow).toHaveClass('text-t3');
   });
 
+  it('показывает причину устаревания, блокирует принятие и явно предлагает отклонить прежний результат', () => {
+    const onAccept = vi.fn();
+    render(<WorldDelta {...base} onAccept={onAccept} staleReason="Устарели запаса товаров; пересчитайте результат." />);
+    const a = delta();
+    expect(within(a).getByRole('status')).toHaveTextContent('Пересчёт обязателен: Устарели запаса товаров; пересчитайте результат.');
+    const accept = within(a).getByRole('button', { name: 'Принять' });
+    expect(accept).toBeDisabled();
+    fireEvent.click(accept);
+    expect(onAccept).not.toHaveBeenCalled();
+    expect(within(a).getByRole('button', { name: 'Отклонить устаревший результат' })).toBeInTheDocument();
+  });
+
   it('без цепочки причина — текст t2, не кнопка; без onEdit и onReroll — только «Принять» (золото, title «Принять · Enter») и «Отклонить»', () => {
     const onAccept = vi.fn();
     const onReject = vi.fn();

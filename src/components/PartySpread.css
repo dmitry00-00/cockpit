@@ -1,0 +1,180 @@
+/* PartySpread: линия корешков и раскладка карточек партии (Д17, K01). Геометрия и состояния — здесь,
+   цвета и фактуры — токены theme.generated.css (--pl, --cd, --pn, --gd, --lo…), типографика — утилиты
+   type- и text- в разметке (регистр БА1). Классы с префиксом party-spread-*. Радиусов нет: системный — 0. */
+
+.party-spread { position: relative; display: flex; flex-direction: column; gap: var(--space-2); min-width: 0; width: 100%; }
+
+/* На широком экране кнопка информации стоит слева от корешков; список корешков переносится при нехватке места.
+   Мобильные переопределения ниже сохраняют портреты в одной горизонтальной прокручиваемой строке.
+   Переполнение самой страницы по горизонтали недопустимо. */
+.party-spread-toolbar { display: flex; align-items: center; gap: var(--space-2); min-width: 0; }
+
+.party-spread-info { display: inline-flex; align-items: center; gap: var(--space-1); padding: var(--space-1) var(--space-2); cursor: pointer;
+  background-color: var(--pl); background-image: var(--material-plate); box-shadow: var(--plate); color: var(--gd-hi); }
+.party-spread-info:hover { color: var(--tx); }
+
+/* Материальная плита светлая: задаём контраст только на этих конкретных поверхностях. */
+[data-ui-theme="material"] .party-spread-info { color: #382500; }
+[data-ui-theme="material"] .party-spread-info:hover { color: var(--tx); }
+[data-ui-theme="material"] .party-spread-info:focus-visible,
+[data-ui-theme="material"] .party-spread-deck-toggle:focus-visible,
+[data-ui-theme="material"] .party-spread-context-toggle:focus-visible {
+  box-shadow: inset 0 0 0 2px #382500, var(--plate);
+}
+[data-ui-theme="material"] .party-spread-spine-btn:focus-visible {
+  box-shadow: inset 0 0 0 2px #382500;
+}
+
+.party-spread-deck-toggle { display: inline-flex; align-items: center; min-height: 44px; padding: var(--space-1) var(--space-2); cursor: pointer;
+  color: var(--gd-hi); background-color: var(--cd); background-image: var(--material-plate); box-shadow: var(--plate); }
+.party-spread-deck-toggle:hover { color: var(--tx); }
+.party-spread-deck-toggle[aria-expanded="true"] { color: var(--tx); box-shadow: var(--plate), var(--glow-gold); }
+[data-ui-theme="material"] .party-spread-spine-btn[aria-current="true"],
+[data-ui-theme="material"] .party-spread-deck-toggle[aria-expanded="true"],
+[data-ui-theme="material"] .party-spread-deck-picker button[aria-pressed="true"] {
+  box-shadow: inset 0 0 0 2px #382500, var(--plate);
+}
+[data-ui-theme="material"] .party-spread-deck-picker button:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 2px #382500, var(--bevel);
+}
+
+/* Число участников — на плите фоном провала: gd-hi на wl держит 13.3:1. */
+.party-spread-count { min-width: 20px; padding: 0 var(--space-1); text-align: center; color: var(--gd-hi); background-color: var(--wl); box-shadow: var(--bevel-in); }
+
+.party-spread-list { display: flex; flex: 1 1 auto; flex-wrap: wrap; gap: var(--space-1); min-width: 0; margin: 0; padding: 0; list-style: none; }
+.party-spread-item { min-width: 0; }
+
+/* Compact spine and full card share a grid cell; both use the same adaptive width. */
+.party-spread-spine-btn { display: block; width: 100%; max-width: 240px; padding: 0; overflow: hidden; cursor: pointer;
+  background: linear-gradient(180deg, var(--pl), var(--cd)); box-shadow: var(--plate); color: var(--tx); }
+.party-spread-spine-btn[hidden] { display: none; }
+.party-spread-spine-btn[aria-current="true"] { box-shadow: var(--plate), var(--glow-gold); }
+
+/* One responsive row: equal tracks, capped at 240px and never horizontally scrollable. */
+.party-spread-stage { min-width: 0; overflow: visible; }
+.party-spread-stage.is-expanded { padding: var(--space-2); background-color: var(--pn); background-image: var(--material-panel); box-shadow: var(--bevel); }
+.party-spread-stage.is-deck-open {
+  position: absolute; z-index: 24; inset-block-start: calc(100% + var(--space-1)); inset-inline-start: 0;
+  display: grid; grid-template-columns: minmax(200px, var(--party-deck-column-width)) minmax(0, 1fr); align-items: start;
+  gap: var(--space-3); width: min(900px, calc(100vw - 32px)); min-height: min(42vh, 380px); max-height: min(58vh, 520px);
+  overflow: auto; overscroll-behavior: contain; padding: var(--space-2); background-color: var(--pn); background-image: var(--material-panel); box-shadow: var(--float);
+}
+.party-spread-deck-controls { grid-column: 1; grid-row: 1; min-width: 0; display: flex; flex-direction: column; gap: var(--space-2); }
+.party-spread-deck-toolbar { display: flex; align-items: center; gap: var(--space-2); min-width: 0; }
+.party-spread-deck-stack { position: relative; flex: none; width: 100%; height: var(--party-deck-stack-height); overflow: visible; }
+.party-spread-deck-edge { position: absolute; display: flex; align-items: flex-start; width: min(220px, 100%); height: 48px; padding: 0; overflow: hidden;
+  color: var(--tx); background: linear-gradient(155deg, var(--pl), var(--cd)); border: 1px solid var(--lo); box-shadow: var(--bevel); }
+.party-spread-deck-edge[data-front="true"] { border-color: var(--gd); box-shadow: var(--plate), var(--glow-gold); }
+.party-spread-deck-edge span { display: block; width: 100%; height: 14px; padding-inline: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 10px; line-height: 14px; background-color: var(--cd); }
+.party-spread-deck-picker { display: flex; flex-direction: column; gap: var(--space-1); max-height: min(38vh, 320px); overflow: auto; overscroll-behavior: contain; }
+.party-spread-deck-picker button { min-height: 44px; padding: var(--space-1) var(--space-2); cursor: pointer; text-align: left; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  color: var(--tx); background-color: var(--cd); box-shadow: var(--bevel); }
+.party-spread-deck-picker button[aria-pressed="true"] { color: var(--gd-hi); box-shadow: var(--glow-gold); }
+.party-spread-stage.is-deck-open .party-spread-list { grid-column: 1 / -1; grid-row: 1; position: static; display: block; width: 100% !important; height: 0; min-height: 0; overflow: visible; pointer-events: none; }
+.party-spread-stage.is-deck-open .party-spread-item { position: static; display: block; width: 100%; max-width: none; height: 0; }
+.party-spread-stage.is-deck-open .party-spread-card[data-deck-front="true"] { position: absolute; z-index: 3; top: var(--space-2); inset-inline-start: calc(var(--party-deck-column-width) + var(--space-3) + var(--space-2));
+  width: min(420px, calc(100% - var(--party-deck-column-width) - var(--space-3) - var(--space-2))); max-height: calc(min(70vh, 680px) - 16px); overflow: auto; overscroll-behavior: contain; pointer-events: auto; }
+.party-spread-stage.is-deck-open .party-spread-context { grid-column: 1 / -1; grid-row: 2; }
+.party-spread-stage.is-deck-open .party-spread-pager { display: none; }
+.party-spread-list { display: grid; gap: var(--space-2); align-items: start; min-width: 0; max-width: 100%; margin: 0; padding: 0; list-style: none; }
+.party-spread-item { display: flex; align-items: center; gap: var(--space-1); width: 100%; max-width: 240px; min-width: 0; }
+.party-spread-select { display: flex; flex: none; align-items: center; justify-content: center; width: 16px; height: 28px; cursor: pointer; }
+.party-spread-select[hidden] { display: none; }
+.party-spread-select input { accent-color: var(--gd); }
+.party-spread-item > .party-spread-spine-btn { flex: 1 1 auto; min-width: 0; }
+.party-spread-item[hidden] { display: none; }
+.party-spread-card { width: 100%; max-width: 240px; min-width: 0; background-color: var(--cd); background-image: var(--material-panel); box-shadow: var(--bevel); }
+.party-spread-card[hidden] { display: none; }
+
+.party-spread[data-mobile="true"] .party-spread-mobile-row {
+  display: flex; flex: none; flex-flow: row nowrap; align-items: center; gap: var(--space-1);
+  width: 100%; min-width: 0; max-width: 100%; overflow-x: auto; overflow-y: hidden; overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+}
+.party-spread[data-mobile="true"] .party-spread-mobile-item { display: flex; flex: none; align-items: center; gap: var(--space-1); }
+.party-spread[data-mobile="true"] .party-spread-mobile-row .party-spread-spine-btn {
+  display: grid; flex: 0 0 44px; place-items: center; width: 44px; height: 44px; max-width: 44px; padding: 0;
+}
+.party-spread[data-mobile="true"] .party-spread-mobile-row .party-spread-spine-btn > [data-part="edge-top"] {
+  box-sizing: border-box; justify-content: center; gap: 0; width: 44px; height: 44px; min-height: 44px; padding: 0; background: transparent; box-shadow: none;
+}
+.party-spread[data-mobile="true"] .party-spread-mobile-row .party-spread-spine-btn [data-part="party-spine-identity"],
+.party-spread[data-mobile="true"] .party-spread-mobile-row .party-spread-spine-btn [data-part="party-spine-level"],
+.party-spread[data-mobile="true"] .party-spread-mobile-row .party-spread-spine-btn [data-part="party-spine-emblem"] { display: none; }
+.party-spread[data-mobile="true"] .party-spread-mobile-row .party-spread-spine-btn [data-part="party-spine-portrait"] { width: 40px; height: 40px; }
+.party-spread[data-mobile="true"] .party-spread-mobile-row .party-spread-spine-btn [data-part="party-spine-portrait"] > img { width: 40px !important; height: 40px !important; }
+.party-spread[data-mobile="true"] .party-spread-stage.is-expanded { display: flex; flex-flow: column nowrap; align-items: stretch; gap: var(--space-1); }
+.party-spread[data-mobile="true"] .party-spread-list { display: block; flex: 1 1 auto; min-height: 0; width: 100%; overflow: hidden; }
+.party-spread[data-mobile="true"] .party-spread-list[hidden] { display: none; }
+.party-spread[data-mobile="true"] .party-spread-item { display: block; width: 100%; max-width: none; height: 100%; min-height: 0; }
+.party-spread[data-mobile="true"] .party-spread-item[hidden] { display: none; }
+.party-spread[data-mobile="true"] .party-spread-card[data-mobile-front="true"] {
+  position: static; display: block; width: 100%; max-width: none; height: 100%; min-height: 0; max-height: none; overflow: auto; overscroll-behavior: contain;
+}
+.party-spread[data-mobile="true"] .party-spread-stage.is-expanded .party-spread-context { flex: none; }
+
+.party-spread-pager { display: flex; align-items: center; gap: var(--space-2); }
+.party-spread-page-btn { padding: var(--space-1) var(--space-2); cursor: pointer;
+  background-color: var(--cd); box-shadow: var(--bevel); color: var(--tx); }
+.party-spread-page-btn:disabled { opacity: var(--op-disabled); cursor: default; }
+.party-spread-page-info { color: var(--t2); }
+.party-spread-pager[hidden] { display: none; }
+
+.party-spread-context { flex: none; min-width: 0; padding-top: var(--space-1); border-top: 1px solid var(--lo); }
+.party-spread-context-toolbar { display: flex; align-items: center; gap: var(--space-2); min-width: 0; }
+.party-spread-context-toggle { display: flex; flex: 1 1 auto; align-items: center; gap: var(--space-2); min-width: 0; min-height: 28px; padding: var(--space-1) var(--space-2); cursor: pointer; text-align: left; color: var(--gd-hi); background-color: var(--cd); background-image: var(--material-plate); box-shadow: var(--plate); }
+.party-spread-context-toggle:hover { color: var(--tx); }
+.party-spread-context-toggle:focus-visible { outline: none; box-shadow: var(--plate), var(--glow-gold); }
+.party-spread-context-action { margin-left: auto; color: var(--t2); }
+
+/* Bronze plate gradient darkens at its lower edge; small labels stay readable across the full surface. */
+[data-ui-theme="material"] .party-spread-deck-toggle,
+[data-ui-theme="material"] .party-spread-context-toggle,
+[data-ui-theme="material"] .party-spread-context-action { color: #382500; }
+
+.party-spread-clock-slot { display: flex; flex: none; align-items: center; justify-content: flex-end; }
+.party-spread-clock-slot .desk-world-clock-dock { padding: 0; }
+.party-spread-context-panel { min-width: 0; max-height: min(34vh, 220px); margin-top: var(--space-1); overflow: auto; overscroll-behavior: contain; }
+.party-spine-fallback-icon { display: none !important; }
+
+/* Телефон: свернутая линия превращается в ряд портретных кнопок 44×44 px.
+   Карточка, имя и эмблемы остаются внутри компонента, но не занимают место до раскрытия. */
+@media (max-width: 700px) {
+  /* Collapsed portrait rail keeps 44px targets on a phone. Expanded mode uses the one-card selector above. */
+  .party-spread-stage.is-collapsed .party-spread-item { position: relative; justify-content: center; width: 44px; max-width: 44px; margin-inline: auto; }
+  .party-spread-stage.is-collapsed .party-spread-spine-btn { display: grid; flex: none; place-items: center; width: 44px; height: 44px; max-width: 44px; }
+  .party-spread-stage.is-collapsed .party-spread-spine-btn > [data-part="edge-top"] {
+    box-sizing: border-box; justify-content: center; gap: 0; width: 44px; height: 44px; min-height: 44px; padding: 0;
+    background: transparent; box-shadow: none;
+  }
+  .party-spread-stage.is-collapsed .party-spread-spine-btn [data-part="party-spine-identity"],
+  .party-spread-stage.is-collapsed .party-spread-spine-btn [data-part="party-spine-level"],
+  .party-spread-stage.is-collapsed .party-spread-spine-btn [data-part="party-spine-emblem"] { display: none; }
+  .party-spread-stage.is-collapsed .party-spread-spine-btn [data-part="party-spine-portrait"] { width: 40px; height: 40px; }
+  .party-spread-stage.is-collapsed .party-spread-spine-btn [data-part="party-spine-portrait"] > img { width: 40px !important; height: 40px !important; }
+  .party-spread-stage.is-collapsed .party-spread-spine-btn [data-part="party-spine-portrait"] > svg { width: 24px; height: 24px; }
+  .party-spread-stage.is-collapsed .party-spread-spine-btn [data-part="party-spine-fallback"] { display: grid; place-items: center; width: 44px; height: 44px; }
+  .party-spread-stage.is-collapsed .party-spread-spine-btn [data-part="party-spine-fallback-name"] { display: none; }
+  .party-spread-stage.is-collapsed .party-spread-spine-btn .party-spine-fallback-icon { display: block !important; width: 32px; height: 32px; }
+  .party-spread-stage.is-collapsed .party-spread-select { position: absolute; z-index: 1; top: -2px; left: -2px; width: 18px; height: 18px; background: var(--pn); box-shadow: var(--bevel); }
+  .party-spread-stage.is-collapsed .party-spread-select input { width: 14px; height: 14px; margin: 0; }
+}
+
+@media (max-width: 700px) {
+  .party-spread-stage.is-deck-open { grid-template-columns: minmax(0, 1fr); min-height: min(42vh, 380px); max-height: min(58vh, 520px); }
+  .party-spread-stage.is-deck-open .party-spread-deck-controls { grid-column: 1; grid-row: 1; }
+  .party-spread-stage.is-deck-open .party-spread-deck-stack { height: 70px; overflow: hidden; }
+  .party-spread-stage.is-deck-open .party-spread-deck-picker { flex-direction: row; max-height: none; overflow-x: auto; overflow-y: hidden; }
+  .party-spread-stage.is-deck-open .party-spread-deck-picker button { flex: 0 0 min(170px, 48vw); }
+  .party-spread-stage.is-deck-open .party-spread-card[data-deck-front="true"] { top: 136px; inset-inline: var(--space-2); width: auto; max-height: calc(min(78vh, 640px) - 148px); }
+  .party-spread-stage.is-deck-open .party-spread-context { grid-column: 1; grid-row: 2; }
+}
+
+/* Кольцо фокуса — золото поверх фаски (глобальное правило :focus-visible держит простые случаи,
+   здесь — поверх состояний с собственной тенью; объявлено последним, чтобы выигрывать по порядку). */
+.party-spread-info:focus-visible { box-shadow: var(--plate), var(--glow-gold); }
+.party-spread-deck-toggle:focus-visible,
+.party-spread-deck-picker button:focus-visible { outline: none; box-shadow: var(--glow-gold); }
+.party-spread-spine-btn:focus-visible { box-shadow: var(--glow-gold); }
+.party-spread-page-btn:focus-visible { box-shadow: var(--glow-gold); }
