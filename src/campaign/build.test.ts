@@ -69,8 +69,8 @@ describe('данные SRD: заклинания и снаряжение (имп
         if (k !== undefined && k !== '-' && String(s.known) !== k) mismatches.push(`${srd} ${row.level}: известные ${k} ≠ ${s.known}`);
       }
     }
-    // Известное расхождение — в отчёт владельцу: в SRD у барда 10-го уровня 4 заговора, в таблице 3. Исправят — список опустеет.
-    expect(mismatches).toEqual(['bard 10: заговоры 3 ≠ 4']);
+    // Импортёр исправляет подтверждённое SRD значение барда 10-го уровня: 4 заговора.
+    expect(mismatches).toEqual([]);
   });
 });
 
@@ -128,6 +128,21 @@ describe('заклинания: план по классу и уровню', () 
     expect(spellcastingOf(classById('voin')!, 5, undefined, mods0).kind).toBe('none');
   });
 
+  it('отделяет прирост уровня от общего числа известных, книжных и подготовленных заклинаний', () => {
+    const wizard = classById('volsebnik')!;
+    expect(spellcastingOf(wizard, 1, undefined, mods0)).toMatchObject({ gainedCantrips: 3, gainedLeveledSpells: 6 });
+    expect(spellcastingOf(wizard, 2, undefined, mods0)).toMatchObject({ cantrips: 3, leveled: 8, gainedCantrips: 0, gainedLeveledSpells: 2 });
+    expect(spellcastingOf(wizard, 4, undefined, mods0)).toMatchObject({ gainedCantrips: 1, gainedLeveledSpells: 2 });
+
+    expect(spellcastingOf(classById('bard')!, 2, undefined, mods0)).toMatchObject({ leveled: 5, gainedCantrips: 0, gainedLeveledSpells: 1 });
+    expect(spellcastingOf(classById('koldun')!, 2, undefined, mods0)).toMatchObject({ leveled: 3, gainedCantrips: 0, gainedLeveledSpells: 1 });
+    expect(spellcastingOf(classById('sledopyt')!, 2, undefined, mods0)).toMatchObject({ leveled: 2, gainedLeveledSpells: 2 });
+
+    expect(spellcastingOf(classById('jrec')!, 4, undefined, mods0)).toMatchObject({ leveledKind: 'prepared', gainedCantrips: 1, gainedLeveledSpells: 0 });
+    expect(spellcastingOf(classById('druid')!, 4, undefined, mods0)).toMatchObject({ leveledKind: 'prepared', gainedCantrips: 1, gainedLeveledSpells: 0 });
+    expect(spellcastingOf(classById('paladin')!, 2, undefined, { ...mods0, cha: 3 })).toMatchObject({ leveledKind: 'prepared', gainedCantrips: 0, gainedLeveledSpells: 0 });
+  });
+
   it('книга — честно «нет данных»: Изобретатель без списка SRD; покровитель из книги — имена из таблицы без связи с SRD', () => {
     const a = spellcastingOf(classById('izobretatel')!, 1, undefined, mods0);
     expect(a).toMatchObject({ kind: 'nodata' });
@@ -150,7 +165,7 @@ describe('снаряжение и атаки', () => {
   it('атаки по SRD: STR у рукопашного, DEX у дальнобойного, лучшая у фехтовального; без владения — без мастерства; «Стрельба» +2', () => {
     const mods = { ...mods0, str: 3, dex: 2 };
     const a = attacksOf([{ id: 'longsword', qty: 1 }, { id: 'rapier', qty: 1 }, { id: 'longbow', qty: 1 }], { mods, proficiencyBonus: 2, srdClass: 'fighter', extraWeapons: [], archery: true });
-    expect(a.map(x => [x.id, x.toHit, x.damage])).toEqual([['longsword', 5, '1d8 + 3 / 1d10 + 3'], ['rapier', 5, '1d8 + 3'], ['longbow', 6, '1d8 + 2']]);
+    expect(a.map(x => [x.id, x.ability, x.toHit, x.damage])).toEqual([['longsword', 'str', 5, '1d8 + 3 / 1d10 + 3'], ['rapier', 'str', 5, '1d8 + 3'], ['longbow', 'dex', 6, '1d8 + 2']]);
     const wiz = attacksOf([{ id: 'longsword', qty: 1 }], { mods, proficiencyBonus: 2, srdClass: 'wizard', extraWeapons: ['longsword'], archery: false });
     expect(wiz[0]).toMatchObject({ toHit: 5, proficient: true }); // эльфийская выучка
     expect(attacksOf([{ id: 'longsword', qty: 1 }], { mods, proficiencyBonus: 2, srdClass: 'wizard', extraWeapons: [], archery: false })[0]).toMatchObject({ toHit: 3, proficient: false });
@@ -171,7 +186,7 @@ describe('лист из редактора: derive с выборами, закл
     expect(d.attacks[0]).toMatchObject({ id: 'longsword', toHit: 3 + 2 });
     expect(d.feats).toEqual([{ id: 'borec', name: featById('borec')!.nameRu, at: 'race' }]);
     const a = pcActor(fighter);
-    expect(a.sheet).toMatchObject({ choices: [expect.objectContaining({ id: 'race-skills' }), expect.objectContaining({ id: 'fighting-style', values: [{ id: 'oborona', name: 'Оборона' }] })], equipment: fighter.equipment });
+    expect(a.sheet).toMatchObject({ choices: [expect.objectContaining({ id: 'race-skills' }), expect.objectContaining({ id: 'fighting-style', values: [{ id: 'oborona', name: 'Оборона', source: 'srd', ruleset: { id: 'dnd5e', version: 'SRD 5.1', layer: 'srd' } }] })], equipment: fighter.equipment });
     expect(a.ac).toBe(19);
   });
 

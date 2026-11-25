@@ -1,8 +1,561 @@
 /* Переход между уровнями лестницы — одна анимация приближения на 200 мс, сохраняющая точку фокуса (HANDOFF §3).
-   Ступенями, не плавно — регистр пиксельный; prefers-reduced-motion гасит её в базовом слое index.css.
+   Плавное короткое приближение; prefers-reduced-motion гасит его в базовом слое index.css.
    Здесь, а не в теме: theme.generated.css собирается из tokens.json, а анимация — не токен. */
 @keyframes level-zoom {
   from { transform: scale(0.96); opacity: 0.5; }
   to { transform: none; opacity: 1; }
 }
-.level-zoom { animation: level-zoom 200ms steps(4, end) both; transform-origin: 50% 40%; }
+.level-zoom { animation: level-zoom 200ms ease-out both; transform-origin: 50% 40%; }
+
+/* БА2: контекст и действия занимают независимые строки и могут переноситься.
+   Размеры и интервалы берутся из существующей сетки/токенов. */
+.desk-clockbar { min-width: 0; display: flex; flex-direction: column; gap: var(--spacing-2, 8px); padding: var(--spacing-2, 8px) var(--spacing-3, 12px); }
+.desk-clock-context, .desk-clock-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-2, 8px); min-width: 0; }
+.desk-clock-context > [role="group"] { margin-left: auto; }
+.desk-clock-actions > [aria-label="Темп времени"] { flex-wrap: wrap; min-width: 0; }
+.desk-clock-actions [data-part="tempos"] { flex-wrap: wrap; }
+.desk-clock-actions button { white-space: nowrap; }
+.desk-workspace { overflow: hidden; }
+.desk-map-layout { overflow: hidden; }
+.desk-inspector { flex: 0 0 min(40%, var(--card-single)); min-width: 0; overflow: auto; padding: var(--spacing-3, 12px); background: var(--pn); }
+.desk-inspector > * { max-width: 100%; }
+.desk-inspector article { max-width: 100%; }
+.desk-inspector [role="tablist"] { flex-wrap: wrap; }
+.desk-nearby { margin-top: var(--spacing-3, 12px); }
+.desk-nearby > summary { cursor: pointer; }
+.desk-nearby > :not(summary) { margin-top: var(--spacing-2, 8px); }
+.desk-map-layout > [aria-label^="Карта"] { min-width: 0; }
+@media (max-width: 1399px) {
+  /* Открытая правая панель временно становится инспектором; карта остаётся видна. */
+  .desk-workspace[data-tools-open] .desk-inspector { display: none; }
+  .desk-workspace > aside[data-overlay] { position: relative; inset: auto; flex: 0 0 auto; max-width: 40%; }
+}
+@media (min-width: 701px) and (max-width: 1399px) {
+  /* При колонке инструментов ставим управление под строкой партии и левее карты/журнала. */
+  .desk-workspace[data-tools-open] .desk-party-manager {
+    inset-block-start: 94px;
+    inset-inline-start: 12px;
+    inset-inline-end: auto;
+  }
+}
+@media (min-width: 1400px) {
+  /* При открытой свободной панели оставляем инструменты карты слева в доступной зоне. */
+  .desk-workspace[data-tools-open]:has(> aside[data-overlay])
+    .desk-map-layout [role="toolbar"][aria-label="Карта"] {
+    left: 12px;
+    right: auto;
+  }
+}
+
+.desk-level-heading { height: auto; min-height: calc(var(--spacing) * 7); flex-wrap: wrap; white-space: normal; padding-top: var(--spacing); padding-bottom: var(--spacing); }
+.desk-level-heading > div { flex-wrap: wrap; }
+.desk-workspace nav[aria-label="Лестница масштабов"] { scrollbar-width: thin; }
+
+/* Keep right-aligned controls clear of the desktop scale rail (52px wide, 8px inset).
+   On narrow layouts the rail becomes a separate horizontal row below the work surface. */
+@media (min-width: 701px) {
+  .desk-level-heading > div { margin-inline-end: 64px; }
+  .desk-map-layout > [data-part="great-wheel"] [role="toolbar"][aria-label="Модель космологии"],
+  .desk-map-layout > [data-part="world-tree"] [role="toolbar"][aria-label="Модель космологии"] {
+    margin-inline-end: 64px;
+  }
+}
+
+/* Подробности выбранного небесного тела не должны сжимать саму схему до миниатюры. */
+.desk-map-layout > [data-part="great-wheel"],
+.desk-map-layout > [data-part="world-tree"],
+.desk-map-layout > [data-part="planetarium"],
+.desk-map-layout > [data-part="flow-graph"] { min-width: 0; overflow: auto; }
+.desk-map-layout > [data-part="great-wheel"] svg[role="img"],
+.desk-map-layout > [data-part="world-tree"] svg[role="img"],
+.desk-map-layout > [data-part="planetarium"] svg[role="img"],
+.desk-map-layout > [data-part="flow-graph"] svg[role="img"] { min-height: var(--card-single); flex-shrink: 0; }
+
+/* Full character sheet lives above the table; details scroll inside the modal. */
+.desk-sheet-modal > [data-entity-type] { width: 100%; max-width: 100%; flex: 1; }
+.desk-sheet-modal [role="tablist"] { display: grid; grid-template-columns: repeat(6, max-content); gap: 1px; }
+.desk-sheet-modal [data-part="spine"] { flex-wrap: wrap; }
+.pc-sheet-summary { display: grid; grid-template-columns: minmax(0, 1fr); align-items: start; gap: var(--spacing-3, 12px); }
+@media (min-width: 701px) {
+  .pc-sheet-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .desk-sheet-modal [role="tablist"] { display: flex; flex-wrap: nowrap; overflow-x: auto; overscroll-behavior-inline: contain; scrollbar-width: thin; }
+  .desk-sheet-modal [role="tablist"] > * { flex: none; }
+}
+
+/* Раскладка партии занимает главную зону; часы и соседние инструменты доступны.
+   Карта остаётся смонтированной и сохраняет камеру, пока карточки лежат поверх неё. */
+.desk-party-main { display: flex; flex-direction: column; }
+.desk-party-header { position: relative; display: grid; grid-template-columns: minmax(0,1fr) auto; grid-template-rows: auto minmax(0,1fr); gap: var(--space-2); min-width: 0; min-height: 0; padding: var(--space-2); background: var(--pn); }
+.desk-party-header__wood { border-radius: inherit; }
+.desk-party-header .party-spread { display: contents; }
+.desk-party-header .party-spread-toolbar { grid-area: 1 / 1; }
+.desk-party-actions { grid-area: 1 / 2; display: flex; gap: var(--space-1); align-items: start; }
+.desk-party-header .party-spread-stage { grid-area: 2 / 1 / 3 / -1; min-height: 0; }
+.desk-party-header:has(.party-spread[data-expanded="true"]) { flex: 1; }
+.desk-party-header .party-spread-stage.is-expanded { display: flex; flex-direction: column; gap: var(--space-2); }
+.desk-party-header .is-expanded .party-spread-list { flex: 1; min-height: 0; overflow: auto; align-content: start; }
+.desk-party-header .party-spread-context, .desk-party-header .party-spread-pager { flex: none; }
+.desk-party-manager { position: absolute; z-index: 24; inset-block-start: 8px; inset-inline-end: 8px; width: min(320px, calc(100vw - 24px)); max-height: min(70vh, 520px); overflow: auto; border: 1px solid var(--gd); box-shadow: var(--float); }
+.desk-party-manager [type="checkbox"] { accent-color: var(--gd); }
+@media (max-width: 1100px) {
+  /* Keep the compact manager below the roster row so it doesn't cover its last member. */
+  .desk-party-manager { inset-block-start: 56px; }
+}
+@media (min-width: 560px) and (max-width: 700px) {
+  /* Плавающий и закреплённый Журнал оставляют управление в колонке карты. */
+  .desk-workspace:has(> aside[aria-label="Журнал и отмена"]) .desk-party-manager {
+    width: min(320px, calc(100vw - 368px));
+    inset-inline-start: 12px;
+    inset-inline-end: auto;
+  }
+}
+@media (max-width: 560px) {
+  /* Оставляем полосу инструментов доступной справа от компактного управления. */
+  .desk-party-manager {
+    width: min(320px, calc(100vw - 56px));
+    inset-inline-start: 12px;
+    inset-inline-end: auto;
+  }
+  /* На телефоне открытый Журнал занимает рабочую область; управление показывается отдельно. */
+  .desk-workspace:has(> aside[aria-label="Журнал и отмена"]) > aside[aria-label="Журнал и отмена"] {
+    position: absolute;
+    inset: 0 40px 0 0;
+    width: auto;
+    max-width: none;
+    z-index: 30;
+  }
+  .desk-workspace:has(> aside[aria-label="Журнал и отмена"]) .desk-party-manager { display: none; }
+}
+.desk-party-main:has(.party-spread[data-expanded="true"]) > .desk-view-surface { position: absolute; inset: 0; pointer-events: none; }
+/* Collapsed party controls share the same horizontal line as the character spines. */
+.desk-party-header:not(:has(.party-spread[data-expanded="true"])) { display: flex; align-items: center; gap: var(--space-2); }
+.desk-party-header:not(:has(.party-spread[data-expanded="true"])) .party-spread-toolbar,
+.desk-party-header:not(:has(.party-spread[data-expanded="true"])) .desk-party-actions { flex: none; }
+.desk-party-header:not(:has(.party-spread[data-expanded="true"])) .party-spread-stage { flex: 1 1 auto; min-width: 0; overflow: hidden; }
+.desk-party-header:not(:has(.party-spread[data-expanded="true"])) .party-spread-list { width: 100%; }
+.desk-party-header:not(:has(.party-spread[data-expanded="true"])) .desk-party-actions > button { white-space: nowrap; }
+.desk-party-manage-short { display: none; }
+.desk-scale-column {
+  position: absolute;
+  z-index: 12;
+  inset-inline-end: 8px;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 52px;
+  max-height: calc(100% - 16px);
+  transform: translateY(-50%);
+  align-self: auto;
+  gap: 3px;
+  padding: 4px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: color-mix(in srgb, var(--pn) 92%, transparent);
+  border: 1px solid var(--gd);
+  box-shadow: var(--bevel);
+  backdrop-filter: blur(4px);
+}
+.desk-scale-steps {
+  width: 100%;
+  max-height: min(70vh, 480px);
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.desk-armillary-trigger {
+  display: grid;
+  flex: none;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  color: var(--gd-hi);
+  background: linear-gradient(var(--pl), var(--cd));
+  box-shadow: var(--bevel);
+  cursor: pointer;
+}
+.desk-armillary-trigger:hover { color: var(--tx); }
+.desk-armillary-trigger:focus-visible { box-shadow: var(--glow-gold); }
+.desk-armillary-popover {
+  box-sizing: border-box;
+  width: min(620px, calc(100vw - 24px));
+  max-height: min(82vh, 700px);
+  overflow: auto;
+  padding: 12px;
+  color: var(--tx);
+  background: var(--pn);
+  box-shadow: var(--float);
+}
+.desk-armillary-head { display: flex; align-items: flex-start; gap: 12px; justify-content: space-between; }
+.desk-armillary-head p { margin-top: 4px; }
+.desk-armillary-close,
+.desk-armillary-levels button {
+  min-height: 32px;
+  padding: 4px 8px;
+  color: var(--t2);
+  background: linear-gradient(var(--pl), var(--cd));
+  box-shadow: var(--bevel);
+  cursor: pointer;
+}
+.desk-armillary-close:hover,
+.desk-armillary-levels button:hover { color: var(--tx); }
+.desk-armillary-close:focus-visible,
+.desk-armillary-levels button:focus-visible,
+.desk-armillary-ring:focus-visible { outline: 2px solid var(--gd-hi); outline-offset: 2px; }
+.desk-armillary-body {
+  display: grid;
+  grid-template-columns: 236px minmax(180px, 1fr);
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+.desk-armillary-orbits { display: block; width: 100%; height: auto; touch-action: none; user-select: none; }
+.desk-armillary-ring { cursor: grab; outline: none; touch-action: none; }
+.desk-armillary-orbits.is-dragging .desk-armillary-ring.is-current { cursor: grabbing; }
+.desk-armillary-ring ellipse { transition: stroke .16s ease, stroke-width .16s ease; }
+.desk-armillary-ring:hover ellipse:last-of-type { stroke: var(--gd); stroke-width: 3px; }
+.desk-armillary-ring.is-current ellipse:last-of-type { filter: drop-shadow(0 0 3px var(--gd)); }
+.desk-armillary-levels { display: grid; grid-template-columns: 1fr; gap: 4px; }
+.desk-armillary-levels button { display: flex; align-items: center; gap: 8px; width: 100%; text-align: left; }
+.desk-armillary-levels button.is-current { color: var(--gd-hi); box-shadow: var(--bevel), inset 3px 0 0 var(--gd); }
+.desk-armillary-arrow { fill: var(--pn); }
+@media (prefers-reduced-motion: reduce) {
+  .desk-armillary-ring ellipse { transition: none; }
+}
+@media (max-width: 560px) {
+  .desk-armillary-body { grid-template-columns: minmax(0, 1fr); }
+  .desk-armillary-orbits { width: min(236px, 100%); margin-inline: auto; }
+  .desk-armillary-levels { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.desk-scale-column [data-part="sep"] {
+  width: 18px;
+  height: 1px;
+  margin-inline: auto;
+  padding: 0;
+  transform: none;
+  overflow: hidden;
+  background: var(--gd);
+  opacity: .65;
+  font-size: 0;
+}
+.desk-scale-column button[data-scale] {
+  display: grid;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  min-height: 34px;
+  place-items: center;
+  gap: 0;
+  padding: 0;
+  aspect-ratio: 1;
+  white-space: normal;
+}
+.desk-scale-column button[data-scale] > span { display: none; }
+.desk-world-layout { overflow: hidden; }
+@media (max-width: 800px) {
+  .desk-party-actions button { max-width: 112px; white-space: normal; }
+  .desk-party-header:not(:has(.party-spread[data-expanded="true"])) .party-spread-info > .type-key { display: none; }
+  .desk-party-manage-full { display: none; }
+  .desk-party-manage-short { display: inline; }
+  .desk-level-heading { min-height: calc(var(--spacing) * 5); flex-wrap: nowrap; padding-block: 4px; }
+  .desk-level-heading > [data-part="level"] { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .desk-level-heading > [data-part="level-tempo"] { display: none; }
+  .desk-level-heading > [data-part="chosen"] { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .desk-level-heading > div { flex: none; flex-wrap: nowrap; }
+}
+
+/* На узком окне боковой инспектор и космическая схема не помещаются рядом.
+   Ставим их вертикально, сохраняя прокрутку карточки отдельно от рабочей поверхности. */
+@media (max-width: 700px) {
+  /* На узком окне оставляем только счётчик: длинная подпись иначе налезает на кнопки карты.
+     Полное имя кнопки остаётся доступно через aria-label. */
+  .desk-party-header .party-spread-info > .type-key { display: none; }
+
+  /* Карточка справочника не должна сжиматься до остатка ширины слева от панели карты.
+     На телефоне она занимает доступную ширину карты и прокручивается внутри себя. */
+  .desk-map-layout [data-part="place-info"] {
+    inset-inline: 8px;
+    inset-block-end: 8px;
+    width: auto;
+    max-width: none;
+    max-height: 60%;
+    overflow-y: auto;
+    z-index: 40;
+  }
+  .desk-map-layout [data-part="place-info-header"] { flex-wrap: wrap; align-items: center; }
+
+  .desk-map-layout { flex-direction: column; }
+  .desk-map-layout > .desk-inspector { flex: 0 1 55%; width: 100%; max-width: 100%; min-height: 180px; max-height: 55%; }
+  .desk-map-layout > [data-part="great-wheel"],
+  .desk-map-layout > [data-part="world-tree"],
+  .desk-map-layout > [data-part="planetarium"],
+  .desk-map-layout > [data-part="flow-graph"],
+  .desk-map-layout > [aria-label^="Карта"] { flex: 1 1 45%; min-height: 160px; min-width: 0; max-width: 100%; }
+
+  /* На телефоне лестница не должна плавать поверх карточки и карты: выносим её
+     в отдельную горизонтально прокручиваемую полосу после рабочей зоны. */
+  .desk-world-layout { flex-direction: column; }
+  .desk-scale-column {
+    position: relative;
+    inset: auto;
+    top: auto;
+    transform: none;
+    flex: none;
+    align-self: stretch;
+    flex-direction: row;
+    width: 100%;
+    max-width: 100%;
+    max-height: none;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  .desk-scale-column nav.desk-scale-steps {
+    flex: 1 1 auto;
+    width: auto;
+    max-width: none;
+    max-height: none;
+    min-width: 0;
+    min-height: 34px;
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+  .desk-scale-column [data-part="sep"] {
+    width: 1px;
+    height: 18px;
+    margin-inline: 0;
+  }
+  .desk-overlay-host > [role="dialog"] [role="tabpanel"] {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--spacing-3, 12px);
+    padding: var(--spacing-3, 12px);
+  }
+  .desk-overlay-host > [role="dialog"] [role="tabpanel"] > .col-span-2 {
+    grid-column: 1;
+  }
+}
+
+/* Узкий экран: рейка персонажей — одна горизонтальная полоса портретов над рабочей зоной.
+   Остальные рельсы сохраняют своё место, а подробности доступны через подпись кнопки. */
+@media (max-width: 700px) {
+  .desk-workspace:has(> nav[data-party-portraits]) {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: 56px minmax(0, 1fr);
+  }
+  .desk-workspace > nav[data-party-portraits] {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    width: 100%;
+    max-width: none;
+    height: 56px;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+  }
+  .desk-workspace > nav[data-party-portraits] > button {
+    flex: 0 0 48px;
+    width: 48px;
+    height: 56px;
+  }
+  .desk-workspace > nav[data-party-portraits] > div {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: row;
+    align-items: stretch;
+    width: 0;
+    min-width: 0;
+    min-height: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+  }
+  .desk-workspace > nav[data-party-portraits] > div > [data-part="party-portrait-slot"] {
+    display: flex;
+    flex: 0 0 56px;
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+  }
+  .desk-workspace > nav[data-party-portraits] > div > [data-part="party-portrait-slot"] > button[data-actor] {
+    display: grid;
+    flex: 1 1 auto;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
+    padding: 4px;
+  }
+  .desk-workspace > nav[data-party-portraits] > div > [data-part="party-portrait-slot"] > button[data-actor] > :not([data-part="portrait"]):not(.sr-only) {
+    display: none;
+  }
+  .desk-workspace > nav[data-party-portraits] > div > [data-part="party-portrait-slot"] > button[data-actor] > [data-part="portrait"] {
+    width: 44px;
+    height: 44px;
+  }
+  .desk-workspace > nav[data-party-portraits] > div > [data-part="party-portrait-slot"] > button[data-actor] > [data-part="portrait"] > img {
+    width: 44px !important;
+    height: 44px !important;
+  }
+  .desk-workspace > section[aria-label="Главная зона"] { grid-column: 1; grid-row: 2; }
+  .desk-workspace > nav[data-side="right"] { grid-column: 2; grid-row: 2; }
+  .desk-workspace:has(> nav[data-party-portraits]) > aside[data-overlay][aria-label="Партия"] {
+    position: absolute;
+    z-index: 20;
+    inset: 56px auto 0 0;
+    width: min(320px, calc(100% - 48px));
+    max-width: none;
+  }
+  .desk-workspace:has(> nav[data-party-portraits]) > aside[aria-label="Журнал и отмена"] {
+    position: absolute;
+    z-index: 20;
+    inset: 56px 40px 0 0;
+    width: auto;
+    max-width: none;
+  }
+}
+
+/* Diagrams scroll inside the available zone. Keep their controls at the top even when
+   the SVG and selected-object details together exceed the height of the workspace. */
+.desk-map-layout > [data-part="great-wheel"] > div,
+.desk-map-layout > [data-part="world-tree"] > div,
+.desk-map-layout > [data-part="planetarium"] > div,
+.desk-map-layout > [data-part="flow-graph"] > div { justify-content: flex-start; }
+
+.desk-workspace-slot { flex: 1; min-height: 0; min-width: 0; overflow: auto; }
+.desk-workspace-slot[hidden] { display: none; }
+/* Keep the inactive table surface laid out behind Workshop/Library. display:none collapses
+   map/cosmos measurement; after returning to Session the ResizeObserver can leave the map blank. */
+[data-workspace] > .desk-view-surface { position: absolute; inset: 0; visibility: hidden; pointer-events: none; }
+
+/* Рейка выбора персонажа всегда горизонтальна: ряд портретов располагается над рабочей зоной. */
+.desk-workspace:has(> nav[data-party-portraits]) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: 56px minmax(0, 1fr);
+}
+.desk-workspace > nav[data-party-portraits] {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  max-width: none;
+  height: 56px;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+.desk-workspace > nav[data-party-portraits] > button {
+  flex: 0 0 56px;
+  width: 56px;
+  height: 56px;
+}
+.desk-workspace > nav[data-party-portraits] > div {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: row;
+  align-items: stretch;
+  width: 0;
+  min-width: 0;
+  min-height: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+}
+.desk-workspace > nav[data-party-portraits] > div > [data-part="party-portrait-slot"] {
+  display: flex;
+  flex: 0 0 56px;
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+}
+.desk-workspace > nav[data-party-portraits] > div > [data-part="party-portrait-slot"] > button[data-actor] {
+  display: grid;
+  flex: 1 1 auto;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  padding: 4px;
+}
+.desk-workspace > nav[data-party-portraits] > div > [data-part="party-portrait-slot"] > button[data-actor] > :not([data-part="portrait"]):not(.sr-only) { display: none; }
+.desk-workspace > nav[data-party-portraits] > div > [data-part="party-portrait-slot"] > button[data-actor] > [data-part="portrait"] { width: 44px; height: 44px; }
+.desk-workspace > nav[data-party-portraits] > div > [data-part="party-portrait-slot"] > button[data-actor] > [data-part="portrait"] > img { width: 44px !important; height: 44px !important; }
+.desk-workspace > section[aria-label="Главная зона"] { grid-column: 1; grid-row: 2; }
+.desk-workspace > nav[data-side="right"] { grid-column: 2; grid-row: 2; }
+.desk-workspace:has(> nav[data-party-portraits]) > aside[data-overlay][aria-label="Партия"] {
+  position: absolute;
+  z-index: 20;
+  inset: 56px auto 0 0;
+  width: min(320px, calc(100% - 48px));
+  max-width: none;
+}
+.desk-workspace:has(> nav[data-party-portraits]) > aside[aria-label="Журнал и отмена"]:not([data-overlay]),
+.desk-workspace:has(> nav[data-party-portraits]) > aside[aria-label="Хроника похода"]:not([data-overlay]) { grid-column: 2; grid-row: 2; }
+.desk-workspace:has(> nav[data-party-portraits]) > aside[data-overlay][aria-label="Журнал и отмена"],
+.desk-workspace:has(> nav[data-party-portraits]) > aside[data-overlay][aria-label="Хроника похода"] {
+  position: absolute;
+  z-index: 20;
+  inset: 56px 40px 0 auto;
+  width: min(320px, calc(100% - 40px));
+  max-width: none;
+}
+
+/* Short desktop viewports (including browser zoom): keep the map/cosmos as the flexible surface.
+   The active initiative token scales to 60px, so its 72px combat tray remains intact. */
+@media (max-height: 700px) and (min-width: 701px) {
+  .desk-party-header:not(:has(.party-spread[data-expanded="true"])) {
+    gap: 4px;
+    padding-block: 4px;
+  }
+  .desk-level-heading {
+    min-height: 32px;
+    flex-wrap: nowrap;
+    gap: 4px;
+    padding-block: 2px;
+  }
+  .desk-level-heading > [data-part="level-tempo"] { display: none; }
+  .desk-level-heading > [data-part="chosen"] {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .desk-level-heading > div { flex-wrap: nowrap; }
+}
+
+/* Local windows leave the real party toolbar and clock/context outside their bounds. */
+.desk-overlay-host { position: absolute; inset-inline: 0; top: 0; bottom: 0; pointer-events: none; }
+.desk-overlay-host > [role="dialog"] {
+  box-sizing: border-box;
+  width: min(var(--card-overlay), calc(100% - 24px));
+  max-width: calc(100% - 24px);
+  pointer-events: auto;
+}
+.desk-overlay-host > [role="dialog"] > [data-entity-type] {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  flex: 1;
+}
+
+@media (max-width: 700px) {
+  /* The selected-card stage is intentionally short on phones. Let the full sheet
+     borrow the viewport so its fixed shell doesn't collapse the active tab. */
+  .desk-overlay-host:has(> .desk-sheet-modal) {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 60 !important;
+    pointer-events: auto !important;
+  }
+}

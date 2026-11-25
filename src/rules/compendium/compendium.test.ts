@@ -5,10 +5,10 @@ import { CONDITION_IDS } from '../srd/conditions';
 
 /** Числа — из таблиц (замер 18.09.2026): расхождение значит, что импортёр или таблица изменились. */
 describe('компендиум из таблиц', () => {
-  it('состав: 38 рас, 62 подрасы, 172 черты, 13 классов', () => {
+  it('состав: 38 рас, 62 подрасы, 170 черт, 13 классов', () => {
     expect(RACES).toHaveLength(38);
     expect(RACES.reduce((n, r) => n + r.subraces.length, 0)).toBe(62);
-    expect(FEATS).toHaveLength(172);
+    expect(FEATS).toHaveLength(170);
     expect(CLASSES).toHaveLength(13);
     expect(CLASSES.map(c => c.nameRu)).toContain('Изобретатель');
   });
@@ -21,7 +21,7 @@ describe('компендиум из таблиц', () => {
     expect(bySource(FEATS, ['srd']).map(f => f.name)).toEqual(['Grappler']);
     expect(bySource(CLASSES, ['srd'])).toHaveLength(12);
     expect(CLASSES.find(c => c.nameRu === 'Изобретатель')?.source).toBe('book');
-    expect(bySource(FEATS, ['hb'])).toHaveLength(5);
+    expect(bySource(FEATS, ['hb'])).toHaveLength(6);
     for (const c of bySource(CLASSES, ['srd'])) expect(c.subclasses.filter(s => s.source === 'srd').length, c.name).toBe(1);
   });
 

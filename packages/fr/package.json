@@ -1,0 +1,864 @@
+{
+  "format": 1,
+  "id": "fr",
+  "kind": "setting",
+  "title": "Forgotten Realms",
+  "titleRu": "Забытые королевства",
+  "version": "2026.10.31",
+  "layers": [
+    {
+      "id": "content-chronology-articles-0-json",
+      "path": "content/chronology/articles/0.json",
+      "kinds": [
+        "chronology"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-chronology-articles-1-json",
+      "path": "content/chronology/articles/1.json",
+      "kinds": [
+        "chronology"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-chronology-articles-2-json",
+      "path": "content/chronology/articles/2.json",
+      "kinds": [
+        "chronology"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-chronology-articles-3-json",
+      "path": "content/chronology/articles/3.json",
+      "kinds": [
+        "chronology"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-chronology-articles-4-json",
+      "path": "content/chronology/articles/4.json",
+      "kinds": [
+        "chronology"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-chronology-articles-5-json",
+      "path": "content/chronology/articles/5.json",
+      "kinds": [
+        "chronology"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-chronology-articles-6-json",
+      "path": "content/chronology/articles/6.json",
+      "kinds": [
+        "chronology"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-chronology-articles-7-json",
+      "path": "content/chronology/articles/7.json",
+      "kinds": [
+        "chronology"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-chronology-articles-8-json",
+      "path": "content/chronology/articles/8.json",
+      "kinds": [
+        "chronology"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-chronology-articles-9-json",
+      "path": "content/chronology/articles/9.json",
+      "kinds": [
+        "chronology"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-chronology-articles-index-json",
+      "path": "content/chronology/articles/index.json",
+      "kinds": [
+        "chronology"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-chronology-events-0-json",
+      "path": "content/chronology/events/0.json",
+      "kinds": [
+        "chronology"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-chronology-events-1-json",
+      "path": "content/chronology/events/1.json",
+      "kinds": [
+        "chronology"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-chronology-events-2-json",
+      "path": "content/chronology/events/2.json",
+      "kinds": [
+        "chronology"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-chronology-events-3-json",
+      "path": "content/chronology/events/3.json",
+      "kinds": [
+        "chronology"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-chronology-events-4-json",
+      "path": "content/chronology/events/4.json",
+      "kinds": [
+        "chronology"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-chronology-events-5-json",
+      "path": "content/chronology/events/5.json",
+      "kinds": [
+        "chronology"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-chronology-events-6-json",
+      "path": "content/chronology/events/6.json",
+      "kinds": [
+        "chronology"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-chronology-events-7-json",
+      "path": "content/chronology/events/7.json",
+      "kinds": [
+        "chronology"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-chronology-events-8-json",
+      "path": "content/chronology/events/8.json",
+      "kinds": [
+        "chronology"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-chronology-events-9-json",
+      "path": "content/chronology/events/9.json",
+      "kinds": [
+        "chronology"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-chronology-index-json",
+      "path": "content/chronology/index.json",
+      "kinds": [
+        "chronology"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-cosmos-deities-json",
+      "path": "content/cosmos/deities.json",
+      "kinds": [
+        "deity",
+        "pantheon"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-cosmos-great-wheel-json",
+      "path": "content/cosmos/great-wheel.json",
+      "kinds": [
+        "plane"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-cosmos-holy-days-json",
+      "path": "content/cosmos/holy-days.json",
+      "kinds": [
+        "holy-day"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-cosmos-phlogiston-json",
+      "path": "content/cosmos/phlogiston.json",
+      "kinds": [
+        "sphere"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-cosmos-realmspace-json",
+      "path": "content/cosmos/realmspace.json",
+      "kinds": [
+        "body"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-cosmos-world-tree-json",
+      "path": "content/cosmos/world-tree.json",
+      "kinds": [
+        "plane"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-maps-neverwinter-json",
+      "path": "content/maps/neverwinter.json",
+      "kinds": [
+        "map"
+      ],
+      "license": "LicenseRef-Personal-Table",
+      "distribution": "table",
+      "attribution": "Фанатский или официальный картографический материал для личного стола; см. SOURCES.md."
+    },
+    {
+      "id": "content-maps-toril-cards-json",
+      "path": "content/maps/toril-cards.json",
+      "kinds": [
+        "place"
+      ],
+      "license": "CC-BY-SA-3.0 AND CC-BY-SA-4.0",
+      "distribution": "internal",
+      "attribution": "Пересказ FR Wiki и производные данные Toril GIS; CC BY-SA, только внутри по решению владельца.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com"
+      },
+      "derivedFrom": [
+        "content-maps-toril-places-json"
+      ]
+    },
+    {
+      "id": "content-maps-toril-clean-json",
+      "path": "content/maps/toril-clean.json",
+      "kinds": [
+        "map"
+      ],
+      "license": "LicenseRef-Personal-Table",
+      "distribution": "table",
+      "attribution": "Фанатский или официальный картографический материал для личного стола; см. SOURCES.md."
+    },
+    {
+      "id": "content-maps-toril-control-json",
+      "path": "content/maps/toril-control.json",
+      "kinds": [
+        "map-metadata"
+      ],
+      "license": "LicenseRef-Personal-Table",
+      "distribution": "table",
+      "attribution": "Фанатский или официальный картографический материал для личного стола; см. SOURCES.md."
+    },
+    {
+      "id": "content-maps-toril-icons-json",
+      "path": "content/maps/toril-icons.json",
+      "kinds": [
+        "map-metadata"
+      ],
+      "license": "LicenseRef-Personal-Table",
+      "distribution": "table",
+      "attribution": "Фанатский или официальный картографический материал для личного стола; см. SOURCES.md."
+    },
+    {
+      "id": "content-maps-toril-labels-json",
+      "path": "content/maps/toril-labels.json",
+      "kinds": [
+        "map-layer",
+        "place"
+      ],
+      "license": "CC-BY-SA-4.0 AND LicenseRef-Wizards-Fan-Content-Policy",
+      "distribution": "internal",
+      "attribution": "Toril GIS (Geospatial Grimoire) и материалы карты HandsomeRob; CC BY-SA 4.0 плюс Fan Content Policy, только внутри.",
+      "source": {
+        "url": "https://github.com/geospatial-grimoire/toril-gis"
+      },
+      "derivedFrom": [
+        "content-maps-toril-json",
+        "content-maps-toril-places-json"
+      ]
+    },
+    {
+      "id": "content-maps-toril-missing-json",
+      "path": "content/maps/toril-missing.json",
+      "kinds": [
+        "map-layer",
+        "place"
+      ],
+      "license": "CC-BY-SA-4.0 AND LicenseRef-Wizards-Fan-Content-Policy",
+      "distribution": "internal",
+      "attribution": "Toril GIS (Geospatial Grimoire) и материалы карты HandsomeRob; CC BY-SA 4.0 плюс Fan Content Policy, только внутри.",
+      "source": {
+        "url": "https://github.com/geospatial-grimoire/toril-gis"
+      },
+      "derivedFrom": [
+        "content-maps-toril-json",
+        "content-maps-toril-places-json"
+      ]
+    },
+    {
+      "id": "content-maps-toril-places-json",
+      "path": "content/maps/toril-places.json",
+      "kinds": [
+        "map-layer",
+        "place"
+      ],
+      "license": "CC-BY-SA-4.0 AND LicenseRef-Wizards-Fan-Content-Policy",
+      "distribution": "internal",
+      "attribution": "Toril GIS (Geospatial Grimoire) и материалы карты HandsomeRob; CC BY-SA 4.0 плюс Fan Content Policy, только внутри.",
+      "source": {
+        "url": "https://github.com/geospatial-grimoire/toril-gis"
+      }
+    },
+    {
+      "id": "content-maps-toril-review-jsonl",
+      "path": "content/maps/toril-review.jsonl",
+      "kinds": [
+        "map-layer",
+        "place"
+      ],
+      "license": "CC-BY-SA-4.0 AND LicenseRef-Wizards-Fan-Content-Policy",
+      "distribution": "internal",
+      "attribution": "Toril GIS (Geospatial Grimoire) и материалы карты HandsomeRob; CC BY-SA 4.0 плюс Fan Content Policy, только внутри.",
+      "source": {
+        "url": "https://github.com/geospatial-grimoire/toril-gis"
+      }
+    },
+    {
+      "id": "content-maps-toril-underdark-json",
+      "path": "content/maps/toril-underdark.json",
+      "kinds": [
+        "map-layer",
+        "place"
+      ],
+      "license": "CC-BY-SA-4.0 AND LicenseRef-Wizards-Fan-Content-Policy",
+      "distribution": "internal",
+      "attribution": "Toril GIS (Geospatial Grimoire) и материалы карты HandsomeRob; CC BY-SA 4.0 плюс Fan Content Policy, только внутри.",
+      "source": {
+        "url": "https://github.com/geospatial-grimoire/toril-gis"
+      },
+      "derivedFrom": [
+        "content-maps-toril-json",
+        "content-maps-toril-places-json"
+      ]
+    },
+    {
+      "id": "content-maps-toril-json",
+      "path": "content/maps/toril.json",
+      "kinds": [
+        "map"
+      ],
+      "license": "LicenseRef-Personal-Table",
+      "distribution": "table",
+      "attribution": "Фанатский или официальный картографический материал для личного стола; см. SOURCES.md."
+    },
+    {
+      "id": "content-world-econ-json",
+      "path": "content/world/econ.json",
+      "kinds": [
+        "economy"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-world-kingdoms-json",
+      "path": "content/world/kingdoms.json",
+      "kinds": [
+        "kingdom"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-world-org-members-json",
+      "path": "content/world/org-members.json",
+      "kinds": [
+        "organization"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-world-organizations-json",
+      "path": "content/world/organizations.json",
+      "kinds": [
+        "organization"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-world-people-index-json",
+      "path": "content/world/people-index.json",
+      "kinds": [
+        "person"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-world-people-0-json",
+      "path": "content/world/people/0.json",
+      "kinds": [
+        "person"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-world-people-1-json",
+      "path": "content/world/people/1.json",
+      "kinds": [
+        "person"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-world-people-2-json",
+      "path": "content/world/people/2.json",
+      "kinds": [
+        "person"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-world-people-3-json",
+      "path": "content/world/people/3.json",
+      "kinds": [
+        "person"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-world-people-4-json",
+      "path": "content/world/people/4.json",
+      "kinds": [
+        "person"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-world-people-5-json",
+      "path": "content/world/people/5.json",
+      "kinds": [
+        "person"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-world-people-6-json",
+      "path": "content/world/people/6.json",
+      "kinds": [
+        "person"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-world-people-7-json",
+      "path": "content/world/people/7.json",
+      "kinds": [
+        "person"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-world-place-faiths-json",
+      "path": "content/world/place-faiths.json",
+      "kinds": [
+        "place-faith"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-maps-toril-raster-corrections-json",
+      "path": "content/maps/toril-raster-corrections.json",
+      "kinds": [
+        "map-layer",
+        "place"
+      ],
+      "license": "CC-BY-SA-4.0 AND LicenseRef-Wizards-Fan-Content-Policy",
+      "distribution": "internal",
+      "attribution": "Toril GIS (Geospatial Grimoire) и материалы карты HandsomeRob; CC BY-SA 4.0 плюс Fan Content Policy, только внутри.",
+      "source": {
+        "url": "https://github.com/geospatial-grimoire/toril-gis"
+      },
+      "derivedFrom": [
+        "content-maps-toril-places-json"
+      ]
+    },
+    {
+      "id": "content-maps-toril-ocr-classification-json",
+      "path": "content/maps/toril-ocr-classification.json",
+      "kinds": [
+        "map-layer",
+        "place"
+      ],
+      "license": "CC-BY-SA-4.0 AND LicenseRef-Wizards-Fan-Content-Policy",
+      "distribution": "internal",
+      "attribution": "Toril GIS (Geospatial Grimoire) и материалы карты HandsomeRob; CC BY-SA 4.0 плюс Fan Content Policy, только внутри.",
+      "source": {
+        "url": "https://github.com/geospatial-grimoire/toril-gis"
+      },
+      "derivedFrom": [
+        "content-maps-toril-places-json"
+      ]
+    },
+    {
+      "id": "content-calendars-harptos-json",
+      "path": "content/calendars/harptos.json",
+      "kinds": [
+        "calendar"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0; только внутри.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      }
+    },
+    {
+      "id": "content-lenses-forgotten-realms-editions-json",
+      "path": "content/lenses/forgotten-realms-editions.json",
+      "kinds": [
+        "canon-lens"
+      ],
+      "license": "CC-BY-SA-3.0",
+      "distribution": "internal",
+      "attribution": "Forgotten Realms Wiki (forgottenrealms.fandom.com), авторы статей; CC BY-SA 3.0; только внутри.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      },
+      "derivedFrom": [
+        "content-chronology-articles-index-json"
+      ]
+    },
+    {
+      "id": "content-ladders-forgotten-realms-json",
+      "path": "content/ladders/forgotten-realms.json",
+      "kinds": [
+        "scale-ladder",
+        "place"
+      ],
+      "license": "CC-BY-SA-3.0 AND CC-BY-SA-4.0 AND LicenseRef-Wizards-Fan-Content-Policy",
+      "distribution": "internal",
+      "attribution": "Структурированное описание сеттинга; имена/связи — Forgotten Realms Wiki; географические координаты и карта — Toril GIS и материалы карты HandsomeRob; только внутри.",
+      "source": {
+        "url": "https://forgottenrealms.fandom.com",
+        "dump": "fr-wiki-2026-10-21"
+      },
+      "derivedFrom": [
+        "content-cosmos-great-wheel-json",
+        "content-cosmos-realmspace-json",
+        "content-maps-toril-json",
+        "content-maps-toril-places-json"
+      ]
+    }
+  ],
+  "distribution": "internal",
+  "rules": {
+    "systems": [
+      "dnd5e-2014",
+      "a5e"
+    ],
+    "default": "dnd5e-2014"
+  },
+  "maps": [
+    "content/maps/toril.json",
+    "content/maps/neverwinter.json"
+  ],
+  "canary": "dmck-fr-bb1d473b3187b129",
+  "cleanMaps": [
+    "content/maps/toril-clean.json"
+  ],
+  "time": {
+    "calendar": "harptos",
+    "lenses": "forgotten-realms-editions",
+    "calendarData": "content/calendars/harptos.json",
+    "lensesData": "content/lenses/forgotten-realms-editions.json"
+  },
+  "ladder": "content/ladders/forgotten-realms.json",
+  "kinds": {
+    "kingdom": {
+      "labelRu": "Держава"
+    },
+    "sphere": {
+      "labelRu": "Хрустальная сфера"
+    }
+  }
+}

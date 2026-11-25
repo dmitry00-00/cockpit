@@ -8,6 +8,8 @@
 //   node scripts/bundle-report.mjs [--top 40] [--budget 500]   — с --budget выход 1, если основной кусок больше N КБ
 import { gzipSync } from 'node:zlib';
 import { build } from 'vite';
+import { resolve } from 'node:path';
+import { cockpitEntry } from './lib/bundle-entry.mjs';
 
 const arg = name => (process.argv.includes(name) ? Number(process.argv[process.argv.indexOf(name) + 1]) : undefined);
 const top = arg('--top') ?? 40;
@@ -16,7 +18,9 @@ let mainBytes = 0;
 const report = {
   name: 'bundle-report',
   async generateBundle(_, bundle) {
-    const entry = Object.values(bundle).find(c => c.type === 'chunk' && c.isEntry);
+    // Multi-page builds also contain player and company-site entries. Their ordering
+    // must not turn a tiny marketing entry into a passing cockpit budget check.
+    const entry = cockpitEntry(bundle, resolve('index.html'));
     const mods = Object.entries(entry.modules).map(([id, m]) => ({ id: id.replace(process.cwd() + '/', '').replace(/^\0/, ''), size: m.renderedLength }));
     const total = mods.reduce((a, m) => a + m.size, 0);
     const byDir = new Map();

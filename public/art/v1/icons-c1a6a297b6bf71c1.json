@@ -1,0 +1,4957 @@
+{
+  "frames": {
+    "scale-cosmology": {
+      "frame": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:scale-cosmology",
+      "version": "df0b5ddf53e63cc6",
+      "purpose": "Знак интерфейса: scale-cosmology",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "scale-plane": {
+      "frame": {
+        "x": 16,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:scale-plane",
+      "version": "b1885732a377fa8e",
+      "purpose": "Знак интерфейса: scale-plane",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "scale-system": {
+      "frame": {
+        "x": 32,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:scale-system",
+      "version": "9117f6dd7fad57a3",
+      "purpose": "Знак интерфейса: scale-system",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "scale-planet": {
+      "frame": {
+        "x": 48,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:scale-planet",
+      "version": "c77fd3e21314ebc8",
+      "purpose": "Знак интерфейса: scale-planet",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "scale-continent": {
+      "frame": {
+        "x": 64,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:scale-continent",
+      "version": "0c2bb27177851cba",
+      "purpose": "Знак интерфейса: scale-continent",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "scale-region": {
+      "frame": {
+        "x": 80,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:scale-region",
+      "version": "9570cf4a6df9e7f2",
+      "purpose": "Знак интерфейса: scale-region",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "scale-settlement": {
+      "frame": {
+        "x": 96,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:scale-settlement",
+      "version": "1f84a8ad59d0366b",
+      "purpose": "Знак интерфейса: scale-settlement",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "scale-building": {
+      "frame": {
+        "x": 112,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:scale-building",
+      "version": "eee580131813d60a",
+      "purpose": "Знак интерфейса: scale-building",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "scale-battle": {
+      "frame": {
+        "x": 128,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:scale-battle",
+      "version": "fd8133d03100526b",
+      "purpose": "Знак интерфейса: scale-battle",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "ent-pc": {
+      "frame": {
+        "x": 144,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:ent-pc",
+      "version": "4a24124874aecc34",
+      "purpose": "Знак интерфейса: ent-pc",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "ent-npc": {
+      "frame": {
+        "x": 160,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:ent-npc",
+      "version": "4fddf8e705410d00",
+      "purpose": "Знак интерфейса: ent-npc",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "ent-monster": {
+      "frame": {
+        "x": 176,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:ent-monster",
+      "version": "01f4bd1ef896d6dd",
+      "purpose": "Знак интерфейса: ent-monster",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "ent-item": {
+      "frame": {
+        "x": 192,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:ent-item",
+      "version": "cd59dc835506c82c",
+      "purpose": "Знак интерфейса: ent-item",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "ent-location": {
+      "frame": {
+        "x": 208,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:ent-location",
+      "version": "0e5a6328f903611f",
+      "purpose": "Знак интерфейса: ent-location",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "ent-faction": {
+      "frame": {
+        "x": 224,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:ent-faction",
+      "version": "a9949b726f3643ce",
+      "purpose": "Знак интерфейса: ent-faction",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "ent-deity": {
+      "frame": {
+        "x": 240,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:ent-deity",
+      "version": "5a92abe47583cf6c",
+      "purpose": "Знак интерфейса: ent-deity",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "ent-event": {
+      "frame": {
+        "x": 0,
+        "y": 16,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:ent-event",
+      "version": "d1eff58b53ff3700",
+      "purpose": "Знак интерфейса: ent-event",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "src-canon": {
+      "frame": {
+        "x": 16,
+        "y": 16,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:src-canon",
+      "version": "69e87ded9e2bd88a",
+      "purpose": "Знак интерфейса: src-canon",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "src-dm": {
+      "frame": {
+        "x": 32,
+        "y": 16,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:src-dm",
+      "version": "71089d34c640b66c",
+      "purpose": "Знак интерфейса: src-dm",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "src-sim": {
+      "frame": {
+        "x": 48,
+        "y": 16,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:src-sim",
+      "version": "40d2c7dde929b978",
+      "purpose": "Знак интерфейса: src-sim",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "src-players": {
+      "frame": {
+        "x": 64,
+        "y": 16,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:src-players",
+      "version": "8da060be9d1dcf36",
+      "purpose": "Знак интерфейса: src-players",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "hidden": {
+      "frame": {
+        "x": 80,
+        "y": 16,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:hidden",
+      "version": "6658b9d51d1b60bc",
+      "purpose": "Знак интерфейса: hidden",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#hidden"
+      }
+    },
+    "dawn": {
+      "frame": {
+        "x": 96,
+        "y": 16,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:dawn",
+      "version": "e89cfc636048f673",
+      "purpose": "Знак интерфейса: dawn",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "day": {
+      "frame": {
+        "x": 112,
+        "y": 16,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:day",
+      "version": "709fe479555b050b",
+      "purpose": "Знак интерфейса: day",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "dusk": {
+      "frame": {
+        "x": 128,
+        "y": 16,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:dusk",
+      "version": "8fabc281d6fab7f8",
+      "purpose": "Знак интерфейса: dusk",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "night": {
+      "frame": {
+        "x": 144,
+        "y": 16,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:night",
+      "version": "2badf1f21953b935",
+      "purpose": "Знак интерфейса: night",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "cloudy": {
+      "frame": {
+        "x": 160,
+        "y": 16,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:cloudy",
+      "version": "64334e9f446c9158",
+      "purpose": "Знак интерфейса: cloudy",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "rain": {
+      "frame": {
+        "x": 176,
+        "y": 16,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:rain",
+      "version": "983f20c23e67b8bf",
+      "purpose": "Знак интерфейса: rain",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "storm": {
+      "frame": {
+        "x": 192,
+        "y": 16,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:storm",
+      "version": "f343fcfffca31578",
+      "purpose": "Знак интерфейса: storm",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "wind": {
+      "frame": {
+        "x": 208,
+        "y": 16,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:wind",
+      "version": "a69670378a30b838",
+      "purpose": "Знак интерфейса: wind",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "moon-new": {
+      "frame": {
+        "x": 224,
+        "y": 16,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:moon-new",
+      "version": "4c839b9e0c81065f",
+      "purpose": "Знак интерфейса: moon-new",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "moon-waxing": {
+      "frame": {
+        "x": 240,
+        "y": 16,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:moon-waxing",
+      "version": "709c82523cf82d1a",
+      "purpose": "Знак интерфейса: moon-waxing",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "moon-full": {
+      "frame": {
+        "x": 0,
+        "y": 32,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:moon-full",
+      "version": "f2134962b17ff246",
+      "purpose": "Знак интерфейса: moon-full",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "moon-waning": {
+      "frame": {
+        "x": 16,
+        "y": 32,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:moon-waning",
+      "version": "fa2ea7b1331f63f4",
+      "purpose": "Знак интерфейса: moon-waning",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "attack": {
+      "frame": {
+        "x": 32,
+        "y": 32,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:attack",
+      "version": "5494cdd1212d6f4d",
+      "purpose": "Знак интерфейса: attack",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "move": {
+      "frame": {
+        "x": 48,
+        "y": 32,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:move",
+      "version": "04f1898094bc20a3",
+      "purpose": "Знак интерфейса: move",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "dash": {
+      "frame": {
+        "x": 64,
+        "y": 32,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:dash",
+      "version": "36978a31924b83c3",
+      "purpose": "Знак интерфейса: dash",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "dodge": {
+      "frame": {
+        "x": 80,
+        "y": 32,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:dodge",
+      "version": "8846001dbf35145a",
+      "purpose": "Знак интерфейса: dodge",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "disengage": {
+      "frame": {
+        "x": 96,
+        "y": 32,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:disengage",
+      "version": "bec882c9572d1593",
+      "purpose": "Знак интерфейса: disengage",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "spell": {
+      "frame": {
+        "x": 112,
+        "y": 32,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:spell",
+      "version": "96f2017323c4cde8",
+      "purpose": "Знак интерфейса: spell",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "hp": {
+      "frame": {
+        "x": 128,
+        "y": 32,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:hp",
+      "version": "8734b26dd254064b",
+      "purpose": "Знак интерфейса: hp",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "ac": {
+      "frame": {
+        "x": 144,
+        "y": 32,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:ac",
+      "version": "f1bea68d68ab70de",
+      "purpose": "Знак интерфейса: ac",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "initiative": {
+      "frame": {
+        "x": 160,
+        "y": 32,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:initiative",
+      "version": "40bf30ec87b71e6d",
+      "purpose": "Знак интерфейса: initiative",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "dice": {
+      "frame": {
+        "x": 176,
+        "y": 32,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:dice",
+      "version": "cf5a774dab9ab56a",
+      "purpose": "Знак интерфейса: dice",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "journal": {
+      "frame": {
+        "x": 192,
+        "y": 32,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:journal",
+      "version": "aa911388eb8e61ee",
+      "purpose": "Знак интерфейса: journal",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#journal"
+      }
+    },
+    "map": {
+      "frame": {
+        "x": 208,
+        "y": 32,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:map",
+      "version": "8302c0324c892409",
+      "purpose": "Знак интерфейса: map",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#map"
+      }
+    },
+    "pulse": {
+      "frame": {
+        "x": 224,
+        "y": 32,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:pulse",
+      "version": "c89b77aa560a14f5",
+      "purpose": "Знак интерфейса: pulse",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "inbox": {
+      "frame": {
+        "x": 240,
+        "y": 32,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:inbox",
+      "version": "118f3557e990a196",
+      "purpose": "Знак интерфейса: inbox",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#inbox"
+      }
+    },
+    "search": {
+      "frame": {
+        "x": 0,
+        "y": 48,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:search",
+      "version": "d413c344c5ef99f7",
+      "purpose": "Знак интерфейса: search",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#search"
+      }
+    },
+    "note": {
+      "frame": {
+        "x": 16,
+        "y": 48,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:note",
+      "version": "fc4be2a5d7281b49",
+      "purpose": "Знак интерфейса: note",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "check": {
+      "frame": {
+        "x": 32,
+        "y": 48,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:check",
+      "version": "7b47f3bcad7b9e5d",
+      "purpose": "Знак интерфейса: check",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#check"
+      }
+    },
+    "cross": {
+      "frame": {
+        "x": 48,
+        "y": 48,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:cross",
+      "version": "6b73181b8cd9a664",
+      "purpose": "Знак интерфейса: cross",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "reroll": {
+      "frame": {
+        "x": 64,
+        "y": 48,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:reroll",
+      "version": "2c4a09f326018747",
+      "purpose": "Знак интерфейса: reroll",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "edit": {
+      "frame": {
+        "x": 80,
+        "y": 48,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:edit",
+      "version": "d95c5ac52b6ba148",
+      "purpose": "Знак интерфейса: edit",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "tempo": {
+      "frame": {
+        "x": 96,
+        "y": 48,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:tempo",
+      "version": "48abebbe1448c794",
+      "purpose": "Знак интерфейса: tempo",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "threads": {
+      "frame": {
+        "x": 112,
+        "y": 48,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:threads",
+      "version": "ff13e7714a3d0b19",
+      "purpose": "Знак интерфейса: threads",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "cond-prone": {
+      "frame": {
+        "x": 128,
+        "y": 48,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:cond-prone",
+      "version": "5df929691f4cc4cd",
+      "purpose": "Знак интерфейса: cond-prone",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#cond-prone"
+      }
+    },
+    "cond-poisoned": {
+      "frame": {
+        "x": 144,
+        "y": 48,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:cond-poisoned",
+      "version": "78a742e500f19766",
+      "purpose": "Знак интерфейса: cond-poisoned",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#cond-poisoned"
+      }
+    },
+    "cond-frightened": {
+      "frame": {
+        "x": 160,
+        "y": 48,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:cond-frightened",
+      "version": "2c86a685caf75aa1",
+      "purpose": "Знак интерфейса: cond-frightened",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#cond-frightened"
+      }
+    },
+    "cond-restrained": {
+      "frame": {
+        "x": 176,
+        "y": 48,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:cond-restrained",
+      "version": "8355bf1eca1def3e",
+      "purpose": "Знак интерфейса: cond-restrained",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#cond-restrained"
+      }
+    },
+    "cond-concentration": {
+      "frame": {
+        "x": 192,
+        "y": 48,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:cond-concentration",
+      "version": "1a9977984777297e",
+      "purpose": "Знак интерфейса: cond-concentration",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#cond-concentration"
+      }
+    },
+    "cond-unconscious": {
+      "frame": {
+        "x": 208,
+        "y": 48,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:cond-unconscious",
+      "version": "e7beef39c73a1788",
+      "purpose": "Знак интерфейса: cond-unconscious",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#cond-unconscious"
+      }
+    },
+    "cond-blinded": {
+      "frame": {
+        "x": 224,
+        "y": 48,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:cond-blinded",
+      "version": "df0b0474b866ca5c",
+      "purpose": "Знак интерфейса: cond-blinded",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#cond-blinded"
+      }
+    },
+    "cond-charmed": {
+      "frame": {
+        "x": 240,
+        "y": 48,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:cond-charmed",
+      "version": "cd2d5cc9caf70a82",
+      "purpose": "Знак интерфейса: cond-charmed",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#cond-charmed"
+      }
+    },
+    "cond-deafened": {
+      "frame": {
+        "x": 0,
+        "y": 64,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:cond-deafened",
+      "version": "1aff35873d2826bd",
+      "purpose": "Знак интерфейса: cond-deafened",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#cond-deafened"
+      }
+    },
+    "cond-exhaustion": {
+      "frame": {
+        "x": 16,
+        "y": 64,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:cond-exhaustion",
+      "version": "7aa707b14f5b751d",
+      "purpose": "Знак интерфейса: cond-exhaustion",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#cond-exhaustion"
+      }
+    },
+    "cond-grappled": {
+      "frame": {
+        "x": 32,
+        "y": 64,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:cond-grappled",
+      "version": "651b0c542c8daead",
+      "purpose": "Знак интерфейса: cond-grappled",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#cond-grappled"
+      }
+    },
+    "cond-incapacitated": {
+      "frame": {
+        "x": 48,
+        "y": 64,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:cond-incapacitated",
+      "version": "1144f0e2428fc6b9",
+      "purpose": "Знак интерфейса: cond-incapacitated",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#cond-incapacitated"
+      }
+    },
+    "cond-invisible": {
+      "frame": {
+        "x": 64,
+        "y": 64,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:cond-invisible",
+      "version": "d8170f6571b87e75",
+      "purpose": "Знак интерфейса: cond-invisible",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#cond-invisible"
+      }
+    },
+    "cond-paralyzed": {
+      "frame": {
+        "x": 80,
+        "y": 64,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:cond-paralyzed",
+      "version": "b2133e1801c353ed",
+      "purpose": "Знак интерфейса: cond-paralyzed",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#cond-paralyzed"
+      }
+    },
+    "cond-petrified": {
+      "frame": {
+        "x": 96,
+        "y": 64,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:cond-petrified",
+      "version": "095c831d85e854f5",
+      "purpose": "Знак интерфейса: cond-petrified",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#cond-petrified"
+      }
+    },
+    "cond-stunned": {
+      "frame": {
+        "x": 112,
+        "y": 64,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:cond-stunned",
+      "version": "5ae3506c55521aec",
+      "purpose": "Знак интерфейса: cond-stunned",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#cond-stunned"
+      }
+    },
+    "skill-acrobatics": {
+      "frame": {
+        "x": 128,
+        "y": 64,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:skill-acrobatics",
+      "version": "6ce635557745da9f",
+      "purpose": "Знак интерфейса: skill-acrobatics",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#skill-acrobatics"
+      }
+    },
+    "skill-animal": {
+      "frame": {
+        "x": 144,
+        "y": 64,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:skill-animal",
+      "version": "1c3aabab1694f15b",
+      "purpose": "Знак интерфейса: skill-animal",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#skill-animal"
+      }
+    },
+    "skill-arcana": {
+      "frame": {
+        "x": 160,
+        "y": 64,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:skill-arcana",
+      "version": "07ea22c7ec153eac",
+      "purpose": "Знак интерфейса: skill-arcana",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#skill-arcana"
+      }
+    },
+    "skill-athletics": {
+      "frame": {
+        "x": 176,
+        "y": 64,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:skill-athletics",
+      "version": "721f5b012b24817a",
+      "purpose": "Знак интерфейса: skill-athletics",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#skill-athletics"
+      }
+    },
+    "skill-deception": {
+      "frame": {
+        "x": 192,
+        "y": 64,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:skill-deception",
+      "version": "9d413f720a50a980",
+      "purpose": "Знак интерфейса: skill-deception",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#skill-deception"
+      }
+    },
+    "skill-history": {
+      "frame": {
+        "x": 208,
+        "y": 64,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:skill-history",
+      "version": "9702609ca41e1b32",
+      "purpose": "Знак интерфейса: skill-history",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#skill-history"
+      }
+    },
+    "skill-insight": {
+      "frame": {
+        "x": 224,
+        "y": 64,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:skill-insight",
+      "version": "e78179943f54a985",
+      "purpose": "Знак интерфейса: skill-insight",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#skill-insight"
+      }
+    },
+    "skill-intimidation": {
+      "frame": {
+        "x": 240,
+        "y": 64,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:skill-intimidation",
+      "version": "1bf87a27061e6c7b",
+      "purpose": "Знак интерфейса: skill-intimidation",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#skill-intimidation"
+      }
+    },
+    "skill-investigation": {
+      "frame": {
+        "x": 0,
+        "y": 80,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:skill-investigation",
+      "version": "7958457b9bba775d",
+      "purpose": "Знак интерфейса: skill-investigation",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#skill-investigation"
+      }
+    },
+    "skill-medicine": {
+      "frame": {
+        "x": 16,
+        "y": 80,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:skill-medicine",
+      "version": "fc0e686b1d8e28e1",
+      "purpose": "Знак интерфейса: skill-medicine",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#skill-medicine"
+      }
+    },
+    "skill-nature": {
+      "frame": {
+        "x": 32,
+        "y": 80,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:skill-nature",
+      "version": "45cede04fce27cfa",
+      "purpose": "Знак интерфейса: skill-nature",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#skill-nature"
+      }
+    },
+    "skill-perception": {
+      "frame": {
+        "x": 48,
+        "y": 80,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:skill-perception",
+      "version": "d15c599e46ea8860",
+      "purpose": "Знак интерфейса: skill-perception",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#skill-perception"
+      }
+    },
+    "skill-performance": {
+      "frame": {
+        "x": 64,
+        "y": 80,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:skill-performance",
+      "version": "2e65092188dd8ece",
+      "purpose": "Знак интерфейса: skill-performance",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#skill-performance"
+      }
+    },
+    "skill-persuasion": {
+      "frame": {
+        "x": 80,
+        "y": 80,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:skill-persuasion",
+      "version": "53ad2121190b87e9",
+      "purpose": "Знак интерфейса: skill-persuasion",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#skill-persuasion"
+      }
+    },
+    "skill-religion": {
+      "frame": {
+        "x": 96,
+        "y": 80,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:skill-religion",
+      "version": "7b91834426d1ad68",
+      "purpose": "Знак интерфейса: skill-religion",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#skill-religion"
+      }
+    },
+    "skill-sleight": {
+      "frame": {
+        "x": 112,
+        "y": 80,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:skill-sleight",
+      "version": "eb9a2eef8d58b076",
+      "purpose": "Знак интерфейса: skill-sleight",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#skill-sleight"
+      }
+    },
+    "skill-stealth": {
+      "frame": {
+        "x": 128,
+        "y": 80,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:skill-stealth",
+      "version": "2a27986101058e54",
+      "purpose": "Знак интерфейса: skill-stealth",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#skill-stealth"
+      }
+    },
+    "skill-survival": {
+      "frame": {
+        "x": 144,
+        "y": 80,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:skill-survival",
+      "version": "91c48924dab6b41c",
+      "purpose": "Знак интерфейса: skill-survival",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#skill-survival"
+      }
+    },
+    "slot-head": {
+      "frame": {
+        "x": 160,
+        "y": 80,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:slot-head",
+      "version": "71e1f04c37d274ee",
+      "purpose": "Знак интерфейса: slot-head",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "slot-neck": {
+      "frame": {
+        "x": 176,
+        "y": 80,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:slot-neck",
+      "version": "93060615486ec6ab",
+      "purpose": "Знак интерфейса: slot-neck",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "slot-cloak": {
+      "frame": {
+        "x": 192,
+        "y": 80,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:slot-cloak",
+      "version": "45aa16dd107b9f8e",
+      "purpose": "Знак интерфейса: slot-cloak",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "slot-armor": {
+      "frame": {
+        "x": 208,
+        "y": 80,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:slot-armor",
+      "version": "3e3e96f45dbcff5c",
+      "purpose": "Знак интерфейса: slot-armor",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "slot-hands": {
+      "frame": {
+        "x": 224,
+        "y": 80,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:slot-hands",
+      "version": "051513a55f0f50db",
+      "purpose": "Знак интерфейса: slot-hands",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "slot-ring": {
+      "frame": {
+        "x": 240,
+        "y": 80,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:slot-ring",
+      "version": "91d2fd95ef7b0ed3",
+      "purpose": "Знак интерфейса: slot-ring",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "slot-belt": {
+      "frame": {
+        "x": 0,
+        "y": 96,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:slot-belt",
+      "version": "f51a195276f23ee0",
+      "purpose": "Знак интерфейса: slot-belt",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "slot-feet": {
+      "frame": {
+        "x": 16,
+        "y": 96,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:slot-feet",
+      "version": "b19315b753794551",
+      "purpose": "Знак интерфейса: slot-feet",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "slot-weapon": {
+      "frame": {
+        "x": 32,
+        "y": 96,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:slot-weapon",
+      "version": "5494cdd1212d6f4d",
+      "purpose": "Знак интерфейса: slot-weapon",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "pin-quest": {
+      "frame": {
+        "x": 48,
+        "y": 96,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:pin-quest",
+      "version": "5b951448b457386f",
+      "purpose": "Знак интерфейса: pin-quest",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "pin-danger": {
+      "frame": {
+        "x": 64,
+        "y": 96,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:pin-danger",
+      "version": "2f6fa755e62cc4d5",
+      "purpose": "Знак интерфейса: pin-danger",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "pin-shop": {
+      "frame": {
+        "x": 80,
+        "y": 96,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:pin-shop",
+      "version": "5dbcde3345ed118a",
+      "purpose": "Знак интерфейса: pin-shop",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "pin-rumor": {
+      "frame": {
+        "x": 96,
+        "y": 96,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:pin-rumor",
+      "version": "1ead8c6160bcd9f1",
+      "purpose": "Знак интерфейса: pin-rumor",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "pin-camp": {
+      "frame": {
+        "x": 112,
+        "y": 96,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:pin-camp",
+      "version": "2030ed8c49e45fad",
+      "purpose": "Знак интерфейса: pin-camp",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "pin-road": {
+      "frame": {
+        "x": 128,
+        "y": 96,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:pin-road",
+      "version": "a9203f14c5365ef9",
+      "purpose": "Знак интерфейса: pin-road",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "ab-str": {
+      "frame": {
+        "x": 144,
+        "y": 96,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:ab-str",
+      "version": "0f225ec143c56f7d",
+      "purpose": "Знак интерфейса: ab-str",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#ab-str"
+      }
+    },
+    "ab-dex": {
+      "frame": {
+        "x": 160,
+        "y": 96,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:ab-dex",
+      "version": "25537cd4c6cde938",
+      "purpose": "Знак интерфейса: ab-dex",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#ab-dex"
+      }
+    },
+    "ab-con": {
+      "frame": {
+        "x": 176,
+        "y": 96,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:ab-con",
+      "version": "a48647ac5087a9ee",
+      "purpose": "Знак интерфейса: ab-con",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#ab-con"
+      }
+    },
+    "ab-int": {
+      "frame": {
+        "x": 192,
+        "y": 96,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:ab-int",
+      "version": "93ecf0789d755eda",
+      "purpose": "Знак интерфейса: ab-int",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#ab-int"
+      }
+    },
+    "ab-wis": {
+      "frame": {
+        "x": 208,
+        "y": 96,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:ab-wis",
+      "version": "3137991673237ebf",
+      "purpose": "Знак интерфейса: ab-wis",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#ab-wis"
+      }
+    },
+    "ab-cha": {
+      "frame": {
+        "x": 224,
+        "y": 96,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:ab-cha",
+      "version": "83f634b7088db3e2",
+      "purpose": "Знак интерфейса: ab-cha",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#ab-cha"
+      }
+    },
+    "cls-voin": {
+      "frame": {
+        "x": 240,
+        "y": 96,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:cls-voin",
+      "version": "d31da164bc396e07",
+      "purpose": "Знак интерфейса: cls-voin",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#cls-voin"
+      }
+    },
+    "cls-paladin": {
+      "frame": {
+        "x": 0,
+        "y": 112,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:cls-paladin",
+      "version": "08e5b73af3c8589a",
+      "purpose": "Знак интерфейса: cls-paladin",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#cls-paladin"
+      }
+    },
+    "cls-varvar": {
+      "frame": {
+        "x": 16,
+        "y": 112,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:cls-varvar",
+      "version": "8c20f53db6c86560",
+      "purpose": "Знак интерфейса: cls-varvar",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#cls-varvar"
+      }
+    },
+    "cls-monah": {
+      "frame": {
+        "x": 32,
+        "y": 112,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:cls-monah",
+      "version": "f19dd4e17c27c653",
+      "purpose": "Знак интерфейса: cls-monah",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#cls-monah"
+      }
+    },
+    "cls-plut": {
+      "frame": {
+        "x": 48,
+        "y": 112,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:cls-plut",
+      "version": "8180ee16f197eed4",
+      "purpose": "Знак интерфейса: cls-plut",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#cls-plut"
+      }
+    },
+    "cls-sledopyt": {
+      "frame": {
+        "x": 64,
+        "y": 112,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:cls-sledopyt",
+      "version": "439c96343028c664",
+      "purpose": "Знак интерфейса: cls-sledopyt",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#cls-sledopyt"
+      }
+    },
+    "cls-izobretatel": {
+      "frame": {
+        "x": 80,
+        "y": 112,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:cls-izobretatel",
+      "version": "a8f67a6aad380294",
+      "purpose": "Знак интерфейса: cls-izobretatel",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#cls-izobretatel"
+      }
+    },
+    "cls-bard": {
+      "frame": {
+        "x": 96,
+        "y": 112,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:cls-bard",
+      "version": "7cf5c7e12f9b1ba1",
+      "purpose": "Знак интерфейса: cls-bard",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#cls-bard"
+      }
+    },
+    "cls-koldun": {
+      "frame": {
+        "x": 112,
+        "y": 112,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:cls-koldun",
+      "version": "76ac504dfdd32c5c",
+      "purpose": "Знак интерфейса: cls-koldun",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#cls-koldun"
+      }
+    },
+    "cls-carodey": {
+      "frame": {
+        "x": 128,
+        "y": 112,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:cls-carodey",
+      "version": "4dc0c4653cfc0518",
+      "purpose": "Знак интерфейса: cls-carodey",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#cls-carodey"
+      }
+    },
+    "cls-volsebnik": {
+      "frame": {
+        "x": 144,
+        "y": 112,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:cls-volsebnik",
+      "version": "d6500c9debd01926",
+      "purpose": "Знак интерфейса: cls-volsebnik",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#cls-volsebnik"
+      }
+    },
+    "cls-druid": {
+      "frame": {
+        "x": 160,
+        "y": 112,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:cls-druid",
+      "version": "92d23c94ec41f415",
+      "purpose": "Знак интерфейса: cls-druid",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#cls-druid"
+      }
+    },
+    "cls-jrec": {
+      "frame": {
+        "x": 176,
+        "y": 112,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:cls-jrec",
+      "version": "3e4429d9ccdb27c5",
+      "purpose": "Знак интерфейса: cls-jrec",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#cls-jrec"
+      }
+    },
+    "school-abjuration": {
+      "frame": {
+        "x": 192,
+        "y": 112,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:school-abjuration",
+      "version": "99c8fd293db25f99",
+      "purpose": "Знак интерфейса: school-abjuration",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#school-abjuration"
+      }
+    },
+    "school-conjuration": {
+      "frame": {
+        "x": 208,
+        "y": 112,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:school-conjuration",
+      "version": "4f8009e5ada72d3c",
+      "purpose": "Знак интерфейса: school-conjuration",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#school-conjuration"
+      }
+    },
+    "school-divination": {
+      "frame": {
+        "x": 224,
+        "y": 112,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:school-divination",
+      "version": "22e0ddafc68df7ca",
+      "purpose": "Знак интерфейса: school-divination",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#school-divination"
+      }
+    },
+    "school-enchantment": {
+      "frame": {
+        "x": 240,
+        "y": 112,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:school-enchantment",
+      "version": "e290a5c711c486ca",
+      "purpose": "Знак интерфейса: school-enchantment",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#school-enchantment"
+      }
+    },
+    "school-evocation": {
+      "frame": {
+        "x": 0,
+        "y": 128,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:school-evocation",
+      "version": "6a06b9d094b081b6",
+      "purpose": "Знак интерфейса: school-evocation",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#school-evocation"
+      }
+    },
+    "school-illusion": {
+      "frame": {
+        "x": 16,
+        "y": 128,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:school-illusion",
+      "version": "9730b608f5ce8d0e",
+      "purpose": "Знак интерфейса: school-illusion",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#school-illusion"
+      }
+    },
+    "school-necromancy": {
+      "frame": {
+        "x": 32,
+        "y": 128,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:school-necromancy",
+      "version": "59f34154f95a6f8e",
+      "purpose": "Знак интерфейса: school-necromancy",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#school-necromancy"
+      }
+    },
+    "school-transmutation": {
+      "frame": {
+        "x": 48,
+        "y": 128,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:school-transmutation",
+      "version": "956c36b08d1c0acf",
+      "purpose": "Знак интерфейса: school-transmutation",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#school-transmutation"
+      }
+    },
+    "kind-claw": {
+      "frame": {
+        "x": 64,
+        "y": 128,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:kind-claw",
+      "version": "1b035e62688b63e2",
+      "purpose": "Знак интерфейса: kind-claw",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "kind-resist": {
+      "frame": {
+        "x": 80,
+        "y": 128,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:kind-resist",
+      "version": "0ea632bc92b2c691",
+      "purpose": "Знак интерфейса: kind-resist",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "kind-save": {
+      "frame": {
+        "x": 96,
+        "y": 128,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:kind-save",
+      "version": "e8bc66794b08292a",
+      "purpose": "Знак интерфейса: kind-save",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "kind-proficiency": {
+      "frame": {
+        "x": 112,
+        "y": 128,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:kind-proficiency",
+      "version": "1be4085bfa0732cc",
+      "purpose": "Знак интерфейса: kind-proficiency",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "kind-tool": {
+      "frame": {
+        "x": 128,
+        "y": 128,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:kind-tool",
+      "version": "40e56ffa5454c761",
+      "purpose": "Знак интерфейса: kind-tool",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "kind-vision": {
+      "frame": {
+        "x": 144,
+        "y": 128,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:kind-vision",
+      "version": "b07eee2b2b8440a0",
+      "purpose": "Знак интерфейса: kind-vision",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "kind-sense": {
+      "frame": {
+        "x": 160,
+        "y": 128,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:kind-sense",
+      "version": "73f186ab5f5dd0d4",
+      "purpose": "Знак интерфейса: kind-sense",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "kind-size": {
+      "frame": {
+        "x": 176,
+        "y": 128,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:kind-size",
+      "version": "df17b57ae39e2300",
+      "purpose": "Знак интерфейса: kind-size",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "kind-bonus": {
+      "frame": {
+        "x": 192,
+        "y": 128,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:kind-bonus",
+      "version": "44bf165be6359f99",
+      "purpose": "Знак интерфейса: kind-bonus",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "kind-rest": {
+      "frame": {
+        "x": 208,
+        "y": 128,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:kind-rest",
+      "version": "f954e2483cb61467",
+      "purpose": "Знак интерфейса: kind-rest",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "kind-aura": {
+      "frame": {
+        "x": 224,
+        "y": 128,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:kind-aura",
+      "version": "c4d75d9a2e5f2993",
+      "purpose": "Знак интерфейса: kind-aura",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "kind-shape": {
+      "frame": {
+        "x": 240,
+        "y": 128,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:kind-shape",
+      "version": "921631421404b2a0",
+      "purpose": "Знак интерфейса: kind-shape",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "kind-other": {
+      "frame": {
+        "x": 0,
+        "y": 144,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:kind-other",
+      "version": "e7007ac77e7e8f72",
+      "purpose": "Знак интерфейса: kind-other",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "race-celovek": {
+      "frame": {
+        "x": 16,
+        "y": 144,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-celovek",
+      "version": "403542157a489f2e",
+      "purpose": "Знак интерфейса: race-celovek",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#race-celovek"
+      }
+    },
+    "race-el-f": {
+      "frame": {
+        "x": 32,
+        "y": 144,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-el-f",
+      "version": "211ff204772103e7",
+      "purpose": "Знак интерфейса: race-el-f",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#race-el-f"
+      }
+    },
+    "race-dvarf": {
+      "frame": {
+        "x": 48,
+        "y": 144,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-dvarf",
+      "version": "741d0774bd8ec24a",
+      "purpose": "Знак интерфейса: race-dvarf",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#race-dvarf"
+      }
+    },
+    "race-gnom": {
+      "frame": {
+        "x": 64,
+        "y": 144,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-gnom",
+      "version": "ec4149ce16dc6223",
+      "purpose": "Знак интерфейса: race-gnom",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "race-poluroslik": {
+      "frame": {
+        "x": 80,
+        "y": 144,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-poluroslik",
+      "version": "75127d0dab467a59",
+      "purpose": "Знак интерфейса: race-poluroslik",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "race-ork": {
+      "frame": {
+        "x": 96,
+        "y": 144,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-ork",
+      "version": "967f4f3591041334",
+      "purpose": "Знак интерфейса: race-ork",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "race-poluork": {
+      "frame": {
+        "x": 112,
+        "y": 144,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-poluork",
+      "version": "a161d7ac9ab7be74",
+      "purpose": "Знак интерфейса: race-poluork",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "race-poluel-f": {
+      "frame": {
+        "x": 128,
+        "y": 144,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-poluel-f",
+      "version": "893806840e34a811",
+      "purpose": "Знак интерфейса: race-poluel-f",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "race-tifling": {
+      "frame": {
+        "x": 144,
+        "y": 144,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-tifling",
+      "version": "901c1631f722def0",
+      "purpose": "Знак интерфейса: race-tifling",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "race-drakonorojdennyy": {
+      "frame": {
+        "x": 160,
+        "y": 144,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-drakonorojdennyy",
+      "version": "3ee87d2cf09b8685",
+      "purpose": "Знак интерфейса: race-drakonorojdennyy",
+      "source": {
+        "kind": "code",
+        "reference": "design/art/bronze-icons-v2/masks.json#race-drakonorojdennyy"
+      }
+    },
+    "race-goblinoidy": {
+      "frame": {
+        "x": 176,
+        "y": 144,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-goblinoidy",
+      "version": "c25951d4897a30e6",
+      "purpose": "Знак интерфейса: race-goblinoidy",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "race-gity": {
+      "frame": {
+        "x": 192,
+        "y": 144,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-gity",
+      "version": "d1282e69ee69edb3",
+      "purpose": "Знак интерфейса: race-gity",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "race-djenazi": {
+      "frame": {
+        "x": 208,
+        "y": 144,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-djenazi",
+      "version": "f65ecf053fc1d053",
+      "purpose": "Знак интерфейса: race-djenazi",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "race-sifter": {
+      "frame": {
+        "x": 224,
+        "y": 144,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-sifter",
+      "version": "ed796b25b6cc1697",
+      "purpose": "Знак интерфейса: race-sifter",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "race-aasimar": {
+      "frame": {
+        "x": 240,
+        "y": 144,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-aasimar",
+      "version": "f88b15ed8e4c1666",
+      "purpose": "Знак интерфейса: race-aasimar",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "race-uan-ti": {
+      "frame": {
+        "x": 0,
+        "y": 160,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-uan-ti",
+      "version": "6717da813e3e0eb3",
+      "purpose": "Знак интерфейса: race-uan-ti",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "race-vedalkin": {
+      "frame": {
+        "x": 16,
+        "y": 160,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-vedalkin",
+      "version": "77d34d5bd2890f8a",
+      "purpose": "Знак интерфейса: race-vedalkin",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "race-verdan": {
+      "frame": {
+        "x": 32,
+        "y": 160,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-verdan",
+      "version": "ae5e290191c27f3a",
+      "purpose": "Знак интерфейса: race-verdan",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "race-gibridy-simikov": {
+      "frame": {
+        "x": 48,
+        "y": 160,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-gibridy-simikov",
+      "version": "7462270763aef300",
+      "purpose": "Знак интерфейса: race-gibridy-simikov",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "race-grung": {
+      "frame": {
+        "x": 64,
+        "y": 160,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-grung",
+      "version": "771eca027337d20c",
+      "purpose": "Знак интерфейса: race-grung",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "race-tortl": {
+      "frame": {
+        "x": 80,
+        "y": 160,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-tortl",
+      "version": "80107c52cb8fc878",
+      "purpose": "Знак интерфейса: race-tortl",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "race-triton": {
+      "frame": {
+        "x": 96,
+        "y": 160,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-triton",
+      "version": "3b5d37d42e4c13f5",
+      "purpose": "Знак интерфейса: race-triton",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "race-firbolg": {
+      "frame": {
+        "x": 112,
+        "y": 160,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-firbolg",
+      "version": "64eca9f58c76acd7",
+      "purpose": "Знак интерфейса: race-firbolg",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "race-aarakokra": {
+      "frame": {
+        "x": 128,
+        "y": 160,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-aarakokra",
+      "version": "581effe1411cc4f1",
+      "purpose": "Знак интерфейса: race-aarakokra",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "race-satir": {
+      "frame": {
+        "x": 144,
+        "y": 160,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-satir",
+      "version": "8eaa850a851747af",
+      "purpose": "Знак интерфейса: race-satir",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "race-tabaksi": {
+      "frame": {
+        "x": 160,
+        "y": 160,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-tabaksi",
+      "version": "ee769bf94415b097",
+      "purpose": "Знак интерфейса: race-tabaksi",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "race-goliaf": {
+      "frame": {
+        "x": 176,
+        "y": 160,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-goliaf",
+      "version": "71fc24d35c0dab69",
+      "purpose": "Знак интерфейса: race-goliaf",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "race-izmenausiysa": {
+      "frame": {
+        "x": 192,
+        "y": 160,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-izmenausiysa",
+      "version": "bc991b59b62d7409",
+      "purpose": "Знак интерфейса: race-izmenausiysa",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "race-kalastar": {
+      "frame": {
+        "x": 208,
+        "y": 160,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-kalastar",
+      "version": "3c53a026d061f1bb",
+      "purpose": "Знак интерфейса: race-kalastar",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "race-kenku": {
+      "frame": {
+        "x": 224,
+        "y": 160,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-kenku",
+      "version": "87df783926bc6cf8",
+      "purpose": "Знак интерфейса: race-kenku",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "race-kovanyy": {
+      "frame": {
+        "x": 240,
+        "y": 160,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-kovanyy",
+      "version": "a5ebf7b3f1ebed5b",
+      "purpose": "Знак интерфейса: race-kovanyy",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "race-kobol-d": {
+      "frame": {
+        "x": 0,
+        "y": 176,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-kobol-d",
+      "version": "40025a57a90447df",
+      "purpose": "Знак интерфейса: race-kobol-d",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "race-leonin": {
+      "frame": {
+        "x": 16,
+        "y": 176,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-leonin",
+      "version": "4e64e2d66471e8e8",
+      "purpose": "Знак интерфейса: race-leonin",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "race-loksodon": {
+      "frame": {
+        "x": 32,
+        "y": 176,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-loksodon",
+      "version": "0fea66a060c4036b",
+      "purpose": "Знак интерфейса: race-loksodon",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "race-lokata": {
+      "frame": {
+        "x": 48,
+        "y": 176,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-lokata",
+      "version": "3e05090ac150bcff",
+      "purpose": "Знак интерфейса: race-lokata",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "race-ludoaser": {
+      "frame": {
+        "x": 64,
+        "y": 176,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-ludoaser",
+      "version": "0797c80d53006f7f",
+      "purpose": "Знак интерфейса: race-ludoaser",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "race-minotavr": {
+      "frame": {
+        "x": 80,
+        "y": 176,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-minotavr",
+      "version": "9a3916b56aa7fb3d",
+      "purpose": "Знак интерфейса: race-minotavr",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    },
+    "race-kentavr": {
+      "frame": {
+        "x": 96,
+        "y": 176,
+        "w": 16,
+        "h": 16
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 16
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 16
+      },
+      "id": "icon:race-kentavr",
+      "version": "11d718a0609cbf2c",
+      "purpose": "Знак интерфейса: race-kentavr",
+      "source": {
+        "kind": "code",
+        "reference": "design/icons-generator.js"
+      }
+    }
+  },
+  "meta": {
+    "app": "scripts/build-icons.mjs",
+    "version": "1.0",
+    "image": "icons-c9547fbead8ff351.png",
+    "size": {
+      "w": 256,
+      "h": 192
+    },
+    "scale": 1,
+    "format": "RGBA8888",
+    "contentSha256": "c9547fbead8ff351992c0d3373eeb92744e8a9301a274089078c11c918ac81da"
+  }
+}

@@ -1,0 +1,1312 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "event",
+  "entities": [
+    {
+      "ref": "event:long-night",
+      "kind": "event",
+      "name": "The Long Night",
+      "nameRu": "Долгая ночь",
+      "subtitle": "A Game of Thrones · A Game of Thrones, Bran I (chapter 1); A Game of Thrones, Tyrion III (chapter 21); A Game of Thrones, Bran IV (chapter 24)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran I (chapter 1); A Game of Thrones, Tyrion III (chapter 21); A Game of Thrones, Bran IV (chapter 24); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_1",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 1
+      },
+      "facts": [
+        {
+          "label": "Связь с главой",
+          "value": "историческая отсылка в главе"
+        },
+        {
+          "label": "Локаторы",
+          "value": "A Game of Thrones, Bran I (chapter 1); A Game of Thrones, Tyrion III (chapter 21); A Game of Thrones, Bran IV (chapter 24)"
+        },
+        {
+          "label": "Дата",
+          "value": "около 6 или 8 тысяч лет до Завоевания Эйгона по вторичному указателю; точность спорна."
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель/справочная статья; выбранное издание романа не сверялось."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "В северных преданиях многолетняя тьма и суровая зима связаны с появлением Иных и последующим укреплением защиты Севера. Детали относятся к легендарному прошлому и остаются спорными."
+        }
+      ],
+      "links": [
+        {
+          "label": "The Wall",
+          "ref": "place:the-wall"
+        },
+        {
+          "label": "Beyond The Wall",
+          "ref": "place:beyond-the-wall"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "The Long Night — A Wiki of Ice and Fire; CC BY-SA 3.0",
+          "url": "https://awoiaf.westeros.org/index.php/The_Long_Night",
+          "license": "CC-BY-SA-3.0"
+        }
+      ]
+    },
+    {
+      "ref": "event:doom-of-valyria",
+      "kind": "event",
+      "name": "Doom of Valyria",
+      "nameRu": "Гибель Валирии",
+      "subtitle": "A Game of Thrones · A Game of Thrones, Catelyn I (chapter 2); A Game of Thrones, Daenerys I (chapter 3); A Game of Thrones, Daenerys III (chapter 23)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn I (chapter 2); A Game of Thrones, Daenerys I (chapter 3); A Game of Thrones, Daenerys III (chapter 23); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_2",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 2
+      },
+      "facts": [
+        {
+          "label": "Связь с главой",
+          "value": "историческая отсылка в главе"
+        },
+        {
+          "label": "Локаторы",
+          "value": "A Game of Thrones, Catelyn I (chapter 2); A Game of Thrones, Daenerys I (chapter 3); A Game of Thrones, Daenerys III (chapter 23)"
+        },
+        {
+          "label": "Дата",
+          "value": "102 BC по хронологии AWOIAF; вторичная датировка."
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель/справочная статья; выбранное издание романа не сверялось."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Катастрофа уничтожила валирийскую метрополию и разрушила прежний порядок в Эссосе. Её точная причина в источнике не устанавливается."
+        }
+      ],
+      "links": [
+        {
+          "label": "Viserys Targaryen",
+          "ref": "person:viserys-targaryen"
+        },
+        {
+          "label": "Dragonstone",
+          "ref": "place:dragonstone"
+        },
+        {
+          "label": "House Targaryen",
+          "ref": "organization:house-targaryen"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "Doom of Valyria — A Wiki of Ice and Fire; CC BY-SA 3.0",
+          "url": "https://awoiaf.westeros.org/index.php/The_Doom",
+          "license": "CC-BY-SA-3.0"
+        }
+      ]
+    },
+    {
+      "ref": "event:battle-of-the-trident",
+      "kind": "event",
+      "name": "Battle of the Trident",
+      "nameRu": "Битва на Трезубце",
+      "subtitle": "A Game of Thrones · A Game of Thrones, Daenerys I (chapter 3); A Game of Thrones, Eddard I (chapter 4); A Game of Thrones, Eddard II (chapter 12); A Game of Thrones, Sansa I (chapter 15); A Game of Thrones, Eddard III (chapter 16); A Game of Thrones, Jon III (chapter 19); A Game of Thrones, Eddard IV (chapter 20); A Game of Thrones, Daenerys III (chapter 23)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys I (chapter 3); A Game of Thrones, Eddard I (chapter 4); A Game of Thrones, Eddard II (chapter 12); A Game of Thrones, Sansa I (chapter 15); A Game of Thrones, Eddard III (chapter 16); A Game of Thrones, Jon III (chapter 19); A Game of Thrones, Eddard IV (chapter 20); A Game of Thrones, Daenerys III (chapter 23); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 3
+      },
+      "facts": [
+        {
+          "label": "Связь с главой",
+          "value": "историческая отсылка в главе"
+        },
+        {
+          "label": "Локаторы",
+          "value": "A Game of Thrones, Daenerys I (chapter 3); A Game of Thrones, Eddard I (chapter 4); A Game of Thrones, Eddard II (chapter 12); A Game of Thrones, Sansa I (chapter 15); A Game of Thrones, Eddard III (chapter 16); A Game of Thrones, Jon III (chapter 19); A Game of Thrones, Eddard IV (chapter 20); A Game of Thrones, Daenerys III (chapter 23)"
+        },
+        {
+          "label": "Дата",
+          "value": "283 AC по вторичному указателю."
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель/справочная статья; выбранное издание романа не сверялось."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Восставшие силы победили королевское войско у Трезубца; гибель Рейгара стала решающим переломом войны."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robert Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "Rhaegar Targaryen",
+          "ref": "person:rhaegar-targaryen"
+        },
+        {
+          "label": "Trident",
+          "ref": "place:trident"
+        },
+        {
+          "label": "Roberts Rebellion",
+          "ref": "event:roberts-rebellion"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "Battle of the Trident — A Wiki of Ice and Fire; CC BY-SA 3.0",
+          "url": "https://awoiaf.westeros.org/index.php/Battle_of_the_Trident",
+          "license": "CC-BY-SA-3.0"
+        }
+      ]
+    },
+    {
+      "ref": "event:sack-of-kings-landing",
+      "kind": "event",
+      "name": "Sack of King’s Landing",
+      "nameRu": "Разграбление Королевской Гавани",
+      "subtitle": "A Game of Thrones · A Game of Thrones, Daenerys I (chapter 3); A Game of Thrones, Eddard II (chapter 12); A Game of Thrones, Tyrion III (chapter 21)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys I (chapter 3); A Game of Thrones, Eddard II (chapter 12); A Game of Thrones, Tyrion III (chapter 21); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 3
+      },
+      "facts": [
+        {
+          "label": "Связь с главой",
+          "value": "историческая отсылка в главе"
+        },
+        {
+          "label": "Локаторы",
+          "value": "A Game of Thrones, Daenerys I (chapter 3); A Game of Thrones, Eddard II (chapter 12); A Game of Thrones, Tyrion III (chapter 21)"
+        },
+        {
+          "label": "Дата",
+          "value": "283 AC по вторичному указателю."
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель/справочная статья; выбранное издание романа не сверялось."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "В финале восстания войско Ланнистеров захватило столицу. Насилие при падении города и гибель членов правящей семьи закрепили смену власти."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tywin Lannister",
+          "ref": "person:tywin-lannister"
+        },
+        {
+          "label": "Jaime Lannister",
+          "ref": "person:jaime-lannister"
+        },
+        {
+          "label": "Kings Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Roberts Rebellion",
+          "ref": "event:roberts-rebellion"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "Sack of King’s Landing — A Wiki of Ice and Fire; CC BY-SA 3.0",
+          "url": "https://awoiaf.westeros.org/index.php/Sack_of_King%27s_Landing",
+          "license": "CC-BY-SA-3.0"
+        }
+      ]
+    },
+    {
+      "ref": "event:greyjoys-rebellion",
+      "kind": "event",
+      "name": "Greyjoy’s Rebellion",
+      "nameRu": "Восстание Грейджоев",
+      "subtitle": "A Game of Thrones · A Game of Thrones, Eddard I (chapter 4); A Game of Thrones, Bran IV (chapter 24)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard I (chapter 4); A Game of Thrones, Bran IV (chapter 24); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_4",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 4
+      },
+      "facts": [
+        {
+          "label": "Связь с главой",
+          "value": "историческая отсылка в главе"
+        },
+        {
+          "label": "Локаторы",
+          "value": "A Game of Thrones, Eddard I (chapter 4); A Game of Thrones, Bran IV (chapter 24)"
+        },
+        {
+          "label": "Дата",
+          "value": "289 AC по вторичному указателю."
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель/справочная статья; выбранное издание романа не сверялось."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Балон Грейджой объявил независимость Железных островов. Объединённый королевский ответ завершился поражением восстания и подчинением островов."
+        }
+      ],
+      "links": [
+        {
+          "label": "Balon Greyjoy",
+          "ref": "person:balon-greyjoy"
+        },
+        {
+          "label": "Robert Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "Pyke",
+          "ref": "place:pyke"
+        },
+        {
+          "label": "Battle At Pyke",
+          "ref": "event:battle-at-pyke"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "Greyjoy’s Rebellion — A Wiki of Ice and Fire; CC BY-SA 3.0",
+          "url": "https://awoiaf.westeros.org/index.php/The_Greyjoy_Rebellion",
+          "license": "CC-BY-SA-3.0"
+        }
+      ]
+    },
+    {
+      "ref": "event:roberts-rebellion",
+      "kind": "event",
+      "name": "Robert’s Rebellion",
+      "nameRu": "Восстание Роберта",
+      "subtitle": "A Game of Thrones · A Game of Thrones, Eddard I (chapter 4)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard I (chapter 4); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_4",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 4
+      },
+      "facts": [
+        {
+          "label": "Связь с главой",
+          "value": "историческая отсылка в главе"
+        },
+        {
+          "label": "Локаторы",
+          "value": "A Game of Thrones, Eddard I (chapter 4)"
+        },
+        {
+          "label": "Дата",
+          "value": "282–283 AC по вторичному указателю."
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель/справочная статья; выбранное издание романа не сверялось."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Война завершилась победой восставших, прекращением правления Таргариенов и началом королевской династии Баратеонов. Битва на Трезубце, разграбление столицы и осада Штормового Предела — отдельные связанные события."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robert Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "Rhaegar Targaryen",
+          "ref": "person:rhaegar-targaryen"
+        },
+        {
+          "label": "House Targaryen",
+          "ref": "organization:house-targaryen"
+        },
+        {
+          "label": "Battle Of The Trident",
+          "ref": "event:battle-of-the-trident"
+        },
+        {
+          "label": "Sack Of Kings Landing",
+          "ref": "event:sack-of-kings-landing"
+        },
+        {
+          "label": "Siege Of Storms End",
+          "ref": "event:siege-of-storms-end"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "Robert’s Rebellion — A Wiki of Ice and Fire; CC BY-SA 3.0",
+          "url": "https://awoiaf.westeros.org/index.php/Robert%27s_Rebellion",
+          "license": "CC-BY-SA-3.0"
+        }
+      ]
+    },
+    {
+      "ref": "event:conquest-of-dorne",
+      "kind": "event",
+      "name": "Conquest of Dorne",
+      "nameRu": "Завоевание Дорна",
+      "subtitle": "A Game of Thrones · A Game of Thrones, Jon I (chapter 5)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon I (chapter 5); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_5",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 5
+      },
+      "facts": [
+        {
+          "label": "Связь с главой",
+          "value": "историческая отсылка в главе"
+        },
+        {
+          "label": "Локаторы",
+          "value": "A Game of Thrones, Jon I (chapter 5)"
+        },
+        {
+          "label": "Дата",
+          "value": "157–161 AC по вторичному указателю."
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель/справочная статья; выбранное издание романа не сверялось."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Дейрон I ненадолго подчинил Дорн; затем дорнийское восстание восстановило независимость региона."
+        }
+      ],
+      "links": [
+        {
+          "label": "Dorne",
+          "ref": "place:dorne"
+        },
+        {
+          "label": "House Targaryen",
+          "ref": "organization:house-targaryen"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "Conquest of Dorne — A Wiki of Ice and Fire; CC BY-SA 3.0",
+          "url": "https://awoiaf.westeros.org/index.php/Conquest_of_Dorne",
+          "license": "CC-BY-SA-3.0"
+        }
+      ]
+    },
+    {
+      "ref": "event:rhoynar-migration",
+      "kind": "event",
+      "name": "Rhoynar migration",
+      "nameRu": "Переселение ройнаров",
+      "subtitle": "A Game of Thrones · A Game of Thrones, Arya I (chapter 7)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Arya I (chapter 7); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_7",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 7
+      },
+      "facts": [
+        {
+          "label": "Связь с главой",
+          "value": "историческая отсылка в главе"
+        },
+        {
+          "label": "Локаторы",
+          "value": "A Game of Thrones, Arya I (chapter 7)"
+        },
+        {
+          "label": "Дата",
+          "value": "примерно за тысячу лет до начала саги по вторичному указателю; легендарная хронология."
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель/справочная статья; выбранное издание романа не сверялось."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "После поражения от Валирии выжившие ройнары покинули Эссос под предводительством Нимерии и поселились в Дорне. Число кораблей относится к легендарной традиции."
+        }
+      ],
+      "links": [
+        {
+          "label": "Dorne",
+          "ref": "place:dorne"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "Rhoynar migration — A Wiki of Ice and Fire; CC BY-SA 3.0",
+          "url": "https://awoiaf.westeros.org/index.php/Rhoynar_migration",
+          "license": "CC-BY-SA-3.0"
+        }
+      ]
+    },
+    {
+      "ref": "event:dance-of-the-dragons",
+      "kind": "event",
+      "name": "Dance of the Dragons",
+      "nameRu": "Танец драконов",
+      "subtitle": "A Game of Thrones · A Game of Thrones, Bran II (chapter 8)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran II (chapter 8); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_8",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 8
+      },
+      "facts": [
+        {
+          "label": "Связь с главой",
+          "value": "историческая отсылка в главе"
+        },
+        {
+          "label": "Локаторы",
+          "value": "A Game of Thrones, Bran II (chapter 8)"
+        },
+        {
+          "label": "Дата",
+          "value": "129–131 AC по вторичному указателю."
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель/справочная статья; выбранное издание романа не сверялось."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Гражданская война между соперничающими притязаниями Таргариенов закончилась гибелью обоих главных претендентов и резко ослабила драконов."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Targaryen",
+          "ref": "organization:house-targaryen"
+        },
+        {
+          "label": "Dragonstone",
+          "ref": "place:dragonstone"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "Dance of the Dragons — A Wiki of Ice and Fire; CC BY-SA 3.0",
+          "url": "https://awoiaf.westeros.org/index.php/Dance_of_the_Dragons",
+          "license": "CC-BY-SA-3.0"
+        }
+      ]
+    },
+    {
+      "ref": "event:siege-of-storms-end",
+      "kind": "event",
+      "name": "Siege of Storm’s End",
+      "nameRu": "Осада Штормового Предела",
+      "subtitle": "A Game of Thrones · A Game of Thrones, Eddard II (chapter 12); A Game of Thrones, Jon III (chapter 19)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard II (chapter 12); A Game of Thrones, Jon III (chapter 19); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_12",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 12
+      },
+      "facts": [
+        {
+          "label": "Связь с главой",
+          "value": "историческая отсылка в главе"
+        },
+        {
+          "label": "Локаторы",
+          "value": "A Game of Thrones, Eddard II (chapter 12); A Game of Thrones, Jon III (chapter 19)"
+        },
+        {
+          "label": "Дата",
+          "value": "282–283 AC по вторичному указателю."
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель/справочная статья; выбранное издание романа не сверялось."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Во время восстания сторонники короны осаждали крепость, удерживаемую Станнисом Баратеоном. Осада завершилась после победы восставших."
+        }
+      ],
+      "links": [
+        {
+          "label": "Stannis Baratheon",
+          "ref": "person:stannis-baratheon"
+        },
+        {
+          "label": "Storms End",
+          "ref": "place:storms-end"
+        },
+        {
+          "label": "Roberts Rebellion",
+          "ref": "event:roberts-rebellion"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "Siege of Storm’s End — A Wiki of Ice and Fire; CC BY-SA 3.0",
+          "url": "https://awoiaf.westeros.org/index.php/Siege_of_Storm%27s_End",
+          "license": "CC-BY-SA-3.0"
+        }
+      ]
+    },
+    {
+      "ref": "event:aegons-conquest",
+      "kind": "event",
+      "name": "Aegon’s Conquest",
+      "nameRu": "Завоевание Эйгона",
+      "subtitle": "A Game of Thrones · A Game of Thrones, Tyrion II (chapter 13)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion II (chapter 13); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_13",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 13
+      },
+      "facts": [
+        {
+          "label": "Связь с главой",
+          "value": "историческая отсылка в главе"
+        },
+        {
+          "label": "Локаторы",
+          "value": "A Game of Thrones, Tyrion II (chapter 13)"
+        },
+        {
+          "label": "Дата",
+          "value": "2 BC – 1 AC по вторичному указателю."
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель/справочная статья; выбранное издание романа не сверялось."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Эйгон I объединил под короной большую часть Вестероса; Дорн сохранил независимость. Кампания включает несколько отдельных войн и сражений."
+        }
+      ],
+      "links": [
+        {
+          "label": "Aegon I Targaryen",
+          "ref": "person:aegon-i-targaryen"
+        },
+        {
+          "label": "House Targaryen",
+          "ref": "organization:house-targaryen"
+        },
+        {
+          "label": "Dragonstone",
+          "ref": "place:dragonstone"
+        },
+        {
+          "label": "Dorne",
+          "ref": "place:dorne"
+        },
+        {
+          "label": "Field Of Fire",
+          "ref": "event:field-of-fire"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "Aegon’s Conquest — A Wiki of Ice and Fire; CC BY-SA 3.0",
+          "url": "https://awoiaf.westeros.org/index.php/Aegon%27s_Conquest",
+          "license": "CC-BY-SA-3.0"
+        }
+      ]
+    },
+    {
+      "ref": "event:field-of-fire",
+      "kind": "event",
+      "name": "Field of Fire",
+      "nameRu": "Поле огня",
+      "subtitle": "A Game of Thrones · A Game of Thrones, Tyrion II (chapter 13)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion II (chapter 13); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_13",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 13
+      },
+      "facts": [
+        {
+          "label": "Связь с главой",
+          "value": "историческая отсылка в главе"
+        },
+        {
+          "label": "Локаторы",
+          "value": "A Game of Thrones, Tyrion II (chapter 13)"
+        },
+        {
+          "label": "Дата",
+          "value": "около 2 BC по вторичному указателю."
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель/справочная статья; выбранное издание романа не сверялось."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "В крупном сражении войско Эйгона I разгромило объединённые силы Простора и Западных земель; дом Гарденеров перестал существовать как правящая династия."
+        }
+      ],
+      "links": [
+        {
+          "label": "Aegon I Targaryen",
+          "ref": "person:aegon-i-targaryen"
+        },
+        {
+          "label": "House Targaryen",
+          "ref": "organization:house-targaryen"
+        },
+        {
+          "label": "Aegons Conquest",
+          "ref": "event:aegons-conquest"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "Field of Fire — A Wiki of Ice and Fire; CC BY-SA 3.0",
+          "url": "https://awoiaf.westeros.org/index.php/Field_of_Fire",
+          "license": "CC-BY-SA-3.0"
+        }
+      ]
+    },
+    {
+      "ref": "event:robert-cersei-wedding",
+      "kind": "event",
+      "name": "Wedding of Robert I Baratheon and Cersei Lannister",
+      "nameRu": "Свадьба Роберта и Серсеи",
+      "subtitle": "A Game of Thrones · A Game of Thrones, Tyrion II (chapter 13)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion II (chapter 13); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_13",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 13
+      },
+      "facts": [
+        {
+          "label": "Связь с главой",
+          "value": "историческая отсылка в главе"
+        },
+        {
+          "label": "Локаторы",
+          "value": "A Game of Thrones, Tyrion II (chapter 13)"
+        },
+        {
+          "label": "Дата",
+          "value": "284 AC по вторичному указателю; название записи условное."
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель/справочная статья; выбранное издание романа не сверялось."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Король Роберт и Серсея Ланнистер заключили династический брак после восстания. Заголовок статьи AWOIAF о событии отмечен её авторами как предположительный."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robert Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "Cersei Lannister",
+          "ref": "person:cersei-lannister"
+        },
+        {
+          "label": "Kings Landing",
+          "ref": "place:kings-landing"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "Wedding of Robert I Baratheon and Cersei Lannister — A Wiki of Ice and Fire; CC BY-SA 3.0",
+          "url": "https://awoiaf.westeros.org/index.php/King_Robert%27s_wedding_tourney",
+          "license": "CC-BY-SA-3.0"
+        }
+      ]
+    },
+    {
+      "ref": "event:hands-tourney",
+      "kind": "event",
+      "name": "Hand’s tourney",
+      "nameRu": "Турнир Десницы",
+      "subtitle": "A Game of Thrones · A Game of Thrones, Eddard IV (chapter 20); A Game of Thrones, Arya II (chapter 22)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard IV (chapter 20); A Game of Thrones, Arya II (chapter 22); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_20",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 20
+      },
+      "facts": [
+        {
+          "label": "Связь с главой",
+          "value": "распоряжение/план в указанных главах; событие ещё не произошло в этом отрезке"
+        },
+        {
+          "label": "Локаторы",
+          "value": "A Game of Thrones, Eddard IV (chapter 20); A Game of Thrones, Arya II (chapter 22)"
+        },
+        {
+          "label": "Дата",
+          "value": "дата в этом локаторе не устанавливается."
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель/справочная статья; выбранное издание романа не сверялось."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Роберт распорядился устроить турнир в честь назначения Эддарда Десницей. В главах 20 и 22 это распоряжение/план; сам турнир не считается уже прошедшим."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robert Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Kings Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Ned Receives Roberts Order For Hands Tourney",
+          "ref": "event:ned-receives-roberts-order-for-hands-tourney"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "Hand’s tourney — A Wiki of Ice and Fire; CC BY-SA 3.0",
+          "url": "https://awoiaf.westeros.org/index.php/Hand%27s_tourney",
+          "license": "CC-BY-SA-3.0"
+        }
+      ]
+    },
+    {
+      "ref": "event:battle-at-pyke",
+      "kind": "event",
+      "name": "Battle at Pyke",
+      "nameRu": "Битва при Пайке",
+      "subtitle": "A Game of Thrones · A Game of Thrones, Bran IV (chapter 24)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran IV (chapter 24); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_24",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 24
+      },
+      "facts": [
+        {
+          "label": "Связь с главой",
+          "value": "историческая отсылка в главе"
+        },
+        {
+          "label": "Локаторы",
+          "value": "A Game of Thrones, Bran IV (chapter 24)"
+        },
+        {
+          "label": "Дата",
+          "value": "289 AC по вторичному указателю."
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель/справочная статья; выбранное издание романа не сверялось."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Королевское войско взяло Пайк в ходе последней кампании подавления восстания Железных островов. Это отдельный бой внутри более широкой войны Грейджоев."
+        }
+      ],
+      "links": [
+        {
+          "label": "Balon Greyjoy",
+          "ref": "person:balon-greyjoy"
+        },
+        {
+          "label": "Robert Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "Stannis Baratheon",
+          "ref": "person:stannis-baratheon"
+        },
+        {
+          "label": "Pyke",
+          "ref": "place:pyke"
+        },
+        {
+          "label": "Greyjoys Rebellion",
+          "ref": "event:greyjoys-rebellion"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "Battle at Pyke — A Wiki of Ice and Fire; CC BY-SA 3.0",
+          "url": "https://awoiaf.westeros.org/index.php/Battle_at_Pyke",
+          "license": "CC-BY-SA-3.0"
+        }
+      ]
+    },
+    {
+      "ref": "event:coming-of-andals",
+      "kind": "event",
+      "name": "Coming of the Andals",
+      "nameRu": "Приход андальцев",
+      "subtitle": "A Game of Thrones · A Game of Thrones, Bran IV (chapter 24)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran IV (chapter 24); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_24",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 24
+      },
+      "facts": [
+        {
+          "label": "Связь с главой",
+          "value": "историческая отсылка в главе"
+        },
+        {
+          "label": "Локаторы",
+          "value": "A Game of Thrones, Bran IV (chapter 24)"
+        },
+        {
+          "label": "Дата",
+          "value": "точная датировка спорна; не используется как абсолютная дата."
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель/справочная статья; выбранное издание романа не сверялось."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Переселение андальцев из Эссоса изменило политическую и культурную историю южного Вестероса. Подробности ранней эпохи известны по поздним преданиям и спорным хронологиям."
+        }
+      ],
+      "links": [
+        {
+          "label": "Westeros",
+          "ref": "place:westeros"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "Coming of the Andals — A Wiki of Ice and Fire; CC BY-SA 3.0",
+          "url": "https://awoiaf.westeros.org/index.php/History",
+          "license": "CC-BY-SA-3.0"
+        }
+      ]
+    },
+    {
+      "ref": "event:tourney-on-joffreys-name-day",
+      "kind": "event",
+      "name": "Tourney on Prince Joffrey’s name day",
+      "nameRu": "Турнир в именинный день принца Джоффри",
+      "subtitle": "A Game of Thrones · A Game of Thrones, Catelyn IV (chapter 18)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn IV (chapter 18); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_18",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 18
+      },
+      "facts": [
+        {
+          "label": "Связь с главой",
+          "value": "ранее прошедшее событие, упомянутое как contested clue"
+        },
+        {
+          "label": "Локаторы",
+          "value": "A Game of Thrones, Catelyn IV (chapter 18)"
+        },
+        {
+          "label": "Дата",
+          "value": "298 AC по вторичному указателю."
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель/справочная статья; выбранное издание романа не сверялось."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "На турнире ко дню рождения Джоффри, по позднему рассказу Петира, был разыгран кинжал, связанный с обвинением Тириона. Источник оспаривает версию Петира: это зацепка расследования, а не подтверждённая передача кинжала."
+        }
+      ],
+      "links": [
+        {
+          "label": "Joffrey Baratheon",
+          "ref": "person:joffrey-baratheon"
+        },
+        {
+          "label": "Petyr Baelish",
+          "ref": "person:petyr-baelish"
+        },
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Kings Landing",
+          "ref": "place:kings-landing"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "Tourney on Prince Joffrey’s name day — A Wiki of Ice and Fire; CC BY-SA 3.0",
+          "url": "https://awoiaf.westeros.org/index.php/Tourney_on_Prince_Joffrey%27s_name_day",
+          "license": "CC-BY-SA-3.0"
+        }
+      ]
+    },
+    {
+      "ref": "event:burning-of-pinkmaiden-castle",
+      "kind": "event",
+      "name": "Burning of Pinkmaiden Castle",
+      "nameRu": "Сожжение замка Пинкмейден",
+      "subtitle": "A Game of Thrones · Tyrion VII · chapter 56",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion VII (chapter 56); A Wiki of Ice and Fire, numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_56",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 56,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Локатор",
+          "value": "Tyrion VII · chapter 56"
+        },
+        {
+          "label": "Роль локатора",
+          "value": "только ссылка на прошлое событие; не событие, происходящее в главе 56"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; не выводить из порядка глав."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF включает это название в перечень событий главы Tyrion VII. Черновик сохраняет только reference-only связь; подробности события требуют сверки с первичным текстом."
+        }
+      ],
+      "links": []
+    },
+    {
+      "ref": "event:burning-of-stone-hedge",
+      "kind": "event",
+      "name": "Burning of Stone Hedge",
+      "nameRu": "Сожжение Стоун-Хеджа",
+      "subtitle": "A Game of Thrones · Tyrion VII · chapter 56",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion VII (chapter 56); A Wiki of Ice and Fire, numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_56",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 56,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Локатор",
+          "value": "Tyrion VII · chapter 56"
+        },
+        {
+          "label": "Роль локатора",
+          "value": "только ссылка на прошлое событие; не событие, происходящее в главе 56"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; не выводить из порядка глав."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF включает это название в перечень событий главы Tyrion VII. Черновик сохраняет только reference-only связь; подробности события требуют сверки с первичным текстом."
+        }
+      ],
+      "links": []
+    },
+    {
+      "ref": "event:fall-of-raventree-hall",
+      "kind": "event",
+      "name": "Fall of Raventree Hall",
+      "nameRu": "Падение Рейвен-Три-Холла",
+      "subtitle": "A Game of Thrones · Tyrion VII · chapter 56",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion VII (chapter 56); A Wiki of Ice and Fire, numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_56",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 56,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Локатор",
+          "value": "Tyrion VII · chapter 56"
+        },
+        {
+          "label": "Роль локатора",
+          "value": "только ссылка на прошлое событие; не событие, происходящее в главе 56"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; не выводить из порядка глав."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF включает это название в перечень событий главы Tyrion VII. Черновик сохраняет только reference-only связь; подробности события требуют сверки с первичным текстом."
+        }
+      ],
+      "links": []
+    },
+    {
+      "ref": "event:yielding-of-harrenhal",
+      "kind": "event",
+      "name": "Yielding of Harrenhal",
+      "nameRu": "Сдача Харренхолла",
+      "subtitle": "A Game of Thrones · Tyrion VII · chapter 56",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion VII (chapter 56); A Wiki of Ice and Fire, numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_56",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 56,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Локатор",
+          "value": "Tyrion VII · chapter 56"
+        },
+        {
+          "label": "Роль локатора",
+          "value": "только ссылка на прошлое событие; не событие, происходящее в главе 56"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; не выводить из порядка глав."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF включает это название в перечень событий главы Tyrion VII. Черновик сохраняет только reference-only связь; подробности события требуют сверки с первичным текстом."
+        }
+      ],
+      "links": []
+    },
+    {
+      "ref": "event:lannister-army-gathering-at-casterly-rock",
+      "kind": "event",
+      "name": "Report: Lannister forces gather at Casterly Rock",
+      "subtitle": "A Game of Thrones · Catelyn VII (chapter 40)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn VII (chapter 40); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_40",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 40
+      },
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Game of Thrones, Catelyn VII (chapter 40); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+          "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_40",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "agot",
+          "chapterNo": 40
+        }
+      ],
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Локатор",
+          "value": "Catelyn VII (chapter 40)"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный источник; первичная сверка по выбранному изданию ожидается."
+        },
+        {
+          "label": "Класс события",
+          "value": "reported — переданное персонажем сообщение; событие не показано как непосредственно наблюдаемое"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Родрик сообщает Катлин, что Джейме собирает войско в Кастерли-Рок; глава передаёт это как полученную новость, а не как увиденное действие или подтверждённый итог."
+        }
+      ],
+      "links": []
+    }
+  ]
+}

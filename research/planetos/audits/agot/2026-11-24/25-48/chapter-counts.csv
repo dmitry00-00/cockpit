@@ -1,0 +1,26 @@
+chapter_no,chapter_title,chapter_url,clean_appearing_candidates,appearance_links_in_ledger,matched_index_entries,missing_index_entries,mention_links_ledger,dream_figure_candidates,dream_figure_links_ledger,scene_place_links_ledger,dream_place_links_ledger,referenced_place_links_ledger,occurred_event_links_ledger,referenced_event_links_ledger,notes
+25,Eddard V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_25,5,5,5,0,13,0,0,4,0,0,1,0,
+26,Jon IV,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_26,12,12,12,0,8,0,0,3,0,0,1,0,
+27,Eddard VI,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_27,14,13,13,1,13,0,0,3,0,0,1,0,Missing Pycelle
+28,Catelyn V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_28,14,13,13,1,8,0,0,2,0,0,1,0,Missing Kurleket
+29,Sansa II,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_29,40,40,40,0,5,0,0,3,0,0,1,0,
+30,Eddard VII,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_30,22,24,20,2,6,0,0,2,0,0,2,0,"Index-list gaps Jory and Arya; four ledger refs absent from selective Appearing list"
+31,Tyrion IV,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_31,12,12,12,0,4,0,0,3,0,0,1,1,
+32,Arya III,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_32,12,12,12,0,18,0,0,3,0,0,1,0,
+33,Eddard VIII,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_33,10,10,10,0,17,0,0,3,0,0,2,0,
+34,Catelyn VI,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_34,15,14,14,1,8,0,0,9,0,0,2,1,Missing Whitey
+35,Eddard IX,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_35,10,10,10,0,9,0,0,2,0,0,2,0,Unnamed Barra's mother excluded
+36,Daenerys IV,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_36,8,8,8,0,6,0,0,3,0,0,1,0,Unnamed silver mare excluded
+37,Bran V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_37,14,6,6,8,8,0,0,2,0,0,1,1,"Dancer excluded as horse; nine raw list entries missing total if Dancer counted"
+38,Tyrion V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_38,17,17,17,0,6,0,0,5,0,0,1,2,
+39,Eddard X,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_39,6,6,6,0,9,10,11,2,1,0,2,0,"Eddard wrongly linked as dream figure; exclude dreamer"
+40,Catelyn VII,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_40,12,11,11,1,4,0,0,2,0,0,1,0,Plump septon excluded as unnamed role
+41,Jon V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_41,16,5,5,11,10,0,0,2,0,0,2,0,11 existing-card appearing candidates unlinked
+42,Tyrion VI,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_42,7,5,5,2,4,0,0,3,0,0,1,0,"Jaggot and Torrek lack package cards"
+43,Eddard XI,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_43,19,14,14,5,7,0,0,3,0,0,1,0,"Joss and Lothar Mallery lack package cards"
+44,Sansa III,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_44,8,7,7,1,10,0,0,2,0,0,2,0,Missing Alyn
+45,Eddard XII,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_45,6,4,4,2,15,0,0,2,0,0,2,0,Missing Tomard and Varly
+46,Daenerys V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_46,11,8,8,3,2,0,0,3,0,0,1,0,"One-eyed crone excluded as unnamed; Fogo Jommo Ogo missing"
+47,Eddard XIII,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_47,13,12,12,1,14,0,0,3,0,0,5,2,"King's steward excluded as role; missing Desmond"
+48,Jon VI,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_48,20,20,20,0,8,0,0,5,0,0,3,0,
+

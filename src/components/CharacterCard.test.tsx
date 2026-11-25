@@ -1,12 +1,11 @@
 // Карта персонажа (Д9, образец владельца 30.10.2026): пропорции 63 × 88, корешок, полоса боя, ряд хитов, строка статуса,
 // вкладки и подвал; броски, хиты и состояния — колбэками страницы.
-import { fireEvent, render, screen, within } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import { seedEngine, seedState } from '../campaign';
 import { CharacterCard } from './CharacterCard';
-import { skillIcon } from './sheetIcons';
-import { ICONS } from '../icons/icons.generated';
-import { SKILL_IDS, SKILLS } from '../rules/srd/abilities';
+import { SKILL_IDS } from '../rules/srd/abilities';
+import { SKILL_LABEL } from './labels';
 import { CARD_RATIO, characterCardProps } from '../campaign/characterCard';
 import type { PcHeaderData } from './PcSheet';
 
@@ -22,16 +21,25 @@ describe('CharacterCard', () => {
     expect(bo.pools.length).toBeGreaterThan(0);
   });
 
-  it('ярусы: корешок — уровень и имя, полоса боя — КД, инициатива, внимательность, кости хитов, владение; хиты, пипки, подвал — состояния', () => {
+  it('ярусы: корешок — уровень и имя, полоса боя — КД, инициатива, внимательность, кости хитов, владение; хиты, пипки, подвал — состояния', async () => {
     // Стол сида после лога: у Bo концентрация на Hunter's Mark — чип на нижней кромке.
     const s = seedEngine().getState().state;
     const card = characterCardProps(s.actors.bo, header, s.time.sec)!;
+    expect(card.portrait).toBe('bo-portrait');
     render(<CharacterCard card={card} />);
     const art = screen.getByRole('article', { name: 'Карта персонажа: Bo Tambernack' });
     expect(art.style.aspectRatio).toBe(String(CARD_RATIO));
+    expect(art.querySelector('.character-card__paper')).toBeNull();
+    expect(art.querySelector('.character-card__leather')).toBeNull();
     const top = art.querySelector<HTMLElement>('[data-part="edge-top"]')!;
     expect(top).toHaveTextContent('5');
     expect(top).toHaveTextContent('Bo Tambernack');
+    await waitFor(() => expect(within(top).getByRole('img', { name: 'Портрет: Bo Tambernack' }).tagName).toBe('IMG'));
+    const portrait = within(top).getByRole('img', { name: 'Портрет: Bo Tambernack' });
+    expect(portrait).toHaveAttribute('loading', 'lazy');
+    expect(portrait).toHaveAttribute('width', '32');
+    expect(portrait).toHaveAttribute('sizes', '32px');
+    expect(portrait.getAttribute('srcset')).toContain('256w');
     const combat = within(art).getByRole('group', { name: 'Полоса боя' });
     expect(combat).toHaveTextContent(`КД${card.ac}`);
     expect(combat).toHaveTextContent(`К${card.hitDice!.die}${card.hitDice!.available}/${card.hitDice!.total}`);
@@ -53,12 +61,72 @@ describe('CharacterCard', () => {
     render(<CharacterCard card={card} onRollAbility={onRollAbility} onRollSkill={onRollSkill} onHp={onHp} onSheet={onSheet} />);
     fireEvent.click(screen.getByRole('button', { name: /^DEX \d+$/ }));
     expect(onRollAbility).toHaveBeenCalledWith(expect.objectContaining({ id: 'dex' }));
+    fireEvent.click(screen.getByRole('button', { name: /Все навыки/ }));
     fireEvent.click(screen.getByRole('button', { name: /^Скрытность / }));
     expect(onRollSkill).toHaveBeenCalledWith(expect.objectContaining({ id: 'stealth' }));
     fireEvent.click(screen.getByRole('button', { name: /^Хиты \d+ из \d+$/ }));
     expect(onHp).toHaveBeenCalled();
     fireEvent.click(screen.getByRole('button', { name: 'Лист' }));
     expect(onSheet).toHaveBeenCalled();
+  });
+
+  it('compact карточка занимает ширину ячейки и сохраняет исходные пропорции', async () => {
+    const s = seedState();
+    const card = characterCardProps(s.actors.bo, header, 0)!;
+    render(<CharacterCard card={card} compact />);
+    const article = screen.getByRole('article', { name: `Карта персонажа: ${card.name}` });
+    expect(article).toHaveClass('character-card--compact');
+    expect(article).toHaveStyle({ width: '100%', aspectRatio: String(CARD_RATIO) });
+    expect(article.style.maxWidth).toBe('');
+    expect(article.querySelector('[data-part="edge-top"]')).toHaveClass('character-card-spine--compact');
+    await waitFor(() => expect(article.querySelector('.character-card__paper')).not.toBeNull());
+  });
+
+  it('compact карточки с пустыми и заполненными данными сохраняют один шаблон и границы зон', () => {
+    const state = seedState();
+    const base = characterCardProps(state.actors.bo, header, 0)!;
+    const populated: typeof base = {
+      ...base,
+      hitDice: base.hitDice ?? { die: 8, available: 3, total: 5 },
+      attacks: [{ id: 'strike', name: 'Удар', toHit: 5, damage: '1d8' }],
+      spellActions: [{ id: 'spark', name: 'Искра', icon: 'school-evocation', meta: 'заговор · эвокация' }],
+      pools: [{ id: 'focus', label: 'Фокус', max: 3, spent: 1, kind: 'uses', restoresOn: 'long' }],
+    };
+    const sparse = { ...populated, attacks: [], spellActions: [], pools: [], skills: [], chips: [] };
+    delete sparse.hitDice;
+    const { rerender } = render(<CharacterCard card={populated} compact conditions={<p>Состояния</p>} gear={<p>Снаряжение</p>} spells={<p>Заклинания</p>} onDamage={() => {}} onHeal={() => {}} onInitiative={() => {}} />);
+    const fullArticle = screen.getByRole('article', { name: `Карта персонажа: ${populated.name}` });
+    const partOrder = (article: HTMLElement) => Array.from(article.children)
+      .filter(child => child.hasAttribute('data-part'))
+      .map(child => child.getAttribute('data-part'));
+    const fullParts = partOrder(fullArticle);
+    expect(fullParts).toEqual(['edge-top', 'combat', 'hp-row', 'resources', 'card-sides', 'face']);
+    expect(fullArticle.style.aspectRatio).toBe(String(CARD_RATIO));
+    expect(fullArticle.querySelectorAll('[data-part="combat"] > *')).toHaveLength(5);
+    const hpSlots = (article: HTMLElement) => Array.from(article.querySelector('[data-part="hp-row"]')!.children)
+      .map(child => child.getAttribute('data-part'));
+    expect(hpSlots(fullArticle)).toEqual(['card-hp', 'hp-amount', 'hp-damage', 'hp-heal', 'conditions-toggle']);
+    expect(fullArticle.querySelector('[data-part="attacks"]')).toBeInTheDocument();
+    expect(fullArticle.querySelector('[data-part="skill-groups"][aria-label="Навыки по характеристикам"]')).toBeInTheDocument();
+
+    rerender(<CharacterCard card={sparse} compact />);
+    const sparseArticle = screen.getByRole('article', { name: `Карта персонажа: ${sparse.name}` });
+    expect(partOrder(sparseArticle)).toEqual(fullParts);
+    expect(sparseArticle.style.aspectRatio).toBe(fullArticle.style.aspectRatio);
+    expect(sparseArticle.style.width).toBe(fullArticle.style.width);
+    expect(sparseArticle.style.maxWidth).toBe('');
+    expect(sparseArticle.querySelectorAll('[data-part="combat"] > *')).toHaveLength(5);
+    expect(sparseArticle.querySelector('[data-part="resources"]')).toHaveAttribute('data-empty', 'true');
+    expect(hpSlots(sparseArticle)).toEqual(hpSlots(fullArticle));
+    expect(sparseArticle.querySelector('[data-part="hp-amount"]')).toHaveAttribute('aria-hidden', 'true');
+    expect(sparseArticle.querySelector('[data-part="hp-damage"]')).toHaveAttribute('aria-hidden', 'true');
+    expect(sparseArticle.querySelector('[data-part="hp-heal"]')).toHaveAttribute('aria-hidden', 'true');
+    expect(sparseArticle.querySelector('[data-part="conditions-toggle"]')).toHaveAttribute('aria-hidden', 'true');
+    expect(sparseArticle.querySelector('[data-part="actions-empty-slot"]')).toBeInTheDocument();
+    expect(sparseArticle.querySelectorAll('[data-part="skill-groups"][aria-label="Навыки по характеристикам"] > [data-ability]')).toHaveLength(5);
+    fireEvent.click(within(sparseArticle).getByRole('tab', { name: 'Оборот: снаряжение и заклинания' }));
+    expect(sparseArticle.querySelector('[data-part="back-tabs"]')).toBeInTheDocument();
+    expect(sparseArticle.querySelector('[data-part="back-content"]')).toHaveTextContent('Заклинания не заданы.');
   });
 
   it('урон и лечение числом из ряда хитов, инициатива броском; «…» открывает сетку состояний; вкладки — из того, что дала страница', () => {
@@ -100,15 +168,38 @@ describe('CharacterCard', () => {
     expect(container.querySelector('[data-part="features"]')).toBeNull();
   });
 
-  it('навыки — иконками рядом своей характеристики; у каждого навыка иконка есть', () => {
-    for (const id of SKILL_IDS) expect(ICONS, id).toHaveProperty(skillIcon(id));
+  it('все навыки доступны в раскрываемой прокрутке с именем, модификатором и владением; быстрый бросок и фокус сохранены', () => {
     const s = seedState();
     const card = characterCardProps(s.actors.bo, header, 0)!;
-    const { container } = render(<CharacterCard card={card} />);
+    const onRollSkill = vi.fn();
+    const { container } = render(<CharacterCard card={card} onRollSkill={onRollSkill} />);
+    const overview = container.querySelector('[data-part="face"]')!;
+    expect(overview).toHaveClass('overflow-y-auto');
+    expect(overview.querySelector('[data-part="attacks"]')).toBeInTheDocument();
+    const toggle = screen.getByRole('button', { name: /Все навыки · 18 Показать/ });
+    expect(toggle).toHaveAttribute('aria-expanded', 'false');
+    expect(screen.queryByRole('region', { name: 'Все навыки' })).toBeNull();
+    fireEvent.click(toggle);
+    expect(toggle).toHaveAttribute('aria-expanded', 'true');
+    const skills = within(screen.getByRole('region', { name: 'Все навыки' }));
+    expect(screen.getByRole('region', { name: 'Все навыки' })).toHaveClass('max-h-44', 'overflow-y-auto');
     for (const id of SKILL_IDS) {
-      const column = container.querySelector(`[data-ability="${SKILLS[id].ability}"]`)!;
-      expect(column.querySelector(`[data-skill="${id}"]`), id).not.toBeNull();
+      const button = skills.getByRole('button', { name: new RegExp(`^${SKILL_LABEL[id]} `) });
+      expect(button, id).toBeInTheDocument();
+      expect(button).toHaveTextContent(SKILL_LABEL[id]);
+      expect(button.querySelector('.type-body-sm')).toHaveTextContent(SKILL_LABEL[id]);
+      expect(button.className).toContain('focus-visible:shadow-[var(--glow-gold)]');
+      if (card.skills.find(s => s.id === id)?.proficiency !== 'none') {
+        expect(button.querySelector('[data-part="proficiency"]'), id).toHaveTextContent(/В|К/);
+      }
     }
-    expect(container.querySelector('[data-ability="con"] [data-skill]')).toBeNull();
+    const proficient = card.skills.find(s => s.proficiency !== 'none')!;
+    const proficientButton = skills.getByRole('button', { name: new RegExp(`^${SKILL_LABEL[proficient.id]} `) });
+    proficientButton.focus();
+    expect(document.activeElement).toBe(proficientButton);
+    fireEvent.click(proficientButton);
+    expect(onRollSkill).toHaveBeenCalledWith(proficient);
+    fireEvent.click(screen.getByRole('button', { name: /Все навыки · 18 Скрыть/ }));
+    expect(screen.queryByRole('region', { name: 'Все навыки' })).toBeNull();
   });
 });

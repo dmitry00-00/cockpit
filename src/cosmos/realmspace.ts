@@ -2,7 +2,7 @@
 // Toril — факты Forgotten Realms Wiki (CC BY-SA 3.0, см. LICENSE.md) со ссылками на книги, импорт —
 // scripts/import-spelljammer.py. Где тело стоит на орбите в данный день, книги не говорят: начальные углы — свои
 // (PHASE0), дальше тело идёт по своему году. Расстояния от солнца — по вики, на схеме кольца ровные, по порядку.
-import raw from '../../content/cosmos/realmspace.json';
+import { loadSettingJson } from '../packages/registry';
 
 export interface CelestialBody {
   id: string;
@@ -34,7 +34,7 @@ export interface StarSystem {
   note: string;
 }
 
-export const REALMSPACE: StarSystem = raw as StarSystem;
+export const REALMSPACE: StarSystem = await loadSettingJson('content/cosmos/realmspace.json') as StarSystem;
 
 export const BODY_TYPE_LABEL: Readonly<Record<string, string>> = {
   Sun: 'солнце', Planet: 'планета', Moon: 'луна', 'Asteroid cluster': 'скопление астероидов',

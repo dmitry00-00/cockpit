@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="88" viewBox="0 0 520 88" role="img" aria-labelledby="title desc">
+  <title id="title">DM Cockpit</title>
+  <desc id="desc">Авторский бронзовый знак компаса и надпись DM Cockpit</desc>
+  <defs>
+    <linearGradient id="bronze" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e2c993"/>
+      <stop offset="0.48" stop-color="#bd9959"/>
+      <stop offset="1" stop-color="#84623b"/>
+    </linearGradient>
+    <linearGradient id="needle" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f2e5c6"/>
+      <stop offset="0.5" stop-color="#d0ad6e"/>
+      <stop offset="1" stop-color="#71563d"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(6 6)" fill="none" stroke="url(#bronze)">
+    <circle cx="38" cy="38" r="35" stroke-width="2"/>
+    <circle cx="38" cy="38" r="29" stroke-width="0.8" opacity="0.8"/>
+    <path d="M38 8v7M38 61v7M8 38h7M61 38h7" stroke-width="1.4"/>
+    <path d="M38 17 45 38 38 59 31 38Z" fill="url(#needle)" stroke-width="1" stroke-linejoin="round"/>
+    <path d="M17 38h8M51 38h8" stroke-width="0.8" opacity="0.7"/>
+    <circle cx="38" cy="38" r="3" fill="#281e2d" stroke-width="1.2"/>
+  </g>
+  <g fill="#e9dfc9">
+    <text x="98" y="48" font-family="Forum, Georgia, 'Times New Roman', serif" font-size="40" letter-spacing="1.2">DM</text>
+    <text x="101" y="73" fill="#c1a16a" font-family="Forum, Georgia, 'Times New Roman', serif" font-size="19" letter-spacing="5.1">COCKPIT</text>
+  </g>
+</svg>

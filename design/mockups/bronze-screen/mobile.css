@@ -1,0 +1,478 @@
+/* The desk stays inside the viewport at every size. Long panes scroll locally. */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+body {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+header,
+.clock,
+footer.status {
+  flex: 0 0 auto;
+}
+
+main {
+  flex: 1 1 0;
+  min-height: 0;
+  grid-template-rows: minmax(0, 1fr);
+  overflow: hidden;
+}
+
+.party,
+.card,
+.center,
+.right {
+  min-height: 0;
+}
+
+.card {
+  align-self: stretch;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+.center {
+  overflow: hidden;
+}
+
+.right {
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+.atlas {
+  min-height: 0;
+}
+
+@media (min-width: 961px) and (max-width: 1150px) {
+  main,
+  .players main {
+    grid-template-columns: 54px 270px minmax(240px, 1fr) 220px;
+    grid-template-rows: minmax(0, 1fr);
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .players main {
+    grid-template-columns: 54px 270px minmax(0, 1fr);
+  }
+
+  .card {
+    grid-column: 2;
+  }
+
+  .center {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .right {
+    grid-column: 4;
+    grid-row: 1;
+    display: block;
+  }
+
+  .players .center {
+    grid-column: 3;
+  }
+}
+
+.mobile-card-toggle,
+.mobile-inbox-toggle,
+.mobile-inbox-close {
+  display: none;
+}
+
+@media (max-width: 960px) {
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+
+  body {
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  header {
+    flex: 0 0 62px;
+    height: 62px;
+    min-height: 62px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: 28px 30px;
+    align-content: center;
+    gap: 0;
+    padding: 2px 8px;
+    overflow: hidden;
+  }
+
+  header > div {
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    align-items: baseline;
+    gap: 7px;
+    min-width: 0;
+  }
+
+  header h1 {
+    flex: none;
+    font-size: 21px;
+    line-height: 1;
+  }
+
+  header > div small {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 10px;
+  }
+
+  header nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    order: 0;
+    width: 100%;
+    height: 30px;
+    min-width: 0;
+    margin: 0;
+    gap: 4px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: none;
+  }
+
+  header nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  header nav button {
+    flex: 0 0 auto;
+    min-height: 28px;
+    padding: 3px 9px;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  header > small:last-child {
+    grid-column: 2;
+    grid-row: 1;
+    max-width: 82px;
+    font-size: 9px;
+    line-height: 1.15;
+    text-align: right;
+  }
+
+  .clock {
+    flex: 0 0 50px;
+    height: 50px;
+    min-height: 50px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 6px;
+    overflow: hidden;
+  }
+
+  .dial {
+    flex: none;
+    width: 28px;
+    height: 28px;
+    border-width: 1px;
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  .clock > div {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 11px;
+    line-height: 1.2;
+  }
+
+  .clock > div small {
+    font-size: 10px;
+  }
+
+  .clock > div strong {
+    font-size: 11px;
+  }
+
+  .clock > small,
+  .clock .spacer {
+    display: none;
+  }
+
+  #tempo {
+    flex: 0 0 58px;
+    min-width: 0;
+    min-height: 34px;
+    padding: 3px 2px;
+    font-size: 10px;
+  }
+
+  #advance {
+    flex: 0 0 34px;
+    width: 34px;
+    min-height: 34px;
+    padding: 3px;
+    overflow: hidden;
+    font-size: 0;
+  }
+
+  #advance::before {
+    content: '▶';
+    font-size: 11px;
+  }
+
+  #preview {
+    flex: 0 0 58px;
+    min-height: 34px;
+    padding: 3px 2px;
+    font-size: 10px;
+    line-height: 1.1;
+    white-space: normal;
+  }
+
+  main,
+  .players main {
+    position: relative;
+    flex: 1 1 0;
+    min-height: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: 54px minmax(0, 1fr);
+    gap: 6px;
+    padding: 6px;
+    overflow: hidden;
+  }
+
+  aside.party {
+    grid-column: 1;
+    grid-row: 1;
+    min-width: 0;
+    min-height: 0;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 5px;
+    padding: 2px 4px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scrollbar-width: thin;
+  }
+
+  .party button:not(.mobile-card-toggle) {
+    flex: 0 0 44px;
+    min-width: 44px;
+    min-height: 46px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1px;
+    padding: 1px;
+    overflow: hidden;
+    font-size: 0;
+  }
+
+  .party .portrait {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #8b6b3a;
+    background: #1e1626;
+    font-size: 22px;
+    line-height: 1;
+  }
+
+  .party button small {
+    display: none;
+  }
+
+  .party .mobile-card-toggle {
+    flex: 0 0 auto;
+    min-height: 42px;
+    margin-left: auto;
+    padding: 4px 8px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
+  .center {
+    grid-column: 1;
+    grid-row: 2;
+    position: relative;
+    min-width: 0;
+    min-height: 0;
+    gap: 0;
+    overflow: hidden;
+  }
+
+  #session {
+    min-height: 0;
+    height: 100%;
+  }
+
+  .atlas {
+    flex: 1 1 auto;
+    min-height: 0;
+    height: 100%;
+  }
+
+  .maptitle {
+    left: 10px;
+    top: 10px;
+  }
+
+  .maptitle h2 {
+    font-size: 20px;
+  }
+
+  .maptools {
+    top: 8px;
+    right: 8px;
+    bottom: auto;
+    left: auto;
+    display: flex;
+    gap: 4px;
+    max-width: calc(100% - 20px);
+  }
+
+  .maptools button {
+    min-width: 0;
+    min-height: 32px;
+    padding: 4px 6px;
+    font-size: 10px;
+    white-space: nowrap;
+  }
+
+  .location {
+    position: absolute;
+    z-index: 4;
+    right: 8px;
+    bottom: 8px;
+    left: 8px;
+    max-height: 24%;
+    overflow: auto;
+    padding: 8px;
+  }
+
+  .location h2 {
+    font-size: 20px;
+  }
+
+  .location p {
+    margin: 4px 0;
+    font-size: 12px;
+  }
+
+  .location .row {
+    padding: 4px 0;
+    font-size: 11px;
+  }
+
+  .card {
+    position: absolute;
+    z-index: 8;
+    grid-column: 1;
+    grid-row: 2;
+    right: 8px;
+    bottom: 8px;
+    left: 8px;
+    width: auto;
+    height: min(60%, 430px);
+    max-height: calc(100% - 68px);
+    min-height: 0;
+    align-self: auto;
+    overflow: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+  }
+
+  body.mobile-card-closed .card {
+    display: none;
+  }
+
+  body.mobile-secondary-context .card,
+  body.mobile-secondary-context .mobile-card-toggle {
+    display: none !important;
+  }
+
+  .right {
+    display: none !important;
+  }
+
+  body:not(.players).mobile-inbox-open #inbox-panel {
+    position: fixed;
+    z-index: 30;
+    inset: 116px 8px 38px;
+    display: block !important;
+    width: auto;
+    max-height: none;
+    overflow: auto;
+    overscroll-behavior: contain;
+    padding: 10px;
+    border: 2px solid #8b6b3a;
+    background: #1e1626;
+  }
+
+  .mobile-inbox-close {
+    display: block !important;
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .mobile-inbox-toggle {
+    display: inline-flex !important;
+  }
+
+  .mobile-card-toggle {
+    display: inline-flex !important;
+  }
+
+  body.players.mobile-inbox-open #inbox-panel {
+    display: none !important;
+  }
+
+  footer.status {
+    flex: 0 0 30px;
+    height: 30px;
+    min-height: 30px;
+    padding: 6px 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 10px;
+  }
+
+  .alt {
+    min-height: 0;
+    overflow: auto;
+  }
+
+  .toast {
+    bottom: 38px;
+    max-width: calc(100vw - 24px);
+    font-size: 13px;
+  }
+}

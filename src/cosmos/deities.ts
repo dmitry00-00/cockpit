@@ -2,7 +2,7 @@
 // LICENSE.md), импорт — scripts/import-deities.py. Поля хранятся по редакциям; значение для года кампании — первая
 // редакция с данными в порядке EDITION_ORDER эпохи, и редакция остаётся при значении: мастер видит, по какой книге
 // факт. Модуль тянет 0,5 МБ данных — его импортирует только пакет космоса (отдельный кусок), не основной код.
-import raw from '../../content/cosmos/deities.json';
+import { loadSettingJson } from '../packages/registry';
 import { EDITION_ORDER, type Era } from '../campaign/era';
 import { GREAT_WHEEL, WORLD_TREE } from './planes';
 
@@ -40,7 +40,7 @@ export interface Pantheon { id: string; name: string; url: string; members: read
 
 interface DeityData { deities: readonly Deity[]; pantheons: readonly Pantheon[]; attribution: string; license: string }
 
-const DATA = raw as unknown as DeityData;
+const DATA = await loadSettingJson('content/cosmos/deities.json') as DeityData;
 export const DEITIES: readonly Deity[] = DATA.deities;
 export const PANTHEONS: readonly Pantheon[] = DATA.pantheons;
 export const DEITIES_ATTRIBUTION = DATA.attribution;

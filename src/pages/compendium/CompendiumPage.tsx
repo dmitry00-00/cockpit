@@ -15,10 +15,13 @@ const DeityTable = lazy(() => import('./DeityTable'));
 const KingdomTable = lazy(() => import('./KingdomTable'));
 // Поселения — реестр заполненности справочника карты (пользователь 30.10.2026), тоже своим куском.
 const PlaceTable = lazy(() => import('./PlaceTable'));
+// Единый индекс SRD 5.1 — отдельный chunk, чтобы не загружать каталог на других матрицах.
+const SrdCatalog = lazy(() => import('./SrdCatalog').then(module => ({ default: module.SrdCatalog })));
 
-type View = 'races' | 'classes' | 'feats' | 'deities' | 'kingdoms' | 'places';
+type View = 'srd' | 'races' | 'classes' | 'feats' | 'deities' | 'kingdoms' | 'places';
 
 const VIEWS: readonly { id: View; label: string; hint: string }[] = [
+  { id: 'srd', label: 'Каталог SRD', hint: 'единый индекс: тип записи, раздел книги и происхождение' },
   { id: 'races', label: 'Расы × фасеты', hint: 'лист «Кратко»: что даёт раса, по колонкам' },
   { id: 'classes', label: 'Уровни × подклассы', hint: 'лист класса: ресурсы и умения по уровням' },
   { id: 'feats', label: 'Черты × эффекты', hint: 'лист «Нерасовые черты»' },
@@ -30,6 +33,7 @@ const VIEWS: readonly { id: View; label: string; hint: string }[] = [
 /** «#/compendium/classes/volsebnik» — стартовая матрица и класс из адреса; дальше адрес не трогаем. */
 function fromHash(): { view: View; classId: string } {
   const parts = (globalThis.location?.hash ?? '').split('/').filter(Boolean); // ['#', 'compendium', 'classes', 'volsebnik']
+  if (parts[1] === 'library') parts.splice(1, 1);
   const view = VIEWS.find(v => v.id === parts[2])?.id ?? 'races';
   const classId = CLASSES.find(c => c.id === parts[3])?.id ?? CLASSES[0]?.id ?? '';
   return { view, classId };
@@ -65,8 +69,8 @@ export function CompendiumPage() {
 
       <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
         <Segmented label="Матрица" items={VIEWS} value={view} onChange={v => { setView(v); setSelected(null); }} />
-        {view !== 'deities' && view !== 'kingdoms' && view !== 'places' && <SourceFilter value={sources} onChange={setSources} />}
-        {view !== 'classes' && (
+        {view !== 'deities' && view !== 'kingdoms' && view !== 'places' && view !== 'srd' && <SourceFilter value={sources} onChange={setSources} />}
+        {view !== 'classes' && view !== 'srd' && (
           <label className="flex items-center gap-2">
             <span className="type-body-xs text-t3">поиск</span>
             <input
@@ -79,7 +83,11 @@ export function CompendiumPage() {
         )}
       </div>
 
-      {view === 'deities' ? (
+      {view === 'srd' ? (
+        <Suspense fallback={<p className="type-body-sm text-t2">Каталог SRD загружается…</p>}>
+          <SrdCatalog />
+        </Suspense>
+      ) : view === 'deities' ? (
         <Suspense fallback={<p className="type-body-sm text-t2">Боги загружаются…</p>}>
           <DeityTable query={query} />
         </Suspense>

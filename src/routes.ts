@@ -26,3 +26,31 @@ export function useHashRoute(): RouteId {
   }, []);
   return route;
 }
+
+export type ProductContext = 'session' | 'world' | 'workshop' | 'library';
+export type ProductView = 'desk' | 'time' | 'pulse' | 'chrono' | 'journal' | 'notebook';
+export interface ProductRoute { hash?: string; context: ProductContext; view?: ProductView; library?: 'catalog' | 'campaigns' | 'compendium' | 'rules' | 'tokens' | 'graphics' }
+export const CONTEXTS = [
+  { id: 'session', hash: '#/session/desk', label: 'Сессия' },
+  { id: 'world', hash: '#/world/map', label: 'Живой мир' },
+  { id: 'workshop', hash: '#/workshop', label: 'Мастерская' },
+  { id: 'library', hash: '#/library', label: 'Библиотека' },
+] as const;
+export function productRoute(hash: string): ProductRoute {
+  const [, context, sub] = hash.split('/');
+  if (context === 'workshop') return {context:'workshop'};
+  if (context === 'library') return {context:'library', library: sub === 'campaigns' || sub === 'compendium' || sub === 'rules' || sub === 'tokens' || sub === 'graphics' ? sub : 'catalog'};
+  if (context === 'compendium' || context === 'rules' || context === 'tokens') return {context:'library',library:context};
+  if (context === 'world') return {context:'world',view:sub === 'pulse' ? 'pulse' : sub === 'chronology' ? 'chrono' : 'desk'};
+  return {context:'session',view: sub === 'time' || sub === 'journal' || sub === 'notebook' ? sub : 'desk'};
+}
+export function hashForView(view: ProductView, current: ProductContext): string {
+  if (view === 'pulse' || view === 'chrono') return `#/world/${view === 'chrono' ? 'chronology' : 'pulse'}`;
+  if (view === 'desk' && current === 'world') return '#/world/map';
+  return `#/session/${view}`;
+}
+export function useProductRoute(): ProductRoute {
+  const [hash,setHash] = useState(() => globalThis.location?.hash ?? '');
+  useEffect(() => { const changed=()=>setHash(location.hash); addEventListener('hashchange',changed); return ()=>removeEventListener('hashchange',changed); },[]);
+  return { ...productRoute(hash), hash };
+}

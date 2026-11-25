@@ -1,0 +1,1667 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "person",
+  "entities": [
+    {
+      "ref": "person:daenerys-targaryen",
+      "kind": "person",
+      "name": "Daenerys Targaryen",
+      "nameRu": "Дейенерис Таргариен",
+      "subtitle": "A Game of Thrones · Daenerys I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "POV; появляется: Daenerys I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "проверено по указателю AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Изгнанная принцесса; брат готовит её встречу с Дрого ради возможного политического союза."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Targaryen",
+          "ref": "organization:house-targaryen"
+        },
+        {
+          "label": "Pentos",
+          "ref": "place:pentos"
+        },
+        {
+          "label": "Drogo",
+          "ref": "person:drogo"
+        }
+      ]
+    },
+    {
+      "ref": "person:viserys-targaryen",
+      "kind": "person",
+      "name": "Viserys Targaryen",
+      "nameRu": "Визерис Таргариен",
+      "subtitle": "A Game of Thrones · Daenerys I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Daenerys I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "проверено по указателю AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Брат Дейенерис и претендент на Железный трон; рассчитывает получить поддержку через союз с Дрого."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Targaryen",
+          "ref": "organization:house-targaryen"
+        },
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Drogo",
+          "ref": "person:drogo"
+        }
+      ]
+    },
+    {
+      "ref": "person:drogo",
+      "kind": "person",
+      "name": "Drogo",
+      "nameRu": "Дрого",
+      "subtitle": "A Game of Thrones · Daenerys I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Daenerys I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "проверено по указателю AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Кхал дотракийцев, с которым обсуждают возможный союз с Дейенерис; брак в этой точке ещё не заключён."
+        }
+      ],
+      "links": [
+        {
+          "label": "Khalasar of Drogo",
+          "ref": "organization:khalasar-of-drogo"
+        },
+        {
+          "label": "Pentos",
+          "ref": "place:pentos"
+        },
+        {
+          "label": "Drogo's manse",
+          "ref": "place:drogo-manse"
+        }
+      ]
+    },
+    {
+      "ref": "person:illyrio-mopatis",
+      "kind": "person",
+      "name": "Illyrio Mopatis",
+      "nameRu": "Иллирио Мопатис",
+      "subtitle": "A Game of Thrones · Daenerys I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Daenerys I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "проверено по указателю AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Магистр Пентоса, предоставивший жильё Визерису и Дейенерис и организовавший встречу с Дрого."
+        }
+      ],
+      "links": [
+        {
+          "label": "Pentos",
+          "ref": "place:pentos"
+        },
+        {
+          "label": "Illyrio's manse",
+          "ref": "place:illyrio-manse"
+        }
+      ]
+    },
+    {
+      "ref": "person:jorah-mormont",
+      "kind": "person",
+      "name": "Jorah Mormont",
+      "nameRu": "Джорах Мормонт",
+      "subtitle": "A Game of Thrones · Daenerys I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Daenerys I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "проверено по указателю AWOIAF; текст выбранного издания не сверялся"
+        },
+        {
+          "label": "Связь с кхаласаром",
+          "value": "присутствует на представлении Дейенерис Дрого; членство в кхаласаре из этой главы не следует"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Изгнанный рыцарь из Вестероса; присутствует среди гостей на встрече с Дрого."
+        }
+      ],
+      "links": [
+        {
+          "label": "Drogo",
+          "ref": "person:drogo"
+        }
+      ]
+    },
+    {
+      "ref": "person:cohollo",
+      "kind": "person",
+      "name": "Cohollo",
+      "nameRu": "Кохолло",
+      "subtitle": "A Game of Thrones · Daenerys I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Daenerys I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "проверено по указателю AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Назван среди появляющихся персонажей; индивидуальную роль следует сверить по выбранному изданию."
+        }
+      ],
+      "links": [
+        {
+          "label": "Khalasar of Drogo",
+          "ref": "organization:khalasar-of-drogo"
+        }
+      ]
+    },
+    {
+      "ref": "person:haggo",
+      "kind": "person",
+      "name": "Haggo",
+      "nameRu": "Хагго",
+      "subtitle": "A Game of Thrones · Daenerys I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Daenerys I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "проверено по указателю AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Назван среди появляющихся персонажей; индивидуальную роль следует сверить по выбранному изданию."
+        }
+      ],
+      "links": [
+        {
+          "label": "Khalasar of Drogo",
+          "ref": "organization:khalasar-of-drogo"
+        }
+      ]
+    },
+    {
+      "ref": "person:moro",
+      "kind": "person",
+      "name": "Moro",
+      "nameRu": "Моро",
+      "subtitle": "A Game of Thrones · Daenerys I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Daenerys I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "проверено по указателю AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Назван среди появляющихся персонажей; индивидуальную роль следует сверить по выбранному изданию."
+        }
+      ],
+      "links": [
+        {
+          "label": "Khalasar of Drogo",
+          "ref": "organization:khalasar-of-drogo"
+        }
+      ]
+    },
+    {
+      "ref": "person:qotho",
+      "kind": "person",
+      "name": "Qotho",
+      "nameRu": "Кото",
+      "subtitle": "A Game of Thrones · Daenerys I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Daenerys I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "проверено по указателю AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Назван среди появляющихся персонажей; индивидуальную роль следует сверить по выбранному изданию."
+        }
+      ],
+      "links": [
+        {
+          "label": "Khalasar of Drogo",
+          "ref": "organization:khalasar-of-drogo"
+        }
+      ]
+    },
+    {
+      "ref": "person:rhogoro",
+      "kind": "person",
+      "name": "Rhogoro",
+      "nameRu": "Рогоро",
+      "subtitle": "A Game of Thrones · Daenerys I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Daenerys I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "проверено по указателю AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Назван среди появляющихся персонажей; индивидуальную роль следует сверить по выбранному изданию."
+        }
+      ],
+      "links": [
+        {
+          "label": "Khalasar of Drogo",
+          "ref": "organization:khalasar-of-drogo"
+        }
+      ]
+    },
+    {
+      "ref": "person:robert-baratheon",
+      "kind": "person",
+      "name": "Robert I Baratheon",
+      "nameRu": "Роберт Баратеон",
+      "subtitle": "A Game of Thrones · Eddard I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_4",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Eddard I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "проверено по указателю AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Король прибывает в Винтерфелл и предлагает Эддарду стать десницей."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Baratheon",
+          "ref": "organization:house-baratheon"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "person:cersei-lannister",
+      "kind": "person",
+      "name": "Cersei Lannister",
+      "nameRu": "Серсея Ланнистер",
+      "subtitle": "A Game of Thrones · Eddard I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_4",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Eddard I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "проверено по указателю AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Королева сопровождает Роберта в Винтерфелл; позднейшее обвинение Лизы не является доказанным фактом."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Lannister",
+          "ref": "organization:house-lannister"
+        }
+      ]
+    },
+    {
+      "ref": "person:jaime-lannister",
+      "kind": "person",
+      "name": "Jaime Lannister",
+      "nameRu": "Джейме Ланнистер",
+      "subtitle": "A Game of Thrones · Eddard I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_4",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Eddard I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "проверено по указателю AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Брат Серсеи и рыцарь королевского двора; прибывает в Винтерфелл вместе со свитой."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Lannister",
+          "ref": "organization:house-lannister"
+        },
+        {
+          "label": "Cersei Lannister",
+          "ref": "person:cersei-lannister"
+        }
+      ]
+    },
+    {
+      "ref": "person:tyrion-lannister",
+      "kind": "person",
+      "name": "Tyrion Lannister",
+      "nameRu": "Тирион Ланнистер",
+      "subtitle": "A Game of Thrones · Eddard I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_4",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Eddard I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "проверено по указателю AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Член дома Ланнистеров; прибывает в Винтерфелл с королевским двором."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Lannister",
+          "ref": "organization:house-lannister"
+        }
+      ]
+    },
+    {
+      "ref": "person:joffrey-baratheon",
+      "kind": "person",
+      "name": "Joffrey Baratheon",
+      "nameRu": "Джоффри Баратеон",
+      "subtitle": "A Game of Thrones · Eddard I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_4",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Eddard I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "проверено по указателю AWOIAF; текст выбранного издания не сверялся"
+        },
+        {
+          "label": "Граница знания",
+          "value": "карточка среза не утверждает тайное происхождение или принадлежность к Дому Ланнистеров"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Роберт предлагает помолвку Джоффри и Сансы; пока это только предложение."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Baratheon",
+          "ref": "organization:house-baratheon"
+        },
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        }
+      ]
+    },
+    {
+      "ref": "person:myrcella-baratheon",
+      "kind": "person",
+      "name": "Myrcella Baratheon",
+      "nameRu": "Мирцелла Баратеон",
+      "subtitle": "A Game of Thrones · Eddard I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_4",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Eddard I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "проверено по указателю AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Дочь королевской четы; приезжает в Винтерфелл вместе с двором."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Baratheon",
+          "ref": "organization:house-baratheon"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "person:tommen-baratheon",
+      "kind": "person",
+      "name": "Tommen Baratheon",
+      "nameRu": "Томмен Баратеон",
+      "subtitle": "A Game of Thrones · Eddard I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_4",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Eddard I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "проверено по указателю AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Младший сын королевской четы; приезжает в Винтерфелл вместе с двором."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Baratheon",
+          "ref": "organization:house-baratheon"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "person:sandor-clegane",
+      "kind": "person",
+      "name": "Sandor Clegane",
+      "nameRu": "Сандор Клиган",
+      "subtitle": "A Game of Thrones · Eddard I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_4",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Eddard I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "проверено по указателю AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Рыцарь королевской свиты, сопровождающий принцев."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Clegane",
+          "ref": "organization:house-clegane"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "person:boros-blount",
+      "kind": "person",
+      "name": "Boros Blount",
+      "nameRu": "Борос Блаунт",
+      "subtitle": "A Game of Thrones · Eddard I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_4",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Eddard I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "проверено по указателю AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Назван среди представителей королевского двора; дополнительную должность нужно сверить по изданию."
+        }
+      ],
+      "links": [
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "person:meryn-trant",
+      "kind": "person",
+      "name": "Meryn Trant",
+      "nameRu": "Меррин Трант",
+      "subtitle": "A Game of Thrones · Eddard I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_4",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Eddard I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "проверено по указателю AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Назван среди представителей королевского двора; дополнительную должность нужно сверить по изданию."
+        }
+      ],
+      "links": [
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "person:ghost",
+      "kind": "person",
+      "name": "Ghost",
+      "nameRu": "Призрак",
+      "subtitle": "A Game of Thrones · Jon I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_5",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Jon I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "проверено по указателю AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Белый лютоволк Джона; Джон приводит его на пир и кормит под столом."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "person:orland-of-oldtown",
+      "kind": "person",
+      "name": "Orland of Oldtown",
+      "nameRu": "Орланд из Староместа",
+      "subtitle": "A Game of Thrones · Jon I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_5",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Jon I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "проверено по указателю AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Певец, названный среди присутствующих на пиру в честь королевского визита."
+        }
+      ],
+      "links": [
+        {
+          "label": "Great Hall of Winterfell",
+          "ref": "place:great-hall-of-winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "person:desmond",
+      "kind": "person",
+      "name": "Desmond",
+      "nameRu": "Десмонд",
+      "subtitle": "A Game of Thrones · Catelyn II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn II; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_6",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Catelyn II"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "проверено по указателю AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Стражник, который докладывает о срочном сообщении для мейстера Лювина."
+        }
+      ],
+      "links": [
+        {
+          "label": "Maester Luwin",
+          "ref": "person:maester-luwin"
+        },
+        {
+          "label": "Great Keep",
+          "ref": "place:great-keep-of-winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "person:lysa-arryn",
+      "kind": "person",
+      "name": "Lysa Arryn",
+      "nameRu": "Лиза Аррен",
+      "subtitle": "A Game of Thrones · Catelyn II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn II; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_6",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "упоминается: Catelyn II"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "проверено по указателю AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Сестра Катлин; в тайном письме обвиняет Серсею и её родных в смерти Джона Аррена. Это обвинение, а не установленный факт."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Arryn",
+          "ref": "organization:house-arryn"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Jon Arryn",
+          "ref": "person:jon-arryn"
+        }
+      ]
+    },
+    {
+      "ref": "person:beth-cassel",
+      "kind": "person",
+      "name": "Beth Cassel",
+      "nameRu": "Бет Кассель",
+      "subtitle": "A Game of Thrones · Arya I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Arya I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_7",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Arya I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "проверено по указателю AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Появляется рядом с Сансой и Джейни Пуль в сцене с девочками Старков."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Cassel",
+          "ref": "organization:house-cassel"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "person:donnis",
+      "kind": "person",
+      "name": "Donnis",
+      "nameRu": "Доннис",
+      "subtitle": "A Game of Thrones · Arya I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Arya I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_7",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Arya I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "проверено по указателю AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Назван среди появляющихся персонажей главы; точную функцию в сцене нужно сверить по изданию."
+        }
+      ],
+      "links": [
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "person:lew",
+      "kind": "person",
+      "name": "Lew",
+      "nameRu": "Лью",
+      "subtitle": "A Game of Thrones · Arya I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Arya I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_7",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Arya I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "проверено по указателю AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Назван среди появляющихся персонажей главы; точную функцию в сцене нужно сверить по изданию."
+        }
+      ],
+      "links": [
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "person:septa-mordane",
+      "kind": "person",
+      "name": "Mordane",
+      "nameRu": "Септа Мордан",
+      "subtitle": "A Game of Thrones · Arya I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Arya I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_7",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Arya I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "проверено по указателю AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Наставница девочек Старков; ведёт занятия рукоделием в Винтерфелле."
+        }
+      ],
+      "links": [
+        {
+          "label": "Служит при дворе Старков",
+          "ref": "organization:house-stark"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "person:jeyne-poole",
+      "kind": "person",
+      "name": "Jeyne Poole",
+      "nameRu": "Джейни Пуль",
+      "subtitle": "A Game of Thrones · Arya I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Arya I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_7",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Arya I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "проверено по указателю AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Подруга Сансы; вместе с ней обсуждает приезд принца Джоффри."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Poole",
+          "ref": "organization:house-poole"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "person:nymeria-direwolf",
+      "kind": "person",
+      "name": "Nymeria (direwolf)",
+      "nameRu": "Нимерия (лютоволк)",
+      "subtitle": "A Game of Thrones · Arya I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Arya I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_7",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Arya I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "проверено по указателю AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Лютоволк Арьи; она уходит с ним смотреть на тренировку во дворе."
+        }
+      ],
+      "links": [
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "person:summer-direwolf",
+      "kind": "person",
+      "name": "Summer",
+      "nameRu": "Лето",
+      "subtitle": "A Game of Thrones · Bran II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran II; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_8",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Bran II"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "проверено по указателю AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Лютоволк Брана; сопровождает его в богорощу Винтерфелла."
+        }
+      ],
+      "links": [
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "Godswood of Winterfell",
+          "ref": "place:godswood-of-winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "person:petyr-baelish",
+      "kind": "person",
+      "name": "Petyr Baelish",
+      "nameRu": "Петир Бейлиш",
+      "subtitle": "A Game of Thrones · Catelyn IV; Eddard IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn IV and Eddard IV; A Wiki of Ice and Fire, character and chapter indexes (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Petyr_Baelish",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Catelyn IV; Eddard IV"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "роль сведена по вторичному справочнику; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Член малого совета и мастер над монетой; в Королевской Гавани встречается с Катлин и предлагает помочь её расследованию."
+        }
+      ],
+      "links": [
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Varys",
+          "ref": "person:varys"
+        }
+      ]
+    },
+    {
+      "ref": "person:varys",
+      "kind": "person",
+      "name": "Varys",
+      "nameRu": "Варис",
+      "subtitle": "A Game of Thrones · Catelyn IV; Eddard IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn IV and Eddard IV; A Wiki of Ice and Fire, character and chapter indexes (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Varys",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Catelyn IV; Eddard IV"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "роль сведена по вторичному справочнику; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Мастер над шептунами при дворе Роберта; на встрече с Катлин изучает кинжал и делится сведениями о столице."
+        }
+      ],
+      "links": [
+        {
+          "label": "Petyr Baelish",
+          "ref": "person:petyr-baelish"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        }
+      ]
+    },
+    {
+      "ref": "person:renly-baratheon",
+      "kind": "person",
+      "name": "Renly Baratheon",
+      "nameRu": "Ренли Баратеон",
+      "subtitle": "A Game of Thrones · Eddard III",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard III; A Wiki of Ice and Fire, character and chapter indexes (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Renly",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Eddard III"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "роль сведена по вторичному справочнику; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Младший брат короля Роберта и член малого совета; в начале книги занимает должность мастера над законами."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robert I Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "House Baratheon",
+          "ref": "organization:house-baratheon"
+        }
+      ]
+    },
+    {
+      "ref": "person:jeor-mormont",
+      "kind": "person",
+      "name": "Jeor Mormont",
+      "nameRu": "Джейор Мормонт",
+      "subtitle": "A Game of Thrones · Jon III; Tyrion III",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon III and Tyrion III; A Wiki of Ice and Fire, character and chapter indexes (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Jeor_Mormont",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Jon III; Tyrion III"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "роль сведена по вторичному справочнику; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Лорд-командующий Ночного дозора; служит руководителем Джона Сноу на Стене."
+        }
+      ],
+      "links": [
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Jorah Mormont",
+          "ref": "person:jorah-mormont"
+        },
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        }
+      ]
+    },
+    {
+      "ref": "person:donal-noye",
+      "kind": "person",
+      "name": "Donal Noye",
+      "nameRu": "Донал Ной",
+      "subtitle": "A Game of Thrones · Jon III",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon III; A Wiki of Ice and Fire, character and chapter indexes (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Donal_Noye",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Jon III"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "роль сведена по вторичному справочнику; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Бронник Ночного дозора в Чёрном замке; останавливает драку рекрутов и помогает Джону понять, почему товарищи ему не доверяют."
+        }
+      ],
+      "links": [
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        }
+      ]
+    },
+    {
+      "ref": "person:alliser-thorne",
+      "kind": "person",
+      "name": "Alliser Thorne",
+      "nameRu": "Аллисер Торне",
+      "subtitle": "A Game of Thrones · Jon III",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon III; A Wiki of Ice and Fire, character and chapter indexes (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Alliser_Thorne",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Jon III"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "роль сведена по вторичному справочнику; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Сержант-инструктор и мастер над оружием Ночного дозора; тренирует новых рекрутов в Чёрном замке."
+        }
+      ],
+      "links": [
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        }
+      ]
+    },
+    {
+      "ref": "person:hodor",
+      "kind": "person",
+      "name": "Hodor",
+      "nameRu": "Ходор",
+      "subtitle": "A Game of Thrones · Bran IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran IV; A Wiki of Ice and Fire, character and chapter indexes (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Hodor",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Bran IV"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "роль сведена по вторичному справочнику; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Конюший Винтерфелла и верный помощник дома Старков; после пробуждения Брана помогает ему передвигаться по замку."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Stark",
+          "ref": "organization:house-stark"
+        },
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "person:syrio-forel",
+      "kind": "person",
+      "name": "Syrio Forel",
+      "nameRu": "Сирио Форель",
+      "subtitle": "A Game of Thrones · Arya II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Arya II; A Wiki of Ice and Fire, character and chapter indexes (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Syrio_Forel",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Arya II"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "роль сведена по вторичному справочнику; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Фехтовальщик из Браавоса; Эддард нанимает его обучать Арью владению Иглой и браавосскому стилю боя."
+        }
+      ],
+      "links": [
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "House Stark",
+          "ref": "organization:house-stark"
+        }
+      ]
+    }
+  ]
+}

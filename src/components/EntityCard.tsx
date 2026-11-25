@@ -9,6 +9,7 @@ import { Tabs } from 'radix-ui';
 import { useState, type ComponentPropsWithRef, type ReactNode } from 'react';
 import type { Actor, Faction, Location, ScaleLevel } from '../engine';
 import { Icon, type IconName } from '../icons/Icon';
+import { PortraitImage, resolvePortrait, type PortraitRef } from '../art/portrait';
 import { classById, raceById } from '../rules/compendium';
 import { MONSTERS } from '../rules/srd';
 import './EntityCard.css';
@@ -83,6 +84,7 @@ export interface EntityStat {
 export interface EntityCardProps extends Omit<ComponentPropsWithRef<'section'>, 'children'> {
   type: EntityType;
   name: string;
+  portrait?: PortraitRef;
   /** До трёх бейджей: уровень, CR, ранг, размер. Первый — золотой. */
   badges?: readonly string[];
   /** Полоса ключевых показателей: три-четыре пары метка/значение. */
@@ -146,7 +148,7 @@ const TAB = [
   'focus-visible:shadow-[var(--bevel),var(--glow-gold)]',
 ].join(' ');
 
-const STAT_BASE = 'min-w-0 flex flex-col items-center px-1 py-1 bg-linear-to-b from-pl to-cd';
+const STAT_BASE = 'min-w-0 min-h-[3.5em] flex flex-col items-center justify-center px-1 py-1 text-center bg-linear-to-b from-pl to-cd';
 const STAT_CELL = `${STAT_BASE} shadow-bevel`;
 /** Нажатая ячейка (открыт вывод числа): утопленная грань и золотая черта снизу — как нажатая плитка IconGrid. */
 const STAT_ON = `${STAT_BASE} shadow-[var(--bevel-in),inset_0_-3px_0_var(--gd)]`;
@@ -156,11 +158,13 @@ function renderBody(node: EntityCardProps['children'], tab: string | undefined):
 }
 
 export function EntityCard({
-  type, name, badges, stats, tabs, activeTab, onTab, origin,
+  type, name, portrait, badges, stats, tabs, activeTab, onTab, origin,
   overlay = false, selected = false, pending = false, dmView = false,
   beforeTabs, children, aside, className = '', ...rest
 }: EntityCardProps) {
   const ent = ENTITY[type];
+  const portraitAsset = type === 'pc' ? resolvePortrait(portrait) : undefined;
+  const fallbackPortrait = <Icon name={ent.icon} size={overlay ? 48 : 24} color={ent.color} title={ent.label} />;
   const shown = visibleTabs(tabs, dmView);
   const [own, setOwn] = useState<string | undefined>(shown[0]?.id);
   // Хотим activeTab со страницы или своё; если этой вкладки сейчас нет (dm-вкладка ушла с режимом) — первая видимая.
@@ -186,34 +190,44 @@ export function EntityCard({
   const spine = (
     <div
       data-part="spine"
-      className={`flex items-center flex-none bg-linear-to-b from-pl to-cd ${ent.edge} ${overlay ? 'gap-4 p-6' : 'gap-2 h-spine-h px-2'}`}
+      className={`flex items-center flex-none bg-linear-to-b from-pl to-cd ${ent.edge} ${overlay ? 'gap-4 p-6' : 'gap-2 min-h-[var(--spine-h)] h-auto px-2 py-1'}`}
     >
-      <Icon name={ent.icon} size={overlay ? 48 : 24} color={ent.color} title={ent.label} />
-      <span className={`flex-1 min-w-0 truncate text-tx ${overlay ? 'type-h-28' : 'type-h-17'}`} title={name}>{name}</span>
-      {(badges ?? []).slice(0, 3).map((b, i) => (
-        <span
-          key={`${i}:${b}`}
-          data-part="badge"
-          className={`type-key uppercase flex-none px-1 py-px shadow-bevel whitespace-nowrap ${i === 0 ? 'bg-pl text-gd' : 'bg-cd text-t2'}`}
-        >
-          {b}
+      {portraitAsset ? <PortraitImage portrait={portraitAsset} alt={`Портрет: ${name}`} width={overlay ? 48 : 24} sizes={overlay ? '48px' : '24px'} className={`${overlay ? 'size-12' : 'size-6'} object-cover flex-none`} fallback={fallbackPortrait} /> : fallbackPortrait}
+      <div
+        data-part="identity"
+        className="flex min-w-0 flex-1 flex-col gap-1"
+        style={overlay ? undefined : { flex: '1 1 calc(100% - 2rem)', width: 'calc(100% - 2rem)' }}
+      >
+        <span className={`w-full min-w-0 max-w-full whitespace-normal break-words leading-tight text-tx ${overlay ? 'type-h-28' : 'type-h-17'}`} title={name}>{name}</span>
+        <span data-part="badges" className="flex min-w-0 max-w-full flex-wrap items-center gap-1">
+          {(badges ?? []).slice(0, 3).map((b, i) => (
+            <span
+              key={`${i}:${b}`}
+              data-part="badge"
+              className={`type-key uppercase flex-[0_1_auto] min-w-0 max-w-full px-1 py-px shadow-bevel whitespace-normal text-center break-words leading-tight ${i === 0 ? 'bg-pl text-gd' : 'bg-cd text-t2'}`}
+            >
+              {b}
+            </span>
+          ))}
+          {origin ? <Icon name={ORIGIN[origin].icon} size={16} color={ORIGIN[origin].color} title={ORIGIN[origin].label} /> : null}
         </span>
-      ))}
-      {origin ? <Icon name={ORIGIN[origin].icon} size={16} color={ORIGIN[origin].color} title={ORIGIN[origin].label} /> : null}
+      </div>
     </div>
   );
 
   const statsBar = stats && stats.length > 0 ? (
-    <div data-part="stats" className="flex gap-px bg-lo py-px flex-none">
+    <div data-part="stats" className="flex flex-wrap gap-px bg-lo py-px flex-none">
       {stats.map((s, i) => {
         // Хиты «41/49» вдвое длиннее прочих чисел: в полосе из пяти ячеек первая шире, иначе число упирается в грань.
-        const grow = i === 0 && stats.length > 4 ? 'flex-[1.6]' : 'flex-1';
+        // em-based bases let the same row wrap at native text-only zoom without changing
+        // its ordinary five-column layout or losing any stat values.
+        const grow = i === 0 && stats.length > 4 ? 'flex-[1.6_1_5em]' : 'flex-[1_1_5em]';
         const inner = (
           <>
-            <span className="type-num-12 uppercase text-t2 truncate max-w-full">{s.label}</span>
-            <span className="flex items-center gap-1 whitespace-nowrap">
+            <span className="type-num-12 uppercase text-t2 max-w-full whitespace-normal break-words leading-tight">{s.label}</span>
+            <span className="flex min-w-0 max-w-full flex-wrap items-center justify-center gap-1">
               {s.mark ? <span data-part="mark" role="img" aria-label={MARK[s.mark].label} title={MARK[s.mark].label} className={`size-2 flex-none ${MARK[s.mark].cls}`} /> : null}
-              <span className={`type-num-24 [text-shadow:0_1px_0_var(--lo)] ${TONE[s.tone ?? 'tx']}`}>{s.value}</span>
+              <span className={`min-w-0 max-w-full break-words [overflow-wrap:anywhere] type-num-24 [text-shadow:0_1px_0_var(--lo)] ${TONE[s.tone ?? 'tx']}`}>{s.value}</span>
             </span>
           </>
         );
@@ -273,10 +287,12 @@ export function EntityCard({
 
 /* ---------- Проекция актёра в пропсы: корешок партии и карточка красят одно и то же ---------- */
 
-export type ActorCardProps = Pick<EntityCardProps, 'type' | 'name' | 'badges' | 'stats' | 'tabs' | 'origin'>;
+export type ActorCardProps = Pick<EntityCardProps, 'type' | 'name' | 'portrait' | 'badges' | 'stats' | 'tabs' | 'origin'>;
 
 /** Вкладки карточки — один набор на всех: коды заглавными даёт CSS, здесь — как говорят за столом. */
 export const TAB_OVERVIEW: EntityCardTab = { id: 'overview', label: 'Обзор', title: 'Характеристики, навыки, умения' };
+export const TAB_SUBJECT: EntityCardTab = { id: 'subject', label: 'Профиль', title: 'Общие слоты субъекта: источник, состав, положение и состояние' };
+export const TAB_HISTORY: EntityCardTab = { id: 'history', label: 'История', title: 'Предыстория персонажа и записи журнала' };
 export const TAB_CONDITIONS: EntityCardTab = { id: 'conditions', label: 'Состояния', title: 'Состояния SRD; истощение — уровнями' };
 export const TAB_GEAR: EntityCardTab = { id: 'gear', label: 'Снаряжение', title: 'Экипировка' };
 export const TAB_PATH: EntityCardTab = { id: 'path', label: 'Путь', title: '20 уровней класса: что когда приходит; следующий уровень' };
@@ -359,6 +375,7 @@ export function actorCardProps(actor: Actor, opts: ActorCardOptions = {}): Actor
   return {
     type: actor.kind === 'pc' ? 'pc' : 'npc',
     name: actor.name,
+    ...(actor.kind === 'pc' && sheet?.portrait ? { portrait: sheet.portrait } : {}),
     badges,
     stats,
     tabs: sheet ? [TAB_OVERVIEW, TAB_CONDITIONS, TAB_GEAR, TAB_PATH, ...dm] : [TAB_OVERVIEW, TAB_CONDITIONS, ...dm],

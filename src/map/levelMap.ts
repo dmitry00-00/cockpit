@@ -7,6 +7,7 @@ import { ancestorsOf, focusOf, partyPlaceId, type Ladder } from '../engine/ladde
 import type { Location, LocationGeo, State } from '../engine/state';
 import { mapById, planOf } from './maps';
 import type { MapBox, MapPassport, MapPoint } from './projection';
+import { DEFAULT_SETTING_PACKAGE } from '../packages/settings';
 
 export const MAP_LEVELS: readonly ScaleLevel[] = ['planet', 'continent', 'region', 'settlement'];
 
@@ -74,10 +75,11 @@ export function levelMap(state: State, ladder: Ladder, opts: { plan?: boolean } 
   if (!MAP_LEVELS.includes(ladder.level)) return undefined;
   const focus = focusOf(state, ladder);
   if (!focus) return undefined;
-  const plan = ladder.level === 'settlement' ? planOf(focus.ref) : undefined;
+  const settingPackageId = state.settingPackageId ?? DEFAULT_SETTING_PACKAGE;
+  const plan = ladder.level === 'settlement' ? planOf(focus.ref, settingPackageId) : undefined;
   if (plan && opts.plan !== false) return planMap(state, focus, plan);
   const geo = geoOf(state, focus.id);
-  const passport = mapById(geo?.map);
+  const passport = mapById(geo?.map, settingPackageId);
   if (!geo || !passport) return undefined;
   // Подрегион (Triboar Trail) — того же уровня, что родитель: пины берём от верхнего места уровня.
   let root = focus;

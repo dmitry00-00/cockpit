@@ -4,6 +4,8 @@
 import { useState } from 'react';
 import type { Scene, SceneRow, SceneSection } from '../campaign/scene';
 import type { EntityRef } from '../entities';
+import { Icon } from '../icons/Icon';
+import { PrestigePanel, type PrestigePanelProps } from './PrestigePanel';
 
 /** Строк секции до «ещё N». */
 export const SCENE_ROWS_SHOWN = 8;
@@ -51,12 +53,21 @@ export interface SceneViewProps {
   onOpen?: (r: EntityRef) => void;
   /** Справочник места ещё грузится — подпись под календарём. */
   loading?: boolean;
+  /** Только мастер: личные центры, награды и проверки A5E Prestige. */
+  prestige?: PrestigePanelProps;
 }
 
-export function SceneView({ scene, onOpen, loading }: SceneViewProps) {
+export function SceneView({ scene, onOpen, loading, prestige }: SceneViewProps) {
   return (
     <div className="flex flex-col gap-4" data-part="scene">
       {scene.sections.map(s => <Section key={s.id} section={s} onOpen={onOpen} />)}
+      {prestige ? <PrestigePanel {...prestige} currentLocationId={scene.locationId} regionTier={scene.regionTier} /> : null}
+      {scene.passivePerception?.length ? (
+        <p data-part="skill-voices" className="type-body-sm text-t2 flex items-start gap-2" title="Только мастеру: пассивные проверки Восприятия SRD">
+          <Icon name="skill-history" size={16} color="var(--src-players)" title="Пассивное Восприятие" />
+          <span>Пассивное Восприятие партии: <span className="text-tx">{scene.passivePerception.map(v => `${v.name} ${v.score}`).join(', ')}</span></span>
+        </p>
+      ) : null}
       {loading ? <p className="type-body-sm text-t2">Справочник места загружается…</p> : null}
     </div>
   );

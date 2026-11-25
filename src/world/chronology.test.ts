@@ -66,12 +66,19 @@ describe('хронология канона (Д5)', () => {
     const wood = eventsAbout(events, 'place:f5347333-dff6-4184-a3e0-250f5af9677b');
     expect(wood.map(e => e.year)).toContain(1479);
     expect(wood.find(e => e.year === 1479)!.text).toMatch(/Hillborn Dwarves recapture the Fireguard Fortress/);
+    expect(snap.placeMentions).toContainEqual(expect.objectContaining({
+      ref: 'place:f5347333-dff6-4184-a3e0-250f5af9677b',
+      names: expect.arrayContaining(['Neverwinter Wood']),
+      events: expect.arrayContaining([expect.objectContaining({ year: 1479 })]),
+    }));
+    expect(snap.placeMentions.flatMap(place => place.events).every(event => event.year === 1479)).toBe(true);
   });
 
   it('выгрузка для машинной обработки: схема, авторство, история за N лет, статусы записей', async () => {
     const events = await loadEvents(1475, 1479);
     const out = snapshotExport(1479, {
       index, events, history: 4,
+      articleEvents: [{ id: 'article-1', year: 1478, text: 'A source mentions Neverwinter Wood', src: { title: 'The North', how: 'history' }, links: [{ t: 'Neverwinter Wood', ref: 'place:wood' }] }],
       people: [{ id: 'elminster', name: 'Elminster', title: 'Elminster', died: 1479 }],
       organizations: [{ id: 'harpers', name: 'Harpers', title: 'Harpers' }],
     });
@@ -79,6 +86,10 @@ describe('хронология канона (Д5)', () => {
     expect(Math.min(...out.events.map(e => e.year))).toBe(1475);
     expect(out.people).toEqual([{ id: 'elminster', name: 'Elminster', status: 'dead', died: 1479 }]);
     expect(out.organizations).toEqual([{ id: 'harpers', name: 'Harpers', status: 'undated' }]);
+    expect(out.placeMentions).toContainEqual({
+      ref: 'place:wood', names: ['Neverwinter Wood'], events: [{ id: 'article-1', year: 1478 }],
+    });
+    expect(out.placeMentions.flatMap(place => place.events).every(event => event.year <= 1479 && event.year >= 1475)).toBe(true);
     expect(drLabel(-339)).toBe('−339 DR');
   });
 

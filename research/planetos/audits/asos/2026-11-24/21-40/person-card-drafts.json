@@ -1,0 +1,673 @@
+{
+  "format": "cockpit.entity-layer-draft-set/1",
+  "packageSnapshot": "2026.11.24.38",
+  "sourcePolicy": {
+    "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original minimal locator summaries; primary-edition verification pending.",
+    "status": "secondary-indexed-partial",
+    "primaryVerification": "pending",
+    "scope": "ASOS chapters 21–40; only unique P1 human missing-card candidates confirmed by global reconciliation; no project files edited."
+  },
+  "selectionSummary": {
+    "candidateRowsP1Missing": 18,
+    "uniqueRefsP1Missing": 13,
+    "newEntityCards": 9,
+    "carryForwardRefs": 4,
+    "carryForwardLocators": 6,
+    "excludedAliasRows": "The Magnar is an alias/title row mapped to Styr; no separate card."
+  },
+  "payloads": [
+    {
+      "format": "cockpit.entity-layer/1",
+      "kind": "person",
+      "entities": [
+        {
+          "ref": "person:lymond-lychester",
+          "kind": "person",
+          "name": "Lymond Lychester",
+          "draftPriority": "P1",
+          "subtitle": "A Storm of Swords · Arya IV (ch. 22)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Arya IV (ch. 22); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_22",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 22,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original minimal locator summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Приоритет черновика",
+              "value": "P1"
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "Arya IV (ch. 22) — appearing"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "Ожидает сверки с выбранным изданием; роман в этом проходе не проверялся."
+            },
+            {
+              "label": "Русское имя",
+              "value": "Не задано; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Вторичный chapter index AWOIAF указывает Lymond Lychester среди Appearing в Arya IV (ch. 22). Черновик фиксирует эти локаторы; биографические и сценовые сведения сверх записей индекса не добавлены."
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 22,
+              "chapterTitle": "Arya IV",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_22"
+            }
+          ],
+          "status": "secondary-indexed-partial",
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "manualReview": "Сверить появление и форму имени с выбранным изданием; дополнительных сведений о роли в карточке нет."
+        },
+        {
+          "ref": "person:ravella-smallwood",
+          "kind": "person",
+          "name": "Ravella Smallwood",
+          "draftPriority": "P1",
+          "subtitle": "A Storm of Swords · Arya IV (ch. 22)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Arya IV (ch. 22); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_22",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 22,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original minimal locator summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Приоритет черновика",
+              "value": "P1"
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "Arya IV (ch. 22) — appearing"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "Ожидает сверки с выбранным изданием; роман в этом проходе не проверялся."
+            },
+            {
+              "label": "Русское имя",
+              "value": "Не задано; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Вторичный chapter index AWOIAF указывает Ravella Smallwood среди Appearing в Arya IV (ch. 22). Черновик фиксирует эти локаторы; биографические и сценовые сведения сверх записей индекса не добавлены."
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 22,
+              "chapterTitle": "Arya IV",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_22"
+            }
+          ],
+          "status": "secondary-indexed-partial",
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "manualReview": "Сверить появление и форму имени с выбранным изданием; дополнительных сведений о роли в карточке нет."
+        },
+        {
+          "ref": "person:kraznys-mo-nakloz",
+          "kind": "person",
+          "name": "Kraznys mo Nakloz",
+          "draftPriority": "P1",
+          "subtitle": "A Storm of Swords · Daenerys II (ch. 23), Daenerys III (ch. 27)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Daenerys II (ch. 23), Daenerys III (ch. 27); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_23",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 23,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original minimal locator summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Приоритет черновика",
+              "value": "P1"
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "Daenerys II (ch. 23) — appearing; Daenerys III (ch. 27) — appearing"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "Ожидает сверки с выбранным изданием; роман в этом проходе не проверялся."
+            },
+            {
+              "label": "Русское имя",
+              "value": "Не задано; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Вторичный chapter index AWOIAF указывает Kraznys mo Nakloz среди Appearing в Daenerys II (ch. 23), Daenerys III (ch. 27). Черновик фиксирует эти локаторы; биографические и сценовые сведения сверх записей индекса не добавлены."
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 23,
+              "chapterTitle": "Daenerys II",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_23"
+            },
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 27,
+              "chapterTitle": "Daenerys III",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_27"
+            }
+          ],
+          "status": "secondary-indexed-partial",
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "manualReview": "Сверить появление и написание имени с выбранным изданием; описания сюжета сверх chapter locators не добавлено."
+        },
+        {
+          "ref": "person:alester-florent",
+          "kind": "person",
+          "name": "Alester Florent",
+          "draftPriority": "P1",
+          "subtitle": "A Storm of Swords · Davos III (ch. 25), Davos IV (ch. 36)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Davos III (ch. 25), Davos IV (ch. 36); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_25",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 25,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original minimal locator summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Приоритет черновика",
+              "value": "P1"
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "Davos III (ch. 25) — appearing; Davos IV (ch. 36) — appearing"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "Ожидает сверки с выбранным изданием; роман в этом проходе не проверялся."
+            },
+            {
+              "label": "Русское имя",
+              "value": "Не задано; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Вторичный chapter index AWOIAF указывает Alester Florent среди Appearing в Davos III (ch. 25), Davos IV (ch. 36). Черновик фиксирует эти локаторы; биографические и сценовые сведения сверх записей индекса не добавлены."
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 25,
+              "chapterTitle": "Davos III",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_25"
+            },
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 36,
+              "chapterTitle": "Davos IV",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_36"
+            }
+          ],
+          "status": "secondary-indexed-partial",
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "manualReview": "Сверить локаторы и форму имени с выбранным изданием; дополнительные роли не добавлены."
+        },
+        {
+          "ref": "person:symon-silver-tongue",
+          "kind": "person",
+          "name": "Symon Silver Tongue",
+          "draftPriority": "P1",
+          "subtitle": "A Storm of Swords · Tyrion IV (ch. 32)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Tyrion IV (ch. 32); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_32",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 32,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original minimal locator summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Приоритет черновика",
+              "value": "P1"
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "Tyrion IV (ch. 32) — appearing"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "Ожидает сверки с выбранным изданием; роман в этом проходе не проверялся."
+            },
+            {
+              "label": "Русское имя",
+              "value": "Не задано; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Вторичный chapter index AWOIAF указывает Symon Silver Tongue среди Appearing в Tyrion IV (ch. 32). Черновик фиксирует эти локаторы; биографические и сценовые сведения сверх записей индекса не добавлены."
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 32,
+              "chapterTitle": "Tyrion IV",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_32"
+            }
+          ],
+          "status": "secondary-indexed-partial",
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "manualReview": "Глобальная reconciliation использует форму Symon Silver Tongue; на странице AWOIAF в синопсисе видна также форма Symon Silvertongue. Проверить отображаемое имя по первичному изданию."
+        },
+        {
+          "ref": "person:clubfoot-karl",
+          "kind": "person",
+          "name": "Clubfoot Karl",
+          "draftPriority": "P1",
+          "subtitle": "A Storm of Swords · Samwell II (ch. 33)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Samwell II (ch. 33); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_33",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 33,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original minimal locator summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Приоритет черновика",
+              "value": "P1"
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "Samwell II (ch. 33) — appearing"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "Ожидает сверки с выбранным изданием; роман в этом проходе не проверялся."
+            },
+            {
+              "label": "Русское имя",
+              "value": "Не задано; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Вторичный chapter index AWOIAF указывает Clubfoot Karl среди Appearing в Samwell II (ch. 33). Черновик фиксирует эти локаторы; биографические и сценовые сведения сверх записей индекса не добавлены."
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 33,
+              "chapterTitle": "Samwell II",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_33"
+            }
+          ],
+          "status": "secondary-indexed-partial",
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "manualReview": "Сверить появление и написание имени с выбранным изданием; конкретная роль в этот краткий черновик не добавлена."
+        },
+        {
+          "ref": "person:edric-dayne",
+          "kind": "person",
+          "name": "Edric Dayne",
+          "draftPriority": "P1",
+          "subtitle": "A Storm of Swords · Arya VI (ch. 34), Arya VII (ch. 39)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Arya VI (ch. 34), Arya VII (ch. 39); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_34",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 34,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original minimal locator summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Приоритет черновика",
+              "value": "P1"
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "Arya VI (ch. 34) — appearing; Arya VII (ch. 39) — appearing"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "Ожидает сверки с выбранным изданием; роман в этом проходе не проверялся."
+            },
+            {
+              "label": "Русское имя",
+              "value": "Не задано; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Вторичный chapter index AWOIAF указывает Edric Dayne среди Appearing в Arya VI (ch. 34), Arya VII (ch. 39). Черновик фиксирует эти локаторы; биографические и сценовые сведения сверх записей индекса не добавлены."
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 34,
+              "chapterTitle": "Arya VI",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_34"
+            },
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 39,
+              "chapterTitle": "Arya VII",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_39"
+            }
+          ],
+          "status": "secondary-indexed-partial",
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "manualReview": "Глобальная reconciliation подтверждает стабильный отдельный ref и появление в диапазоне 21–40; сверить имя и локаторы с выбранным изданием."
+        },
+        {
+          "ref": "person:lothar-frey",
+          "kind": "person",
+          "name": "Lame Lothar Frey",
+          "draftPriority": "P1",
+          "subtitle": "A Storm of Swords · Catelyn IV (ch. 35)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Catelyn IV (ch. 35); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_35",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 35,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original minimal locator summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Приоритет черновика",
+              "value": "P1"
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "Catelyn IV (ch. 35) — appearing"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "Ожидает сверки с выбранным изданием; роман в этом проходе не проверялся."
+            },
+            {
+              "label": "Русское имя",
+              "value": "Не задано; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Вторичный chapter index AWOIAF указывает Lame Lothar Frey среди Appearing в Catelyn IV (ch. 35). Черновик фиксирует эти локаторы; биографические и сценовые сведения сверх записей индекса не добавлены."
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 35,
+              "chapterTitle": "Catelyn IV",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_35"
+            }
+          ],
+          "status": "secondary-indexed-partial",
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "manualReview": "Global reconciliation содержит формы Lothar Frey и Lame Lothar Frey без отдельного identity-блокера; проверить канонический показ имени по первичному изданию."
+        },
+        {
+          "ref": "person:walder-rivers",
+          "kind": "person",
+          "name": "Walder Rivers",
+          "draftPriority": "P1",
+          "subtitle": "A Storm of Swords · Catelyn IV (ch. 35)",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Storm of Swords, Catelyn IV (ch. 35); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0; primary-edition verification pending.",
+            "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_35",
+            "license": "CC-BY-SA-3.0",
+            "bookId": "asos",
+            "chapterNo": 35,
+            "attribution": "A Wiki of Ice and Fire chapter-index contributors; CC BY-SA 3.0. Original minimal locator summary; primary-edition verification pending."
+          },
+          "facts": [
+            {
+              "label": "Приоритет черновика",
+              "value": "P1"
+            },
+            {
+              "label": "Локаторы AWOIAF",
+              "value": "Catelyn IV (ch. 35) — appearing"
+            },
+            {
+              "label": "Статус",
+              "value": "secondary-indexed-partial"
+            },
+            {
+              "label": "Первичная сверка",
+              "value": "Ожидает сверки с выбранным изданием; роман в этом проходе не проверялся."
+            },
+            {
+              "label": "Русское имя",
+              "value": "Не задано; сверить с выбранным русским изданием."
+            }
+          ],
+          "sections": [
+            {
+              "title": "Опорный срез",
+              "text": "Вторичный chapter index AWOIAF указывает Walder Rivers среди Appearing в Catelyn IV (ch. 35). Черновик фиксирует эти локаторы; биографические и сценовые сведения сверх записей индекса не добавлены."
+            }
+          ],
+          "locators": [
+            {
+              "book": "A Storm of Swords",
+              "chapterNo": 35,
+              "chapterTitle": "Catelyn IV",
+              "relation": "appearing",
+              "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_35"
+            }
+          ],
+          "status": "secondary-indexed-partial",
+          "verification": {
+            "primaryBook": "pending"
+          },
+          "manualReview": "Сверить появление и форму имени с выбранным изданием; дополнительных сведений о роли в карточке нет."
+        }
+      ]
+    }
+  ],
+  "carryForwardDraftLocators": [
+    {
+      "targetDraftRef": "person:jarl",
+      "targetName": "Jarl",
+      "locator": {
+        "book": "A Storm of Swords",
+        "chapterNo": 26,
+        "chapterTitle": "Jon III",
+        "relation": "appearing",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_26"
+      },
+      "action": "append locator to existing provisional draft; do not create duplicate card",
+      "status": "secondary-indexed-partial",
+      "sourceLicense": "CC-BY-SA-3.0",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "targetDraftRef": "person:jarl",
+      "targetName": "Jarl",
+      "locator": {
+        "book": "A Storm of Swords",
+        "chapterNo": 30,
+        "chapterTitle": "Jon IV",
+        "relation": "appearing",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_30"
+      },
+      "action": "append locator to existing provisional draft; do not create duplicate card",
+      "status": "secondary-indexed-partial",
+      "sourceLicense": "CC-BY-SA-3.0",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "targetDraftRef": "person:styr",
+      "targetName": "Styr",
+      "locator": {
+        "book": "A Storm of Swords",
+        "chapterNo": 26,
+        "chapterTitle": "Jon III",
+        "relation": "appearing",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_26"
+      },
+      "action": "append locator to existing provisional draft; do not create duplicate card",
+      "status": "secondary-indexed-partial",
+      "sourceLicense": "CC-BY-SA-3.0",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "targetDraftRef": "person:styr",
+      "targetName": "Styr",
+      "locator": {
+        "book": "A Storm of Swords",
+        "chapterNo": 30,
+        "chapterTitle": "Jon IV",
+        "relation": "appearing",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_30"
+      },
+      "action": "append locator to existing provisional draft; do not create duplicate card",
+      "status": "secondary-indexed-partial",
+      "sourceLicense": "CC-BY-SA-3.0",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "targetDraftRef": "person:dirk",
+      "targetName": "Dirk",
+      "locator": {
+        "book": "A Storm of Swords",
+        "chapterNo": 33,
+        "chapterTitle": "Samwell II",
+        "relation": "appearing",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_33"
+      },
+      "action": "append locator to existing provisional draft; do not create duplicate card",
+      "status": "secondary-indexed-partial",
+      "sourceLicense": "CC-BY-SA-3.0",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    },
+    {
+      "targetDraftRef": "person:ollo-lophand",
+      "targetName": "Ollo Lophand",
+      "locator": {
+        "book": "A Storm of Swords",
+        "chapterNo": 33,
+        "chapterTitle": "Samwell II",
+        "relation": "appearing",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_33"
+      },
+      "action": "append locator to existing provisional draft; do not create duplicate card",
+      "status": "secondary-indexed-partial",
+      "sourceLicense": "CC-BY-SA-3.0",
+      "verification": {
+        "primaryBook": "pending"
+      }
+    }
+  ]
+}

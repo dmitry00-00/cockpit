@@ -4,6 +4,7 @@
 // требованию торговли; файла нет — товаров нет, а не ошибка.
 import type { GoodsId } from '../engine/state';
 import { kingdomsOfPlace, type Kingdom } from './kingdoms';
+import { loadCachedPromise } from '../packages/registry';
 
 /** x — вывоз, m — ввоз. */
 export interface EconRecord { x?: readonly GoodsId[]; m?: readonly GoodsId[] }
@@ -11,17 +12,16 @@ export interface Econ { kingdoms: ReadonlyMap<string, EconRecord>; places: Reado
 
 const FILES = import.meta.glob<{ default: unknown }>('../../content/world/econ.json');
 
-let econ: Promise<Econ> | null = null;
+const econLoads = new Map<string, Promise<Econ>>();
 /** Товары держав и мест; повторный вызов — тот же промис; файла нет — пусто. */
 export function loadEcon(): Promise<Econ> {
   const load = Object.values(FILES)[0];
-  econ ??= load
+  return loadCachedPromise(econLoads, 'econ', () => load
     ? load().then(m => {
       const f = m.default as { kingdoms: Record<string, EconRecord>; places: Record<string, EconRecord> };
       return { kingdoms: new Map(Object.entries(f.kingdoms)), places: new Map(Object.entries(f.places)) };
     })
-    : Promise.resolve({ kingdoms: new Map(), places: new Map() });
-  return econ;
+    : Promise.resolve({ kingdoms: new Map(), places: new Map() }));
 }
 
 /** Товары места справочника карты на год и откуда они: вывоз — своя карточка вики, иначе держава места (своя —

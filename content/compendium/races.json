@@ -1,6 +1,6 @@
 {
  "meta": {
-  "importedAt": "2026-10-27",
+  "importedAt": "2026-10-31",
   "importer": "scripts/import-compendium.py",
   "sources": {
    "races": "Копия расы.xlsx",
@@ -1923,8 +1923,8 @@
    "nameRu": "Тифлинг",
    "source": "srd",
    "asi": {
-    "int": 1,
-    "cha": 2
+    "cha": 2,
+    "int": 1
    },
    "traits": [],
    "subraces": [
@@ -2183,7 +2183,7 @@
    "source": "srd",
    "asi": {
     "str": 2,
-    "int": 2
+    "cha": 1
    },
    "traits": [
     {

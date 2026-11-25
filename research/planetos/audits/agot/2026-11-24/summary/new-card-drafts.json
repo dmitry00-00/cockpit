@@ -1,0 +1,3069 @@
+{
+  "format": "cockpit.entity-layer-draft-set/1",
+  "packageSnapshot": "2026.11.24.37",
+  "sourcePolicy": {
+    "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending.",
+    "status": "secondary-indexed-partial",
+    "primaryVerification": "pending",
+    "coordinateAndAbsoluteDatePolicy": "omit unless explicitly sourced"
+  },
+  "payloads": [
+    {
+      "format": "cockpit.entity-layer/1",
+      "kind": "person",
+      "entities": [
+        {
+          "ref": "person:aegon-ii-targaryen",
+          "kind": "person",
+          "name": "Aegon II Targaryen",
+          "subtitle": "A Game of Thrones · Bran II (ch. 8)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Bran II (chapter 8); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_8",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 8,
+              "chapterTitle": "Bran II",
+              "relation": "mentioned",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_8"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Роль по указателю",
+              "value": "упомянут (по chapter index)"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Bran II (глава 8)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Aegon II Targaryen в список упомянутых персонажей Bran II. Черновик фиксирует только эти локаторы; появление в сцене и дополнительные биографические сведения здесь не утверждаются."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "person:aegon-iii-targaryen",
+          "kind": "person",
+          "name": "Aegon III Targaryen",
+          "subtitle": "A Game of Thrones · Daenerys III (ch. 23)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Daenerys III (chapter 23); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_23",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 23,
+              "chapterTitle": "Daenerys III",
+              "relation": "mentioned",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_23"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Роль по указателю",
+              "value": "упомянут (по chapter index)"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Daenerys III (глава 23)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Aegon III Targaryen в список упомянутых персонажей Daenerys III. Черновик фиксирует только эти локаторы; появление в сцене и дополнительные биографические сведения здесь не утверждаются."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "person:aethelmure",
+          "kind": "person",
+          "name": "Aethelmure",
+          "subtitle": "A Game of Thrones · Tyrion I (ch. 9)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Tyrion I (chapter 9); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_9",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 9,
+              "chapterTitle": "Tyrion I",
+              "relation": "mentioned",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_9"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Роль по указателю",
+              "value": "упомянут (по chapter index)"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Tyrion I (глава 9)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Aethelmure в список упомянутых персонажей Tyrion I. Черновик фиксирует только эти локаторы; появление в сцене и дополнительные биографические сведения здесь не утверждаются."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "person:arryk-cargyll",
+          "kind": "person",
+          "name": "Arryk Cargyll",
+          "subtitle": "A Game of Thrones · Bran II (ch. 8)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Bran II (chapter 8); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_8",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 8,
+              "chapterTitle": "Bran II",
+              "relation": "mentioned",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_8"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Роль по указателю",
+              "value": "упомянут (по chapter index)"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Bran II (глава 8)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Arryk Cargyll в список упомянутых персонажей Bran II. Черновик фиксирует только эти локаторы; появление в сцене и дополнительные биографические сведения здесь не утверждаются."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "person:ayrmidon",
+          "kind": "person",
+          "name": "Ayrmidon",
+          "subtitle": "A Game of Thrones · Tyrion I (ch. 9)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Tyrion I (chapter 9); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_9",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 9,
+              "chapterTitle": "Tyrion I",
+              "relation": "mentioned",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_9"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Роль по указателю",
+              "value": "упомянут (по chapter index)"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Tyrion I (глава 9)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Ayrmidon в список упомянутых персонажей Tyrion I. Черновик фиксирует только эти локаторы; появление в сцене и дополнительные биографические сведения здесь не утверждаются."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "person:baelor-i-targaryen",
+          "kind": "person",
+          "name": "Baelor I Targaryen",
+          "subtitle": "A Game of Thrones · Eddard II (ch. 12); Catelyn IV (ch. 18)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Eddard II (chapter 12); Catelyn IV (chapter 18); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_12",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 12,
+              "chapterTitle": "Eddard II",
+              "relation": "mentioned",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_12"
+            },
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 18,
+              "chapterTitle": "Catelyn IV",
+              "relation": "mentioned",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_18"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Роль по указателю",
+              "value": "упомянут (по chapter index)"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Eddard II (глава 12); Catelyn IV (глава 18)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Baelor I Targaryen в список упомянутых персонажей Eddard II, Catelyn IV. Черновик фиксирует только эти локаторы; появление в сцене и дополнительные биографические сведения здесь не утверждаются."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "person:becca",
+          "kind": "person",
+          "name": "Becca",
+          "subtitle": "A Game of Thrones · Eddard II (ch. 12)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Eddard II (chapter 12); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_12",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 12,
+              "chapterTitle": "Eddard II",
+              "relation": "mentioned",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_12"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Роль по указателю",
+              "value": "упомянут (по chapter index)"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Eddard II (глава 12)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Becca в список упомянутых персонажей Eddard II. Черновик фиксирует только эти локаторы; появление в сцене и дополнительные биографические сведения здесь не утверждаются."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "person:cotter-pyke",
+          "kind": "person",
+          "name": "Cotter Pyke",
+          "subtitle": "A Game of Thrones · Jon III (ch. 19)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Jon III (chapter 19); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_19",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 19,
+              "chapterTitle": "Jon III",
+              "relation": "mentioned",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_19"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Роль по указателю",
+              "value": "упомянут (по chapter index)"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Jon III (глава 19)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Cotter Pyke в список упомянутых персонажей Jon III. Черновик фиксирует только эти локаторы; появление в сцене и дополнительные биографические сведения здесь не утверждаются."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "person:daeron-i-targaryen",
+          "kind": "person",
+          "name": "Daeron I Targaryen",
+          "subtitle": "A Game of Thrones · Jon I (ch. 5)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Jon I (chapter 5); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_5",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 5,
+              "chapterTitle": "Jon I",
+              "relation": "mentioned",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_5"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Роль по указателю",
+              "value": "упомянут (по chapter index)"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Jon I (глава 5)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Daeron I Targaryen в список упомянутых персонажей Jon I. Черновик фиксирует только эти локаторы; появление в сцене и дополнительные биографические сведения здесь не утверждаются."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "person:daeryssa",
+          "kind": "person",
+          "name": "Daeryssa",
+          "subtitle": "A Game of Thrones · Sansa I (ch. 15)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Sansa I (chapter 15); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_15",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 15,
+              "chapterTitle": "Sansa I",
+              "relation": "mentioned",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_15"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Роль по указателю",
+              "value": "упомянут (по chapter index)"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Sansa I (глава 15)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Daeryssa в список упомянутых персонажей Sansa I. Черновик фиксирует только эти локаторы; появление в сцене и дополнительные биографические сведения здесь не утверждаются."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "person:denys-mallister",
+          "kind": "person",
+          "name": "Denys Mallister",
+          "subtitle": "A Game of Thrones · Tyrion III (ch. 21)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Tyrion III (chapter 21); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_21",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 21,
+              "chapterTitle": "Tyrion III",
+              "relation": "mentioned",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_21"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Роль по указателю",
+              "value": "упомянут (по chapter index)"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Tyrion III (глава 21)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Denys Mallister в список упомянутых персонажей Tyrion III. Черновик фиксирует только эти локаторы; появление в сцене и дополнительные биографические сведения здесь не утверждаются."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "person:edwyle-stark",
+          "kind": "person",
+          "name": "Edwyle Stark",
+          "subtitle": "A Game of Thrones · Bran IV (ch. 24)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Bran IV (chapter 24); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_24",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 24,
+              "chapterTitle": "Bran IV",
+              "relation": "mentioned",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_24"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Роль по указателю",
+              "value": "упомянут (по chapter index)"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Bran IV (глава 24)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Edwyle Stark в список упомянутых персонажей Bran IV. Черновик фиксирует только эти локаторы; появление в сцене и дополнительные биографические сведения здесь не утверждаются."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "person:erryk-cargyll",
+          "kind": "person",
+          "name": "Erryk Cargyll",
+          "subtitle": "A Game of Thrones · Bran II (ch. 8)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Bran II (chapter 8); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_8",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 8,
+              "chapterTitle": "Bran II",
+              "relation": "mentioned",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_8"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Роль по указателю",
+              "value": "упомянут (по chapter index)"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Bran II (глава 8)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Erryk Cargyll в список упомянутых персонажей Bran II. Черновик фиксирует только эти локаторы; появление в сцене и дополнительные биографические сведения здесь не утверждаются."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "person:gage",
+          "kind": "person",
+          "name": "Gage",
+          "subtitle": "A Game of Thrones · Bran II (ch. 8)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Bran II (chapter 8); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_8",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 8,
+              "chapterTitle": "Bran II",
+              "relation": "mentioned",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_8"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Роль по указателю",
+              "value": "упомянут (по chapter index)"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Bran II (глава 8)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Gage в список упомянутых персонажей Bran II. Черновик фиксирует только эти локаторы; появление в сцене и дополнительные биографические сведения здесь не утверждаются."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "person:joanna-lannister",
+          "kind": "person",
+          "name": "Joanna Lannister",
+          "subtitle": "A Game of Thrones · Jon I (ch. 5)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Jon I (chapter 5); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_5",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 5,
+              "chapterTitle": "Jon I",
+              "relation": "mentioned",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_5"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Роль по указателю",
+              "value": "упомянут (по chapter index)"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Jon I (глава 5)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Joanna Lannister в список упомянутых персонажей Jon I. Черновик фиксирует только эти локаторы; появление в сцене и дополнительные биографические сведения здесь не утверждаются."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "person:loren-i-lannister",
+          "kind": "person",
+          "name": "Loren I Lannister",
+          "subtitle": "A Game of Thrones · Tyrion II (ch. 13)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Tyrion II (chapter 13); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_13",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 13,
+              "chapterTitle": "Tyrion II",
+              "relation": "mentioned",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_13"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Роль по указателю",
+              "value": "упомянут (по chapter index)"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Tyrion II (глава 13)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Loren I Lannister в список упомянутых персонажей Tyrion II. Черновик фиксирует только эти локаторы; появление в сцене и дополнительные биографические сведения здесь не утверждаются."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "person:maegor-i-targaryen",
+          "kind": "person",
+          "name": "Maegor I Targaryen",
+          "subtitle": "A Game of Thrones · Catelyn IV (ch. 18)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Catelyn IV (chapter 18); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_18",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 18,
+              "chapterTitle": "Catelyn IV",
+              "relation": "mentioned",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_18"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Роль по указателю",
+              "value": "упомянут (по chapter index)"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Catelyn IV (глава 18)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Maegor I Targaryen в список упомянутых персонажей Catelyn IV. Черновик фиксирует только эти локаторы; появление в сцене и дополнительные биографические сведения здесь не утверждаются."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "person:mern-ix-gardener",
+          "kind": "person",
+          "name": "Mern IX Gardener",
+          "subtitle": "A Game of Thrones · Tyrion II (ch. 13)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Tyrion II (chapter 13); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_13",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 13,
+              "chapterTitle": "Tyrion II",
+              "relation": "mentioned",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_13"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Роль по указателю",
+              "value": "упомянут (по chapter index)"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Tyrion II (глава 13)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Mern IX Gardener в список упомянутых персонажей Tyrion II. Черновик фиксирует только эти локаторы; появление в сцене и дополнительные биографические сведения здесь не утверждаются."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "person:morgil",
+          "kind": "person",
+          "name": "Morgil",
+          "subtitle": "A Game of Thrones · Sansa I (ch. 15)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Sansa I (chapter 15); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_15",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 15,
+              "chapterTitle": "Sansa I",
+              "relation": "mentioned",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_15"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Роль по указателю",
+              "value": "упомянут (по chapter index)"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Sansa I (глава 15)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Morgil в список упомянутых персонажей Sansa I. Черновик фиксирует только эти локаторы; появление в сцене и дополнительные биографические сведения здесь не утверждаются."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "person:naerys-targaryen",
+          "kind": "person",
+          "name": "Naerys Targaryen",
+          "subtitle": "A Game of Thrones · Sansa I (ch. 15)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Sansa I (chapter 15); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_15",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 15,
+              "chapterTitle": "Sansa I",
+              "relation": "mentioned",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_15"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Роль по указателю",
+              "value": "упомянут (по chapter index)"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Sansa I (глава 15)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Naerys Targaryen в список упомянутых персонажей Sansa I. Черновик фиксирует только эти локаторы; появление в сцене и дополнительные биографические сведения здесь не утверждаются."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "person:rhaenyra-targaryen",
+          "kind": "person",
+          "name": "Rhaenyra Targaryen",
+          "subtitle": "A Game of Thrones · Bran II (ch. 8)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Bran II (chapter 8); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_8",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 8,
+              "chapterTitle": "Bran II",
+              "relation": "mentioned",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_8"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Роль по указателю",
+              "value": "упомянут (по chapter index)"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Bran II (глава 8)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Rhaenyra Targaryen в список упомянутых персонажей Bran II. Черновик фиксирует только эти локаторы; появление в сцене и дополнительные биографические сведения здесь не утверждаются."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "person:ryam-redwyne",
+          "kind": "person",
+          "name": "Ryam Redwyne",
+          "subtitle": "A Game of Thrones · Bran II (ch. 8)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Bran II (chapter 8); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_8",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 8,
+              "chapterTitle": "Bran II",
+              "relation": "mentioned",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_8"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Роль по указателю",
+              "value": "упомянут (по chapter index)"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Bran II (глава 8)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Ryam Redwyne в список упомянутых персонажей Bran II. Черновик фиксирует только эти локаторы; появление в сцене и дополнительные биографические сведения здесь не утверждаются."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "person:serwyn-of-the-mirror-shield",
+          "kind": "person",
+          "name": "Serwyn of the Mirror Shield",
+          "subtitle": "A Game of Thrones · Bran II (ch. 8); Sansa I (ch. 15)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Bran II (chapter 8); Sansa I (chapter 15); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_8",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 8,
+              "chapterTitle": "Bran II",
+              "relation": "mentioned",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_8"
+            },
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 15,
+              "chapterTitle": "Sansa I",
+              "relation": "mentioned",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_15"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Роль по указателю",
+              "value": "упомянут (по chapter index)"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Bran II (глава 8); Sansa I (глава 15)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Serwyn of the Mirror Shield в список упомянутых персонажей Bran II, Sansa I. Черновик фиксирует только эти локаторы; появление в сцене и дополнительные биографические сведения здесь не утверждаются."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        }
+      ]
+    },
+    {
+      "format": "cockpit.entity-layer/1",
+      "kind": "place",
+      "entities": [
+        {
+          "ref": "place:aegons-high-hill",
+          "kind": "place",
+          "name": "Aegon’s High Hill",
+          "subtitle": "A Game of Thrones · Catelyn IV (ch. 18)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Catelyn IV (chapter 18); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_18",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 18,
+              "chapterTitle": "Catelyn IV",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_18"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Catelyn IV (глава 18)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Aegon’s High Hill в список Places для Catelyn IV. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:asshai",
+          "kind": "place",
+          "name": "Asshai",
+          "subtitle": "A Game of Thrones · Daenerys II (ch. 11)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Daenerys II (chapter 11); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_11",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 11,
+              "chapterTitle": "Daenerys II",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_11"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Daenerys II (глава 11)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Asshai в список Places для Daenerys II. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:bear-island",
+          "kind": "place",
+          "name": "Bear Island",
+          "subtitle": "A Game of Thrones · Eddard II (ch. 12)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Eddard II (chapter 12); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_12",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 12,
+              "chapterTitle": "Eddard II",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_12"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Eddard II (глава 12)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Bear Island в список Places для Eddard II. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:braavosian-coast",
+          "kind": "place",
+          "name": "Braavosian coast",
+          "subtitle": "A Game of Thrones · Daenerys I (ch. 3)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Daenerys I (chapter 3); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 3,
+              "chapterTitle": "Daenerys I",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Daenerys I (глава 3)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Braavosian coast в список Places для Daenerys I. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:dragonpit",
+          "kind": "place",
+          "name": "Dragonpit",
+          "subtitle": "A Game of Thrones · Catelyn IV (ch. 18)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Catelyn IV (chapter 18); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_18",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 18,
+              "chapterTitle": "Catelyn IV",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_18"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Catelyn IV (глава 18)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Dragonpit в список Places для Catelyn IV. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:fingers",
+          "kind": "place",
+          "name": "Fingers",
+          "subtitle": "A Game of Thrones · Tyrion II (ch. 13)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Tyrion II (chapter 13); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_13",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 13,
+              "chapterTitle": "Tyrion II",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_13"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Tyrion II (глава 13)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Fingers в список Places для Tyrion II. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:fish-market",
+          "kind": "place",
+          "name": "Fish Market",
+          "subtitle": "A Game of Thrones · Catelyn IV (ch. 18)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Catelyn IV (chapter 18); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_18",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 18,
+              "chapterTitle": "Catelyn IV",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_18"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Catelyn IV (глава 18)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Fish Market в список Places для Catelyn IV. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:ford-of-the-trident",
+          "kind": "place",
+          "name": "Ford of the Trident",
+          "subtitle": "A Game of Thrones · Eddard I (ch. 4)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Eddard I (chapter 4); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_4",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 4,
+              "chapterTitle": "Eddard I",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_4"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Eddard I (глава 4)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Ford of the Trident в список Places для Eddard I. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:forest-of-qohor",
+          "kind": "place",
+          "name": "Forest of Qohor",
+          "subtitle": "A Game of Thrones · Daenerys III (ch. 23)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Daenerys III (chapter 23); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_23",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 23,
+              "chapterTitle": "Daenerys III",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_23"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Daenerys III (глава 23)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Forest of Qohor в список Places для Daenerys III. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:hardins-tower",
+          "kind": "place",
+          "name": "Hardin’s Tower",
+          "subtitle": "A Game of Thrones · Jon III (ch. 19)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Jon III (chapter 19); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_19",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 19,
+              "chapterTitle": "Jon III",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_19"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Jon III (глава 19)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Hardin’s Tower в список Places для Jon III. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:highgarden",
+          "kind": "place",
+          "name": "Highgarden",
+          "subtitle": "A Game of Thrones · Daenerys I (ch. 3); Eddard I (ch. 4)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Daenerys I (chapter 3); Eddard I (chapter 4); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 3,
+              "chapterTitle": "Daenerys I",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3"
+            },
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 4,
+              "chapterTitle": "Eddard I",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_4"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Daenerys I (глава 3); Eddard I (глава 4)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Highgarden в список Places для Daenerys I, Eddard I. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:hill-of-rhaenys",
+          "kind": "place",
+          "name": "Hill of Rhaenys",
+          "subtitle": "A Game of Thrones · Catelyn IV (ch. 18)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Catelyn IV (chapter 18); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_18",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 18,
+              "chapterTitle": "Catelyn IV",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_18"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Catelyn IV (глава 18)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Hill of Rhaenys в список Places для Catelyn IV. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:house-with-the-red-door",
+          "kind": "place",
+          "name": "House with the Red Door",
+          "subtitle": "A Game of Thrones · Daenerys I (ch. 3)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Daenerys I (chapter 3); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 3,
+              "chapterTitle": "Daenerys I",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Daenerys I (глава 3)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает House with the Red Door в список Places для Daenerys I. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:jade-sea",
+          "kind": "place",
+          "name": "Jade Sea",
+          "subtitle": "A Game of Thrones · Daenerys I (ch. 3)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Daenerys I (chapter 3); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 3,
+              "chapterTitle": "Daenerys I",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Daenerys I (глава 3)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Jade Sea в список Places для Daenerys I. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:kings-gate",
+          "kind": "place",
+          "name": "King’s Gate",
+          "subtitle": "A Game of Thrones · Tyrion III (ch. 21)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Tyrion III (chapter 21); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_21",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 21,
+              "chapterTitle": "Tyrion III",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_21"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Tyrion III (глава 21)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает King’s Gate в список Places для Tyrion III. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:kings-tower",
+          "kind": "place",
+          "name": "King’s Tower",
+          "subtitle": "A Game of Thrones · Jon III (ch. 19)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Jon III (chapter 19); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_19",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 19,
+              "chapterTitle": "Jon III",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_19"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Jon III (глава 19)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает King’s Tower в список Places для Jon III. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:lands-of-the-long-summer",
+          "kind": "place",
+          "name": "Lands of the Long Summer",
+          "subtitle": "A Game of Thrones · Daenerys III (ch. 23)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Daenerys III (chapter 23); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_23",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 23,
+              "chapterTitle": "Daenerys III",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_23"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Daenerys III (глава 23)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Lands of the Long Summer в список Places для Daenerys III. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:lannisport",
+          "kind": "place",
+          "name": "Lannisport",
+          "subtitle": "A Game of Thrones · Tyrion III (ch. 21)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Tyrion III (chapter 21); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_21",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 21,
+              "chapterTitle": "Tyrion III",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_21"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Tyrion III (глава 21)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Lannisport в список Places для Tyrion III. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:lys",
+          "kind": "place",
+          "name": "Lys",
+          "subtitle": "A Game of Thrones · Daenerys I (ch. 3); Daenerys II (ch. 11)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Daenerys I (chapter 3); Daenerys II (chapter 11); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 3,
+              "chapterTitle": "Daenerys I",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3"
+            },
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 11,
+              "chapterTitle": "Daenerys II",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_11"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Daenerys I (глава 3); Daenerys II (глава 11)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Lys в список Places для Daenerys I, Daenerys II. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:myr",
+          "kind": "place",
+          "name": "Myr",
+          "subtitle": "A Game of Thrones · Daenerys I (ch. 3)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Daenerys I (chapter 3); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 3,
+              "chapterTitle": "Daenerys I",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Daenerys I (глава 3)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Myr в список Places для Daenerys I. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:narrow-sea",
+          "kind": "place",
+          "name": "Narrow Sea",
+          "subtitle": "A Game of Thrones · Catelyn I (ch. 2); Arya I (ch. 7)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Catelyn I (chapter 2); Arya I (chapter 7); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_2",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 2,
+              "chapterTitle": "Catelyn I",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_2"
+            },
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 7,
+              "chapterTitle": "Arya I",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_7"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Catelyn I (глава 2); Arya I (глава 7)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Narrow Sea в список Places для Catelyn I, Arya I. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:neck",
+          "kind": "place",
+          "name": "Neck",
+          "subtitle": "A Game of Thrones · Bran II (ch. 8)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Bran II (chapter 8); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_8",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 8,
+              "chapterTitle": "Bran II",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_8"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Bran II (глава 8)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Neck в список Places для Bran II. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:northern-mountains",
+          "kind": "place",
+          "name": "Northern Mountains",
+          "subtitle": "A Game of Thrones · Tyrion II (ch. 13)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Tyrion II (chapter 13); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_13",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 13,
+              "chapterTitle": "Tyrion II",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_13"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Tyrion II (глава 13)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Northern Mountains в список Places для Tyrion II. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:norvos",
+          "kind": "place",
+          "name": "Norvos",
+          "subtitle": "A Game of Thrones · Eddard IV (ch. 20)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Eddard IV (chapter 20); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_20",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 20,
+              "chapterTitle": "Eddard IV",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_20"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Eddard IV (глава 20)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Norvos в список Places для Eddard IV. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:qohor",
+          "kind": "place",
+          "name": "Qohor",
+          "subtitle": "A Game of Thrones · Daenerys I (ch. 3); Eddard IV (ch. 20)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Daenerys I (chapter 3); Eddard IV (chapter 20); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 3,
+              "chapterTitle": "Daenerys I",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3"
+            },
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 20,
+              "chapterTitle": "Eddard IV",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_20"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Daenerys I (глава 3); Eddard IV (глава 20)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Qohor в список Places для Daenerys I, Eddard IV. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:reach",
+          "kind": "place",
+          "name": "Reach",
+          "subtitle": "A Game of Thrones · Tyrion II (ch. 13)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Tyrion II (chapter 13); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_13",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 13,
+              "chapterTitle": "Tyrion II",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_13"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Tyrion II (глава 13)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Reach в список Places для Tyrion II. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:rhoyne",
+          "kind": "place",
+          "name": "Rhoyne",
+          "subtitle": "A Game of Thrones · Arya I (ch. 7); Bran IV (ch. 24)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Arya I (chapter 7); Bran IV (chapter 24); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_7",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 7,
+              "chapterTitle": "Arya I",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_7"
+            },
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 24,
+              "chapterTitle": "Bran IV",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_24"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Arya I (глава 7); Bran IV (глава 24)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Rhoyne в список Places для Arya I, Bran IV. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:seven-kingdoms",
+          "kind": "place",
+          "name": "Seven Kingdoms",
+          "subtitle": "A Game of Thrones · Bran I (ch. 1)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Bran I (chapter 1); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_1",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 1,
+              "chapterTitle": "Bran I",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_1"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Bran I (глава 1)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Seven Kingdoms в список Places для Bran I. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:shadow-lands",
+          "kind": "place",
+          "name": "Shadow Lands",
+          "subtitle": "A Game of Thrones · Daenerys II (ch. 11)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Daenerys II (chapter 11); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_11",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 11,
+              "chapterTitle": "Daenerys II",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_11"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Daenerys II (глава 11)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Shadow Lands в список Places для Daenerys II. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:street-of-the-sisters",
+          "kind": "place",
+          "name": "Street of the Sisters",
+          "subtitle": "A Game of Thrones · Catelyn IV (ch. 18)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Catelyn IV (chapter 18); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_18",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 18,
+              "chapterTitle": "Catelyn IV",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_18"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Catelyn IV (глава 18)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Street of the Sisters в список Places для Catelyn IV. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:three-sisters",
+          "kind": "place",
+          "name": "Three Sisters",
+          "subtitle": "A Game of Thrones · Catelyn IV (ch. 18)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Catelyn IV (chapter 18); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_18",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 18,
+              "chapterTitle": "Catelyn IV",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_18"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Catelyn IV (глава 18)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Three Sisters в список Places для Catelyn IV. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:tyrosh",
+          "kind": "place",
+          "name": "Tyrosh",
+          "subtitle": "A Game of Thrones · Daenerys I (ch. 3); Eddard II (ch. 12); Eddard IV (ch. 20)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Daenerys I (chapter 3); Eddard II (chapter 12); Eddard IV (chapter 20); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 3,
+              "chapterTitle": "Daenerys I",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3"
+            },
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 12,
+              "chapterTitle": "Eddard II",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_12"
+            },
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 20,
+              "chapterTitle": "Eddard IV",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_20"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Daenerys I (глава 3); Eddard II (глава 12); Eddard IV (глава 20)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Tyrosh в список Places для Daenerys I, Eddard II, Eddard IV. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:valyria",
+          "kind": "place",
+          "name": "Valyria",
+          "subtitle": "A Game of Thrones · Bran I (ch. 1); Catelyn I (ch. 2); Daenerys I (ch. 3); Tyrion I (ch. 9)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Bran I (chapter 1); Catelyn I (chapter 2); Daenerys I (chapter 3); Tyrion I (chapter 9); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_1",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 1,
+              "chapterTitle": "Bran I",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_1"
+            },
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 2,
+              "chapterTitle": "Catelyn I",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_2"
+            },
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 3,
+              "chapterTitle": "Daenerys I",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3"
+            },
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 9,
+              "chapterTitle": "Tyrion I",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_9"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Bran I (глава 1); Catelyn I (глава 2); Daenerys I (глава 3); Tyrion I (глава 9)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Valyria в список Places для Bran I, Catelyn I, Daenerys I, Tyrion I. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:visenyas-hill",
+          "kind": "place",
+          "name": "Visenya’s Hill",
+          "subtitle": "A Game of Thrones · Catelyn IV (ch. 18)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Catelyn IV (chapter 18); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_18",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 18,
+              "chapterTitle": "Catelyn IV",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_18"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Catelyn IV (глава 18)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Visenya’s Hill в список Places для Catelyn IV. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:volantis",
+          "kind": "place",
+          "name": "Volantis",
+          "subtitle": "A Game of Thrones · Daenerys I (ch. 3)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Daenerys I (chapter 3); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 3,
+              "chapterTitle": "Daenerys I",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Daenerys I (глава 3)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Volantis в список Places для Daenerys I. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:white-knife",
+          "kind": "place",
+          "name": "White Knife",
+          "subtitle": "A Game of Thrones · Catelyn IV (ch. 18)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Catelyn IV (chapter 18); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_18",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 18,
+              "chapterTitle": "Catelyn IV",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_18"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Catelyn IV (глава 18)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает White Knife в список Places для Catelyn IV. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        },
+        {
+          "ref": "place:yi-ti",
+          "kind": "place",
+          "name": "Yi Ti",
+          "subtitle": "A Game of Thrones · Daenerys III (ch. 23)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Daenerys III (chapter 23); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_23",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 23,
+              "chapterTitle": "Daenerys III",
+              "relation": "places-list-scene-or-reference-unresolved",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_23"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус по указателю",
+              "value": "указано в Places; сцена/упоминание не разделены"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Daenerys III (глава 23)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF включает Yi Ti в список Places для Daenerys III. Этот список не позволяет определить, является ли объект местом действия или географическим упоминанием; координаты и иерархия не заданы."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        }
+      ]
+    },
+    {
+      "format": "cockpit.entity-layer/1",
+      "kind": "event",
+      "entities": [
+        {
+          "ref": "event:littlefinger-plan-to-bribe-city-watch",
+          "kind": "event",
+          "name": "Littlefinger proposes bribing the City Watch",
+          "subtitle": "A Game of Thrones · Eddard XIII (ch. 47)",
+          "status": "secondary-indexed-partial",
+          "source": {
+            "kind": "wiki",
+            "cite": "A Game of Thrones, Eddard XIII (chapter 47); A Wiki of Ice and Fire numeric chapter index",
+            "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_47",
+            "license": "CC-BY-SA-3.0",
+            "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending."
+          },
+          "locators": [
+            {
+              "book": "A Game of Thrones",
+              "chapterNo": 47,
+              "chapterTitle": "Eddard XIII",
+              "relation": "plan-or-proposal",
+              "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_47"
+            }
+          ],
+          "facts": [
+            {
+              "label": "Статус события",
+              "value": "план / предложение; исполнение не подтверждено"
+            },
+            {
+              "label": "Локаторы",
+              "value": "Eddard XIII (глава 47)"
+            },
+            {
+              "label": "Сверка по роману",
+              "value": "не выполнена; не назначать абсолютную дату"
+            }
+          ],
+          "sections": [
+            {
+              "title": "Краткая сводка",
+              "text": "AWOIAF описывает предложение Littlefinger привлечь поддержку Городской стражи через взятку Яносу Слинту. Карточка фиксирует только план; совершение выплаты и поведение Стражи не утверждаются."
+            }
+          ],
+          "links": [],
+          "verification": {
+            "primaryBook": "pending",
+            "note": "Первичный текст и выбранное издание не проверены."
+          }
+        }
+      ]
+    }
+  ],
+  "excludedCandidates": [
+    {
+      "ref": "animal:dancer",
+      "kind": "animal",
+      "reason": "Исключено по запросу: для этого типа пока нет подходящего kind в текущей схеме."
+    },
+    {
+      "ref": "creature:balerion-the-dragon",
+      "kind": "creature",
+      "reason": "Исключено по запросу: для этого типа пока нет подходящего kind в текущей схеме."
+    },
+    {
+      "ref": "creature:meraxes",
+      "kind": "creature",
+      "reason": "Исключено по запросу: для этого типа пока нет подходящего kind в текущей схеме."
+    },
+    {
+      "ref": "creature:vhagar",
+      "kind": "creature",
+      "reason": "Исключено по запросу: для этого типа пока нет подходящего kind в текущей схеме."
+    },
+    {
+      "ref": "place:eastwatch-by-the-sea",
+      "kind": "place",
+      "reason": "Имя уже покрыто карточкой place:eastwatch; отдельную карточку не создавать."
+    }
+  ]
+}

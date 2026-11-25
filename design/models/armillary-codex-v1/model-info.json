@@ -1,0 +1,325 @@
+{
+  "asset": "armillary-scale",
+  "version": "codex-v1",
+  "generator": "Python standard library procedural geometry",
+  "unit": "normalized units (meters for scene sizing)",
+  "upAxis": "+Y",
+  "rightHanded": true,
+  "materials": [
+    {
+      "name": "Aged brass",
+      "baseColorFactor": [
+        0.43,
+        0.24,
+        0.075,
+        1
+      ],
+      "metallicFactor": 0.78,
+      "roughnessFactor": 0.34
+    },
+    {
+      "name": "Dark steel",
+      "baseColorFactor": [
+        0.12,
+        0.13,
+        0.15,
+        1
+      ],
+      "metallicFactor": 0.72,
+      "roughnessFactor": 0.42
+    },
+    {
+      "name": "Plum enamel",
+      "baseColorFactor": [
+        0.19,
+        0.035,
+        0.09,
+        1
+      ],
+      "metallicFactor": 0.42,
+      "roughnessFactor": 0.29
+    }
+  ],
+  "textures": [],
+  "externalUris": [],
+  "extensionsUsed": [],
+  "extensionsRequired": [],
+  "nodes": [
+    {
+      "name": "scale_ring_cosmology_pivot",
+      "mesh": "scale_ring_cosmology",
+      "scaleLevel": "cosmology",
+      "pivotAxisLocal": [
+        1,
+        0,
+        0
+      ],
+      "pivotOrigin": [
+        0,
+        0,
+        0
+      ],
+      "neutralRotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "name": "scale_ring_plane_pivot",
+      "mesh": "scale_ring_plane",
+      "scaleLevel": "plane",
+      "pivotAxisLocal": [
+        1,
+        0,
+        0
+      ],
+      "pivotOrigin": [
+        0,
+        0,
+        0
+      ],
+      "neutralRotation": [
+        0.21412873748655428,
+        0.1895979719939367,
+        0.15463189966489307,
+        0.945669322968778
+      ]
+    },
+    {
+      "name": "scale_ring_system_pivot",
+      "mesh": "scale_ring_system",
+      "scaleLevel": "system",
+      "pivotAxisLocal": [
+        1,
+        0,
+        0
+      ],
+      "pivotOrigin": [
+        0,
+        0,
+        0
+      ],
+      "neutralRotation": [
+        0.32685430780312724,
+        0.41653903926944663,
+        0.1963320762491509,
+        0.8252970411135148
+      ]
+    },
+    {
+      "name": "scale_ring_planet_pivot",
+      "mesh": "scale_ring_planet",
+      "scaleLevel": "planet",
+      "pivotAxisLocal": [
+        1,
+        0,
+        0
+      ],
+      "pivotOrigin": [
+        0,
+        0,
+        0
+      ],
+      "neutralRotation": [
+        0.3351502265728433,
+        0.6092670050181477,
+        0.12660800733929958,
+        0.7074167475413345
+      ]
+    },
+    {
+      "name": "scale_ring_continent_pivot",
+      "mesh": "scale_ring_continent",
+      "scaleLevel": "continent",
+      "pivotAxisLocal": [
+        1,
+        0,
+        0
+      ],
+      "pivotOrigin": [
+        0,
+        0,
+        0
+      ],
+      "neutralRotation": [
+        -0.2905649484631901,
+        0.49062136021542957,
+        0.5155845921729902,
+        0.6395586133723452
+      ]
+    },
+    {
+      "name": "scale_ring_region_pivot",
+      "mesh": "scale_ring_region",
+      "scaleLevel": "region",
+      "pivotAxisLocal": [
+        1,
+        0,
+        0
+      ],
+      "pivotOrigin": [
+        0,
+        0,
+        0
+      ],
+      "neutralRotation": [
+        0.41716387108070624,
+        0.09727894882869276,
+        0.0025836059260500727,
+        0.903606349999912
+      ]
+    },
+    {
+      "name": "scale_ring_settlement_pivot",
+      "mesh": "scale_ring_settlement",
+      "scaleLevel": "settlement",
+      "pivotAxisLocal": [
+        1,
+        0,
+        0
+      ],
+      "pivotOrigin": [
+        0,
+        0,
+        0
+      ],
+      "neutralRotation": [
+        0.5565532174134267,
+        0.324410983645126,
+        0.037436356841210966,
+        0.7639401475663015
+      ]
+    },
+    {
+      "name": "scale_ring_building_pivot",
+      "mesh": "scale_ring_building",
+      "scaleLevel": "building",
+      "pivotAxisLocal": [
+        1,
+        0,
+        0
+      ],
+      "pivotOrigin": [
+        0,
+        0,
+        0
+      ],
+      "neutralRotation": [
+        -0.06550008898930558,
+        0.3811274779035332,
+        0.35832142465037703,
+        0.8497395722018652
+      ]
+    },
+    {
+      "name": "scale_ring_battle_pivot",
+      "mesh": "scale_ring_battle",
+      "scaleLevel": "battle",
+      "pivotAxisLocal": [
+        1,
+        0,
+        0
+      ],
+      "pivotOrigin": [
+        0,
+        0,
+        0
+      ],
+      "neutralRotation": [
+        -0.03855384457548924,
+        0.5642443803482547,
+        0.33883987124561077,
+        0.7518839152210407
+      ]
+    }
+  ],
+  "variants": {
+    "main": {
+      "file": "armillary-main-v1.glb",
+      "bytes": 1179724,
+      "triangles": 16256,
+      "boundsMin": [
+        -0.853,
+        -0.15,
+        -0.853
+      ],
+      "boundsMax": [
+        0.853,
+        1.05,
+        0.853
+      ],
+      "meshCount": 12,
+      "maxMaterials": 3,
+      "texturedPbrMaps": 0,
+      "validation": {
+        "validGlb2": true,
+        "triangles": 16256,
+        "bytes": 1179724,
+        "materials": 3,
+        "pivots": 9,
+        "externalUris": 0,
+        "windingMatchesNormals": true
+      }
+    },
+    "lite": {
+      "file": "armillary-lite-v1.glb",
+      "bytes": 400960,
+      "triangles": 5440,
+      "boundsMin": [
+        -0.853,
+        -0.15,
+        -0.853
+      ],
+      "boundsMax": [
+        0.853,
+        1.05,
+        0.853
+      ],
+      "meshCount": 12,
+      "maxMaterials": 3,
+      "texturedPbrMaps": 0,
+      "validation": {
+        "validGlb2": true,
+        "triangles": 5440,
+        "bytes": 400960,
+        "materials": 3,
+        "pivots": 9,
+        "externalUris": 0,
+        "windingMatchesNormals": true
+      }
+    }
+  },
+  "status": "technical prototype; visual approval pending",
+  "previews": [
+    {
+      "file": "armillary-front.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "view": "front"
+    },
+    {
+      "file": "armillary-three-quarter.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "view": "three-quarter"
+    },
+    {
+      "file": "armillary-ring-pivot-45.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "view": "scale_ring_region +45 degrees"
+    }
+  ],
+  "fallback": {
+    "file": "armillary-front-128.png",
+    "width": 128,
+    "height": 128,
+    "alpha": true,
+    "renderedFrom": "same generated geometry, software orthographic rasterizer"
+  }
+}

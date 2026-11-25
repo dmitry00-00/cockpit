@@ -12,6 +12,8 @@
 import { useId } from 'react';
 import type { Actor, ScaleLevel } from '../engine';
 import { Icon, type IconName } from '../icons/Icon';
+import { PortraitImage, resolvePortrait } from '../art/portrait';
+import { RaceMark } from '../art/RaceMark';
 import { classById, raceById } from '../rules/compendium';
 import { chipsOf, ConditionChip, type ChipSpec } from './ConditionChip';
 import { DeathSaves, clampSaves, type DeathSavesProps } from './DeathSaves';
@@ -123,6 +125,7 @@ export function PartySpineRow({ actor, worldSec, locations, selected = false, on
       aria-label={row.name}
       aria-current={selected ? 'true' : undefined}
       data-actor={row.id}
+      data-part="party-spine-row"
       data-down={row.down ? 'true' : undefined}
       onClick={open}
       className={`flex gap-2 p-2 min-h-spine-party-h cursor-pointer bg-linear-to-b from-pl to-cd border-l-3 border-ent-pc ${surface} has-focus-visible:shadow-[var(--plate),var(--glow-gold)] ${className}`}
@@ -130,7 +133,11 @@ export function PartySpineRow({ actor, worldSec, locations, selected = false, on
       <span id={descId} className="sr-only">{partyRowDescription(row, deathSaves)}</span>
       {/* 0 HP — метка «выбыл» на портрете (.55 как в прототипе), а не на всей строке: пипки и числа читаются в полную силу. */}
       <div className={`relative flex-none size-12 flex items-center justify-center bg-cd shadow-bevel-in ${row.down ? 'opacity-55' : ''}`} data-part="portrait">
-        <Icon name={row.avatar} size={32} color="var(--t2)" title={row.lineage ?? 'Персонаж игрока'} />
+        {resolvePortrait(actor.sheet?.portrait)
+          ? <PortraitImage portrait={actor.sheet?.portrait} alt={`Портрет: ${actor.name}`} width={48} sizes="48px" className="size-12 object-cover" />
+          : actor.sheet
+            ? <RaceMark raceId={actor.sheet.raceId} subraceId={actor.sheet.subraceId} title={raceById(actor.sheet.raceId)?.nameRu ?? 'Происхождение'} size={32} fallback={<Icon name={row.avatar} size={32} color="var(--t2)" title={row.lineage ?? 'Персонаж игрока'} />} />
+            : <Icon name={row.avatar} size={32} color="var(--t2)" title={row.lineage ?? 'Персонаж игрока'} />}
         {row.level !== undefined && (
           // Золотой плиты в токенах нет (спека §10.1): пока плита pl с фаской и золотым текстом.
           <span className="absolute right-0 bottom-0 type-num-12 text-gd-hi bg-pl shadow-bevel px-[3px]" title="Уровень">
@@ -140,7 +147,7 @@ export function PartySpineRow({ actor, worldSec, locations, selected = false, on
       </div>
       <div className="flex-1 min-w-0 flex flex-col gap-1">
         <div className="flex items-center gap-1.5">
-        {/* Кнопка имени — единственный вход с клавиатуры. Выбывший — имя вторичным цветом (t2: 4.7:1 на pl), не прозрачностью. */}
+        {/* Кнопка имени — единственный вход с клавиатуры. Выбывший — имя контрастным вторичным цветом, не прозрачностью. */}
         <button
           type="button"
           aria-label={`Открыть карточку: ${row.name}`}

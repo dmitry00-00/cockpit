@@ -1,0 +1,52 @@
+{
+  "format": 1,
+  "id": "harptos",
+  "kind": "months",
+  "yearSuffix": "DR",
+  "yearZero": true,
+  "epoch": {
+    "year": 1492,
+    "month": "hammer",
+    "day": 1,
+    "hour": 0,
+    "minute": 0
+  },
+  "months": [
+    { "id": "hammer", "name": "Hammer", "days": 30, "season": "winter" },
+    { "id": "alturiak", "name": "Alturiak", "days": 30, "season": "winter" },
+    { "id": "ches", "name": "Ches", "days": 30, "season": "winter" },
+    { "id": "tarsakh", "name": "Tarsakh", "days": 30, "season": "spring" },
+    { "id": "mirtul", "name": "Mirtul", "days": 30, "season": "spring" },
+    { "id": "kythorn", "name": "Kythorn", "days": 30, "season": "spring" },
+    { "id": "flamerule", "name": "Flamerule", "days": 30, "season": "summer" },
+    { "id": "eleasis", "name": "Eleasis", "days": 30, "season": "summer" },
+    { "id": "eleint", "name": "Eleint", "days": 30, "season": "summer" },
+    { "id": "marpenoth", "name": "Marpenoth", "days": 30, "season": "autumn" },
+    { "id": "uktar", "name": "Uktar", "days": 30, "season": "autumn" },
+    { "id": "nightal", "name": "Nightal", "days": 30, "season": "autumn" }
+  ],
+  "intercalary": [
+    { "id": "midwinter", "name": "Midwinter", "after": "hammer", "days": 1, "season": "winter" },
+    { "id": "greengrass", "name": "Greengrass", "after": "tarsakh", "days": 1, "season": "spring" },
+    { "id": "midsummer", "name": "Midsummer", "after": "flamerule", "days": 1, "season": "summer" },
+    { "id": "shieldmeet", "name": "Shieldmeet", "after": "flamerule", "days": 1, "season": "summer", "rule": { "every": 4, "offset": 0 } },
+    { "id": "highharvestide", "name": "Highharvestide", "after": "eleint", "days": 1, "season": "autumn" },
+    { "id": "feast-of-the-moon", "name": "Feast of the Moon", "after": "uktar", "days": 1, "season": "autumn" }
+  ],
+  "week": { "id": "tenday", "name": "десятидневка", "days": 10 },
+  "dayPhases": [
+    { "id": "morning", "labelRu": "утро", "fromHour": 5 },
+    { "id": "day", "labelRu": "день", "fromHour": 11 },
+    { "id": "evening", "labelRu": "вечер", "fromHour": 17 },
+    { "id": "night", "labelRu": "ночь", "fromHour": 21 }
+  ],
+  "seasons": [
+    { "id": "winter", "labelRu": "зима" },
+    { "id": "spring", "labelRu": "весна" },
+    { "id": "summer", "labelRu": "лето" },
+    { "id": "autumn", "labelRu": "осень" }
+  ],
+  "moons": [
+    { "id": "selune", "name": "Selûne", "cycleDays": 30, "fullAt": { "year": 1492, "month": "mirtul", "day": 18 }, "fullWindowDays": 1, "newWindowDays": 1 }
+  ]
+}

@@ -8,6 +8,7 @@ import { srdRaceSize, srdRaceSpeed } from '../rules/srd/races';
 import { backgroundById, classById, featById, raceById, type Asi, type AsiChoice, type CharacterClass, type Feat, type Race, type Subrace, type Trait } from '../rules/compendium';
 import { CLASS_START, armorIdOfItem, ITEMS } from '../rules/srd/equipment';
 import { SPELLS } from '../rules/srd/spells';
+import type { PortraitRef } from '../art/portrait';
 import {
   attacksOf, classChoicesOf, raceCantripChoice, raceSkillChoice, spellcastingOf, srdIdOf,
   type Attack, type FeatureChoice, type InventoryLine, type SpellListKind,
@@ -78,6 +79,8 @@ export interface Improvement { level: number; asi: Asi }
 export interface PcSpec {
   id: string;
   name: string;
+  /** Built-in asset id or a compact user-supplied portrait stored with the campaign. */
+  portrait?: PortraitRef;
   raceId: string;
   subraceId?: string;
   classId: string;
@@ -120,7 +123,7 @@ export interface PcSpec {
 export interface FeatPick { at: 'race' | number; id: string; asi?: AbilityId }
 
 /** Что персонаж выбрал в умении — с подписями вариантов для листа. */
-export interface ChosenFeature { id: string; label: string; values: readonly { id: string; name: string }[] }
+export interface ChosenFeature { id: string; label: string; values: readonly { id: string; name: string; at?: number; source?: 'srd' | 'book' | 'hb'; ruleset?: { id: string; version: string; layer: string } }[] }
 
 /** Заклинательство на листе: характеристика, Сл и бонус атаки по SRD, выбранное и «всегда подготовленное». */
 export interface SheetSpellcasting {
@@ -408,7 +411,10 @@ function deriveWith(spec: PcSpec, issue: Issue): DerivedCharacter {
       if (new Set(known).size !== known.length) issue(`${spec.name}: в «${fc.label}» вариант выбран дважды`);
       if (known.length < fc.count) issue(`выбрать: ${fc.label}${fc.count > 1 ? ` (ещё ${fc.count - known.length})` : ''}`);
       if (known.length > fc.count) issue(`${spec.name}: «${fc.label}» — ${fc.count}, выбрано ${known.length}`);
-      if (known.length) chosen.push({ id: fc.id, label: fc.label, values: known.map(id => ({ id, name: fc.options.find(o => o.id === id)!.name })) });
+      if (known.length) chosen.push({ id: fc.id, label: fc.label, values: known.map(id => {
+        const option = fc.options.find(o => o.id === id)!;
+        return { id, name: option.name, source: option.source, ...(option.source === 'srd' ? { ruleset: { id: 'dnd5e', version: 'SRD 5.1', layer: 'srd' } } : {}) };
+      }) });
     }
     for (const id of Object.keys(spec.choices!)) if ((spec.choices![id]?.length ?? 0) > 0 && !featureChoices.some(fc => fc.id === id)) issue(`${spec.name}: выбор «${id}» на этом уровне не даётся`);
   }
@@ -482,6 +488,7 @@ function deriveWith(spec: PcSpec, issue: Issue): DerivedCharacter {
     spellcasting = {
       ability: ab, saveDc: 8 + proficiencyBonus + mods[ab], attack: proficiencyBonus + mods[ab], kind: plan.leveledKind, maxLevel: plan.maxLevel,
       cantrips, spells: leveled, always: plan.always,
+      ...(plan.leveledKind === 'prepared' ? { preparedLimit: plan.leveled } : {}),
     };
   } else if (spec.spells?.length) issue(`${spec.name}: ${cls.nameRu} на ${spec.level}-м уровне заклинаний из SRD не даёт`);
 

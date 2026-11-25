@@ -3,7 +3,7 @@
 // шаг «Десятидневка» — сцена другого дня; глазами игроков — только открытое. Событий вкладка не пишет.
 import { fireEvent, screen, waitFor, within } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
-import { cardOf, down, mount, step, tab, tempoGroup } from './testkit';
+import { cardOf, down, mount, step, tab, tempoGroup, openTimeControls } from './testkit';
 
 const section = (name: string) => within(cardOf('Neverwinter')).findByRole('region', { name });
 
@@ -39,8 +39,10 @@ describe('место как сцена (Д2)', () => {
     mount();
     down();
     tab('Сейчас');
+    openTimeControls();
+    fireEvent.click(within(tempoGroup()).getByRole('button', { name: 'Другие темпы' }));
     fireEvent.click(within(tempoGroup()).getByRole('radio', { name: /Десятидневка/ }));
-    step();
+    await step();
     // Шаг поднимает сводку «что изменилось»; Esc — обратно на стол, вкладка та же.
     fireEvent.keyDown(window, { key: 'Escape', code: 'Escape' });
     const now = await section('Сейчас');

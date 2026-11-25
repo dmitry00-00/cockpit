@@ -1,15 +1,12 @@
-// Чистая карта (TASKS M17): растр той же карты без подписей и значков — подложка режима «Чистая», поверх неё подписи
-// схемы (schemaLabels) и места справочника по координатам. Паспорт — content/maps/<id>-clean.json, отдельным куском
-// по требованию (в основной кусок не идёт): стол зовёт этот модуль через import() из useMapData.
+// Чистая карта (TASKS M17): растр той же карты без подписей и значков — подложка кнопки «Карта», поверх неё подписи
+// схемы (schemaLabels) и места справочника по координатам. Путь к паспорту content/maps/<id>-clean.json
+// объявлен в cleanMaps манифеста сеттинга и разрешается через пакетный реестр.
 // Подложка обязана совпадать с растром карты по сетке — размеры исходника, тайл, пирамида и калибровка: вид карты
 // (центр и масштаб в пикселях исходника) общий у всех режимов, и переключение не сдвигает карту. Не совпала — режима
 // нет. Тайлы — на диске (maps/tiles/<id>-clean/, не в git: растр только для стола); их нет или нарезка не дошла до
 // done.json — режима нет, без ошибки, как у карты без схемы.
 import type { MapPassport } from './projection';
-
-const LOADERS: Readonly<Record<string, () => Promise<unknown>>> = {
-  toril: () => import('../../content/maps/toril-clean.json').then(m => m.default),
-};
+import { cleanMapFor } from '../packages/registry';
 
 /** Поля паспорта, по которым сетка подложки обязана совпасть с растром карты. */
 const GRID = ['width', 'height', 'tileSize', 'maxZoom', 'milesPerPixel'] as const;
@@ -33,10 +30,11 @@ interface TilesDone {
  * консоль: это ошибка нарезки, а не отсутствие файлов.
  */
 export async function loadClean(base: MapPassport, get: typeof fetch = fetch): Promise<MapPassport | null> {
-  const load = LOADERS[base.id];
-  if (!load) return null;
+  if (!base.id) return null;
   try {
-    const clean = (await load()) as MapPassport;
+    const raw = await cleanMapFor(base.id);
+    if (!raw) return null;
+    const clean = raw as MapPassport;
     const bad = gridMismatch(base, clean);
     if (bad) {
       console.warn(`чистая карта ${clean.id}: сетка не совпадает с ${base.id} (${bad}) — режим «Чистая» выключен`);

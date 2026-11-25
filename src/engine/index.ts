@@ -1,14 +1,14 @@
 export * from './events';
 export * from './state';
-export { apply, applyEffect, applyWorldPatch, invert, validate, EngineError } from './reduce';
+export { apply, applyEffect, applyWorldPatch, invert, validate, worldDeltaFreshness, EngineError, type WorldDeltaFreshness } from './reduce';
 export { EventLog, type UndoInfo, type EventLogOptions } from './log';
 export { parseFormula, roll, d20Outcome, type Formula, type Rng, type RollOptions } from './dice';
 export {
-  journalEntries, undoneIds, describe, knowledgeHow, undoToast, redoToast, plural, journalParts, filterJournal, cascadeOf, causeChain, journalScales, threadSummaries, deltaThreadIds,
-  type JournalEntry, type JournalPart, type JournalOrigin, type CascadeStep, type JournalFilter, type ThreadSummary,
+  journalEntries, undoneIds, describe, knowledgeHow, undoToast, redoToast, plural, journalParts, filterJournal, journalInteractionGroups, cascadeOf, causeChain, journalScales, threadSummaries, deltaThreadIds, publicProcessClocks,
+  type JournalEntry, type JournalPart, type JournalOrigin, type CascadeStep, type JournalFilter, type JournalInteractionGroup, type ThreadSummary, type PublicProcessClockSummary,
 } from './journal';
 export {
-  LEVEL_TEMPO, ladderLevels, partyPlaceId, ancestorsOf, pathTo, childrenOf, isWithin, descendantsAt, focusOf, selectPlace, jumpTo, moveLevel,
+  LEVEL_TEMPO, ladderLevels, partyPlaceId, partyIsSplit, partyLocationIncomplete, ancestorsOf, pathTo, childrenOf, isWithin, descendantsAt, focusOf, selectPlace, jumpTo, moveLevel,
   initialLadder, normalizeLadder, namedIn, deltaTargets, pendingTargets, pendingFor, placeCounts, type Ladder,
 } from './ladder';
 export { localStorageStore, memoryStore, serializeLog, parseLog, LOG_FORMAT, type EventStore } from './persist';

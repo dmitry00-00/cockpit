@@ -1,0 +1,426 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "person",
+  "entities": [
+    {
+      "ref": "person:whitey",
+      "kind": "person",
+      "name": "Whitey",
+      "subtitle": "A Game of Thrones · Catelyn VI (chapter 34)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn VI (chapter 34); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_34",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 34
+      },
+      "facts": [
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Локатор",
+          "value": "Catelyn VI (chapter 34)"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; проверка по первичному изданию ожидается."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF включает Whitey в список персонажей, появляющихся в Catelyn VI; отдельная роль в главовом указателе не уточняется."
+        }
+      ],
+      "links": []
+    },
+    {
+      "ref": "person:hali",
+      "kind": "person",
+      "name": "Hali",
+      "subtitle": "A Game of Thrones · Bran V (chapter 37)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran V (chapter 37); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_37",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 37
+      },
+      "facts": [
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Локатор",
+          "value": "Bran V (chapter 37)"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; проверка по первичному изданию ожидается."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "В пересказе главы Hali входит в группу нападавших у Wolfswood и обращается к Брану."
+        }
+      ],
+      "links": []
+    },
+    {
+      "ref": "person:joseth",
+      "kind": "person",
+      "name": "Joseth",
+      "subtitle": "A Game of Thrones · Bran V (chapter 37)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran V (chapter 37); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_37",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 37
+      },
+      "facts": [
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Локатор",
+          "value": "Bran V (chapter 37)"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; проверка по первичному изданию ожидается."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "В пересказе главы Joseth назван среди сопровождающих Брана в поездке от Winterfell."
+        }
+      ],
+      "links": []
+    },
+    {
+      "ref": "person:quent",
+      "kind": "person",
+      "name": "Quent",
+      "subtitle": "A Game of Thrones · Bran V (chapter 37)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran V (chapter 37); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_37",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 37
+      },
+      "facts": [
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Локатор",
+          "value": "Bran V (chapter 37)"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; проверка по первичному изданию ожидается."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF включает Quent в список появляющихся в Bran V; отдельное действие в пересказе не выделено."
+        }
+      ],
+      "links": []
+    },
+    {
+      "ref": "person:stiv",
+      "kind": "person",
+      "name": "Stiv",
+      "subtitle": "A Game of Thrones · Bran V (chapter 37)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran V (chapter 37); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_37",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 37
+      },
+      "facts": [
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Локатор",
+          "value": "Bran V (chapter 37)"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; проверка по первичному изданию ожидается."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "В пересказе Stiv участвует в нападении на Брана и удерживает его до вмешательства Теона."
+        }
+      ],
+      "links": []
+    },
+    {
+      "ref": "person:wallen",
+      "kind": "person",
+      "name": "Wallen",
+      "subtitle": "A Game of Thrones · Bran V (chapter 37)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran V (chapter 37); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_37",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 37
+      },
+      "facts": [
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Локатор",
+          "value": "Bran V (chapter 37)"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; проверка по первичному изданию ожидается."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "В пересказе Wallen назван среди нападавших; позднее его убивает Grey Wind."
+        }
+      ],
+      "links": []
+    },
+    {
+      "ref": "person:wayn",
+      "kind": "person",
+      "name": "Wayn",
+      "subtitle": "A Game of Thrones · Bran V (chapter 37)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran V (chapter 37); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_37",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 37
+      },
+      "facts": [
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Локатор",
+          "value": "Bran V (chapter 37)"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; проверка по первичному изданию ожидается."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF включает Wayn в список появляющихся в Bran V; отдельная роль в пересказе не уточняется."
+        }
+      ],
+      "links": []
+    },
+    {
+      "ref": "person:jaggot",
+      "kind": "person",
+      "name": "Jaggot",
+      "subtitle": "A Game of Thrones · Tyrion VI (chapter 42)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion VI (chapter 42); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_42",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 42
+      },
+      "facts": [
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Локатор",
+          "value": "Tyrion VI (chapter 42)"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; проверка по первичному изданию ожидается."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF включает Jaggot в список появляющихся в Tyrion VI; отдельная роль в главовом пересказе не уточняется."
+        }
+      ],
+      "links": []
+    },
+    {
+      "ref": "person:torrek",
+      "kind": "person",
+      "name": "Torrek",
+      "subtitle": "A Game of Thrones · Tyrion VI (chapter 42)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion VI (chapter 42); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_42",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 42
+      },
+      "facts": [
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Локатор",
+          "value": "Tyrion VI (chapter 42)"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; проверка по первичному изданию ожидается."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF включает Torrek в список появляющихся в Tyrion VI; отдельная роль в главовом пересказе не уточняется."
+        }
+      ],
+      "links": []
+    },
+    {
+      "ref": "person:joss",
+      "kind": "person",
+      "name": "Joss",
+      "subtitle": "A Game of Thrones · Eddard XI (chapter 43)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard XI (chapter 43); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_43",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 43
+      },
+      "facts": [
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Локатор",
+          "value": "Eddard XI (chapter 43)"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; проверка по первичному изданию ожидается."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF включает Joss в список появляющихся в Eddard XI; отдельная роль в главовом пересказе не уточняется."
+        }
+      ],
+      "links": []
+    },
+    {
+      "ref": "person:lothar-mallery",
+      "kind": "person",
+      "name": "Lothar Mallery",
+      "subtitle": "A Game of Thrones · Eddard XI (chapter 43)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard XI (chapter 43); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_43",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 43
+      },
+      "facts": [
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Локатор",
+          "value": "Eddard XI (chapter 43)"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; проверка по первичному изданию ожидается."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Эддард приказывает Лотару Мэллори вместе с другими лордами собрать по двадцать человек для отряда Берика."
+        }
+      ],
+      "links": []
+    },
+    {
+      "ref": "person:jommo",
+      "kind": "person",
+      "name": "Jommo",
+      "subtitle": "A Game of Thrones · Daenerys V (chapter 46)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys V (chapter 46); A Wiki of Ice and Fire chapter index; CC BY-SA 3.0. Primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_46",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 46
+      },
+      "facts": [
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Локатор",
+          "value": "Daenerys V (chapter 46)"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; проверка по первичному изданию ожидается."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF включает Jommo в список появляющихся в Daenerys V; отдельная роль в главовом пересказе не уточняется."
+        }
+      ],
+      "links": []
+    }
+  ]
+}

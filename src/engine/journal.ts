@@ -3,11 +3,18 @@
 // упоминания и каскады (шаг 7) — тоже проекция: считаются из лога и состояния при каждом чтении, в записи
 // ничего не хранится. Фильтр журнала — состояние вида, поэтому filterJournal — чистая функция над записями.
 import { SKILLS, type SkillId } from '../rules/srd/abilities';
+import { isProgressValue } from './progress';
 import { CONDITIONS } from '../rules/srd/conditions';
 import { RESOURCES } from '../rules/srd/resources';
 import { TRAVEL_PACES } from '../rules/srd/travel';
+import { ITEMS } from '../rules/srd/equipment';
+import { MAGIC_ITEMS } from '../rules/srd/magicItems';
+import { COIN_BY_ID } from '../rules/srd/coins';
+import { a5eRestCompletes, a5eRestFailureReasons } from '../rules/a5e/rest';
+import { a5eWorkActivitySpec } from '../rules/a5e/downtime';
+import type { InventoryStorage } from './state';
 import { EVENT_META, SCALE_LEVELS, SUPPLY_SPENDS, TEMPO_SECONDS, type DomainEvent, type PayloadByType, type ScaleLevel, type SupplyReason, type Tempo } from './events';
-import type { Fact, State, WorldDelta } from './state';
+import type { Fact, ProgressClock, State, Thread, WorldDelta } from './state';
 
 /** Кусок текста записи: обычный, @упоминание сущности (открывает карточку), #нить (фильтр). */
 export type JournalPart =
@@ -22,6 +29,8 @@ export type JournalOrigin = 'dm' | 'sim' | 'players';
 export interface JournalEntry {
   id: string;
   eventId: string;
+  /** События одного игрового взаимодействия; всегда фильтруется вместе с самой записью. */
+  interactionId?: string;
   at: number;
   worldSec: number;
   type: DomainEvent['type'];
@@ -85,18 +94,22 @@ function spentAfter(event: DomainEvent, state: State): number | undefined {
 /** Текст записи. Имена — латиницей как в мире, механика — как говорят за столом. */
 export function describe(event: DomainEvent, state: State): string {
   const name = (id: string) => state.actors[id]?.name ?? id;
+  const itemName = (id: string) => ITEMS[id]?.name ?? MAGIC_ITEMS[id]?.name ?? (COIN_BY_ID[id as keyof typeof COIN_BY_ID] ? `${COIN_BY_ID[id as keyof typeof COIN_BY_ID].name} (${COIN_BY_ID[id as keyof typeof COIN_BY_ID].short})` : id);
+  const storageName = (storage: InventoryStorage) => storage.kind === 'party' ? 'общий запас партии'
+    : storage.kind === 'container' ? state.inventoryContainers?.[storage.id]?.name ?? 'контейнер партии'
+    : `у ${name(storage.id)}`;
   switch (event.type) {
     case 'DAMAGE_APPLIED': {
       const p = event.payload as PayloadByType['DAMAGE_APPLIED'];
-      return `Урон ${p.amount}${p.type ? ` (${p.type})` : ''} по ${name(p.targetId)}${p.sourceId ? ` от ${name(p.sourceId)}` : ''}`;
+      return `Урон ${p.amount}${p.type ? ` (${p.type})` : ''} по ${name(p.targetId)}${p.sourceId ? ` от ${name(p.sourceId)}` : ''}${p.mechanicId ? ' · эффект HB' : ''}`;
     }
     case 'HEALING_APPLIED': {
       const p = event.payload as PayloadByType['HEALING_APPLIED'];
-      return `Лечение ${p.amount}: ${name(p.targetId)}`;
+      return `Лечение ${p.amount}: ${name(p.targetId)}${p.mechanicId ? ' · эффект HB' : ''}`;
     }
     case 'TEMP_HP_GRANTED': {
       const p = event.payload as PayloadByType['TEMP_HP_GRANTED'];
-      return `Временные хиты ${p.amount}: ${name(p.targetId)}`;
+      return `Временные хиты ${p.amount}: ${name(p.targetId)}${p.mechanicId ? ' · эффект HB' : ''}`;
     }
     case 'CONDITION_ADDED': {
       const p = event.payload as PayloadByType['CONDITION_ADDED'];
@@ -118,15 +131,60 @@ export function describe(event: DomainEvent, state: State): string {
       const p = event.payload as PayloadByType['CONDITION_REMOVED'];
       return `Снято ${CONDITIONS[p.conditionId]?.label ?? p.conditionId}: ${name(p.targetId)}`;
     }
+    case 'A5E_TRACK_SET': {
+      const p = event.payload as PayloadByType['A5E_TRACK_SET'];
+      const before = event.effect?.kind === 'a5e-track' ? event.effect.before ?? 0 : 0;
+      const label = p.track === 'fatigue' ? 'Fatigue · усталость' : 'Strife · разлад';
+      const stress = p.stressEffect ? ` · эффект ${p.stressEffect.kind === 'short' ? 'краткий' : 'долгий'}: ${p.stressEffect.id}` : '';
+      return `${label}: ${name(p.actorId)} ${before} → ${p.level}${stress}`;
+    }
+    case 'A5E_STRESS_EFFECT_USED': {
+      const p = event.payload as PayloadByType['A5E_STRESS_EFFECT_USED'];
+      return `A5E Distraught: преимущество просьбы о помощи использовано персонажем ${name(p.actorId)}`;
+    }
+    case 'CAMPAIGN_REST_LAYER_SET': {
+      const p = event.payload as PayloadByType['CAMPAIGN_REST_LAYER_SET'];
+      const before = event.effect?.kind === 'rest-layer' ? event.effect.before ?? 'srd' : 'srd';
+      return `Слой отдыха кампании: ${before.toUpperCase()} → ${p.layer.toUpperCase()}`;
+    }
+    case 'CAMPAIGN_STRESS_THEME_SET': {
+      const p = event.payload as PayloadByType['CAMPAIGN_STRESS_THEME_SET'];
+      return `Тема стресса и морали кампании: ${p.enabled ? 'включена' : 'выключена'}`;
+    }
+    case 'CAMPAIGN_SETTING_PACKAGE_SET': {
+      const p = event.payload as PayloadByType['CAMPAIGN_SETTING_PACKAGE_SET'];
+      const before = event.effect?.kind === 'setting-package' ? event.effect.before ?? 'fr' : 'fr';
+      return `Пакет сеттинга кампании: ${before} → ${p.packageId}`;
+    }
+    case 'CAMPAIGN_CREATED': {
+      const p = event.payload as PayloadByType['CAMPAIGN_CREATED'];
+      return `Начальная кампания: ${p.profile.settingPackageId}`;
+    }
     case 'DICE_ROLLED': {
       const p = event.payload as PayloadByType['DICE_ROLLED'];
+      if (p.group) {
+        const details = p.group.rolls.map(r => `${r.name} ${r.total} (${r.die}${r.modifier ? (r.modifier > 0 ? `+${r.modifier}` : `${r.modifier}`) : ''}) ${r.success ? '✓' : '✗'}`).join('; ');
+        return `${p.label}: Сл ${p.group.dc} — ${details}; ${p.group.passed ? 'успех группы' : 'группа не прошла'} (${p.group.successes}/${p.group.rolls.length})${p.hidden ? ' · скрытый' : ''}`;
+      }
       const dice = p.dice.join('+');
       const mod = p.mod ? (p.mod > 0 ? `+${p.mod}` : `${p.mod}`) : '';
       return `${p.label ? `${p.label}: ` : ''}${p.formula} = ${p.total} [${dice}${mod}]${p.hidden ? ' · скрытый' : ''}`;
     }
+    case 'NPC_SOCIAL_UPDATED': {
+      const p = event.payload as PayloadByType['NPC_SOCIAL_UPDATED'];
+      return `NPC · ${name(p.actorId)}: ${p.note}`;
+    }
+    case 'PERSON_RELATIONSHIP_UPDATED': {
+      const p = event.payload as PayloadByType['PERSON_RELATIONSHIP_UPDATED'];
+      return `NPC · ${p.personName}: ${p.note}`;
+    }
     case 'TURN_ADVANCED': {
       const p = event.payload as PayloadByType['TURN_ADVANCED'];
       return `Раунд ${p.round}, ход ${name(p.actorId)}`;
+    }
+    case 'LAIR_ACTION_USED': {
+      const p = event.payload as PayloadByType['LAIR_ACTION_USED'];
+      return `Логово: ${name(p.actorId)} — ${p.optionName} · раунд ${p.round} · ${p.source}`;
     }
     case 'TIME_ADVANCED': {
       const p = event.payload as PayloadByType['TIME_ADVANCED'];
@@ -154,6 +212,40 @@ export function describe(event: DomainEvent, state: State): string {
     }
     case 'NOTE_ADDED':
       return (event.payload as PayloadByType['NOTE_ADDED']).text;
+    case 'TIMELINE_PLAN_CREATED':
+      return `План мастера: ${(event.payload as PayloadByType['TIMELINE_PLAN_CREATED']).plan.title}`;
+    case 'TIMELINE_PLAN_CANCELLED': {
+      const { planId } = event.payload as PayloadByType['TIMELINE_PLAN_CANCELLED'];
+      return `Снят план мастера: ${state.world.timelinePlans?.[planId]?.title ?? planId}`;
+    }
+    case 'A5E_DOWNTIME_PROJECT_UPDATED':
+      return 'A5E downtime · обновлён личный проект';
+    case 'A5E_PRESTIGE_UPDATED': {
+      const p = event.payload as PayloadByType['A5E_PRESTIGE_UPDATED'];
+      return `A5E Prestige · обновлён личный профиль ${name(p.actorId)}`;
+    }
+    case 'A5E_KEY_KNOWLEDGE_EARNED': {
+      const p = event.payload as PayloadByType['A5E_KEY_KNOWLEDGE_EARNED'];
+      return `A5E Key Knowledge: ${name(p.actorId)} +${p.amount} по субъекту «${p.subjectName}»`;
+    }
+    case 'A5E_KEY_KNOWLEDGE_SPENT': {
+      const p = event.payload as PayloadByType['A5E_KEY_KNOWLEDGE_SPENT'];
+      const action = p.action?.label ?? (p.skill ? `${p.skill} ${p.total} против DC ${p.dc}` : `итог ${p.total}`);
+      return `A5E Key Knowledge: ${name(p.actorId)} −1 по субъекту «${p.subjectName}» · ${action}`;
+    }
+    case 'A5E_FAVOR_EARNED': {
+      const p = event.payload as PayloadByType['A5E_FAVOR_EARNED'];
+      return `A5E favor: ${name(p.actorId)} +${p.amount} за служение ${p.deityName} · ${p.skill} ${p.checkTotal}`;
+    }
+    case 'A5E_FAVOR_SPENT': {
+      const p = event.payload as PayloadByType['A5E_FAVOR_SPENT'];
+      return `A5E favor: ${name(p.actorId)} −${p.amount} от ${p.deityName} · ${p.boon}`;
+    }
+    case 'A5E_WORK_RESOLVED': {
+      const p = event.payload as PayloadByType['A5E_WORK_RESOLVED'];
+      const spec = a5eWorkActivitySpec(p.difficulty);
+      return `A5E Work: ${name(p.actorId)} · ${p.skill} ${p.total} против DC ${spec.dc} · ${p.earningsGp} gp`;
+    }
     case 'ENCOUNTER_STARTED': {
       const p = event.payload as PayloadByType['ENCOUNTER_STARTED'];
       return `Бой начался: ${p.order.map(o => `${name(o.actorId)} ${o.initiative}`).join(', ')}`;
@@ -172,12 +264,112 @@ export function describe(event: DomainEvent, state: State): string {
     }
     case 'CONCENTRATION_ENDED': {
       const p = event.payload as PayloadByType['CONCENTRATION_ENDED'];
-      const spell = state.actors[p.actorId]?.concentration?.spell;
+      // История не должна смотреть на текущее состояние: концентрации уже нет (или позже наложено другое заклинание).
+      // Для отменённого CONCENTRATION_ENDED снимок до/после меняется местами, поэтому читаем обе стороны следа.
+      const effect = event.effect;
+      const spell = effect?.kind === 'concentration' && effect.actorId === p.actorId
+        ? (effect.before ?? effect.after)?.spell
+        : undefined;
       return `Концентрация ${CONCENTRATION_END_LABEL[p.reason]}${spell ? `: ${spell}` : ''} — ${name(p.actorId)}`;
     }
     case 'ACTOR_SPAWNED': {
       const p = event.payload as PayloadByType['ACTOR_SPAWNED'];
       return `Появился: ${p.actor.name}${p.party ? ' (в партии)' : ''}`;
+    }
+    case 'ITEM_GAINED': {
+      const p = event.payload as PayloadByType['ITEM_GAINED'];
+      return `Получено: ${p.stack.qty} × ${itemName(p.stack.itemId)} · ${storageName(p.stack.storage)}`;
+    }
+    case 'INVENTORY_CONTAINER_CREATED': {
+      const p = event.payload as PayloadByType['INVENTORY_CONTAINER_CREATED'];
+      return `Создан контейнер ${p.container.kind === 'camp' ? 'лагеря' : 'транспорта'}: ${p.container.name}`;
+    }
+    case 'INVENTORY_CONTAINER_REMOVED': {
+      const p = event.payload as PayloadByType['INVENTORY_CONTAINER_REMOVED'];
+      const container = event.effect?.kind === 'inventory-container' ? event.effect.before : state.inventoryContainers?.[p.containerId];
+      return `Удалено пустое хранилище: ${container?.name ?? p.containerId}`;
+    }
+    case 'TRANSPORT_CREATED': {
+      const p = event.payload as PayloadByType['TRANSPORT_CREATED'];
+      return `Добавлен транспорт партии: ${p.transport.name}`;
+    }
+    case 'TRANSPORT_REMOVED': {
+      const p = event.payload as PayloadByType['TRANSPORT_REMOVED'];
+      const transport = event.effect?.kind === 'transport' ? event.effect.before : state.transports?.[p.transportId];
+      return `Удалён транспорт партии: ${transport?.name ?? p.transportId}`;
+    }
+    case 'COINS_EXCHANGED': {
+      const p = event.payload as PayloadByType['COINS_EXCHANGED'];
+      const source = event.effect?.kind === 'inventory' ? event.effect.stacks.find(row => row.id === p.stackId)?.before : undefined;
+      return `Обмен монет: ${p.qty} × ${itemName(source?.itemId ?? p.stackId)} → ${p.toQty} × ${itemName(p.toCoinId)}`;
+    }
+    case 'ITEM_LOST': {
+      const p = event.payload as PayloadByType['ITEM_LOST'];
+      const item = event.effect?.kind === 'inventory' ? event.effect.stacks.find(row => row.id === p.stackId)?.before : undefined;
+      return `Потеряно: ${p.qty} × ${itemName(item?.itemId ?? p.stackId)}${p.reason ? ` · ${p.reason}` : ''}`;
+    }
+    case 'ITEM_MOVED': {
+      const p = event.payload as PayloadByType['ITEM_MOVED'];
+      const item = event.effect?.kind === 'inventory' ? event.effect.stacks.find(row => row.id === p.stackId)?.before : undefined;
+      return `Перемещено: ${p.qty} × ${itemName(item?.itemId ?? p.stackId)} → ${storageName(p.to)}`;
+    }
+    case 'ITEM_TRANSFERRED': {
+      const p = event.payload as PayloadByType['ITEM_TRANSFERRED'];
+      const item = event.effect?.kind === 'inventory' ? event.effect.stacks.find(row => row.id === p.stackId)?.before : undefined;
+      const owner = p.owner.kind === 'party' ? 'партии' : name(p.owner.id);
+      return `Передано: ${p.qty} × ${itemName(item?.itemId ?? p.stackId)} владельцу ${owner}`;
+    }
+    case 'ITEM_GIFTED': {
+      const p = event.payload as PayloadByType['ITEM_GIFTED'];
+      const item = event.effect?.kind === 'inventory' ? event.effect.stacks.find(row => row.id === p.stackId)?.before : undefined;
+      return `Подарено: ${p.qty} × ${itemName(item?.itemId ?? p.stackId)} · ${name(p.giverId)} → ${name(p.recipientId)}${p.note ? ` · ${p.note}` : ''}`;
+    }
+    case 'PERSON_ITEM_GIFTED': {
+      const p = event.payload as PayloadByType['PERSON_ITEM_GIFTED'];
+      const item = event.effect?.kind === 'person-gift' ? event.effect.stacks.find(row => row.id === p.stackId)?.before : undefined;
+      return `Подарено: ${p.qty} × ${itemName(item?.itemId ?? p.stackId)} · ${name(p.giverId)} → ${p.personName}${p.note ? ` · ${p.note}` : ''}`;
+    }
+    case 'TRADE_OFFER_CREATED': {
+      const p = event.payload as PayloadByType['TRADE_OFFER_CREATED'];
+      const item = state.inventory?.[p.trade.itemStackId];
+      const ownerName = (owner: PayloadByType['TRADE_COMPLETED']['seller']) => owner.kind === 'party' ? 'партия' : name(owner.id);
+      return `Предложение сделки ${p.offerId}: ${ownerName(p.trade.seller)} → ${ownerName(p.trade.buyer)} · ${p.trade.itemQty} × ${itemName(item?.itemId ?? p.trade.itemStackId)} · ${p.trade.priceCopper} мм`;
+    }
+    case 'TRADE_OFFER_WITHDRAWN': {
+      const p = event.payload as PayloadByType['TRADE_OFFER_WITHDRAWN'];
+      return `Предложение сделки ${p.offerId} отозвано`;
+    }
+    case 'TRADE_COMPLETED': {
+      const p = event.payload as PayloadByType['TRADE_COMPLETED'];
+      const rows = event.effect?.kind === 'inventory' ? event.effect.stacks : [];
+      const item = rows.find(row => row.id === p.itemStackId)?.before;
+      if (p.playerVisible && item?.visibility === 'players') {
+        return `Партия купила ${p.itemQty} × ${itemName(item.itemId)} у торговца за ${p.priceCopper.toLocaleString('ru-RU')} мм`;
+      }
+      const ownerName = (owner: PayloadByType['TRADE_COMPLETED']['seller']) => owner.kind === 'party' ? 'партия' : name(owner.id);
+      const paid = p.payments.map(payment => {
+        const coin = rows.find(row => row.id === payment.stackId)?.before;
+        return `${payment.qty} × ${itemName(coin?.itemId ?? payment.stackId)}`;
+      }).join(' + ');
+      const source = p.priceSource.kind === 'market'
+        ? `SRD 5.1 · ${p.priceSource.locationName} · индекс ${p.priceSource.index}%`
+        : p.priceSource.kind === 'rule' ? `${p.priceSource.edition}: ${p.priceSource.citation}` : `правило стола: ${p.priceSource.citation}`;
+      return `Сделка${p.offerId ? ` ${p.offerId}` : ''}: ${ownerName(p.seller)} передал ${p.itemQty} × ${itemName(item?.itemId ?? p.itemStackId)} ${ownerName(p.buyer)} за ${paid} · ${source}`;
+    }
+    case 'ATTUNEMENT_CHANGED': {
+      const p = event.payload as PayloadByType['ATTUNEMENT_CHANGED'];
+      const stack = state.inventory?.[p.stackId] ?? (event.effect?.kind === 'inventory' ? event.effect.stacks.find(row => row.id === p.stackId)?.before : undefined);
+      return `${p.actorId ? `Настроено: ${name(p.actorId)}` : 'Настройка снята'} · ${itemName(stack?.itemId ?? p.stackId)}`;
+    }
+    case 'ITEM_EQUIPPED': {
+      const p = event.payload as PayloadByType['ITEM_EQUIPPED'];
+      const stack = state.inventory?.[p.stackId] ?? (event.effect?.kind === 'inventory' ? event.effect.stacks.find(row => row.id === p.stackId)?.before : undefined);
+      return `Надето: ${itemName(stack?.itemId ?? p.stackId)} · ${name(p.actorId)}`;
+    }
+    case 'ITEM_UNEQUIPPED': {
+      const p = event.payload as PayloadByType['ITEM_UNEQUIPPED'];
+      const stack = state.inventory?.[p.stackId] ?? (event.effect?.kind === 'inventory' ? event.effect.stacks.find(row => row.id === p.stackId)?.before : undefined);
+      return `Снято: ${itemName(stack?.itemId ?? p.stackId)} · ${name(p.actorId)}`;
     }
     case 'ACTOR_REMOVED': {
       const p = event.payload as PayloadByType['ACTOR_REMOVED'];
@@ -189,7 +381,24 @@ export function describe(event: DomainEvent, state: State): string {
     }
     case 'REST_TAKEN': {
       const p = event.payload as PayloadByType['REST_TAKEN'];
-      if (p.kind === 'long') return `Долгий отдых: ${p.actorIds.map(name).join(', ')}`;
+      if (p.kind === 'long') {
+        if (p.context?.layer === 'a5e' && p.context.a5eTiming && !a5eRestCompletes(p.context)) {
+          const reasons = a5eRestFailureReasons(p.context).join('; ');
+          const reset = (p.context.a5eStrenuousMinutes ?? 0) > 60 ? 'период сброшен' : 'период не засчитан';
+          const sleep = p.context.a5eTiming === 'period-v2' ? ` · сон ${p.context.a5eSleepHours} ч` : '';
+          return `Долгий отдых A5E не завершён: ${reasons}; ${reset}, восстановления и расхода Supply нет · прошло ${p.context.a5eDurationHours} ч${sleep} · ${p.actorIds.map(name).join(', ')}`;
+        }
+        const context = p.context?.layer === 'a5e'
+          ? ` (A5E${p.context.a5eTiming === 'period-v1' || p.context.a5eTiming === 'period-v2' ? ` · ${p.context.a5eDurationHours} ч${p.context.a5eTiming === 'period-v2' ? ` · сон ${p.context.a5eSleepHours} ч` : ''}` : ''} · ${p.context.haven ? 'укрытие' : 'без укрытия'}${p.context.roughingIt ? ' · суровые условия' : ''} · Supply: ${(p.context.suppliedActorIds ?? (p.context.supplyConsumed ? p.actorIds : [])).map(name).join(', ') || 'не распределён'})`
+          : '';
+        const changes = event.effect?.kind === 'rest' ? event.effect.actors.map(({ actorId, before, after }) => {
+          const bits: string[] = [];
+          if ((before.a5eFatigue ?? 0) !== (after.a5eFatigue ?? 0)) bits.push(`Fatigue ${before.a5eFatigue ?? 0} → ${after.a5eFatigue ?? 0}`);
+          if ((before.a5eStrife ?? 0) !== (after.a5eStrife ?? 0)) bits.push(`Strife ${before.a5eStrife ?? 0} → ${after.a5eStrife ?? 0}`);
+          return bits.length ? `${name(actorId)}: ${bits.join(', ')}` : '';
+        }).filter(Boolean) : [];
+        return `Долгий отдых${context}: ${p.actorIds.map(name).join(', ')}${changes.length ? ` · ${changes.join('; ')}` : ''}`;
+      }
       const who = p.actorIds.map(id => {
         const h = p.hitDice?.find(x => x.actorId === id);
         const res = (p.resources ?? []).filter(r => r.actorId === id).map(r => RESOURCES[r.resourceId]?.label ?? r.resourceId);
@@ -243,7 +452,7 @@ export function describe(event: DomainEvent, state: State): string {
 }
 
 /** Поля паспорта листа словами журнала. */
-const SHEET_FIELD_LABEL = { alignment: 'мировоззрение', deity: 'божество', bio: 'рост, вес, возраст' } as const;
+const SHEET_FIELD_LABEL = { alignment: 'мировоззрение', deity: 'божество', homeland: 'родная держава', bio: 'рост, вес, возраст' } as const;
 function sheetValue(v: unknown): string {
   if (v === undefined || v === null) return '—';
   if (typeof v !== 'object') return String(v);
@@ -292,7 +501,7 @@ export function undoneIds(events: readonly DomainEvent[]): Set<string> {
 /** События боя: внутри начатого боя их масштаб — «бой»; вне боя (урон в дороге, бросок у костра) масштаба нет. */
 const COMBAT_TYPES: ReadonlySet<DomainEvent['type']> = new Set([
   'DAMAGE_APPLIED', 'HEALING_APPLIED', 'TEMP_HP_GRANTED', 'CONDITION_ADDED', 'CONDITION_REMOVED', 'DICE_ROLLED',
-  'CONCENTRATION_STARTED', 'CONCENTRATION_ENDED', 'ACTOR_SPAWNED', 'ACTOR_REMOVED', 'TOKEN_MOVED',
+  'CONCENTRATION_STARTED', 'CONCENTRATION_ENDED', 'ACTOR_SPAWNED', 'ACTOR_REMOVED', 'TOKEN_MOVED', 'LAIR_ACTION_USED',
 ]);
 const ENCOUNTER_TYPES: ReadonlySet<DomainEvent['type']> = new Set(['ENCOUNTER_STARTED', 'ENCOUNTER_ENDED', 'INITIATIVE_SET', 'TURN_ADVANCED']);
 
@@ -319,6 +528,7 @@ export function journalEntries(events: readonly DomainEvent[], state: State): Jo
     const entry: JournalEntry = {
       id: e.id,
       eventId: e.undoes ?? e.redoes ?? e.id,
+      ...(e.interactionId ? { interactionId: e.interactionId } : {}),
       at: e.at,
       worldSec: e.worldSec,
       type: e.type,
@@ -338,6 +548,45 @@ export function journalEntries(events: readonly DomainEvent[], state: State): Jo
         entry.secret = p.hidden;
         break;
       }
+      case 'NPC_SOCIAL_UPDATED':
+      case 'PERSON_RELATIONSHIP_UPDATED':
+      case 'LAIR_ACTION_USED':
+      case 'A5E_STRESS_EFFECT_USED':
+      case 'A5E_DOWNTIME_PROJECT_UPDATED':
+      case 'A5E_PRESTIGE_UPDATED':
+      case 'A5E_KEY_KNOWLEDGE_EARNED':
+      case 'A5E_KEY_KNOWLEDGE_SPENT':
+      case 'A5E_FAVOR_SPENT':
+      case 'A5E_WORK_RESOLVED':
+        entry.secret = true;
+        break;
+      case 'ITEM_GAINED':
+      case 'INVENTORY_CONTAINER_CREATED':
+      case 'INVENTORY_CONTAINER_REMOVED':
+      case 'TRANSPORT_CREATED':
+      case 'TRANSPORT_REMOVED':
+      case 'COINS_EXCHANGED':
+      case 'ITEM_LOST':
+      case 'ITEM_MOVED':
+      case 'ITEM_TRANSFERRED':
+      case 'ITEM_GIFTED':
+      case 'PERSON_ITEM_GIFTED':
+      case 'TRADE_OFFER_CREATED':
+      case 'TRADE_OFFER_WITHDRAWN':
+      case 'ATTUNEMENT_CHANGED':
+      case 'ITEM_EQUIPPED':
+      case 'ITEM_UNEQUIPPED':
+        entry.secret = true;
+        break;
+      case 'TRADE_COMPLETED': {
+        const p = e.payload as PayloadByType['TRADE_COMPLETED'];
+        entry.secret = p.playerVisible !== true;
+        if (!entry.secret) {
+          entry.origin = 'players';
+          delete entry.interactionId;
+        }
+        break;
+      }
       case 'NOTE_ADDED': {
         const p = e.payload as PayloadByType['NOTE_ADDED'];
         entry.threadIds = p.threadIds;
@@ -346,6 +595,10 @@ export function journalEntries(events: readonly DomainEvent[], state: State): Jo
         entry.secret = p.visible !== true;
         break;
       }
+      case 'TIMELINE_PLAN_CREATED':
+      case 'TIMELINE_PLAN_CANCELLED':
+        entry.secret = true;
+        break;
       case 'WORLD_DELTA_ACCEPTED':
       case 'WORLD_DELTA_REJECTED': {
         const p = e.payload as { deltaId: string; causeId?: string };
@@ -461,6 +714,26 @@ export function filterJournal(entries: readonly JournalEntry[], filter: JournalF
   );
 }
 
+export interface JournalInteractionGroup {
+  interactionId?: string;
+  entries: readonly JournalEntry[];
+}
+
+/** Группирует только соседние видимые записи одной встречи и одного мирового момента. */
+export function journalInteractionGroups(entries: readonly JournalEntry[]): JournalInteractionGroup[] {
+  const groups: { interactionId?: string; entries: JournalEntry[] }[] = [];
+  for (const entry of entries) {
+    const previous = groups.at(-1);
+    const lastEntry = previous?.entries.at(-1);
+    if (entry.interactionId && previous?.interactionId === entry.interactionId && lastEntry?.worldSec === entry.worldSec) {
+      previous.entries.push(entry);
+    } else {
+      groups.push({ ...(entry.interactionId ? { interactionId: entry.interactionId } : {}), entries: [entry] });
+    }
+  }
+  return groups;
+}
+
 /** Уровни масштаба, встречающиеся в записях, — в порядке лестницы; из них строится фильтр. */
 export function journalScales(entries: readonly JournalEntry[]): ScaleLevel[] {
   const seen = new Set(entries.flatMap(e => (e.scale ? [e.scale] : [])));
@@ -523,12 +796,16 @@ export interface ThreadSummary {
   secrets: Fact[];
   /** Каскад последнего принятого предложения по нити. */
   cascade: CascadeStep[];
+  /** View-safe clock projection: GM keeps metadata; players receive counts only when explicitly opened. */
+  clock?: ProgressClock;
+  /** Dungeon World preparation notes; withheld from the player thread summary. */
+  front?: Thread['front'];
 }
 
 const DAY = 86_400;
 
 /** Сводка нитей для правой колонки F7: по каждой открытой нити — записи, сроки, секреты, каскад. */
-export function threadSummaries(entries: readonly JournalEntry[], state: State, nowSec: number): ThreadSummary[] {
+export function threadSummaries(entries: readonly JournalEntry[], state: State, nowSec: number, dmView = true): ThreadSummary[] {
   return Object.values(state.world.threads).filter(t => t.status === 'open').map(t => {
     const own = entries.filter(e => !e.compensation && !e.undone && e.threadIds.includes(t.id));
     const last = own.at(-1);
@@ -541,9 +818,29 @@ export function threadSummaries(entries: readonly JournalEntry[], state: State, 
       openedDays: Math.max(0, Math.floor((nowSec - t.openedSec) / DAY)),
       idleDays: Math.max(0, Math.floor((nowSec - touchedSec) / DAY)),
       last,
-      secrets: Object.values(state.facts).filter(f => f.visibility === 'dm' && (f.threadIds ?? []).includes(t.id)),
+      secrets: dmView ? Object.values(state.facts).filter(f => f.visibility === 'dm' && (f.threadIds ?? []).includes(t.id)) : [],
       cascade: accepted ? cascadeOf(accepted, entries, state) : [],
+      ...(t.clock && isProgressValue(t.clock) && (dmView || t.clock.playerVisible) ? {
+        clock: dmView ? t.clock : { segments: t.clock.segments, filled: t.clock.filled },
+      } : {}),
+      ...(dmView && t.front ? { front: t.front } : {}),
     };
+  });
+}
+
+export interface PublicProcessClockSummary {
+  label: string;
+  segments: number;
+  filled: number;
+}
+
+/** Player projection of explicitly opened process clocks; omit the process ID/name, stage, cause, route and next tick. */
+export function publicProcessClocks(state: State): PublicProcessClockSummary[] {
+  return Object.values(state.world.processes ?? {}).flatMap(process => {
+    const clock = process.clock;
+    const label = clock?.playerLabel?.trim();
+    if (process.ended || !clock?.playerVisible || !label || !isProgressValue(clock)) return [];
+    return [{ label, segments: clock.segments, filled: clock.filled }];
   });
 }
 

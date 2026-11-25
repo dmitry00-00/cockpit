@@ -1,22 +1,30 @@
-// Резолвер сущностей (ROADMAP 0.2): ссылка «вид:id» → EntityView. Справочные виды живут в пакетах, каждый пакет
-// грузится через import() один раз. Данные, которые лист читает синхронно (компендиум, заклинания, монстры SRD),
+// Резолвер сущностей (ROADMAP 0.2): ссылка «вид:id» → EntityView. Справочные виды живут в пакетах и грузятся через
+// import(); пакеты, зависящие от сеттинга, кэшируются отдельно. Данные, которые лист читает синхронно (компендиум,
+// заклинания, монстры SRD),
 // ещё едут в основном куске; магические предметы и библиотеки монстров — уже отдельно (0.5). Виды состояния читаются
 // из переданного State.
-import { EPOCH_YEAR, harptos } from '../campaign/calendar';
-import { eraOf, type Era } from '../campaign/era';
+import { EPOCH_YEAR, calendarAdapterForSetting } from '../campaign/calendar';
+import { eraOfSetting, type Era } from '../campaign/era';
 import type { State } from '../engine';
+import { DEFAULT_SETTING_PACKAGE } from '../packages/settings';
 import { loadMonsterLibraries } from '../rules/srd/monsters';
 import type { Pack } from './pack';
 import { REFERENCE_KINDS, isStateKind, parseRef, ref, type EntityKind, type EntityRef, type ReferenceKind } from './ref';
 import { stateIds, stateView } from './state';
 import type { EntityView } from './view';
+import { loadPackageEntityViews } from './packageViews';
 
 export * from './ref';
+export * from './subjectContract';
 export {
   missingView, type EntityDiagram, type EntityFact, type EntityGroup, type EntityLink, type EntitySection, type EntitySource, type EntityView, type SourceKind,
 } from './view';
 
 type PackId = 'rules' | 'compendium' | 'cosmos' | 'places' | 'world' | 'kingdoms';
+
+/** These packs currently contain Forgotten Realms material and must be isolated by setting. */
+const SETTING_PACKS: ReadonlySet<PackId> = new Set(['cosmos', 'places', 'world', 'kingdoms']);
+const FR_ENTITY_SETTING = 'fr';
 
 const PACK_OF: Readonly<Record<ReferenceKind, PackId>> = {
   condition: 'rules', ability: 'rules', skill: 'rules', resource: 'rules', spell: 'rules', item: 'rules', monster: 'rules',
@@ -26,6 +34,7 @@ const PACK_OF: Readonly<Record<ReferenceKind, PackId>> = {
   place: 'places',
   person: 'world', organization: 'world',
   kingdom: 'kingdoms',
+  event: 'world',
 };
 
 const LOADERS: Readonly<Record<PackId, () => Promise<Pack>>> = {
@@ -37,26 +46,8 @@ const LOADERS: Readonly<Record<PackId, () => Promise<Pack>>> = {
   kingdoms: () => import('./packs/kingdoms').then(m => m.loadPack()),
 };
 
-const loaded = new Map<PackId, Pack>();
-const loading = new Map<PackId, Promise<Pack>>();
-
-function loadPack(id: PackId): Promise<Pack> {
-  let p = loading.get(id);
-  if (!p) {
-    p = LOADERS[id]().then(pack => { loaded.set(id, pack); return pack; });
-    loading.set(id, p);
-  }
-  return p;
-}
-
-/** Загрузить пакет вида; повторный вызов — тот же промис. */
-export const loadKind = (kind: ReferenceKind): Promise<void> => loadPack(PACK_OF[kind]).then(() => undefined);
-
-/** Все пакеты — для поиска по всему и для тестов. */
-export const loadAll = (): Promise<void> => Promise.all((Object.keys(LOADERS) as PackId[]).map(loadPack)).then(() => undefined);
-
-/** Пакет вида уже загружен: resolve ответит сразу. */
-export const isReady = (kind: EntityKind): boolean => isStateKind(kind) || loaded.has(PACK_OF[kind]);
+const loaded = new Map<string, Pack>();
+const loading = new Map<string, Promise<Pack>>();
 
 export interface ResolveContext {
   /** Нужен для видов состояния: actor, location, faction, thread; его время мира даёт эпоху. */
@@ -65,10 +56,74 @@ export interface ResolveContext {
   era?: Era;
   /** Год без состояния (DR): жители места — живые в этот год; по умолчанию — из времени State, без него — 1492. */
   year?: number;
+  /** Выбранный пакет сеттинга. Переопределяет пакет из state. */
+  settingPackageId?: string;
 }
 
-const yearOfContext = (ctx: ResolveContext): number => ctx.year ?? (ctx.state ? harptos(ctx.state.time.sec).year : EPOCH_YEAR);
-const eraOfContext = (ctx: ResolveContext): Era => ctx.era ?? eraOf(yearOfContext(ctx));
+const settingPackageOfContext = (ctx: ResolveContext): string =>
+  ctx.settingPackageId ?? ctx.state?.settingPackageId ?? DEFAULT_SETTING_PACKAGE;
+
+const packCacheKey = (id: PackId, settingPackageId: string): string =>
+  SETTING_PACKS.has(id) ? `${settingPackageId}:${id}` : id;
+
+const packCacheKeyForKind = (kind: ReferenceKind, settingPackageId: string): string => {
+  const packId = PACK_OF[kind];
+  return SETTING_PACKS.has(packId) && settingPackageId !== FR_ENTITY_SETTING
+    ? `${settingPackageId}:entity:${kind}`
+    : packCacheKey(packId, settingPackageId);
+};
+
+function loadPack(id: PackId, settingPackageId = DEFAULT_SETTING_PACKAGE): Promise<Pack> {
+  const key = packCacheKey(id, settingPackageId);
+  let p = loading.get(key);
+  if (!p) {
+    const load = SETTING_PACKS.has(id) && settingPackageId !== FR_ENTITY_SETTING
+      ? () => loadPackageEntityViews(settingPackageId)
+      : LOADERS[id];
+    const request = load().then(pack => { loaded.set(key, pack); return pack; });
+    loading.set(key, request);
+    // A transient failure must not poison this key with a permanently rejected promise.
+    void request.catch(() => { if (loading.get(key) === request) loading.delete(key); });
+    p = request;
+  }
+  return p;
+}
+
+/** Загрузить пакет вида; повторный вызов — тот же промис. */
+export const loadKind = (kind: ReferenceKind, ctx: ResolveContext = {}): Promise<void> =>
+  (() => {
+    const settingPackageId = settingPackageOfContext(ctx);
+    const packId = PACK_OF[kind];
+    if (!SETTING_PACKS.has(packId) || settingPackageId === FR_ENTITY_SETTING) return loadPack(packId, settingPackageId).then(() => undefined);
+    const key = packCacheKeyForKind(kind, settingPackageId);
+    let attempt = loading.get(key);
+    if (!attempt) {
+      const request = loadPackageEntityViews(settingPackageId, [kind]).then(pack => { loaded.set(key, pack); return pack; });
+      loading.set(key, request);
+      void request.catch(() => { if (loading.get(key) === request) loading.delete(key); });
+      attempt = request;
+    }
+    return attempt.then(() => undefined);
+  })();
+
+/** Все пакеты — для поиска по всему и для тестов. */
+export const loadAll = (ctx: ResolveContext = {}): Promise<void> =>
+  Promise.all(REFERENCE_KINDS.map(kind => loadKind(kind, ctx))).then(() => undefined);
+
+/** Пакет вида уже загружен: resolve ответит сразу. */
+export const isReady = (kind: EntityKind, ctx: ResolveContext = {}): boolean =>
+  isStateKind(kind) || loaded.has(packCacheKeyForKind(kind, settingPackageOfContext(ctx)));
+
+const yearOfContext = (ctx: ResolveContext): number => {
+  if (ctx.year !== undefined) return ctx.year;
+  if (!ctx.state) return EPOCH_YEAR;
+  return calendarAdapterForSetting(settingPackageOfContext(ctx)).yearAt(ctx.state.time.sec) ?? EPOCH_YEAR;
+};
+const eraOfContext = (ctx: ResolveContext): Era => {
+  if (ctx.era) return ctx.era;
+  const year = ctx.year ?? (ctx.state ? calendarAdapterForSetting(settingPackageOfContext(ctx)).yearAt(ctx.state.time.sec) : null);
+  return eraOfSetting(year, settingPackageOfContext(ctx));
+};
 
 /**
  * Представление по ссылке. undefined — записи нет или пакет ещё не загружен (isReady различает); карточка в первом
@@ -78,13 +133,15 @@ export function resolve(value: EntityRef | string, ctx: ResolveContext = {}): En
   const p = parseRef(value);
   if (!p) return undefined;
   if (isStateKind(p.kind)) return ctx.state ? stateView(ctx.state, p.kind, p.id) : undefined;
-  return loaded.get(PACK_OF[p.kind])?.resolve(p.kind, p.id, eraOfContext(ctx), yearOfContext(ctx));
+  return loaded.get(packCacheKeyForKind(p.kind, settingPackageOfContext(ctx)))?.resolve(p.kind, p.id, eraOfContext(ctx), yearOfContext(ctx));
 }
 
 /** Все ссылки вида из загруженного пакета (или из State для видов состояния). */
 export function refsOf(kind: EntityKind, ctx: ResolveContext = {}): EntityRef[] {
   if (isStateKind(kind)) return ctx.state ? stateIds(ctx.state, kind).map(id => ref(kind, id)) : [];
-  return (loaded.get(PACK_OF[kind])?.ids(kind) ?? []).map(id => ref(kind, id));
+  return (loaded.get(packCacheKeyForKind(kind, settingPackageOfContext(ctx)))?.ids(kind) ?? []).map(id => ref(kind, id));
 }
 
 export { REFERENCE_KINDS };
+export * from './subjectAdapters';
+export * from './subjectContract';

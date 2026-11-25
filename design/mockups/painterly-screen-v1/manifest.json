@@ -1,0 +1,278 @@
+{
+  "tool": "built-in image_gen",
+  "purpose": "Отдельный образец нового художественного языка по замечанию пользователя; не пиксельный набор БА10/БА12.",
+  "assets": [
+    {
+      "id": "bo-portrait",
+      "transparent": false,
+      "prompt": "Use case: stylized-concept. Create one original painted fantasy CRPG interface asset with the craft and material richness of late-1990s/2000s PC role-playing game inventory art. Detailed, beautifully hand-painted, dimensional, smooth controlled brushwork, convincingly worn natural materials, soft upper-left light and restrained deep shadows. Absolutely NO pixel art, NO visible pixel grid, NO low-poly facets, NO posterized color blocks, NO NES/Atari/8-bit treatment. Plum, antique brass, warm bone, muted forest green. No text, no border, no logo, no watermark. Asset: a square head-and-shoulders portrait of an original adult male lightfoot halfling ranger. Weathered expressive face, curly chestnut hair, warm hazel eyes, slightly pointed ears, a deep plum hood pushed back, supple worn leather straps and a subtle bronze clasp. He has quiet confidence and a hint of a smile. Intimate painterly portrait with subtle skin tones and a strong readable face, head about 62% of canvas height, shoulders cropped. Dark quiet plum backdrop, no scenery and no weapons covering the face. This is a fully painted character portrait, not a sculpt or photographic render.",
+      "source": "assets/originals/bo-portrait.png",
+      "sourceBytes": 2537615,
+      "sha256": "050cb12f2329ad278a25d47075c34b996f91a395839125df7ebc61b46c25df3c",
+      "w": 1254,
+      "h": 1254,
+      "variants": [
+        {
+          "path": "assets/bo-portrait-128.webp",
+          "bytes": 3946,
+          "width": 128,
+          "height": 128,
+          "alpha": false
+        },
+        {
+          "path": "assets/bo-portrait-256.webp",
+          "bytes": 12976,
+          "width": 256,
+          "height": 256,
+          "alpha": false
+        }
+      ]
+    },
+    {
+      "id": "ranger-sign",
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. Create one original painted fantasy CRPG interface asset with the craft and material richness of late-1990s/2000s PC role-playing game inventory art. Detailed, beautifully hand-painted, dimensional, smooth controlled brushwork, convincingly worn natural materials, soft upper-left light and restrained deep shadows. Absolutely NO pixel art, NO visible pixel grid, NO low-poly facets, NO posterized color blocks, NO NES/Atari/8-bit treatment. Plum, antique brass, warm bone, muted forest green. No text, no border, no logo, no watermark. Asset: one compact inventory emblem for wilderness tracking. A finely carved small yew hunting bow and a single broadhead arrow crossing diagonally over two oak leaves, held by a worn bronze ring. Readable broad shapes and a restrained number of large details at 48 pixels, while preserving painted material quality at 128px. Centered object fills 82% of square canvas with safe margins. Genuine transparent background, no floor, no cast shadow outside the object, no surrounding medallion or UI tile.",
+      "source": "assets/originals/ranger-sign.png",
+      "sourceBytes": 1293560,
+      "sha256": "d7b55873865bcc85c6aebb4b573e8bde0d85e58c109578a89fca7ce5a29b8042",
+      "w": 1254,
+      "h": 1254,
+      "variants": [
+        {
+          "path": "assets/ranger-sign-128.webp",
+          "bytes": 6286,
+          "width": 128,
+          "height": 128,
+          "alpha": true
+        },
+        {
+          "path": "assets/ranger-sign-256.webp",
+          "bytes": 18242,
+          "width": 256,
+          "height": 256,
+          "alpha": true
+        }
+      ],
+      "semanticReview": {
+        "primary": "class:sledopyt",
+        "status": "corrected",
+        "task": "БА21",
+        "note": "Отдельный знак следов используется для Выживания."
+      }
+    },
+    {
+      "id": "perception-sign",
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. Create one original painted fantasy CRPG interface asset with the craft and material richness of late-1990s/2000s PC role-playing game inventory art. Detailed, beautifully hand-painted, dimensional, smooth controlled brushwork, convincingly worn natural materials, soft upper-left light and restrained deep shadows. Absolutely NO pixel art, NO visible pixel grid, NO low-poly facets, NO posterized color blocks, NO NES/Atari/8-bit treatment. Plum, antique brass, warm bone, muted forest green. No text, no border, no logo, no watermark. Asset: one compact inventory emblem for perception. A single beautifully sculpted antique-brass eye-shaped amulet with a deep green glass iris and dark pupil. The eye contour and pupil are very distinct at 48px. No surrounding circle or rectangular tile. It is a tangible worn bronze talisman, not a flat pictogram. Centered object fills 82% of square canvas, safe margins. Genuine transparent background, no floor, no cast shadow outside the object.",
+      "source": "assets/originals/perception-sign.png",
+      "sourceBytes": 1694128,
+      "sha256": "ff17208e58ae613cb14719358d4098a988cec4a8b0373ad713bdcb775a732089",
+      "w": 1254,
+      "h": 1254,
+      "variants": [
+        {
+          "path": "assets/perception-sign-128.webp",
+          "bytes": 5664,
+          "width": 128,
+          "height": 128,
+          "alpha": true
+        },
+        {
+          "path": "assets/perception-sign-256.webp",
+          "bytes": 17594,
+          "width": 256,
+          "height": 256,
+          "alpha": true
+        }
+      ],
+      "semanticReview": {
+        "primary": "skill:perception",
+        "action": "Сохраняется"
+      }
+    },
+    {
+      "id": "movement-boot-v1",
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. Create one original painted fantasy CRPG interface asset with the craft and material richness of late-1990s/2000s PC role-playing game inventory art. Detailed, beautifully hand-painted, dimensional, smooth controlled brushwork, convincingly worn natural materials, soft upper-left light and restrained deep shadows. Absolutely NO pixel art, NO visible pixel grid, NO low-poly facets, NO posterized color blocks, NO NES/Atari/8-bit treatment. Plum, antique brass, warm bone, muted forest green. No text, no border, no logo, no watermark. Asset: one compact inventory icon for stealth. A single side-view supple dark brown ranger's leather boot with a folded soft cuff, a muted plum wrap and a small worn brass buckle. Clear boot silhouette and soft sole, toe pointing to the right. Broad readable form at 48px, beautifully painted leather texture at 128px, no scattered props. Centered object fills 80% of square canvas with safe margins. Genuine transparent background, no floor, no cast shadow outside the object.",
+      "source": "assets/originals/stealth-sign.png",
+      "sourceBytes": 1439364,
+      "sha256": "ccef418a79e7cae7c44315cdb1af71d757634f6a48ee68d1d3f31740a19aea70",
+      "w": 1254,
+      "h": 1254,
+      "variants": [
+        {
+          "path": "assets/movement-boot-v1-128.webp",
+          "bytes": 4742,
+          "width": 128,
+          "height": 128,
+          "alpha": true
+        },
+        {
+          "path": "assets/movement-boot-v1-256.webp",
+          "bytes": 14030,
+          "width": 256,
+          "height": 256,
+          "alpha": true
+        }
+      ],
+      "semanticReview": {
+        "primary": "speed / movement",
+        "status": "reassigned-per-owner",
+        "task": "БА21",
+        "note": "Имя исходного PNG и исходный промпт сохранены как история; готовый знак обозначает движение."
+      },
+      "legacyIds": [
+        "stealth-sign"
+      ]
+    },
+    {
+      "id": "plum-leather",
+      "transparent": false,
+      "prompt": "Use case: stylized-concept. A flat seamless material swatch for an elegant dark fantasy CRPG interface: very dark aubergine/plum bookbinding leather, restrained natural fine grain and subtle gentle wear, nearly uniform quiet color around #251c26. Flat diffuse illumination with almost no variation. Extremely low contrast so bone-colored small text can be placed on it. The material should feel physical, rich and hand-crafted, never plastic, never pixelated. No objects, no symbols, no borders, no corners, no text, no seams, no extreme scratches, no vignette or directional highlight. One square texture filling the entire canvas edge to edge.",
+      "source": "assets/originals/plum-leather.png",
+      "sourceBytes": 3330286,
+      "sha256": "8ffe3fdb4eb81d649dc0ebca440b3301669131ba71eb06263dcb26235e85d1bc",
+      "w": 1254,
+      "h": 1254,
+      "variants": [
+        {
+          "path": "assets/plum-leather-768.webp",
+          "bytes": 126442,
+          "width": 768,
+          "height": 768,
+          "alpha": false
+        }
+      ]
+    },
+    {
+      "id": "stealth-cloak-v1",
+      "role": "skill:stealth",
+      "prompt": "Use case: stylized-concept. One original painted fantasy CRPG inventory emblem, matching the reference image's rich hand-painted leather/cloth/brass material quality, muted plum/brown/bone palette, soft upper-left light and grounded dimensional shadows. Reference image is for STYLE ONLY: do not reproduce its boot, silhouette or object. Smooth controlled brushwork, no pixel art, no pixel grid, no low-poly facets or posterized blocks. Centered square composition; object occupies about 82% with safe margins. Clear broad silhouette at 32/48/64px, detailed finish at larger sizes. Genuine transparent background. No UI tile, frame, letters, labels, logos, watermark or scenery. Subject: an empty deep-plum hood and short draped cloak, shown front three-quarter view as a tangible inventory object. The hood opening is a clear deep dark oval, WITHOUT a face, eyes, head or mannequin. Soft cloth folds flow down to the shoulders and a modest worn bronze clasp holds the cloak. The instantly recognizable HOOD AND CLOAK is the main shape; a few broad lit folds and restrained stitched edging. No boots or feet, no weapons, no magical glow.",
+      "transparent": true,
+      "tool": "built-in image_gen",
+      "reference": {
+        "role": "style-only",
+        "path": "assets/originals/stealth-sign.png"
+      },
+      "source": "assets/originals/stealth-cloak-v1.png",
+      "sourceBytes": 1911107,
+      "sha256": "bab817d786d03fc27f6b144666f923e2ab4c5b50cf4295012c92effe3c90e913",
+      "w": 1254,
+      "h": 1254,
+      "variants": [
+        {
+          "path": "assets/stealth-cloak-v1-128.webp",
+          "bytes": 5088,
+          "width": 128,
+          "height": 128,
+          "alpha": true
+        },
+        {
+          "path": "assets/stealth-cloak-v1-256.webp",
+          "bytes": 14718,
+          "width": 256,
+          "height": 256,
+          "alpha": true
+        }
+      ],
+      "semanticReview": {
+        "primary": "skill:stealth",
+        "status": "expert-reviewed-in-prototype",
+        "task": "БА21",
+        "sizes": [
+          32,
+          48,
+          64
+        ],
+        "alphaVerified": true
+      }
+    },
+    {
+      "id": "survival-tracks-v1",
+      "role": "skill:survival",
+      "prompt": "Use case: stylized-concept. One original painted fantasy CRPG inventory emblem, matching the reference image's rich hand-painted leather/cloth/brass material quality, muted plum/brown/bone palette, soft upper-left light and grounded dimensional shadows. Reference image is for STYLE ONLY: do not reproduce its boot, silhouette or object. Smooth controlled brushwork, no pixel art, no pixel grid, no low-poly facets or posterized blocks. Centered square composition; object occupies about 82% with safe margins. Clear broad silhouette at 32/48/64px, detailed finish at larger sizes. Genuine transparent background. No UI tile, frame, letters, labels, logos, watermark or scenery. Subject: a small irregular, naturally edged patch of firm warm grey-brown earth with TWO deep walking-track impressions, one leading the other diagonally upward to the right. The impressions are simple recognizable elongated FOOTPRINTS with a separate heel and broad forefoot; clear dark recessed marks and softly lit raised edges, very few tread details. One tiny muted-green grass sprig at the patch edge may support the wilderness-tracking idea. It must read as evidence left on the GROUND, not a wearable boot, not actual feet, not a shoe illustration. No bows or arrows, no magnifying glass. The earth patch itself is isolated against actual transparency.",
+      "transparent": true,
+      "tool": "built-in image_gen",
+      "reference": {
+        "role": "style-only",
+        "path": "assets/originals/stealth-sign.png"
+      },
+      "source": "assets/originals/survival-tracks-v1.png",
+      "sourceBytes": 2278983,
+      "sha256": "0eadf10c0c5dbeac2068477ad794c583ac81c3df6a63b6b674976908bade4736",
+      "w": 1254,
+      "h": 1254,
+      "variants": [
+        {
+          "path": "assets/survival-tracks-v1-128.webp",
+          "bytes": 6896,
+          "width": 128,
+          "height": 128,
+          "alpha": true
+        },
+        {
+          "path": "assets/survival-tracks-v1-256.webp",
+          "bytes": 21272,
+          "width": 256,
+          "height": 256,
+          "alpha": true
+        }
+      ],
+      "semanticReview": {
+        "primary": "skill:survival",
+        "status": "expert-reviewed-in-prototype",
+        "task": "БА21",
+        "sizes": [
+          32,
+          48,
+          64
+        ],
+        "alphaVerified": true
+      }
+    }
+  ],
+  "directionReview": {
+    "date": "2026-11-01",
+    "style": "liked-by-owner",
+    "scope": "Художественный стиль и образы; не полная продуктовая приёмка",
+    "semanticCorrectionsTask": "БА21",
+    "semanticState": "verified-in-prototype",
+    "semanticVerifiedAt": "2026-11-01"
+  },
+  "aliases": {
+    "stealth-sign": "movement-boot-v1"
+  },
+  "roles": {
+    "ranger": {
+      "assetId": "ranger-sign",
+      "entityRef": "class:sledopyt",
+      "label": "Следопыт",
+      "alt": "Эмблема класса: лук, стрела и листья"
+    },
+    "tracks": {
+      "assetId": "survival-tracks-v1",
+      "entityRef": "skill:survival",
+      "label": "Следы",
+      "alt": "Отпечатки на земле: поиск следов",
+      "tooltip": "Выживание · поиск следов"
+    },
+    "perception": {
+      "assetId": "perception-sign",
+      "entityRef": "skill:perception",
+      "label": "Внимание",
+      "alt": "Талисман-глаз: Внимательность"
+    },
+    "stealth": {
+      "assetId": "stealth-cloak-v1",
+      "entityRef": "skill:stealth",
+      "label": "Скрытность",
+      "alt": "Плащ с капюшоном: Скрытность"
+    },
+    "movement": {
+      "assetId": "movement-boot-v1",
+      "context": "Показатель скорости и действие перемещения",
+      "label": "Скорость",
+      "alt": "Кожаный сапог: перемещение"
+    }
+  }
+}

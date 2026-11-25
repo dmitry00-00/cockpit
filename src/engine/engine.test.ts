@@ -2,9 +2,9 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { EventLog } from './log';
 import { emptyState, type State } from './state';
-import { EVENT_TYPES, EVENT_META, TEMPO_SECONDS, type PayloadByType } from './events';
+import { EVENT_TYPES, EVENT_META, TEMPO_SECONDS, type DomainEvent, type PayloadByType } from './events';
 import { EngineError, apply } from './reduce';
-import { journalEntries, describe as describeEvent } from './journal';
+import { filterJournal, journalEntries, describe as describeEvent } from './journal';
 import { parseFormula, roll, d20Outcome } from './dice';
 import { LOG_FORMAT, localStorageStore, memoryStore, parseLog, serializeLog } from './persist';
 import { createEngineStore } from './store';
@@ -36,24 +36,293 @@ function seed(): State {
 }
 
 describe('список событий', () => {
-  it('13 из пакета плюс 8 по решению владельца 19.09.2026, 3 от 21.09.2026, 2 от 27.10.2026 и 5 от 29.10.2026; у каждого — обратимость и журнал', () => {
-    expect(EVENT_TYPES).toHaveLength(31);
-    expect(EVENT_TYPES.slice(13)).toEqual(['ENCOUNTER_STARTED', 'ENCOUNTER_ENDED', 'INITIATIVE_SET', 'CONCENTRATION_STARTED', 'CONCENTRATION_ENDED', 'ACTOR_SPAWNED', 'ACTOR_REMOVED', 'WORLD_DELTA_PROPOSED', 'REST_TAKEN', 'RESOURCE_SPENT', 'RESOURCE_RESTORED', 'PARTY_TRAVELED', 'PLACE_REVEALED', 'SUPPLY_CHANGED', 'KNOWLEDGE_REVEALED', 'CHARACTER_LEVELED', 'SHEET_EDITED', 'TOKEN_MOVED']);
+  it('64 типа: прежние события и новые слои, имущество, отношения и планы; у каждого — обратимость и журнал', () => {
+    expect(EVENT_TYPES).toHaveLength(64);
+    expect(EVENT_TYPES.filter(t => !['A5E_TRACK_SET', 'A5E_STRESS_EFFECT_USED', 'CAMPAIGN_REST_LAYER_SET', 'CAMPAIGN_STRESS_THEME_SET', 'CAMPAIGN_SETTING_PACKAGE_SET', 'NPC_SOCIAL_UPDATED'].includes(t)).slice(13)).toEqual(['NOTE_ADDED', 'A5E_DOWNTIME_PROJECT_UPDATED', 'A5E_KEY_KNOWLEDGE_EARNED', 'A5E_KEY_KNOWLEDGE_SPENT', 'A5E_FAVOR_EARNED', 'A5E_FAVOR_SPENT', 'A5E_WORK_RESOLVED', 'ENCOUNTER_STARTED', 'ENCOUNTER_ENDED', 'LAIR_ACTION_USED', 'INITIATIVE_SET', 'CONCENTRATION_STARTED', 'CONCENTRATION_ENDED', 'ACTOR_SPAWNED', 'ACTOR_REMOVED', 'WORLD_DELTA_PROPOSED', 'ITEM_GAINED', 'INVENTORY_CONTAINER_CREATED', 'INVENTORY_CONTAINER_REMOVED', 'TRANSPORT_CREATED', 'TRANSPORT_REMOVED', 'COINS_EXCHANGED', 'ITEM_LOST', 'ITEM_MOVED', 'ITEM_TRANSFERRED', 'ITEM_GIFTED', 'PERSON_ITEM_GIFTED', 'TRADE_OFFER_CREATED', 'TRADE_OFFER_WITHDRAWN', 'TRADE_COMPLETED', 'ATTUNEMENT_CHANGED', 'ITEM_EQUIPPED', 'ITEM_UNEQUIPPED', 'REST_TAKEN', 'RESOURCE_SPENT', 'RESOURCE_RESTORED', 'PARTY_TRAVELED', 'PLACE_REVEALED', 'SUPPLY_CHANGED', 'KNOWLEDGE_REVEALED', 'CHARACTER_LEVELED', 'SHEET_EDITED', 'TOKEN_MOVED', 'TIMELINE_PLAN_CREATED', 'TIMELINE_PLAN_CANCELLED']);
     expect(EVENT_META.CHARACTER_LEVELED).toEqual({ reversible: true, journal: true });
     expect(EVENT_META.SHEET_EDITED).toEqual({ reversible: true, journal: true });
     expect(EVENT_META.TOKEN_MOVED).toEqual({ reversible: true, journal: true });
+    for (const type of ['ITEM_GAINED', 'INVENTORY_CONTAINER_CREATED', 'INVENTORY_CONTAINER_REMOVED', 'TRANSPORT_CREATED', 'TRANSPORT_REMOVED', 'COINS_EXCHANGED', 'ITEM_LOST', 'ITEM_MOVED', 'ITEM_TRANSFERRED', 'ITEM_GIFTED', 'PERSON_ITEM_GIFTED', 'TRADE_OFFER_CREATED', 'TRADE_OFFER_WITHDRAWN', 'TRADE_COMPLETED', 'ATTUNEMENT_CHANGED', 'ITEM_EQUIPPED', 'ITEM_UNEQUIPPED'] as const) expect(EVENT_META[type]).toEqual({ reversible: true, journal: true });
+    expect(EVENT_META.A5E_FAVOR_SPENT).toEqual({ reversible: true, journal: true });
     expect(EVENT_META.SUPPLY_CHANGED).toEqual({ reversible: true, journal: true });
     expect(EVENT_META.KNOWLEDGE_REVEALED).toEqual({ reversible: true, journal: true });
+    expect(EVENT_META.A5E_DOWNTIME_PROJECT_UPDATED).toEqual({ reversible: true, journal: true });
     expect(EVENT_META.PARTY_TRAVELED).toEqual({ reversible: true, journal: true });
     expect(EVENT_META.PLACE_REVEALED).toEqual({ reversible: true, journal: true });
     expect(EVENT_META.REST_TAKEN).toEqual({ reversible: true, journal: true });
     expect(EVENT_META.RESOURCE_SPENT).toEqual({ reversible: true, journal: true });
     expect(EVENT_META.RESOURCE_RESTORED).toEqual({ reversible: true, journal: true });
+    expect(EVENT_META.TIMELINE_PLAN_CREATED).toEqual({ reversible: true, journal: true });
+    expect(EVENT_META.TIMELINE_PLAN_CANCELLED).toEqual({ reversible: true, journal: true });
     for (const t of EVENT_TYPES) expect(EVENT_META[t]).toBeDefined();
     expect(EVENT_META.DICE_ROLLED.reversible).toBe(false);
     expect(EVENT_META.WORLD_DELTA_REROLLED.journal).toBe(false);
     // Предложение — не действие мастера: как бросок, необратимо; как переброс, без строки в журнале.
     expect(EVENT_META.WORLD_DELTA_PROPOSED).toEqual({ reversible: false, journal: false });
+  });
+});
+
+describe('планы хронологии', () => {
+  const plan = { id: 'plan-1', title: 'Совет в Suzail', details: 'Встреча возможна; результат не задан.', startSec: 86_400, endSec: 259_199, source: 'Заметки мастера, 19.11.2026', visibility: 'dm' as const };
+
+  it('сохраняет диапазон, помечает записи секретными и воспроизводится с отменой и повтором', () => {
+    const log = new EventLog(seed(), [], fixed());
+    log.dispatch({ type: 'TIMELINE_PLAN_CREATED', payload: { plan } });
+    expect(log.state.world.timelinePlans?.[plan.id]).toEqual({ ...plan, status: 'active' });
+    expect(journalEntries(log.entries, log.state).at(-1)?.secret).toBe(true);
+    expect(filterJournal(journalEntries(log.entries, log.state), { dmView: false })).toHaveLength(0);
+
+    log.dispatch({ type: 'TIMELINE_PLAN_CANCELLED', payload: { planId: plan.id } });
+    expect(log.state.world.timelinePlans?.[plan.id]?.status).toBe('cancelled');
+    log.undo();
+    expect(log.state.world.timelinePlans?.[plan.id]?.status).toBe('active');
+    log.redo();
+    expect(log.state.world.timelinePlans?.[plan.id]?.status).toBe('cancelled');
+    const replay = new EventLog(seed(), log.entries, fixed());
+    expect(replay.state.world.timelinePlans?.[plan.id]).toEqual({ ...plan, status: 'cancelled' });
+  });
+
+  it('отменяет создание, проверяет порядок дат и не позволяет отменить отсутствующий план', () => {
+    const log = new EventLog(seed(), [], fixed());
+    expect(() => log.dispatch({ type: 'TIMELINE_PLAN_CREATED', payload: { plan: { ...plan, endSec: plan.startSec - 1 } } })).toThrow(/некорректный план/);
+    expect(() => log.dispatch({ type: 'TIMELINE_PLAN_CANCELLED', payload: { planId: 'missing' } })).toThrow(/не найден/);
+    log.dispatch({ type: 'TIMELINE_PLAN_CREATED', payload: { plan } });
+    log.undo();
+    expect(log.state.world.timelinePlans).toBeUndefined();
+    log.redo();
+    expect(log.state.world.timelinePlans?.[plan.id]?.status).toBe('active');
+  });
+});
+
+describe('A5E downtime projects', () => {
+  it('persist privately through replay, undo, and redo', () => {
+    const st = createEngineStore(seed(), { ...fixed() });
+    const project = {
+      id: 'd10:project-1', actorId: 'bo', actorName: 'Bo Tambernack', activity: 'gather-information' as const,
+      subject: 'гильдия', obscurity: 'uncommon' as const, skill: 'investigation' as const,
+      requiredWeeks: 1, completedWeeks: 1, costPaidGp: 10, createdSec: 0, updatedSec: 0,
+      source: 'a5e-srd:adventuring-8' as const, status: 'succeeded' as const, result: 'success' as const, lastCheckTotal: 10,
+    };
+    st.getState().dispatch({ type: 'A5E_DOWNTIME_PROJECT_UPDATED', payload: { project } });
+    expect(st.getState().state.a5eDowntimeProjects?.[project.id]).toEqual(project);
+    const journal = journalEntries(st.getState().events, st.getState().state);
+    expect(journal.at(-1)?.secret).toBe(true);
+    expect(filterJournal(journal, { dmView: false }).some(entry => entry.eventId === st.getState().events.at(-1)?.id)).toBe(false);
+    st.getState().undo();
+    expect(st.getState().state.a5eDowntimeProjects).toBeUndefined();
+    st.getState().redo();
+    expect(st.getState().state.a5eDowntimeProjects?.[project.id]).toEqual(project);
+    const replay = new EventLog(seed(), st.getState().events, fixed());
+    expect(replay.state.a5eDowntimeProjects?.[project.id]).toEqual(project);
+  });
+});
+
+describe('тема A5E Strife кампании', () => {
+  it('сохраняется отдельным событием, отменяется и возвращает прежнее значение', () => {
+    const log = new EventLog(seed(), [], fixed());
+    expect(log.state.a5eStrifeEnabled).toBeUndefined();
+    log.dispatch({ type: 'CAMPAIGN_STRESS_THEME_SET', payload: { enabled: true } });
+    expect(log.state.a5eStrifeEnabled).toBe(true);
+    log.undo();
+    expect(log.state.a5eStrifeEnabled).toBeUndefined();
+    log.redo();
+    expect(log.state.a5eStrifeEnabled).toBe(true);
+  });
+
+  it('уровень Strife и достигнутый эффект стресса хранятся и отменяются одним событием', () => {
+    const initial = seed();
+    initial.actors.bo.a5eConditions = { strife: 4 };
+    initial.a5eStrifeEnabled = true;
+    const log = new EventLog(initial, [], fixed());
+    const shortEffect = { kind: 'short' as const, id: 'bewildered' as const, untilSec: 86_400 };
+    log.dispatch({ type: 'A5E_TRACK_SET', payload: { actorId: 'bo', track: 'strife', level: 5, stressEffect: shortEffect } });
+    expect(log.state.actors.bo.a5eConditions).toEqual({ strife: 5, mentalStress: shortEffect });
+    log.undo();
+    expect(log.state.actors.bo.a5eConditions).toEqual({ strife: 4 });
+    log.redo();
+    expect(log.state.actors.bo.a5eConditions).toEqual({ strife: 5, mentalStress: shortEffect });
+    const longEffect = { kind: 'long' as const, id: 'covetous' as const };
+    log.dispatch({ type: 'A5E_TRACK_SET', payload: { actorId: 'bo', track: 'strife', level: 7, stressEffect: longEffect } });
+    expect(log.state.actors.bo.a5eConditions).toEqual({ strife: 7, mentalStress: longEffect });
+    log.undo();
+    expect(log.state.actors.bo.a5eConditions).toEqual({ strife: 5, mentalStress: shortEffect });
+  });
+});
+
+describe('корреляция событий взаимодействия', () => {
+  it('сохраняет interactionId при записи, компенсации и повторном чтении, сохраняя старые журналы', () => {
+    const log = new EventLog(seed(), [], fixed());
+    const original = log.dispatch({ type: 'DAMAGE_APPLIED', payload: { targetId: 'bo', amount: 1 } }, { interactionId: 'meeting-1' });
+    expect(original.interactionId).toBe('meeting-1');
+
+    const undone = log.undo();
+    expect(undone?.compensation.interactionId).toBe('meeting-1');
+    const redone = log.redo();
+    expect(redone?.compensation.interactionId).toBe('meeting-1');
+
+    const replayed = new EventLog(seed(), log.entries, fixed());
+    expect(replayed.entries.map(event => event.interactionId)).toEqual(['meeting-1', 'meeting-1', 'meeting-1']);
+    EventLog.check(replayed.entries);
+
+    const { interactionId: _interactionId, ...legacyEvent } = original;
+    const legacy = new EventLog(seed(), [{ ...legacyEvent, seq: 0 }], fixed());
+    expect(legacy.entries[0].interactionId).toBeUndefined();
+    expect(() => EventLog.check([{ ...original, interactionId: '   ' }])).toThrow(/пустой interactionId/);
+  });
+
+  it('предоставляет dispatchInInteraction на EngineStore', () => {
+    const store = createEngineStore(seed(), fixed());
+    const event = store.getState().dispatchInInteraction('meeting-2', { type: 'DAMAGE_APPLIED', payload: { targetId: 'bo', amount: 1 } });
+    expect(event.interactionId).toBe('meeting-2');
+    expect(store.getState().events.at(-1)?.interactionId).toBe('meeting-2');
+  });
+
+  it('связывает принятую мировую дельту с причиной-встречей и сохраняет связь в undo/replay', () => {
+    const state = emptyState();
+    state.world.factions.zh = { id: 'zh', name: 'Zhentarim', renown: 0 };
+    const store = createEngineStore(state, fixed());
+    const cause = store.getState().dispatchInInteraction('meeting-3', {
+      type: 'DICE_ROLLED', payload: roll('1d20', { rng: () => 0.5, label: 'Influence · капитан', hidden: true }),
+    });
+    store.getState().propose({
+      id: 'standing-after-request', scale: 'region', subject: 'Zhentarim · отношение',
+      was: 'нейтральное', now: 'благосклонное', cause: 'Мастер принял последствие просьбы', causeId: cause.id,
+      status: 'pending', patch: { kind: 'faction', id: 'zh', field: 'standing', value: 1 },
+    });
+
+    store.getState().accept('standing-after-request');
+    expect(store.getState().events.at(-1)).toMatchObject({ type: 'WORLD_DELTA_ACCEPTED', interactionId: 'meeting-3' });
+    expect(store.getState().state.world.factions.zh.standing).toBe(1);
+    store.getState().undo();
+    expect(store.getState().events.at(-1)?.interactionId).toBe('meeting-3');
+    expect(store.getState().state.world.factions.zh.standing).toBe(0);
+
+    const replayed = new EventLog(state, store.getState().events, fixed());
+    expect(replayed.state.world.factions.zh.standing).toBe(0);
+    expect(replayed.entries.at(-1)?.interactionId).toBe('meeting-3');
+    store.getState().redo();
+    expect(store.getState().state.world.factions.zh.standing).toBe(1);
+    expect(store.getState().events.at(-1)?.interactionId).toBe('meeting-3');
+
+    store.getState().propose({
+      id: 'unapproved-standing-after-request', scale: 'region', subject: 'Zhentarim · отношение',
+      was: 'нейтральное', now: 'благосклонное', cause: 'Мастер рассматривает последствие просьбы', causeId: cause.id,
+      status: 'pending', patch: { kind: 'faction', id: 'zh', field: 'standing', value: 1 },
+    });
+    store.getState().reject('unapproved-standing-after-request', 'не принято мастером');
+    expect(store.getState().events.at(-1)).toMatchObject({ type: 'WORLD_DELTA_REJECTED', interactionId: 'meeting-3' });
+  });
+});
+
+describe('внимание к нитям', () => {
+  it('заметка с нитью обновляет lastTouchedSec и отменяется/повторяется по снимку', () => {
+    const initial = seed();
+    initial.time.sec = 200;
+    initial.world.threads.caravan = { id: 'caravan', name: 'Караван', status: 'open', openedSec: 0, lastTouchedSec: 100 };
+    const store = createEngineStore(initial, fixed());
+    const event = store.getState().dispatch({
+      type: 'NOTE_ADDED', payload: { text: 'Обсудили следы каравана', threadIds: ['caravan', 'missing'], scale: 'region' },
+    });
+    expect(event.effect).toMatchObject({ kind: 'note', threads: [{ id: 'caravan', before: 100, after: 200 }] });
+    expect(store.getState().state.world.threads.caravan.lastTouchedSec).toBe(200);
+    store.getState().undo();
+    expect(store.getState().state.world.threads.caravan.lastTouchedSec).toBe(100);
+    store.getState().redo();
+    expect(store.getState().state.world.threads.caravan.lastTouchedSec).toBe(200);
+    const replayed = new EventLog(initial, store.getState().events, fixed());
+    expect(replayed.state.world.threads.caravan.lastTouchedSec).toBe(200);
+  });
+
+  it('дополняет старый эффект заметки thread snapshot и сохраняет старый undo при реплее', () => {
+    const initial = seed();
+    initial.time.sec = 200;
+    initial.world.threads.caravan = { id: 'caravan', name: 'Караван', status: 'open', openedSec: 0, lastTouchedSec: 100 };
+    const payload = { text: 'Старая заметка', threadIds: ['caravan'], scale: 'region' as const };
+    const note: DomainEvent<'NOTE_ADDED'> = {
+      id: 'legacy-note', seq: 0, at: 1, worldSec: 200, type: 'NOTE_ADDED', payload,
+      effect: { kind: 'note', noteId: 'legacy-note' },
+    };
+    const undo: DomainEvent<'NOTE_ADDED'> = {
+      id: 'legacy-undo', seq: 1, at: 2, worldSec: 200, type: 'NOTE_ADDED', payload,
+      undoes: 'legacy-note', effect: { kind: 'note', noteId: 'legacy-note' },
+    };
+    const replayed = new EventLog(initial, [note, undo], fixed());
+    expect(replayed.state.world.threads.caravan.lastTouchedSec).toBe(100);
+    expect(replayed.entries[0].effect).toMatchObject({ threads: [{ id: 'caravan', before: 100, after: 200 }] });
+    expect(replayed.entries[1].effect).toMatchObject({ threads: [{ id: 'caravan', before: 200, after: 100 }] });
+  });
+
+  it('принятое решение и раскрытие связанного факта также касаются нити обратимо', () => {
+    const initial = seed();
+    initial.time.sec = 200;
+    initial.world.threads.caravan = { id: 'caravan', name: 'Караван', status: 'open', openedSec: 0, lastTouchedSec: 100 };
+    initial.deltas['thread-update'] = {
+      id: 'thread-update', scale: 'region', subject: 'Нить · Караван', was: 'открыта', now: 'закрыта',
+      cause: 'Мастер подтвердил исход', causeId: 'caravan', threadIds: ['caravan'], status: 'pending',
+      patch: { kind: 'thread', id: 'caravan', status: 'closed' },
+    };
+    const store = createEngineStore(initial, fixed());
+    store.getState().accept('thread-update');
+    expect(store.getState().state.world.threads.caravan.lastTouchedSec).toBe(200);
+    store.getState().undo();
+    expect(store.getState().state.world.threads.caravan).toMatchObject({ status: 'open', lastTouchedSec: 100 });
+    store.getState().redo();
+    expect(store.getState().state.world.threads.caravan).toMatchObject({ status: 'closed', lastTouchedSec: 200 });
+
+    const factState = seed();
+    factState.time.sec = 200;
+    factState.world.threads.caravan = { id: 'caravan', name: 'Караван', status: 'open', openedSec: 0, lastTouchedSec: 100 };
+    factState.facts['caravan-lead'] = { id: 'caravan-lead', text: 'Письмо у архивариуса', visibility: 'dm', scale: 'region', threadIds: ['caravan'] };
+    const factStore = createEngineStore(factState, fixed());
+    factStore.getState().reveal('caravan-lead');
+    expect(factStore.getState().state.world.threads.caravan.lastTouchedSec).toBe(200);
+    factStore.getState().undo();
+    expect(factStore.getState().state.world.threads.caravan.lastTouchedSec).toBe(100);
+  });
+
+  it('настройка часов меняет нить только после принятия и откатывается вместе с вниманием', () => {
+    const initial = seed();
+    initial.time.sec = 200;
+    initial.world.threads.caravan = { id: 'caravan', name: 'Караван', status: 'open', openedSec: 0, lastTouchedSec: 100 };
+    initial.deltas['clock-config'] = {
+      id: 'clock-config', scale: 'region', subject: 'Часы нити · Караван', was: 'часы не настроены', now: '0/6',
+      cause: 'Настройка мастера', causeId: 'caravan', threadIds: ['caravan'], status: 'pending',
+      patch: { kind: 'threadClock', id: 'caravan', clock: { segments: 6, filled: 0, startedSec: 200 } },
+    };
+    const store = createEngineStore(initial, fixed());
+    expect(store.getState().state.world.threads.caravan.clock).toBeUndefined();
+    store.getState().accept('clock-config');
+    expect(store.getState().state.world.threads.caravan.clock).toEqual({ segments: 6, filled: 0, startedSec: 200 });
+    expect(store.getState().state.world.threads.caravan.lastTouchedSec).toBe(200);
+    store.getState().undo();
+    expect(store.getState().state.world.threads.caravan.clock).toBeUndefined();
+    expect(store.getState().state.world.threads.caravan.lastTouchedSec).toBe(100);
+    store.getState().redo();
+    const replayed = new EventLog(initial, store.getState().events, fixed());
+    expect(replayed.state.world.threads.caravan.clock).toEqual({ segments: 6, filled: 0, startedSec: 200 });
+    expect(replayed.state.world.threads.caravan.lastTouchedSec).toBe(200);
+  });
+});
+
+describe('публикация часов процесса', () => {
+  it('меняет видимость и подпись только по принятому патчу; undo и replay возвращают точный снимок', () => {
+    const initial = seed();
+    initial.world.processes = {
+      caravan: { id: 'caravan', kind: 'caravan', name: 'Secret route', scale: 'region', stage: 'transit', parties: [], startedSec: 0, nextSec: 300, vars: { routeIndex: 2 }, clock: { segments: 5, filled: 2 } },
+    };
+    initial.deltas['open-process-clock'] = {
+      id: 'open-process-clock', scale: 'region', subject: 'Часы процесса · Secret route', was: 'скрыты', now: 'открыты игрокам: Караван идёт',
+      cause: 'Мастер открыл счётчик', causeId: 'caravan', status: 'pending',
+      patch: { kind: 'process', process: { ...initial.world.processes.caravan, clock: { segments: 5, filled: 2, playerVisible: true, playerLabel: 'Караван идёт' } } },
+    };
+    const store = createEngineStore(initial, fixed());
+    store.getState().accept('open-process-clock');
+    expect(store.getState().state.world.processes?.caravan.clock).toMatchObject({ playerVisible: true, playerLabel: 'Караван идёт' });
+    store.getState().undo();
+    expect(store.getState().state.world.processes?.caravan.clock).toEqual({ segments: 5, filled: 2 });
+    store.getState().redo();
+    const replayed = new EventLog(initial, store.getState().events, fixed());
+    expect(replayed.state.world.processes?.caravan.clock).toMatchObject({ playerVisible: true, playerLabel: 'Караван идёт' });
   });
 });
 
@@ -246,7 +515,7 @@ describe('отдых (решение владельца 21.09.2026)', () => {
     expect(short([{ actorId: 'bo', dice: 6, healed: 5 }])).toThrow(/осталось 5/);
     expect(short([{ actorId: 'bo', dice: 0, healed: 5 }])).toThrow(/больше нуля/);
     expect(short([{ actorId: 'bo', dice: 1, healed: -1 }])).toThrow(/не меньше нуля/);
-    expect(() => log.dispatch({ type: 'REST_TAKEN', payload: { kind: 'long', actorIds: ['bo'], hitDice: [{ actorId: 'bo', dice: 1, healed: 1 }] } })).toThrow(/долгий возвращает/);
+    expect(() => log.dispatch({ type: 'REST_TAKEN', payload: { kind: 'long', actorIds: ['bo'], hitDice: [{ actorId: 'bo', dice: 1, healed: 1 }] } })).toThrow(/только после провала Sleepless/);
     log.dispatch({ type: 'ACTOR_REMOVED', payload: { actorId: 'captain', reason: 'dead' } });
     expect(() => log.dispatch({ type: 'REST_TAKEN', payload: { kind: 'long', actorIds: ['captain'] } })).toThrow(/выбыл/);
     log.dispatch({ type: 'ENCOUNTER_STARTED', payload: { order: [{ actorId: 'bo', initiative: 1 }] } });
@@ -264,6 +533,7 @@ describe('поход и открытие места (решение владел
       tb: { id: 'tb', name: 'Triboar', scale: 'settlement', geo: { map: 'toril', x: 8906, y: 2752 } },
     };
     s.actors.bo.locationId = 'nw';
+    s.actors.korrin.locationId = 'nw';
     return s;
   };
   const route = { fromId: 'nw', toId: 'tb', map: 'toril', points: [{ x: 8522, y: 2610 }, { x: 8906, y: 2752 }], miles: 204.7, pace: 'normal' as const, days: 8.5 };
@@ -279,7 +549,7 @@ describe('поход и открытие места (решение владел
     expect(log.state.actors.captain.locationId).toBeUndefined();
     log.undo();
     expect(log.state.actors.bo.locationId).toBe('nw');
-    expect(log.state.actors.korrin.locationId).toBeUndefined();
+    expect(log.state.actors.korrin.locationId).toBe('nw');
     log.redo();
     expect(log.state.actors.korrin.locationId).toBe('tb');
     const [entry] = journalEntries(log.entries.slice(0, 1), log.state);
@@ -470,7 +740,7 @@ describe('ресурсы персонажа (решение владельца 2
     expect(log.state.actors.bo.resourcesSpent).toEqual({ 'slot-1': 2, ki: 3 });
     expect(() => log.dispatch({ type: 'REST_TAKEN', payload: { kind: 'short', actorIds: ['bo'], resources: [{ actorId: 'bo', resourceId: 'rage' }] } })).toThrow(/не тратились/);
     expect(() => log.dispatch({ type: 'REST_TAKEN', payload: { kind: 'short', actorIds: ['bo'], resources: [{ actorId: 'korrin', resourceId: 'ki' }] } })).toThrow(/не отдыхает/);
-    expect(() => log.dispatch({ type: 'REST_TAKEN', payload: { kind: 'long', actorIds: ['bo'], resources: [{ actorId: 'bo', resourceId: 'ki' }] } })).toThrow(/список не нужен/);
+    expect(() => log.dispatch({ type: 'REST_TAKEN', payload: { kind: 'long', actorIds: ['bo'], resources: [{ actorId: 'bo', resourceId: 'ki' }] } })).toThrow(/только после провала Sleepless/);
   });
 
   it('состояние со сроком в мировом времени: срок в прошлом не проходит, срок хранится в снимке и откатывается', () => {
@@ -604,6 +874,13 @@ describe('журнал — проекция', () => {
   it('у каждого типа есть текст', () => {
     const s = seed();
     const samples: Record<string, unknown> = {
+      A5E_TRACK_SET: { actorId: 'bo', track: 'strife', level: 1 },
+      A5E_STRESS_EFFECT_USED: { actorId: 'bo', effect: 'distraught-aid' },
+      CAMPAIGN_REST_LAYER_SET: { layer: 'a5e' },
+      CAMPAIGN_STRESS_THEME_SET: { enabled: true },
+      CAMPAIGN_SETTING_PACKAGE_SET: { packageId: 'fr' },
+      NPC_SOCIAL_UPDATED: { actorId: 'bo', note: 'отношение изменено' },
+      PERSON_RELATIONSHIP_UPDATED: { personId: 'person:sample', personName: 'Справочный NPC', targetId: 'bo', note: 'отношение изменено' },
       DAMAGE_APPLIED: { targetId: 'bo', amount: 1 }, HEALING_APPLIED: { targetId: 'bo', amount: 1 }, TEMP_HP_GRANTED: { targetId: 'bo', amount: 1 },
       CONDITION_ADDED: { targetId: 'bo', conditionId: 'prone' }, CONDITION_REMOVED: { targetId: 'bo', conditionId: 'prone' },
       DICE_ROLLED: { formula: '1d20', dice: [5], mod: 0, total: 5, hidden: false, label: '' }, TURN_ADVANCED: { round: 1, turnIndex: 0, actorId: 'korrin' },
@@ -611,11 +888,29 @@ describe('журнал — проекция', () => {
       WORLD_DELTA_ACCEPTED: { deltaId: 'd1', subject: 's', was: 'a', now: 'b', causeId: 'c' }, WORLD_DELTA_REJECTED: { deltaId: 'd1', reason: 'не верю' },
       WORLD_DELTA_REROLLED: { deltaId: 'd1', variantId: 'v2' }, FACT_REVEALED: { factId: 'f-caravan', audience: 'players' },
       NOTE_ADDED: { text: 'заметка', threadIds: [], scale: 'settlement' },
+      A5E_DOWNTIME_PROJECT_UPDATED: { project: { id: 'd10-1', actorId: 'bo', actorName: 'Bo Tambernack', activity: 'gather-information', subject: 'гильдия', obscurity: 'uncommon', skill: 'investigation', requiredWeeks: 1, completedWeeks: 1, costPaidGp: 10, createdSec: 0, updatedSec: 0, source: 'a5e-srd:adventuring-8', status: 'succeeded', result: 'success', lastCheckTotal: 10 } },
+      A5E_WORK_RESOLVED: { actorId: 'bo', skill: 'performance', difficulty: 'easy', total: 15, disadvantageApplied: false, earningsDice: [4], earningsGp: 4, source: 'a5e-srd:adventuring-8' },
       ENCOUNTER_STARTED: { order: [{ actorId: 'korrin', initiative: 18 }] }, ENCOUNTER_ENDED: { reason: 'сдались' },
       INITIATIVE_SET: { order: [{ actorId: 'bo', initiative: 15 }] },
       CONCENTRATION_STARTED: { actorId: 'bo', spell: "Hunter's Mark", untilSec: 3600 }, CONCENTRATION_ENDED: { actorId: 'bo', reason: 'save' },
       ACTOR_SPAWNED: { actor: s.actors.captain, party: false }, ACTOR_REMOVED: { actorId: 'captain', reason: 'dead' },
       WORLD_DELTA_PROPOSED: { delta: s.deltas.d1 },
+      ITEM_GAINED: { stack: { id: 'x', itemId: 'longsword', qty: 1, owner: { kind: 'actor', id: 'bo' }, storage: { kind: 'actor', id: 'bo' } } },
+      INVENTORY_CONTAINER_CREATED: { container: { id: 'camp:one', name: 'Лагерь у тракта', kind: 'camp' } },
+      INVENTORY_CONTAINER_REMOVED: { containerId: 'camp:one' },
+      TRANSPORT_CREATED: { transport: { id: 'transport:one', name: 'Повозка' } },
+      TRANSPORT_REMOVED: { transportId: 'transport:one' },
+      COINS_EXCHANGED: { stackId: 'x', qty: 1, toCoinId: 'coin:sp', toQty: 10, receiveStackId: 'y' },
+      ITEM_LOST: { stackId: 'x', qty: 1 },
+      ITEM_MOVED: { stackId: 'x', qty: 1, to: { kind: 'party' } },
+      ITEM_TRANSFERRED: { stackId: 'x', qty: 1, owner: { kind: 'party' }, to: { kind: 'party' } },
+      ITEM_GIFTED: { stackId: 'x', qty: 1, giverId: 'bo', recipientId: 'captain' },
+      PERSON_ITEM_GIFTED: { stackId: 'x', qty: 1, giverId: 'bo', personId: 'person:sample', personName: 'Справочный NPC' },
+      TRADE_OFFER_CREATED: { offerId: 'sample-offer', trade: { seller: { kind: 'actor', id: 'captain' }, buyer: { kind: 'actor', id: 'bo' }, itemStackId: 'sale-item', itemQty: 1, payments: [{ stackId: 'payment', qty: 2 }], priceCopper: 200, priceSource: { kind: 'house-rule', citation: 'цена мастера' } } },
+      TRADE_OFFER_WITHDRAWN: { offerId: 'sample-offer' },
+      TRADE_COMPLETED: { seller: { kind: 'actor', id: 'captain' }, buyer: { kind: 'actor', id: 'bo' }, itemStackId: 'sale-item', itemQty: 1, payments: [{ stackId: 'payment', qty: 2 }], priceCopper: 200, priceSource: { kind: 'house-rule', citation: 'цена мастера' } },
+      ATTUNEMENT_CHANGED: { stackId: 'x', actorId: 'bo' },
+      ITEM_EQUIPPED: { stackId: 'x', actorId: 'bo', wornAs: 'armor' }, ITEM_UNEQUIPPED: { stackId: 'x', actorId: 'bo' },
       REST_TAKEN: { kind: 'short', actorIds: ['bo', 'korrin'], hitDice: [{ actorId: 'bo', dice: 2, healed: 13 }] },
       RESOURCE_SPENT: { actorId: 'bo', resourceId: 'slot-1', amount: 1, max: 4 }, RESOURCE_RESTORED: { actorId: 'bo', resourceId: 'ki', amount: 2, max: 5 },
       PARTY_TRAVELED: { toId: 'nw', map: 'toril', points: [{ x: 0, y: 0 }, { x: 1, y: 1 }], miles: 1, pace: 'normal', days: 0.1 },
@@ -627,6 +922,7 @@ describe('журнал — проекция', () => {
       TOKEN_MOVED: { actorId: 'bo', to: { x: 3, y: 4 }, source: 'maptool' },
     };
     for (const t of EVENT_TYPES) {
+      expect(samples[t], t).toBeDefined();
       const text = describeEvent({ id: 'x', seq: 0, at: 0, worldSec: 0, type: t, payload: samples[t] as never }, s);
       expect(text.length, t).toBeGreaterThan(3);
       expect(text).not.toMatch(/\p{Extended_Pictographic}/u);

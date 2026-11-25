@@ -1,6 +1,7 @@
 // Карта мира как компонент: тайлы видимого окна, пины-кнопки, знак партии, линейка с днями пути по SRD,
 // гексы, кнопки приближения. В jsdom окно не измеряется — компонент берёт запасные 960×540.
-import { cleanup, fireEvent, render, screen, within } from '@testing-library/react';
+import '@testing-library/jest-dom/vitest';
+import { act, cleanup, fireEvent, render, screen, waitFor, within } from '@testing-library/react';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 import { MAPS } from './maps';
 import { loadJourney } from '../rules/a5e/journey';
@@ -38,8 +39,19 @@ const ui = (onPin = vi.fn()) => {
   render(<WorldMap passport={toril} frame={frame} frameKey="region:scn" pins={pins} party={{ x: 8522, y: 2610, label: 'Партия' }} onPin={onPin} hexMiles={6} />);
   return { map: screen.getByRole('application', { name: 'Карта Toril' }), onPin };
 };
+const openLayers = () => fireEvent.click(screen.getByText('Слои'));
 
 describe('WorldMap', () => {
+  it('ошибка изображения в режиме игроков не раскрывает команды и пути установки', () => {
+    const { container } = render(<WorldMap passport={toril} frame={frame} frameKey="missing" pins={[]} fog={{ explored: { circles: [], paths: [], sight: 1 }, forced: true }} />);
+    const images = container.querySelectorAll<HTMLImageElement>('img[data-tile]');
+    images.forEach(image => fireEvent.error(image));
+    expect(screen.getByRole('status')).toHaveTextContent('Изображение карты Toril недоступно.');
+    expect(container).not.toHaveTextContent('tile-map.py');
+    expect(container).not.toHaveTextContent('.venv');
+    expect(container).not.toHaveTextContent('content/maps');
+  });
+
   it('тайлы — с сервера стола, только уровня под масштабом и подложки на два мельче', () => {
     const { map } = ui();
     const z = Number(map.dataset.zoom);
@@ -67,6 +79,18 @@ describe('WorldMap', () => {
     expect(within(map.querySelector('[data-part="party"]') as HTMLElement).getByRole('img', { name: 'Партия' })).toBeInTheDocument();
   });
 
+  it('в походе показывает пеленг по карте от партии к выбранному пину', () => {
+    const onGo = vi.fn();
+    render(<WorldMap passport={toril} frame={frame} frameKey="region:scn" pins={pins} party={{ x: 8522, y: 2610, label: 'Партия' }} travel={{ from: { x: 8522, y: 2610 }, onGo, wind: { strength: 'light', from: 'e' } }} />);
+    const map = screen.getByRole('application', { name: 'Карта Toril' });
+    fireEvent.click(within(map).getByRole('button', { name: 'Поход' }));
+    fireEvent.click(within(map).getByRole('button', { name: /Old Owl Well/ }));
+    const compass = within(map).getByRole('group', { name: 'Пеленг к цели: Old Owl Well' });
+    expect(compass).toHaveTextContent('восток');
+    expect(compass).toHaveTextContent('Old Owl Well · прямо по карте');
+    expect(compass).toHaveTextContent('Ветер с востока');
+  });
+
   it('кнопки «+» и «−» меняют уровень пирамиды; «Вписать» возвращает рамку', () => {
     const { map } = ui();
     const z0 = Number(map.dataset.zoom);
@@ -81,6 +105,7 @@ describe('WorldMap', () => {
 
   it('гексы по шесть миль: при рамке региона слишком мелкие — слоя нет, после приближения — есть', () => {
     const { map } = ui();
+    openLayers();
     expect(map.querySelector('[data-part="hex"]')).toBeNull();
     const plus = screen.getByRole('button', { name: 'Приблизить' });
     for (let i = 0; i < 4; i++) fireEvent.click(plus);
@@ -180,9 +205,12 @@ describe('поход по карте местности', () => {
     const legs = document.querySelector('[data-part="journey"]')!;
     expect(legs).toHaveTextContent(/Tangled Forest · \d+(,\d)? мил[ьи] · DC 14/);
     expect(legs).toHaveTextContent(/Rolling Grasslands · \d+(,\d)? мил[ьи] · DC 14/);
+    expect(legs).toHaveTextContent('A5E SRD §14: мастер обычно задаёт хотя бы одну встречу в каждом регионе; количество и подходящий тип остаются решением мастера.');
     expect(legs).toHaveTextContent(/припасы обычным темпом: \d+/);
     const forest = [...legs.children].find(c => c.textContent?.startsWith('Tangled Forest')) as HTMLElement;
-    fireEvent.click(within(forest).getByRole('button', { name: 'встреча' }));
+    const encounter = within(forest).getByRole('button', { name: 'встреча' });
+    expect(encounter).toHaveAttribute('title', expect.stringContaining('хотя бы одна встреча на регион'));
+    fireEvent.click(encounter);
     expect(onEncounter).toHaveBeenCalledWith('tangled-forest');
   });
 
@@ -224,7 +252,7 @@ describe('поход: дороги, поселения, Подземье (ROADMA
     fireEvent.click(within(panel).getByRole('checkbox', { name: 'под землёй — Underland Realm' }));
     expect(panel.querySelector('[data-part="route-road"]')).toBeNull();
     expect(panel.querySelector('[data-part="route-underdark"]')).toHaveTextContent('под путём: Northdark');
-    expect([...panel.querySelector('[data-part="journey"]')!.children].map(c => c.textContent?.split(' · ')[0])).toEqual(['Underland Realm', expect.stringMatching(/^припасы/)]);
+    expect([...panel.querySelector('[data-part="journey"]')!.children].filter(c => c.getAttribute('data-part') !== 'encounter-recommendation').map(c => c.textContent?.split(' · ')[0])).toEqual(['Underland Realm', expect.stringMatching(/^припасы/)]);
     fireEvent.click(within(panel).getByRole('button', { name: /^обычный · 3,9 дн$/ }));
     expect(onGo).toHaveBeenCalledWith(expect.objectContaining({ days: 3.9 }));
     expect(onGo.mock.calls[0][0].difficultMiles).toBeUndefined();
@@ -251,6 +279,7 @@ describe('слои карты: опасность и погода (ROADMAP 6.4)'
     render(<WorldMap passport={toril} frame={frame} frameKey="k" pins={wolfPins} terrain={grid}
       layers={{ danger: { tier: 1, onEncounter }, weather: { today, onRoll } }} />);
     expect(document.querySelector('[data-part="pin-danger"]')).toBeNull();
+    openLayers();
     fireEvent.click(screen.getByRole('button', { name: 'Опасность' }));
     const danger = await screen.findByRole('group', { name: 'Опасность' });
     expect(danger).toHaveTextContent('Опасность · уровень 1 · DC занятий 12');
@@ -276,6 +305,7 @@ describe('слои карты: опасность и погода (ROADMAP 6.4)'
     render(<WorldMap passport={toril} frame={frame} frameKey="k" pins={pins} terrain={grid} fog={{ explored, forced: true }}
       layers={{ weather: { today: new Map() } }} />);
     expect(screen.queryByRole('button', { name: 'Опасность' })).toBeNull();
+    openLayers();
     fireEvent.click(screen.getByRole('button', { name: 'Погода' }));
     const weather = await screen.findByRole('group', { name: 'Погода' });
     expect([...weather.querySelectorAll('[data-region]')].map(r => r.getAttribute('data-region'))).toEqual(['tangled-forest']);
@@ -299,6 +329,7 @@ describe('туман знаний и факты', () => {
   it('у мастера туман — слой по кнопке', () => {
     render(<WorldMap passport={toril} frame={frame} frameKey="k" pins={pins} fog={{ explored, forced: false }} />);
     expect(document.querySelector('[data-part="fog"]')).toBeNull();
+    openLayers();
     fireEvent.click(screen.getByRole('button', { name: 'Туман' }));
     expect(document.querySelector('[data-part="fog"]')).not.toBeNull();
   });
@@ -393,6 +424,7 @@ describe('справочник мест (M12)', () => {
 
   it('слой «Справочник» (29.10): маркеры мест с карточкой, полый — позиция по GIS; щелчок — карточка; кнопка и линейка прячут', () => {
     const map = withGaz();
+    openLayers();
     const marks = () => [...map.querySelectorAll<HTMLElement>('[data-place]')];
     // Leilon без карточки и вне окна — не рисуется; Port Llast — на значке растра, Kryptgarden — позиция по GIS.
     expect(marks().map(m => m.dataset.place)).toEqual(['pt', 'kw']);
@@ -486,18 +518,21 @@ describe('справочник мест (M12)', () => {
     expect(info).not.toHaveTextContent('Toril GIS ·');
   });
 
-  it('схема (M16): карта открывается схемой без тайлов, «Карта» — растр, «Схема» — обратно; без схемы переключателя нет', () => {
+  it('схема (M16): карта открывается схемой без тайлов, «Карта» — растр, «Схема» — обратно; без схемы переключателя нет', async () => {
     const schema = { land: [[8300, 2250, 9200, 2250, 9200, 3150, 8300, 3150]], regions: { f: [[8400, 2400, 8600, 2400, 8600, 2600]] }, roads: [[8400, 2600, 8700, 2668]] };
     const { unmount } = render(<WorldMap passport={toril} frame={frame} frameKey="region:scn" pins={pins} schema={schema} />);
     const map = screen.getByRole('application', { name: 'Карта Toril' });
     const look = within(map).getByRole('group', { name: 'Вид карты' });
     expect(within(look).getByRole('button', { name: 'Схема' })).toHaveAttribute('aria-pressed', 'true');
-    expect(map.querySelector('[data-part="schema"]')).not.toBeNull();
+    await waitFor(() => expect(map.querySelector('[data-part="schema"]')).toHaveAttribute('data-renderer', 'canvas'));
     // Без WebGL2 (jsdom) подложка — Canvas2D, канвас WebGL2 спрятан (M18).
     expect(map.querySelector('[data-part="schema"]')).toHaveAttribute('data-renderer', 'canvas');
     expect(map.querySelector('[data-part="schema-gl"]')).toHaveAttribute('hidden');
     expect(map.querySelectorAll('[data-tile]')).toHaveLength(0);
+    const pinPosition = map.querySelector<HTMLElement>('[data-pin="nw"]')!.getAttribute('style');
     // Легенда схемы — только то, что в схеме есть: равнина (подложка), лес, вода, берег, дорога; гор нет.
+    expect(within(map).queryByRole('list', { name: 'Легенда схемы' })).toBeNull();
+    fireEvent.click(within(map).getByRole('button', { name: 'Легенда' }));
     const legend = within(map).getByRole('list', { name: 'Легенда схемы' });
     expect(within(legend).getAllByRole('listitem').map(li => li.textContent)).toEqual(['равнина', 'лес', 'вода', 'берег', 'дорога']);
     fireEvent.click(within(map).getByRole('button', { name: 'Легенда' }));
@@ -505,11 +540,74 @@ describe('справочник мест (M12)', () => {
     fireEvent.click(within(look).getByRole('button', { name: 'Карта' }));
     expect(map.querySelector('[data-part="schema"]')).toBeNull();
     expect(map.querySelectorAll('[data-tile]').length).toBeGreaterThan(0);
+    expect(map.querySelector<HTMLElement>('[data-pin="nw"]')!.getAttribute('style')).toBe(pinPosition);
     fireEvent.click(within(look).getByRole('button', { name: 'Схема' }));
     expect(map.querySelectorAll('[data-tile]')).toHaveLength(0);
+    expect(map.querySelector<HTMLElement>('[data-pin="nw"]')!.getAttribute('style')).toBe(pinPosition);
     unmount();
     const { map: plain } = ui();
     expect(within(plain).queryByRole('group', { name: 'Вид карты' })).toBeNull();
+  });
+
+  it('второстепенные слои свёрнуты; поиск, линейка и поход остаются в основной панели', () => {
+    const onGo = vi.fn();
+    render(<WorldMap passport={toril} frame={frame} frameKey="region:scn" pins={pins} gazetteer={[{ id: 'nw', name: 'Neverwinter', kind: 'City', x: 8522, y: 2610 }]} travel={{ from: { x: 8522, y: 2610 }, onGo }} />);
+    const map = screen.getByRole('application', { name: 'Карта Toril' });
+    expect(map.querySelector('[data-part="map-layers"]')).not.toHaveAttribute('open');
+    expect(screen.getByRole('button', { name: 'Линейка' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Поход' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Приблизить' })).toBeInTheDocument();
+    expect(screen.getByRole('searchbox', { name: 'Найти место' })).toBeInTheDocument();
+  });
+
+  it('shows an accepted war route as a separate toggleable map layer', () => {
+    const { container } = render(<WorldMap passport={toril} frame={frame} frameKey="war-front" pins={[]}
+      warFronts={[{ id: 'war-cormyr-luskan', label: 'Cormyr — Luskan', nodes: [
+        { id: 'suzail', name: 'Suzail', x: 8522, y: 2610 }, { id: 'front-town', name: 'Front Town', x: 8600, y: 2670 },
+      ] }]} />);
+    const toggle = screen.getByRole('button', { name: 'Фронты' });
+    expect(toggle).toHaveAttribute('aria-pressed', 'false');
+    expect(container.querySelector('[data-part="war-fronts"]')).toBeNull();
+    fireEvent.click(toggle);
+    const overlay = container.querySelector<SVGSVGElement>('[data-part="war-fronts"]');
+    expect(overlay).toHaveAttribute('aria-label', 'Маршруты фронтов войны: Cormyr — Luskan');
+    expect(overlay?.querySelector('[data-war-process="war-cormyr-luskan"]')).toBeInTheDocument();
+    expect(overlay?.querySelectorAll('polyline')).toHaveLength(2);
+    expect(overlay?.querySelector('title')).toHaveTextContent('Маршрут фронта войны: Cormyr — Luskan');
+    fireEvent.click(toggle);
+    expect(container.querySelector('[data-part="war-fronts"]')).toBeNull();
+  });
+
+  it('shows active process markers only after opening the map layer', () => {
+    const { container } = render(<WorldMap passport={toril} frame={frame} frameKey="processes" pins={[]}
+      processMarkers={[{ locationId: 'loc-neverwinter', locationName: 'Neverwinter', x: 8522, y: 2610, labels: ['Голод', 'Восстание'] }]} />);
+    const map = screen.getByRole('application', { name: 'Карта Toril' });
+    const toggle = within(map).getByRole('button', { name: 'Процессы' });
+    expect(toggle).toHaveAttribute('aria-pressed', 'false');
+    expect(container.querySelector('[data-part="map-processes"]')).toBeNull();
+    fireEvent.click(toggle);
+    const overlay = container.querySelector<SVGSVGElement>('[data-part="map-processes"]');
+    expect(overlay).toHaveAttribute('aria-label', 'Активные процессы на карте: Neverwinter: Голод, Восстание');
+    expect(overlay?.querySelector('[data-process-location="loc-neverwinter"] title')).toHaveTextContent('Neverwinter: Голод; Восстание');
+    expect(overlay?.querySelector('[data-process-location="loc-neverwinter"] text')).toHaveTextContent('2');
+    fireEvent.click(toggle);
+    expect(container.querySelector('[data-part="map-processes"]')).toBeNull();
+  });
+
+  it('панель инструментов карты закреплена вертикально у края, а меню слоёв раскрывается внутри неё', () => {
+    render(<WorldMap passport={toril} frame={frame} frameKey="region:scn" pins={pins} />);
+    const map = screen.getByRole('application', { name: 'Карта Toril' });
+    const toolbar = within(map).getByRole('toolbar', { name: 'Карта' });
+    expect(toolbar.className).toContain('right-16');
+    expect(toolbar.className).toContain('max-w-[calc(100%-5.5rem)]');
+    expect(toolbar.className).toContain('bottom-3');
+    expect(toolbar.className).toContain('flex-col');
+    expect(toolbar.className).toContain('overflow-y-auto');
+    fireEvent.click(within(toolbar).getByText('Слои'));
+    const menu = toolbar.querySelector<HTMLElement>('[data-part="map-layer-menu"]')!;
+    expect(menu).toBeVisible();
+    expect(menu.className).toContain('flex-col');
+    expect(menu.style.position).toBe('');
   });
 
   it('колесо дальше целой карты — onZoomOut (с плоской карты планеты — на глобус, M16); старт с глобуса — заданный вид', () => {
@@ -524,5 +622,78 @@ describe('справочник мест (M12)', () => {
     const started = screen.getByRole('application', { name: 'Карта Toril' });
     fireEvent.wheel(started, { deltaY: 100 });
     expect(onZoomOut).toHaveBeenCalledTimes(1);
+  });
+
+  it('принимает старт глобуса на высокой широте без зажатия центра карты', () => {
+    const reports: { x: number; y: number; scale: number }[] = [];
+    const start = { x: 8200, y: 1169, scale: 0.025 };
+    render(<WorldMap passport={toril} frame={frame} frameKey="planet-start" pins={[]} start={start} onZoomOut={vi.fn()} onViewChange={v => reports.push(v)} />);
+    expect(reports.at(-1)).toEqual(start);
+    // При обычном clampView этот старт уезжает к центру растра (y≈6700) из-за высоты viewport/scale.
+  });
+
+  it('сохраняет планетный центр и масштаб при resize viewport', () => {
+    const reports: { x: number; y: number; scale: number }[] = [];
+    const start = { x: 8200, y: 1169, scale: 0.025 };
+    let notifyResize = () => {};
+    const previousObserver = globalThis.ResizeObserver;
+    class ObserverStub {
+      constructor(private readonly callback: ResizeObserverCallback) { notifyResize = () => this.callback([], this as unknown as ResizeObserver); }
+      observe() {}
+      unobserve() {}
+      disconnect() {}
+    }
+    vi.stubGlobal('ResizeObserver', ObserverStub);
+    try {
+      render(<WorldMap passport={toril} frame={frame} frameKey="planet-resize" pins={[]} start={start} onZoomOut={vi.fn()} onViewChange={v => reports.push(v)} />);
+      const map = screen.getByRole('application', { name: 'Карта Toril' });
+      Object.defineProperty(map, 'clientWidth', { configurable: true, value: 1280 });
+      Object.defineProperty(map, 'clientHeight', { configurable: true, value: 720 });
+      // Invoke the observed layout callback after changing the measured viewport dimensions.
+      act(() => notifyResize());
+      expect(reports.at(-1)).toEqual(start);
+    } finally {
+      vi.stubGlobal('ResizeObserver', previousObserver);
+    }
+  });
+
+  it('не зажимает pan в planet mode и сохраняет старый bounded путь без onZoomOut', () => {
+    const reports: { x: number; y: number; scale: number }[] = [];
+    const start = { x: 100, y: 1169, scale: 0.025 };
+    render(<WorldMap passport={toril} frame={frame} frameKey="planet-pan" pins={[]} start={start} onZoomOut={vi.fn()} onViewChange={v => reports.push(v)} />);
+    const map = screen.getByRole('application', { name: 'Карта Toril' });
+    fireEvent.pointerDown(map, { button: 0, pointerId: 1, clientX: 100, clientY: 100 });
+    fireEvent.pointerMove(map, { pointerId: 1, clientX: 200, clientY: 150 });
+    fireEvent.pointerUp(map, { pointerId: 1, clientX: 200, clientY: 150 });
+    expect(reports.at(-1)?.x).toBeCloseTo(-3900, 6);
+    expect(reports.at(-1)?.y).toBeCloseTo(-831, 6);
+
+    cleanup();
+    const normalReports: { x: number; y: number; scale: number }[] = [];
+    render(<WorldMap passport={toril} frame={frame} frameKey="bounded" pins={[]} start={start} onViewChange={v => normalReports.push(v)} />);
+    expect(normalReports.at(-1)?.x).toBeCloseTo(toril.width / 2, 6);
+    expect(normalReports.at(-1)?.y).toBeCloseTo(toril.height / 2, 6);
+  });
+
+  it('zooms about the screen-edge cursor for a planet camera', () => {
+    const reports: { x: number; y: number; scale: number }[] = [];
+    const start = { x: 100, y: 1169, scale: 0.05 };
+    render(<WorldMap passport={toril} frame={frame} frameKey="planet-edge-zoom" pins={[]} start={start} onZoomOut={vi.fn()} onViewChange={v => reports.push(v)} />);
+    const map = screen.getByRole('application', { name: 'Карта Toril' });
+    const before = reports.at(-1)!;
+    const anchor = { x: (0 - 960 / 2) / before.scale + before.x, y: (0 - 540 / 2) / before.scale + before.y };
+    fireEvent.wheel(map, { deltaY: -100, clientX: 0, clientY: 0 });
+    const after = reports.at(-1)!;
+    expect(after.scale).toBeGreaterThan(before.scale);
+    expect((0 - 960 / 2) / after.scale + after.x).toBeCloseTo(anchor.x, 6);
+    expect((0 - 540 / 2) / after.scale + after.y).toBeCloseTo(anchor.y, 6);
+  });
+
+  it('keeps the globe-return wheel threshold reachable below the ordinary map minimum', () => {
+    const onZoomOut = vi.fn();
+    const start = { x: 8200, y: 1169, scale: 0.025 };
+    render(<WorldMap passport={toril} frame={frame} frameKey="planet-min" pins={[]} start={start} onZoomOut={onZoomOut} />);
+    fireEvent.wheel(screen.getByRole('application', { name: 'Карта Toril' }), { deltaY: 100 });
+    expect(onZoomOut).toHaveBeenCalledWith(start);
   });
 });

@@ -11,7 +11,7 @@ import { makeName, namePool, raceKey } from '../../world/names';
 export async function suggestNpcName(state: State, monsterType: string): Promise<string | null> {
   const at = partyPlaceId(state);
   const geo = at ? state.world.locations[at]?.geo : undefined;
-  const passport = mapById(geo?.map);
+  const passport = mapById(geo?.map, state.settingPackageId);
   if (!geo || !passport) return null;
   const [people, places] = await Promise.all([loadPeople(), loadGazetteer(geo.map)]);
   const xy = new Map(places.map(p => [p.id, p]));

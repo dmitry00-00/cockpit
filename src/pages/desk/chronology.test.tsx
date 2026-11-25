@@ -69,3 +69,21 @@ describe('хроника канона (Х3)', () => {
     expect(screen.queryByRole('region', { name: 'Хроника' })).toBeNull();
   });
 });
+
+it('editorial article labels filter the same timeline without changing the campaign', async () => {
+  const {store}=mount();
+  const before=store.getState().events.length;
+  openChrono();
+  await within(chrono()).findByRole('spinbutton',{name:'Год DR'});
+  await waitFor(()=>expect(chrono().querySelector('[data-event="a1492-3"]')).not.toBeNull());
+  const row=chrono().querySelector('[data-event="a1492-3"]')!;
+  expect(row).toHaveTextContent('Редакторская рубрика');
+  expect(row).toHaveTextContent('исходные сведения и дата не изменены');
+  const toggle=within(chrono()).getByRole('button',{name:/^политика \d+$/});
+  fireEvent.click(toggle);
+  expect(chrono().querySelector('[data-event="a1492-3"]')).toBeNull();
+  fireEvent.click(toggle);
+  expect(chrono().querySelector('[data-event="a1492-3"]')).not.toBeNull();
+  expect(within(chrono()).getByRole('button',{name:'без типа 0'})).toBeInTheDocument();
+  expect(store.getState().events).toHaveLength(before);
+});

@@ -1,6 +1,7 @@
 import { beforeAll, describe, expect, it } from 'vitest';
 import { MONSTERS, MONSTER_IDS, MONSTER_LIBRARIES, SRD_MONSTER_IDS, isMonsterId, loadMonsterLibraries, monsterOrigin } from './monsters';
 import { legendaryOf } from './legendary';
+import monsterChallengeData from '../../../content/srd/monster-challenge-ratings.json';
 
 // Библиотеки — отдельный кусок (ROADMAP 0.5): до загрузки в реестре только SRD.
 beforeAll(async () => {
@@ -9,19 +10,15 @@ beforeAll(async () => {
   await loadMonsterLibraries();
 });
 
-// SRD 5.1, «Experience Points by Challenge Rating»: XP блока SRD — строка таблицы его CR (у API было четыре расхождения, И4).
-const XP_BY_CR: Readonly<Record<string, number>> = {
-  '0': 10, '1/8': 25, '1/4': 50, '1/2': 100, '1': 200, '2': 450, '3': 700, '4': 1100, '5': 1800, '6': 2300, '7': 2900, '8': 3900,
-  '9': 5000, '10': 5900, '11': 7200, '12': 8400, '13': 10000, '14': 11500, '15': 13000, '16': 15000, '17': 18000, '18': 20000,
-  '19': 22000, '20': 25000, '21': 33000, '22': 41000, '23': 50000, '24': 62000, '25': 75000, '26': 90000, '27': 105000,
-  '28': 120000, '29': 135000, '30': 155000,
-};
+// SRD 5.1, «Experience Points by Challenge Rating»: единая проверенная таблица для каталога и SRD-блоков.
+const XP_BY_CR = new Map(monsterChallengeData.challengeRatings.map(row => [row.challenge, row.experiencePoints]));
 
 describe('библиотеки монстров: SRD, Black Flag, A5E', () => {
   it('XP блоков SRD — по таблице CR (CR 0 — 0 или 10: «0 (0–10 XP)»)', () => {
     for (const id of SRD_MONSTER_IDS) {
       const m = MONSTERS[id];
-      expect(m.cr === '0' ? [0, 10] : [XP_BY_CR[m.cr]], id).toContain(m.xp);
+      const expected = XP_BY_CR.get(m.cr);
+      expect(Array.isArray(expected) ? expected : [expected], id).toContain(m.xp);
     }
   });
 

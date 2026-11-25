@@ -71,6 +71,7 @@ describe('держава', () => {
   it('история: оба слоя по списку державы, по году; пара `same` не повторяется; позже года — счётчиком', () => {
     const base: ChronoEvent[] = [
       { id: 'y1260-1', year: 1260, kind: 'conflicts', text: 'War of the Regency begins.', cites: ['Grand History, с. 1'] },
+      { id: 'y1260-2', year: 1260, kind: 'politics', text: 'A source event without a book citation.' },
       { id: 'y1400-1', year: 1400, kind: 'politics', text: 'Something later.' },
       { id: 'y1300-1', year: 1300, kind: 'misc', text: 'Not about Cormyr.' },
     ];
@@ -78,9 +79,21 @@ describe('держава', () => {
       { id: 'a1260-1', year: 1260, text: 'The War of the Regency.', same: 'y1260-1', src: { title: 'War of the Regency', how: 'conflict' } },
       { id: 'a-26-1', year: -26, text: 'Cormyr is founded.', src: { title: 'History of Cormyr (timeline)', section: 'Early', how: 'timeline' } },
     ];
-    const h = kingdomHistoryOf({ events: ['y1260-1', 'y1400-1', 'a1260-1', 'a-26-1'] }, 1372, base, articles);
-    expect(h.lines.map(l => l.id)).toEqual(['a-26-1', 'y1260-1']);
-    expect(h.lines[0].cite).toBe('History of Cormyr (timeline) · Early');
+    const h = kingdomHistoryOf({ events: ['y1260-1', 'y1260-2', 'y1400-1', 'a1260-1', 'a-26-1'] }, 1372, base, articles);
+    expect(h.lines.map(l => l.id)).toEqual(['a-26-1', 'y1260-1', 'y1260-2']);
+    expect(h.lines[0]).toMatchObject({
+      sourceTitle: 'History of Cormyr (timeline) · Early',
+      sourceUrl: 'https://forgottenrealms.fandom.com/wiki/History_of_Cormyr_(timeline)',
+    });
+    expect(h.lines.find(line => line.id === 'y1260-1')).toMatchObject({
+      sourceTitle: '1260 DR',
+      sourceUrl: 'https://forgottenrealms.fandom.com/wiki/1260_DR',
+      cites: ['Grand History, с. 1'],
+    });
+    expect(h.lines.find(line => line.id === 'y1260-2')).toMatchObject({
+      sourceTitle: '1260 DR',
+      sourceUrl: 'https://forgottenrealms.fandom.com/wiki/1260_DR',
+    });
     expect(h.later).toBe(1);
   });
 

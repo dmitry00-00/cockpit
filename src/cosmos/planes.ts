@@ -3,10 +3,12 @@
 // внутренними планами. Факты — карточки {{Plane}} Forgotten Realms Wiki (CC BY-SA 3.0, см. LICENSE.md), импорт —
 // scripts/import-planes.py. Место плана на кольце — его сетка мировоззрения: закон слева, хаос справа, добро сверху,
 // зло снизу; раскладка своя.
+import { loadSettingJson } from '../packages/registry';
+
 const [raw, treeRaw] = await Promise.all([
-  import('../../content/cosmos/great-wheel.json'),
-  import('../../content/cosmos/world-tree.json'),
-]).then(ms => ms.map(m => m.default));
+  loadSettingJson('content/cosmos/great-wheel.json'),
+  loadSettingJson('content/cosmos/world-tree.json'),
+]);
 
 export type PlaneKind = 'outer' | 'realm' | 'transitive' | 'material' | 'parallel' | 'inner' | 'energy'
   /** Великое древо: небесные, нейтральные, дьявольские и вне Древа. */
@@ -116,7 +118,7 @@ export function planeOfLocation(name: string, w: GreatWheel = GREAT_WHEEL): Plan
 }
 
 /**
- * Великое древо (World Tree, модель 1372 DR): небесные планы на самом Древе, дьявольские — по River of Blood,
+ * Великое древо (World Tree; источник среза датирован 1372 DR): небесные планы на самом Древе, дьявольские — по River of Blood,
  * нейтральные — только на ветвях Astral; Cynosure и Fugue Plane — вне Древа. Все ветви Astral ведут через
  * Материальный: между двумя внешними или внутренними планами — только через него или порталом.
  */

@@ -16,6 +16,8 @@ export interface InitiativeRow {
   mod: number;
   /** Уже известный бросок — из сида или прошлого порядка; пусто — поле пустое. */
   initiative?: number;
+  /** Есть разрешённый профиль действий логова для этого монстра. */
+  lairProfile?: boolean;
 }
 
 export interface InitiativeEditorProps {
@@ -23,8 +25,8 @@ export interface InitiativeEditorProps {
   /** «Начать бой» — до боя (ENCOUNTER_STARTED), «Применить» — в бою (INITIATIVE_SET). */
   mode: 'start' | 'set';
   /** Бросок по формуле «1d20+3» с подписью; возвращает итог — страница пишет DICE_ROLLED и отдаёт total. */
-  onRoll: (formula: string, label: string) => number;
-  onApply: (order: InitiativeEntry[]) => void;
+  onRoll: (formula: string, label: string, actorId?: string) => number;
+  onApply: (order: InitiativeEntry[], lairContextConfirmed?: boolean) => void;
   className?: string;
 }
 
@@ -60,19 +62,25 @@ const INPUT = 'w-14 h-7 px-1 text-center type-num-15 text-tx bg-wl shadow-bevel-
 
 export function InitiativeEditor({ rows, mode, onRoll, onApply, className = '' }: InitiativeEditorProps) {
   const [drafts, setDrafts] = useState<Record<string, string>>(() => Object.fromEntries(rows.filter(r => r.initiative !== undefined).map(r => [r.id, String(r.initiative)])));
+  const [lairContextConfirmed, setLairContextConfirmed] = useState(false);
   const order = orderFromDrafts(rows, drafts);
+  const lairProfileInOrder = mode === 'start' && order.some(entry => rows.some(row => row.id === entry.actorId && row.kind === 'monster' && row.lairProfile));
   const empty = rows.filter(r => parseInitiative(drafts[r.id] ?? '') === null);
 
   const rollFor = (r: InitiativeRow) => {
-    const total = onRoll(initiativeFormula(r.mod), `Инициатива · ${r.name}`);
+    const total = onRoll(initiativeFormula(r.mod), `Инициатива · ${r.name}`, r.id);
     setDrafts(d => ({ ...d, [r.id]: String(total) }));
   };
   const rollEmpty = () => {
     const next: Record<string, string> = {};
-    for (const r of empty) next[r.id] = String(onRoll(initiativeFormula(r.mod), `Инициатива · ${r.name}`));
+    for (const r of empty) next[r.id] = String(onRoll(initiativeFormula(r.mod), `Инициатива · ${r.name}`, r.id));
     setDrafts(d => ({ ...d, ...next }));
   };
-  const apply = () => { if (order.length > 0) onApply(order); };
+  const apply = () => {
+    if (order.length === 0) return;
+    if (mode === 'start') onApply(order, lairContextConfirmed && lairProfileInOrder);
+    else onApply(order);
+  };
   const onKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
     // Enter в любом поле — главное действие: числа названы, бой начинается.
     if (e.key === 'Enter') { e.preventDefault(); apply(); }
@@ -110,6 +118,17 @@ export function InitiativeEditor({ rows, mode, onRoll, onApply, className = '' }
           );
         })}
       </ol>
+      {lairProfileInOrder ? (
+        <label className="flex items-start gap-2 type-body-sm text-t2">
+          <input
+            type="checkbox"
+            checked={lairContextConfirmed}
+            onChange={e => setLairContextConfirmed(e.target.checked)}
+            className="mt-0.5 accent-[var(--gd)]"
+          />
+          <span>Бой проходит в логове существа</span>
+        </label>
+      ) : null}
       <div className="flex items-center gap-1">
         <button type="button" title="Бросить d20 + DEX всем, у кого поле пустое" disabled={empty.length === 0} onClick={rollEmpty} className={BTN}>
           Бросить пустым

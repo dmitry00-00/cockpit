@@ -1,0 +1,198 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "event",
+  "entities": [
+    {
+      "ref": "event:burning-of-pinkmaiden-castle",
+      "kind": "event",
+      "name": "Burning of Pinkmaiden Castle",
+      "nameRu": "Сожжение замка Пинкмейден",
+      "subtitle": "A Game of Thrones · Tyrion VII · chapter 56",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion VII (chapter 56); A Wiki of Ice and Fire, numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_56",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 56,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Локатор",
+          "value": "Tyrion VII · chapter 56"
+        },
+        {
+          "label": "Роль локатора",
+          "value": "только ссылка на прошлое событие; не событие, происходящее в главе 56"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; не выводить из порядка глав."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF включает это название в перечень событий главы Tyrion VII. Черновик сохраняет только reference-only связь; подробности события требуют сверки с первичным текстом."
+        }
+      ]
+    },
+    {
+      "ref": "event:burning-of-stone-hedge",
+      "kind": "event",
+      "name": "Burning of Stone Hedge",
+      "nameRu": "Сожжение Стоун-Хеджа",
+      "subtitle": "A Game of Thrones · Tyrion VII · chapter 56",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion VII (chapter 56); A Wiki of Ice and Fire, numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_56",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 56,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Локатор",
+          "value": "Tyrion VII · chapter 56"
+        },
+        {
+          "label": "Роль локатора",
+          "value": "только ссылка на прошлое событие; не событие, происходящее в главе 56"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; не выводить из порядка глав."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF включает это название в перечень событий главы Tyrion VII. Черновик сохраняет только reference-only связь; подробности события требуют сверки с первичным текстом."
+        }
+      ]
+    },
+    {
+      "ref": "event:fall-of-raventree-hall",
+      "kind": "event",
+      "name": "Fall of Raventree Hall",
+      "nameRu": "Падение Рейвен-Три-Холла",
+      "subtitle": "A Game of Thrones · Tyrion VII · chapter 56",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion VII (chapter 56); A Wiki of Ice and Fire, numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_56",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 56,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Локатор",
+          "value": "Tyrion VII · chapter 56"
+        },
+        {
+          "label": "Роль локатора",
+          "value": "только ссылка на прошлое событие; не событие, происходящее в главе 56"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; не выводить из порядка глав."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF включает это название в перечень событий главы Tyrion VII. Черновик сохраняет только reference-only связь; подробности события требуют сверки с первичным текстом."
+        }
+      ]
+    },
+    {
+      "ref": "event:yielding-of-harrenhal",
+      "kind": "event",
+      "name": "Yielding of Harrenhal",
+      "nameRu": "Сдача Харренхолла",
+      "subtitle": "A Game of Thrones · Tyrion VII · chapter 56",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion VII (chapter 56); A Wiki of Ice and Fire, numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_56",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 56,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Локатор",
+          "value": "Tyrion VII · chapter 56"
+        },
+        {
+          "label": "Роль локатора",
+          "value": "только ссылка на прошлое событие; не событие, происходящее в главе 56"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; не выводить из порядка глав."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF включает это название в перечень событий главы Tyrion VII. Черновик сохраняет только reference-only связь; подробности события требуют сверки с первичным текстом."
+        }
+      ]
+    }
+  ]
+}

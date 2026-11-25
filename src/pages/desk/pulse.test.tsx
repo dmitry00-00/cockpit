@@ -15,12 +15,12 @@ describe('пульс мира (Q8)', () => {
     const view = pulse();
     const calendar = within(view).getByRole('region', { name: 'Календарь' });
     expect(within(calendar).getByRole('group', { name: '15 Mirtul — 24 Mirtul' })).toHaveTextContent('Полнолуние Selûne18 Mirtul · через 3 дня');
-    expect(calendar).toHaveTextContent('Old Owl Well: след остынет');
+    expect(calendar).not.toHaveTextContent('Old Owl Well: след остынет');
 
     const graph = within(view).getByRole('img', { name: /^Отношения фракций/ });
     expect(graph.querySelector('[data-edge="fac-harpers|fac-zhentarim"]')).toHaveAttribute('data-value', '-2');
     expect(graph.querySelector('[data-edge="fac-harpers|fac-lords-alliance"]')).toHaveAttribute('data-value', '2');
-    expect(within(view).getByRole('region', { name: 'Боги партии' })).toHaveTextContent('молятся: Brother Aldric');
+    expect(within(view).getByRole('region', { name: 'Пантеон партии' })).toHaveTextContent('молятся: Brother Aldric');
 
     // Neverwinter: индекс 110 (надбавка места), оружие ждёт +10 — «→ 120» рядом.
     const prices = within(view).getByRole('region', { name: 'Цены' });

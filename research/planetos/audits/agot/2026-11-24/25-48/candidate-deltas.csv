@@ -1,0 +1,105 @@
+kind,chapter_no,chapter_title,chapter_url,candidate_id_or_label,candidate_name,source_relation,ledger_status,package_card_status,notes
+person,27,Eddard VI,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_27,person:pycelle,Pycelle,appearing,missing,exists,
+person,28,Catelyn V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_28,person:kurleket,Kurleket,appearing,missing,exists,
+person,30,Eddard VII,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_30,person:jory-cassel,Jory Cassel,appearing,missing,exists,Appearing list includes Jory
+person,30,Eddard VII,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_30,person:arya-stark,Arya Stark,appearing,missing,exists,Appearing list includes Arya
+person,34,Catelyn VI,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_34,person:whitey,Whitey,appearing,missing,missing,
+person,37,Bran V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_37,person:grey-wind,Grey Wind,appearing,missing,exists,
+person,37,Bran V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_37,person:hali,Hali,appearing,missing,missing,
+person,37,Bran V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_37,person:joseth,Joseth,appearing,missing,missing,
+person,37,Bran V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_37,person:kyra,Kyra,appearing,missing,exists,
+person,37,Bran V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_37,person:quent,Quent,appearing,missing,missing,
+person,37,Bran V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_37,person:stiv,Stiv,appearing,missing,missing,
+person,37,Bran V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_37,person:wallen,Wallen,appearing,missing,missing,
+person,37,Bran V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_37,person:wayn,Wayn,appearing,missing,missing,
+person,40,Catelyn VII,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_40,person:lyn-corbray,Lyn Corbray,appearing,missing,exists,
+person,41,Jon V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_41,person:albett,Albett,appearing,missing,exists,
+person,41,Jon V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_41,person:dareon,Dareon,appearing,missing,exists,
+person,41,Jon V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_41,person:grenn,Grenn,appearing,missing,exists,
+person,41,Jon V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_41,person:halder,Halder,appearing,missing,exists,
+person,41,Jon V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_41,person:jeren,Jeren,appearing,missing,exists,
+person,41,Jon V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_41,person:bowen-marsh,Bowen Marsh,appearing,missing,exists,
+person,41,Jon V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_41,person:pypar,Pypar,appearing,missing,exists,
+person,41,Jon V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_41,person:rast,Rast,appearing,missing,exists,
+person,41,Jon V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_41,person:samwell-tarly,Samwell Tarly,appearing,missing,exists,
+person,41,Jon V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_41,person:alliser-thorne,Alliser Thorne,appearing,missing,exists,
+person,41,Jon V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_41,person:todder,Todder,appearing,missing,exists,
+person,42,Tyrion VI,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_42,person:jaggot,Jaggot,appearing,missing,missing,
+person,42,Tyrion VI,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_42,person:torrek,Torrek,appearing,missing,missing,
+person,43,Eddard XI,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_43,person:alyn,Alyn,appearing,missing,exists,
+person,43,Eddard XI,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_43,person:raymun-darry,Raymun Darry,appearing,missing,exists,
+person,43,Eddard XI,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_43,person:joss,Joss,appearing,missing,missing,
+person,43,Eddard XI,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_43,person:lothar-mallery,Lothar Mallery,appearing,missing,missing,
+person,43,Eddard XI,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_43,person:porther,Porther,appearing,missing,exists,
+person,44,Sansa III,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_44,person:alyn,Alyn,appearing,missing,exists,
+person,45,Eddard XII,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_45,person:tomard,Tomard,appearing,missing,exists,
+person,45,Eddard XII,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_45,person:varly,Varly,appearing,missing,exists,
+person,46,Daenerys V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_46,person:fogo,Fogo,appearing,missing,exists,
+person,46,Daenerys V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_46,person:jommo,Jommo,appearing,missing,missing,
+person,46,Daenerys V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_46,person:ogo,Ogo,appearing,missing,exists,
+person,47,Eddard XIII,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_47,person:desmond,Desmond,appearing,missing,exists,
+person,39,Eddard X,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_39,person:eddard-stark,Eddard Stark,appearing-in-dream,incorrect-extra,exists,Dreamer is not a dream figure; source lists 10 other figures
+person,35,Eddard IX,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_35,person:unnamed-barra-mother,Barra's mother,mentioned,excluded,missing,Unnamed person; no stable ID candidate
+person,36,Daenerys IV,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_36,person:unnamed-silver-mare,Silver mare,appearing,ambiguous,missing,Unnamed mount; exclude from person denominator
+person,37,Bran V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_37,person:dancer,Dancer,appearing,ambiguous,missing,Named horse; decide whether package models named mounts as character entities
+person,40,Catelyn VII,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_40,person:plump-septon,Plump septon,appearing,excluded,missing,Unnamed role; no stable person ID candidate
+person,46,Daenerys V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_46,person:one-eyed-crone,One-eyed crone,appearing,ambiguous,missing,Unidentified individual; no personal name
+person,47,Eddard XIII,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_47,person:kings-steward,King's steward,appearing,excluded,missing,Office/role; identity not stated
+person,25,Eddard V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_25,person:robert-arryn,Robert Arryn,mentioned,missing,exists,Source list includes him; ledger only links Robert Baratheon
+person,25,Eddard V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_25,person:renly-baratheon,Renly Baratheon,mentioned,missing,exists,
+person,25,Eddard V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_25,person:colemon,Colemon,mentioned,missing,missing,
+person,25,Eddard V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_25,person:vardis-egen,Vardis Egen,mentioned,missing,exists,
+person,25,Eddard V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_25,person:syrio-forel,Syrio Forel,mentioned,missing,exists,
+person,25,Eddard V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_25,person:tywin-lannister,Tywin Lannister,mentioned,missing,exists,
+person,25,Eddard V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_25,person:old-nan,Old Nan,mentioned,missing,exists,
+person,25,Eddard V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_25,person:barristan-selmy,Barristan Selmy,mentioned,missing,exists,
+person,25,Eddard V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_25,person:rickard-stark,Rickard Stark,mentioned,missing,exists,
+person,25,Eddard V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_25,person:varys,Varys,mentioned,missing,exists,
+person,39,Eddard X,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_39,person:petyr-baelish,Petyr Baelish,mentioned,missing,exists,
+person,39,Eddard X,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_39,person:barra,Barra,mentioned,missing,exists,
+person,39,Eddard X,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_39,person:willem-darry,Willem Darry,mentioned,missing,exists,
+person,39,Eddard X,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_39,person:tywin-lannister,Tywin Lannister,mentioned,missing,exists,
+person,39,Eddard X,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_39,person:pycelle,Pycelle,mentioned,missing,exists,
+person,39,Eddard X,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_39,person:brandon-stark,Brandon Stark,mentioned,missing,exists,
+person,39,Eddard X,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_39,person:aerys-ii-targaryen,Aerys II Targaryen,mentioned,missing,exists,
+person,39,Eddard X,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_39,person:rhaegar-targaryen,Rhaegar Targaryen,mentioned,missing,exists,
+person,39,Eddard X,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_39,person:rhaella-targaryen,Rhaella Targaryen,mentioned,missing,exists,
+person,39,Eddard X,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_39,person:tregar,Tregar,mentioned,missing,exists,
+person,39,Eddard X,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_39,person:mace-tyrell,Mace Tyrell,mentioned,missing,exists,
+place,27,Eddard VI,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_27,place:casterly-rock,Casterly Rock,reference,missing,exists,Places list has this and other remote locations; places_referenced_ids is empty
+place,27,Eddard VI,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_27,place:dragonstone,Dragonstone,reference,missing,exists,
+place,27,Eddard VI,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_27,place:great-sept-of-baelor,Great Sept of Baelor,reference,missing,exists,
+place,27,Eddard VI,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_27,place:storms-end,Storm's End,reference,missing,exists,
+place,37,Bran V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_37,place:kings-landing,King's Landing,reported-message-reference,missing,exists,Alyn's raven message originates here; scene is Winter town and Wolfswood
+place,37,Bran V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_37,place:the-eyrie,Eyrie,reference,missing,exists,
+place,37,Bran V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_37,place:kingsroad,Kingsroad,reference,missing,exists,
+place,37,Bran V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_37,place:moat-cailin,Moat Cailin,reference,missing,exists,
+place,41,Jon V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_41,place:eastwatch,Eastwatch,reference,missing,missing,
+place,41,Jon V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_41,place:haunted-forest,Haunted forest,reference,missing,exists,
+place,41,Jon V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_41,place:isle-of-faces,Isle of Faces,reference,missing,missing,
+place,41,Jon V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_41,place:shadow-tower,Shadow Tower,reference,missing,exists,
+place,41,Jon V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_41,place:braavos,Braavos,reference,missing,missing,
+place,43,Eddard XI,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_43,place:mummers-ford,Mummer's Ford,reference,missing,missing,Location of prior raid mentioned in proceedings
+place,43,Eddard XI,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_43,place:golden-tooth,Golden Tooth,reference,missing,exists,
+place,43,Eddard XI,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_43,place:wendish-town,Wendish Town,reference,missing,missing,
+place,45,Eddard XII,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_45,place:casterly-rock,Casterly Rock,reference,missing,exists,
+place,45,Eddard XII,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_45,place:dorne,Dorne,reference,missing,exists,
+place,45,Eddard XII,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_45,place:free-cities,Free Cities,reference,missing,exists,
+place,45,Eddard XII,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_45,place:kingswood,Kingswood,reference,missing,missing,
+place,45,Eddard XII,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_45,place:port-of-ibben,Port of Ibben,reference,missing,missing,
+place,45,Eddard XII,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_45,place:summer-isles,Summer Isles,reference,missing,missing,
+place,47,Eddard XIII,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_47,place:crypts-of-winterfell,Crypts of Winterfell,dream-scene,missing,exists,Page synopsis has Ned dreaming in the crypts; places_in_dream_ids is empty
+event,37,Bran V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_37,event:jaime-ambushes-ned-and-kills-jory,Jaime ambushes Ned and kills Jory,reported,missing,exists,Reported through Alyn's message; happened earlier
+event,40,Catelyn VII,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_40,event:lannister-army-gathering-at-casterly-rock,Lannister army gathers at Casterly Rock,reported,missing,missing,Reported by Rodrik from Edmure's letter; do not treat later attack as occurred here
+event,43,Eddard XI,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_43,event:eddard-sends-beric-after-gregor,Eddard sends Beric to bring Gregor to justice,order-or-mission,occurred-linked,exists,The order occurs; subsequent raid/outcome is not shown in this scene
+event,47,Eddard XIII,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_47,event:littlefinger-plan-to-bribe-city-watch,Littlefinger proposes bribing the City Watch,plan,not-linked,missing,Proposal in conversation; do not infer the bribery or City Watch outcome
+person,25,Eddard V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_25,person:brandon-the-builder,Brandon the Builder,mentioned,missing,missing,Mentioned in source list; no package card
+person,25,Eddard V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_25,person:malleon,Malleon,mentioned,missing,missing,Mentioned in source list; no package card
+person,25,Eddard V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_25,person:aegon-v-targaryen,Aegon V Targaryen,mentioned,missing,missing,Mentioned in source list; no package card
+person,25,Eddard V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_25,person:jaehaerys-ii-targaryen,Jaehaerys II Targaryen,mentioned,missing,missing,Mentioned in source list; no package card
+person,25,Eddard V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_25,person:maekar-i-targaryen,Maekar I Targaryen,mentioned,missing,missing,Mentioned in source list; no package card
+person,30,Eddard VII,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_30,person:joffrey-baratheon,Joffrey Baratheon,appearing-in-synopsis,ledger-only-vs-appearing-list,exists,Ledger links this as appearing; chapter synopsis discusses presence although Character List omits it
+person,30,Eddard VII,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_30,person:cersei-lannister,Cersei Lannister,appearing-in-synopsis,ledger-only-vs-appearing-list,exists,Ledger links this as appearing; chapter synopsis discusses presence although Character List omits it
+person,30,Eddard VII,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_30,person:boros-blount,Boros Blount,appearing-in-synopsis,ledger-only-vs-appearing-list,exists,Ledger links this as appearing; chapter synopsis discusses presence although Character List omits it
+person,30,Eddard VII,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_30,person:meryn-trant,Meryn Trant,appearing-in-synopsis,ledger-only-vs-appearing-list,exists,Ledger links this as appearing; chapter synopsis discusses presence although Character List omits it
+person,25,Eddard V,https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_25,person:aerys-ii-targaryen,Aerys II Targaryen,mentioned,missing,exists,

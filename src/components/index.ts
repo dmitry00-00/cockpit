@@ -23,9 +23,11 @@ export {
   EntityCard, ENTITY, ORIGIN, cardShadow, visibleTabs, hpStat, actorCardProps, raceLabel,
   placeCardProps, factionCardProps, placeEntityType, populationLabel, priceLabel, DANGER_LABELS,
   TAB_OVERVIEW, TAB_CONDITIONS, TAB_GEAR, TAB_PATH, TAB_ACTIONS, TAB_NOW, TAB_DM,
+  TAB_SUBJECT, TAB_HISTORY,
   type EntityCardProps, type EntityCardTab, type EntityStat, type EntityType, type Origin, type StatTone, type ActorCardProps, type ActorCardOptions,
   type PlaceCardProps, type PlaceCardOptions,
 } from './EntityCard';
+export { SubjectProfileShell } from './SubjectProfileShell';
 export {
   Paperdoll, SLOT_IDS, SLOTS, slotTitle, weaponTitle, dollItemsOf,
   type PaperdollProps, type SlotId, type SlotItem, type Weapon, type InventoryItem,
@@ -37,7 +39,7 @@ export {
   InitiativeToken, TokenHpStrip, initiativeTokenOf, initiativeTokenTitle, initiativeTokenDescription, initiativeTokenShadow, tokenHpPct,
   type InitiativeTokenProps,
 } from './InitiativeToken';
-export { InitiativeBar, type InitiativeBarProps, type InitiativeBarEntry, type InitiativeLegendary } from './InitiativeBar';
+export { InitiativeBar, type InitiativeBarProps, type InitiativeBarEntry, type InitiativeLegendary, type InitiativeLairActions } from './InitiativeBar';
 export {
   BattleGrid, battleTokenOf, battleTokenTitle, battleTokenDescription, battleTokenShadow, conePoints,
   BATTLE_CELL_DEFAULT, TOKEN_CONDITIONS_MAX,
@@ -47,6 +49,7 @@ export {
   RollModal, rollHistoryOf, lastRollOf, diceSides, HISTORY_MAX,
   type RollModalProps, type RollHistoryItem, type RollOutcome,
 } from './RollModal';
+export { PhysicalDiceInput, type PhysicalDiceInputProps, type PhysicalDiceResult } from './PhysicalDiceInput';
 // Шаг 7 — журнал и нити: запись с каскадом и напоминанием, фильтр, карточка нити, предложение мира.
 // Тоже тупые: части текста, сводки нитей и дельты — проекции движка, фильтр — состояние вида на странице.
 export {
@@ -60,6 +63,8 @@ export {
 // Подписи, порядок и темп уровней — одно место на фильтр, сводку, предложение мира, лестницу и карточку места.
 export { SCALE_LABELS, SCALE_ORDER, SCALE_TEMPO_LABELS } from './scales';
 export { ThreadCard, entryCountLabel, type ThreadCardProps, type ThreadCardRow } from './ThreadCard';
+export { ThreadFrontEditor, type ThreadFrontEditorProps } from './ThreadFrontEditor';
+export { ProgressMeter, type ProgressMeterProps } from './ProgressMeter';
 export { WorldDelta, worldDeltaProps, type WorldDeltaProps } from './WorldDelta';
 // Шаг 8 — шаг времени: темп и «Шаг», небесная полоса, фазы суток, сводка «Что изменилось». Тоже тупые:
 // темп, фаза, луна и группы — пропсами со страницы; summaryGroups — проекция дельт без колбэков.
@@ -79,6 +84,7 @@ export { PlayerFrame, PLAYER_FRAME_LABEL, type PlayerFrameProps } from './Player
 
 // Шаг 10 — лестница масштабов: навигация по девяти уровням; выше региона — карточки (placeCardProps, factionCardProps выше).
 export { ScaleLadder, ladderStepTitle, LADDER_COMPACT_FROM, type ScaleLadderProps, type ScaleStep } from './ScaleLadder';
+export { ArmillaryScale, type ArmillaryScaleProps } from './ArmillaryScale';
 
 // Живой стол (21.09.2026): то, чего не хватало, чтобы сыграть MVP за столом, — редактор инициативы (числа
 // игроков вводит мастер, монстрам бросает система), появление противника из блока SRD, начало концентрации.
@@ -103,6 +109,8 @@ export { PartyPortraits, type PartyPortraitsProps } from './PartyPortraits';
 export { EntityViewBody, GroupList, cardTypeOf, type EntityViewBodyProps } from './EntityViewBody';
 export { NeighborhoodGraph, type NeighborhoodGraphProps } from './NeighborhoodGraph';
 export { FactionGraph, edgeStyle, type FactionGraphProps } from './FactionGraph';
+export { FactionOrrery, influenceRadius, type FactionOrreryProps } from './FactionOrrery';
+export { SandglassTimer, type SandglassTimerProps } from './SandglassTimer';
 export { OddsTable, faceNeeded } from './OddsTable';
 export { DerivationPanel } from './DerivationPanel';
 export { OpenEntityContext, useOpenEntity } from './openEntity';
@@ -114,7 +122,7 @@ export { ABILITY_LABEL, SKILL_LABEL, SKILLS_BY_ABILITY, GOODS_LABEL, RELATION_LA
 // Секции листа из редактора персонажа: выборы умений, атаки, заклинания, снаряжение — одни на карточке стола и в редакторе.
 export { IconGrid, type IconGridItem } from './IconGrid';
 export { abilityIcon, classIcon, raceIcon, schoolIcon, featIcon, featureIcon, traitIcon, TRAIT_ICON } from './sheetIcons';
-export { SheetChoices, SheetFeats, SheetAttacks, SheetSpells, SheetEquipment, dollExtrasOf, choiceValueLabel, spellTitle, itemLabel } from './SheetSections';
+export { SheetChoices, SheetFeats, SheetLanguages, SheetAttacks, SheetSpells, SheetEquipment, dollExtrasOf, choiceValueLabel, spellTitle, itemLabel } from './SheetSections';
 
 // Лист по бумажной карточке владельца и поверхности из макетов 27.10.2026: паспорт данных, подвал партии со сводкой
 // выборки, лист сравнения. Тупые: числа — из campaign/sheetView.ts.

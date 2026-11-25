@@ -1,7 +1,7 @@
 // @vitest-environment node
 // Год кампании — фильтр канона (ROADMAP 0.6): эпоха по году, порядок редакций, космология по умолчанию.
 import { describe, expect, it } from 'vitest';
-import { EDITION_ORDER, cosmologyOf, eraOf } from './era';
+import { EDITION_ORDER, cosmologyOf, eraOf, eraOfSetting } from './era';
 
 describe('эпоха кампании по году', () => {
   it('1372 DR — 3e и Великое древо; 1479 — 4e; 1492 — 5e и Великое колесо; границы включительно', () => {
@@ -15,5 +15,9 @@ describe('эпоха кампании по году', () => {
     expect(EDITION_ORDER['5e'].slice(0, 2)).toEqual(['5eR', '5e']);
     expect(EDITION_ORDER['3e']).toEqual(['3e', '2e', '1e', '']);
     for (const order of Object.values(EDITION_ORDER)) expect(order.at(-1)).toBe('');
+  });
+
+  it('безгодовой календарь использует default линзы пакета, а не фиктивный нулевой год', () => {
+    expect(eraOfSetting(null, 'fr')).toBe('5e');
   });
 });

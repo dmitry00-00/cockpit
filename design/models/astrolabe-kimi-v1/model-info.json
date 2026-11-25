@@ -1,0 +1,212 @@
+{
+  "model": "DM Cockpit world-time astrolabe (авторская астролябия интерфейса)",
+  "version": "1.0",
+  "generated": "2026-11-02",
+  "tool": "astrolabe_generator.py (trimesh 5.2.0 + shapely 2.1.1, procedural)",
+  "origin": "пересобрана процедурно по образу исходного GLB (сгенерирован Tripo API, v3.1): исходник — монолитный mesh 1.46M тр., неразделимый; его геометрия/текстуры не переиспользованы, сохранены композиция и образ",
+  "units": "meters",
+  "axes": {
+    "front_plane": "XY",
+    "face_normal": "+Z",
+    "up": "+Y",
+    "rotation": "локальная +Z каждого pivot",
+    "root": "astrolabe_root в центре корпуса",
+    "body_diameter": 0.24
+  },
+  "bounding_box": {
+    "min": [
+      -0.12,
+      -0.12,
+      -0.006
+    ],
+    "max": [
+      0.12,
+      0.1668,
+      0.02
+    ]
+  },
+  "neutral_pose": {
+    "time_pointer_pivot_deg": 0,
+    "calendar_disc_pivot_deg": 0,
+    "rete_pivot_deg": 0,
+    "moon_disc_pivot_deg": 0,
+    "comment": "указатель: копьё на +X; луна: светлая половина вверх"
+  },
+  "pivots": {
+    "calendar_disc_pivot": {
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "axis": "Z"
+    },
+    "rete_pivot": {
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "axis": "Z"
+    },
+    "time_pointer_pivot": {
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "axis": "Z"
+    },
+    "moon_disc_pivot": {
+      "position": [
+        0.062,
+        0.062,
+        0
+      ],
+      "axis": "Z"
+    }
+  },
+  "node_tree": {
+    "astrolabe_root": [
+      "body",
+      "outer_rim",
+      "suspension_ring",
+      {
+        "calendar_disc_pivot": [
+          "calendar_disc"
+        ]
+      },
+      {
+        "rete_pivot": [
+          "rete"
+        ]
+      },
+      {
+        "time_pointer_pivot": [
+          "time_pointer"
+        ]
+      },
+      {
+        "moon_disc_pivot": [
+          {
+            "moon_disc": [
+              "moon_disc_geom",
+              "moon_disc_dark"
+            ]
+          }
+        ]
+      },
+      {
+        "center_cap": [
+          "center_cap_geom",
+          "enamel_inlay"
+        ]
+      }
+    ]
+  },
+  "z_layers_m": {
+    "body": [
+      -0.006,
+      0.004
+    ],
+    "rim": [
+      0.004,
+      0.01
+    ],
+    "cal": [
+      0.004,
+      0.007
+    ],
+    "rete": [
+      0.008,
+      0.0105
+    ],
+    "pointer": [
+      0.0115,
+      0.014
+    ],
+    "moon": [
+      0.0145,
+      0.0165
+    ]
+  },
+  "materials": {
+    "brass_aged": {
+      "use": "body, outer_rim, center_cap, suspension_ring",
+      "metallic": 0.88,
+      "roughness_base": 0.46
+    },
+    "bone_plate": {
+      "use": "calendar_disc, moon_disc_geom",
+      "metallic": 0.0,
+      "roughness_base": 0.58
+    },
+    "bronze_rete": {
+      "use": "rete, time_pointer",
+      "metallic": 0.88,
+      "roughness_base": 0.5
+    },
+    "plum_enamel": {
+      "use": "enamel_inlay, moon_disc_dark",
+      "metallic": 0.0,
+      "roughness": 0.16,
+      "note": "факторный, без текстур"
+    }
+  },
+  "textures": {
+    "size_px": 1024,
+    "files": [
+      "bone_plate_basecolor.jpg",
+      "bone_plate_normal.png",
+      "bone_plate_orm.jpg",
+      "brass_aged_basecolor.jpg",
+      "brass_aged_normal.png",
+      "brass_aged_orm.jpg",
+      "bronze_rete_basecolor.jpg",
+      "bronze_rete_normal.png",
+      "bronze_rete_orm.jpg"
+    ],
+    "channels": {
+      "basecolor.jpg": "sRGB",
+      "normal.png": "OpenGL Y+ (данные)",
+      "orm.jpg": "R=AO=1, G=roughness, B=metallic (metallicRoughnessTexture glTF 2.0)"
+    },
+    "external_files": true,
+    "embedded_in_glb": true
+  },
+  "files": {
+    "astrolabe-main-v1.glb": {
+      "bytes": 1343208,
+      "triangles": 13704,
+      "vertices": 40156,
+      "materials": 4,
+      "budget": {
+        "tris_target": "20-40k",
+        "tris_max": 60000,
+        "bytes_max": 5000000
+      }
+    },
+    "astrolabe-lite-v1.glb": {
+      "bytes": 715092,
+      "triangles": 4736,
+      "vertices": 13882,
+      "materials": 4,
+      "budget": {
+        "tris_max": 8000,
+        "bytes_max": 2000000
+      }
+    }
+  },
+  "extensions": {
+    "extensionsUsed": [],
+    "extensionsRequired": [],
+    "compression": "нет (Draco/Meshopt/KTX2 не применялись)"
+  },
+  "external_uris": [],
+  "notes": [
+    "узлы-пустышки (*_pivot, moon_disc, center_cap, enamel_node) — точки вращения, доступны по имени",
+    "реальные треугольники ниже целевого коридора main: рельеф перенесён в normal-карты",
+    "масштаб узлов = 1, отрицательного масштаба нет",
+    "анимационных дорожек нет: вращение задаёт приложение"
+  ]
+}

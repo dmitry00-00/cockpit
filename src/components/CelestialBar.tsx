@@ -6,6 +6,8 @@
 // цвет никогда не единственный носитель. Имена мира — латиницей: Selûne, Feywild. Строки классов полные.
 
 import { Icon, type IconName } from '../icons/Icon';
+import { SemanticMark } from '../art/SemanticMark';
+import { MOON_ART } from '../art/semanticBindings';
 
 export type MoonPhase = 'new' | 'waxing' | 'full' | 'waning';
 
@@ -42,7 +44,7 @@ export function CelestialBar({ moon, next, plane, compact = false, className = '
   return (
     <div role="group" aria-label="Небесные тела" data-compact={compact || undefined} className={`flex items-center gap-3 whitespace-nowrap type-body-sm text-t2 ${className}`}>
       <span data-part="moon" data-moon={moon} title={`Фаза Selûne: ${moonLabel}`} className="flex flex-none items-center gap-1">
-        <Icon name={MOON_ICONS[moon]} size={16} color="var(--src-canon)" title={moonLabel} />
+        <SemanticMark asset={MOON_ART[moon]} icon={MOON_ICONS[moon]} size={16} color="var(--src-canon)" title={moonLabel} />
         {compact ? null : <span>{moonLabel}</span>}
       </span>
       {next ? (

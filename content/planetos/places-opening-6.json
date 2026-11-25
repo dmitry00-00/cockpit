@@ -1,0 +1,412 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "place",
+  "entities": [
+    {
+      "ref": "place:beyond-the-wall",
+      "kind": "place",
+      "name": "Beyond the Wall",
+      "nameRu": "За Стеной",
+      "subtitle": "A Game of Thrones · Prologue",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Prologue (numeric chapter page is not published; canonical AWOIAF locator); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Prologue",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 0
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Prologue"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Русское имя",
+          "value": "Рабочая передача; сверить с выбранным изданием владельца."
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Числовая перекрёстная ссылка",
+          "value": "Bran III, глава 17: область появляется в сне Брана, это не указание на сцену в регионе: https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_17"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Макрорегион по ту сторону Стены. Пролог происходит в Зачарованном лесу за Стеной; точные границы и координаты региона не заданы."
+        }
+      ],
+      "links": [
+        {
+          "label": "The Wall",
+          "ref": "place:the-wall"
+        },
+        {
+          "label": "Haunted Forest",
+          "ref": "place:haunted-forest"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Game of Thrones · Prologue",
+          "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Prologue",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "agot",
+          "chapterNo": 0
+        }
+      ]
+    },
+    {
+      "ref": "place:dothraki-wedding-ground-outside-pentos",
+      "kind": "place",
+      "name": "Dothraki wedding ground outside Pentos",
+      "nameRu": "Дотракийское свадебное поле за Пентосом",
+      "subtitle": "A Game of Thrones · Daenerys II (chapter 11)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys II (chapter 11); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_11",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 11
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys II (chapter 11)"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Русское имя",
+          "value": "Рабочая передача; сверить с выбранным изданием владельца."
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Категория",
+          "value": "Площадка под открытым небом; границы и координаты неизвестны."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Открытая площадка за стенами Пентоса, где проходит свадьба Дейенерис и Дрого. Это рабочее описательное имя места, а не собственное название; её точная позиция не указана."
+        }
+      ],
+      "links": [
+        {
+          "label": "Pentos",
+          "ref": "place:pentos"
+        },
+        {
+          "label": "Daenerys and Drogo marry",
+          "ref": "event:daenerys-marries-drogo"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Game of Thrones · Daenerys II (chapter 11)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_11",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "agot",
+          "chapterNo": 11
+        }
+      ]
+    },
+    {
+      "ref": "place:shadow-tower",
+      "kind": "place",
+      "name": "Shadow Tower",
+      "nameRu": "Теневая башня",
+      "subtitle": "A Game of Thrones · Jon VIII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones · Jon VIII (chapter 60); A Wiki of Ice and Fire numeric chapter locator; primary-edition verification pending",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_60",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 60
+      },
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Game of Thrones · Jon VIII (chapter 60); A Wiki of Ice and Fire numeric chapter locator; primary-edition verification pending",
+          "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_60",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "agot",
+          "chapterNo": 60
+        },
+        {
+          "kind": "wiki",
+          "cite": "Shadow Tower · A Wiki of Ice and Fire (secondary overview; GM reference)",
+          "url": "https://awoiaf.westeros.org/index.php/Shadow_Tower",
+          "license": "CC-BY-SA-3.0"
+        }
+      ],
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon VIII · глава 60"
+        },
+        {
+          "label": "Роль в срезе",
+          "value": "место службы Эндрю Тарта до планируемого перевода в Чёрный замок"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; первичный текст не сверялся"
+        },
+        {
+          "label": "Координаты",
+          "value": "не установлены"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Теневая башня названа как место службы брата Ночного дозора Эндрю Тарта. В этой главе карта, точное расстояние и маршрут не задаются."
+        }
+      ],
+      "links": [
+        {
+          "label": "Night's Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "The Wall",
+          "ref": "place:the-wall"
+        },
+        {
+          "label": "Endrew Tarth",
+          "ref": "person:endrew-tarth"
+        }
+      ]
+    },
+    {
+      "ref": "place:city-of-the-lamb-men",
+      "kind": "place",
+      "name": "City of the Lamb Men (unnamed Lhazareen settlement)",
+      "nameRu": "Неназванный город ягнолюдей",
+      "subtitle": "A Game of Thrones · Daenerys VII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones · Daenerys VII (chapter 61); A Wiki of Ice and Fire secondary chapter index; primary-edition verification pending",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_61",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 61
+      },
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Game of Thrones · Daenerys VII (chapter 61); A Wiki of Ice and Fire secondary chapter index; primary-edition verification pending",
+          "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_61",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "agot",
+          "chapterNo": 61
+        },
+        {
+          "kind": "wiki",
+          "cite": "City of the Lamb Men · A Wiki of Ice and Fire (secondary place index; GM reference)",
+          "url": "https://awoiaf.westeros.org/index.php/City_of_the_Lamb_Men",
+          "license": "CC-BY-SA-3.0"
+        }
+      ],
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys VII · глава 61"
+        },
+        {
+          "label": "Тип",
+          "value": "неназванное поселение Лхазара; «City of the Lamb Men» — описательная метка, не собственное имя"
+        },
+        {
+          "label": "Сцена",
+          "value": "место последствий столкновения двух кхаласаров и действий Дейенерис"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; первичный текст не сверялся"
+        },
+        {
+          "label": "Координаты",
+          "value": "не установлены"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "В главе Дейенерис VII действие происходит в неназванном поселении лазариенов, обозначенном в AWOIAF как City of the Lamb Men. Не превращать описательный ярлык в собственное имя."
+        }
+      ],
+      "links": [
+        {
+          "label": "Dothraki Sea",
+          "ref": "place:dothraki-sea"
+        },
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Drogo wounded in the raid",
+          "ref": "event:drogo-wounded-during-lhazareen-raid"
+        }
+      ]
+    },
+    {
+      "ref": "place:crypts-of-winterfell",
+      "kind": "place",
+      "name": "Crypts of Winterfell",
+      "nameRu": "Крипты Винтерфелла",
+      "subtitle": "A Game of Thrones · Bran VII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones · Bran VII (chapter 66); A Wiki of Ice and Fire numeric chapter locator; primary-edition verification pending",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_66",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 66
+      },
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Game of Thrones · Bran VII (chapter 66); A Wiki of Ice and Fire numeric chapter locator; primary-edition verification pending",
+          "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_66",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "agot",
+          "chapterNo": 66
+        },
+        {
+          "kind": "wiki",
+          "cite": "Crypts of Winterfell · A Wiki of Ice and Fire (secondary place index; GM reference)",
+          "url": "https://awoiaf.westeros.org/index.php/Crypts_of_Winterfell",
+          "license": "CC-BY-SA-3.0"
+        }
+      ],
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Bran VII · глава 66"
+        },
+        {
+          "label": "Роль в сцене",
+          "value": "Бран и Рикон спускаются сюда вместе с мейстером Лювином, чтобы проверить сон о Недде"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; первичный текст не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Подземные крипты под Винтерфеллом — отдельное место сцены в Bran VII. Не переносить сюда сведения из более поздних глав и книг без отдельного локатора."
+        }
+      ],
+      "links": [
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        },
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "Rickon Stark",
+          "ref": "person:rickon-stark"
+        },
+        {
+          "label": "Maester Luwin",
+          "ref": "person:maester-luwin"
+        }
+      ]
+    },
+    {
+      "ref": "place:street-of-flour",
+      "kind": "place",
+      "name": "Street of Flour",
+      "nameRu": "Мучная улица",
+      "subtitle": "A Game of Thrones · Arya V",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones · Arya V (chapter 65); A Wiki of Ice and Fire numeric chapter locator; primary-edition verification pending",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_65",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 65
+      },
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Game of Thrones · Arya V (chapter 65); A Wiki of Ice and Fire numeric chapter locator; primary-edition verification pending",
+          "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_65",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "agot",
+          "chapterNo": 65
+        },
+        {
+          "kind": "wiki",
+          "cite": "Street of Flour · A Wiki of Ice and Fire (secondary place index; GM reference)",
+          "url": "https://awoiaf.westeros.org/index.php/Street_of_Flour",
+          "license": "CC-BY-SA-3.0"
+        }
+      ],
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Arya V · глава 65"
+        },
+        {
+          "label": "Роль в сцене",
+          "value": "улица Королевской Гавани, где Арья ловит голубей перед тем, как присоединиться к толпе"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; первичный текст не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Мучная улица — конкретная городская сцена из главы Arya V. Она вложена в Королевскую Гавань; координата и соседние улицы не заданы."
+        }
+      ],
+      "links": [
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,834 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "person",
+  "entities": [
+    {
+      "ref": "person:chayle",
+      "kind": "person",
+      "name": "Chayle",
+      "nameRu": "Чайл",
+      "subtitle": "A Game of Thrones · Tyrion I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion I; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_9",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion I"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Септон Винтерфелла и хранитель библиотеки; Тирион застаёт его уснувшим над книгой."
+        }
+      ],
+      "links": [
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        },
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        }
+      ]
+    },
+    {
+      "ref": "person:jyck",
+      "kind": "person",
+      "name": "Jyck",
+      "nameRu": "Джик",
+      "subtitle": "A Game of Thrones · Tyrion II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion II; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_13",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion II"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Страж из людей Ланнистеров, сопровождающий Тириона в поездке к Стене; в дорожном лагере находится вместе с Морреком."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Morrec",
+          "ref": "person:morrec"
+        },
+        {
+          "label": "The Wall",
+          "ref": "place:the-wall"
+        }
+      ]
+    },
+    {
+      "ref": "person:morrec",
+      "kind": "person",
+      "name": "Morrec",
+      "nameRu": "Моррек",
+      "subtitle": "A Game of Thrones · Tyrion II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion II; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_13",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion II"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Слуга Тириона в пути к Стене; ухаживает за лошадьми и готовит дорожную похлёбку."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Jyck",
+          "ref": "person:jyck"
+        },
+        {
+          "label": "The Wall",
+          "ref": "place:the-wall"
+        }
+      ]
+    },
+    {
+      "ref": "person:raymun-darry",
+      "kind": "person",
+      "name": "Raymun Darry",
+      "nameRu": "Рэймун Дарри",
+      "subtitle": "A Game of Thrones · Eddard III",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard III; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_16",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard III"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Сер Рэймун — представитель дома Дарри; королевский двор временно занимает его замок во время поисков Арьи. Нед считает многих присутствующих при разборе её истории людьми, лояльными Рэймуну."
+        }
+      ],
+      "links": [
+        {
+          "label": "Darry",
+          "ref": "place:darry"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Robert Baratheon",
+          "ref": "person:robert-baratheon"
+        }
+      ]
+    },
+    {
+      "ref": "person:nestor-royce",
+      "kind": "person",
+      "name": "Nestor Royce",
+      "nameRu": "Нестор Ройс",
+      "subtitle": "A Game of Thrones · Catelyn VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn VI; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_34",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn VI"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Хранитель Врат Луны и управляющий Долиной во время службы Джона Аррена в Королевской Гавани; встречает Кейтлин и её спутников по прибытии."
+        }
+      ],
+      "links": [
+        {
+          "label": "Gates of the Moon",
+          "ref": "place:gates-of-the-moon"
+        },
+        {
+          "label": "Lysa Arryn",
+          "ref": "person:lysa-arryn"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Albar Royce",
+          "ref": "person:albar-royce"
+        }
+      ]
+    },
+    {
+      "ref": "person:albar-royce",
+      "kind": "person",
+      "name": "Albar Royce",
+      "nameRu": "Альбар Ройс",
+      "subtitle": "A Game of Thrones · Tyrion V",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion V; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_38",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion V"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Сын Нестора Ройса; на суде Тириона предлагает себя чемпионом Лизы, но она выбирает Вардиса Эгена."
+        }
+      ],
+      "links": [
+        {
+          "label": "Nestor Royce",
+          "ref": "person:nestor-royce"
+        },
+        {
+          "label": "Vardis Egen",
+          "ref": "person:vardis-egen"
+        },
+        {
+          "label": "The Eyrie",
+          "ref": "place:the-eyrie"
+        }
+      ]
+    },
+    {
+      "ref": "person:robert-arryn",
+      "kind": "person",
+      "name": "Robert Arryn",
+      "nameRu": "Роберт Аррен",
+      "subtitle": "A Game of Thrones · Catelyn VII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn VII; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_40",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn VII"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Малолетний лорд Орлиного Гнезда и сын Лизы Аррен; во время суда Тириона требует увидеть, как пленник полетит."
+        }
+      ],
+      "links": [
+        {
+          "label": "Lysa Arryn",
+          "ref": "person:lysa-arryn"
+        },
+        {
+          "label": "Jon Arryn",
+          "ref": "person:jon-arryn"
+        },
+        {
+          "label": "The Eyrie",
+          "ref": "place:the-eyrie"
+        },
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        }
+      ]
+    },
+    {
+      "ref": "person:mord",
+      "kind": "person",
+      "name": "Mord",
+      "nameRu": "Морд",
+      "subtitle": "A Game of Thrones · Tyrion V",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion V; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_38",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion V"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Тюремщик небесных камер Орлиного Гнезда; держит Тириона в камере и приносит ему пищу."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "The Eyrie",
+          "ref": "place:the-eyrie"
+        }
+      ]
+    },
+    {
+      "ref": "person:marillion",
+      "kind": "person",
+      "name": "Marillion",
+      "nameRu": "Мариллион",
+      "subtitle": "A Game of Thrones · Catelyn V",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn V; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_28",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn V"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Певец в постоялом дворе на перекрёстке; предлагает Тириону песню о победе Роберта в Королевской Гавани."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Inn at the Crossroads",
+          "ref": "place:inn-at-crossroads"
+        }
+      ]
+    },
+    {
+      "ref": "person:chiggen",
+      "kind": "person",
+      "name": "Chiggen",
+      "nameRu": "Чигген",
+      "subtitle": "A Game of Thrones · Tyrion IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion IV; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_31",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion IV"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Наёмник из спутников Бронна, сопровождает отряд Кейтлин в Лунных горах."
+        }
+      ],
+      "links": [
+        {
+          "label": "Bronn",
+          "ref": "person:bronn"
+        },
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Mountains of the Moon",
+          "ref": "place:mountains-of-the-moon"
+        }
+      ]
+    },
+    {
+      "ref": "person:lharys",
+      "kind": "person",
+      "name": "Lharys",
+      "nameRu": "Лхарис",
+      "subtitle": "A Game of Thrones · Tyrion IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion IV; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_31",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion IV"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Лучник из людей дома Бракен; на дороге замечает приближение горных кланов и предупреждает Кейтлин."
+        }
+      ],
+      "links": [
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Mountains of the Moon",
+          "ref": "place:mountains-of-the-moon"
+        }
+      ]
+    },
+    {
+      "ref": "person:mohor",
+      "kind": "person",
+      "name": "Mohor",
+      "nameRu": "Мохор",
+      "subtitle": "A Game of Thrones · Tyrion IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion IV; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_31",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion IV"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Один из троих людей дома Бракен, сопровождающих Кейтлин и её пленника через Лунные горы."
+        }
+      ],
+      "links": [
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Mountains of the Moon",
+          "ref": "place:mountains-of-the-moon"
+        }
+      ]
+    },
+    {
+      "ref": "person:kurleket",
+      "kind": "person",
+      "name": "Kurleket",
+      "nameRu": "Курлекет",
+      "subtitle": "A Game of Thrones · Tyrion IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion IV; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_31",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion IV"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Один из троих людей дома Бракен, присоединившихся к Кейтлин при задержании Тириона в постоялом дворе."
+        }
+      ],
+      "links": [
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Inn at the Crossroads",
+          "ref": "place:inn-at-crossroads"
+        }
+      ]
+    },
+    {
+      "ref": "person:chella",
+      "kind": "person",
+      "name": "Chella",
+      "nameRu": "Челла",
+      "subtitle": "A Game of Thrones · Tyrion VII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion VII; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_56",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion VII"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Предводительница Чёрных Ушей; находит лагерь Тайвина и приходит с Тирионом на встречу с его отцом."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Tywin Lannister",
+          "ref": "person:tywin-lannister"
+        },
+        {
+          "label": "Mountains of the Moon",
+          "ref": "place:mountains-of-the-moon"
+        }
+      ]
+    },
+    {
+      "ref": "person:timett",
+      "kind": "person",
+      "name": "Timett",
+      "nameRu": "Тиметт",
+      "subtitle": "A Game of Thrones · Tyrion VII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion VII; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_56",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion VII"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Красная рука Сожжённых; на встрече с Тайвином заявляет, что его люди не боятся сражаться за обещанные Тирионом оружие и доспехи."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Tywin Lannister",
+          "ref": "person:tywin-lannister"
+        },
+        {
+          "label": "Mountains of the Moon",
+          "ref": "place:mountains-of-the-moon"
+        }
+      ]
+    },
+    {
+      "ref": "person:ulf",
+      "kind": "person",
+      "name": "Ulf",
+      "nameRu": "Ульф",
+      "subtitle": "A Game of Thrones · Tyrion VII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion VII; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_56",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion VII"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Предводитель отряда Лунных Братьев; вместе с другими вождями сопровождает Тириона на встречу с Тайвином."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Chella",
+          "ref": "person:chella"
+        },
+        {
+          "label": "Mountains of the Moon",
+          "ref": "place:mountains-of-the-moon"
+        }
+      ]
+    }
+  ]
+}

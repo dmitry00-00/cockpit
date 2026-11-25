@@ -10,13 +10,18 @@ const ABILITY_TEXT: Readonly<Record<string, string>> = {
 
 function AsiCell({ row }: { row: RaceFacetRow }) {
   const parts = formatAsi(row.asi);
-  if (parts.length === 0) return <span className="type-key text-t4">—</span>;
-  if (isFlatAsi(row.asi)) return <span className="type-num-12 text-tx">{parts[0].value > 0 ? `+${parts[0].value}` : parts[0].value} ко всем</span>;
+  if (parts.length === 0 && !row.asiChoice) return <span className="type-key text-t4">—</span>;
+  if (isFlatAsi(row.asi) && !row.asiChoice) return <span className="type-num-12 text-tx">{parts[0].value > 0 ? `+${parts[0].value}` : parts[0].value} ко всем</span>;
   return (
-    <span className="flex flex-wrap gap-x-2 gap-y-0.5">
-      {parts.map(p => (
-        <span key={p.ability} className={`type-num-12 ${ABILITY_TEXT[p.ability]}`}>{p.value > 0 ? `+${p.value}` : p.value} {ABILITY_LABELS[p.ability]}</span>
-      ))}
+    <span className="flex flex-col gap-0.5">
+      <span className="flex flex-wrap gap-x-2 gap-y-0.5">
+        {parts.map(p => (
+          <span key={p.ability} className={`type-num-12 ${ABILITY_TEXT[p.ability]}`}>{p.value > 0 ? `+${p.value}` : p.value} {ABILITY_LABELS[p.ability]}</span>
+        ))}
+      </span>
+      {row.asiChoice ? <span className="type-body-xs text-t2">
+        На выбор из {row.asiChoice.from.map(a => ABILITY_LABELS[a]).join(', ')}: +{row.asiChoice.amount} к {row.asiChoice.count === 1 ? 'одной характеристике' : `${row.asiChoice.count} характеристикам`}
+      </span> : null}
     </span>
   );
 }

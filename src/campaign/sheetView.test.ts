@@ -32,6 +32,7 @@ describe('паспорт данных', () => {
     expect(p.missing).not.toContain('мировоззрение');
     expect(missingFieldsOf(s.actors.korrin)).toContain('мировоззрение');
     expect(missingFieldsOf(s.actors.korrin)).toContain('рост, вес, возраст');
+    expect(missingFieldsOf(s.actors.korrin)).toContain('родом из');
   });
 
   it('создан событием ACTOR_SPAWNED — «создан за столом»', () => {

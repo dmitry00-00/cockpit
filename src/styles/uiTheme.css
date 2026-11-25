@@ -1,0 +1,121 @@
+/* Global app themes override the shared design tokens, so every workspace uses
+   the same palette and material treatment. Layout and content stay component-owned. */
+[data-ui-theme="flat"] {
+  --wl: #f0f4f7; --bg: #e4edf3; --pn: #d4e0e9; --cd: #ffffff; --pl: #c2d5e2; --hi: #ffffff; --lo: #657d8f; --bd: var(--lo);
+  --br: #355e78; --bl: #245572; --gd: #a65e00; --gd-hi: #654000; --tx: #192833; --t2: #3d5362; --t3: #506777; --t4: #718493;
+  --ab-str: #ad3f35; --ab-str-hi: #79271f; --ab-dex: #34804b; --ab-dex-hi: #24623a; --ab-con: #ad671b; --ab-con-hi: #75440e;
+  --ab-int: #29749e; --ab-int-hi: #175577; --ab-wis: #8152a0; --ab-wis-hi: #61377b; --ab-cha: #a26f13; --ab-cha-hi: #684707;
+  --ent-npc: #40586b; --ent-monster: #9a3028; --ent-item: #376c2f; --ent-loc: #22597a; --ent-faction: #6d407f; --ent-plane: #5140a5; --ent-deity: #795400; --ent-event: #8a4c12; --ent-rule: #605336;
+  --ent-pc: var(--gd); --fx-damage: var(--ab-str); --fx-damage-hi: var(--ab-str-hi); --fx-heal: var(--ab-dex); --fx-heal-hi: var(--ab-dex-hi);
+  --fx-buff: var(--ab-int); --fx-buff-hi: var(--ab-int-hi); --fx-debuff: var(--ab-con); --fx-debuff-hi: var(--ab-con-hi); --fx-temp: #276b94;
+  --hp-high: #39814a; --hp-mid: #a46d00; --hp-low: #ad3f35; --hp-track: var(--wl); --src-canon: #725a2d; --src-dm: #8d5700; --src-sim: #007b6d; --src-players: #315b75;
+  --bevel: none; --bevel-in: inset 0 0 0 1px var(--lo); --plate: inset 0 0 0 1px var(--br); --float: 0 8px 18px rgb(24 40 52 / 14%);
+  --frame: 0 0 0 1px var(--lo), 0 0 0 3px var(--br); --glow-gold: inset 0 0 0 2px var(--gd);
+  --glow-sim: inset 0 0 0 2px #007b6d; --flash-damage: inset 0 0 12px rgb(154 48 40 / 55%); --flash-heal: inset 0 0 12px rgb(55 108 47 / 55%); --token-active: 0 0 0 2px var(--gd), 0 0 0 4px var(--bg);
+  --st-conflict: #8a3028; --sky-night: #31435b; --sky-dawn: #a66b78; --sky-day: #6d9ab4; --sky-dusk: #aa6741;
+  --terrain-o: #2b5f80; --terrain-i: #d8e6ee; --terrain-u: #6b6659; --terrain-d: #a07c3c; --terrain-g: #5d8a44; --terrain-f: #356b3a; --terrain-m: #7a7264; --terrain-h: #6e7d45; --terrain-s: #46655a; --map-border: #5a0f18;
+  --material-panel: none; --material-plate: none;
+}
+
+[data-ui-theme="material"] {
+  --wl: #f1e6cb; --bg: #dfd1b4; --pn: #d4d4cb; --cd: #efe3c6; --pl: #c4a16b; --hi: #fff4d9; --lo: #74573a; --bd: var(--lo);
+  --br: #8c5e27; --bl: #ad762e; --gd: #956317; --gd-hi: #5e3f0c; --tx: #2b2015; --t2: #52432e; --t3: #66553b; --t4: #7b6a50;
+  --ab-str: #a83d33; --ab-str-hi: #72251e; --ab-dex: #347b47; --ab-dex-hi: #245f37; --ab-con: #a8611b; --ab-con-hi: #70400e;
+  --ab-int: #28739b; --ab-int-hi: #1b5472; --ab-wis: #7b4b96; --ab-wis-hi: #5a3474; --ab-cha: #9a6910; --ab-cha-hi: #65440b;
+  --ent-npc: #4d5961; --ent-monster: #922f28; --ent-item: #356b39; --ent-loc: #285c70; --ent-faction: #70427e; --ent-plane: #50429d; --ent-deity: #79510e; --ent-event: #895018; --ent-rule: #62543c;
+  --ent-pc: var(--gd); --fx-damage: var(--ab-str); --fx-damage-hi: var(--ab-str-hi); --fx-heal: var(--ab-dex); --fx-heal-hi: var(--ab-dex-hi);
+  --fx-buff: var(--ab-int); --fx-buff-hi: var(--ab-int-hi); --fx-debuff: var(--ab-con); --fx-debuff-hi: var(--ab-con-hi); --fx-temp: #276b8a;
+  --hp-high: #39814a; --hp-mid: #a46d00; --hp-low: #a83d33; --hp-track: var(--wl); --src-canon: #725a2d; --src-dm: #8d5700; --src-sim: #007b6d; --src-players: #315b75;
+  --bevel: inset 0 1px 0 #fff1ce, inset 0 -1px 0 #86663d; --bevel-in: inset 0 1px 3px rgb(39 25 14 / 20%), inset 0 -1px 0 #c7b58c;
+  --plate: inset 0 1px 0 #f0d79f, inset 0 -1px 0 #8a5e2c; --float: inset 0 1px 0 #f0dba8, 0 5px 16px rgb(34 20 11 / 24%);
+  --frame: 0 0 0 1px #49331e, 0 0 0 3px #a77a38, 0 0 0 4px #382419, 0 8px 22px rgb(24 14 8 / 30%); --glow-gold: inset 0 0 0 2px #946117;
+  --glow-sim: inset 0 0 0 2px #007b6d; --flash-damage: inset 0 0 12px rgb(146 47 40 / 55%); --flash-heal: inset 0 0 12px rgb(53 107 57 / 55%); --token-active: 0 0 0 2px var(--gd), 0 0 0 4px var(--bg);
+  --st-conflict: #922f28; --sky-night: #314052; --sky-dawn: #a27784; --sky-day: #6f95a8; --sky-dusk: #aa6741;
+  --terrain-o: #2b5f80; --terrain-i: #d8e6ee; --terrain-u: #6b6659; --terrain-d: #a07c3c; --terrain-g: #5d8a44; --terrain-f: #356b3a; --terrain-m: #7a7264; --terrain-h: #6e7d45; --terrain-s: #46655a; --map-border: #5a0f18;
+  --material-panel: linear-gradient(115deg, rgb(255 255 255 / 23%), rgb(126 87 36 / 6%));
+  --material-plate: linear-gradient(145deg, #d2b47d, #b78b52 54%, #d0ad70);
+}
+
+.app-shell { background-color: var(--bg); color: var(--tx); }
+.app-ui-theme-switch { display: flex; align-items: center; gap: 4px; margin: 0 0 0 auto; padding: 0; border: 0; min-width: 0; }
+.app-ui-theme-switch legend { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.app-ui-theme-switch label { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; padding: 3px 7px; cursor: pointer; color: var(--t2); background-color: var(--cd); background-image: var(--material-plate); box-shadow: var(--bevel); font: 11px/1.1 var(--font-text); }
+.app-ui-theme-switch input { accent-color: var(--gd); }
+.app-ui-theme-switch label:has(input:checked), .app-ui-theme-switch label:focus-within { color: var(--tx); box-shadow: var(--glow-gold); }
+
+/* The material selector sits on a light bronze plate: darken only its label, radio mark, and ring. */
+[data-ui-theme="material"] .app-ui-theme-switch label { color: #382500; }
+[data-ui-theme="material"] .app-ui-theme-switch input { accent-color: #382500; }
+[data-ui-theme="material"] .app-ui-theme-switch label:has(input:checked),
+[data-ui-theme="material"] .app-ui-theme-switch label:focus-within {
+  color: #382500;
+  box-shadow: inset 0 0 0 2px #382500, var(--bevel);
+}
+
+/* Flat theme removes decorative material artwork while preserving card geometry. */
+[data-ui-theme="flat"] .character-card__leather,
+[data-ui-theme="flat"] .character-card__paper,
+[data-ui-theme="flat"] .desk-party-header__wood { display: none !important; }
+[data-ui-theme="flat"] .party-spread .character-card,
+[data-ui-theme="flat"] .party-spread .character-card-spine,
+[data-ui-theme="flat"] .party-spread .party-spread-stage,
+[data-ui-theme="flat"] .party-spread .party-spread-card,
+[data-ui-theme="flat"] .party-spread .party-spread-spine-btn,
+[data-ui-theme="flat"] .party-spread .party-spread-info { background-image: none !important; }
+[data-ui-theme="flat"] .party-spread .character-card,
+[data-ui-theme="flat"] .party-spread .party-spread-card { border: 0; box-shadow: inset 0 0 0 1px var(--lo); }
+[data-ui-theme="flat"] .party-spread .character-card { border: 1px solid var(--lo); box-shadow: none; }
+[data-ui-theme="flat"] .party-spread .party-spread-stage.is-expanded { border: 0; box-shadow: inset 0 0 0 1px var(--lo); }
+[data-ui-theme="flat"] .party-spread .character-card-spine { background-color: var(--pl) !important; box-shadow: inset 0 -2px 0 var(--br) !important; }
+[data-ui-theme="flat"] .party-spread .party-spread-spine-btn[aria-current="true"] { outline: 2px solid var(--gd); outline-offset: -2px; box-shadow: none; }
+
+[data-ui-theme="material"] .party-spread .character-card-spine,
+[data-ui-theme="material"] .party-spread .party-spread-info,
+[data-ui-theme="material"] .party-spread .party-spread-context-toggle { background-image: var(--material-plate) !important; background-size: auto, 512px 512px; }
+[data-ui-theme="material"] .party-spread .character-card { border-color: var(--br); background-image: var(--material-panel); }
+[data-ui-theme="material"] .party-spread .party-spread-stage.is-expanded,
+[data-ui-theme="material"] .party-spread .party-spread-card { background-image: var(--material-panel); background-size: auto, 512px 512px; }
+[data-ui-theme="material"] .party-spread .character-card-spine { box-shadow: var(--plate); }
+
+/* Small party-level labels use text sizes that need full contrast on bronze plates. */
+[data-ui-theme="material"] .character-card-spine [data-part="party-spine-level"] { color: #fff4d9; }
+[data-ui-theme="material"] .character-card-spine--hero [data-part="spine-title"] { color: #382500; }
+[data-ui-theme="material"] article[data-part="character-card"] [data-part="skills-toggle"][aria-expanded="true"] { color: #382500; }
+[data-ui-theme="material"] [data-side="left"] [title="Уровень"],
+[data-ui-theme="material"] .party-spread [title="Уровень"]:not([data-part="party-spine-level"]) { color: #382500; }
+[data-ui-theme="material"] article[data-actor] [data-part="portrait"] > [title="Уровень"],
+[data-ui-theme="material"] [data-part="pc-header"] [data-part="portrait"] > [title="Уровень"] { color: #382500; }
+
+/* Keep keyboard focus visible on a filled resource pip in both themes. */
+[data-resource] [data-part="pips"] > button[data-on="true"]:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 2px #20160a;
+}
+
+[data-ui-theme="material"] [data-part="icon-detail"] button:hover {
+  color: #382500;
+}
+
+/* Light bronze plates need dark labels even when their status edge keeps its semantic color. */
+[data-ui-theme="flat"] [data-part="condition-chip"] { color: #3d5362; }
+[data-ui-theme="material"] [data-part="condition-chip"] { color: #44351f; }
+[data-ui-theme="material"] [data-part="condition-chip"] .text-t2,
+[data-ui-theme="material"] [data-part="party-spine-row"] .text-t2 { color: #44351f; }
+[data-ui-theme="material"] [data-part="condition-chip"][data-kind="debuff"]:focus-visible {
+  outline: none;
+  box-shadow: var(--bevel), inset 0 -2px 0 var(--fx-debuff), inset 0 0 0 2px #382500;
+}
+[data-ui-theme="material"] [data-part="condition-chip"][data-kind="buff"]:focus-visible {
+  outline: none;
+  box-shadow: var(--bevel), inset 0 -2px 0 var(--fx-buff), inset 0 0 0 2px #382500;
+}
+[data-ui-theme="material"] [data-part="condition-chip"][data-kind="conc"]:focus-visible {
+  outline: none;
+  box-shadow: var(--bevel), inset 0 -2px 0 var(--src-sim), inset 0 0 0 2px #382500;
+}
+[data-ui-theme="material"] [data-part="condition-chip"] button:focus-visible {
+  outline: none;
+  box-shadow: inset 0 0 0 2px #382500;
+}
+[data-ui-theme="material"] [data-party-portraits] [data-part="party-rail-toggle"] > svg path { fill: #382500; }
+[data-ui-theme="material"] [data-party-portraits] [data-part="party-rail-toggle"] .type-key { color: #44351f; }

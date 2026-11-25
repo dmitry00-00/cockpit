@@ -14,7 +14,7 @@ const pathsOf = (svg: Element) => Array.from(svg.querySelectorAll('path')).map(p
 const ROWS: ThreadCardRow[] = [
   { key: 'age', label: '12 дней', text: 'караван не дошёл до Neverwinter', tone: 't2' },
   { key: 'now', label: 'сейчас', text: 'Zhentarim усилились, цены на железо +10%' },
-  { key: 'next', label: 'через 16', text: 'след остынет — симуляция закроет нить', tone: 'sim' },
+  { key: 'clock', label: 'часы', text: '5 из 8 делений', tone: 'sim' },
   { key: 'secret', label: 'секрет', text: 'некромант — бывший ученик из Дома Зари', secret: true },
   { key: 'cascade', label: 'каскад', text: 'полнолуние → ликантропы → слух', tone: 'gd' },
 ];
@@ -74,14 +74,14 @@ describe('ThreadCard', () => {
     render(<ThreadCard id="caravan" name="The Missing Caravan" count={4} rows={ROWS} />);
     const c = card();
     const terms = within(c).getAllByRole('term');
-    expect(terms.map(t => t.textContent)).toEqual(['12 дней', 'сейчас', 'через 16', 'секрет', 'каскад']);
+    expect(terms.map(t => t.textContent)).toEqual(['12 дней', 'сейчас', 'часы', 'секрет', 'каскад']);
     for (const t of terms) expect(t).toHaveClass('type-key', 'uppercase', 'text-t2', 'truncate');
     const rowOf = (key: string) => c.querySelector(`[data-row="${key}"]`) as HTMLElement;
     expect(rowOf('age')).toHaveClass('grid-cols-[72px_1fr]');
     const defOf = (key: string) => within(rowOf(key)).getByRole('definition');
     expect(defOf('age')).toHaveClass('type-body-sm', 'text-t2');
     expect(defOf('now')).toHaveClass('type-body-sm', 'text-tx');
-    expect(defOf('next')).toHaveClass('text-src-sim');
+    expect(defOf('clock')).toHaveClass('text-src-sim');
     expect(defOf('cascade')).toHaveClass('text-gd');
     expect(defOf('secret')).toHaveClass('text-tx');
     expect(defOf('now')).toHaveTextContent('Zhentarim усилились, цены на железо +10%');

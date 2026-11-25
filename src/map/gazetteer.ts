@@ -3,6 +3,7 @@
 // CC BY-SA 3.0 Forgotten Realms Wiki). Это справка мастера, не состояние: место из справочника становится местом
 // мира только через предложение с patch. Файлы тяжёлые — грузятся отдельным куском, когда открыта карта.
 import type { MapBox, MapPoint } from './projection';
+import { loadCachedPromise, loadPackageJson, packageHasLayer, settingPackageForMap } from '../packages/registry';
 
 export interface PlaceCardText {
   what?: string;
@@ -17,6 +18,8 @@ export interface GazetteerPlace extends MapPoint {
   name: string;
   /** Русское имя GIS — только для поиска, на экран не выводится. */
   nameRu?: string;
+  /** Проверенные варианты написания (например, опечатка в GIS). */
+  aliases?: readonly string[];
   /** Класс GIS (City, Ruins, Temperate Forest) или класс подписи L1 (road, sea). */
   kind: string;
   /** Позиция — предсказание по GIS: на растре место не нашли. */
@@ -30,32 +33,44 @@ export interface GazetteerPlace extends MapPoint {
 
 interface PlacesFile { places: readonly { id: string; name: string; nameRu?: string; class: string; x: number; y: number }[] }
 interface CardsFile { license: string; places: readonly (Omit<GazetteerPlace, 'nameRu'>)[] }
-
-/** Справочник карты: места GIS с карточками поверх и места, что есть только в карточках. */
-export function mergeGazetteer(places: PlacesFile, cards: CardsFile): GazetteerPlace[] {
-  const byId = new Map<string, GazetteerPlace>();
-  for (const p of places.places) byId.set(p.id, { id: p.id, name: p.name, nameRu: p.nameRu, kind: p.class, x: p.x, y: p.y });
-  for (const c of cards.places) byId.set(c.id, { ...byId.get(c.id), ...c, x: c.x, y: c.y });
-  return [...byId.values()];
+export interface RasterClassification {
+  id: string;
+  role: string;
+  kind: string;
+  origin: string;
 }
 
-const LOADERS: Readonly<Record<string, () => Promise<GazetteerPlace[]>>> = {
-  toril: async () => {
-    const [places, cards] = await Promise.all([
-      import('../../content/maps/toril-places.json'),
-      import('../../content/maps/toril-cards.json'),
-    ]);
-    return mergeGazetteer(places.default as PlacesFile, cards.default as CardsFile);
-  },
-};
+/** Справочник карты: места GIS с карточками поверх и места, что есть только в карточках. */
+export function mergeGazetteer(places: PlacesFile, cards: CardsFile, corrections: readonly GazetteerPlace[] = [], classifications: readonly RasterClassification[] = []): GazetteerPlace[] {
+  const byId = new Map<string, GazetteerPlace>();
+  const rasterKinds = new Map(classifications.filter(c => c.role === 'feature' && c.origin === 'editorial').map(c => [c.id, c.kind]));
+  for (const p of places.places) byId.set(p.id, { id: p.id, name: p.name, nameRu: p.nameRu, kind: p.class, x: p.x, y: p.y });
+  for (const c of cards.places) byId.set(c.id, { ...byId.get(c.id), ...c, kind: rasterKinds.get(c.id) ?? c.kind, x: c.x, y: c.y });
+  for (const c of corrections) {
+    const old = byId.get(c.id);
+    byId.set(c.id, { ...old, ...c, sources: [...new Set([...(old?.sources ?? []), ...(c.sources ?? [])])] });
+  }
+  return [...byId.values()];
+}
 
 const cache = new Map<string, Promise<GazetteerPlace[]>>();
 
 /** Справочник карты или пустой список, если у карты его нет. Один раз на сеанс. */
 export function loadGazetteer(mapId: string): Promise<GazetteerPlace[]> {
-  const load = LOADERS[mapId];
-  if (!load) return Promise.resolve([]);
-  if (!cache.has(mapId)) cache.set(mapId, load());
+  if (!cache.has(mapId)) {
+    const pkg = settingPackageForMap(mapId);
+    const placesPath = `content/maps/${mapId}-places.json`;
+    const cardsPath = `content/maps/${mapId}-cards.json`;
+    const correctionsPath = `content/maps/${mapId}-raster-corrections.json`;
+    const classificationPath = `content/maps/${mapId}-ocr-classification.json`;
+    if (!pkg || !packageHasLayer(pkg.id, placesPath) || !packageHasLayer(pkg.id, cardsPath)) return Promise.resolve([]);
+    return loadCachedPromise(cache, mapId, () => Promise.all([
+      loadPackageJson(pkg.id, placesPath), loadPackageJson(pkg.id, cardsPath),
+      packageHasLayer(pkg.id, correctionsPath) ? loadPackageJson(pkg.id, correctionsPath) : Promise.resolve({ places: [] }),
+      packageHasLayer(pkg.id, classificationPath) ? loadPackageJson(pkg.id, classificationPath) : Promise.resolve({ labels: [] }),
+    ]).then(([places, cards, corrections, classifications]) => mergeGazetteer(places as PlacesFile, cards as CardsFile,
+      (corrections as { places: GazetteerPlace[] }).places, (classifications as { labels: RasterClassification[] }).labels)));
+  }
   return cache.get(mapId)!;
 }
 
@@ -73,7 +88,7 @@ export function searchPlaces(list: readonly GazetteerPlace[], query: string, lim
   if (q.length < 2) return [];
   const score = (p: GazetteerPlace) => {
     let best = 9;
-    for (const n of [p.name, p.nameRu]) {
+    for (const n of [p.name, p.nameRu, ...(p.aliases ?? [])]) {
       if (!n) continue;
       const f = fold(n);
       const s = f === q ? 0 : f.startsWith(q) ? 1 : f.split(/[\s'-]+/).some(w => w.startsWith(q)) ? 2 : f.includes(q) ? 3 : 9;
@@ -144,6 +159,7 @@ export const KIND_LABEL: Readonly<Record<string, string>> = {
   settlement: 'поселение', fortress: 'крепость', ruins: 'руины', mountain: 'горы', hills: 'холмы', forest: 'лес',
   swamp: 'болото', desert: 'пустыня', lake: 'озеро', river: 'река', sea: 'море', island: 'остров', pass: 'перевал',
   road: 'дорога', region: 'область', country: 'страна', mine: 'шахта',
+  bay: 'залив', archipelago: 'архипелаг', reef: 'риф', peninsula: 'полуостров', bridge: 'мост', glacier: 'ледник',
 };
 
 /** Ссылка на статью вики из источников карточки. */

@@ -2,19 +2,19 @@
 # → события по годам. Строки — английские, как в вики (решение владельца 29.10: «английские строки вики как есть»), без
 # сносок; к каждой — дата Харптоса, если вики её пишет («'''2 Mirtul:'''», «[[Hammer (month)|Hammer]]:»), вид раздела
 # ({{Yearbox/in-conflicts}} → conflicts), ссылки на сущности справочника (NPC, организации, места карты, божества,
-# державы content/world/kingdoms.json — import-kingdoms.py идёт первым) и
+# державы content/world/kingdoms.json — только после прохода import-kingdoms.py) и
 # источники-сноски. Своего не добавляем: нет даты — нет даты, нет ссылки — только заголовок статьи.
 #
 # Выход: content/chronology/index.json — годы (имя в Roll of years, эпоха, счётчики по видам), эпохи, куски;
 # content/chronology/events/<n>.json — события кусками по годам (грузятся по требованию, как NPC).
+# Запуск: .venv/bin/python -I scripts/import-chronology.py <dump.xml> [--skip-kingdoms] [--content-root <content-dir>]
 #
-# Запуск: .venv/bin/python -I scripts/import-chronology.py <dump.xml>
+import argparse
 import glob
 import importlib.util
 import json
 import os
 import re
-import sys
 import xml.etree.ElementTree as ET
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,6 +27,7 @@ def _load(name, file):
     return mod
 
 
+content_paths = _load('content_paths', 'content-paths.py')
 sj = _load('spelljammer', 'import-spelljammer.py')
 dz = _load('deities', 'import-deities.py')
 pp = _load('people', 'import-people.py')
@@ -130,21 +131,21 @@ def eras_of(years):
     return eras
 
 
-def ref_resolver(follow):
+def ref_resolver(follow, include_kingdoms=True):
     """Ссылка вики → «вид:id» справочника (NPC, организация, божество, место карты, держава) или None."""
     place, deity = pp.place_resolver(follow), pp.deity_resolver(follow)
     person_of_title = {}
-    for path in glob.glob(os.path.join(ROOT, 'content', 'world', 'people', '*.json')):
+    for path in glob.glob(content_paths.content_path(ROOT, 'world', 'people', '*.json')):
         with open(path, encoding='utf-8') as fh:
             person_of_title.update({p['title']: p['id'] for p in json.load(fh)['people']})
-    with open(os.path.join(ROOT, 'content', 'world', 'organizations.json'), encoding='utf-8') as fh:
+    with open(content_paths.content_path(ROOT, 'world', 'organizations.json'), encoding='utf-8') as fh:
         org_of_title = {o['title']: o['id'] for o in json.load(fh)['organizations']}
     # Державы (вид kingdom:, решение пользователя 30.10.2026) — последними: держава, которая уже место справочника карты
     # (Cormyr, Waterdeep), остаётся place: — по нему линза года ставит пины и сцена берёт канон места; kingdom: получают
     # ссылки, которые раньше не разрешались. Файла нет (import-kingdoms.py не запускался) — без держав.
-    kingdom_path = os.path.join(ROOT, 'content', 'world', 'kingdoms.json')
     kingdom_of_title = {}
-    if os.path.exists(kingdom_path):
+    kingdom_path = content_paths.content_path(ROOT, 'world', 'kingdoms.json')
+    if include_kingdoms and os.path.exists(kingdom_path):
         with open(kingdom_path, encoding='utf-8') as fh:
             kingdom_of_title = {k['title']: k['id'] for k in json.load(fh)['kingdoms']}
 
@@ -161,11 +162,19 @@ def ref_resolver(follow):
 
 
 def main():
-    if len(sys.argv) != 2:
-        sys.exit('usage: import-chronology.py <dump.xml>')
-    pages, redirects = scan(sys.argv[1])
+    parser = argparse.ArgumentParser(description='Импорт событий и дат из FR Wiki.')
+    parser.add_argument('dump', help='XML-дамп вики')
+    parser.add_argument('--content-root', help='корень слоёв content; по умолчанию <корень проекта>/content')
+    parser.add_argument(
+        '--skip-kingdoms',
+        action='store_true',
+        help='не читать ранее существующий слой держав до его импорта',
+    )
+    args = parser.parse_args()
+    content_paths.set_content_root(args.content_root)
+    pages, redirects = scan(args.dump)
     follow = pp.follower(redirects)
-    ref_of = ref_resolver(follow)
+    ref_of = ref_resolver(follow, include_kingdoms=not args.skip_kingdoms)
 
     years, events = [], []
     for title, text in pages.items():
@@ -247,7 +256,7 @@ def main():
 
     eras = eras_of(years)
 
-    out = os.path.join(ROOT, 'content', 'chronology')
+    out = content_paths.content_path(ROOT, 'chronology')
     os.makedirs(os.path.join(out, 'events'), exist_ok=True)
     for old in glob.glob(os.path.join(out, 'events', '*.json')):
         os.remove(old)

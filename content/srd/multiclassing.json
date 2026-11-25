@@ -1,0 +1,53 @@
+{
+  "source": "System Reference Document 5.1, Beyond 1st Level: Multiclassing, pp.56–57 (CC BY 4.0)",
+  "prerequisites": [
+    { "id": "barbarian", "className": "Barbarian", "abilityScoreMinimum": "Strength 13" },
+    { "id": "bard", "className": "Bard", "abilityScoreMinimum": "Charisma 13" },
+    { "id": "cleric", "className": "Cleric", "abilityScoreMinimum": "Wisdom 13" },
+    { "id": "druid", "className": "Druid", "abilityScoreMinimum": "Wisdom 13" },
+    { "id": "fighter", "className": "Fighter", "abilityScoreMinimum": "Strength 13 or Dexterity 13" },
+    { "id": "monk", "className": "Monk", "abilityScoreMinimum": "Dexterity 13 and Wisdom 13" },
+    { "id": "paladin", "className": "Paladin", "abilityScoreMinimum": "Strength 13 and Charisma 13" },
+    { "id": "ranger", "className": "Ranger", "abilityScoreMinimum": "Dexterity 13 and Wisdom 13" },
+    { "id": "rogue", "className": "Rogue", "abilityScoreMinimum": "Dexterity 13" },
+    { "id": "sorcerer", "className": "Sorcerer", "abilityScoreMinimum": "Charisma 13" },
+    { "id": "warlock", "className": "Warlock", "abilityScoreMinimum": "Charisma 13" },
+    { "id": "wizard", "className": "Wizard", "abilityScoreMinimum": "Intelligence 13" }
+  ],
+  "proficienciesGained": [
+    { "id": "barbarian", "className": "Barbarian", "proficiencies": "Shields, simple weapons, martial weapons" },
+    { "id": "bard", "className": "Bard", "proficiencies": "Light armor, one skill of your choice, one musical instrument of your choice" },
+    { "id": "cleric", "className": "Cleric", "proficiencies": "Light armor, medium armor, shields" },
+    { "id": "druid", "className": "Druid", "proficiencies": "Light armor, medium armor, shields (druids will not wear armor or use shields made of metal)" },
+    { "id": "fighter", "className": "Fighter", "proficiencies": "Light armor, medium armor, shields, simple weapons, martial weapons" },
+    { "id": "monk", "className": "Monk", "proficiencies": "Simple weapons, shortswords" },
+    { "id": "paladin", "className": "Paladin", "proficiencies": "Light armor, medium armor, shields, simple weapons, martial weapons" },
+    { "id": "ranger", "className": "Ranger", "proficiencies": "Light armor, medium armor, shields, simple weapons, martial weapons, one skill from the class’s skill list" },
+    { "id": "rogue", "className": "Rogue", "proficiencies": "Light armor, one skill from the class’s skill list, thieves’ tools" },
+    { "id": "sorcerer", "className": "Sorcerer", "proficiencies": null },
+    { "id": "warlock", "className": "Warlock", "proficiencies": "Light armor, simple weapons" },
+    { "id": "wizard", "className": "Wizard", "proficiencies": null }
+  ],
+  "spellSlots": [
+    { "characterLevel": 1, "bySpellLevel": [2, null, null, null, null, null, null, null, null] },
+    { "characterLevel": 2, "bySpellLevel": [3, null, null, null, null, null, null, null, null] },
+    { "characterLevel": 3, "bySpellLevel": [4, 2, null, null, null, null, null, null, null] },
+    { "characterLevel": 4, "bySpellLevel": [4, 3, null, null, null, null, null, null, null] },
+    { "characterLevel": 5, "bySpellLevel": [4, 3, 2, null, null, null, null, null, null] },
+    { "characterLevel": 6, "bySpellLevel": [4, 3, 3, null, null, null, null, null, null] },
+    { "characterLevel": 7, "bySpellLevel": [4, 3, 3, 1, null, null, null, null, null] },
+    { "characterLevel": 8, "bySpellLevel": [4, 3, 3, 2, null, null, null, null, null] },
+    { "characterLevel": 9, "bySpellLevel": [4, 3, 3, 3, 1, null, null, null, null] },
+    { "characterLevel": 10, "bySpellLevel": [4, 3, 3, 3, 2, null, null, null, null] },
+    { "characterLevel": 11, "bySpellLevel": [4, 3, 3, 3, 2, 1, null, null, null] },
+    { "characterLevel": 12, "bySpellLevel": [4, 3, 3, 3, 2, 1, null, null, null] },
+    { "characterLevel": 13, "bySpellLevel": [4, 3, 3, 3, 2, 1, 1, null, null] },
+    { "characterLevel": 14, "bySpellLevel": [4, 3, 3, 3, 2, 1, 1, null, null] },
+    { "characterLevel": 15, "bySpellLevel": [4, 3, 3, 3, 2, 1, 1, 1, null] },
+    { "characterLevel": 16, "bySpellLevel": [4, 3, 3, 3, 2, 1, 1, 1, null] },
+    { "characterLevel": 17, "bySpellLevel": [4, 3, 3, 3, 2, 1, 1, 1, 1] },
+    { "characterLevel": 18, "bySpellLevel": [4, 3, 3, 3, 3, 1, 1, 1, 1] },
+    { "characterLevel": 19, "bySpellLevel": [4, 3, 3, 3, 3, 2, 1, 1, 1] },
+    { "characterLevel": 20, "bySpellLevel": [4, 3, 3, 3, 3, 2, 2, 1, 1] }
+  ]
+}

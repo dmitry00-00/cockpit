@@ -1,17 +1,13 @@
 #!/usr/bin/env node
 // Библиотека монстров SRD 5.1 из открытого API (https://www.dnd5eapi.co/api/2014/monsters/<index>, CC-BY-4.0):
 // текст умений, действий и реакций дословно, числа — из блока, не пересчитаны. Пишет content/srd/monsters.json;
-// руками не править — перезапустить: `node scripts/import-srd-monsters.mjs`. Набор — весь SRD 5.1 (решение владельца
+// руками не править — перезапустить: `npm run import:srd -- monster`. Набор — весь SRD 5.1 (решение владельца
 // 27.10.2026): сначала стартовый для Sword Coast пятого уровня (сид §13: бандиты, ликантропы, нежить Old Owl Well,
 // головорезы Zhentarim, гоблиноиды, звери) — в нём порядок списка «Добавить», затем остальные по имени.
 // Сеть нужна только импортёру; продукт читает JSON. Ошибка сети — ошибка импорта, частичный файл не пишется.
-import { mkdir, writeFile } from 'node:fs/promises';
-import { dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { getSrdImportDefinition, writeSrdImport } from './srd-import-registry.mjs';
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const OUT = resolve(ROOT, 'content/srd/monsters.json');
-const API = 'https://www.dnd5eapi.co/api/2014/monsters';
+const API = getSrdImportDefinition('monster').apiBase;
 
 /** Стартовый набор в порядке показа: люди и NPC, гоблиноиды, звери, нежить, великаны и прочие. Формы ликантропа — три блока. */
 const STARTER = [
@@ -160,7 +156,7 @@ function monsterOf(m) {
  * CC-BY-4.0): «The dragon can take 3 legendary actions, choosing from the options below. … The dragon regains spent
  * legendary actions at the start of its turn.» Ключ — slug Open5e, он совпадает с index dnd5eapi, кроме форм вампира.
  */
-const OPEN5E_SRD = 'https://api.open5e.com/v1/monsters/?document__slug=wotc-srd&limit=400&format=json';
+const OPEN5E_SRD = getSrdImportDefinition('monster').supplementarySources[0].url;
 /** Три формы вампира в dnd5eapi — один блок Vampire в SRD 5.1 и Open5e. */
 const INTRO_SLUG = { 'vampire-bat': 'vampire', 'vampire-mist': 'vampire', 'vampire-vampire': 'vampire' };
 const INTROS = {};
@@ -198,11 +194,5 @@ for (const index of INDICES) {
   FIXES[index]?.(monsters[index]);
   process.stdout.write(`${index} → ${monsters[index].name} (CR ${monsters[index].cr})\n`);
 }
-await mkdir(dirname(OUT), { recursive: true });
-const out = {
-  source: `SRD 5.1 (CC-BY-4.0) via ${API}`,
-  fetchedAt: new Date().toISOString().slice(0, 10),
-  monsters,
-};
-await writeFile(OUT, `${JSON.stringify(out, null, 2)}\n`);
-console.log(`${INDICES.length} блоков → ${OUT}`);
+await writeSrdImport('monster', { monsters });
+console.log(`${INDICES.length} блоков обработано`);

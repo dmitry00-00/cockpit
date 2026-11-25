@@ -1,0 +1,693 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "person",
+  "entities": [
+    {
+      "ref": "person:mormonts-raven",
+      "kind": "person",
+      "name": "Mormont's raven",
+      "nameRu": "Ворон Мормонта",
+      "subtitle": "A Game of Thrones · Jon III; Tyrion III",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon III (ch. 19); A Wiki of Ice and Fire, chapter index; CC-BY-SA-3.0. Первичная сверка по изданию ожидается.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_19",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 19
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Дополнительный локатор",
+          "value": "A Game of Thrones, Tyrion III (ch. 21): https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_21"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; проверка по первичному изданию ожидается"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Ворон лорда-командующего Ночного дозора появляется при Замке Чёрного; повторно индексируется в сценах Jon III и Tyrion III."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jeor Mormont",
+          "ref": "person:jeor-mormont"
+        },
+        {
+          "label": "Night's Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Game of Thrones · chapter 21 (AWOIAF chapter index)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_21",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "agot",
+          "chapterNo": 21
+        }
+      ]
+    },
+    {
+      "ref": "person:byan-votyris",
+      "kind": "person",
+      "name": "Byan Votyris",
+      "nameRu": "Бьян Вотирис",
+      "subtitle": "A Game of Thrones · Daenerys VI (Chapter 54)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys VI (Chapter 54); AWOIAF numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_54",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 54
+      },
+      "facts": [
+        {
+          "label": "Локаторы",
+          "value": "A Game of Thrones, Daenerys VI (Chapter 54)"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "appears"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; первичный текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Норвосийский капитан торгового каравана, доставившего письмо Иллирио для Джораха. После попытки отравления передаёт продавца под стражу и дарит Дейенерис его товары как знак сожаления."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Jorah Mormont",
+          "ref": "person:jorah-mormont"
+        },
+        {
+          "label": "Western Market of Vaes Dothrak",
+          "ref": "place:western-market-of-vaes-dothrak"
+        },
+        {
+          "label": "Wineseller",
+          "ref": "person:vaes-dothrak-wineseller"
+        }
+      ]
+    },
+    {
+      "ref": "person:dywen",
+      "kind": "person",
+      "name": "Dywen",
+      "nameRu": "Дайвен",
+      "subtitle": "A Game of Thrones · Jon VII (Chapter 52)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon VII (Chapter 52); AWOIAF numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_52",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 52
+      },
+      "facts": [
+        {
+          "label": "Локаторы",
+          "value": "A Game of Thrones, Jon VII (Chapter 52); A Game of Thrones, Jon VI (Chapter 48)"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "appears"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; первичный текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Старый следопыт Ночного Дозора участвует в осмотре тел Отора и Яфера. Напоминает, что Отор носил топор; эта деталь не устанавливает убийцу."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Othor",
+          "ref": "person:othor"
+        },
+        {
+          "label": "Jafer Flowers",
+          "ref": "person:jafer-flowers"
+        },
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Haunted Forest",
+          "ref": "place:haunted-forest"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Game of Thrones, Jon VI (Chapter 48); AWOIAF numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_48",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "agot",
+          "chapterNo": 48
+        }
+      ]
+    },
+    {
+      "ref": "person:othell-yarwyck",
+      "kind": "person",
+      "name": "Othell Yarwyck",
+      "nameRu": "Отелл Ярвик",
+      "subtitle": "A Game of Thrones · Jon VI (Chapter 48)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon VI (Chapter 48); AWOIAF numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_48",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 48
+      },
+      "facts": [
+        {
+          "label": "Локаторы",
+          "value": "A Game of Thrones, Jon VI (Chapter 48)"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "appears"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; первичный текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Первый строитель Ночного Дозора присутствует при церемонии обетов и назначении новобранцев."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Jeor Mormont",
+          "ref": "person:jeor-mormont"
+        },
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        }
+      ]
+    },
+    {
+      "ref": "person:cellador",
+      "kind": "person",
+      "name": "Septon Cellador",
+      "nameRu": "Септон Селладор",
+      "subtitle": "A Game of Thrones · Jon VI (Chapter 48)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon VI (Chapter 48); AWOIAF numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_48",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 48
+      },
+      "facts": [
+        {
+          "label": "Локаторы",
+          "value": "A Game of Thrones, Jon VI (Chapter 48)"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "appears"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; первичный текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Септон при Чёрном Замке, появляющийся в сцене с септой и обетами Ночного Дозора."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        },
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        }
+      ]
+    },
+    {
+      "ref": "person:vaes-dothrak-wineseller",
+      "kind": "person",
+      "name": "Wineseller of Vaes Dothrak",
+      "nameRu": "Продавец вина из Ваэс Дотрака",
+      "subtitle": "A Game of Thrones · Daenerys VI (Chapter 54)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys VI (Chapter 54); AWOIAF numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_54",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 54
+      },
+      "facts": [
+        {
+          "label": "Локаторы",
+          "value": "A Game of Thrones, Daenerys VI (Chapter 54)"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется под ролевым обозначением; личное имя и заказчик не установлены этой записью"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; первичный текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Неназванный участник каравана предлагает Дейенерис вино и пытается скрыться, когда Джорах требует, чтобы он попробовал его первым. Это отдельная роль, не смешивать с капитаном каравана Бьяном Вотирисом."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Jorah Mormont",
+          "ref": "person:jorah-mormont"
+        },
+        {
+          "label": "Byan Votyris",
+          "ref": "person:byan-votyris"
+        },
+        {
+          "label": "Attempt to poison Daenerys",
+          "ref": "event:wineseller-attempts-to-poison-daenerys"
+        },
+        {
+          "label": "Western Market of Vaes Dothrak",
+          "ref": "place:western-market-of-vaes-dothrak"
+        }
+      ]
+    },
+    {
+      "ref": "person:ronel-rivers",
+      "kind": "person",
+      "name": "Ronel Rivers",
+      "nameRu": "Ронел Риверс",
+      "subtitle": "A Game of Thrones · Catelyn IX (Chapter 59)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn IX (Chapter 59); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_59",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 59
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn IX (Chapter 59)"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Дата",
+          "value": "Не установлена; дата не выводится из порядка глав."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "AWOIAF относит Ронела Риверса к появляющимся в сцене переговоров в Близнецах. Роль и родство оставлены минимальными до проверки текста выбранного издания."
+        }
+      ],
+      "links": [
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Walder Frey",
+          "ref": "person:walder-frey"
+        },
+        {
+          "label": "The Twins",
+          "ref": "place:the-twins"
+        }
+      ]
+    },
+    {
+      "ref": "person:farlen",
+      "kind": "person",
+      "name": "Farlen",
+      "subtitle": "A Game of Thrones · Bran I (chapter 1)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones · Bran I (chapter 1; AWOIAF secondary index)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_1",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 1
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Bran I · глава 1"
+        },
+        {
+          "label": "Статус",
+          "value": "упоминается; роль приведена по обзорной статье AWOIAF"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; первичный текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Роль",
+          "value": "кенельмейстер Винтерфелла"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Кенельмейстер Винтерфелла; в первой главе упоминается в связи с уходом за щенками. Отдельная сцена с ним здесь не утверждается."
+        }
+      ],
+      "links": [
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        },
+        {
+          "label": "House Stark",
+          "ref": "organization:house-stark"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "Farlen · A Wiki of Ice and Fire",
+          "url": "https://awoiaf.westeros.org/index.php/Farlen",
+          "license": "CC-BY-SA-3.0"
+        }
+      ]
+    },
+    {
+      "ref": "person:jhaqo",
+      "kind": "person",
+      "name": "Jhaqo",
+      "subtitle": "A Game of Thrones · Daenerys VIII (chapter 64)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones · Daenerys VIII (chapter 64; AWOIAF secondary index)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_64",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 64
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys VIII · глава 64"
+        },
+        {
+          "label": "Статус",
+          "value": "упоминается в разговоре; появление в сцене не утверждается"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; первичный текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Статус в главе",
+          "value": "имя встречается в обсуждении наследования лидерства"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Ко в кхаласаре Дрого; упоминается среди возможных соперников за лидерство, если кхал умрёт. Позднейшие действия в карточку этого локатора не включены."
+        }
+      ],
+      "links": [
+        {
+          "label": "Khal Drogo",
+          "ref": "person:drogo"
+        },
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Drogo's khalasar",
+          "ref": "organization:khalasar-of-drogo"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "Jhaqo · A Wiki of Ice and Fire",
+          "url": "https://awoiaf.westeros.org/index.php/Jhaqo",
+          "license": "CC-BY-SA-3.0"
+        }
+      ]
+    },
+    {
+      "ref": "person:pono",
+      "kind": "person",
+      "name": "Pono",
+      "subtitle": "A Game of Thrones · Daenerys VIII (chapter 64)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones · Daenerys VIII (chapter 64; AWOIAF secondary index)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_64",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 64
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys VIII · глава 64"
+        },
+        {
+          "label": "Статус",
+          "value": "упоминается в разговоре; появление в сцене не утверждается"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; первичный текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Статус в главе",
+          "value": "имя встречается в обсуждении наследования лидерства"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Ко в кхаласаре Дрого; упоминается как один из возможных претендентов на власть после ослабления кхала. Позднейшие действия в карточку этого локатора не включены."
+        }
+      ],
+      "links": [
+        {
+          "label": "Khal Drogo",
+          "ref": "person:drogo"
+        },
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Drogo's khalasar",
+          "ref": "organization:khalasar-of-drogo"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "Pono · A Wiki of Ice and Fire",
+          "url": "https://awoiaf.westeros.org/index.php/Pono",
+          "license": "CC-BY-SA-3.0"
+        }
+      ]
+    },
+    {
+      "ref": "person:lord-serrett",
+      "kind": "person",
+      "name": "Lord Serrett",
+      "subtitle": "A Game of Thrones · Tyrion VIII (chapter 62)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones · Tyrion VIII (chapter 62; AWOIAF secondary index)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_62",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 62
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion VIII · глава 62"
+        },
+        {
+          "label": "Статус",
+          "value": "появляется по вторичному указателю; собственное имя неизвестно"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; первичный текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Титул",
+          "value": "лорд Серебряного Холма; личное имя не установлено"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Лорд Серретт из Серебряного Холма появляется на поле битвы. Личное имя в указателе не установлено; карточка не переносит сюда дальнейшие события."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Serrett",
+          "ref": "organization:house-serrett"
+        },
+        {
+          "label": "Tywin Lannister",
+          "ref": "person:tywin-lannister"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "Lord Serrett · A Wiki of Ice and Fire",
+          "url": "https://awoiaf.westeros.org/index.php/Lord_Serrett",
+          "license": "CC-BY-SA-3.0"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "organization",
+  "entities": [
+    {
+      "ref": "organization:house-tarth",
+      "kind": "organization",
+      "name": "House Tarth",
+      "nameRu": "Дом Тарт",
+      "subtitle": "Stormlands house · indexed in A Game of Thrones",
+      "source": {
+        "kind": "wiki",
+        "cite": "House Tarth · A Wiki of Ice and Fire secondary overview; primary-edition verification pending",
+        "url": "https://awoiaf.westeros.org/index.php/House_Tarth",
+        "license": "CC-BY-SA-3.0"
+      },
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "House Tarth · A Wiki of Ice and Fire secondary overview; primary-edition verification pending",
+          "url": "https://awoiaf.westeros.org/index.php/House_Tarth",
+          "license": "CC-BY-SA-3.0"
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Game of Thrones · Jon VIII (chapter 60), Endrew Tarth locator",
+          "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_60",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "agot",
+          "chapterNo": 60
+        },
+        {
+          "kind": "wiki",
+          "cite": "House Tarth · A Wiki of Ice and Fire (secondary house index; GM reference)",
+          "url": "https://awoiaf.westeros.org/index.php/House_Tarth",
+          "license": "CC-BY-SA-3.0"
+        }
+      ],
+      "facts": [
+        {
+          "label": "Тип",
+          "value": "благородный дом Штормовых земель"
+        },
+        {
+          "label": "Опорное место",
+          "value": "Evenfall Hall; отдельная карточка места пока не создана"
+        },
+        {
+          "label": "Связь с сюжетом",
+          "value": "Эндрю Тарт служит в Ночном дозоре; Бриенна Тарт связана с домом в дальнейших книгах"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный обзор; книжная сверка и русская передача ожидаются"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Дом Тарт — одна из значимых вассальных сил Штормовых земель. Эта запись объединяет связи Эндрю и Бриенны, не утверждая степень родства Эндрю с основной ветвью."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Baratheon",
+          "ref": "organization:house-baratheon"
+        },
+        {
+          "label": "Brienne of Tarth",
+          "ref": "person:brienne-of-tarth"
+        },
+        {
+          "label": "Endrew Tarth",
+          "ref": "person:endrew-tarth"
+        }
+      ]
+    }
+  ]
+}

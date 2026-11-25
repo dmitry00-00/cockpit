@@ -1,0 +1,48 @@
+unit,kind,role_or_status,context_rows,unique_refs_or_keys,package_covered,ledger_context_covered,ambiguous,excluded_or_separate,note
+ledger-contexts,person,appearance,430,151,430,430,0,9,people_appearing_ids
+ledger-contexts,person,dream,25,19,25,25,0,25,people_in_dream_ids
+ledger-contexts,person,mention,261,110,261,261,0,1,people_mentioned_ids
+ledger-contexts,place,scene,122,52,122,122,0,0,scene_place_ids
+ledger-contexts,place,dream-place,8,5,8,8,0,8,places_in_dream_ids
+ledger-contexts,place,reference,56,31,56,56,0,0,places_referenced_ids
+ledger-contexts,organization,group,65,19,65,65,2,0,organization_ids
+ledger-contexts,event,ledger-occurred,57,56,57,57,0,3,events_occurred_ids
+ledger-contexts,event,ledger-referenced,35,21,35,35,18,0,events_referenced_ids
+event-state-contexts,event,occurred,48,46,48,48,0,0,
+event-state-contexts,event,reported,17,14,17,17,0,0,
+event-state-contexts,event,plan,6,5,6,6,0,0,
+event-state-contexts,event,dream,3,3,3,3,0,3,
+event-state-contexts,event,referenced-context,18,8,18,18,18,0,
+candidate-disposition,person,ambiguous-dream-identity,1,1,0,0,1,0,
+candidate-disposition,person,ambiguous-physical-presence,1,1,1,0,1,0,
+candidate-disposition,person,exclude-alias,1,1,1,1,0,1,
+candidate-disposition,person,exclude-unnamed-office-holder,1,1,0,0,0,1,
+candidate-disposition,person,include,681,195,681,681,0,0,
+candidate-disposition,person,separate-animal,16,4,16,16,0,16,
+candidate-disposition,person,separate-dream-context,18,15,18,18,0,18,
+candidate-disposition,person,separate-dream-figure,1,1,1,1,0,1,
+candidate-disposition,place,include,178,72,178,178,0,0,
+candidate-disposition,place,separate-dream-location-context,8,5,8,8,0,8,
+candidate-disposition,place,separate-dream-or-memory-setting,2,2,1,0,0,2,
+candidate-disposition,organization,ambiguous-group-context,1,1,1,1,1,0,
+candidate-disposition,organization,exclude-alias,5,1,5,5,0,5,
+candidate-disposition,organization,exclude-nonpersistent-or-broad-collective,3,2,0,0,0,3,
+candidate-disposition,organization,include,63,18,63,63,0,0,
+candidate-disposition,organization,include-ambiguous-group-definition,1,1,1,1,1,0,
+candidate-disposition,event,ambiguous-reference-state,18,8,18,18,18,0,
+candidate-disposition,event,exclude-alias,8,3,8,8,0,8,
+candidate-disposition,event,exclude-alias-or-superseded-id,2,2,2,2,0,2,
+candidate-disposition,event,include,48,46,48,48,0,0,
+candidate-disposition,event,include-plan,6,5,6,6,0,0,
+candidate-disposition,event,include-reported,17,14,17,17,0,0,
+candidate-disposition,event,separate-dream-event,3,3,3,3,0,3,
+canonical-candidate-inventory,person,human appearance/mention identities after alias and animal/dream-only separation,0,195,195,195,0,0,"Includes Rattleshirt, now linked in ch68."
+canonical-candidate-inventory,person,"animal characters, separate from people",0,4,4,4,0,0,"Ghost, Nymeria, Shaggydog, Summer."
+canonical-candidate-inventory,person,dream-only named figures in this book,0,8,8,8,0,0,Dream-only in ACOK ledger; not counted as physical appearances.
+canonical-candidate-inventory,place,physical scene/reference places,0,72,72,72,0,0,Includes physical locations also seen in dreams.
+canonical-candidate-inventory,place,dream-only settings proposed outside ledger,0,2,1,0,0,0,House with the Red Door and Sunset Sea cottage; keep outside physical gazetteer.
+canonical-candidate-inventory,organization,persistent groups,0,19,19,19,0,0,Includes The Thirteen of Qarth as a group candidate; ch48 attribution remains unresolved.
+canonical-candidate-inventory,organization,rejected broad/temporary collectives,0,2,0,0,0,0,Wildlings and Royal Fleet are not treated as stable organization cards.
+canonical-candidate-inventory,event,non-dream event candidates with a state,0,65,65,65,0,0,"Unique-state sets: occurred, reported, and plan; no percentages calculated."
+canonical-candidate-inventory,event,"dream events, separate from occurred/reported/plan",0,3,3,3,0,0,Three dream event cards.
+canonical-candidate-inventory,event,context-only event refs with no stated occurrence/report/plan status,0,3,3,3,0,0,"Green Fork battle, Eddard’s execution, Robb’s capture of Jaime; chapter context does not classify event state."

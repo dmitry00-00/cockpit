@@ -1,0 +1,813 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "person",
+  "entities": [
+    {
+      "ref": "person:eddard-stark",
+      "kind": "person",
+      "name": "Eddard Stark",
+      "nameRu": "Эддард Старк",
+      "subtitle": "A Game of Thrones · Bran I; Catelyn I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran I; Catelyn I; A Wiki of Ice and Fire, chapter index (appearance/mention status)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_2",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Bran I; Catelyn I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Лорд Старк вершит правосудие над дезертиром, затем беседует с Катлин в богороще Винтерфелла."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Stark",
+          "ref": "organization:house-stark"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        },
+        {
+          "label": "казнь дезертира",
+          "ref": "event:deserter-executed"
+        }
+      ]
+    },
+    {
+      "ref": "person:catelyn-stark",
+      "kind": "person",
+      "name": "Catelyn Stark",
+      "nameRu": "Катлин Старк",
+      "subtitle": "A Game of Thrones · Catelyn I; упоминается в Bran I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn I; упоминается в Bran I; A Wiki of Ice and Fire, chapter index (appearance/mention status)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_2",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется в Catelyn I; упоминается в Bran I"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Catelyn I; упоминается в Bran I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Катлин приносит Эддарду весть о смерти Джона Аррена и предстоящем приезде королевского двора."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Stark",
+          "ref": "organization:house-stark"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        },
+        {
+          "label": "смерть Джона Аррена",
+          "ref": "event:jon-arryn-dead"
+        },
+        {
+          "label": "королевский двор едет в Винтерфелл",
+          "ref": "event:royal-party-bound-for-winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "person:robb-stark",
+      "kind": "person",
+      "name": "Robb Stark",
+      "nameRu": "Робб Старк",
+      "subtitle": "A Game of Thrones · Bran I; упоминается в Catelyn I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran I; упоминается в Catelyn I; A Wiki of Ice and Fire, chapter index (appearance/mention status)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_1",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется в Bran I"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Bran I; упоминается в Catelyn I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Робб сопровождает отца на казнь и вместе с Джоном находит волчат лютоволчицы."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Stark",
+          "ref": "organization:house-stark"
+        },
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "волчата найдены",
+          "ref": "event:direwolf-pups-found"
+        },
+        {
+          "label": "холмы к северу от Винтерфелла",
+          "ref": "place:hills-north-of-winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "person:jon-snow",
+      "kind": "person",
+      "name": "Jon Snow",
+      "nameRu": "Джон Сноу",
+      "subtitle": "A Game of Thrones · Bran I; упоминается в Catelyn I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran I; упоминается в Catelyn I; A Wiki of Ice and Fire, chapter index (appearance/mention status)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_1",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется в Bran I"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Bran I; упоминается в Catelyn I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Джон участвует в находке волчат; в этой сцене получает одного из них."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Stark",
+          "ref": "organization:house-stark"
+        },
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "волчата найдены",
+          "ref": "event:direwolf-pups-found"
+        }
+      ]
+    },
+    {
+      "ref": "person:bran-stark",
+      "kind": "person",
+      "name": "Bran Stark",
+      "nameRu": "Брэн Старк",
+      "subtitle": "A Game of Thrones · Bran I; упоминается в Catelyn I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran I; упоминается в Catelyn I; A Wiki of Ice and Fire, chapter index (appearance/mention status)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_1",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется; POV главы Bran I"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Bran I; упоминается в Catelyn I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Брэн присутствует при исполнении приговора и едет обратно к Винтерфеллу с отцом."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Stark",
+          "ref": "organization:house-stark"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        },
+        {
+          "label": "казнь дезертира",
+          "ref": "event:deserter-executed"
+        }
+      ]
+    },
+    {
+      "ref": "person:sansa-stark",
+      "kind": "person",
+      "name": "Sansa Stark",
+      "nameRu": "Санса Старк",
+      "subtitle": "A Game of Thrones · упоминается в Bran I и Catelyn I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, упоминается в Bran I и Catelyn I; A Wiki of Ice and Fire, chapter index (appearance/mention status)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_2",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "упоминается в Bran I и Catelyn I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Старшая дочь Эддарда и Катлин в пределах этого источникового среза; отдельная сцена с ней здесь не индексируется."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Stark",
+          "ref": "organization:house-stark"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "person:arya-stark",
+      "kind": "person",
+      "name": "Arya Stark",
+      "nameRu": "Арья Старк",
+      "subtitle": "A Game of Thrones · упоминается в Bran I и Catelyn I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, упоминается в Bran I и Catelyn I; A Wiki of Ice and Fire, chapter index (appearance/mention status)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_2",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "упоминается в Bran I и Catelyn I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Дочь Эддарда и Катлин; карточка фиксирует только упоминание в стартовых главах."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Stark",
+          "ref": "organization:house-stark"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "person:rickon-stark",
+      "kind": "person",
+      "name": "Rickon Stark",
+      "nameRu": "Рикон Старк",
+      "subtitle": "A Game of Thrones · упоминается в Bran I и Catelyn I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, упоминается в Bran I и Catelyn I; A Wiki of Ice and Fire, chapter index (appearance/mention status)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_2",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "упоминается в Bran I и Catelyn I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Младший сын Эддарда и Катлин; карточка фиксирует только упоминание в стартовых главах."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Stark",
+          "ref": "organization:house-stark"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "person:benjen-stark",
+      "kind": "person",
+      "name": "Benjen Stark",
+      "nameRu": "Бенджен Старк",
+      "subtitle": "A Game of Thrones · Catelyn I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn I; A Wiki of Ice and Fire, chapter index (appearance/mention status)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_2",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Catelyn I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Брат Эддарда, связанный с Ночным Дозором; Катлин и Эддард обсуждают необходимость передать ему весть."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Stark",
+          "ref": "organization:house-stark"
+        },
+        {
+          "label": "Night's Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Стена",
+          "ref": "place:the-wall"
+        }
+      ]
+    },
+    {
+      "ref": "person:maester-luwin",
+      "kind": "person",
+      "name": "Maester Luwin",
+      "nameRu": "мейстер Лювин",
+      "subtitle": "A Game of Thrones · Catelyn I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn I; A Wiki of Ice and Fire, chapter index (appearance/mention status)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_2",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Catelyn I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Лювин назван источником скептического взгляда на рассказы об Иных."
+        }
+      ],
+      "links": [
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "person:rodrik-cassel",
+      "kind": "person",
+      "name": "Rodrik Cassel",
+      "nameRu": "Родрик Кассель",
+      "subtitle": "A Game of Thrones · Bran I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran I; A Wiki of Ice and Fire, chapter index (appearance/mention status)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_1",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Bran I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Кассель указан среди упомянутых персонажей сцены правосудия."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Stark",
+          "ref": "organization:house-stark"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "person:jory-cassel",
+      "kind": "person",
+      "name": "Jory Cassel",
+      "nameRu": "Джори Кассель",
+      "subtitle": "A Game of Thrones · Bran I; упоминается в Catelyn I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran I; упоминается в Catelyn I; A Wiki of Ice and Fire, chapter index (appearance/mention status)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_1",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется в Bran I"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Bran I; упоминается в Catelyn I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Джори присутствует в отряде, сопровождающем Эддарда."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Stark",
+          "ref": "organization:house-stark"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        }
+      ]
+    },
+    {
+      "ref": "person:theon-greyjoy",
+      "kind": "person",
+      "name": "Theon Greyjoy",
+      "nameRu": "Теон Грейджой",
+      "subtitle": "A Game of Thrones · Bran I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran I; A Wiki of Ice and Fire, chapter index (appearance/mention status)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_1",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Bran I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Теон сопровождает отряд Старков и участвует в разговоре о найденных волчатах."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Greyjoy",
+          "ref": "organization:house-greyjoy"
+        },
+        {
+          "label": "House Stark",
+          "ref": "organization:house-stark"
+        },
+        {
+          "label": "волчата найдены",
+          "ref": "event:direwolf-pups-found"
+        }
+      ]
+    },
+    {
+      "ref": "person:will",
+      "kind": "person",
+      "name": "Will",
+      "nameRu": "Уилл",
+      "subtitle": "A Game of Thrones · Prologue",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Prologue; A Wiki of Ice and Fire, chapter index (appearance/mention status)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Prologue",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется; POV пролога"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Prologue"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "последующая судьба за пределами опорного среза не заполнена"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Разведчик Ночного Дозора в патруле за Стеной; пролог показывает его наблюдения и последнюю сцену."
+        }
+      ],
+      "links": [
+        {
+          "label": "Night's Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Gared",
+          "ref": "person:gared"
+        },
+        {
+          "label": "Waymar Royce",
+          "ref": "person:waymar-royce"
+        },
+        {
+          "label": "Призрачный лес",
+          "ref": "place:haunted-forest"
+        }
+      ]
+    },
+    {
+      "ref": "person:gared",
+      "kind": "person",
+      "name": "Gared",
+      "nameRu": "Гаред",
+      "subtitle": "A Game of Thrones · Prologue; Bran I; упоминается в Catelyn I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Prologue; Bran I; упоминается в Catelyn I; A Wiki of Ice and Fire, chapter index (appearance/mention status)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Prologue",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется в Prologue; назван среди упомянутых в Bran I/Catelyn I"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Prologue; Bran I; упоминается в Catelyn I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка источника",
+          "value": "AWOIAF связывает Гареда с дезертиром из Bran I; сверка формулировок по выбранному книжному изданию ещё открыта"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Старый разведчик Ночного Дозора появляется в прологе; стартовые главы связывают это имя с казнённым дезертиром."
+        }
+      ],
+      "links": [
+        {
+          "label": "Night's Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Will",
+          "ref": "person:will"
+        },
+        {
+          "label": "Waymar Royce",
+          "ref": "person:waymar-royce"
+        },
+        {
+          "label": "казнь дезертира",
+          "ref": "event:deserter-executed"
+        }
+      ]
+    },
+    {
+      "ref": "person:waymar-royce",
+      "kind": "person",
+      "name": "Waymar Royce",
+      "nameRu": "Веймар Ройс",
+      "subtitle": "A Game of Thrones · Prologue",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Prologue; A Wiki of Ice and Fire, chapter index (appearance/mention status)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Prologue",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Prologue"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Молодой рыцарь и командир патруля Ночного Дозора в прологе."
+        }
+      ],
+      "links": [
+        {
+          "label": "Night's Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Will",
+          "ref": "person:will"
+        },
+        {
+          "label": "Gared",
+          "ref": "person:gared"
+        },
+        {
+          "label": "Призрачный лес",
+          "ref": "place:haunted-forest"
+        }
+      ]
+    },
+    {
+      "ref": "person:jon-arryn",
+      "kind": "person",
+      "name": "Jon Arryn",
+      "nameRu": "Джон Аррен",
+      "subtitle": "A Game of Thrones · Catelyn I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn I; A Wiki of Ice and Fire, chapter index (appearance/mention status)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_2",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "упоминается; умер до начала сцены"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Catelyn I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Бывший десница короля и воспитатель Эддарда; весть о его смерти запускает политический поворот стартовой главы."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Arryn",
+          "ref": "organization:house-arryn"
+        },
+        {
+          "label": "смерть Джона Аррена",
+          "ref": "event:jon-arryn-dead"
+        }
+      ]
+    }
+  ]
+}

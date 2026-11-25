@@ -1,0 +1,342 @@
+{
+  "asset": "orrery-interface-prop",
+  "version": "codex-v1",
+  "generator": "Python standard-library procedural geometry; custom GLB 2.0 exporter",
+  "unit": "normalized scene units",
+  "upAxis": "+Y",
+  "rightHanded": true,
+  "materials": [
+    {
+      "name": "Aged brass",
+      "baseColorFactor": [
+        0.49,
+        0.29,
+        0.105,
+        1
+      ],
+      "metallicFactor": 0.76,
+      "roughnessFactor": 0.38
+    },
+    {
+      "name": "Dark steel",
+      "baseColorFactor": [
+        0.12,
+        0.14,
+        0.16,
+        1
+      ],
+      "metallicFactor": 0.72,
+      "roughnessFactor": 0.43
+    },
+    {
+      "name": "Warm ivory",
+      "baseColorFactor": [
+        0.68,
+        0.58,
+        0.4,
+        1
+      ],
+      "metallicFactor": 0.12,
+      "roughnessFactor": 0.58
+    }
+  ],
+  "textures": [],
+  "externalUris": [],
+  "extensionsUsed": [],
+  "extensionsRequired": [],
+  "nodes": [
+    {
+      "name": "central_sun",
+      "parent": null,
+      "children": [],
+      "mesh": "central_sun"
+    },
+    {
+      "name": "body_inner",
+      "parent": "body_inner_pivot",
+      "children": [],
+      "mesh": "body_inner"
+    },
+    {
+      "name": "body_inner_pivot",
+      "parent": "orbit_inner_pivot",
+      "children": [
+        "body_inner"
+      ],
+      "mesh": null,
+      "pivotAxisLocal": [
+        0,
+        1,
+        0
+      ],
+      "pivotOrigin": [
+        0,
+        0,
+        0
+      ],
+      "neutralRotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "orbitRadius": null
+    },
+    {
+      "name": "orbit_inner_track",
+      "parent": "orbit_inner_pivot",
+      "children": [],
+      "mesh": "orbit_inner_track"
+    },
+    {
+      "name": "orbit_inner_pivot",
+      "parent": null,
+      "children": [
+        "orbit_inner_track",
+        "body_inner_pivot"
+      ],
+      "mesh": null,
+      "pivotAxisLocal": [
+        0,
+        1,
+        0
+      ],
+      "pivotOrigin": [
+        0,
+        0.28,
+        0
+      ],
+      "neutralRotation": [
+        0.10338030834455271,
+        0.015450290601874994,
+        0.14699969570988872,
+        0.9835979309799827
+      ],
+      "orbitRadius": 0.31
+    },
+    {
+      "name": "body_middle",
+      "parent": "body_middle_pivot",
+      "children": [],
+      "mesh": "body_middle"
+    },
+    {
+      "name": "body_middle_pivot",
+      "parent": "orbit_middle_pivot",
+      "children": [
+        "body_middle"
+      ],
+      "mesh": null,
+      "pivotAxisLocal": [
+        0,
+        1,
+        0
+      ],
+      "pivotOrigin": [
+        0,
+        0,
+        0
+      ],
+      "neutralRotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "orbitRadius": null
+    },
+    {
+      "name": "orbit_middle_track",
+      "parent": "orbit_middle_pivot",
+      "children": [],
+      "mesh": "orbit_middle_track"
+    },
+    {
+      "name": "orbit_middle_pivot",
+      "parent": null,
+      "children": [
+        "orbit_middle_track",
+        "body_middle_pivot"
+      ],
+      "mesh": null,
+      "pivotAxisLocal": [
+        0,
+        1,
+        0
+      ],
+      "pivotOrigin": [
+        0,
+        0.56,
+        0
+      ],
+      "neutralRotation": [
+        -0.1899305486120733,
+        -0.018288231749492876,
+        0.0940847960918493,
+        0.977107966617686
+      ],
+      "orbitRadius": 0.53
+    },
+    {
+      "name": "body_outer",
+      "parent": "body_outer_pivot",
+      "children": [],
+      "mesh": "body_outer"
+    },
+    {
+      "name": "body_outer_pivot",
+      "parent": "orbit_outer_pivot",
+      "children": [
+        "body_outer"
+      ],
+      "mesh": null,
+      "pivotAxisLocal": [
+        0,
+        1,
+        0
+      ],
+      "pivotOrigin": [
+        0,
+        0,
+        0
+      ],
+      "neutralRotation": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "orbitRadius": null
+    },
+    {
+      "name": "orbit_outer_track",
+      "parent": "orbit_outer_pivot",
+      "children": [],
+      "mesh": "orbit_outer_track"
+    },
+    {
+      "name": "orbit_outer_pivot",
+      "parent": null,
+      "children": [
+        "orbit_outer_track",
+        "body_outer_pivot"
+      ],
+      "mesh": null,
+      "pivotAxisLocal": [
+        0,
+        1,
+        0
+      ],
+      "pivotOrigin": [
+        0,
+        0.010000000000000009,
+        0
+      ],
+      "neutralRotation": [
+        0.26357336250417646,
+        -0.044107054165811684,
+        -0.15904489923652299,
+        0.9504148412024617
+      ],
+      "orbitRadius": 0.75
+    },
+    {
+      "name": "foot_ring",
+      "parent": null,
+      "children": [],
+      "mesh": "foot_ring"
+    },
+    {
+      "name": "support_column",
+      "parent": null,
+      "children": [],
+      "mesh": "support_column"
+    },
+    {
+      "name": "top_collar",
+      "parent": null,
+      "children": [],
+      "mesh": "top_collar"
+    },
+    {
+      "name": "base_pedestal",
+      "parent": null,
+      "children": [],
+      "mesh": "base_pedestal"
+    },
+    {
+      "name": "base_inset",
+      "parent": null,
+      "children": [],
+      "mesh": "base_inset"
+    }
+  ],
+  "variants": {
+    "main": {
+      "file": "orrery-main-v1.glb",
+      "bytes": 635024,
+      "triangles": 8704,
+      "meshCount": 12,
+      "nodeCount": 18,
+      "materialCount": 3,
+      "textures": 0,
+      "validation": {
+        "validGlb2": true,
+        "externalUris": 0,
+        "extensions": 0,
+        "pivotNodes": 6
+      }
+    },
+    "lite": {
+      "file": "orrery-lite-v1.glb",
+      "bytes": 254096,
+      "triangles": 3408,
+      "meshCount": 12,
+      "nodeCount": 18,
+      "materialCount": 3,
+      "textures": 0,
+      "validation": {
+        "validGlb2": true,
+        "externalUris": 0,
+        "extensions": 0,
+        "pivotNodes": 6
+      }
+    }
+  },
+  "status": "technical prototype; Blender visual acceptance pending",
+  "previews": [
+    {
+      "file": "orrery-front.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "view": "front"
+    },
+    {
+      "file": "orrery-three-quarter.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "view": "three-quarter"
+    },
+    {
+      "file": "orrery-orbit-45.png",
+      "width": 512,
+      "height": 512,
+      "alpha": true,
+      "view": "outer body pivot +45 degrees"
+    }
+  ],
+  "fallback": {
+    "file": "orrery-front-128.png",
+    "width": 128,
+    "height": 128,
+    "alpha": true,
+    "renderedFrom": "same generated triangle mesh; software orthographic rasterizer"
+  },
+  "notes": [
+    "Neutral authored interface prop; orbital radii and bodies are visual placeholders, not canonical celestial data or game values.",
+    "Six pivot nodes are separate from their child meshes: three orbit pivots and three body pivots.",
+    "No textures, external resources, animations, or automatic motion."
+  ]
+}

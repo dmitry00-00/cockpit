@@ -1,0 +1,5 @@
+.faction-orrery-node:focus-visible circle {
+  stroke: var(--gd-hi);
+  stroke-width: 3px;
+  filter: drop-shadow(0 0 3px var(--gd));
+}

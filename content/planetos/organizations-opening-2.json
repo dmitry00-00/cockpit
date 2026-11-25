@@ -1,0 +1,742 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "organization",
+  "entities": [
+    {
+      "ref": "organization:house-tully",
+      "kind": "organization",
+      "name": "House Tully",
+      "nameRu": "Дом Талли",
+      "subtitle": "A Game of Thrones · Catelyn II; Catelyn V; Catelyn VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn II; Catelyn V; Catelyn VI; A Wiki of Ice and Fire, chapter locators and indexes (secondary source; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_6",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Тип организации",
+          "value": "родовой дом"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается; в главах появляются отдельные члены семьи и вассалы, но коллективное решение дома не показано"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "6: Catelyn II · 28: Catelyn V · 34: Catelyn VI"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка источника",
+          "value": "AWOIAF — вторичный указатель; первичный текст не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Правящий дом Речных земель, связанный с Риверраном. В стартовом срезе сюжетная опора — родственные связи Кэтлин и Бриндена и вопрос надёжности вассальных знамен."
+        }
+      ],
+      "links": [
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Hoster Tully",
+          "ref": "person:hoster-tully"
+        },
+        {
+          "label": "Brynden Tully",
+          "ref": "person:brynden-tully"
+        },
+        {
+          "label": "Edmure Tully",
+          "ref": "person:edmure-tully"
+        },
+        {
+          "label": "Riverrun",
+          "ref": "place:riverrun"
+        },
+        {
+          "label": "Riverlands",
+          "ref": "place:riverlands"
+        }
+      ]
+    },
+    {
+      "ref": "organization:house-frey",
+      "kind": "organization",
+      "name": "House Frey",
+      "nameRu": "Дом Фреев",
+      "subtitle": "A Game of Thrones · Catelyn V; Sansa II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn V; Sansa II; A Wiki of Ice and Fire, chapter locators and indexes (secondary source; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_28",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Тип организации",
+          "value": "родовой дом и его вассалы"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается ретроспективно; на турнире присутствуют несколько членов дома, но их участие не является решением главы дома"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "28: Catelyn V · 29: Sansa II"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка источника",
+          "value": "AWOIAF — вторичный указатель; первичный текст не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Дом с замком у переправы через Зелёный Зубец. Кэтлин вспоминает запоздалое участие Фреев в восстании, а турнир показывает, что несколько членов семьи находятся при дворе."
+        }
+      ],
+      "links": [
+        {
+          "label": "The Twins",
+          "ref": "place:the-twins"
+        },
+        {
+          "label": "Bridge of the Twins",
+          "ref": "place:bridge-of-the-twins"
+        },
+        {
+          "label": "Stevron Frey",
+          "ref": "person:stevron-frey"
+        },
+        {
+          "label": "Emmon Frey",
+          "ref": "person:emmon-frey"
+        },
+        {
+          "label": "Danwell Frey",
+          "ref": "person:danwell-frey"
+        },
+        {
+          "label": "Hosteen Frey",
+          "ref": "person:hosteen-frey"
+        },
+        {
+          "label": "Jared Frey",
+          "ref": "person:jared-frey"
+        },
+        {
+          "label": "Perwyn Frey",
+          "ref": "person:perwyn-frey"
+        },
+        {
+          "label": "Theo Frey",
+          "ref": "person:theo-frey"
+        },
+        {
+          "label": "Olyvar Frey",
+          "ref": "person:olyvar-frey"
+        }
+      ]
+    },
+    {
+      "ref": "organization:house-tyrell",
+      "kind": "organization",
+      "name": "House Tyrell",
+      "nameRu": "Дом Тиреллов",
+      "subtitle": "A Game of Thrones · Daenerys I; Eddard VI; Sansa II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys I; Eddard VI; Sansa II; A Wiki of Ice and Fire, chapter locators and indexes (secondary source; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Тип организации",
+          "value": "родовой дом Простора"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается как возможный союзник по расчёту Визериса; Лорас появляется на турнире, но поддержка дома не подтверждена"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "3: Daenerys I · 27: Eddard VI · 29: Sansa II"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка источника",
+          "value": "AWOIAF — вторичный указатель; первичный текст не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Крупный дом Простора, который Визерис считает возможным сторонником возвращения Таргариенов. В текущих сценах виден Лорас; надежда на союз остаётся лишь предположением персонажа."
+        }
+      ],
+      "links": [
+        {
+          "label": "Loras Tyrell",
+          "ref": "person:loras-tyrell"
+        },
+        {
+          "label": "Margaery Tyrell",
+          "ref": "person:margaery-tyrell"
+        }
+      ]
+    },
+    {
+      "ref": "organization:house-royce",
+      "kind": "organization",
+      "name": "House Royce",
+      "nameRu": "Дом Ройсов",
+      "subtitle": "A Game of Thrones · Tyrion III; Sansa II; Catelyn VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion III; Sansa II; Catelyn VI; A Wiki of Ice and Fire, chapter locators and indexes (secondary source; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_29",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Тип организации",
+          "value": "родовой дом Долины"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "представлен отдельными членами: Йон заметен на турнире, Нестор участвует во встрече у Долины; действия всего дома не показаны"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "21: Tyrion III · 29: Sansa II · 34: Catelyn VI"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка источника",
+          "value": "AWOIAF — вторичный указатель; первичный текст не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Знатный дом Долины, заметный по Йону Ройсу на турнире и Нестору Ройсу среди людей, встречающих Кэтлин. Исчезновение Веймара Ройса обсуждается отдельно через Ночной дозор."
+        }
+      ],
+      "links": [
+        {
+          "label": "Yohn Royce",
+          "ref": "person:yohn-royce"
+        },
+        {
+          "label": "Nestor Royce",
+          "ref": "person:nestor-royce"
+        },
+        {
+          "label": "Waymar Royce",
+          "ref": "person:waymar-royce"
+        },
+        {
+          "label": "Vale of Arryn",
+          "ref": "place:vale-of-arryn"
+        },
+        {
+          "label": "The Eyrie",
+          "ref": "place:the-eyrie"
+        }
+      ]
+    },
+    {
+      "ref": "organization:house-mormont",
+      "kind": "organization",
+      "name": "House Mormont",
+      "nameRu": "Дом Мормонтов",
+      "subtitle": "A Game of Thrones · Tyrion III; Daenerys IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion III; Daenerys IV; A Wiki of Ice and Fire, chapter locators and indexes (secondary source; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_21",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Тип организации",
+          "value": "родовой дом Севера"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "представлен отдельными членами вне Медвежьего острова: Джейор служит Ночному дозору, Джорах живёт в изгнании; участие дома как целого не показано"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "21: Tyrion III · 36: Daenerys IV"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка источника",
+          "value": "AWOIAF — вторичный указатель; первичный текст не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Северный дом, чьи известные здесь представители находятся далеко от родовых владений: Джейор — лорд-командующий Ночного дозора, а Джорах — изгнанник при Дейенерис."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jeor Mormont",
+          "ref": "person:jeor-mormont"
+        },
+        {
+          "label": "Jorah Mormont",
+          "ref": "person:jorah-mormont"
+        },
+        {
+          "label": "Night's Watch",
+          "ref": "organization:nights-watch"
+        }
+      ]
+    },
+    {
+      "ref": "organization:house-martell",
+      "kind": "organization",
+      "name": "House Martell",
+      "nameRu": "Дом Мартеллов",
+      "subtitle": "A Game of Thrones · Daenerys I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys I; A Wiki of Ice and Fire, chapter locators and indexes (secondary source; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Тип организации",
+          "value": "правящий дом Дорна"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "лишь предполагаемый союзник в речи Визериса; в сцене ни один Мартелл не появляется и поддержки дома не заявлено"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "3: Daenerys I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка источника",
+          "value": "AWOIAF — вторичный указатель; первичный текст не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Политическая значимость дома связана с гибелью Элии и её детей. Визерис рассчитывает на поддержку дорнийцев, но это его ожидание, а не обещание Мартеллов."
+        }
+      ],
+      "links": [
+        {
+          "label": "Elia Martell",
+          "ref": "person:elia-martell"
+        }
+      ]
+    },
+    {
+      "ref": "organization:house-dayne",
+      "kind": "organization",
+      "name": "House Dayne",
+      "nameRu": "Дом Дейнов",
+      "subtitle": "A Game of Thrones · Catelyn II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn II; A Wiki of Ice and Fire, chapter locators and indexes (secondary source; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_6",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Тип организации",
+          "value": "родовой дом Дорна"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "упоминается; Ашара и Артур названы в связи со слухами, но не участвуют в сцене"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "6: Catelyn II"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка источника",
+          "value": "AWOIAF — вторичный указатель; первичный текст не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Дом обозначен через Ашару и Артура Дейнов в разговоре о слухах вокруг происхождения Джона. Карточка фиксирует только это раннее упоминание."
+        }
+      ],
+      "links": [
+        {
+          "label": "Ashara Dayne",
+          "ref": "person:ashara-dayne"
+        },
+        {
+          "label": "Arthur Dayne",
+          "ref": "person:arthur-dayne"
+        }
+      ]
+    },
+    {
+      "ref": "organization:house-mallister",
+      "kind": "organization",
+      "name": "House Mallister",
+      "nameRu": "Дом Маллистеров",
+      "subtitle": "A Game of Thrones · Catelyn V; Sansa II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn V; Sansa II; A Wiki of Ice and Fire, chapter locators and indexes (secondary source; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_28",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Тип организации",
+          "value": "родовой дом Речных земель"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "представлен лордом Джейсоном и его отрядом у Перекрёстка; позднее его замечают на турнире; отдельное решение всего дома не показано"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "28: Catelyn V · 29: Sansa II"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка источника",
+          "value": "AWOIAF — вторичный указатель; первичный текст не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Вассальный дом Хостера Талли. Джейсон Маллистер ведёт вооружённых людей через Перекрёсток, а затем появляется среди лордов на турнире."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jason Mallister",
+          "ref": "person:jason-mallister"
+        },
+        {
+          "label": "Riverrun",
+          "ref": "place:riverrun"
+        }
+      ]
+    },
+    {
+      "ref": "organization:kingsguard",
+      "kind": "organization",
+      "name": "Kingsguard",
+      "nameRu": "Королевская гвардия",
+      "subtitle": "A Game of Thrones · Daenerys I; Sansa II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys I; Sansa II; A Wiki of Ice and Fire, chapter locators and indexes (secondary source; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_29",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Тип организации",
+          "value": "королевский военный орден"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "коллективно присутствует на турнире в Королевской Гавани; исторический эпизод с гибелью Эйриса упоминается отдельно"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "3: Daenerys I · 29: Sansa II"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка источника",
+          "value": "AWOIAF — вторичный указатель; первичный текст не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Орден королевских телохранителей. На турнире Санса видит гвардейцев в белых плащах; карточка фиксирует присутствие института при дворе, не отдельное решение ордена."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jaime Lannister",
+          "ref": "person:jaime-lannister"
+        },
+        {
+          "label": "Barristan Selmy",
+          "ref": "person:barristan-selmy"
+        },
+        {
+          "label": "Meryn Trant",
+          "ref": "person:meryn-trant"
+        },
+        {
+          "label": "Boros Blount",
+          "ref": "person:boros-blount"
+        },
+        {
+          "label": "Balon Swann",
+          "ref": "person:balon-swann"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "organization:small-council",
+      "kind": "organization",
+      "name": "Small Council",
+      "nameRu": "Малый совет",
+      "subtitle": "A Game of Thrones · Eddard IV; Eddard VI; Eddard VIII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard IV; Eddard VI; Eddard VIII; A Wiki of Ice and Fire, chapter locators and indexes (secondary source; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_20",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Тип организации",
+          "value": "совещательный орган короны"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "действует как коллегиальный орган на заседаниях; состав меняется, а решения совета не следует приписывать каждому участнику отдельно"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "20: Eddard IV · 27: Eddard VI · 33: Eddard VIII"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка источника",
+          "value": "AWOIAF — вторичный указатель; первичный текст не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Рабочий совет короны в столице: обсуждает подготовку турнира и городскую безопасность, а позднее — предложение убить Дейенерис. Его решения задают несколько ключевых политических развилок."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Petyr Baelish",
+          "ref": "person:petyr-baelish"
+        },
+        {
+          "label": "Varys",
+          "ref": "person:varys"
+        },
+        {
+          "label": "Pycelle",
+          "ref": "person:pycelle"
+        },
+        {
+          "label": "Renly Baratheon",
+          "ref": "person:renly-baratheon"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Ned resigns as Hand",
+          "ref": "event:ned-resigns-as-hand"
+        },
+        {
+          "label": "Robert approves a plan to kill Daenerys",
+          "ref": "event:robert-orders-daenerys-assassination"
+        }
+      ]
+    },
+    {
+      "ref": "organization:kings-landing-city-watch",
+      "kind": "organization",
+      "name": "City Watch of King's Landing",
+      "nameRu": "Городская стража Королевской Гавани",
+      "subtitle": "A Game of Thrones · Eddard VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard VI; A Wiki of Ice and Fire, chapter locators and indexes (secondary source; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_27",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Тип организации",
+          "value": "городская правоохранительная служба"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "действует через доклад командира Яноса Слинта; совет увеличивает численность стражи для поддержания порядка"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "27: Eddard VI"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка источника",
+          "value": "AWOIAF — вторичный указатель; первичный текст не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Городская служба порядка под командованием Яноса Слинта. Наплыв гостей турнира увеличивает нагрузку на стражу, и совет выделяет ей дополнительных людей."
+        }
+      ],
+      "links": [
+        {
+          "label": "Janos Slynt",
+          "ref": "person:janos-slynt"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "organization:vale-mountain-clans",
+      "kind": "organization",
+      "name": "Vale Mountain Clans",
+      "nameRu": "Горные кланы Долины",
+      "subtitle": "A Game of Thrones · Tyrion IV; Catelyn VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion IV; Catelyn VI; A Wiki of Ice and Fire, chapter locators and indexes (secondary source; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_31",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Тип организации",
+          "value": "разрозненные кланы и военные группы"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "несколько разрозненных групп, а не единая организация; нападают на отряд на Высокой дороге, позднее отмечена их возросшая смелость"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "31: Tyrion IV · 34: Catelyn VI"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка источника",
+          "value": "AWOIAF — вторичный указатель; первичный текст не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая роль",
+          "text": "Несколько враждующих горных сообществ. Их нападение на отряд Кэтлин и Тириона превращает путь через Долину в опасное приключение; Лиза запрещает своим людям вылазки против кланов."
+        }
+      ],
+      "links": [
+        {
+          "label": "Shagga",
+          "ref": "person:shagga"
+        },
+        {
+          "label": "Conn",
+          "ref": "person:conn"
+        },
+        {
+          "label": "Gunthor",
+          "ref": "person:gunthor"
+        },
+        {
+          "label": "Chella",
+          "ref": "person:chella"
+        },
+        {
+          "label": "Timett",
+          "ref": "person:timett"
+        },
+        {
+          "label": "Mountains of the Moon",
+          "ref": "place:mountains-of-the-moon"
+        },
+        {
+          "label": "High Road",
+          "ref": "place:high-road"
+        },
+        {
+          "label": "The Eyrie",
+          "ref": "place:the-eyrie"
+        }
+      ]
+    }
+  ]
+}

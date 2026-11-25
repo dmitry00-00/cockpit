@@ -1,0 +1,1023 @@
+{
+  "format": "dm-cockpit.kimi-art-registry-draft/1",
+  "status": "draft_not_registered",
+  "source": "design/art/kimi-production-v1",
+  "basis": {
+    "coreCount": 61,
+    "alreadyRegisteredExcluded": [
+      "class-artificer-v1.png",
+      "class-barbarian-v1.png",
+      "class-bard-v1.png",
+      "class-cleric-v1.png",
+      "class-druid-v1.png",
+      "class-fighter-v1.png",
+      "class-monk-v1.png",
+      "class-paladin-v1.png",
+      "class-ranger-v1.png",
+      "class-rogue-v1.png",
+      "class-sorcerer-v1.png",
+      "class-warlock-v1.png",
+      "class-wizard-v1.png"
+    ],
+    "itemCount": 12,
+    "mainAssetCount": 60,
+    "materialsCount": 6
+  },
+  "assets": [
+    {
+      "id": "kimi-core-ability-charisma-v1",
+      "path": "design/art/kimi-production-v1/ability-charisma-v1.png",
+      "meaning": "Харизма",
+      "family": "emblem",
+      "bytes": 1046470,
+      "sha256": "023979f2d40518df887b2d4774e9cbfadf0e9f1c7418764325d8dce36cbfd4bc",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game ability icon on a fully transparent background, no backdrop, no vignette: charisma ability, an expressive golden-bronze half-mask covering only the upper face with a confident subtle smile hinted below, one small dark plum ribbon accent, elegant but restrained, clearly a half-mask not a full theatrical mask, big bold simple silhouette, minimal fine ornament, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-ability-constitution-v1",
+      "path": "design/art/kimi-production-v1/ability-constitution-v1.png",
+      "meaning": "Телосложение",
+      "family": "emblem",
+      "bytes": 772724,
+      "sha256": "1194b807840deece195aa6ded7ece03ee3518f93c44d589f1ce3358b68961085",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game ability icon on a fully transparent background, no backdrop, no vignette: constitution ability, a sturdy anatomically stylized heart held in a modest plain aged bronze open setting, matte warm surfaces, NO gem sparkle, NO jewel shine, NO blood, NO blood drops, big bold simple silhouette, minimal fine ornament, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-ability-dexterity-v1",
+      "path": "design/art/kimi-production-v1/ability-dexterity-v1.png",
+      "meaning": "Ловкость",
+      "family": "emblem",
+      "bytes": 308006,
+      "sha256": "c0ea12ac79fe218fb166215e2b1814192a09372c762c85b6a9d6bb60d8d75824",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game ability icon on a fully transparent background, no backdrop, no vignette: dexterity ability, a slender elegant hand confidently balancing a single small upright feather quill on one fingertip, neat simple cuff, NO coin, NO coin trick, big bold simple silhouette, minimal fine detail, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-ability-intelligence-v1",
+      "path": "design/art/kimi-production-v1/ability-intelligence-v1.png",
+      "meaning": "Интеллект",
+      "family": "emblem",
+      "bytes": 1139749,
+      "sha256": "fa164ed6ba3437d37ddde0606eefc02738383cf0aa413e2ff915576e69d1d6d3",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game ability icon on a fully transparent background, no backdrop, no vignette: intelligence ability, a closed thick scholarly book in brown leather with a single feather quill resting diagonally on its cover, blank cover without any letters or text, NO magical glow, NO light effects, NO open pages, big bold simple silhouette, minimal fine ornament, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole objects fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-ability-strength-v1",
+      "path": "design/art/kimi-production-v1/ability-strength-v1.png",
+      "meaning": "Сила",
+      "family": "emblem",
+      "bytes": 901904,
+      "sha256": "2cad43b13b57ff5f3aae9cc9886ca3207e85d931f5d3d3e0f835287bef2f8531",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game ability icon on a fully transparent background, no backdrop, no vignette: strength ability, a flexed muscular bare forearm with a simple plain brown leather cuff at the wrist, compact collected pose, big bold simple silhouette, minimal fine detail, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-ability-wisdom-v1",
+      "path": "design/art/kimi-production-v1/ability-wisdom-v1.png",
+      "meaning": "Мудрость",
+      "family": "emblem",
+      "bytes": 1082499,
+      "sha256": "027184b7cc959f783820560e7ea5ea9bdbc08324b8742f006376ce8da812714d",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game ability icon on a fully transparent background, no backdrop, no vignette: wisdom ability, the head of a calm owl with an attentive serene gaze, front three-quarter view, layered soft feathers in warm bone and brown tones, big bold simple silhouette, minimal fine detail, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-condition-blinded-v1",
+      "path": "design/art/kimi-production-v1/condition-blinded-v1.png",
+      "meaning": "Ослеплён",
+      "family": "emblem",
+      "bytes": 884094,
+      "sha256": "3bed0a5ea33a4419fb338217bdec06ee2fb7a4f95369256d3a58f2805d6b7769",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game condition icon on a fully transparent background, no backdrop, no vignette: blinded condition, the closed eyes of a stylized neutral featureless warm-bone face covered by a dense dark brown cloth blindfold tied at the side, calm stylization, NO realism, NO eye talisman, big bold simple silhouette, minimal fine detail, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-condition-charmed-v1",
+      "path": "design/art/kimi-production-v1/condition-charmed-v1.png",
+      "meaning": "Очарован",
+      "family": "emblem",
+      "bytes": 831894,
+      "sha256": "9fd8af6b8f628b5878fda44b9effc44b01886ba68d45040d2c2b1ed4c36675e3",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game condition icon on a fully transparent background, no backdrop, no vignette: charmed condition, a small matte stylized heart gently encircled by one single thin enchanted ribbon loop with a soft shimmer, calm stylization, NO realism, NO blood, big bold simple silhouette, minimal fine detail, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-condition-deafened-v1",
+      "path": "design/art/kimi-production-v1/condition-deafened-v1.png",
+      "meaning": "Оглохший",
+      "family": "emblem",
+      "bytes": 1027285,
+      "sha256": "19baec9d7822e262a0226f7ca5d0f1998b6c2ed2085a61328967997e6ecd7835",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game condition icon on a fully transparent background, no backdrop, no vignette: deafened condition, a stylized neutral warm-bone ear with one small curved sound wave that stops and flattens against a solid grey stone barrier slab in front of it, NO crossed-out symbol, calm stylization, big bold simple silhouette, minimal fine detail, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-condition-exhaustion-v1",
+      "path": "design/art/kimi-production-v1/condition-exhaustion-v1.png",
+      "meaning": "Истощение",
+      "family": "emblem",
+      "bytes": 1089596,
+      "sha256": "a0de73e4b41f108634cb80164f45fd659e21ec147f13ea651af8f2ccedf0ec7e",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game condition icon on a fully transparent background, no backdrop, no vignette: exhaustion condition, a stylized neutral featureless warm-bone figure with drooped shoulders and bowed head, a heavy plain road pack strap pulling down one shoulder, tired but standing pose, calm stylization, NO realism, big bold simple silhouette, minimal fine detail, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-condition-frightened-v1",
+      "path": "design/art/kimi-production-v1/condition-frightened-v1.png",
+      "meaning": "Испуган",
+      "family": "emblem",
+      "bytes": 903540,
+      "sha256": "9793b2df30843438b7fbb4027337c30b339f687361c0ec75a1a47640a17c1820",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game condition icon on a fully transparent background, no backdrop, no vignette: frightened condition, a small huddled stylized neutral featureless warm-bone figure crouching with arms drawn in under one single large looming dark plum shadow shape above it, calm stylization, NO realism, big bold simple silhouette, minimal fine detail, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-condition-grappled-v1",
+      "path": "design/art/kimi-production-v1/condition-grappled-v1.png",
+      "meaning": "Захвачен",
+      "family": "emblem",
+      "bytes": 813399,
+      "sha256": "9b9197b5b45b044cdb0091d60b52db7ab165f4e64921d308cb54af3ed88db933",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game condition icon on a fully transparent background, no backdrop, no vignette: grappled condition, two stylized neutral warm-bone hands where one hand firmly grips the other hand's wrist, NO rope, calm stylization, big bold simple silhouette, minimal fine detail, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-condition-incapacitated-v1",
+      "path": "design/art/kimi-production-v1/condition-incapacitated-v1.png",
+      "meaning": "Недееспособен",
+      "family": "emblem",
+      "bytes": 868915,
+      "sha256": "c01838cbd9bb361de5d95a9d2e41503ed38f9d7933f70bc213c34cf9f8ffb69c",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game condition icon on a fully transparent background, no backdrop, no vignette: incapacitated condition, a relaxed open stylized neutral warm-bone hand with a simple sword hilt slipping from its loosened fingers, NO full lying figure, calm stylization, big bold simple silhouette, minimal fine detail, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-condition-invisible-v1",
+      "path": "design/art/kimi-production-v1/condition-invisible-v1.png",
+      "meaning": "Невидим",
+      "family": "emblem",
+      "bytes": 646447,
+      "sha256": "6e80ee8774dd4e2d52c3a471e129743ab38e8385c4a785945ab6d7657381994b",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game condition icon on a fully transparent background, no backdrop, no vignette: invisible condition, a stylized neutral featureless standing figure whose left half is solid warm-bone and whose right half fades into a readable semi-transparent ghost edge, NOT a hood, NOT a cloak, calm stylization, big bold simple silhouette, minimal fine detail, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-condition-paralyzed-v1",
+      "path": "design/art/kimi-production-v1/condition-paralyzed-v1.png",
+      "meaning": "Парализован",
+      "family": "emblem",
+      "bytes": 517311,
+      "sha256": "9a20323fae189475a41d0b1f6ab5e507b933365d4f628d2358c3382a6208e436",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game condition icon on a fully transparent background, no backdrop, no vignette: paralyzed condition, a tense rigid motionless stylized neutral warm-bone hand with straight locked fingers and a few thin cold pale-blue glowing veins under the surface, NOT stone texture, calm stylization, big bold simple silhouette, minimal fine detail, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather with a narrow cold accent, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-condition-petrified-v1",
+      "path": "design/art/kimi-production-v1/condition-petrified-v1.png",
+      "meaning": "Окаменевший",
+      "family": "emblem",
+      "bytes": 835856,
+      "sha256": "e932397641450886b929725dbde3a9c55d36809648cfa78af4449484afb4f265",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game condition icon on a fully transparent background, no backdrop, no vignette: petrified condition, a stylized neutral hand turned completely into rough grey stone with clear cracks and a chipped broken cuff edge, readable rock texture, calm stylization, big bold simple silhouette, minimal fine detail, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather with grey stone, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-condition-prone-v1",
+      "path": "design/art/kimi-production-v1/condition-prone-v1.png",
+      "meaning": "Лежащий",
+      "family": "emblem",
+      "bytes": 523480,
+      "sha256": "519fac8150e59b31d947df6a9726d2c7e8e195e07341d768eee86e3a3925f6e1",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game condition icon on a fully transparent background, no backdrop, no vignette: prone condition, a stylized neutral featureless warm-bone figure lying on its side with its torso propped up on one elbow, awake alert pose, calm stylization, NO realism, big bold simple silhouette, minimal fine detail, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-condition-restrained-v1",
+      "path": "design/art/kimi-production-v1/condition-restrained-v1.png",
+      "meaning": "Опутан",
+      "family": "emblem",
+      "bytes": 769612,
+      "sha256": "1f796fb43eaf16c653ce0d3be8f302574152cefb565f597ee9a3217bfef3f58f",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game condition icon on a fully transparent background, no backdrop, no vignette: restrained condition, a pair of stylized wooden mannequin forearms and hands standing upright side by side, wrapped together by several neat coils of rough brown hemp rope, clearly an object-like stylized game token, NO realism, calm mood, big bold simple silhouette, minimal fine detail, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-condition-stunned-v1",
+      "path": "design/art/kimi-production-v1/condition-stunned-v1.png",
+      "meaning": "Оглушён",
+      "family": "emblem",
+      "bytes": 889119,
+      "sha256": "7135c0f76d96d733e17f9546030ae14e96faf3837765c395a2ff97891357258b",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game condition icon on a fully transparent background, no backdrop, no vignette: stunned condition, a stylized neutral featureless warm-bone head with closed eyes and two short diverging pale light arcs ringing outward from the temples, readable ringing impact, calm stylization, NO realism, NO stars, big bold simple silhouette, minimal fine detail, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-condition-unconscious-v1",
+      "path": "design/art/kimi-production-v1/condition-unconscious-v1.png",
+      "meaning": "Без сознания",
+      "family": "emblem",
+      "bytes": 839833,
+      "sha256": "78eb88373c172d539585239efd03044253df7095a5cd6491ecb1f05f83b28040",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game condition icon on a fully transparent background, no backdrop, no vignette: unconscious condition, a stylized neutral featureless warm-bone head with closed eyes resting sideways on a relaxed forearm, sleeping pose, calm stylization, NO realism, big bold simple silhouette, minimal fine detail, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-icon-stealth-hood",
+      "path": "design/art/kimi-production-v1/icon_stealth_hood.png",
+      "meaning": "Скрытность: компактный капюшон и верх плаща",
+      "family": "emblem",
+      "bytes": 998027,
+      "sha256": "23fd7bfcd2fc58fb903ed2d83e715b59c5694eae1fe0b4e70646154394faa152",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-pilot-v1/REVIEW.md; design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "summaryPrompt",
+        "summaryPrompt": "Компактный знак Скрытности: крупный капюшон и плечи/верх плаща, тёмное пустое пространство вместо лица, простая застёжка; требования указаны в pilot review; точный исходный промпт в доступных материалах отсутствует."
+      }
+    },
+    {
+      "id": "kimi-core-school-abjuration-v1",
+      "path": "design/art/kimi-production-v1/school-abjuration-v1.png",
+      "meaning": "Ограждение",
+      "family": "emblem",
+      "bytes": 1169425,
+      "sha256": "b11a5c08b6971405ca04faf720200bfd36606e790638eb89a6bee6b43e315137",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game magic school icon on a fully transparent background, no backdrop, no vignette: abjuration school, a small sturdy round shield standing in front of a clear translucent protective arc of pale light, both mounted on a small simple plain aged bronze circular base plate, big bold simple silhouette, minimal fine ornament, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-school-conjuration-v1",
+      "path": "design/art/kimi-production-v1/school-conjuration-v1.png",
+      "meaning": "Вызов",
+      "family": "emblem",
+      "bytes": 966212,
+      "sha256": "46e7b9219785bf9f8e7b4f864a86ff9c9e19e83ca2a8c28552b4e3d9c4144f55",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game magic school icon on a fully transparent background, no backdrop, no vignette: conjuration school, an open broken ring portal of aged bronze with a small solid grey stone materializing inside its gap, mounted on a small simple plain aged bronze circular base plate, big bold simple silhouette, minimal fine ornament, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-school-divination-v1",
+      "path": "design/art/kimi-production-v1/school-divination-v1.png",
+      "meaning": "Прорицание",
+      "family": "emblem",
+      "bytes": 777937,
+      "sha256": "a19b467881175458f161e31164fe8709cc8d2bcc93460f2111b1e385534512a0",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game magic school icon on a fully transparent background, no backdrop, no vignette: divination school, a smooth dark oval scrying mirror in a plain aged bronze frame with one single clear small point of light inside, NO scattered stars, mounted on a small simple plain aged bronze circular base plate, big bold simple silhouette, minimal fine ornament, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-school-enchantment-v1",
+      "path": "design/art/kimi-production-v1/school-enchantment-v1.png",
+      "meaning": "Очарование",
+      "family": "emblem",
+      "bytes": 599494,
+      "sha256": "15f76127b861ad09ef23b17898ebdc1fa9475a8714d87fbacc80c0752e50eeea",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game magic school icon on a fully transparent background, no backdrop, no vignette: enchantment school, a smooth grey stone pendulum hanging on a short cord with two soft concentric ripple waves around its tip, mounted on a small simple plain aged bronze circular base plate, big bold simple silhouette, minimal fine ornament, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-school-evocation-v1",
+      "path": "design/art/kimi-production-v1/school-evocation-v1.png",
+      "meaning": "Воплощение",
+      "family": "emblem",
+      "bytes": 821949,
+      "sha256": "e045c937e57d707ad2c6ab8930ad0671f37e86f3787f7ab090dfff2980881b5f",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game magic school icon on a fully transparent background, no backdrop, no vignette: evocation school, one large bold mass of flame with a single clear lightning branch striking out of it, strong readable silhouette, mounted on a small simple plain aged bronze circular base plate, big bold simple silhouette, minimal fine detail, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather with warm fire accents, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-school-illusion-v1",
+      "path": "design/art/kimi-production-v1/school-illusion-v1.png",
+      "meaning": "Иллюзия",
+      "family": "emblem",
+      "bytes": 1127079,
+      "sha256": "60bc6d2f0ca71a0ec13de6339f02036750af28cd115a94d7c3cd9ca84ffc3c88",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game magic school icon on a fully transparent background, no backdrop, no vignette: illusion school, a small plain aged bronze ring and its semi-transparent ghostly double offset slightly to the side, clearly the same object doubled, NOT a theatrical mask, mounted on a small simple plain aged bronze circular base plate, big bold simple silhouette, minimal fine ornament, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-school-necromancy-v1",
+      "path": "design/art/kimi-production-v1/school-necromancy-v1.png",
+      "meaning": "Некромантия",
+      "family": "emblem",
+      "bytes": 928888,
+      "sha256": "628672b44eaaa4a21e9364b92bad40c430d587cdac9c19a99e3ac51447435c9d",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game magic school icon on a fully transparent background, no backdrop, no vignette: necromancy school, a pale warm bone skull with one small dim cold teal flame floating beside it, calm and stylized, NO blood, NO gore, mounted on a small simple plain aged bronze circular base plate, big bold simple silhouette, minimal fine ornament, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather with a narrow cold accent, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-school-transmutation-v1",
+      "path": "design/art/kimi-production-v1/school-transmutation-v1.png",
+      "meaning": "Преобразование",
+      "family": "emblem",
+      "bytes": 810560,
+      "sha256": "e2dc397238b39a026ea973fdf2396dee127bb980438a8453b36e4069fd9e0343",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game magic school icon on a fully transparent background, no backdrop, no vignette: transmutation school, one rough grey stone whose lower part is visibly turning into a smooth aged bronze metallic crystal sheet, a clear readable boundary of transformation across the middle, mounted on a small simple plain aged bronze circular base plate, big bold simple silhouette, minimal fine ornament, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-sign-athletics",
+      "path": "design/art/kimi-production-v1/sign_athletics.png",
+      "meaning": "Атлетика",
+      "family": "emblem",
+      "bytes": 493708,
+      "sha256": "e8222d07fe70a8e838cfc8b08509a094f7a6b1f2cf3609b87d26b0d952f1a5b0",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-pilot-v1/REVIEW.md; design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "summaryPrompt",
+        "summaryPrompt": "Знак Атлетики; ранняя партия из шести предметных знаков; точный исходный промпт в доступных материалах отсутствует."
+      }
+    },
+    {
+      "id": "kimi-core-sign-concentration",
+      "path": "design/art/kimi-production-v1/sign_concentration.png",
+      "meaning": "Концентрация",
+      "family": "emblem",
+      "bytes": 687547,
+      "sha256": "53747bb2051aaa7c81d881c75743a290e255173d59014616a8ee81e1d5dcf186",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-pilot-v1/REVIEW.md; design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "summaryPrompt",
+        "summaryPrompt": "Знак Концентрации; ранняя партия из шести предметных знаков; точный исходный промпт в доступных материалах отсутствует."
+      }
+    },
+    {
+      "id": "kimi-core-sign-magic",
+      "path": "design/art/kimi-production-v1/sign_magic.png",
+      "meaning": "Магия",
+      "family": "emblem",
+      "bytes": 1151216,
+      "sha256": "5a850d9d111badaa7d956e34518205beb542515793b80760bd3be0853315c583",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-pilot-v1/REVIEW.md; design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "summaryPrompt",
+        "summaryPrompt": "Знак Магии; ранняя партия из шести предметных знаков; точный исходный промпт в доступных материалах отсутствует."
+      }
+    },
+    {
+      "id": "kimi-core-sign-medicine",
+      "path": "design/art/kimi-production-v1/sign_medicine.png",
+      "meaning": "Медицина",
+      "family": "emblem",
+      "bytes": 1283227,
+      "sha256": "8416c67e099b4b5ba3d3337b0df8fd3b01b747609bd6bf2ed7cb886c972b97b1",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-pilot-v1/REVIEW.md; design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "summaryPrompt",
+        "summaryPrompt": "Знак Медицины; ранняя партия из шести предметных знаков; точный исходный промпт в доступных материалах отсутствует."
+      }
+    },
+    {
+      "id": "kimi-core-sign-poisoned",
+      "path": "design/art/kimi-production-v1/sign_poisoned.png",
+      "meaning": "Отравлён",
+      "family": "emblem",
+      "bytes": 866822,
+      "sha256": "d7948613377206f05fb0d609f7c9c93d547bb6e60f3d8082df9af934529c74a1",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-pilot-v1/REVIEW.md; design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "summaryPrompt",
+        "summaryPrompt": "Знак состояния «Отравлён»; ранняя партия из шести предметных знаков; точный исходный промпт в доступных материалах отсутствует."
+      }
+    },
+    {
+      "id": "kimi-core-skill-acrobatics-v1",
+      "path": "design/art/kimi-production-v1/skill-acrobatics-v1.png",
+      "meaning": "Акробатика",
+      "family": "emblem",
+      "bytes": 681719,
+      "sha256": "3b4623cc711e5016924bdd2c94a0e33923e58fc78661abf9403966b503495687",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game skill icon on a fully transparent background, no backdrop, no vignette: acrobatics skill, a pair of soft leather balancing slippers standing on a short taut rope stretched between two small wooden posts, NO human figure, NO legs, big bold simple silhouette, minimal fine ornament, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole objects fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-skill-animal-handling-v1",
+      "path": "design/art/kimi-production-v1/skill-animal-handling-v1.png",
+      "meaning": "Уход за животными",
+      "family": "emblem",
+      "bytes": 1145838,
+      "sha256": "9a84e454983894fad1f7b0aa16ccc8004107fba221d6ebd75f4cc071e2262377",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game skill icon on a fully transparent background, no backdrop, no vignette: animal handling skill, a calm horse head with a simple leather halter and one bare human hand gently resting at its cheek, large clear forms, correct anatomy, peaceful mood, big bold simple silhouette, minimal fine detail, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-skill-deception-v1",
+      "path": "design/art/kimi-production-v1/skill-deception-v1.png",
+      "meaning": "Обман",
+      "family": "emblem",
+      "bytes": 977547,
+      "sha256": "a5989f3f643349541cb32be9496570399a837e52230b4b43cf04967756f275d7",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game skill icon on a fully transparent background, no backdrop, no vignette: deception skill, ONE single theatrical mask with a dual expression split down the middle, one half serene and calm, the other half a sly sinister grin, warm bone ceramic with modest aged bronze trim, short dark plum ribbons, clearly a single mask not a pair, big bold simple silhouette, minimal fine ornament, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-skill-history-v1",
+      "path": "design/art/kimi-production-v1/skill-history-v1.png",
+      "meaning": "История",
+      "family": "emblem",
+      "bytes": 864174,
+      "sha256": "8facde17eb5b4d62d5a72290b9c4b783ec76f8eb1a87347aae5c0735108123aa",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game skill icon on a fully transparent background, no backdrop, no vignette: history skill, a rolled ancient parchment scroll tied with a cord and a worn plain wax seal, NO writing, NO letters, big bold simple silhouette, minimal fine ornament, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-skill-insight-v1",
+      "path": "design/art/kimi-production-v1/skill-insight-v1.png",
+      "meaning": "Проницательность",
+      "family": "emblem",
+      "bytes": 1145324,
+      "sha256": "f6cfb3744fd2c22911523e568389dcf989a44d89bfd45a99709d29f17f7aac98",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game skill icon on a fully transparent background, no backdrop, no vignette: insight skill, two theatrical masks of warm bone ceramic with modest aged bronze trim, one mask slightly drawn aside revealing the second calm face behind it, short dark ribbons, NO all-seeing eye, big bold simple silhouette, minimal fine ornament, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-skill-intimidation-v1",
+      "path": "design/art/kimi-production-v1/skill-intimidation-v1.png",
+      "meaning": "Запугивание",
+      "family": "emblem",
+      "bytes": 840867,
+      "sha256": "47834f7ed53bcc3182a135a86c71b4b288c0bbf70e25e436a122b1f9bf09e104",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game skill icon on a fully transparent background, no backdrop, no vignette: intimidation skill, a heavy armored steel gauntlet gripping a thick iron chain, muted worn steel with restrained shine, diagonal composition, NO rope, big bold simple silhouette, minimal fine ornament, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-skill-investigation-v1",
+      "path": "design/art/kimi-production-v1/skill-investigation-v1.png",
+      "meaning": "Расследование",
+      "family": "emblem",
+      "bytes": 1006263,
+      "sha256": "f65ac1233ef417e0fdb6a8fe3d6ccef02c77da808f2c6707e5ba9f05d110cc98",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game skill icon on a fully transparent background, no backdrop, no vignette: investigation skill, a handheld brass magnifying lens held low over a small fragment of bare earth with clear scratch marks, NO eye talisman, big bold simple silhouette, minimal fine ornament, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-skill-nature-v1",
+      "path": "design/art/kimi-production-v1/skill-nature-v1.png",
+      "meaning": "Природа",
+      "family": "emblem",
+      "bytes": 1019764,
+      "sha256": "bc3b9c561d524ff5d3db5f1dd4308fb88edb42e9e15f51c9796b644defad8a81",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game skill icon on a fully transparent background, no backdrop, no vignette: nature skill, a gnarled oak branch with one large oak leaf and one acorn, big natural readable forms, diagonal composition, big bold simple silhouette, minimal fine ornament, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather with a modest green accent, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-skill-perception-v1",
+      "path": "design/art/kimi-production-v1/skill-perception-v1.png",
+      "meaning": "Внимательность",
+      "family": "emblem",
+      "bytes": 810304,
+      "sha256": "f06f2d87ece2e47436fa7bae889243d7efa7fe411ac0b03f0be51e475ea05942",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game skill icon on a fully transparent background, no backdrop, no vignette: perception skill, a bronze talisman in the shape of a single stylized eye with a clear calm pupil, smooth aged bronze with modest patina, NOT a crossed-out eye, big bold simple silhouette, minimal fine ornament, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-skill-performance-v1",
+      "path": "design/art/kimi-production-v1/skill-performance-v1.png",
+      "meaning": "Выступление",
+      "family": "emblem",
+      "bytes": 1016814,
+      "sha256": "d6684a779ad7cafc077c0bbbd080755e0cdd9f277dc7ebb7c06da7971207f466",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game skill icon on a fully transparent background, no backdrop, no vignette: performance skill, a laughing theatrical comedy mask of warm bone ceramic with modest aged bronze trim and one large flowing dark plum ribbon swirling beside it, open laughing mouth, NO lute, NO musical instrument, big bold simple silhouette, minimal fine ornament, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-skill-persuasion-v1",
+      "path": "design/art/kimi-production-v1/skill-persuasion-v1.png",
+      "meaning": "Убеждение",
+      "family": "emblem",
+      "bytes": 735830,
+      "sha256": "330fb0a7aa4c972e0a0aeec7d8e04eb182cfeba053063961921087e48f1a388a",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game skill icon on a fully transparent background, no backdrop, no vignette: persuasion skill, two open calm hands in a peaceful offering gesture, palms open, neat dark plum sleeves with modest bronze trim, NO coins, NO weapons, big bold simple silhouette, minimal fine detail, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole objects fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-skill-religion-v1",
+      "path": "design/art/kimi-production-v1/skill-religion-v1.png",
+      "meaning": "Религия",
+      "family": "emblem",
+      "bytes": 1016560,
+      "sha256": "f49b3dea1c14048c9afdd28399f67df1d4bae43e5fb55d241922c7e5d0a89d8e",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game skill icon on a fully transparent background, no backdrop, no vignette: religion skill, a small broken temple stone relief fragment with a small column and a carved fictional sun-in-circle motif that matches no real-world religion, aged warm stone with modest bronze inlay, NOT a wearable medallion, big bold simple silhouette, minimal fine ornament, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-skill-sleight-of-hand-v1",
+      "path": "design/art/kimi-production-v1/skill-sleight-of-hand-v1.png",
+      "meaning": "Ловкость рук",
+      "family": "emblem",
+      "bytes": 718166,
+      "sha256": "94dc7e19da0826832a487e6979578a7299c349906afe5503ccc5819a5695df09",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game skill icon on a fully transparent background, no backdrop, no vignette: sleight of hand skill, nimble fingers of a single hand subtly rolling a small bronze coin across the knuckles, neat dark plum cloth cuff at the wrist, NO lockpicks, big bold simple silhouette, minimal fine detail, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-core-skill-survival-v1",
+      "path": "design/art/kimi-production-v1/skill-survival-v1.png",
+      "meaning": "Выживание/следы",
+      "family": "emblem",
+      "bytes": 1165065,
+      "sha256": "e942cfd229947b78f6fd20850ae43442e822a7d263bfc745daa20fd3e8ef43c5",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game skill icon on a fully transparent background, no backdrop, no vignette: survival tracking skill, a small square fragment of bare earth seen at a slight angle with two large clear boot footprints pressed into it and one single blade of green grass, big bold readable prints, NOT a whole boot, NOT a bow, big bold simple silhouette, minimal fine ornament, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather with a tiny meaningful green accent, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-item-item-chainmail-v1",
+      "path": "design/art/kimi-production-v1/item-chainmail-v1.png",
+      "meaning": "Кольчуга",
+      "family": "item",
+      "bytes": 1319648,
+      "sha256": "b43d27b635ce5248c5486f5a80cc2a17466bbd45d4907f1ce443959822ee8c2b",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game inventory item icon on a fully transparent background, no backdrop, no vignette: a folded shirt of steel chainmail with a short leather collar tab, dense readable interlocking rings, muted steel, slight three-quarter view, big bold simple silhouette, minimal fine detail, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-item-item-dagger-v1",
+      "path": "design/art/kimi-production-v1/item-dagger-v1.png",
+      "meaning": "Кинжал",
+      "family": "item",
+      "bytes": 645267,
+      "sha256": "224b4a8b845d38997826972d7eacd91c468d584ebfd5007abeafcfe6f805b7a4",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game inventory item icon on a fully transparent background, no backdrop, no vignette: a short sleek dagger with a narrow steel blade and dark leather grip, small aged bronze pommel, slight three-quarter diagonal view, big bold simple silhouette, minimal fine ornament, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-item-item-holy-symbol-generic-v1",
+      "path": "design/art/kimi-production-v1/item-holy-symbol-generic-v1.png",
+      "meaning": "Святой символ (универсальный)",
+      "family": "item",
+      "bytes": 964429,
+      "sha256": "6df076e40d65ff212a8c402da1ca6520d158669aae20b24e86d76a2b17c6c361",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game inventory item icon on a fully transparent background, no backdrop, no vignette: a neutral fictional holy symbol pendant of aged bronze with an abstract sun-in-circle motif that matches no real-world religion, hanging on a short simple chain, slight three-quarter view, big bold simple silhouette, minimal fine ornament, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-item-item-longbow-v1",
+      "path": "design/art/kimi-production-v1/item-longbow-v1.png",
+      "meaning": "Длинный лук",
+      "family": "item",
+      "bytes": 532430,
+      "sha256": "abc5565eece29a9eef5d88f9b47a53c8fc892bf7e07c11c943fffd953e9df0a1",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game inventory item icon on a fully transparent background, no backdrop, no vignette: a tall wooden longbow with a taut string and a small leather grip wrap, slight three-quarter view, matte wood, modest aged bronze fittings, big bold simple silhouette, minimal fine ornament, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-item-item-rations-v1",
+      "path": "design/art/kimi-production-v1/item-rations-v1.png",
+      "meaning": "Рационы",
+      "family": "item",
+      "bytes": 1403823,
+      "sha256": "24c31a388e0be7b2791094f9e3f856be4dce06de726c5a1686312e41f31ad709",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game inventory item icon on a fully transparent background, no backdrop, no vignette: travel rations wrapped in warm parchment and brown cloth with a small round loaf of bread and a strip of dried meat tied by cord, slight three-quarter view, big bold simple silhouette, minimal fine detail, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-item-item-rope-v1",
+      "path": "design/art/kimi-production-v1/item-rope-v1.png",
+      "meaning": "Верёвка",
+      "family": "item",
+      "bytes": 1108745,
+      "sha256": "d09985c46c1d282267b7b66740177b346b369dd78ed9bf636a37a619c227a153",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game inventory item icon on a fully transparent background, no backdrop, no vignette: a neatly coiled length of rough brown hemp rope with one loose end, fibrous matte texture, slight three-quarter view, big bold simple silhouette, minimal fine detail, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-item-item-shield-v1",
+      "path": "design/art/kimi-production-v1/item-shield-v1.png",
+      "meaning": "Щит",
+      "family": "item",
+      "bytes": 1272973,
+      "sha256": "1a7a7f91689ca027b32586420c9b4bc0ee16f7881dc736fe25923c90232f2848",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game inventory item icon on a fully transparent background, no backdrop, no vignette: a sturdy wooden round shield faced with dark leather and a plain aged bronze boss and rim, slight three-quarter view, big bold simple silhouette, minimal fine ornament, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no heraldry, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-item-item-shortsword-v1",
+      "path": "design/art/kimi-production-v1/item-shortsword-v1.png",
+      "meaning": "Короткий меч",
+      "family": "item",
+      "bytes": 642842,
+      "sha256": "e1abcbced352bb5711bdc754e0aa75da10b1dfb871b103f2d4503d1919567ab3",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game inventory item icon on a fully transparent background, no backdrop, no vignette: a practical short sword with a straight steel blade, simple crossguard and dark leather-wrapped hilt, slight three-quarter diagonal view, muted steel with restrained shine, big bold simple silhouette, minimal fine ornament, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-item-item-spellbook-v1",
+      "path": "design/art/kimi-production-v1/item-spellbook-v1.png",
+      "meaning": "Книга заклинаний",
+      "family": "item",
+      "bytes": 1278992,
+      "sha256": "f2173cb64bb8f69240c334d6372acd294468866fc90ee4d9ca8711374a410037",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game inventory item icon on a fully transparent background, no backdrop, no vignette: a closed thick spellbook in dark plum leather with a plain aged bronze clasp and corner protectors, blank cover without any letters or runes, slight three-quarter view, big bold simple silhouette, minimal fine ornament, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no runes, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-item-item-warhammer-v1",
+      "path": "design/art/kimi-production-v1/item-warhammer-v1.png",
+      "meaning": "Боевой молот",
+      "family": "item",
+      "bytes": 651708,
+      "sha256": "0c18fb4563f03232521ad6a25a6f6c353cbbd5e6e241fb83a5bcdd207be0592f",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated game inventory item icon on a fully transparent background, no backdrop, no vignette: a heavy one-handed warhammer with a blunt steel head and a brown leather-wrapped haft, slight three-quarter diagonal view, worn steel with restrained shine, big bold simple silhouette, minimal fine ornament, soft key light from upper left, deep readable shadows, restrained highlights, painterly style inspired by Heroes of Might and Magic III and Diablo II item icons, palette of dark plum, aged bronze, warm bone and brown leather, whole object fully visible centered with generous empty transparent margin, readable at 32 pixels, no frame, no text, no letters, no watermark, no pixel art, no cartoon proportions, no neon glow"
+      }
+    },
+    {
+      "id": "kimi-item-item-healing-potion",
+      "path": "design/art/kimi-production-v1/item_healing_potion.png",
+      "meaning": "Лечебное зелье",
+      "family": "item",
+      "bytes": 859796,
+      "sha256": "72e1a5c13f072919aaf61183967ce80eeed0b8b1a12b29e2a65cc452938c959a",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-pilot-v1/REVIEW.md; design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "summaryPrompt",
+        "summaryPrompt": "Лечебное зелье; pilot review задаёт корректировки (удалить крест, приглушить блики, выделить силуэт/границу жидкости), точный исходный промпт отсутствует."
+      }
+    },
+    {
+      "id": "kimi-item-item-lantern",
+      "path": "design/art/kimi-production-v1/item_lantern.png",
+      "meaning": "Фонарь",
+      "family": "item",
+      "bytes": 664746,
+      "sha256": "9c4ceb4a9459e5681ec8ed8bfe6fc5a4908f5c5d56afe84c7d31e6c969bee17b",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-pilot-v1/REVIEW.md; design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "summaryPrompt",
+        "summaryPrompt": "Фонарь; ранняя малая партия после утверждения проб; точный исходный промпт в доступных материалах отсутствует."
+      }
+    }
+  ],
+  "outOfScopeFiles": [
+    "design/art/kimi-production-v1/item_arcane_orb.png",
+    "design/art/kimi-production-v1/item_grappling_hook.png"
+  ],
+  "notes": [
+    "Main set is the stated 61 core plus 12 item originals, excluding the 13 class emblems already in manifest: 48 core + 12 items = 60 draft assets.",
+    "Arcane orb and grappling hook are present in delivery inventory but are not among the specified 10 production items plus early potion and lantern.",
+    "Metadata and dimensions are measured from originals; PNGs were neither generated nor copied."
+  ],
+  "materialsAndElements": [
+    {
+      "id": "kimi-material-material-dark-wood-v1",
+      "path": "design/art/kimi-production-v1/material-dark-wood-v1.png",
+      "meaning": "Тёмное дерево",
+      "bytes": 1175567,
+      "sha256": "d380ad310d3535ee73860db5154e79f1801ecb9f1784a1e6c7b1e0bc1d07945f",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Seamless tileable texture filling the entire frame edge to edge: dark brown aged wood planks, flat top-down view, fine grain and subtle worn variation, perfectly uniform density across the whole frame, even calm lighting, no harsh highlights, no large knots, no text, no objects, painterly realistic material, palette of dark brown wood"
+      }
+    },
+    {
+      "id": "kimi-material-material-plum-leather-v1",
+      "path": "design/art/kimi-production-v1/material-plum-leather-v1.png",
+      "meaning": "Сливая кожа",
+      "bytes": 2036997,
+      "sha256": "332ed3ba27ab462608ddfd6e4bb17c6f88dee9141660ba23e1e4a0cec75618f1",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Seamless tileable texture filling the entire frame edge to edge: matte dark plum natural leather, flat top-down view, irregular organic fine leather grain with random creases, perfectly uniform density across the whole frame, even calm lighting, no harsh highlights, no large stains, NO seams, NO rivets, NO stitches, NO text, NO objects, NO repeating stamp pattern, painterly realistic material, palette of dark plum leather"
+      }
+    },
+    {
+      "id": "kimi-material-material-warm-paper-v1",
+      "path": "design/art/kimi-production-v1/material-warm-paper-v1.png",
+      "meaning": "Тёплая бумага",
+      "bytes": 1557783,
+      "sha256": "f1447b858a774cae371699c9f04c3cad656b1f947077e6573287cfdfb8eec03f",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Seamless tileable texture filling the entire frame edge to edge: warm bone parchment paper, flat top-down view, subtle fibers and gentle age mottling, perfectly uniform density across the whole frame, even calm lighting, no harsh highlights, no stains, no text, no objects, painterly realistic material, palette of warm bone parchment"
+      }
+    },
+    {
+      "id": "kimi-material-trim-bronze-strip-v1",
+      "path": "design/art/kimi-production-v1/trim-bronze-strip-v1.png",
+      "meaning": "Бронзовая полоса",
+      "bytes": 600179,
+      "sha256": "ddd3ca1678fe7170c377cd5f69f4cee6fff42bc98d8371ec353081d8d467753e",
+      "width": 1536,
+      "height": 256,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Seamless horizontally repeatable aged bronze decorative strip: matte antique bronze band with a soft raised central ridge and restrained edge bevels, flat frontal view, even calm lighting, no harsh highlights, no filigree pattern, no text, no letters, no frame, painterly realistic metal, palette of aged bronze"
+      }
+    },
+    {
+      "id": "kimi-material-trim-bronze-corner-v1",
+      "path": "design/art/kimi-production-v1/trim-bronze-corner-v1.png",
+      "meaning": "Бронзовый угол",
+      "bytes": 804043,
+      "sha256": "cf5d10b9605d938ee9cc0e3ae0315b8551bffb9020b4c26c9118e5aaccdefa4d",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated aged bronze corner ornament on a fully transparent background: a restrained L-shaped metal corner bracket with modest curled tips and a soft raised ridge, matte antique bronze, free empty transparent center, flat frontal view, even calm lighting, no harsh highlights, no universal gold filigree, no text, no letters, painterly realistic metal, palette of aged bronze"
+      }
+    },
+    {
+      "id": "kimi-material-ornament-wax-seal-v1",
+      "path": "design/art/kimi-production-v1/ornament-wax-seal-v1.png",
+      "meaning": "Восковой оттиск",
+      "bytes": 1425446,
+      "sha256": "69c8b3129ddf1dc4b35897041be8422ba1573a0cf4f0ad6b3d9d7fa816771657",
+      "width": 1024,
+      "height": 1024,
+      "provenance": {
+        "source": "design/art/kimi-production-v1/производственный_журнал.md",
+        "promptType": "exactPrompt",
+        "prompt": "Single isolated dark plum wax seal stamp on a fully transparent background: an irregular round blob of sealing wax with a simple abstract fictional emblem impressed in the center, matte wax with soft dents and restrained highlights, slight three-quarter view, no real-world heraldry, no letters, no text, no watermark, painterly realistic material, palette of dark plum wax with aged bronze shadow accents"
+      }
+    }
+  ]
+}

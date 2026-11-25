@@ -42,6 +42,16 @@ describe('глобус схемой (M16): видимая полусфера', (
     expect(back.visible).toBe(false);
     expect(Math.hypot(back.x - 400, back.y - 400)).toBeGreaterThan(400);
   });
+  it('длинная река пересекает полосу, даже когда обе вершины за горизонтом', () => {
+    expect(clipLineToBand([0, 0, 30, 30], 5, 25)).toEqual([[5, 5, 25, 25]]);
+    expect(clipLineToBand([30, 30, 0, 0], 5, 25)).toEqual([[25, 25, 5, 5]]);
+    expect(clipLineToBand([10, -10, 10, 20], 5, 25)).toEqual([[10, -10, 10, 20]]);
+  });
+  it('невидимый обход не превращается в ложную реку вдоль горизонта', () => {
+    expect(clipLineToBand([10, 0, 0, 10, 0, 30, 10, 40], 5, 25)).toEqual([[10, 0, 5, 5], [5, 35, 10, 40]]);
+    expect(clipLineToBand([0, 0, 5, 5, 0, 10], 5, 25)).toEqual([]);
+    expect(clipLineToBand([5, 0, 5, 0, 5, 10], 5, 25)).toEqual([[5, 0, 5, 10]]);
+  });
 });
 
 describe('глобус схемой: ночь и порог', () => {

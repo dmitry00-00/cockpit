@@ -74,28 +74,34 @@ export function clipRingToBand(ring: readonly number[], xa: number, xb: number):
 
 /** Линия — куски внутри полосы (концы кусков — на её краю). */
 export function clipLineToBand(line: readonly number[], xa: number, xb: number): number[][] {
+  if (xa >= xb) return [];
   const out: number[][] = [];
   let cur: number[] = [];
-  const inside = (x: number) => x >= xa && x <= xb;
-  for (let i = 0; i < line.length; i += 2) {
-    const x = line[i], y = line[i + 1];
-    if (inside(x)) {
-      if (!cur.length && i > 0) {
-        const px = line[i - 2], py = line[i - 1];
-        const edge = px < xa ? xa : xb;
-        cur.push(edge, py + ((y - py) * (edge - px)) / (x - px));
-      }
-      cur.push(x, y);
-    } else if (cur.length) {
-      const px = line[i - 2], py = line[i - 1];
-      const edge = x < xa ? xa : xb;
-      cur.push(edge, py + ((y - py) * (edge - px)) / (x - px));
-      out.push(cur);
-      cur = [];
+  const flush = () => { if (cur.length >= 4) out.push(cur); cur = []; };
+  // Отсекаем каждый сегмент, в том числе пересекающий всю полосу с обоими концами снаружи.
+  for (let i = 2; i < line.length; i += 2) {
+    const ax = line[i - 2], ay = line[i - 1], bx = line[i], by = line[i + 1];
+    const dx = bx - ax;
+    let lo = 0, hi = 1;
+    if (dx === 0) {
+      if (ax < xa || ax > xb) { flush(); continue; }
+    } else {
+      const a = (xa - ax) / dx, b = (xb - ax) / dx;
+      lo = Math.max(0, Math.min(a, b));
+      hi = Math.min(1, Math.max(a, b));
+      if (lo > hi) { flush(); continue; }
     }
+    const sx = ax + dx * lo, sy = ay + (by - ay) * lo;
+    const ex = ax + dx * hi, ey = ay + (by - ay) * hi;
+    if (Math.hypot(ex - sx, ey - sy) < 1e-8) { flush(); continue; }
+    if (cur.length && Math.hypot(cur[cur.length - 2] - sx, cur[cur.length - 1] - sy) > 1e-6) flush();
+    if (!cur.length) cur.push(sx, sy);
+    cur.push(ex, ey);
+    // Не соединяем возврат из невидимой части линией вдоль горизонта.
+    if (hi < 1) flush();
   }
-  if (cur.length >= 4) out.push(cur);
-  return out.filter(l => l.length >= 4);
+  flush();
+  return out;
 }
 
 /**

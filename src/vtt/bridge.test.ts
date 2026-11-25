@@ -78,4 +78,19 @@ describe('мост к MapTool — ретранслятор', () => {
     expect(() => r.deskView({ tokens: 'x' })).toThrow(/managed/);
     expect(r.deskPoll(1).seq).toBe(0);
   });
+
+  it('отвергает неоднозначные снимки и неверную форму вида, не меняя последнее состояние', () => {
+    const r = new VttRelay(10);
+    const snapshot = { map: 'Crypt', tokens: [tok('t1', 'Korrin', 2, 2)] };
+    const initialView = { tokens: [{ tokenId: 't1', hp: { current: 8, max: 8, temp: 0 }, states: ['Prone'] }], managed: ['Prone'] };
+    const acceptedView = r.deskView(initialView);
+    r.maptoolSync(snapshot, 20);
+
+    expect(() => r.maptoolSync({ tokens: [tok('t1', 'Korrin', 3, 2), tok('t1', 'Bo', 4, 2)] }, 30)).toThrow(/id токенов MapTool/);
+    expect(() => r.deskView({ ...initialView, tokens: [{ ...initialView.tokens[0], hp: { current: -1, max: 8, temp: 0 } }] })).toThrow(/ожидалось/);
+    expect(() => r.deskView({ ...initialView, tokens: [{ ...initialView.tokens[0], states: ['Poisoned'] }] })).toThrow(/входить в managed/);
+
+    expect(r.deskPoll(30)).toMatchObject({ seq: 1, map: 'Crypt', tokens: snapshot.tokens });
+    expect(r.maptoolSync(snapshot, 30).rev).toBe(acceptedView.rev);
+  });
 });

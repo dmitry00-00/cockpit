@@ -42,6 +42,7 @@ export function legendaryRegainOf(state: State): { actorId: string; max: number;
 
 /** Начало хода: вернуть ходящему потраченные легендарные действия (RESOURCE_RESTORED), если правило блока велит; иначе ничего. */
 export function regainLegendary(api: Pick<EngineStore, 'state' | 'restoreResource'>): void {
+  if (api.state.encounter?.lairActionWindow) return;
   const r = legendaryRegainOf(api.state);
   if (r) api.restoreResource(r.actorId, LEGENDARY_RESOURCE, r.max, r.amount);
 }

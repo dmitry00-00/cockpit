@@ -1,7 +1,7 @@
 // Течения флогистона вокруг Realmspace для уровня лестницы «план» (HANDOFF §3, F4.2): сферы и пути между ними —
 // только то, что пишет Forgotten Realms Wiki (CC BY-SA 3.0, см. LICENSE.md), каждое ребро — с цитатой и книгой;
 // импорт — scripts/import-spelljammer.py. Раскладка узлов — своя (LAYOUT), фанатские карты флогистона — только сверка.
-import raw from '../../content/cosmos/phlogiston.json';
+import { loadSettingJson } from '../packages/registry';
 
 /** 'two' — течение в обе стороны, 'one' — только from → to, '' — путь назван, про обратный источник молчит. */
 export type FlowWay = 'two' | 'one' | '';
@@ -32,7 +32,7 @@ export interface Phlogiston {
   attribution: string;
 }
 
-export const PHLOGISTON: Phlogiston = raw as unknown as Phlogiston;
+export const PHLOGISTON: Phlogiston = await loadSettingJson('content/cosmos/phlogiston.json') as Phlogiston;
 
 /**
  * Своя раскладка в рамке 1000×600: треугольник Realmspace — Greyspace — Krynnspace в центре, Arcane Inner Flow —

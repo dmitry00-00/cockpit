@@ -4,14 +4,91 @@ import { TEMPO_SECONDS } from '../engine/events';
 import { SECONDS_PER_DAY, emptyState } from '../engine/state';
 import { createEngineStore } from '../engine/store';
 import {
-  DAYS_PER_YEAR, FESTIVALS, MONTHS, daysInYear, festivalAfter, formatHarptos, harptos, monthBefore, monthDays, nextFestival, sameDayIn, secOf, yearSlots, yearStartDay,
+  DAYS_PER_YEAR, FESTIVALS, MONTHS, calendarAdapterForSetting, createCalendarAdapter, daysInYear, festivalAfter, formatHarptos, harptos, monthBefore, monthDays, nextFestival, sameDayIn, secOf, yearSlots, yearStartDay,
 } from './calendar';
 import { SEED_SEC } from './seed';
+import { parseCalendarProfile } from '../packages/settingData';
+import type { CalendarAdapter, CounterCalendarDate, CounterCalendarInput, ProfileCalendarDate, ProfileCalendarInput } from './calendar';
 import { stepTime } from './simulation';
 
 const day = (n: number) => n * SECONDS_PER_DAY;
 
 describe('календарь Харптоса (заготовка шага 8)', () => {
+  it('профиль другого календаря подключается тем же движком без ветки по имени сеттинга', () => {
+    const profile = parseCalendarProfile({
+      format: 1, id: 'counter-calendar', kind: 'months', yearSuffix: 'CY', yearZero: true,
+      epoch: { year: 0, month: 'first', day: 1 },
+      months: [
+        { id: 'first', name: 'First', days: 30, season: 'wet' },
+        { id: 'second', name: 'Second', days: 30, season: 'dry' },
+      ],
+      intercalary: [
+        { id: 'market-day', name: 'Market Day', after: 'first', days: 1, season: 'wet' },
+        { id: 'leap-day', name: 'Leap Day', after: 'second', days: 1, season: 'dry', rule: { every: 2, offset: 0 } },
+      ],
+      week: { id: 'week', name: 'week', days: 7 },
+      dayPhases: [{ id: 'day', labelRu: 'день', fromHour: 6 }, { id: 'night', labelRu: 'ночь', fromHour: 20 }],
+      seasons: [{ id: 'wet', labelRu: 'влажный' }, { id: 'dry', labelRu: 'сухой' }],
+    }, 'counter-calendar');
+    const adapter = createCalendarAdapter(profile);
+    const nextYear = adapter.secondsAt({ year: 1, month: 'first', day: 1 });
+    expect(adapter.formatDate(0)).toBe('1 First 0 CY, 00:00');
+    expect(adapter.dateAt(adapter.secondsAt({ year: 0, intercalary: 'market-day' }))).toMatchObject({ intercalary: 'market-day' });
+    expect(adapter.dateAt(nextYear)).toMatchObject({ year: 1, month: 'first', day: 1 });
+    expect(() => adapter.secondsAt({ year: 1, intercalary: 'leap-day' })).toThrow(/нет такого/);
+    expect(adapter.seasonAt?.(adapter.secondsAt({ year: 0, month: 'second', day: 1 }))).toBe('dry');
+    expect(adapter.dayPhaseAt?.(0)).toBe('night');
+  });
+
+  it('counter: календарная дата — абсолютный день счётчика, неделя и форматирование работают без месяцев', () => {
+    const profile = parseCalendarProfile({
+      format: 1, id: 'planet-days', kind: 'counter', dayLabel: 'День', epoch: { day: 1, hour: 6 },
+      week: { id: 'week', name: 'неделя', days: 7 },
+      dayPhases: [{ id: 'morning', labelRu: 'утро', fromHour: 6 }, { id: 'night', labelRu: 'ночь', fromHour: 20 }],
+    }, 'planet-days');
+    const adapter = createCalendarAdapter(profile) as CalendarAdapter<CounterCalendarDate, CounterCalendarInput>;
+    expect(adapter.kind).toBe('counter');
+    expect(adapter.yearAt(0)).toBeNull();
+    expect(adapter.dateAt(0)).toEqual({ day: 1, hour: 6, minute: 0 });
+    expect(adapter.dateAt(2 * SECONDS_PER_DAY + 13 * 3600)).toEqual({ day: 3, hour: 19, minute: 0 });
+    expect(adapter.formatDate(2 * SECONDS_PER_DAY + 13 * 3600)).toBe('День 3, 19:00');
+    expect(adapter.secondsAt({ day: 5, hour: 6 })).toBe(4 * SECONDS_PER_DAY);
+    expect(adapter.weekDayAt?.(0)).toBe(0);
+    expect(adapter.dayPhaseAt?.(0)).toBe('morning');
+  });
+
+  it('gregorian: стандартные високосные правила, эпоха и обратное преобразование даты', () => {
+    const names = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const profile = parseCalendarProfile({
+      format: 1, id: 'gregorian', kind: 'gregorian', yearSuffix: 'CE', yearZero: false,
+      epoch: { year: 2000, month: 'january', day: 1 },
+      months: names.map(name => ({ id: name.toLowerCase(), name })),
+      week: { id: 'week', name: 'week', days: 7 },
+      dayPhases: [{ id: 'day', labelRu: 'день', fromHour: 6 }, { id: 'night', labelRu: 'ночь', fromHour: 20 }],
+    }, 'gregorian');
+    const adapter = createCalendarAdapter(profile) as CalendarAdapter<ProfileCalendarDate, ProfileCalendarInput>;
+    expect(adapter.yearAt(0)).toBe(2000);
+    const leapDay = adapter.secondsAt({ year: 2000, month: 'february', day: 29, hour: 9 });
+    expect(adapter.dateAt(leapDay)).toMatchObject({ year: 2000, month: 'february', day: 29, hour: 9 });
+    expect(adapter.formatDate(leapDay)).toBe('29 February 2000 CE, 09:00');
+    expect(adapter.dateAt(adapter.secondsAt({ year: 2001, month: 'january', day: 1 }))).toMatchObject({ year: 2001, month: 'january', day: 1 });
+    expect(() => adapter.secondsAt({ year: 1900, month: 'february', day: 29 })).toThrow(/вне месяца/);
+    expect(() => adapter.secondsAt({ year: 0, month: 'january', day: 1 })).toThrow(/нулевого года/);
+  });
+
+  it('adapter строится из профиля, указанного пакетом FR: дата, високосный слот и отображение', () => {
+    const adapter = calendarAdapterForSetting('fr');
+    expect(adapter.id).toBe('harptos');
+    expect(adapter.dateAt(0)).toMatchObject({ year: 1492, month: 'hammer', intercalary: null, day: 1 });
+    expect(adapter.formatDate(0)).toBe('1 Hammer 1492 DR, 00:00');
+    expect(adapter.dateAt(day(213))).toMatchObject({ year: 1492, intercalary: 'shieldmeet' });
+    expect(adapter.dateAt(day(366))).toMatchObject({ year: 1493, month: 'hammer', day: 1 });
+    expect(adapter.dayOfYearAt(day(366 + 29))).toBe(29);
+    expect(adapter.seasonAt?.(day(29))).toBe('winter');
+    expect(adapter.moonAt?.(secOf({ year: 1492, month: 'Mirtul', day: 18 })).phase).toBe('full');
+    expect(adapter.secondsAt({ year: 1492, month: 'mirtul', day: 15 })).toBe(secOf({ year: 1492, month: 'Mirtul', day: 15 }));
+  });
+
   it('эпоха: sec 0 — 1 Hammer 1492 DR 00:00; 12 месяцев, 5 праздников, 365 дней — как TEMPO_SECONDS.year', () => {
     expect(harptos(0)).toEqual({ year: 1492, month: 'Hammer', festival: null, day: 1, hour: 0, minute: 0 });
     expect(MONTHS).toHaveLength(12);

@@ -4,6 +4,7 @@
 // различает нынешних и бывших. Год кампании — фильтр «есть»: основана не позже и не распущена к этому году; годы
 // неизвестны — есть.
 import { WIKI, type Resident } from './people';
+import { loadSettingJson } from '../packages/registry';
 
 export interface OrgLeader {
   /** Как в вики: «Open Lord Laeral Silverhand». */
@@ -13,6 +14,8 @@ export interface OrgLeader {
   /** NPC справочника. */
   person?: string;
 }
+
+export interface OrganizationMemberCitation { title: string; url: string; license: string }
 
 export interface Organization {
   id: string;
@@ -55,16 +58,25 @@ export const orgExistsIn = (o: Pick<Organization, 'formed' | 'disbanded'>, year:
 let all: Promise<ReadonlyMap<string, Organization>> | null = null;
 /** Все организации; повторный вызов — тот же промис. */
 export function loadOrganizations(): Promise<ReadonlyMap<string, Organization>> {
-  all ??= import('../../content/world/organizations.json')
-    .then(m => new Map((m.default as unknown as { organizations: Organization[] }).organizations.map(o => [o.id, o])));
+  all ??= loadSettingJson('content/world/organizations.json')
+    .then(raw => new Map((raw as { organizations: Organization[] }).organizations.map(o => [o.id, o])));
   return all;
 }
 
 let members: Promise<Readonly<Record<string, readonly Resident[]>>> | null = null;
 /** Организация → NPC-члены по категориям вики. */
 export function loadOrgMembers(): Promise<Readonly<Record<string, readonly Resident[]>>> {
-  members ??= import('../../content/world/org-members.json').then(m => (m.default as unknown as { orgs: Record<string, Resident[]> }).orgs);
+  members ??= loadSettingJson('content/world/org-members.json').then(raw => (raw as { orgs: Record<string, Resident[]> }).orgs);
   return members;
+}
+
+let memberSources: Promise<Readonly<Record<string, OrganizationMemberCitation>>> | null = null;
+/** Организация → citation на исходную категорию Members of …, если текущий импорт её записал. */
+export function loadOrgMemberSources(): Promise<Readonly<Record<string, OrganizationMemberCitation>>> {
+  memberSources ??= loadSettingJson('content/world/org-members.json').then(raw =>
+    (raw as { sources?: Record<string, OrganizationMemberCitation> }).sources ?? {},
+  );
+  return memberSources;
 }
 
 /** Боги места по полю religion статьи вики (ROADMAP 3.4): id божеств и текст поля как есть; года нет. */
@@ -73,6 +85,6 @@ export interface PlaceFaith { deities?: readonly string[]; text: string }
 let faiths: Promise<Readonly<Record<string, PlaceFaith>>> | null = null;
 /** Место справочника карты → боги места. */
 export function loadPlaceFaiths(): Promise<Readonly<Record<string, PlaceFaith>>> {
-  faiths ??= import('../../content/world/place-faiths.json').then(m => (m.default as unknown as { places: Record<string, PlaceFaith> }).places);
+  faiths ??= loadSettingJson('content/world/place-faiths.json').then(raw => (raw as { places: Record<string, PlaceFaith> }).places);
   return faiths;
 }

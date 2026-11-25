@@ -23,7 +23,18 @@ export interface Trait {
   cell?: string;
 }
 
-export interface SubraceSpell { level: number; name: string }
+export interface SubraceSpell {
+  level: number;
+  name: string;
+  /** Связи для разветвлённых таблиц: круг Земли по местности, покровитель Гений по виду. */
+  terrain?: string;
+  variant?: string;
+  source?: Source;
+  srdId?: string;
+  nameEn?: string;
+  sourceCell?: string;
+  optionCell?: string;
+}
 
 /**
  * Гибкие бонусы расы (Q11): «+1 к N характеристикам на выбор из from». Импортёр читает их из строки таблицы
@@ -65,6 +76,8 @@ export interface Feat {
   name: string;
   nameRu: string;
   source: Source;
+  /** Уточнение происхождения, если исходная таблица не сохранила маркировку (например, «HB»). */
+  sourceRef?: string;
   /**
    * Требования: abilities — колонки таблицы (13 или выше в одной из них), spellcasting — колонка «заклинания»;
    * остальное импортёр снимает со строки «Требование: …» текста: уровень, порог характеристики, владение
@@ -139,8 +152,20 @@ export interface ClassOptionBlock {
   id: string;
   name: string;
   text: string;
+  /** Number of choices explicitly stated by the source for each acquisition of this option block. */
+  choose?: number;
   subclassId?: string;
   items: ClassOption[];
+}
+
+/** Structured display of the imported starting-equipment row; it is not a character selection. */
+export interface ClassStartingEquipmentPlan {
+  sourceSheet: string;
+  sourceCell: string;
+  granted: string[];
+  choices: { name: string; options: string[] }[];
+  wholeSetAlternative: string;
+  raw: string;
 }
 
 export interface CharacterClass {
@@ -149,6 +174,7 @@ export interface CharacterClass {
   nameRu: string;
   source: Source;
   proficiencies: Partial<Record<'asiRule' | 'skills' | 'armor' | 'weapons' | 'tools' | 'equipment', string>>;
+  startingEquipmentPlan?: ClassStartingEquipmentPlan;
   levels: ClassLevel[];
   subclasses: Subclass[];
   /** Списки выбора под таблицей (боевой стиль, приёмы, метамагия…); импортёр переносит блок, стоящий не на своём листе. */

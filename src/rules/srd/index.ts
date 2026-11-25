@@ -44,3 +44,4 @@ export {
 export { legendaryCost, legendaryCount, legendaryOf, type LegendaryActions, type LegendaryOption } from './legendary';
 export { SRD_RACES, SRD_RACE_IDS, isSrdRaceId, srdRaceSpeed, type SrdRace, type SrdRaceId } from './races';
 export { DIFFICULT_TERRAIN_FACTOR, TRAVEL_PACE_IDS, TRAVEL_PACES, travelDays, type TravelPace, type TravelPaceId } from './travel';
+export { INFLUENCE_RULE } from './influence';

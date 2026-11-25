@@ -342,7 +342,14 @@ def clean(img, orig, x0, y0, data, done=None):
     eff = mask & ~done if done is not None else mask
     hinted, d0, al = redraw(img, eff, x0, y0, data, outside_only=True)
     out = lama(hinted, eff & ~(al > 0.5))
-    out, d1, _ = redraw(out, eff, x0, y0, data)
+    # LaMa can turn a dotted road into a continuous brown stroke under a label. Remove only the
+    # inferred road-colored pixels inside the masked road corridor, then restore the raster dash style.
+    road_band = data.band('roads', x0, y0, eff.shape[1], eff.shape[0], 5)
+    inferred_road = eff & road_band & roads.road_mask(out)
+    if inferred_road.any():
+        repair = near(inferred_road.astype(np.uint8), 1) & eff
+        out = cv2.inpaint(out, repair.astype(np.uint8), 2, cv2.INPAINT_TELEA)
+    out, d1, _ = redraw(out, eff, x0, y0, data, outside_only=True)
     return out, mask, {'hint': d0, 'post': d1}
 
 

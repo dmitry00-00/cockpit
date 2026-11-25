@@ -14,6 +14,8 @@ import { useOpenEntity } from '../../components/openEntity';
 import { DAY_PHASES, DAY_PHASE_LABELS, HarptosDial, MOON_ICONS, MOON_LABELS, PHASE_HOURS } from '../../components';
 import { SECONDS_PER_DAY } from '../../engine';
 import { Icon } from '../../icons/Icon';
+import { SemanticMark } from '../../art/SemanticMark';
+import { MOON_ART } from '../../art/semanticBindings';
 import { BTN, HEAD, OPT, OPT_OFF, OPT_ON } from './styles';
 
 export interface HarptosCalendarProps {
@@ -129,7 +131,7 @@ export function HarptosCalendar({ sec, partyDeities, onGoTo, className = '' }: H
             <dd className="text-tx">{SEASON_LABELS[seasonOf(sec)]} · день года <span className="type-num-12">{dayOfYear}/{daysInYear(now.year)}</span></dd>
             <dt className="text-t2">Selûne</dt>
             <dd className="flex items-center gap-1 text-tx">
-              <Icon name={MOON_ICONS[moon.phase]} size={16} color="var(--src-canon)" title={MOON_LABELS[moon.phase]} />
+              <SemanticMark asset={MOON_ART[moon.phase]} icon={MOON_ICONS[moon.phase]} size={16} color="var(--src-canon)" title={MOON_LABELS[moon.phase]} />
               {MOON_LABELS[moon.phase].replace('Selûne ', '')} · полная {inDays(moon.daysToFull)}, новая {inDays(moon.daysToNew)}
             </dd>
             <dt className="text-t2">Праздник</dt>
@@ -199,7 +201,7 @@ export function HarptosCalendar({ sec, partyDeities, onGoTo, className = '' }: H
                       ) : null}
                       {marked ? (
                         <span className="absolute right-0 bottom-0 flex" data-moon={d.moon}>
-                          <Icon name={MOON_ICONS[d.moon]} size={16} color="var(--src-canon)" title={MOON_LABELS[d.moon]} />
+                          <SemanticMark asset={MOON_ART[d.moon]} icon={MOON_ICONS[d.moon]} size={16} color="var(--src-canon)" title={MOON_LABELS[d.moon]} />
                         </span>
                       ) : null}
                     </td>

@@ -7,6 +7,8 @@
 // что от них зависит. Что предлагать — из таблиц владельца (компендиум) и SRD (campaign/build.ts); ничего не вшито.
 // Результат — ACTOR_SPAWNED полным снимком (пишет страница); сам редактор событий не знает.
 import { useMemo, useState, type ReactNode } from 'react';
+import { classPath } from '../../campaign/path';
+import { CharacterPathView } from '../../components/CharacterPathView';
 import {
   DeriveError, abilityMod, classArmorProficiency, classSkillChoices, deriveDraft, sheetOf, type DerivedCharacter, type PcSpec,
 } from '../../campaign';
@@ -18,6 +20,7 @@ import {
 } from '../../components';
 import type { Actor } from '../../engine/state';
 import { Icon } from '../../icons/Icon';
+import { RaceMark } from '../../art/RaceMark';
 import { ABILITIES, ABILITY_IDS, ARMOR, SKILLS, SRD_CLASSES, isSrdClassId, type AbilityId, type SkillId } from '../../rules/srd';
 import { CATEGORY_LABEL, ITEMS, armorIdOfItem, categoryItems, classWeaponProficient, type KitPart } from '../../rules/srd/equipment';
 import { SCHOOL_LABEL, SPELLS, spellLevelLabel, type Spell } from '../../rules/srd/spells';
@@ -39,8 +42,15 @@ import type { Era } from '../../campaign/era';
 export interface CharacterEditorProps {
   /** Занятые id актёров — новый получит свободный. */
   takenIds: ReadonlySet<string>;
-  onCreate: (spec: PcSpec) => void;
+  onCreate: (spec: PcSpec) => void | Promise<void>;
   onClose: () => void;
+  /** Ограничить редактор указанными слоями источников; используется генератором SRD-персонажа. */
+  fixedSources?: readonly Source[];
+  /** Подпись действия отличается, если собранный лист станет предложением, а не актёром. */
+  createLabel?: string;
+  createTitle?: string;
+  closeOnCreate?: boolean;
+  createBusy?: boolean;
   /** Эпоха кампании — подписи богов в шаге «Божество»; по умолчанию 5e (1492 DR). */
   era?: Era;
   /** Что справа при открытии: редактор-карточка (по умолчанию) или лист целиком. */
@@ -65,15 +75,64 @@ const ALIGNMENTS = [
 type StepId = 'name' | 'race' | 'class' | 'deity' | 'abilities' | 'skills' | 'features' | 'spells' | 'gear';
 interface Step { id: StepId; label: string; left: number }
 
-export function CharacterEditor({ takenIds, onCreate, onClose, era = '5e', initialFace = 'card', className = '' }: CharacterEditorProps) {
+export function CharacterEditor({
+  takenIds, onCreate, onClose, era = '5e', initialFace = 'card', className = '', fixedSources,
+  createLabel = 'В партию', createTitle, closeOnCreate = false, createBusy = false,
+}: CharacterEditorProps) {
   const [draft, setDraft] = useState<Draft>(initialDraft);
-  const [sources, setSources] = useState<Source[]>(['srd', 'book', 'hb']);
+  const [sources, setSources] = useState<Source[]>(() => fixedSources ? [...fixedSources] : ['srd', 'book', 'hb']);
   const [raceQuery, setRaceQuery] = useState('');
   const [spellQuery, setSpellQuery] = useState('');
   const [peek, setPeek] = useState<string | null>(null);
   const [step, setStep] = useState<StepId>('name');
   const [face, setFace] = useState<'card' | 'sheet'>(initialFace);
+  const [mobilePreview, setMobilePreview] = useState(false);
+  const [resetNotice, setResetNotice] = useState('');
+  const [submitError, setSubmitError] = useState('');
+  const [submitting, setSubmitting] = useState(false);
   const patch = (p: Partial<Draft>) => setDraft(d => ({ ...d, ...p }));
+  const submit = async (spec: PcSpec) => {
+    if (submitting || createBusy) return;
+    setSubmitting(true);
+    setSubmitError('');
+    try {
+      await onCreate(spec);
+      setSubmitting(false);
+      if (closeOnCreate) onClose();
+    } catch (error) {
+      setSubmitting(false);
+      setSubmitError(error instanceof Error ? error.message : String(error));
+    }
+  };
+
+  const explainChange = (kind: 'race' | 'subrace' | 'class' | 'subclass', before: Draft, after: Draft) => {
+    const lost: string[] = [];
+    const had = (value: unknown) => Array.isArray(value) ? value.length > 0 : value && typeof value === 'object' ? Object.keys(value).length > 0 : Boolean(value);
+    if (kind === 'race') {
+      if (had(before.asiChoice)) lost.push('гибкие бонусы расы');
+      if (Object.keys(before.choices).some(k => k.startsWith('race-'))) lost.push('выборы умений расы');
+      if (before.feats.race?.id) lost.push('черта расы');
+    } else if (kind === 'subrace') {
+      if (had(before.asiChoice) && !had(after.asiChoice)) lost.push('гибкие бонусы подрасы');
+    } else if (kind === 'class') {
+      if (before.subclassId) lost.push('подкласс');
+      if (had(before.skills)) lost.push('навыки класса');
+      if (had(before.improvements)) lost.push('увеличения характеристик');
+      if (Object.keys(before.choices).some(k => !k.startsWith('race-'))) lost.push('выборы умений класса');
+      if (had(before.spells)) lost.push('заклинания');
+      if (had(before.kit) || before.armor || before.shield || before.mageArmor) lost.push('выбор снаряжения и доспех');
+      if (Object.keys(before.feats).some(k => k !== 'race')) lost.push('черты за повышение характеристик');
+    } else {
+      const pruned = Object.entries(before.choices).some(([k, v]) => JSON.stringify(v) !== JSON.stringify(after.choices[k] ?? [])) || before.spells.some(s => !after.spells.includes(s));
+      if (pruned) lost.push('выборы умений или заклинания, которых нет у нового подкласса');
+    }
+    setResetNotice(lost.length ? `Сброшено: ${lost.join(', ')}. Эти выборы зависят от ${kind === 'race' ? 'расы' : kind === 'subrace' ? 'подрасы' : kind === 'class' ? 'класса' : 'подкласса'}; выберите их заново.` : 'Зависимые выборы сохранены.');
+  };
+  const changeDraft = (kind: 'race' | 'subrace' | 'class' | 'subclass', update: (d: Draft) => Draft) => {
+    const next = update(draft);
+    explainChange(kind, draft, next);
+    setDraft(next);
+  };
 
   const race = raceById(draft.raceId);
   const cls = classById(draft.classId);
@@ -198,7 +257,9 @@ export function CharacterEditor({ takenIds, onCreate, onClose, era = '5e', initi
         <Field label="Возраст"><input type="text" inputMode="numeric" autoComplete="off" aria-label="Возраст" placeholder="26" value={draft.age} onChange={e => patch({ age: e.target.value.replace(/\D/g, '').slice(0, 3) })} className={INPUT} /></Field>
       </div>
       <Section title="Что брать в расчёт" hint="Фильтр источников: «только SRD» — одна кнопка">
-        <SourceFilter value={sources} onChange={setSources} />
+        {fixedSources ? (
+          <p className="type-body-sm text-t2">Источники механики ограничены: {fixedSources.join(', ').toUpperCase()}. Авторские варианты и материалы книг здесь не подмешиваются.</p>
+        ) : <SourceFilter value={sources} onChange={setSources} />}
         <p className="type-body-sm text-t2">Дальше — раса и класс. Справа карточка: она заполняется по ходу, а несделанное в ней видно золотом.</p>
       </Section>
     </>
@@ -211,7 +272,8 @@ export function CharacterEditor({ takenIds, onCreate, onClose, era = '5e', initi
           {races.map(r => {
             const on = r.id === draft.raceId;
             return (
-              <button key={r.id} type="button" aria-pressed={on} title={`${r.name}: ${asiLabel(r.asi, r.asiChoice) || 'бонусы у подрас'}`} onClick={() => setDraft(d => withRace(d, r.id))} className={`flex items-center gap-2 px-2 py-1 text-left cursor-pointer ${on ? 'bg-pl shadow-plate' : 'bg-cd hover:bg-pl'}`}>
+              <button key={r.id} type="button" aria-pressed={on} title={`${r.name}: ${asiLabel(r.asi, r.asiChoice) || 'бонусы у подрас'}`} onClick={() => changeDraft('race', d => withRace(d, r.id))} className={`flex items-center gap-2 px-2 py-1 text-left cursor-pointer ${on ? 'bg-pl shadow-plate' : 'bg-cd hover:bg-pl'}`}>
+                <RaceMark raceId={r.id} title={r.nameRu} size={24} />
                 <span className={`type-body flex-1 min-w-0 truncate ${on ? 'text-gd' : 'text-tx'}`}>{r.nameRu}</span>
                 <span className="type-key text-t3 truncate">{r.name}</span>
                 <span className="type-num-12 text-t2 flex-none w-36 text-right truncate">{asiLabel(r.asi, r.asiChoice)}</span>
@@ -225,9 +287,10 @@ export function CharacterEditor({ takenIds, onCreate, onClose, era = '5e', initi
       {race && subraces.length > 0 ? (
         <Section title="Подраса" right={race && subraceRequired(race) ? <Left n={draft.subraceId ? 0 : 1} /> : <span className="type-key text-t2">по желанию</span>}>
           <div role="group" aria-label="Подраса" className="flex flex-wrap gap-1">
-            {!subraceRequired(race) ? <Option on={!draft.subraceId} onClick={() => setDraft(d => withSubrace(d, undefined))}>без подрасы</Option> : null}
+            {!subraceRequired(race) ? <Option on={!draft.subraceId} onClick={() => changeDraft('subrace', d => withSubrace(d, undefined))}>без подрасы</Option> : null}
             {subraces.map(s => (
-              <Option key={s.id} on={s.id === draft.subraceId} title={`${s.name}: ${asiLabel(s.asi, s.asiChoice)}`} onClick={() => setDraft(d => withSubrace(d, s.id))}>
+              <Option key={s.id} on={s.id === draft.subraceId} title={`${s.name}: ${asiLabel(s.asi, s.asiChoice)}`} onClick={() => changeDraft('subrace', d => withSubrace(d, s.id))}>
+                <RaceMark raceId={s.id} title={s.nameRu} size={24} />
                 {s.nameRu} <span className="type-key text-t3">{asiLabel(s.asi, s.asiChoice)}</span>
               </Option>
             ))}
@@ -277,15 +340,21 @@ export function CharacterEditor({ takenIds, onCreate, onClose, era = '5e', initi
             const srd = srdIdOf(c);
             const hd = srd ? `d${SRD_CLASSES[srd].hitDie}` : '';
             return (
-              <Option key={c.id} on={c.id === draft.classId} title={`${c.name} · ${c.source === 'srd' ? 'SRD' : 'книга'}${hd ? ` · кость хитов ${hd}` : ''}${c.proficiencies.armor ? ` · доспехи: ${c.proficiencies.armor}` : ''}`} onClick={() => setDraft(d => withClass(d, c.id))} className="flex items-baseline gap-2">
-                <span className="flex-1 min-w-0 truncate">{c.nameRu}</span>
-                {hd ? <span className="type-num-12 text-t3">{hd}</span> : null}
-                <SourceBadge source={c.source} />
+              <Option key={c.id} on={c.id === draft.classId} title={`${c.name} · ${c.source === 'srd' ? 'SRD' : 'книга'}${hd ? ` · кость хитов ${hd}` : ''}${c.proficiencies.armor ? ` · доспехи: ${c.proficiencies.armor}` : ''}`} onClick={() => changeDraft('class', d => withClass(d, c.id))} className="min-h-14 flex flex-col items-stretch gap-1">
+                <span className="type-body-sm text-left leading-tight whitespace-normal break-words">{c.nameRu}</span>
+                <span className="flex items-center justify-between gap-1"><span className="type-key text-t3">{hd ?? ''}</span><SourceBadge source={c.source} /></span>
               </Option>
             );
           })}
         </div>
       </Section>
+      {cls ? (
+        <details className="bg-pn shadow-bevel p-3">
+          <summary className="type-h-20 text-tx cursor-pointer">Карта развития класса</summary>
+          <p className="type-body-sm text-t2">Просмотр возможностей. Уровень и подкласс персонажа задаются полями редактора.</p>
+          <CharacterPathView key={`${cls.id}-${draft.level}-${draft.subclassId}-${sources.join()}`} path={classPath({ ...cls, subclasses, options: cls.options?.map(o => ({ ...o, items: bySource(o.items, sources) })) }, draft.level, draft.subclassId)} />
+        </details>
+      ) : null}
       {cls ? (
         <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-0.5">
           {cls.proficiencies.armor ? <><dt className="type-key uppercase text-t2">Доспехи</dt><dd className="type-body-sm text-tx">{cls.proficiencies.armor}</dd></> : null}
@@ -296,12 +365,12 @@ export function CharacterEditor({ takenIds, onCreate, onClose, era = '5e', initi
       {subclasses.length > 0 ? (
         <Section title="Подкласс" right={due !== null ? <Left n={draft.subclassId ? 0 : 1} /> : <span className="type-key text-t2">с {Math.min(...subclasses.map(s => s.gainedAt ?? 99))}-го уровня</span>}>
           <div role="group" aria-label="Подкласс" className="flex flex-wrap gap-1">
-            {due === null ? <Option on={!draft.subclassId} onClick={() => setDraft(d => withSubclass(d, undefined))}>без подкласса</Option> : null}
+            {due === null ? <Option on={!draft.subclassId} onClick={() => changeDraft('subclass', d => withSubclass(d, undefined))}>без подкласса</Option> : null}
             {subclasses.map(s => {
               const locked = s.gainedAt !== null && s.gainedAt > draft.level;
               const tip = [s.name, locked ? `с ${s.gainedAt}-го уровня` : '', s.affinity?.length ? `подходит: ${s.affinity.join(', ')}` : ''].filter(Boolean).join(' · ');
               return (
-                <Option key={s.id} on={s.id === draft.subclassId} disabled={locked} title={tip} onClick={() => setDraft(d => withSubclass(d, s.id))}>
+                <Option key={s.id} on={s.id === draft.subclassId} disabled={locked} title={tip} onClick={() => changeDraft('subclass', d => withSubclass(d, s.id))}>
                   {s.name}{s.gainedAt !== null ? <span className="type-key text-t3"> {s.gainedAt} ур.</span> : null}{s.source === 'srd' ? <span className="type-key text-t3"> SRD</span> : null}
                 </Option>
               );
@@ -321,7 +390,7 @@ export function CharacterEditor({ takenIds, onCreate, onClose, era = '5e', initi
         <span className="flex items-center gap-2">
           <span role="group" aria-label="Способ" className="flex gap-1">
             <Option on={draft.method === 'array'} title="Стандартный набор 15 14 13 12 10 8 — раскладка с обменом" onClick={() => setDraft(d => withMethod(d, 'array'))} className="type-num-12">Набор</Option>
-            <Option on={draft.method === 'pointbuy'} title="Point buy: 27 очков, 8–15 до бонусов расы (книга игрока)" onClick={() => setDraft(d => withMethod(d, 'pointbuy'))} className="type-num-12">Point buy</Option>
+            {!fixedSources || fixedSources.includes('book') ? <Option on={draft.method === 'pointbuy'} title="Point buy: 27 очков, 8–15 до бонусов расы (книга игрока)" onClick={() => setDraft(d => withMethod(d, 'pointbuy'))} className="type-num-12">Point buy</Option> : null}
           </span>
           {draft.method === 'pointbuy' ? <span className={`type-key ${left < 0 ? 'text-fx-damage-hi' : 'text-t2'}`} title="Очки: 27 на всё, 8–15 до бонусов расы">осталось {left} из {POINT_BUY_TOTAL}</span> : null}
         </span>
@@ -633,10 +702,11 @@ export function CharacterEditor({ takenIds, onCreate, onClose, era = '5e', initi
           <span className="type-h-28 text-tx truncate">{draft.name.trim() || 'Новый персонаж'}</span>
           <span className="type-body-sm text-t2 truncate">{[race?.nameRu, subrace?.nameRu, cls?.nameRu, subclass?.name, `${draft.level} ур.`].filter(Boolean).join(' · ')}</span>
         </div>
+        <button type="button" className={`character-editor-mobile-toggle ${BTN}`} aria-pressed={mobilePreview} onClick={() => setMobilePreview(value => !value)}>{mobilePreview ? 'К управлению' : 'Предпросмотр'}</button>
         <button type="button" title="Закрыть редактор · Esc" onClick={onClose} className={BTN}>Закрыть</button>
       </header>
 
-      <div className="min-h-0 flex-1 grid grid-cols-[var(--editor-steps)_minmax(0,1fr)_var(--card-single)] gap-px bg-lo">
+      <div className="character-editor-main min-h-0 flex-1 grid grid-cols-[var(--editor-steps)_minmax(0,1fr)_var(--card-single)] gap-px bg-lo" data-part="editor-main" data-mobile-preview={mobilePreview}>
         <nav aria-label="Шаги" className="min-h-0 overflow-auto flex flex-col gap-px bg-lo">
           {steps.map((s, i) => {
             const on = s.id === current;
@@ -652,6 +722,7 @@ export function CharacterEditor({ takenIds, onCreate, onClose, era = '5e', initi
         </nav>
 
         <div className="min-h-0 flex flex-col bg-cd" data-part="choices">
+          {resetNotice ? <p role="status" className="flex-none type-body-sm text-t2 bg-pn shadow-bevel-in px-3 py-2">{resetNotice}</p> : null}
           <div className="min-h-0 flex-1 overflow-auto flex flex-col gap-4 p-4" aria-label={steps[index]?.label} role="region">
             {body[current]}
           </div>
@@ -680,17 +751,19 @@ export function CharacterEditor({ takenIds, onCreate, onClose, era = '5e', initi
                 skillChoice={skillChoice}
                 bgSkills={bgSkills}
                 asiLabel={r => asiLabel(r.asi, r.asiChoice) || 'бонусы у подрас'}
+                onDependencyChange={explainChange}
               />
             </div>
           ) : card}
         </aside>
       </div>
 
+      {submitError ? <p role="alert" className="flex-none px-4 py-2 type-body-sm text-fx-damage-hi">Не удалось создать предложение: {submitError}</p> : null}
       <footer className="flex items-center gap-3 px-4 py-2 flex-none bg-pn shadow-bevel">
         <span className="type-key text-t3 truncate" title="id актёра в состоянии">{id}</span>
-        <span className={`ml-auto type-key ${ready ? 'text-t2' : 'text-gd'}`} data-part="left-total">{ready ? 'лист сходится' : `осталось выбрать: ${Math.max(totalLeft, issues.length ? 1 : 0)}`}</span>
-        <button type="button" title={ready ? 'ACTOR_SPAWNED: персонаж появляется в партии' : 'Сначала лист должен сойтись'} disabled={!ready} onClick={() => { if (ready) onCreate(spec); }} className={BTN_MAIN}>
-          В партию
+        <span className={`ml-auto type-body-sm ${ready ? 'text-t2' : 'text-gd'}`} data-part="left-total" title="Сумма незаполненных обязательных шагов; подробности — в счётчиках шагов и секций">{ready ? 'лист сходится' : `Обязательных выборов осталось: ${Math.max(totalLeft, issues.length ? 1 : 0)}`}</span>
+        <button type="button" title={createTitle ?? (ready ? 'ACTOR_SPAWNED: персонаж появляется в партии' : 'Сначала лист должен сойтись')} disabled={!ready || submitting || createBusy} onClick={() => { if (ready) void submit(spec); }} className={BTN_MAIN}>
+          {createBusy ? 'Локальная модель пишет…' : submitting ? 'Создаю…' : createLabel}
         </button>
       </footer>
     </div>

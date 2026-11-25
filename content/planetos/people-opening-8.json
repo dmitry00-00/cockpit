@@ -1,0 +1,1261 @@
+{
+  "format": 1,
+  "kind": "person",
+  "entities": [
+    {
+      "ref": "person:dareon",
+      "kind": "person",
+      "name": "Dareon",
+      "nameRu": "Дареон",
+      "subtitle": "A Game of Thrones · Jon III; Jon IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon III and Jon IV; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_19",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon III; Jon IV"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Jon III; Jon IV"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Новобранец Ночного дозора, отмеченный в списках присутствующих в сценах у Чёрного замка; отдельное действие главы для него не выделено."
+        }
+      ],
+      "links": [
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        },
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        }
+      ]
+    },
+    {
+      "ref": "person:halder",
+      "kind": "person",
+      "name": "Halder",
+      "nameRu": "Халдер",
+      "subtitle": "A Game of Thrones · Jon III; Jon IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon III and Jon IV; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_26",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon III; Jon IV"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Jon III; Jon IV"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Сильный новобранец, которого Аллисер Торн выставляет против Сэма; после сдачи Сэма Торн велит ему продолжать, и Джон вмешивается."
+        }
+      ],
+      "links": [
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Samwell Tarly",
+          "ref": "person:samwell-tarly"
+        }
+      ]
+    },
+    {
+      "ref": "person:jeren",
+      "kind": "person",
+      "name": "Jeren",
+      "nameRu": "Джерен",
+      "subtitle": "A Game of Thrones · Jon III; Jon IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon III and Jon IV; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_19",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon III; Jon IV"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Jon III; Jon IV"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Новобранец Ночного дозора, присутствующий среди товарищей Джона в сценах тренировок и жизни у Чёрного замка; отдельная роль в указателе не уточнена."
+        }
+      ],
+      "links": [
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        },
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        }
+      ]
+    },
+    {
+      "ref": "person:othor",
+      "kind": "person",
+      "name": "Othor",
+      "nameRu": "Отхор",
+      "subtitle": "A Game of Thrones · Jon III",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon III; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_19",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon III"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Брат Ночного дозора, включённый AWOIAF в список появляющихся у Чёрного замка; отдельное действие в этой главе указателем не описано."
+        }
+      ],
+      "links": [
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        }
+      ]
+    },
+    {
+      "ref": "person:todder",
+      "kind": "person",
+      "name": "Todder",
+      "nameRu": "Тоддер",
+      "subtitle": "A Game of Thrones · Jon III; Jon IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon III and Jon IV; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_19",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon III; Jon IV"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Jon III; Jon IV"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Новобранец Ночного дозора, указанный среди присутствующих в эпизодах с тренировками и другими рекрутами у Чёрного замка."
+        }
+      ],
+      "links": [
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Castle Black",
+          "ref": "place:castle-black"
+        },
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        }
+      ]
+    },
+    {
+      "ref": "person:albett",
+      "kind": "person",
+      "name": "Albett",
+      "nameRu": "Албетт",
+      "subtitle": "A Game of Thrones · Jon IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon IV; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_26",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon IV"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Новобранец, которого Торн направляет в группу против Джона и Сэма; после короткой схватки Албетт сдаётся."
+        }
+      ],
+      "links": [
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Samwell Tarly",
+          "ref": "person:samwell-tarly"
+        }
+      ]
+    },
+    {
+      "ref": "person:rast",
+      "kind": "person",
+      "name": "Rast",
+      "nameRu": "Раст",
+      "subtitle": "A Game of Thrones · Jon IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon IV; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_26",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon IV"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Новобранец, которого Торн посылает с Халдером и Албеттом против Джона; Джон помогает Пипу вывести Раста из схватки."
+        }
+      ],
+      "links": [
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Pypar",
+          "ref": "person:pypar"
+        }
+      ]
+    },
+    {
+      "ref": "person:jason-mallister",
+      "kind": "person",
+      "name": "Jason Mallister",
+      "nameRu": "Джейсон Маллистер",
+      "subtitle": "A Game of Thrones · Catelyn V; Sansa II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn V and Sansa II; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_28",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn V; Sansa II"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Catelyn V; Sansa II"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Лорд Сигарда и вассал Хостера Талли; его вооружённый отряд проходит по королевскому тракту перед тем, как Кейтилин укрывается в постоялом дворе."
+        }
+      ],
+      "links": [
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Kingsroad",
+          "ref": "place:kingsroad"
+        }
+      ]
+    },
+    {
+      "ref": "person:willis-wode",
+      "kind": "person",
+      "name": "Willis Wode",
+      "nameRu": "Уиллис Вуд",
+      "subtitle": "A Game of Thrones · Catelyn V; Catelyn VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn V and Catelyn VI; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_34",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn V; Catelyn VI"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Catelyn V; Catelyn VI"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Один из спутников Кейтилин, переживших опасный переход через Долину; у Кровавых Врат он остаётся среди немногих уцелевших из её отряда."
+        }
+      ],
+      "links": [
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Vale of Arryn",
+          "ref": "place:vale-of-arryn"
+        },
+        {
+          "label": "Bloody Gate",
+          "ref": "place:bloody-gate"
+        }
+      ]
+    },
+    {
+      "ref": "person:lothor-brune",
+      "kind": "person",
+      "name": "Lothor Brune",
+      "nameRu": "Лотор Брун",
+      "subtitle": "A Game of Thrones · Sansa II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa II; A Wiki of Ice and Fire, chapter and character indexes (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_29",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Sansa II"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Вольный рыцарь, победивший Джори Касселя в поединке на турнире Десницы по решению Роберта."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jory Cassel",
+          "ref": "person:jory-cassel"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        }
+      ]
+    },
+    {
+      "ref": "person:gregor-clegane",
+      "kind": "person",
+      "name": "Gregor Clegane",
+      "nameRu": "Григор Клиган",
+      "subtitle": "A Game of Thrones · Sansa II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa II; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_29",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Sansa II"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Участвует в турнире Десницы; его копьё поражает Хью из Долины в горло, и юноша погибает. Позднее Сандор утверждает Сансе, что брат сделал это намеренно."
+        }
+      ],
+      "links": [
+        {
+          "label": "Sandor Clegane",
+          "ref": "person:sandor-clegane"
+        },
+        {
+          "label": "Hugh of the Vale",
+          "ref": "person:hugh-of-the-vale"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "person:bryce-caron",
+      "kind": "person",
+      "name": "Bryce Caron",
+      "nameRu": "Брайс Карон",
+      "subtitle": "A Game of Thrones · Sansa II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa II; A Wiki of Ice and Fire, chapter and character indexes (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_29",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Sansa II"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Лорд Ночного Песенного и участник турнира Десницы; в главе он проигрывает поединок Джейме Ланнистеру."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jaime Lannister",
+          "ref": "person:jaime-lannister"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "person:anguy",
+      "kind": "person",
+      "name": "Anguy",
+      "nameRu": "Ангай",
+      "subtitle": "A Game of Thrones · Eddard VII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard VII; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_30",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard VII"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Победитель соревнования по стрельбе из лука на турнире Десницы; он отказывается от предложенного Эддардом места среди его охраны."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Balon Swann",
+          "ref": "person:balon-swann"
+        },
+        {
+          "label": "Jalabhar Xho",
+          "ref": "person:jalabhar-xho"
+        }
+      ]
+    },
+    {
+      "ref": "person:tyrek-lannister",
+      "kind": "person",
+      "name": "Tyrek Lannister",
+      "nameRu": "Тайрек Ланнистер",
+      "subtitle": "A Game of Thrones · Eddard VII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard VII; A Wiki of Ice and Fire, chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_30",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard VII"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Один из оруженосцев Роберта; король отправляет его вместе с Ланселем за приспособлением для растягивания доспехов."
+        }
+      ],
+      "links": [
+        {
+          "label": "Lancel Lannister",
+          "ref": "person:lancel-lannister"
+        },
+        {
+          "label": "Robert I Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "person:balon-swann",
+      "kind": "person",
+      "name": "Balon Swann",
+      "nameRu": "Балон Суонн",
+      "subtitle": "A Game of Thrones · Sansa II; Eddard VII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa II and Eddard VII; A Wiki of Ice and Fire, chapter and character indexes (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_29",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Sansa II; Eddard VII"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Sansa II; Eddard VII"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Рыцарь из дома Суонн, присутствующий на турнире Десницы; в состязании по стрельбе его опережает Ангвай."
+        }
+      ],
+      "links": [
+        {
+          "label": "Anguy",
+          "ref": "person:anguy"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "person:jalabhar-xho",
+      "kind": "person",
+      "name": "Jalabhar Xho",
+      "nameRu": "Джалабхар Ксо",
+      "subtitle": "A Game of Thrones · Sansa II; Eddard VII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa II and Eddard VII; A Wiki of Ice and Fire, chapter and character indexes (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_29",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Sansa II; Eddard VII"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется: Sansa II; Eddard VII"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Изгнанный принц из Летних островов, живущий при дворе в Королевской Гавани; Санса замечает его среди участников турнира Десницы."
+        }
+      ],
+      "links": [
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "person:emmon-frey",
+      "kind": "person",
+      "name": "Emmon Frey",
+      "nameRu": "Эммон Фрей",
+      "subtitle": "A Game of Thrones · Sansa II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa II; A Wiki of Ice and Fire, chapter and character indexes (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_29",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Sansa II"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Сир Эммон прибывает на турнир Десницы в Королевской Гавани вместе с пятью родственниками из дома Фреев."
+        }
+      ],
+      "links": [
+        {
+          "label": "Danwell Frey",
+          "ref": "person:danwell-frey"
+        },
+        {
+          "label": "Hosteen Frey",
+          "ref": "person:hosteen-frey"
+        },
+        {
+          "label": "Jared Frey",
+          "ref": "person:jared-frey"
+        },
+        {
+          "label": "Perwyn Frey",
+          "ref": "person:perwyn-frey"
+        },
+        {
+          "label": "Theo Frey",
+          "ref": "person:theo-frey"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "person:danwell-frey",
+      "kind": "person",
+      "name": "Danwell Frey",
+      "nameRu": "Дэнвелл Фрей",
+      "subtitle": "A Game of Thrones · Sansa II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa II; A Wiki of Ice and Fire, chapter and character indexes (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_29",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Sansa II"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Родич Эммона Фрея, приехавший с ним на турнир Десницы; отдельное действие Данвелла в главе не выделено."
+        }
+      ],
+      "links": [
+        {
+          "label": "Emmon Frey",
+          "ref": "person:emmon-frey"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "person:hosteen-frey",
+      "kind": "person",
+      "name": "Hosteen Frey",
+      "nameRu": "Хостин Фрей",
+      "subtitle": "A Game of Thrones · Sansa II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa II; A Wiki of Ice and Fire, chapter and character indexes (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_29",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Sansa II"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Родич Эммона Фрея, приехавший с ним на турнир Десницы; отдельное действие Хостина в главе не выделено."
+        }
+      ],
+      "links": [
+        {
+          "label": "Emmon Frey",
+          "ref": "person:emmon-frey"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "person:jared-frey",
+      "kind": "person",
+      "name": "Jared Frey",
+      "nameRu": "Джаред Фрей",
+      "subtitle": "A Game of Thrones · Sansa II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa II; A Wiki of Ice and Fire, chapter and character indexes (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_29",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Sansa II"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Родич Эммона Фрея, приехавший с ним на турнир Десницы; отдельное действие Джареда в главе не выделено."
+        }
+      ],
+      "links": [
+        {
+          "label": "Emmon Frey",
+          "ref": "person:emmon-frey"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "person:perwyn-frey",
+      "kind": "person",
+      "name": "Perwyn Frey",
+      "nameRu": "Первин Фрей",
+      "subtitle": "A Game of Thrones · Sansa II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa II; A Wiki of Ice and Fire, chapter and character indexes (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_29",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Sansa II"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Родич Эммона Фрея, приехавший с ним на турнир Десницы; отдельное действие Первина в главе не выделено."
+        }
+      ],
+      "links": [
+        {
+          "label": "Emmon Frey",
+          "ref": "person:emmon-frey"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "person:theo-frey",
+      "kind": "person",
+      "name": "Theo Frey",
+      "nameRu": "Тео Фрей",
+      "subtitle": "A Game of Thrones · Sansa II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa II; A Wiki of Ice and Fire, chapter and character indexes (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_29",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Sansa II"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Родич Эммона Фрея, приехавший с ним на турнир Десницы; отдельное действие Тео в главе не выделено."
+        }
+      ],
+      "links": [
+        {
+          "label": "Emmon Frey",
+          "ref": "person:emmon-frey"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "person:godwyn",
+      "kind": "person",
+      "name": "Godwyn",
+      "nameRu": "Годвин",
+      "subtitle": "A Game of Thrones · Arya III",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Arya III; A Wiki of Ice and Fire, chapter and character indexes (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_32",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Arya III"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Красный плащ из охраны королевских детей; по приказу сопровождающей септы пытается схватить Арью, приняв её за уличного мальчишку, но она ускользает."
+        }
+      ],
+      "links": [
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Tommen Baratheon",
+          "ref": "person:tommen-baratheon"
+        },
+        {
+          "label": "Myrcella Baratheon",
+          "ref": "person:myrcella-baratheon"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "person:aron-santagar",
+      "kind": "person",
+      "name": "Aron Santagar",
+      "nameRu": "Арон Сантагар",
+      "subtitle": "A Game of Thrones · Sansa II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa II; A Wiki of Ice and Fire, chapter and character indexes (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_29",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Sansa II"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Рыцарь и мастер оружия Красного замка; на турнире Десницы его поединок с Лотором Бруном завершается вничью, после чего его побеждает Джейсон Маллистер."
+        }
+      ],
+      "links": [
+        {
+          "label": "Lothor Brune",
+          "ref": "person:lothor-brune"
+        },
+        {
+          "label": "Jason Mallister",
+          "ref": "person:jason-mallister"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "person:yohn-royce",
+      "kind": "person",
+      "name": "Yohn Royce",
+      "nameRu": "Йон Ройс",
+      "subtitle": "A Game of Thrones · Sansa II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa II; A Wiki of Ice and Fire, chapter and character indexes (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_29",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Sansa II"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Лорд Рунстоуна и рыцарь Долины на турнире Десницы; Санса замечает его бронзовые доспехи с рунами."
+        }
+      ],
+      "links": [
+        {
+          "label": "Vale of Arryn",
+          "ref": "place:vale-of-arryn"
+        },
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    }
+  ]
+}

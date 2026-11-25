@@ -1,0 +1,2234 @@
+{
+  "format": "dm-cockpit.p22-scenario-suite",
+  "version": "1.0.0",
+  "sourceTask": "П22",
+  "scenarios": [
+    {
+      "id": "p22.character.ability-modifier",
+      "family": "character",
+      "title": "Модификатор характеристики персонажа",
+      "sourceRef": "src/campaign/derive.ts#abilityMod",
+      "coverageGaps": [
+        "Не проверяются владения, спасброски, преимущества/помехи, временные бонусы и особенности класса/расы."
+      ],
+      "unsupportedInteractions": [
+        "Сложение нескольких эффектов, меняющих характеристику, в этом сценарии не моделируется."
+      ],
+      "variants": [
+        {
+          "id": "srd-floor",
+          "title": "SRD: округление вниз",
+          "evidenceClass": "known-rule",
+          "report": {
+            "format": "dm-cockpit.isolated-lab-report",
+            "schemaVersion": 1,
+            "runFingerprint": "a7f9b54d1908de934f58e9952ada0586cd944d39f517220975bcb924c5ad4333",
+            "outputFingerprint": "8a36712ef89809083078bc5252980326193801ab50cc1020bf8f1c0868c89781",
+            "definition": {
+              "assumptions": [
+                {
+                  "id": "character-scope",
+                  "statement": "Проверяется только базовый модификатор характеристики, без временных эффектов и особенностей.",
+                  "status": "confirmed"
+                },
+                {
+                  "id": "rounding-is-hypothesis",
+                  "statement": "Округление к ближайшему целому — намеренно заданная гипотеза для сравнения, не правило D&D.",
+                  "status": "assumed"
+                }
+              ],
+              "engine": {
+                "contentDigest": "sha256:9d0461300b02da6ded845d175e02c6e6d820e09a47c62111b50600d68e4264bb",
+                "id": "p22-fixed-scenario-kernel",
+                "sourceRef": "src/lab/scenarios.ts",
+                "version": "1.0.0"
+              },
+              "format": "dm-cockpit.isolated-lab-run",
+              "inputs": [
+                {
+                  "id": "p22-character-fixture",
+                  "kind": "character",
+                  "numericFacts": [
+                    {
+                      "id": "fixture:abilityScore",
+                      "origin": {
+                        "kind": "input",
+                        "note": "Закреплённое значение сценарной фикстуры; не утверждение о правиле.",
+                        "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures"
+                      },
+                      "path": "/abilityScore",
+                      "value": 15
+                    }
+                  ],
+                  "payload": {
+                    "ability": "intelligence",
+                    "abilityScore": 15,
+                    "characterId": "fixture-wizard"
+                  },
+                  "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures",
+                  "version": "1.0.0"
+                }
+              ],
+              "packages": [],
+              "parameters": {
+                "id": "parameters:srd-floor",
+                "numericFacts": [],
+                "payload": {
+                  "evidenceClass": "known-rule",
+                  "method": "srd-floor"
+                },
+                "sourceRef": "src/lab/scenarios.ts#variant-spec",
+                "version": "1.0.0"
+              },
+              "randomness": {
+                "mode": "none"
+              },
+              "rulesets": [
+                {
+                  "contentDigest": "sha256:3afa677b5e4ab43035e9772681eaa7daef5e4ffcc991b3e5f3f1d8f83bd6cac0",
+                  "edition": "2014",
+                  "id": "dnd5e-2014-srd-5.1",
+                  "layer": "srd",
+                  "license": "CC BY 4.0",
+                  "sourceRef": "src/rules/srd/ · CC BY 4.0",
+                  "system": "D&D 5e",
+                  "version": "SRD 5.1"
+                },
+                {
+                  "contentDigest": "sha256:6340dbf6361ccd26874c879dc79e68640ca380de7be882f68dd90d3567706c96",
+                  "edition": "local hypothesis",
+                  "id": "cockpit-p22-hypotheses",
+                  "layer": "HB",
+                  "license": "internal project material",
+                  "sourceRef": "src/lab/scenarios.ts#homebrew-variants",
+                  "system": "DM Cockpit",
+                  "version": "P22-1.0.0"
+                }
+              ],
+              "scenario": {
+                "id": "p22.character.ability-modifier",
+                "kind": "mechanic",
+                "sourceRef": "src/campaign/derive.ts#abilityMod",
+                "title": "Модификатор характеристики персонажа",
+                "version": "1.0.0"
+              },
+              "schemaVersion": 1
+            },
+            "inputFingerprints": [
+              {
+                "id": "p22-character-fixture",
+                "version": "1.0.0",
+                "fingerprint": "b0b9d9bf8c1a3d14b14480133f99b69cf311027805031c15be6d9e557a00083a"
+              }
+            ],
+            "parameterFingerprint": "32a8042a31c4952e2b71d6adf263495e5d7ef4e246be4a800206154df8ad0a7e",
+            "result": {
+              "id": "character-modifier-result",
+              "numericFacts": [
+                {
+                  "id": "ability-modifier",
+                  "origin": {
+                    "formula": "floor((score - 10) / 2)",
+                    "kind": "derived",
+                    "rulesetId": "dnd5e-2014-srd-5.1",
+                    "sourceFactIds": [
+                      "fixture:abilityScore"
+                    ]
+                  },
+                  "path": "/modifier",
+                  "value": 2
+                }
+              ],
+              "payload": {
+                "method": "srd-floor",
+                "modifier": 2
+              },
+              "sourceRef": "src/lab/scenarios.ts#characterScenario",
+              "version": "1.0.0"
+            },
+            "findings": [],
+            "changes": [],
+            "uncertainty": [],
+            "proposalDrafts": [],
+            "executionBoundary": {
+              "mode": "isolated-read-only",
+              "campaignStateCapabilityProvided": false,
+              "campaignWriteCapabilityProvided": false,
+              "campaignEventWrites": 0,
+              "activeCampaignWrites": 0
+            }
+          },
+          "replay": {
+            "runFingerprint": "a7f9b54d1908de934f58e9952ada0586cd944d39f517220975bcb924c5ad4333",
+            "outputFingerprint": "8a36712ef89809083078bc5252980326193801ab50cc1020bf8f1c0868c89781",
+            "identical": true
+          }
+        },
+        {
+          "id": "hb-nearest",
+          "title": "Гипотеза: округление к ближайшему",
+          "evidenceClass": "homebrew-hypothesis",
+          "report": {
+            "format": "dm-cockpit.isolated-lab-report",
+            "schemaVersion": 1,
+            "runFingerprint": "587ce2f1674f8dee0250122efe444794daebd46510a305fe16b2e09bec37b2c1",
+            "outputFingerprint": "3ecd7e8986cc2386ea2594d3171c295e9e867880d5a7517346f15f3a00b3bde8",
+            "definition": {
+              "assumptions": [
+                {
+                  "id": "character-scope",
+                  "statement": "Проверяется только базовый модификатор характеристики, без временных эффектов и особенностей.",
+                  "status": "confirmed"
+                },
+                {
+                  "id": "rounding-is-hypothesis",
+                  "statement": "Округление к ближайшему целому — намеренно заданная гипотеза для сравнения, не правило D&D.",
+                  "status": "assumed"
+                }
+              ],
+              "engine": {
+                "contentDigest": "sha256:9d0461300b02da6ded845d175e02c6e6d820e09a47c62111b50600d68e4264bb",
+                "id": "p22-fixed-scenario-kernel",
+                "sourceRef": "src/lab/scenarios.ts",
+                "version": "1.0.0"
+              },
+              "format": "dm-cockpit.isolated-lab-run",
+              "inputs": [
+                {
+                  "id": "p22-character-fixture",
+                  "kind": "character",
+                  "numericFacts": [
+                    {
+                      "id": "fixture:abilityScore",
+                      "origin": {
+                        "kind": "input",
+                        "note": "Закреплённое значение сценарной фикстуры; не утверждение о правиле.",
+                        "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures"
+                      },
+                      "path": "/abilityScore",
+                      "value": 15
+                    }
+                  ],
+                  "payload": {
+                    "ability": "intelligence",
+                    "abilityScore": 15,
+                    "characterId": "fixture-wizard"
+                  },
+                  "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures",
+                  "version": "1.0.0"
+                }
+              ],
+              "packages": [],
+              "parameters": {
+                "id": "parameters:hb-nearest",
+                "numericFacts": [],
+                "payload": {
+                  "evidenceClass": "homebrew-hypothesis",
+                  "method": "nearest"
+                },
+                "sourceRef": "src/lab/scenarios.ts#variant-spec",
+                "version": "1.0.0"
+              },
+              "randomness": {
+                "mode": "none"
+              },
+              "rulesets": [
+                {
+                  "contentDigest": "sha256:3afa677b5e4ab43035e9772681eaa7daef5e4ffcc991b3e5f3f1d8f83bd6cac0",
+                  "edition": "2014",
+                  "id": "dnd5e-2014-srd-5.1",
+                  "layer": "srd",
+                  "license": "CC BY 4.0",
+                  "sourceRef": "src/rules/srd/ · CC BY 4.0",
+                  "system": "D&D 5e",
+                  "version": "SRD 5.1"
+                },
+                {
+                  "contentDigest": "sha256:6340dbf6361ccd26874c879dc79e68640ca380de7be882f68dd90d3567706c96",
+                  "edition": "local hypothesis",
+                  "id": "cockpit-p22-hypotheses",
+                  "layer": "HB",
+                  "license": "internal project material",
+                  "sourceRef": "src/lab/scenarios.ts#homebrew-variants",
+                  "system": "DM Cockpit",
+                  "version": "P22-1.0.0"
+                }
+              ],
+              "scenario": {
+                "id": "p22.character.ability-modifier",
+                "kind": "mechanic",
+                "sourceRef": "src/campaign/derive.ts#abilityMod",
+                "title": "Модификатор характеристики персонажа",
+                "version": "1.0.0"
+              },
+              "schemaVersion": 1
+            },
+            "inputFingerprints": [
+              {
+                "id": "p22-character-fixture",
+                "version": "1.0.0",
+                "fingerprint": "b0b9d9bf8c1a3d14b14480133f99b69cf311027805031c15be6d9e557a00083a"
+              }
+            ],
+            "parameterFingerprint": "f6ff591c8b4371275044d7b45aa529ad3aeefcbd52e83dbf8fc3f641fcc6c922",
+            "result": {
+              "id": "character-modifier-result",
+              "numericFacts": [
+                {
+                  "id": "ability-modifier",
+                  "origin": {
+                    "kind": "homebrew",
+                    "note": "Гипотеза округления к ближайшему целому; кодом SRD не подтверждена.",
+                    "rulesetId": "cockpit-p22-hypotheses"
+                  },
+                  "path": "/modifier",
+                  "value": 3
+                }
+              ],
+              "payload": {
+                "method": "nearest",
+                "modifier": 3
+              },
+              "sourceRef": "src/lab/scenarios.ts#characterScenario",
+              "version": "1.0.0"
+            },
+            "findings": [],
+            "changes": [],
+            "uncertainty": [],
+            "proposalDrafts": [],
+            "executionBoundary": {
+              "mode": "isolated-read-only",
+              "campaignStateCapabilityProvided": false,
+              "campaignWriteCapabilityProvided": false,
+              "campaignEventWrites": 0,
+              "activeCampaignWrites": 0
+            }
+          },
+          "replay": {
+            "runFingerprint": "587ce2f1674f8dee0250122efe444794daebd46510a305fe16b2e09bec37b2c1",
+            "outputFingerprint": "3ecd7e8986cc2386ea2594d3171c295e9e867880d5a7517346f15f3a00b3bde8",
+            "identical": true
+          }
+        }
+      ],
+      "comparisons": [
+        {
+          "baselineVariantId": "srd-floor",
+          "comparedVariantId": "hb-nearest",
+          "sameInputs": true,
+          "changedResultPaths": [
+            "/method",
+            "/modifier"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p22.monster-npc.cr-profile-candidate",
+      "family": "monster-npc",
+      "title": "Кандидат блока монстра по целевой ступени CR",
+      "sourceRef": "src/rules/generation/crMonster.ts#buildCrMonster",
+      "coverageGaps": [
+        "Сохраняется только часть полей блока; не проверены полный баланс, спасброски, навыки, сопротивления, особые действия, легендарные действия и экономика действий группы.",
+        "Не проверены социальное состояние NPC, отношения и реакции на действия персонажей."
+      ],
+      "unsupportedInteractions": [
+        "Не оцениваются сценарные роли NPC, тактика, окружение и взаимодействие нескольких особых способностей."
+      ],
+      "variants": [
+        {
+          "id": "target-cr-quarter",
+          "title": "Целевая ступень CR 1/4",
+          "evidenceClass": "homebrew-hypothesis",
+          "report": {
+            "format": "dm-cockpit.isolated-lab-report",
+            "schemaVersion": 1,
+            "runFingerprint": "f23778356c409883566f9927b0528a64281fca42da779567af9ef55cf4d2c579",
+            "outputFingerprint": "76e0933497f3cf6efde249f9b0409ccd4e6e1dba38d9c9caee03fde656cf24ad",
+            "definition": {
+              "assumptions": [
+                {
+                  "id": "monster-candidate-only",
+                  "sourceRef": "src/rules/generation/crMonster.ts#estimateCr",
+                  "statement": "Генератор строит проверяемый черновик по таблице A5E; его CR-оценка не считается официальной процедурой D&D 5e.",
+                  "status": "assumed"
+                }
+              ],
+              "engine": {
+                "contentDigest": "sha256:9d0461300b02da6ded845d175e02c6e6d820e09a47c62111b50600d68e4264bb",
+                "id": "p22-fixed-scenario-kernel",
+                "sourceRef": "src/lab/scenarios.ts",
+                "version": "1.0.0"
+              },
+              "format": "dm-cockpit.isolated-lab-run",
+              "inputs": [
+                {
+                  "id": "p22-monster-fixture",
+                  "kind": "monster",
+                  "numericFacts": [
+                    {
+                      "id": "fixture:speed",
+                      "origin": {
+                        "kind": "input",
+                        "note": "Закреплённое значение сценарной фикстуры; не утверждение о правиле.",
+                        "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures"
+                      },
+                      "path": "/speed",
+                      "value": 30
+                    },
+                    {
+                      "id": "fixture:abilities-str",
+                      "origin": {
+                        "kind": "input",
+                        "note": "Закреплённое значение сценарной фикстуры; не утверждение о правиле.",
+                        "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures"
+                      },
+                      "path": "/abilities/str",
+                      "value": 14
+                    },
+                    {
+                      "id": "fixture:abilities-dex",
+                      "origin": {
+                        "kind": "input",
+                        "note": "Закреплённое значение сценарной фикстуры; не утверждение о правиле.",
+                        "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures"
+                      },
+                      "path": "/abilities/dex",
+                      "value": 12
+                    },
+                    {
+                      "id": "fixture:abilities-con",
+                      "origin": {
+                        "kind": "input",
+                        "note": "Закреплённое значение сценарной фикстуры; не утверждение о правиле.",
+                        "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures"
+                      },
+                      "path": "/abilities/con",
+                      "value": 12
+                    },
+                    {
+                      "id": "fixture:abilities-int",
+                      "origin": {
+                        "kind": "input",
+                        "note": "Закреплённое значение сценарной фикстуры; не утверждение о правиле.",
+                        "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures"
+                      },
+                      "path": "/abilities/int",
+                      "value": 10
+                    },
+                    {
+                      "id": "fixture:abilities-wis",
+                      "origin": {
+                        "kind": "input",
+                        "note": "Закреплённое значение сценарной фикстуры; не утверждение о правиле.",
+                        "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures"
+                      },
+                      "path": "/abilities/wis",
+                      "value": 10
+                    },
+                    {
+                      "id": "fixture:abilities-cha",
+                      "origin": {
+                        "kind": "input",
+                        "note": "Закреплённое значение сценарной фикстуры; не утверждение о правиле.",
+                        "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures"
+                      },
+                      "path": "/abilities/cha",
+                      "value": 10
+                    },
+                    {
+                      "id": "fixture:reach",
+                      "origin": {
+                        "kind": "input",
+                        "note": "Закреплённое значение сценарной фикстуры; не утверждение о правиле.",
+                        "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures"
+                      },
+                      "path": "/reach",
+                      "value": 5
+                    }
+                  ],
+                  "payload": {
+                    "abilities": {
+                      "cha": 10,
+                      "con": 12,
+                      "dex": 12,
+                      "int": 10,
+                      "str": 14,
+                      "wis": 10
+                    },
+                    "alignment": "neutral",
+                    "attackName": "Rusty Blade",
+                    "creatureType": "humanoid",
+                    "damageType": "slashing",
+                    "languages": "Common",
+                    "name": "Roadside Raider",
+                    "primaryAbility": "str",
+                    "reach": 5,
+                    "size": "Medium",
+                    "speed": 30
+                  },
+                  "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures",
+                  "version": "1.0.0"
+                }
+              ],
+              "packages": [],
+              "parameters": {
+                "id": "parameters:target-cr-quarter",
+                "numericFacts": [],
+                "payload": {
+                  "evidenceClass": "homebrew-hypothesis",
+                  "targetCr": "1/4"
+                },
+                "sourceRef": "src/lab/scenarios.ts#variant-spec",
+                "version": "1.0.0"
+              },
+              "randomness": {
+                "mode": "none"
+              },
+              "rulesets": [
+                {
+                  "contentDigest": "sha256:f31db06f9597eb34eedc7cac43c1901d756fc74b50be7d240ab4ffa67e34dafa",
+                  "edition": "A5E",
+                  "id": "a5e-srd-19.1",
+                  "layer": "a5e-srd",
+                  "license": "CC BY 4.0",
+                  "sourceRef": "src/rules/convert/a5eMonsterBenchmark.ts#MONSTER_BENCHMARKS · CC BY 4.0",
+                  "system": "Level Up: Advanced 5th Edition",
+                  "version": "SRD 19.1"
+                },
+                {
+                  "contentDigest": "sha256:6340dbf6361ccd26874c879dc79e68640ca380de7be882f68dd90d3567706c96",
+                  "edition": "local hypothesis",
+                  "id": "cockpit-p22-hypotheses",
+                  "layer": "HB",
+                  "license": "internal project material",
+                  "sourceRef": "src/lab/scenarios.ts#homebrew-variants",
+                  "system": "DM Cockpit",
+                  "version": "P22-1.0.0"
+                }
+              ],
+              "scenario": {
+                "id": "p22.monster-npc.cr-profile-candidate",
+                "kind": "entity",
+                "sourceRef": "src/rules/generation/crMonster.ts#buildCrMonster",
+                "title": "Кандидат блока монстра по целевой ступени CR",
+                "version": "1.0.0"
+              },
+              "schemaVersion": 1
+            },
+            "inputFingerprints": [
+              {
+                "id": "p22-monster-fixture",
+                "version": "1.0.0",
+                "fingerprint": "4d03a33a41a60eb9a9e791f3ffac2354f3f72850ab6319c8aeb393070f8eb478"
+              }
+            ],
+            "parameterFingerprint": "3be9e7bea5febc47082dbd53eb65d3396a956816a7b4f21aebc56c7246d497a7",
+            "result": {
+              "id": "monster-candidate-result",
+              "numericFacts": [
+                {
+                  "id": "monster-ac",
+                  "origin": {
+                    "kind": "rules",
+                    "locator": "src/rules/convert/a5eMonsterBenchmark.ts#MONSTER_BENCHMARKS[2]",
+                    "rulesetId": "a5e-srd-19.1"
+                  },
+                  "path": "/ac",
+                  "value": 12
+                },
+                {
+                  "id": "monster-hp",
+                  "origin": {
+                    "formula": "round(hitDice × (средняя кость размера + модификатор CON))",
+                    "kind": "derived",
+                    "rulesetId": "cockpit-p22-hypotheses",
+                    "sourceFactIds": [
+                      "fixture:abilities-con"
+                    ]
+                  },
+                  "path": "/hpAverage",
+                  "value": 17
+                },
+                {
+                  "id": "monster-attack-bonus",
+                  "origin": {
+                    "formula": "бонус мастерства из benchmark + модификатор выбранной характеристики",
+                    "kind": "derived",
+                    "rulesetId": "cockpit-p22-hypotheses",
+                    "sourceFactIds": [
+                      "fixture:abilities-str"
+                    ]
+                  },
+                  "path": "/attackBonus",
+                  "value": 4
+                }
+              ],
+              "payload": {
+                "ac": 12,
+                "attackBonus": 4,
+                "diagnosticCr": "1/4",
+                "diagnosticStatus": "within-one-step",
+                "hpAverage": 17,
+                "name": "Roadside Raider",
+                "targetCr": "1/4"
+              },
+              "sourceRef": "src/rules/generation/crMonster.ts#buildCrMonster",
+              "version": "1.0.0"
+            },
+            "findings": [
+              {
+                "id": "cr-is-diagnostic",
+                "message": "CR-оценка — диагностический профиль генератора, а не официальное правило D&D 5e.",
+                "relatedFactIds": [
+                  "monster-ac",
+                  "monster-hp",
+                  "monster-attack-bonus"
+                ],
+                "severity": "warning"
+              }
+            ],
+            "changes": [],
+            "uncertainty": [
+              {
+                "affectedFactIds": [
+                  "monster-ac",
+                  "monster-hp",
+                  "monster-attack-bonus"
+                ],
+                "assumptionIds": [
+                  "monster-candidate-only"
+                ],
+                "description": "Баланс остальных полей полного блока монстра не проверен этим срезом.",
+                "id": "full-statblock-coverage",
+                "level": "unknown"
+              }
+            ],
+            "proposalDrafts": [],
+            "executionBoundary": {
+              "mode": "isolated-read-only",
+              "campaignStateCapabilityProvided": false,
+              "campaignWriteCapabilityProvided": false,
+              "campaignEventWrites": 0,
+              "activeCampaignWrites": 0
+            }
+          },
+          "replay": {
+            "runFingerprint": "f23778356c409883566f9927b0528a64281fca42da779567af9ef55cf4d2c579",
+            "outputFingerprint": "76e0933497f3cf6efde249f9b0409ccd4e6e1dba38d9c9caee03fde656cf24ad",
+            "identical": true
+          }
+        },
+        {
+          "id": "target-cr-half",
+          "title": "Целевая ступень CR 1/2",
+          "evidenceClass": "homebrew-hypothesis",
+          "report": {
+            "format": "dm-cockpit.isolated-lab-report",
+            "schemaVersion": 1,
+            "runFingerprint": "52c5dcd40aae0b942d3f30cfd0ed4becbb688e675a164e6b1a415f5f5100113e",
+            "outputFingerprint": "6e399cf3ae45d08ec1a1c751a9c91a6f96588c5b6db1dcaeb728614136f7e491",
+            "definition": {
+              "assumptions": [
+                {
+                  "id": "monster-candidate-only",
+                  "sourceRef": "src/rules/generation/crMonster.ts#estimateCr",
+                  "statement": "Генератор строит проверяемый черновик по таблице A5E; его CR-оценка не считается официальной процедурой D&D 5e.",
+                  "status": "assumed"
+                }
+              ],
+              "engine": {
+                "contentDigest": "sha256:9d0461300b02da6ded845d175e02c6e6d820e09a47c62111b50600d68e4264bb",
+                "id": "p22-fixed-scenario-kernel",
+                "sourceRef": "src/lab/scenarios.ts",
+                "version": "1.0.0"
+              },
+              "format": "dm-cockpit.isolated-lab-run",
+              "inputs": [
+                {
+                  "id": "p22-monster-fixture",
+                  "kind": "monster",
+                  "numericFacts": [
+                    {
+                      "id": "fixture:speed",
+                      "origin": {
+                        "kind": "input",
+                        "note": "Закреплённое значение сценарной фикстуры; не утверждение о правиле.",
+                        "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures"
+                      },
+                      "path": "/speed",
+                      "value": 30
+                    },
+                    {
+                      "id": "fixture:abilities-str",
+                      "origin": {
+                        "kind": "input",
+                        "note": "Закреплённое значение сценарной фикстуры; не утверждение о правиле.",
+                        "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures"
+                      },
+                      "path": "/abilities/str",
+                      "value": 14
+                    },
+                    {
+                      "id": "fixture:abilities-dex",
+                      "origin": {
+                        "kind": "input",
+                        "note": "Закреплённое значение сценарной фикстуры; не утверждение о правиле.",
+                        "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures"
+                      },
+                      "path": "/abilities/dex",
+                      "value": 12
+                    },
+                    {
+                      "id": "fixture:abilities-con",
+                      "origin": {
+                        "kind": "input",
+                        "note": "Закреплённое значение сценарной фикстуры; не утверждение о правиле.",
+                        "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures"
+                      },
+                      "path": "/abilities/con",
+                      "value": 12
+                    },
+                    {
+                      "id": "fixture:abilities-int",
+                      "origin": {
+                        "kind": "input",
+                        "note": "Закреплённое значение сценарной фикстуры; не утверждение о правиле.",
+                        "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures"
+                      },
+                      "path": "/abilities/int",
+                      "value": 10
+                    },
+                    {
+                      "id": "fixture:abilities-wis",
+                      "origin": {
+                        "kind": "input",
+                        "note": "Закреплённое значение сценарной фикстуры; не утверждение о правиле.",
+                        "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures"
+                      },
+                      "path": "/abilities/wis",
+                      "value": 10
+                    },
+                    {
+                      "id": "fixture:abilities-cha",
+                      "origin": {
+                        "kind": "input",
+                        "note": "Закреплённое значение сценарной фикстуры; не утверждение о правиле.",
+                        "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures"
+                      },
+                      "path": "/abilities/cha",
+                      "value": 10
+                    },
+                    {
+                      "id": "fixture:reach",
+                      "origin": {
+                        "kind": "input",
+                        "note": "Закреплённое значение сценарной фикстуры; не утверждение о правиле.",
+                        "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures"
+                      },
+                      "path": "/reach",
+                      "value": 5
+                    }
+                  ],
+                  "payload": {
+                    "abilities": {
+                      "cha": 10,
+                      "con": 12,
+                      "dex": 12,
+                      "int": 10,
+                      "str": 14,
+                      "wis": 10
+                    },
+                    "alignment": "neutral",
+                    "attackName": "Rusty Blade",
+                    "creatureType": "humanoid",
+                    "damageType": "slashing",
+                    "languages": "Common",
+                    "name": "Roadside Raider",
+                    "primaryAbility": "str",
+                    "reach": 5,
+                    "size": "Medium",
+                    "speed": 30
+                  },
+                  "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures",
+                  "version": "1.0.0"
+                }
+              ],
+              "packages": [],
+              "parameters": {
+                "id": "parameters:target-cr-half",
+                "numericFacts": [],
+                "payload": {
+                  "evidenceClass": "homebrew-hypothesis",
+                  "targetCr": "1/2"
+                },
+                "sourceRef": "src/lab/scenarios.ts#variant-spec",
+                "version": "1.0.0"
+              },
+              "randomness": {
+                "mode": "none"
+              },
+              "rulesets": [
+                {
+                  "contentDigest": "sha256:f31db06f9597eb34eedc7cac43c1901d756fc74b50be7d240ab4ffa67e34dafa",
+                  "edition": "A5E",
+                  "id": "a5e-srd-19.1",
+                  "layer": "a5e-srd",
+                  "license": "CC BY 4.0",
+                  "sourceRef": "src/rules/convert/a5eMonsterBenchmark.ts#MONSTER_BENCHMARKS · CC BY 4.0",
+                  "system": "Level Up: Advanced 5th Edition",
+                  "version": "SRD 19.1"
+                },
+                {
+                  "contentDigest": "sha256:6340dbf6361ccd26874c879dc79e68640ca380de7be882f68dd90d3567706c96",
+                  "edition": "local hypothesis",
+                  "id": "cockpit-p22-hypotheses",
+                  "layer": "HB",
+                  "license": "internal project material",
+                  "sourceRef": "src/lab/scenarios.ts#homebrew-variants",
+                  "system": "DM Cockpit",
+                  "version": "P22-1.0.0"
+                }
+              ],
+              "scenario": {
+                "id": "p22.monster-npc.cr-profile-candidate",
+                "kind": "entity",
+                "sourceRef": "src/rules/generation/crMonster.ts#buildCrMonster",
+                "title": "Кандидат блока монстра по целевой ступени CR",
+                "version": "1.0.0"
+              },
+              "schemaVersion": 1
+            },
+            "inputFingerprints": [
+              {
+                "id": "p22-monster-fixture",
+                "version": "1.0.0",
+                "fingerprint": "4d03a33a41a60eb9a9e791f3ffac2354f3f72850ab6319c8aeb393070f8eb478"
+              }
+            ],
+            "parameterFingerprint": "90b36706a19dc0c76d9ae147b8d9f3f0316b780795d9c97886cfe5738b2fbd20",
+            "result": {
+              "id": "monster-candidate-result",
+              "numericFacts": [
+                {
+                  "id": "monster-ac",
+                  "origin": {
+                    "kind": "rules",
+                    "locator": "src/rules/convert/a5eMonsterBenchmark.ts#MONSTER_BENCHMARKS[3]",
+                    "rulesetId": "a5e-srd-19.1"
+                  },
+                  "path": "/ac",
+                  "value": 13
+                },
+                {
+                  "id": "monster-hp",
+                  "origin": {
+                    "formula": "round(hitDice × (средняя кость размера + модификатор CON))",
+                    "kind": "derived",
+                    "rulesetId": "cockpit-p22-hypotheses",
+                    "sourceFactIds": [
+                      "fixture:abilities-con"
+                    ]
+                  },
+                  "path": "/hpAverage",
+                  "value": 22
+                },
+                {
+                  "id": "monster-attack-bonus",
+                  "origin": {
+                    "formula": "бонус мастерства из benchmark + модификатор выбранной характеристики",
+                    "kind": "derived",
+                    "rulesetId": "cockpit-p22-hypotheses",
+                    "sourceFactIds": [
+                      "fixture:abilities-str"
+                    ]
+                  },
+                  "path": "/attackBonus",
+                  "value": 4
+                }
+              ],
+              "payload": {
+                "ac": 13,
+                "attackBonus": 4,
+                "diagnosticCr": "1/2",
+                "diagnosticStatus": "within-one-step",
+                "hpAverage": 22,
+                "name": "Roadside Raider",
+                "targetCr": "1/2"
+              },
+              "sourceRef": "src/rules/generation/crMonster.ts#buildCrMonster",
+              "version": "1.0.0"
+            },
+            "findings": [
+              {
+                "id": "cr-is-diagnostic",
+                "message": "CR-оценка — диагностический профиль генератора, а не официальное правило D&D 5e.",
+                "relatedFactIds": [
+                  "monster-ac",
+                  "monster-hp",
+                  "monster-attack-bonus"
+                ],
+                "severity": "warning"
+              }
+            ],
+            "changes": [],
+            "uncertainty": [
+              {
+                "affectedFactIds": [
+                  "monster-ac",
+                  "monster-hp",
+                  "monster-attack-bonus"
+                ],
+                "assumptionIds": [
+                  "monster-candidate-only"
+                ],
+                "description": "Баланс остальных полей полного блока монстра не проверен этим срезом.",
+                "id": "full-statblock-coverage",
+                "level": "unknown"
+              }
+            ],
+            "proposalDrafts": [],
+            "executionBoundary": {
+              "mode": "isolated-read-only",
+              "campaignStateCapabilityProvided": false,
+              "campaignWriteCapabilityProvided": false,
+              "campaignEventWrites": 0,
+              "activeCampaignWrites": 0
+            }
+          },
+          "replay": {
+            "runFingerprint": "52c5dcd40aae0b942d3f30cfd0ed4becbb688e675a164e6b1a415f5f5100113e",
+            "outputFingerprint": "6e399cf3ae45d08ec1a1c751a9c91a6f96588c5b6db1dcaeb728614136f7e491",
+            "identical": true
+          }
+        }
+      ],
+      "comparisons": [
+        {
+          "baselineVariantId": "target-cr-quarter",
+          "comparedVariantId": "target-cr-half",
+          "sameInputs": true,
+          "changedResultPaths": [
+            "/ac",
+            "/diagnosticCr",
+            "/hpAverage",
+            "/targetCr"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p22.item.attunement-restrictions",
+      "family": "item",
+      "title": "Допуск персонажа к настройке предмета",
+      "sourceRef": "src/engine/inventory.ts#attunementRequirement",
+      "coverageGaps": [
+        "Не проверяется фактическая настройка, число слотов настройки, совместимость предметов и любые условия, не сохранённые в карточке персонажа."
+      ],
+      "unsupportedInteractions": [
+        "Условия времени и места не поддержаны; результат обязан остаться `unsupported`, без догадки об eligibility."
+      ],
+      "variants": [
+        {
+          "id": "spellcaster-restriction",
+          "title": "Ограничение «заклинатель»",
+          "evidenceClass": "homebrew-hypothesis",
+          "report": {
+            "format": "dm-cockpit.isolated-lab-report",
+            "schemaVersion": 1,
+            "runFingerprint": "62c3fc9394cea9be4fcf2834be197ce18839e0c217a573fcccacd569eb4e5003",
+            "outputFingerprint": "455847be668fba5708fae72ac51a4448db232ea859567107d0153cc813d976f5",
+            "definition": {
+              "assumptions": [
+                {
+                  "id": "item-restrictions-are-authored",
+                  "statement": "Moonlit Signet — сценарная выдумка; строки ограничений проверяют обработчик, а не утверждают существование канонического предмета.",
+                  "status": "assumed"
+                },
+                {
+                  "id": "attunement-scope",
+                  "statement": "Текущая функция поддерживает только записанные классы, расу, мировоззрение и заклинателя; условие времени/места остаётся unsupported.",
+                  "status": "confirmed"
+                }
+              ],
+              "engine": {
+                "contentDigest": "sha256:9d0461300b02da6ded845d175e02c6e6d820e09a47c62111b50600d68e4264bb",
+                "id": "p22-fixed-scenario-kernel",
+                "sourceRef": "src/lab/scenarios.ts",
+                "version": "1.0.0"
+              },
+              "format": "dm-cockpit.isolated-lab-run",
+              "inputs": [
+                {
+                  "id": "p22-item-fixture",
+                  "kind": "item",
+                  "numericFacts": [],
+                  "payload": {
+                    "actor": {
+                      "alignment": "neutral",
+                      "classId": "volsebnik",
+                      "id": "fixture-wizard",
+                      "raceId": "el-f"
+                    },
+                    "item": {
+                      "id": "moonlit-signet",
+                      "name": "Moonlit Signet"
+                    }
+                  },
+                  "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures",
+                  "version": "1.0.0"
+                }
+              ],
+              "packages": [],
+              "parameters": {
+                "id": "parameters:spellcaster-restriction",
+                "numericFacts": [],
+                "payload": {
+                  "by": "a spellcaster",
+                  "evidenceClass": "homebrew-hypothesis"
+                },
+                "sourceRef": "src/lab/scenarios.ts#variant-spec",
+                "version": "1.0.0"
+              },
+              "randomness": {
+                "mode": "none"
+              },
+              "rulesets": [
+                {
+                  "contentDigest": "sha256:3afa677b5e4ab43035e9772681eaa7daef5e4ffcc991b3e5f3f1d8f83bd6cac0",
+                  "edition": "2014",
+                  "id": "dnd5e-2014-srd-5.1",
+                  "layer": "srd",
+                  "license": "CC BY 4.0",
+                  "sourceRef": "src/rules/srd/ · CC BY 4.0",
+                  "system": "D&D 5e",
+                  "version": "SRD 5.1"
+                },
+                {
+                  "contentDigest": "sha256:6340dbf6361ccd26874c879dc79e68640ca380de7be882f68dd90d3567706c96",
+                  "edition": "local hypothesis",
+                  "id": "cockpit-p22-hypotheses",
+                  "layer": "HB",
+                  "license": "internal project material",
+                  "sourceRef": "src/lab/scenarios.ts#homebrew-variants",
+                  "system": "DM Cockpit",
+                  "version": "P22-1.0.0"
+                }
+              ],
+              "scenario": {
+                "id": "p22.item.attunement-restrictions",
+                "kind": "entity",
+                "sourceRef": "src/engine/inventory.ts#attunementRequirement",
+                "title": "Допуск персонажа к настройке предмета",
+                "version": "1.0.0"
+              },
+              "schemaVersion": 1
+            },
+            "inputFingerprints": [
+              {
+                "id": "p22-item-fixture",
+                "version": "1.0.0",
+                "fingerprint": "aeba6e17d1072fd1323591d858acfd5887f1ae7b484cdb52020fb87c83092cab"
+              }
+            ],
+            "parameterFingerprint": "17ece3bc66231619d1775a0f2e55638a6792129be157bee3e6cb3eebd9d965b1",
+            "result": {
+              "id": "item-eligibility-result",
+              "numericFacts": [],
+              "payload": {
+                "itemId": "moonlit-signet",
+                "reason": "Проверено только поддерживаемое ограничение из этого сценария.",
+                "status": "eligible"
+              },
+              "sourceRef": "src/engine/inventory.ts#attunementRequirement",
+              "version": "1.0.0"
+            },
+            "findings": [],
+            "changes": [],
+            "uncertainty": [],
+            "proposalDrafts": [],
+            "executionBoundary": {
+              "mode": "isolated-read-only",
+              "campaignStateCapabilityProvided": false,
+              "campaignWriteCapabilityProvided": false,
+              "campaignEventWrites": 0,
+              "activeCampaignWrites": 0
+            }
+          },
+          "replay": {
+            "runFingerprint": "62c3fc9394cea9be4fcf2834be197ce18839e0c217a573fcccacd569eb4e5003",
+            "outputFingerprint": "455847be668fba5708fae72ac51a4448db232ea859567107d0153cc813d976f5",
+            "identical": true
+          }
+        },
+        {
+          "id": "dwarf-restriction",
+          "title": "Ограничение «дварф»",
+          "evidenceClass": "homebrew-hypothesis",
+          "report": {
+            "format": "dm-cockpit.isolated-lab-report",
+            "schemaVersion": 1,
+            "runFingerprint": "f38a18fa23aa9a62869587d4fcb7693c436ff5bc1ce31a69c1e3893a9357a69a",
+            "outputFingerprint": "9fc0eed49bcbe541b79f569b65c2540b029a806da992fe2e30893c7a8fd3ebd1",
+            "definition": {
+              "assumptions": [
+                {
+                  "id": "item-restrictions-are-authored",
+                  "statement": "Moonlit Signet — сценарная выдумка; строки ограничений проверяют обработчик, а не утверждают существование канонического предмета.",
+                  "status": "assumed"
+                },
+                {
+                  "id": "attunement-scope",
+                  "statement": "Текущая функция поддерживает только записанные классы, расу, мировоззрение и заклинателя; условие времени/места остаётся unsupported.",
+                  "status": "confirmed"
+                }
+              ],
+              "engine": {
+                "contentDigest": "sha256:9d0461300b02da6ded845d175e02c6e6d820e09a47c62111b50600d68e4264bb",
+                "id": "p22-fixed-scenario-kernel",
+                "sourceRef": "src/lab/scenarios.ts",
+                "version": "1.0.0"
+              },
+              "format": "dm-cockpit.isolated-lab-run",
+              "inputs": [
+                {
+                  "id": "p22-item-fixture",
+                  "kind": "item",
+                  "numericFacts": [],
+                  "payload": {
+                    "actor": {
+                      "alignment": "neutral",
+                      "classId": "volsebnik",
+                      "id": "fixture-wizard",
+                      "raceId": "el-f"
+                    },
+                    "item": {
+                      "id": "moonlit-signet",
+                      "name": "Moonlit Signet"
+                    }
+                  },
+                  "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures",
+                  "version": "1.0.0"
+                }
+              ],
+              "packages": [],
+              "parameters": {
+                "id": "parameters:dwarf-restriction",
+                "numericFacts": [],
+                "payload": {
+                  "by": "a dwarf",
+                  "evidenceClass": "homebrew-hypothesis"
+                },
+                "sourceRef": "src/lab/scenarios.ts#variant-spec",
+                "version": "1.0.0"
+              },
+              "randomness": {
+                "mode": "none"
+              },
+              "rulesets": [
+                {
+                  "contentDigest": "sha256:3afa677b5e4ab43035e9772681eaa7daef5e4ffcc991b3e5f3f1d8f83bd6cac0",
+                  "edition": "2014",
+                  "id": "dnd5e-2014-srd-5.1",
+                  "layer": "srd",
+                  "license": "CC BY 4.0",
+                  "sourceRef": "src/rules/srd/ · CC BY 4.0",
+                  "system": "D&D 5e",
+                  "version": "SRD 5.1"
+                },
+                {
+                  "contentDigest": "sha256:6340dbf6361ccd26874c879dc79e68640ca380de7be882f68dd90d3567706c96",
+                  "edition": "local hypothesis",
+                  "id": "cockpit-p22-hypotheses",
+                  "layer": "HB",
+                  "license": "internal project material",
+                  "sourceRef": "src/lab/scenarios.ts#homebrew-variants",
+                  "system": "DM Cockpit",
+                  "version": "P22-1.0.0"
+                }
+              ],
+              "scenario": {
+                "id": "p22.item.attunement-restrictions",
+                "kind": "entity",
+                "sourceRef": "src/engine/inventory.ts#attunementRequirement",
+                "title": "Допуск персонажа к настройке предмета",
+                "version": "1.0.0"
+              },
+              "schemaVersion": 1
+            },
+            "inputFingerprints": [
+              {
+                "id": "p22-item-fixture",
+                "version": "1.0.0",
+                "fingerprint": "aeba6e17d1072fd1323591d858acfd5887f1ae7b484cdb52020fb87c83092cab"
+              }
+            ],
+            "parameterFingerprint": "a3d172961abf7d6494175f57890cbd853259ca15f1307c60d23a5bbc21848f2e",
+            "result": {
+              "id": "item-eligibility-result",
+              "numericFacts": [],
+              "payload": {
+                "itemId": "moonlit-signet",
+                "reason": "Проверено только поддерживаемое ограничение из этого сценария.",
+                "status": "ineligible"
+              },
+              "sourceRef": "src/engine/inventory.ts#attunementRequirement",
+              "version": "1.0.0"
+            },
+            "findings": [],
+            "changes": [],
+            "uncertainty": [],
+            "proposalDrafts": [],
+            "executionBoundary": {
+              "mode": "isolated-read-only",
+              "campaignStateCapabilityProvided": false,
+              "campaignWriteCapabilityProvided": false,
+              "campaignEventWrites": 0,
+              "activeCampaignWrites": 0
+            }
+          },
+          "replay": {
+            "runFingerprint": "f38a18fa23aa9a62869587d4fcb7693c436ff5bc1ce31a69c1e3893a9357a69a",
+            "outputFingerprint": "9fc0eed49bcbe541b79f569b65c2540b029a806da992fe2e30893c7a8fd3ebd1",
+            "identical": true
+          }
+        },
+        {
+          "id": "moonlight-clause",
+          "title": "Неразобранное условие лунного света",
+          "evidenceClass": "homebrew-hypothesis",
+          "report": {
+            "format": "dm-cockpit.isolated-lab-report",
+            "schemaVersion": 1,
+            "runFingerprint": "b5be5954a11c36c70821a494a9b76d7c1da290f9d5cb8955b408bfabd789e2ed",
+            "outputFingerprint": "494316f26877144d2b0d76dd5c8181fd3f1e9be2441858ea9193800f02248b77",
+            "definition": {
+              "assumptions": [
+                {
+                  "id": "item-restrictions-are-authored",
+                  "statement": "Moonlit Signet — сценарная выдумка; строки ограничений проверяют обработчик, а не утверждают существование канонического предмета.",
+                  "status": "assumed"
+                },
+                {
+                  "id": "attunement-scope",
+                  "statement": "Текущая функция поддерживает только записанные классы, расу, мировоззрение и заклинателя; условие времени/места остаётся unsupported.",
+                  "status": "confirmed"
+                }
+              ],
+              "engine": {
+                "contentDigest": "sha256:9d0461300b02da6ded845d175e02c6e6d820e09a47c62111b50600d68e4264bb",
+                "id": "p22-fixed-scenario-kernel",
+                "sourceRef": "src/lab/scenarios.ts",
+                "version": "1.0.0"
+              },
+              "format": "dm-cockpit.isolated-lab-run",
+              "inputs": [
+                {
+                  "id": "p22-item-fixture",
+                  "kind": "item",
+                  "numericFacts": [],
+                  "payload": {
+                    "actor": {
+                      "alignment": "neutral",
+                      "classId": "volsebnik",
+                      "id": "fixture-wizard",
+                      "raceId": "el-f"
+                    },
+                    "item": {
+                      "id": "moonlit-signet",
+                      "name": "Moonlit Signet"
+                    }
+                  },
+                  "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures",
+                  "version": "1.0.0"
+                }
+              ],
+              "packages": [],
+              "parameters": {
+                "id": "parameters:moonlight-clause",
+                "numericFacts": [],
+                "payload": {
+                  "evidenceClass": "homebrew-hypothesis",
+                  "when": "only while under moonlight"
+                },
+                "sourceRef": "src/lab/scenarios.ts#variant-spec",
+                "version": "1.0.0"
+              },
+              "randomness": {
+                "mode": "none"
+              },
+              "rulesets": [
+                {
+                  "contentDigest": "sha256:3afa677b5e4ab43035e9772681eaa7daef5e4ffcc991b3e5f3f1d8f83bd6cac0",
+                  "edition": "2014",
+                  "id": "dnd5e-2014-srd-5.1",
+                  "layer": "srd",
+                  "license": "CC BY 4.0",
+                  "sourceRef": "src/rules/srd/ · CC BY 4.0",
+                  "system": "D&D 5e",
+                  "version": "SRD 5.1"
+                },
+                {
+                  "contentDigest": "sha256:6340dbf6361ccd26874c879dc79e68640ca380de7be882f68dd90d3567706c96",
+                  "edition": "local hypothesis",
+                  "id": "cockpit-p22-hypotheses",
+                  "layer": "HB",
+                  "license": "internal project material",
+                  "sourceRef": "src/lab/scenarios.ts#homebrew-variants",
+                  "system": "DM Cockpit",
+                  "version": "P22-1.0.0"
+                }
+              ],
+              "scenario": {
+                "id": "p22.item.attunement-restrictions",
+                "kind": "entity",
+                "sourceRef": "src/engine/inventory.ts#attunementRequirement",
+                "title": "Допуск персонажа к настройке предмета",
+                "version": "1.0.0"
+              },
+              "schemaVersion": 1
+            },
+            "inputFingerprints": [
+              {
+                "id": "p22-item-fixture",
+                "version": "1.0.0",
+                "fingerprint": "aeba6e17d1072fd1323591d858acfd5887f1ae7b484cdb52020fb87c83092cab"
+              }
+            ],
+            "parameterFingerprint": "8497dc2b2b02227aeb19853ee414cf4e2a28efdac0e29f22a143d0a99546b0d8",
+            "result": {
+              "id": "item-eligibility-result",
+              "numericFacts": [],
+              "payload": {
+                "itemId": "moonlit-signet",
+                "reason": "Условие не представлено в доступном контексте; нужна проверка мастера.",
+                "status": "unsupported"
+              },
+              "sourceRef": "src/engine/inventory.ts#attunementRequirement",
+              "version": "1.0.0"
+            },
+            "findings": [
+              {
+                "id": "unsupported-attunement-clause",
+                "message": "Условие настройки не поддерживается; правило не выведено автоматически.",
+                "relatedFactIds": [],
+                "severity": "warning"
+              }
+            ],
+            "changes": [],
+            "uncertainty": [
+              {
+                "affectedFactIds": [],
+                "assumptionIds": [
+                  "attunement-scope"
+                ],
+                "description": "Не хватает контекста времени/места для решения условия настройки.",
+                "id": "situational-attunement",
+                "level": "unknown"
+              }
+            ],
+            "proposalDrafts": [],
+            "executionBoundary": {
+              "mode": "isolated-read-only",
+              "campaignStateCapabilityProvided": false,
+              "campaignWriteCapabilityProvided": false,
+              "campaignEventWrites": 0,
+              "activeCampaignWrites": 0
+            }
+          },
+          "replay": {
+            "runFingerprint": "b5be5954a11c36c70821a494a9b76d7c1da290f9d5cb8955b408bfabd789e2ed",
+            "outputFingerprint": "494316f26877144d2b0d76dd5c8181fd3f1e9be2441858ea9193800f02248b77",
+            "identical": true
+          }
+        }
+      ],
+      "comparisons": [
+        {
+          "baselineVariantId": "spellcaster-restriction",
+          "comparedVariantId": "dwarf-restriction",
+          "sameInputs": true,
+          "changedResultPaths": [
+            "/status"
+          ]
+        },
+        {
+          "baselineVariantId": "spellcaster-restriction",
+          "comparedVariantId": "moonlight-clause",
+          "sameInputs": true,
+          "changedResultPaths": [
+            "/reason",
+            "/status"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p22.scene.player-and-gm-projections",
+      "family": "scene",
+      "title": "Игровая сцена: проекция игрока и мастера",
+      "sourceRef": "src/campaign/scene.ts#sceneOf",
+      "coverageGaps": [
+        "Не проверены канонические данные вики, религиозные/фракционные секции, календарные эффекты, цены и встречи."
+      ],
+      "unsupportedInteractions": [
+        "Не проверяется право конкретного игрока на частично раскрытую информацию; проверяется только общий режим players."
+      ],
+      "variants": [
+        {
+          "id": "gm-view",
+          "title": "Сцена мастера",
+          "evidenceClass": "application-invariant",
+          "report": {
+            "format": "dm-cockpit.isolated-lab-report",
+            "schemaVersion": 1,
+            "runFingerprint": "432ebb86b724339f6e099405834dcd2cd9421b86a28b118bb8540099c42b65a0",
+            "outputFingerprint": "117e127792d567f0cf059bd94c3cac5339d4c0d586d2887f63993afe58945983",
+            "definition": {
+              "assumptions": [
+                {
+                  "id": "scene-projection-fixture",
+                  "statement": "Это проверка видимости секрета в проекции интерфейса; канон места и содержимое кампании не загружаются.",
+                  "status": "confirmed"
+                }
+              ],
+              "engine": {
+                "contentDigest": "sha256:9d0461300b02da6ded845d175e02c6e6d820e09a47c62111b50600d68e4264bb",
+                "id": "p22-fixed-scenario-kernel",
+                "sourceRef": "src/lab/scenarios.ts",
+                "version": "1.0.0"
+              },
+              "format": "dm-cockpit.isolated-lab-run",
+              "inputs": [
+                {
+                  "id": "p22-scene-fixture",
+                  "kind": "scene",
+                  "numericFacts": [
+                    {
+                      "id": "fixture:sec",
+                      "origin": {
+                        "kind": "input",
+                        "note": "Закреплённое значение сценарной фикстуры; не утверждение о правиле.",
+                        "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures"
+                      },
+                      "path": "/sec",
+                      "value": 0
+                    },
+                    {
+                      "id": "fixture:threadOpenedSec",
+                      "origin": {
+                        "kind": "input",
+                        "note": "Закреплённое значение сценарной фикстуры; не утверждение о правиле.",
+                        "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures"
+                      },
+                      "path": "/threadOpenedSec",
+                      "value": 0
+                    },
+                    {
+                      "id": "fixture:threadTouchedSec",
+                      "origin": {
+                        "kind": "input",
+                        "note": "Закреплённое значение сценарной фикстуры; не утверждение о правиле.",
+                        "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures"
+                      },
+                      "path": "/threadTouchedSec",
+                      "value": 0
+                    }
+                  ],
+                  "payload": {
+                    "dmSecret": "DM_ONLY: гонец работает на заговорщиков.",
+                    "locationId": "loc-p22-fixture",
+                    "publicRumor": "На тракте видели погасший фонарь.",
+                    "sec": 0,
+                    "threadId": "thread-p22-fixture",
+                    "threadOpenedSec": 0,
+                    "threadTouchedSec": 0
+                  },
+                  "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures",
+                  "version": "1.0.0"
+                }
+              ],
+              "packages": [],
+              "parameters": {
+                "id": "parameters:gm-view",
+                "numericFacts": [],
+                "payload": {
+                  "audience": "gm",
+                  "evidenceClass": "application-invariant"
+                },
+                "sourceRef": "src/lab/scenarios.ts#variant-spec",
+                "version": "1.0.0"
+              },
+              "randomness": {
+                "mode": "none"
+              },
+              "rulesets": [
+                {
+                  "contentDigest": "sha256:ae7db0506604f9f0c670770563c05c0b9b38edd92670c58c81b839960edb293c",
+                  "edition": "application",
+                  "id": "dm-cockpit-scene-projection",
+                  "layer": "application",
+                  "license": "internal project code",
+                  "sourceRef": "src/campaign/scene.ts#sceneOf",
+                  "system": "DM Cockpit",
+                  "version": "scene-projection-v1"
+                }
+              ],
+              "scenario": {
+                "id": "p22.scene.player-and-gm-projections",
+                "kind": "other",
+                "sourceRef": "src/campaign/scene.ts#sceneOf",
+                "title": "Игровая сцена: проекция игрока и мастера",
+                "version": "1.0.0"
+              },
+              "schemaVersion": 1
+            },
+            "inputFingerprints": [
+              {
+                "id": "p22-scene-fixture",
+                "version": "1.0.0",
+                "fingerprint": "0bd737e03e246426e861f81ca11bb9c2c8402d4c3c1cb181f2bf7c7c2a47cb10"
+              }
+            ],
+            "parameterFingerprint": "d97a99da7878ef01ca225d8beef56d42ec438ef7b6de1c109ba69ccc36042e3c",
+            "result": {
+              "id": "scene-projection-result",
+              "numericFacts": [],
+              "payload": {
+                "audience": "gm",
+                "dmSecretVisible": true,
+                "publicRumorVisible": true,
+                "sectionIds": [
+                  "now",
+                  "market",
+                  "rumors",
+                  "threads"
+                ],
+                "visibleRumors": [
+                  "На тракте видели погасший фонарь."
+                ]
+              },
+              "sourceRef": "src/campaign/scene.ts#sceneOf",
+              "version": "1.0.0"
+            },
+            "findings": [],
+            "changes": [],
+            "uncertainty": [],
+            "proposalDrafts": [],
+            "executionBoundary": {
+              "mode": "isolated-read-only",
+              "campaignStateCapabilityProvided": false,
+              "campaignWriteCapabilityProvided": false,
+              "campaignEventWrites": 0,
+              "activeCampaignWrites": 0
+            }
+          },
+          "replay": {
+            "runFingerprint": "432ebb86b724339f6e099405834dcd2cd9421b86a28b118bb8540099c42b65a0",
+            "outputFingerprint": "117e127792d567f0cf059bd94c3cac5339d4c0d586d2887f63993afe58945983",
+            "identical": true
+          }
+        },
+        {
+          "id": "player-view",
+          "title": "Сцена игрока",
+          "evidenceClass": "application-invariant",
+          "report": {
+            "format": "dm-cockpit.isolated-lab-report",
+            "schemaVersion": 1,
+            "runFingerprint": "b81718e196c95baf7ff31f2c63bb6251bbd41da7234a8cad98f5d0d677a441aa",
+            "outputFingerprint": "ea63647a6c92057b28178cc9e8c0bea2aa2835f2c5dc6ca4d3d81d5574163271",
+            "definition": {
+              "assumptions": [
+                {
+                  "id": "scene-projection-fixture",
+                  "statement": "Это проверка видимости секрета в проекции интерфейса; канон места и содержимое кампании не загружаются.",
+                  "status": "confirmed"
+                }
+              ],
+              "engine": {
+                "contentDigest": "sha256:9d0461300b02da6ded845d175e02c6e6d820e09a47c62111b50600d68e4264bb",
+                "id": "p22-fixed-scenario-kernel",
+                "sourceRef": "src/lab/scenarios.ts",
+                "version": "1.0.0"
+              },
+              "format": "dm-cockpit.isolated-lab-run",
+              "inputs": [
+                {
+                  "id": "p22-scene-fixture",
+                  "kind": "scene",
+                  "numericFacts": [
+                    {
+                      "id": "fixture:sec",
+                      "origin": {
+                        "kind": "input",
+                        "note": "Закреплённое значение сценарной фикстуры; не утверждение о правиле.",
+                        "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures"
+                      },
+                      "path": "/sec",
+                      "value": 0
+                    },
+                    {
+                      "id": "fixture:threadOpenedSec",
+                      "origin": {
+                        "kind": "input",
+                        "note": "Закреплённое значение сценарной фикстуры; не утверждение о правиле.",
+                        "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures"
+                      },
+                      "path": "/threadOpenedSec",
+                      "value": 0
+                    },
+                    {
+                      "id": "fixture:threadTouchedSec",
+                      "origin": {
+                        "kind": "input",
+                        "note": "Закреплённое значение сценарной фикстуры; не утверждение о правиле.",
+                        "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures"
+                      },
+                      "path": "/threadTouchedSec",
+                      "value": 0
+                    }
+                  ],
+                  "payload": {
+                    "dmSecret": "DM_ONLY: гонец работает на заговорщиков.",
+                    "locationId": "loc-p22-fixture",
+                    "publicRumor": "На тракте видели погасший фонарь.",
+                    "sec": 0,
+                    "threadId": "thread-p22-fixture",
+                    "threadOpenedSec": 0,
+                    "threadTouchedSec": 0
+                  },
+                  "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures",
+                  "version": "1.0.0"
+                }
+              ],
+              "packages": [],
+              "parameters": {
+                "id": "parameters:player-view",
+                "numericFacts": [],
+                "payload": {
+                  "audience": "players",
+                  "evidenceClass": "application-invariant"
+                },
+                "sourceRef": "src/lab/scenarios.ts#variant-spec",
+                "version": "1.0.0"
+              },
+              "randomness": {
+                "mode": "none"
+              },
+              "rulesets": [
+                {
+                  "contentDigest": "sha256:ae7db0506604f9f0c670770563c05c0b9b38edd92670c58c81b839960edb293c",
+                  "edition": "application",
+                  "id": "dm-cockpit-scene-projection",
+                  "layer": "application",
+                  "license": "internal project code",
+                  "sourceRef": "src/campaign/scene.ts#sceneOf",
+                  "system": "DM Cockpit",
+                  "version": "scene-projection-v1"
+                }
+              ],
+              "scenario": {
+                "id": "p22.scene.player-and-gm-projections",
+                "kind": "other",
+                "sourceRef": "src/campaign/scene.ts#sceneOf",
+                "title": "Игровая сцена: проекция игрока и мастера",
+                "version": "1.0.0"
+              },
+              "schemaVersion": 1
+            },
+            "inputFingerprints": [
+              {
+                "id": "p22-scene-fixture",
+                "version": "1.0.0",
+                "fingerprint": "0bd737e03e246426e861f81ca11bb9c2c8402d4c3c1cb181f2bf7c7c2a47cb10"
+              }
+            ],
+            "parameterFingerprint": "056f07d5dc6da49cf00cb8c58f37bac1d240e4ca7d674fc10f98ccd01e66b564",
+            "result": {
+              "id": "scene-projection-result",
+              "numericFacts": [],
+              "payload": {
+                "audience": "players",
+                "dmSecretVisible": false,
+                "publicRumorVisible": true,
+                "sectionIds": [
+                  "now",
+                  "market",
+                  "rumors"
+                ],
+                "visibleRumors": [
+                  "На тракте видели погасший фонарь."
+                ]
+              },
+              "sourceRef": "src/campaign/scene.ts#sceneOf",
+              "version": "1.0.0"
+            },
+            "findings": [],
+            "changes": [],
+            "uncertainty": [],
+            "proposalDrafts": [],
+            "executionBoundary": {
+              "mode": "isolated-read-only",
+              "campaignStateCapabilityProvided": false,
+              "campaignWriteCapabilityProvided": false,
+              "campaignEventWrites": 0,
+              "activeCampaignWrites": 0
+            }
+          },
+          "replay": {
+            "runFingerprint": "b81718e196c95baf7ff31f2c63bb6251bbd41da7234a8cad98f5d0d677a441aa",
+            "outputFingerprint": "ea63647a6c92057b28178cc9e8c0bea2aa2835f2c5dc6ca4d3d81d5574163271",
+            "identical": true
+          }
+        }
+      ],
+      "comparisons": [
+        {
+          "baselineVariantId": "gm-view",
+          "comparedVariantId": "player-view",
+          "sameInputs": true,
+          "changedResultPaths": [
+            "/audience",
+            "/dmSecretVisible",
+            "/sectionIds/3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p22.place.travel-time",
+      "family": "place",
+      "title": "Путь по месту: обычный и быстрый темп, трудный участок и задержка",
+      "sourceRef": "src/rules/srd/travel.ts#travelDaysOver",
+      "coverageGaps": [
+        "Не моделируются отдых, истощение, погода, навигация, встречи, транспорт и отдельные правила регионов A5E."
+      ],
+      "unsupportedInteractions": [
+        "Случайные задержки и расход ресурсов путешествия не представлены в этом чистом расчёте расстояния."
+      ],
+      "variants": [
+        {
+          "id": "normal-pace",
+          "title": "Обычный темп",
+          "evidenceClass": "known-rule",
+          "report": {
+            "format": "dm-cockpit.isolated-lab-report",
+            "schemaVersion": 1,
+            "runFingerprint": "b959df5b3bde5a23c250eecfb78c1e05ecbb9d5497f83c1ead2ec7d214167525",
+            "outputFingerprint": "8f240e66cc1d4510dcd81e207d97c293116d5453bd44b638a9fa9c758c984207",
+            "definition": {
+              "assumptions": [
+                {
+                  "id": "route-fixture",
+                  "statement": "Длина маршрута и протяжённость трудного участка заданы фикстурой; маршрут не активируется в мире.",
+                  "status": "confirmed"
+                },
+                {
+                  "id": "forced-stop-hypothesis",
+                  "statement": "Дополнительный день задержки — авторская гипотеза, не правило длительности путешествия из SRD.",
+                  "status": "assumed"
+                }
+              ],
+              "engine": {
+                "contentDigest": "sha256:9d0461300b02da6ded845d175e02c6e6d820e09a47c62111b50600d68e4264bb",
+                "id": "p22-fixed-scenario-kernel",
+                "sourceRef": "src/lab/scenarios.ts",
+                "version": "1.0.0"
+              },
+              "format": "dm-cockpit.isolated-lab-run",
+              "inputs": [
+                {
+                  "id": "p22-place-route-fixture",
+                  "kind": "location",
+                  "numericFacts": [
+                    {
+                      "id": "fixture:routeMiles",
+                      "origin": {
+                        "kind": "input",
+                        "note": "Закреплённое значение сценарной фикстуры; не утверждение о правиле.",
+                        "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures"
+                      },
+                      "path": "/routeMiles",
+                      "value": 72
+                    },
+                    {
+                      "id": "fixture:difficultMiles",
+                      "origin": {
+                        "kind": "input",
+                        "note": "Закреплённое значение сценарной фикстуры; не утверждение о правиле.",
+                        "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures"
+                      },
+                      "path": "/difficultMiles",
+                      "value": 12
+                    }
+                  ],
+                  "payload": {
+                    "difficultMiles": 12,
+                    "routeMiles": 72
+                  },
+                  "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures",
+                  "version": "1.0.0"
+                }
+              ],
+              "packages": [],
+              "parameters": {
+                "id": "parameters:normal-pace",
+                "numericFacts": [],
+                "payload": {
+                  "evidenceClass": "known-rule",
+                  "pace": "normal"
+                },
+                "sourceRef": "src/lab/scenarios.ts#variant-spec",
+                "version": "1.0.0"
+              },
+              "randomness": {
+                "mode": "none"
+              },
+              "rulesets": [
+                {
+                  "contentDigest": "sha256:3afa677b5e4ab43035e9772681eaa7daef5e4ffcc991b3e5f3f1d8f83bd6cac0",
+                  "edition": "2014",
+                  "id": "dnd5e-2014-srd-5.1",
+                  "layer": "srd",
+                  "license": "CC BY 4.0",
+                  "sourceRef": "src/rules/srd/ · CC BY 4.0",
+                  "system": "D&D 5e",
+                  "version": "SRD 5.1"
+                },
+                {
+                  "contentDigest": "sha256:6340dbf6361ccd26874c879dc79e68640ca380de7be882f68dd90d3567706c96",
+                  "edition": "local hypothesis",
+                  "id": "cockpit-p22-hypotheses",
+                  "layer": "HB",
+                  "license": "internal project material",
+                  "sourceRef": "src/lab/scenarios.ts#homebrew-variants",
+                  "system": "DM Cockpit",
+                  "version": "P22-1.0.0"
+                }
+              ],
+              "scenario": {
+                "id": "p22.place.travel-time",
+                "kind": "mechanic",
+                "sourceRef": "src/rules/srd/travel.ts#travelDaysOver",
+                "title": "Путь по месту: обычный и быстрый темп, трудный участок и задержка",
+                "version": "1.0.0"
+              },
+              "schemaVersion": 1
+            },
+            "inputFingerprints": [
+              {
+                "id": "p22-place-route-fixture",
+                "version": "1.0.0",
+                "fingerprint": "2b9d517a57975866fc81de811f0bb0cf88ef46486f180f6415e1f9f89b485207"
+              }
+            ],
+            "parameterFingerprint": "44a7664acdc4df23476c901909fd3159e84c699a611c4580ec1748d805faca0c",
+            "result": {
+              "id": "place-travel-result",
+              "numericFacts": [
+                {
+                  "id": "travel-days",
+                  "origin": {
+                    "formula": "(мили + трудные мили) / мили за день выбранного темпа",
+                    "kind": "derived",
+                    "rulesetId": "dnd5e-2014-srd-5.1",
+                    "sourceFactIds": [
+                      "fixture:routeMiles",
+                      "fixture:difficultMiles"
+                    ]
+                  },
+                  "path": "/days",
+                  "value": 3.5
+                }
+              ],
+              "payload": {
+                "days": 3.5,
+                "pace": "normal"
+              },
+              "sourceRef": "src/rules/srd/travel.ts#travelDaysOver",
+              "version": "1.0.0"
+            },
+            "findings": [],
+            "changes": [],
+            "uncertainty": [],
+            "proposalDrafts": [],
+            "executionBoundary": {
+              "mode": "isolated-read-only",
+              "campaignStateCapabilityProvided": false,
+              "campaignWriteCapabilityProvided": false,
+              "campaignEventWrites": 0,
+              "activeCampaignWrites": 0
+            }
+          },
+          "replay": {
+            "runFingerprint": "b959df5b3bde5a23c250eecfb78c1e05ecbb9d5497f83c1ead2ec7d214167525",
+            "outputFingerprint": "8f240e66cc1d4510dcd81e207d97c293116d5453bd44b638a9fa9c758c984207",
+            "identical": true
+          }
+        },
+        {
+          "id": "fast-pace",
+          "title": "Быстрый темп",
+          "evidenceClass": "known-rule",
+          "report": {
+            "format": "dm-cockpit.isolated-lab-report",
+            "schemaVersion": 1,
+            "runFingerprint": "6d97344ac59dbf70143c3f984505f8068b228a62d43a17724edefd469a4c92c7",
+            "outputFingerprint": "a7ccfa13fa36ec0db57876e4dae7f92f3076defd5341beb6b196c7170cd2c5cd",
+            "definition": {
+              "assumptions": [
+                {
+                  "id": "route-fixture",
+                  "statement": "Длина маршрута и протяжённость трудного участка заданы фикстурой; маршрут не активируется в мире.",
+                  "status": "confirmed"
+                },
+                {
+                  "id": "forced-stop-hypothesis",
+                  "statement": "Дополнительный день задержки — авторская гипотеза, не правило длительности путешествия из SRD.",
+                  "status": "assumed"
+                }
+              ],
+              "engine": {
+                "contentDigest": "sha256:9d0461300b02da6ded845d175e02c6e6d820e09a47c62111b50600d68e4264bb",
+                "id": "p22-fixed-scenario-kernel",
+                "sourceRef": "src/lab/scenarios.ts",
+                "version": "1.0.0"
+              },
+              "format": "dm-cockpit.isolated-lab-run",
+              "inputs": [
+                {
+                  "id": "p22-place-route-fixture",
+                  "kind": "location",
+                  "numericFacts": [
+                    {
+                      "id": "fixture:routeMiles",
+                      "origin": {
+                        "kind": "input",
+                        "note": "Закреплённое значение сценарной фикстуры; не утверждение о правиле.",
+                        "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures"
+                      },
+                      "path": "/routeMiles",
+                      "value": 72
+                    },
+                    {
+                      "id": "fixture:difficultMiles",
+                      "origin": {
+                        "kind": "input",
+                        "note": "Закреплённое значение сценарной фикстуры; не утверждение о правиле.",
+                        "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures"
+                      },
+                      "path": "/difficultMiles",
+                      "value": 12
+                    }
+                  ],
+                  "payload": {
+                    "difficultMiles": 12,
+                    "routeMiles": 72
+                  },
+                  "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures",
+                  "version": "1.0.0"
+                }
+              ],
+              "packages": [],
+              "parameters": {
+                "id": "parameters:fast-pace",
+                "numericFacts": [],
+                "payload": {
+                  "evidenceClass": "known-rule",
+                  "pace": "fast"
+                },
+                "sourceRef": "src/lab/scenarios.ts#variant-spec",
+                "version": "1.0.0"
+              },
+              "randomness": {
+                "mode": "none"
+              },
+              "rulesets": [
+                {
+                  "contentDigest": "sha256:3afa677b5e4ab43035e9772681eaa7daef5e4ffcc991b3e5f3f1d8f83bd6cac0",
+                  "edition": "2014",
+                  "id": "dnd5e-2014-srd-5.1",
+                  "layer": "srd",
+                  "license": "CC BY 4.0",
+                  "sourceRef": "src/rules/srd/ · CC BY 4.0",
+                  "system": "D&D 5e",
+                  "version": "SRD 5.1"
+                },
+                {
+                  "contentDigest": "sha256:6340dbf6361ccd26874c879dc79e68640ca380de7be882f68dd90d3567706c96",
+                  "edition": "local hypothesis",
+                  "id": "cockpit-p22-hypotheses",
+                  "layer": "HB",
+                  "license": "internal project material",
+                  "sourceRef": "src/lab/scenarios.ts#homebrew-variants",
+                  "system": "DM Cockpit",
+                  "version": "P22-1.0.0"
+                }
+              ],
+              "scenario": {
+                "id": "p22.place.travel-time",
+                "kind": "mechanic",
+                "sourceRef": "src/rules/srd/travel.ts#travelDaysOver",
+                "title": "Путь по месту: обычный и быстрый темп, трудный участок и задержка",
+                "version": "1.0.0"
+              },
+              "schemaVersion": 1
+            },
+            "inputFingerprints": [
+              {
+                "id": "p22-place-route-fixture",
+                "version": "1.0.0",
+                "fingerprint": "2b9d517a57975866fc81de811f0bb0cf88ef46486f180f6415e1f9f89b485207"
+              }
+            ],
+            "parameterFingerprint": "aa1b6a163af98e006ec5a2e19609df6b80c34cf5e82caf6d57ce4ebfa5a408d7",
+            "result": {
+              "id": "place-travel-result",
+              "numericFacts": [
+                {
+                  "id": "travel-days",
+                  "origin": {
+                    "formula": "(мили + трудные мили) / мили за день выбранного темпа",
+                    "kind": "derived",
+                    "rulesetId": "dnd5e-2014-srd-5.1",
+                    "sourceFactIds": [
+                      "fixture:routeMiles",
+                      "fixture:difficultMiles"
+                    ]
+                  },
+                  "path": "/days",
+                  "value": 2.8
+                }
+              ],
+              "payload": {
+                "days": 2.8,
+                "pace": "fast"
+              },
+              "sourceRef": "src/rules/srd/travel.ts#travelDaysOver",
+              "version": "1.0.0"
+            },
+            "findings": [],
+            "changes": [],
+            "uncertainty": [],
+            "proposalDrafts": [],
+            "executionBoundary": {
+              "mode": "isolated-read-only",
+              "campaignStateCapabilityProvided": false,
+              "campaignWriteCapabilityProvided": false,
+              "campaignEventWrites": 0,
+              "activeCampaignWrites": 0
+            }
+          },
+          "replay": {
+            "runFingerprint": "6d97344ac59dbf70143c3f984505f8068b228a62d43a17724edefd469a4c92c7",
+            "outputFingerprint": "a7ccfa13fa36ec0db57876e4dae7f92f3076defd5341beb6b196c7170cd2c5cd",
+            "identical": true
+          }
+        },
+        {
+          "id": "normal-plus-stop",
+          "title": "Обычный темп + сценарная задержка",
+          "evidenceClass": "homebrew-hypothesis",
+          "report": {
+            "format": "dm-cockpit.isolated-lab-report",
+            "schemaVersion": 1,
+            "runFingerprint": "2d126be1044c2c50dc82811b4f28a325408b9bafd02f92bffb9fb49a210d622a",
+            "outputFingerprint": "304fe0daa6ce80283767cd25b199e34218ff8b9c4081a860c7cb810d7cc52ef6",
+            "definition": {
+              "assumptions": [
+                {
+                  "id": "route-fixture",
+                  "statement": "Длина маршрута и протяжённость трудного участка заданы фикстурой; маршрут не активируется в мире.",
+                  "status": "confirmed"
+                },
+                {
+                  "id": "forced-stop-hypothesis",
+                  "statement": "Дополнительный день задержки — авторская гипотеза, не правило длительности путешествия из SRD.",
+                  "status": "assumed"
+                }
+              ],
+              "engine": {
+                "contentDigest": "sha256:9d0461300b02da6ded845d175e02c6e6d820e09a47c62111b50600d68e4264bb",
+                "id": "p22-fixed-scenario-kernel",
+                "sourceRef": "src/lab/scenarios.ts",
+                "version": "1.0.0"
+              },
+              "format": "dm-cockpit.isolated-lab-run",
+              "inputs": [
+                {
+                  "id": "p22-place-route-fixture",
+                  "kind": "location",
+                  "numericFacts": [
+                    {
+                      "id": "fixture:routeMiles",
+                      "origin": {
+                        "kind": "input",
+                        "note": "Закреплённое значение сценарной фикстуры; не утверждение о правиле.",
+                        "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures"
+                      },
+                      "path": "/routeMiles",
+                      "value": 72
+                    },
+                    {
+                      "id": "fixture:difficultMiles",
+                      "origin": {
+                        "kind": "input",
+                        "note": "Закреплённое значение сценарной фикстуры; не утверждение о правиле.",
+                        "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures"
+                      },
+                      "path": "/difficultMiles",
+                      "value": 12
+                    }
+                  ],
+                  "payload": {
+                    "difficultMiles": 12,
+                    "routeMiles": 72
+                  },
+                  "sourceRef": "research/simulation/P22_SCENARIO_SUITE_2026-11-19.md#fixed-fixtures",
+                  "version": "1.0.0"
+                }
+              ],
+              "packages": [],
+              "parameters": {
+                "id": "parameters:normal-plus-stop",
+                "numericFacts": [
+                  {
+                    "id": "forced-stop-days",
+                    "origin": {
+                      "kind": "homebrew",
+                      "note": "Один дополнительный день — принятая только для сравнения гипотеза.",
+                      "rulesetId": "cockpit-p22-hypotheses"
+                    },
+                    "path": "/delayDays",
+                    "value": 1
+                  }
+                ],
+                "payload": {
+                  "delayDays": 1,
+                  "evidenceClass": "homebrew-hypothesis",
+                  "pace": "normal"
+                },
+                "sourceRef": "src/lab/scenarios.ts#variant-spec",
+                "version": "1.0.0"
+              },
+              "randomness": {
+                "mode": "none"
+              },
+              "rulesets": [
+                {
+                  "contentDigest": "sha256:3afa677b5e4ab43035e9772681eaa7daef5e4ffcc991b3e5f3f1d8f83bd6cac0",
+                  "edition": "2014",
+                  "id": "dnd5e-2014-srd-5.1",
+                  "layer": "srd",
+                  "license": "CC BY 4.0",
+                  "sourceRef": "src/rules/srd/ · CC BY 4.0",
+                  "system": "D&D 5e",
+                  "version": "SRD 5.1"
+                },
+                {
+                  "contentDigest": "sha256:6340dbf6361ccd26874c879dc79e68640ca380de7be882f68dd90d3567706c96",
+                  "edition": "local hypothesis",
+                  "id": "cockpit-p22-hypotheses",
+                  "layer": "HB",
+                  "license": "internal project material",
+                  "sourceRef": "src/lab/scenarios.ts#homebrew-variants",
+                  "system": "DM Cockpit",
+                  "version": "P22-1.0.0"
+                }
+              ],
+              "scenario": {
+                "id": "p22.place.travel-time",
+                "kind": "mechanic",
+                "sourceRef": "src/rules/srd/travel.ts#travelDaysOver",
+                "title": "Путь по месту: обычный и быстрый темп, трудный участок и задержка",
+                "version": "1.0.0"
+              },
+              "schemaVersion": 1
+            },
+            "inputFingerprints": [
+              {
+                "id": "p22-place-route-fixture",
+                "version": "1.0.0",
+                "fingerprint": "2b9d517a57975866fc81de811f0bb0cf88ef46486f180f6415e1f9f89b485207"
+              }
+            ],
+            "parameterFingerprint": "145fb99687bb31f54b37a605415fcb0bd015d51c925688c439fa8fac77d8709a",
+            "result": {
+              "id": "place-travel-result",
+              "numericFacts": [
+                {
+                  "id": "travel-days",
+                  "origin": {
+                    "kind": "homebrew",
+                    "note": "Результат включает авторскую сценарную задержку.",
+                    "rulesetId": "cockpit-p22-hypotheses"
+                  },
+                  "path": "/days",
+                  "value": 4.5
+                }
+              ],
+              "payload": {
+                "days": 4.5,
+                "pace": "normal"
+              },
+              "sourceRef": "src/rules/srd/travel.ts#travelDaysOver",
+              "version": "1.0.0"
+            },
+            "findings": [
+              {
+                "id": "forced-stop-is-hypothesis",
+                "message": "Дополнительный день задержки добавлен только в варианте HB.",
+                "relatedFactIds": [
+                  "travel-days"
+                ],
+                "severity": "info"
+              }
+            ],
+            "changes": [],
+            "uncertainty": [],
+            "proposalDrafts": [],
+            "executionBoundary": {
+              "mode": "isolated-read-only",
+              "campaignStateCapabilityProvided": false,
+              "campaignWriteCapabilityProvided": false,
+              "campaignEventWrites": 0,
+              "activeCampaignWrites": 0
+            }
+          },
+          "replay": {
+            "runFingerprint": "2d126be1044c2c50dc82811b4f28a325408b9bafd02f92bffb9fb49a210d622a",
+            "outputFingerprint": "304fe0daa6ce80283767cd25b199e34218ff8b9c4081a860c7cb810d7cc52ef6",
+            "identical": true
+          }
+        }
+      ],
+      "comparisons": [
+        {
+          "baselineVariantId": "normal-pace",
+          "comparedVariantId": "fast-pace",
+          "sameInputs": true,
+          "changedResultPaths": [
+            "/days",
+            "/pace"
+          ]
+        },
+        {
+          "baselineVariantId": "normal-pace",
+          "comparedVariantId": "normal-plus-stop",
+          "sameInputs": true,
+          "changedResultPaths": [
+            "/days"
+          ]
+        }
+      ]
+    }
+  ],
+  "acceptance": {
+    "allFamiliesCovered": true,
+    "allVariantsRepeatable": true,
+    "allComparisonsUseSameInputs": true,
+    "campaignEventWrites": 0,
+    "activeCampaignWrites": 0
+  }
+}

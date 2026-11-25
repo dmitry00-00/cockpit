@@ -1,0 +1,202 @@
+{
+  "model": "DM Cockpit world-time astrolabe v2 (авторская астролябия интерфейса)",
+  "version": "2.0",
+  "generated": "2026-11-02",
+  "supersedes": "v1 (astrolabe-main-v1.glb / astrolabe-lite-v1.glb) — каркас и имена сохранены",
+  "tool": "astrolabe_generator.py v2 (trimesh + shapely, процедурная сборка; Blender в среде недоступен)",
+  "origin": "пересобрана процедурно по образу исходного GLB (Tripo API v3.1); его геометрия/текстуры не переиспользованы",
+  "units": "meters",
+  "axes": {
+    "front_plane": "XY",
+    "face_normal": "+Z",
+    "up": "+Y",
+    "rotation": "локальная +Z каждого pivot",
+    "root": "astrolabe_root в центре корпуса",
+    "body_diameter": 0.24
+  },
+  "bounding_box_main": {
+    "min": [
+      -0.12,
+      -0.12,
+      -0.006
+    ],
+    "max": [
+      0.12,
+      0.1666,
+      0.022
+    ]
+  },
+  "neutral_pose": {
+    "time_pointer_pivot_deg": 0,
+    "calendar_disc_pivot_deg": 0,
+    "rete_pivot_deg": 0,
+    "comment": "указатель: наконечник на +X, полумесяц на -X"
+  },
+  "pivots": {
+    "calendar_disc_pivot": [
+      0,
+      0,
+      0
+    ],
+    "rete_pivot": [
+      0,
+      0,
+      0
+    ],
+    "time_pointer_pivot": [
+      0,
+      0,
+      0
+    ]
+  },
+  "moon_indicator": {
+    "type": "кодовый индикатор фазы (по решению приёмки v1)",
+    "seat_node": "moon_seat",
+    "floor_node": "moon_seat_floor",
+    "anchor_node": "moon_indicator_anchor",
+    "anchor_position": [
+      0.08,
+      0.08,
+      0.0104
+    ],
+    "seat_inner_radius": 0.0072,
+    "floor_z": 0.0104,
+    "note": "вращающегося лунного диска нет; узлы moon_disc_pivot/moon_disc удалены"
+  },
+  "node_tree": {
+    "astrolabe_root": [
+      "body",
+      "outer_rim",
+      "suspension_ring",
+      {
+        "moon_seat": [
+          "moon_seat_geom",
+          "moon_seat_floor"
+        ]
+      },
+      "moon_indicator_anchor",
+      {
+        "calendar_disc_pivot": [
+          "calendar_disc"
+        ]
+      },
+      {
+        "rete_pivot": [
+          "rete"
+        ]
+      },
+      {
+        "time_pointer_pivot": [
+          {
+            "time_pointer": [
+              "time_pointer_geom",
+              "time_pointer_inlay"
+            ]
+          }
+        ]
+      },
+      {
+        "center_cap": [
+          "center_cap_geom",
+          "enamel_inlay"
+        ]
+      }
+    ]
+  },
+  "z_layers_m": {
+    "body": [
+      -0.006,
+      0.004
+    ],
+    "rim": [
+      0.004,
+      0.01
+    ],
+    "calendar": [
+      0.004,
+      0.007
+    ],
+    "rete": [
+      0.008,
+      0.0105
+    ],
+    "pointer": [
+      0.0125,
+      0.0152
+    ],
+    "inlay": [
+      0.0152,
+      0.0158
+    ],
+    "cap_to": 0.022,
+    "moon_seat": [
+      0.0095,
+      0.0127
+    ]
+  },
+  "materials": {
+    "brass_aged": {
+      "use": "body, outer_rim, center_cap, suspension_ring, time_pointer, moon_seat"
+    },
+    "bone_plate": {
+      "use": "calendar_disc, time_pointer_inlay"
+    },
+    "bronze_rete": {
+      "use": "rete"
+    },
+    "plum_enamel": {
+      "use": "enamel_inlay, moon_seat_floor",
+      "note": "факторный, без текстур"
+    }
+  },
+  "textures": {
+    "size_px": 1024,
+    "files": [
+      "brass_aged_basecolor.jpg",
+      "brass_aged_normal.png",
+      "brass_aged_orm.jpg",
+      "bone_plate_basecolor.jpg",
+      "bone_plate_normal.png",
+      "bone_plate_orm.jpg",
+      "bronze_rete_basecolor.jpg",
+      "bronze_rete_normal.png",
+      "bronze_rete_orm.jpg"
+    ],
+    "channels": {
+      "basecolor.jpg": "sRGB",
+      "normal.png": "OpenGL Y+",
+      "orm.jpg": "R=AO=1, G=roughness, B=metallic"
+    },
+    "note": "metallic/roughnessFactor=1.0: значения в ORM-текстурах"
+  },
+  "files": {
+    "astrolabe-main-v2.glb": {
+      "bytes": 1217408,
+      "triangles": 22952,
+      "vertices": 29671,
+      "materials": 4,
+      "budget": {
+        "tris_target": "20-40k",
+        "tris_max": 60000,
+        "bytes_max": 5000000
+      }
+    },
+    "astrolabe-lite-v2.glb": {
+      "bytes": 718224,
+      "triangles": 7792,
+      "vertices": 13457,
+      "materials": 4,
+      "budget": {
+        "tris_max": 8000,
+        "bytes_max": 2000000
+      }
+    }
+  },
+  "extensions": {
+    "extensionsUsed": [],
+    "extensionsRequired": [],
+    "compression": "нет (Draco/Meshopt/KTX2 не применялись)"
+  },
+  "external_uris": [],
+  "render_note": "превью v2 выполнены pyrender (EGL/swrast, CPU) — не браузером, по политике итерации 2"
+}

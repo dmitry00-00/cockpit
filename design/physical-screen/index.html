@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Физичная ширма — единый проектный лист</title>
+  <style>
+    :root { color-scheme: dark; background: #18131a; color: #eee3ce; font: 16px/1.4 Arial, sans-serif; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-width: 320px; background: radial-gradient(ellipse at 44% 18%, #41303c 0, #211923 58%, #141117 100%); }
+    .intro { max-width: 1200px; margin: 0 auto; padding: 18px 24px 10px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+    .intro h1 { font: 24px Georgia, serif; margin: 0; color: #f0dfc1; }
+    .intro p { margin: 0; color: #c9b89e; font-size: 13px; }
+    .stage { width: 100%; overflow-x: auto; padding: 0 8px 24px; }
+    svg { display: block; width: min(100%, 1920px); height: auto; margin: 0 auto; background: #201923; border: 1px solid #806342; box-shadow: 0 18px 52px #09080caa; }
+    .svg-label { font: 16px Arial, sans-serif; fill: #ded1bc; }
+    .svg-small { font: 13px Arial, sans-serif; fill: #bdad96; letter-spacing: .04em; }
+    .svg-micro { font: 11px Arial, sans-serif; fill: #a28d75; letter-spacing: .08em; }
+    .serif { font-family: Georgia, serif; }
+    .title { font: 22px Georgia, serif; fill: #f1e4cf; letter-spacing: .02em; }
+    .button { cursor: pointer; }
+    .button:focus { outline: none; }
+    .button:focus .button-face { stroke: #f6d79a; stroke-width: 3; }
+    .button:hover .button-face { fill: #684c45; }
+    .hit-target { fill: transparent; pointer-events: all; }
+    .mode-button[aria-pressed="true"] .button-face,
+    .layer-button[aria-pressed="true"] .button-face { fill: #684f35; stroke: #dab36c; }
+    .spine { fill: url(#leather); stroke: #9a734a; stroke-width: 1.5; }
+    .card-face { fill: url(#boneCard); stroke: #ba9c6b; stroke-width: 1.3; }
+    .hidden { display: none; }
+    #partySurface > g > g > text { fill: #49362b; }
+    #partySurface > g > g > text[y="31"], #partySurface > g > g > text[y="52"] { fill: #eee3ce; }
+    .modal-scrim { fill: #100d12d9; }
+    .map-contour { fill: none; stroke: #d5bb84; stroke-opacity: .25; stroke-width: 2; }
+    .map-water { fill: #496f76; stroke: #91b1a0; stroke-width: 2; }
+    .map-land { fill: url(#land); stroke: #d2b779; stroke-width: 2; }
+    .road { fill: none; stroke: #d9c293; stroke-width: 3; stroke-dasharray: 11 6 2 6; }
+    .river { fill: none; stroke: #76aaa4; stroke-width: 5; stroke-linecap: round; }
+    .map-label { fill: #f1e0bd; font: 14px Georgia, serif; paint-order: stroke; stroke: #29242a; stroke-width: 3px; stroke-linejoin: round; }
+    .marker { fill: #eee1bf; stroke: #6f4930; stroke-width: 3; }
+    .focus-ring { fill: none; stroke: #e0b366; stroke-width: 3; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; } }
+  </style>
+</head>
+<body>
+  <header class="intro">
+    <h1>Ширма-картографический пюпитр</h1>
+    <p>Целевой эскиз · 1920 × 1080 · примеры персонажей и карты условные · не производственный чертёж</p>
+  </header>
+  <main class="stage">
+    <svg viewBox="0 0 1920 1080" role="application" aria-labelledby="blueprintTitle blueprintDesc" xmlns="http://www.w3.org/2000/svg">
+      <title id="blueprintTitle">Интерактивный проектный лист физичной ширмы мастера</title>
+      <desc id="blueprintDesc">Сливовая и бронзовая ширма с центральным сменным планшетом. Переключите карту и партию; справа от карты можно включить слои. В режиме партии откройте все шесть карточек или полный лист поверх центра.</desc>
+      <defs>
+        <linearGradient id="case" x1="0" y1="0" x2=".95" y2="1"><stop stop-color="#594451"/><stop offset=".3" stop-color="#352731"/><stop offset="1" stop-color="#201921"/></linearGradient>
+        <linearGradient id="bronze" x1="0" y1="0" x2=".2" y2="1"><stop stop-color="#e0c38b"/><stop offset=".22" stop-color="#a57b4b"/><stop offset=".6" stop-color="#6f4e32"/><stop offset="1" stop-color="#3b2b28"/></linearGradient>
+        <linearGradient id="leather" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#725246"/><stop offset=".4" stop-color="#49343a"/><stop offset="1" stop-color="#2a2028"/></linearGradient>
+        <linearGradient id="boneCard" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e6d6b6"/><stop offset=".5" stop-color="#c8b28c"/><stop offset="1" stop-color="#9f896c"/></linearGradient>
+        <linearGradient id="land" x1="0" y1="0" x2="0.7" y2="1"><stop stop-color="#82906a"/><stop offset=".48" stop-color="#657653"/><stop offset="1" stop-color="#424f40"/></linearGradient>
+        <radialGradient id="globe" cx="28%" cy="24%" r="78%"><stop stop-color="#96b2a0"/><stop offset=".45" stop-color="#526e69"/><stop offset=".82" stop-color="#2e4248"/><stop offset="1" stop-color="#18252e"/></radialGradient>
+        <radialGradient id="dial" cx="32%" cy="24%"><stop stop-color="#f1dfa9"/><stop offset=".5" stop-color="#b58b52"/><stop offset="1" stop-color="#513b32"/></radialGradient>
+        <pattern id="grain" width="22" height="22" patternUnits="userSpaceOnUse"><path d="M0 6 Q8 4 22 7 M-4 17 Q7 14 26 18" fill="none" stroke="#dab97e" stroke-opacity=".045" stroke-width="1"/></pattern>
+        <filter id="softShadow" x="-20%" y="-20%" width="140%" height="150%"><feGaussianBlur in="SourceAlpha" stdDeviation="8"/><feOffset dy="7"/><feComponentTransfer><feFuncA type="linear" slope=".38"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        <filter id="inset" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/><feOffset dx="1" dy="2"/><feComposite in="SourceGraphic" in2="blur" operator="over"/></filter>
+        <clipPath id="mapClip"><rect x="326" y="318" width="1033" height="476" rx="8"/></clipPath>
+      </defs>
+
+      <!-- Tabletop and enclosing object -->
+      <rect width="1920" height="1080" fill="#17131a"/>
+      <path d="M38 78 Q50 54 80 54 H1840 Q1880 54 1882 88 V1016 Q1875 1045 1844 1045 H74 Q38 1040 38 1008Z" fill="url(#case)" stroke="url(#bronze)" stroke-width="7" filter="url(#softShadow)"/>
+      <path d="M53 85 Q58 68 84 68 H1838 Q1865 68 1866 92 V1001 Q1863 1027 1839 1027 H78 Q56 1025 55 999Z" fill="url(#grain)" stroke="#b28a55" stroke-width="1.5"/>
+      <path d="M70 105 H1847" stroke="#d0ac70" stroke-opacity=".55" stroke-width="2"/>
+      <text x="82" y="95" class="title">ШИРМА · АТЛАС И ПАРТИЯ</text>
+      <text x="1840" y="94" text-anchor="end" class="svg-small">ПРОЕКТНЫЙ ЛИСТ · 1920 × 1080 · НЕ ПРОИЗВОДСТВЕННЫЙ ЧЕРТЁЖ</text>
+
+      <!-- Left hinged wing: card drawers and incoming / initiative rails -->
+      <g aria-label="Левая створка: колоды, инициатива, входящие">
+        <rect x="72" y="126" width="231" height="865" rx="9" fill="#2a2027" stroke="#8e6945" stroke-width="3"/>
+        <path d="M86 142 H288 M86 976 H288" stroke="#bf995d" stroke-opacity=".55"/>
+        <text x="91" y="174" class="svg-small">ЛЕВАЯ СТВОРКА · КАРМАНЫ</text>
+        <text x="93" y="212" class="svg-micro">КОЛОДЫ · КАТАЛОГИ</text>
+        <g transform="translate(92 229)">
+          <rect x="7" y="7" width="176" height="54" rx="5" fill="#352a31" stroke="#654d3e"/>
+          <rect x="3" y="3" width="176" height="54" rx="5" fill="#443038" stroke="#9e7849"/>
+          <rect width="176" height="54" rx="5" fill="url(#leather)" stroke="#c49b61" stroke-width="2"/>
+          <text x="15" y="24" class="svg-small">NPC</text><text x="15" y="43" class="svg-micro">КАРМАН 01</text>
+          <path d="M145 8 v38" stroke="#d1ae72" stroke-opacity=".7"/>
+          <path d="M157 17 l9 7 -9 7" fill="none" stroke="#dec28b" stroke-width="2"/>
+        </g>
+        <g transform="translate(92 297)">
+          <rect x="7" y="7" width="176" height="54" rx="5" fill="#352a31" stroke="#654d3e"/>
+          <rect x="3" y="3" width="176" height="54" rx="5" fill="#443038" stroke="#9e7849"/>
+          <rect width="176" height="54" rx="5" fill="url(#leather)" stroke="#c49b61" stroke-width="2"/>
+          <text x="15" y="24" class="svg-small">ПРОТИВНИКИ</text><text x="15" y="43" class="svg-micro">КАРМАН 02</text>
+          <path d="M145 8 v38" stroke="#d1ae72" stroke-opacity=".7"/><path d="M157 17 l9 7 -9 7" fill="none" stroke="#dec28b" stroke-width="2"/>
+        </g>
+        <g transform="translate(92 365)">
+          <rect x="7" y="7" width="176" height="54" rx="5" fill="#352a31" stroke="#654d3e"/>
+          <rect x="3" y="3" width="176" height="54" rx="5" fill="#443038" stroke="#9e7849"/>
+          <rect width="176" height="54" rx="5" fill="url(#leather)" stroke="#c49b61" stroke-width="2"/>
+          <text x="15" y="24" class="svg-small">ПРЕДМЕТЫ</text><text x="15" y="43" class="svg-micro">КАРМАН 03</text>
+          <path d="M145 8 v38" stroke="#d1ae72" stroke-opacity=".7"/><path d="M157 17 l9 7 -9 7" fill="none" stroke="#dec28b" stroke-width="2"/>
+        </g>
+        <g transform="translate(92 433)">
+          <rect x="7" y="7" width="176" height="54" rx="5" fill="#352a31" stroke="#654d3e"/>
+          <rect x="3" y="3" width="176" height="54" rx="5" fill="#443038" stroke="#9e7849"/>
+          <rect width="176" height="54" rx="5" fill="url(#leather)" stroke="#c49b61" stroke-width="2"/>
+          <text x="15" y="24" class="svg-small">УМЕНИЯ</text><text x="15" y="43" class="svg-micro">КАРМАН 04</text>
+          <path d="M145 8 v38" stroke="#d1ae72" stroke-opacity=".7"/><path d="M157 17 l9 7 -9 7" fill="none" stroke="#dec28b" stroke-width="2"/>
+        </g>
+        <text x="93" y="529" class="svg-micro">ПЛАНКА ИНИЦИАТИВЫ</text>
+        <rect x="91" y="545" width="193" height="111" rx="7" fill="#1d1a20" stroke="#aa8151" stroke-width="2"/>
+        <rect x="102" y="557" width="171" height="27" rx="4" fill="#564538" stroke="#d1aa69"/>
+        <circle cx="116" cy="570" r="5" fill="#ead9b8"/><text x="131" y="576" class="svg-small">Сейчас · участник</text>
+        <path d="M105 596 H270 M105 624 H270" stroke="#735c49" stroke-width="2"/>
+        <text x="109" y="616" class="svg-small">Следом · участник</text><text x="109" y="644" class="svg-small">Далее · участник</text>
+        <text x="93" y="695" class="svg-micro">ВХОДЯЩИЕ · ЖДУТ РЕШЕНИЯ</text>
+        <path d="M96 720 h183 v181 h-183 q-9 -58 0 -181Z" fill="#563f38" stroke="#c29a5b" stroke-width="2"/>
+        <path d="M106 740 q67 39 164 0" fill="none" stroke="#d2b378" stroke-width="2"/>
+        <rect x="118" y="758" width="137" height="89" rx="4" fill="#d7c5a1" stroke="#95734e" transform="rotate(-3 118 758)"/>
+        <path d="M138 783 h95 M138 797 h77 M138 811 h89" stroke="#796754" stroke-width="2" transform="rotate(-3 118 758)"/>
+        <text x="104" y="930" class="svg-small">ПРЕДЛОЖЕНИЕ</text>
+        <text x="104" y="950" class="svg-micro">БЫЛО → БУДЕТ · ПРИНЯТЬ / ОТКЛОНИТЬ</text>
+      </g>
+
+      <!-- Right hinged wing: persistent books -->
+      <g aria-label="Правая створка: книги журнала и летописи">
+        <rect x="1605" y="126" width="240" height="865" rx="9" fill="#2a2027" stroke="#8e6945" stroke-width="3"/>
+        <text x="1625" y="174" class="svg-small">ПРАВАЯ СТВОРКА</text>
+        <text x="1627" y="211" class="svg-micro">КНИЖНЫЕ ГНЕЗДА</text>
+        <g transform="translate(1635 247)" filter="url(#softShadow)">
+          <path d="M0 0 Q82 -18 167 0 V314 Q84 292 0 314Z" fill="#60423b" stroke="#c1985e" stroke-width="3"/>
+          <path d="M12 16 Q81 0 155 16 V283 Q82 269 12 287Z" fill="#d3c09b" stroke="#886544" stroke-width="2"/>
+          <path d="M22 41 h118 M22 56 h110 M22 71 h119 M22 86 h90 M22 111 h116 M22 126 h100 M22 141 h115 M22 156 h86 M22 181 h112 M22 196 h121 M22 211 h94" stroke="#9d8a6e" stroke-width="2" opacity=".55"/>
+          <rect x="0" y="289" width="167" height="39" rx="4" fill="url(#bronze)"/>
+          <text x="83" y="314" text-anchor="middle" class="svg-small" fill="#f0e1c1">ЖУРНАЛ</text>
+        </g>
+        <g transform="translate(1657 604)" filter="url(#softShadow)">
+          <path d="M0 0 Q70 -14 145 0 V227 Q73 211 0 228Z" fill="#334044" stroke="#b68a54" stroke-width="3"/>
+          <path d="M11 14 Q72 0 133 14 V198 Q74 185 11 202Z" fill="#b9a27c" stroke="#79634c" stroke-width="2"/>
+          <path d="M24 39 h95 M24 54 h87 M24 69 h97 M24 84 h78 M24 109 h93 M24 124 h102 M24 139 h76 M24 164 h99" stroke="#817159" stroke-width="2" opacity=".56"/>
+          <rect x="0" y="203" width="145" height="35" rx="4" fill="#73624b"/>
+          <text x="72" y="226" text-anchor="middle" class="svg-small">ЛЕТОПИСЬ</text>
+        </g>
+        <text x="1627" y="900" class="svg-micro">РАЗНЫЕ КНИГИ · РАЗНЫЕ ВРЕМЕНА</text>
+      </g>
+
+      <!-- Main removable tablet frame -->
+      <g aria-label="Центральный сменный планшет">
+        <rect x="321" y="126" width="1268" height="865" rx="15" fill="#17141a" stroke="url(#bronze)" stroke-width="8" filter="url(#softShadow)"/>
+        <rect x="333" y="138" width="1244" height="841" rx="10" fill="#28212a" stroke="#74583e" stroke-width="2"/>
+        <circle cx="345" cy="151" r="4" fill="#d3b276"/><circle cx="1565" cy="151" r="4" fill="#d3b276"/>
+        <circle cx="345" cy="966" r="4" fill="#d3b276"/><circle cx="1565" cy="966" r="4" fill="#d3b276"/>
+        <text x="352" y="164" class="svg-micro">ВЕРХНЯЯ ПОЛКА · ДО 6 КОРЕШКОВ</text>
+        <text x="1555" y="164" text-anchor="end" class="svg-micro">КОРЕШОК — КРАЙ КАРТОЧКИ, НЕ КОПИЯ</text>
+      </g>
+
+      <!-- Mode selector -->
+      <g class="button mode-button" id="mapModeButton" role="button" tabindex="0" aria-label="Показать карту" aria-pressed="true" transform="translate(352 177)">
+        <title>Открыть центральный атлас или глобус</title><rect class="button-face" width="125" height="38" rx="5" fill="#4c3a35" stroke="#a9844e" stroke-width="1.5"/><text x="62" y="25" text-anchor="middle" class="svg-small">КАРТА</text><rect class="hit-target" width="125" height="38"/>
+      </g>
+      <g class="button mode-button" id="partyModeButton" role="button" tabindex="0" aria-label="Показать партию" aria-pressed="false" transform="translate(486 177)">
+        <title>Заменить центральную карту раскладкой партии</title><rect class="button-face" width="125" height="38" rx="5" fill="#31282d" stroke="#80654b"/><text x="62" y="25" text-anchor="middle" class="svg-small">ПАРТИЯ</text><rect class="hit-target" width="125" height="38"/>
+      </g>
+      <g class="button" id="expandButton" role="button" tabindex="0" aria-label="Раскрыть все карточки партии" aria-pressed="false" transform="translate(1223 177)">
+        <title>В режиме партии раскрыть или свернуть до шести карточек одновременно</title><rect class="button-face" width="306" height="38" rx="5" fill="#3b3031" stroke="#a9844e"/><text id="expandLabel" x="153" y="25" text-anchor="middle" class="svg-small">ВСЕ КАРТОЧКИ · РАСКРЫТЬ</text><rect class="hit-target" width="306" height="38"/>
+      </g>
+
+      <!-- The spines are each card's top edge; party mode unfolds bodies beneath them. -->
+      <g id="cardRow" aria-label="Ряд настоящих корешков карточек партии">
+        <g transform="translate(352 225)"><rect class="spine" width="177" height="71" rx="5"/><path d="M10 8 v54 M16 8 v54" stroke="#bd9962" stroke-width="2"/><text x="29" y="30" class="svg-label serif">Ари</text><text x="29" y="51" class="svg-micro">СЛЕДОПЫТ · 5</text><circle cx="156" cy="20" r="8" fill="#a25b52"/><text x="156" y="24" text-anchor="middle" class="svg-micro" fill="#fff">4</text></g>
+        <g transform="translate(537 225)"><rect class="spine" width="177" height="71" rx="5"/><path d="M10 8 v54 M16 8 v54" stroke="#bd9962" stroke-width="2"/><text x="29" y="30" class="svg-label serif">Бран</text><text x="29" y="51" class="svg-micro">ВОИН · 5</text><circle cx="156" cy="20" r="8" fill="#7d8760"/><text x="156" y="24" text-anchor="middle" class="svg-micro" fill="#fff">1</text></g>
+        <g transform="translate(722 225)"><rect class="spine" width="177" height="71" rx="5"/><path d="M10 8 v54 M16 8 v54" stroke="#bd9962" stroke-width="2"/><text x="29" y="30" class="svg-label serif">Лира</text><text x="29" y="51" class="svg-micro">БАРД · 5</text><circle cx="156" cy="20" r="8" fill="#a25b52"/><text x="156" y="24" text-anchor="middle" class="svg-micro" fill="#fff">2</text></g>
+        <g transform="translate(907 225)"><rect class="spine" width="177" height="71" rx="5"/><path d="M10 8 v54 M16 8 v54" stroke="#bd9962" stroke-width="2"/><text x="29" y="30" class="svg-label serif">Ним</text><text x="29" y="51" class="svg-micro">ДРУИД · 5</text><circle cx="156" cy="20" r="8" fill="#7d8760"/><text x="156" y="24" text-anchor="middle" class="svg-micro" fill="#fff">0</text></g>
+        <g transform="translate(1092 225)"><rect class="spine" width="177" height="71" rx="5"/><path d="M10 8 v54 M16 8 v54" stroke="#bd9962" stroke-width="2"/><text x="29" y="30" class="svg-label serif">Села</text><text x="29" y="51" class="svg-micro">ЖРЕЦ · 5</text><circle cx="156" cy="20" r="8" fill="#a25b52"/><text x="156" y="24" text-anchor="middle" class="svg-micro" fill="#fff">3</text></g>
+        <g transform="translate(1277 225)"><rect class="spine" width="177" height="71" rx="5"/><path d="M10 8 v54 M16 8 v54" stroke="#bd9962" stroke-width="2"/><text x="29" y="30" class="svg-label serif">Тор</text><text x="29" y="51" class="svg-micro">ПАЛАДИН · 5</text><circle cx="156" cy="20" r="8" fill="#7d8760"/><text x="156" y="24" text-anchor="middle" class="svg-micro" fill="#fff">1</text></g>
+      </g>
+
+      <!-- Map view -->
+      <g id="mapSurface" aria-label="Центральная карта">
+        <g clip-path="url(#mapClip)">
+          <rect x="326" y="318" width="1033" height="476" fill="#29464e"/>
+          <path class="map-water" d="M326 318 H1359 V794 H326Z"/>
+          <path class="map-land" d="M326 318 H1020 Q1005 359 1040 387 Q1086 421 1060 453 Q1030 488 1085 515 Q1122 541 1096 568 Q1064 604 1118 631 Q1150 650 1110 683 Q1082 716 1114 747 L1080 794 H326Z"/>
+          <path class="map-land" d="M1214 318 H1359 V572 Q1321 555 1310 524 Q1286 494 1306 464 Q1321 427 1286 408 Q1255 389 1273 358Z"/>
+          <path class="map-contour" d="M370 380 Q530 338 691 392 T1000 389 M380 472 Q570 421 744 483 T1022 478 M352 586 Q500 538 677 595 T1078 575 M390 702 Q590 651 748 707 T1080 684"/>
+          <path class="river" d="M493 318 Q503 370 552 407 Q613 451 592 501 Q574 550 640 581 Q704 610 686 663 Q674 710 758 760"/>
+          <path class="road" d="M332 692 Q460 648 566 618 T793 562 Q889 525 1000 471 T1220 402"/>
+          <path class="road" d="M477 319 Q526 388 678 423 T924 424 Q1041 413 1192 503"/>
+          <g id="layer-markers">
+            <circle class="marker" cx="587" cy="501" r="9"/><circle class="marker" cx="809" cy="562" r="9"/><circle class="marker" cx="1022" cy="468" r="9"/><circle class="marker" cx="1224" cy="402" r="9"/>
+            <circle class="focus-ring" cx="809" cy="562" r="18"/>
+            <path d="M706 389 l10 18 h-20Z" fill="#c6a05e" stroke="#30262a" stroke-width="2"/>
+          </g>
+          <g id="layer-labels">
+            <text x="448" y="471" class="map-label">Северный лес</text><text x="773" y="548" class="map-label">Перепутье</text><text x="994" y="449" class="map-label">Каменный дозор</text><text x="1136" y="384" class="map-label">Старый тракт</text><text x="543" y="562" class="map-label">Река</text>
+          </g>
+          <g id="layer-roads"><path d="M326 318 h1033 v476 H326Z" fill="transparent"/></g>
+        </g>
+        <rect x="326" y="318" width="1033" height="476" rx="8" fill="none" stroke="#bf985d" stroke-width="2"/>
+        <text x="348" y="346" class="svg-micro">АТЛАС · ОБЛАСТЬ · ВРЕМЯ МИРА</text>
+        <g transform="translate(1142 336)"><rect width="196" height="34" rx="4" fill="#2a2529" stroke="#796146"/><circle cx="18" cy="17" r="5" fill="#d0ac71"/><text x="32" y="22" class="svg-micro">МЕТКА ПАРТИИ · СЕЙЧАС</text></g>
+      </g>
+
+      <!-- Party cards unfold from the spines; the spines are not redrawn -->
+      <g id="partySurface" class="hidden" aria-label="Раскрытая партия">
+        <rect x="339" y="225" width="1128" height="569" rx="7" fill="#201a20" stroke="#846443" stroke-width="2"/>
+        <text x="355" y="780" class="svg-micro">РАСКЛАДКА ДО 6 · КОРЕШОК ОСТАЁТСЯ КРАЕМ КАРТОЧКИ</text>
+        <g transform="translate(351 225)">
+          <g transform="translate(0 0)"><rect class="card-face" width="178" height="427" rx="7"/><rect x="0" y="0" width="178" height="71" rx="7" fill="url(#leather)" stroke="#d2ae70"/><path d="M13 9 v53 M19 9 v53" stroke="#d7b878" stroke-width="2"/><text x="31" y="31" class="svg-label serif">Ари</text><text x="31" y="52" class="svg-micro">СЛЕДОПЫТ · 5</text><circle cx="151" cy="22" r="8" fill="#a25b52"/><text x="151" y="26" text-anchor="middle" class="svg-micro">4</text><circle cx="54" cy="116" r="28" fill="#806c55" stroke="#ae8b5a" stroke-width="2"/><path d="M40 120 Q54 91 68 120 M35 144 Q54 127 73 144" fill="#403644"/><text x="89" y="109" class="svg-small">Хиты</text><text x="89" y="135" class="svg-label serif">28 / 36</text><path d="M18 171 H160 M18 251 H160 M18 328 H160" stroke="#8d7658" stroke-opacity=".55"/><text x="20" y="194" class="svg-micro">КЛАСС · РЕСУРСЫ</text><text x="20" y="222" class="svg-small">Выносливость · 3</text><text x="20" y="274" class="svg-micro">СТАТУС</text><text x="20" y="300" class="svg-small">Следопыт · готов</text><g class="button sheet-open" role="button" tabindex="0" data-sheet="Ари" aria-label="Открыть полный лист Ари"><rect class="button-face" x="18" y="350" width="142" height="52" rx="5" fill="#594231" stroke="#9d784d"/><text x="89" y="382" text-anchor="middle" class="svg-small">ЛИСТ</text><rect class="hit-target" x="18" y="350" width="142" height="52"/></g></g>
+          <g transform="translate(187 0)"><rect class="card-face" width="178" height="427" rx="7"/><rect width="178" height="71" rx="7" fill="url(#leather)" stroke="#d2ae70"/><path d="M13 9 v53 M19 9 v53" stroke="#d7b878" stroke-width="2"/><text x="31" y="31" class="svg-label serif">Бран</text><text x="31" y="52" class="svg-micro">ВОИН · 5</text><circle cx="151" cy="22" r="8" fill="#7d8760"/><text x="151" y="26" text-anchor="middle" class="svg-micro">1</text><circle cx="54" cy="116" r="28" fill="#806c55" stroke="#ae8b5a" stroke-width="2"/><path d="M40 120 Q54 91 68 120 M35 144 Q54 127 73 144" fill="#493841"/><text x="89" y="109" class="svg-small">Хиты</text><text x="89" y="135" class="svg-label serif">41 / 44</text><path d="M18 171 H160 M18 251 H160 M18 328 H160" stroke="#8d7658" stroke-opacity=".55"/><text x="20" y="194" class="svg-micro">КЛАСС · РЕСУРСЫ</text><text x="20" y="222" class="svg-small">Второе дыхание · 1</text><text x="20" y="274" class="svg-micro">СТАТУС</text><text x="20" y="300" class="svg-small">Воин · готов</text><g class="button sheet-open" role="button" tabindex="0" data-sheet="Бран" aria-label="Открыть полный лист Брана"><rect class="button-face" x="18" y="350" width="142" height="52" rx="5" fill="#594231" stroke="#9d784d"/><text x="89" y="382" text-anchor="middle" class="svg-small">ЛИСТ</text><rect class="hit-target" x="18" y="350" width="142" height="52"/></g></g>
+          <g transform="translate(374 0)"><rect class="card-face" width="178" height="427" rx="7"/><rect width="178" height="71" rx="7" fill="url(#leather)" stroke="#d2ae70"/><path d="M13 9 v53 M19 9 v53" stroke="#d7b878" stroke-width="2"/><text x="31" y="31" class="svg-label serif">Лира</text><text x="31" y="52" class="svg-micro">БАРД · 5</text><circle cx="151" cy="22" r="8" fill="#a25b52"/><text x="151" y="26" text-anchor="middle" class="svg-micro">2</text><circle cx="54" cy="116" r="28" fill="#806c55" stroke="#ae8b5a" stroke-width="2"/><path d="M40 120 Q54 91 68 120 M35 144 Q54 127 73 144" fill="#504255"/><text x="89" y="109" class="svg-small">Хиты</text><text x="89" y="135" class="svg-label serif">24 / 31</text><path d="M18 171 H160 M18 251 H160 M18 328 H160" stroke="#8d7658" stroke-opacity=".55"/><text x="20" y="194" class="svg-micro">КЛАСС · РЕСУРСЫ</text><text x="20" y="222" class="svg-small">Вдохновение · 1</text><text x="20" y="274" class="svg-micro">СТАТУС</text><text x="20" y="300" class="svg-small">Бард · готов</text><g class="button sheet-open" role="button" tabindex="0" data-sheet="Лира" aria-label="Открыть полный лист Лиры"><rect class="button-face" x="18" y="350" width="142" height="52" rx="5" fill="#594231" stroke="#9d784d"/><text x="89" y="382" text-anchor="middle" class="svg-small">ЛИСТ</text><rect class="hit-target" x="18" y="350" width="142" height="52"/></g></g>
+          <g transform="translate(561 0)"><rect class="card-face" width="178" height="427" rx="7"/><rect width="178" height="71" rx="7" fill="url(#leather)" stroke="#d2ae70"/><path d="M13 9 v53 M19 9 v53" stroke="#d7b878" stroke-width="2"/><text x="31" y="31" class="svg-label serif">Ним</text><text x="31" y="52" class="svg-micro">ДРУИД · 5</text><circle cx="151" cy="22" r="8" fill="#7d8760"/><text x="151" y="26" text-anchor="middle" class="svg-micro">0</text><circle cx="54" cy="116" r="28" fill="#806c55" stroke="#ae8b5a" stroke-width="2"/><path d="M40 120 Q54 91 68 120 M35 144 Q54 127 73 144" fill="#465342"/><text x="89" y="109" class="svg-small">Хиты</text><text x="89" y="135" class="svg-label serif">32 / 32</text><path d="M18 171 H160 M18 251 H160 M18 328 H160" stroke="#8d7658" stroke-opacity=".55"/><text x="20" y="194" class="svg-micro">КЛАСС · РЕСУРСЫ</text><text x="20" y="222" class="svg-small">Форма · готова</text><text x="20" y="274" class="svg-micro">СТАТУС</text><text x="20" y="300" class="svg-small">Друид · готов</text><g class="button sheet-open" role="button" tabindex="0" data-sheet="Ним" aria-label="Открыть полный лист Нима"><rect class="button-face" x="18" y="350" width="142" height="52" rx="5" fill="#594231" stroke="#9d784d"/><text x="89" y="382" text-anchor="middle" class="svg-small">ЛИСТ</text><rect class="hit-target" x="18" y="350" width="142" height="52"/></g></g>
+          <g transform="translate(748 0)"><rect class="card-face" width="178" height="427" rx="7"/><rect width="178" height="71" rx="7" fill="url(#leather)" stroke="#d2ae70"/><path d="M13 9 v53 M19 9 v53" stroke="#d7b878" stroke-width="2"/><text x="31" y="31" class="svg-label serif">Села</text><text x="31" y="52" class="svg-micro">ЖРЕЦ · 5</text><circle cx="151" cy="22" r="8" fill="#a25b52"/><text x="151" y="26" text-anchor="middle" class="svg-micro">3</text><circle cx="54" cy="116" r="28" fill="#806c55" stroke="#ae8b5a" stroke-width="2"/><path d="M40 120 Q54 91 68 120 M35 144 Q54 127 73 144" fill="#56434b"/><text x="89" y="109" class="svg-small">Хиты</text><text x="89" y="135" class="svg-label serif">27 / 30</text><path d="M18 171 H160 M18 251 H160 M18 328 H160" stroke="#8d7658" stroke-opacity=".55"/><text x="20" y="194" class="svg-micro">КЛАСС · РЕСУРСЫ</text><text x="20" y="222" class="svg-small">Ячейки · 3</text><text x="20" y="274" class="svg-micro">СТАТУС</text><text x="20" y="300" class="svg-small">Жрец · готов</text><g class="button sheet-open" role="button" tabindex="0" data-sheet="Села" aria-label="Открыть полный лист Селы"><rect class="button-face" x="18" y="350" width="142" height="52" rx="5" fill="#594231" stroke="#9d784d"/><text x="89" y="382" text-anchor="middle" class="svg-small">ЛИСТ</text><rect class="hit-target" x="18" y="350" width="142" height="52"/></g></g>
+          <g transform="translate(935 0)"><rect class="card-face" width="178" height="427" rx="7"/><rect width="178" height="71" rx="7" fill="url(#leather)" stroke="#d2ae70"/><path d="M13 9 v53 M19 9 v53" stroke="#d7b878" stroke-width="2"/><text x="31" y="31" class="svg-label serif">Тор</text><text x="31" y="52" class="svg-micro">ПАЛАДИН · 5</text><circle cx="151" cy="22" r="8" fill="#7d8760"/><text x="151" y="26" text-anchor="middle" class="svg-micro">1</text><circle cx="54" cy="116" r="28" fill="#806c55" stroke="#ae8b5a" stroke-width="2"/><path d="M40 120 Q54 91 68 120 M35 144 Q54 127 73 144" fill="#56433c"/><text x="89" y="109" class="svg-small">Хиты</text><text x="89" y="135" class="svg-label serif">38 / 40</text><path d="M18 171 H160 M18 251 H160 M18 328 H160" stroke="#8d7658" stroke-opacity=".55"/><text x="20" y="194" class="svg-micro">КЛАСС · РЕСУРСЫ</text><text x="20" y="222" class="svg-small">Божественный канал</text><text x="20" y="274" class="svg-micro">СТАТУС</text><text x="20" y="300" class="svg-small">Паладин · готов</text><g class="button sheet-open" role="button" tabindex="0" data-sheet="Тор" aria-label="Открыть полный лист Тора"><rect class="button-face" x="18" y="350" width="142" height="52" rx="5" fill="#594231" stroke="#9d784d"/><text x="89" y="382" text-anchor="middle" class="svg-small">ЛИСТ</text><rect class="hit-target" x="18" y="350" width="142" height="52"/></g></g>
+        </g>
+      </g>
+
+      <!-- Right vertical scale ladder and map tools -->
+      <g id="mapDock" aria-label="Правая вертикальная панель карты">
+        <rect x="1380" y="318" width="178" height="476" rx="7" fill="#2c242a" stroke="#a47d4e" stroke-width="2"/>
+        <text x="1397" y="345" class="svg-micro">МАСШТАБЫ</text>
+        <path d="M1403 370 V562" stroke="#9c7649" stroke-width="3"/>
+        <g class="button scale-button" role="button" tabindex="0" aria-pressed="false" data-scale="Планета" transform="translate(1394 364)"><rect class="button-face" width="151" height="41" rx="5" fill="#403239" stroke="#735a45"/><circle cx="16" cy="20" r="5" fill="#cfaa6e"/><text x="32" y="25" class="svg-small">Планета</text><rect class="hit-target" width="151" height="41"/></g>
+        <g class="button scale-button" role="button" tabindex="0" aria-pressed="true" data-scale="Регион" transform="translate(1394 414)"><rect class="button-face" width="151" height="41" rx="5" fill="#614b38" stroke="#d5b675" stroke-width="2"/><circle cx="16" cy="20" r="6" fill="#e3c477"/><text x="32" y="25" class="svg-small">Регион</text><rect class="hit-target" width="151" height="41"/></g>
+        <g class="button scale-button" role="button" tabindex="0" aria-pressed="false" data-scale="Поселение" transform="translate(1394 464)"><rect class="button-face" width="151" height="41" rx="5" fill="#403239" stroke="#735a45"/><circle cx="16" cy="20" r="5" fill="#cfaa6e"/><text x="32" y="25" class="svg-small">Поселение</text><rect class="hit-target" width="151" height="41"/></g>
+        <g class="button scale-button" role="button" tabindex="0" aria-pressed="false" data-scale="Здание" transform="translate(1394 514)"><rect class="button-face" width="151" height="41" rx="5" fill="#403239" stroke="#735a45"/><circle cx="16" cy="20" r="5" fill="#cfaa6e"/><text x="32" y="25" class="svg-small">Здание</text><rect class="hit-target" width="151" height="41"/></g>
+        <text x="1397" y="588" class="svg-micro">СЛОИ · ПЕРЕКЛЮЧАТЕЛИ</text>
+        <g class="button layer-button" role="button" tabindex="0" aria-pressed="true" data-layer-toggle="labels" transform="translate(1394 600)"><rect class="button-face" width="151" height="34" rx="4" fill="#3d3336" stroke="#806347"/><text x="16" y="22" class="svg-small">Подписи</text><text x="131" y="22" class="svg-small">●</text><rect class="hit-target" width="151" height="34"/></g>
+        <g class="button layer-button" role="button" tabindex="0" aria-pressed="true" data-layer-toggle="markers" transform="translate(1394 641)"><rect class="button-face" width="151" height="34" rx="4" fill="#3d3336" stroke="#806347"/><text x="16" y="22" class="svg-small">Места и пины</text><text x="131" y="22" class="svg-small">●</text><rect class="hit-target" width="151" height="34"/></g>
+        <g class="button layer-button" role="button" tabindex="0" aria-pressed="true" data-layer-toggle="roads" transform="translate(1394 682)"><rect class="button-face" width="151" height="34" rx="4" fill="#3d3336" stroke="#806347"/><text x="16" y="22" class="svg-small">Дороги</text><text x="131" y="22" class="svg-small">●</text><rect class="hit-target" width="151" height="34"/></g>
+        <text x="1397" y="753" class="svg-micro">ИНСТРУМЕНТЫ</text>
+        <rect x="1394" y="763" width="151" height="23" rx="3" fill="#473a36" stroke="#8a6c49"/><text x="1469" y="780" text-anchor="middle" class="svg-micro">ЛИНЕЙКА · ПУТЬ</text>
+      </g>
+
+      <!-- Shared context shelf: visible under both center states -->
+      <g id="sharedShelf" aria-label="Общий походный контекст и время">
+        <rect x="339" y="808" width="1218" height="153" rx="7" fill="#282128" stroke="#9e794d" stroke-width="2"/>
+        <path d="M1115 820 V948" stroke="#816346" stroke-width="2"/>
+        <text x="359" y="834" class="svg-micro">ОБЩИЙ КОНТЕКСТ · ПОХОД / ЛАГЕРЬ</text>
+        <text x="359" y="866" class="svg-small">Путь · следующий привал через 2 дня</text>
+        <text x="359" y="894" class="svg-small">Запасы группы · 18 порций · 3 фляги</text>
+        <text x="359" y="922" class="svg-small">Лагерь · 6 участников · общие вещи отмечены владельцем</text>
+        <rect x="846" y="849" width="235" height="72" rx="5" fill="#3a3030" stroke="#886846"/>
+        <text x="865" y="875" class="svg-micro">ОБЩЕЕ ХРАНИЛИЩЕ</text><text x="865" y="901" class="svg-small">Повозка · припасы · снаряжение</text>
+        <!-- Illustrative astrolabe, not a 3D asset or a working instrument -->
+        <g transform="translate(1171 883)" aria-label="Условный объёмный образ астролябии">
+          <circle r="50" fill="url(#dial)" stroke="#dab978" stroke-width="4"/><circle r="39" fill="none" stroke="#5b4135" stroke-width="2"/><circle r="26" fill="none" stroke="#5b4135" stroke-width="2"/><path d="M0 -45 V45 M-45 0 H45 M-31 -31 L31 31 M31 -31 L-31 31" stroke="#574132" stroke-width="1.5"/><circle r="7" fill="#4b3b33" stroke="#e0c38b" stroke-width="2"/><path d="M0 -57 V-50 M57 0 H50 M0 57 V50 M-57 0 H-50" stroke="#e0c38b" stroke-width="3"/>
+        </g>
+        <text x="1171" y="946" text-anchor="middle" class="svg-micro">АСТРОЛЯБИЯ · ОБРАЗ</text>
+        <g transform="translate(1349 883)">
+          <circle r="41" fill="#352b31" stroke="#c39b60" stroke-width="3"/><circle r="32" fill="#e0d2b1" stroke="#59453a" stroke-width="2"/><path d="M0 -27 V0 L19 10" fill="none" stroke="#473632" stroke-width="3" stroke-linecap="round"/><circle r="3" fill="#473632"/><path d="M0 -31 V-25 M31 0 H25 M0 31 V25 M-31 0 H-25" stroke="#72563a" stroke-width="2"/>
+        </g>
+        <text x="1349" y="946" text-anchor="middle" class="svg-micro">ЧАСЫ · 14:20</text>
+        <text x="1500" y="846" text-anchor="end" class="svg-micro">ТЕМП</text><rect x="1430" y="857" width="102" height="34" rx="4" fill="#493832" stroke="#a48152"/><text x="1481" y="879" text-anchor="middle" class="svg-small">ОБЫЧНЫЙ</text>
+      </g>
+
+      <!-- Pull-out chronology drawer, shared by map and party -->
+      <g id="chronology" aria-label="Хронологическая лента">
+        <rect x="339" y="973" width="1218" height="85" rx="6" fill="#30272c" stroke="#b08b55" stroke-width="2"/>
+        <rect x="348" y="981" width="18" height="68" rx="8" fill="url(#bronze)"/>
+        <rect x="1530" y="981" width="18" height="68" rx="8" fill="url(#bronze)"/>
+        <text x="380" y="995" class="svg-micro">ХРОНОЛОГИЯ · ПРИМЕР · ДЕНЬ / ГОД / ЭПОХА</text>
+        <text x="1514" y="995" text-anchor="end" class="svg-micro">ПРОСМОТР НЕ МЕНЯЕТ ВРЕМЯ</text>
+        <path d="M470 1005H1514 M470 1023H1514 M470 1041H1514" stroke="#76604a"/>
+        <text x="380" y="1009" class="svg-micro">КАНОН</text>
+        <text x="380" y="1027" class="svg-micro">КАМПАНИЯ</text>
+        <text x="380" y="1045" class="svg-micro">ПРЕДЛОЖЕНО</text>
+        <path d="M1090 1000V1050" stroke="#eacb87" stroke-width="2"/><text x="1100" y="1017" class="svg-micro">СЕЙЧАС</text>
+        <g class="button timeline-event" role="button" tabindex="0" aria-label="Событие канона: источник" data-detail="Канон · дата и источник; переход к месту. Канонический факт не переписывает кампанию.">
+          <rect class="button-face" x="520" y="998" width="226" height="15" rx="3" fill="#596f75" stroke="#b8c9cc"/><text x="530" y="1009" class="svg-micro" style="fill:#f6ecda">КАНОН · ИСТОЧНИК</text>
+        </g>
+        <g class="button timeline-event" role="button" tabindex="0" aria-label="Событие кампании: прибытие" data-detail="Кампания · прибытие группы; связь с записью журнала и местом. Это условный пример.">
+          <rect class="button-face" x="820" y="1016" width="226" height="15" rx="3" fill="#76533c" stroke="#dfba7e"/><text x="830" y="1027" class="svg-micro" style="fill:#f6ecda">КАМПАНИЯ · ПРИБЫТИЕ</text>
+        </g>
+        <g class="button timeline-event" role="button" tabindex="0" aria-label="Предложение: привал" data-detail="Предложение · привал ещё не принят. Применение потребует отдельного подтверждения; лента сама ничего не применяет.">
+          <rect class="button-face" x="1240" y="1034" width="248" height="15" rx="3" fill="#30272c" stroke="#c5aa7a" stroke-dasharray="4 3"/><text x="1250" y="1045" class="svg-micro">ПРЕДЛОЖЕНИЕ · ПРИВАЛ</text>
+        </g>
+      </g>
+
+      <!-- Sheet modal: tablet, party spines and clock shelf remain visible around it -->
+      <g id="sheetModal" class="hidden" role="dialog" aria-modal="true" aria-labelledby="sheetTitle" aria-hidden="true" tabindex="-1">
+        <rect class="modal-scrim" x="326" y="301" width="1233" height="500" rx="8"/>
+        <rect x="573" y="347" width="742" height="402" rx="12" fill="#30242c" stroke="url(#bronze)" stroke-width="6" filter="url(#softShadow)"/>
+        <rect x="590" y="364" width="708" height="368" rx="7" fill="#cdbb98" stroke="#ead8b6" stroke-width="2"/>
+        <path d="M613 434 H1270 M613 548 H1270 M613 638 H1270" stroke="#88745d" stroke-opacity=".65" stroke-width="2"/>
+        <text id="sheetTitle" x="623" y="408" class="title" fill="#33282b">Полный лист · пример персонажа</text>
+        <text x="623" y="469" class="svg-small" fill="#3b3031">ХАРАКТЕРИСТИКИ · НАВЫКИ · СОСТОЯНИЯ</text>
+        <text x="623" y="502" class="svg-small" fill="#3b3031">Снаряжение и заклинания раскрываются секциями</text>
+        <text x="623" y="583" class="svg-small" fill="#3b3031">Число → основание → источник правила</text>
+        <text x="623" y="680" class="svg-micro" fill="#55453a">Это пример компоновки, игровые данные не подключены</text>
+        <g class="button" id="closeSheet" role="button" tabindex="0" aria-label="Закрыть лист" transform="translate(1156 678)"><rect class="button-face" width="112" height="38" rx="5" fill="#584238" stroke="#97744b"/><text x="56" y="25" text-anchor="middle" class="svg-small">ЗАКРЫТЬ</text><rect class="hit-target" width="112" height="38"/></g>
+      </g>
+      <text id="modeStatus" x="944" y="799" text-anchor="middle" class="svg-micro" aria-live="polite">КАРТА · КАРТОЧКИ И ЧАСЫ ДОСТУПНЫ</text>
+    </svg>
+  </main>
+  <script>
+    (() => {
+      const svg = document.querySelector('svg');
+      const mapSurface = document.getElementById('mapSurface');
+      const partySurface = document.getElementById('partySurface');
+      const mapDock = document.getElementById('mapDock');
+      const status = document.getElementById('modeStatus');
+      const modal = document.getElementById('sheetModal');
+      const modalTitle = document.getElementById('sheetTitle');
+      const closeButton = document.getElementById('closeSheet');
+      let mode = 'map';
+      let expanded = false;
+      let returnFocus = null;
+
+      function attachButton(el, action) {
+        if (!el) return;
+        el.addEventListener('click', action);
+        el.addEventListener('keydown', event => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            action(event);
+          }
+        });
+      }
+      document.querySelectorAll('.timeline-event').forEach(button => attachButton(button, () => {
+        status.textContent = button.getAttribute('data-detail');
+      }));
+      function setMode(next) {
+        mode = next;
+        mapSurface.classList.toggle('hidden', mode !== 'map');
+        mapDock.classList.toggle('hidden', mode !== 'map');
+        document.getElementById('cardRow').classList.toggle('hidden', mode === 'party' && expanded);
+        partySurface.classList.toggle('hidden', mode !== 'party' || !expanded);
+        document.getElementById('mapModeButton').setAttribute('aria-pressed', String(mode === 'map'));
+        document.getElementById('partyModeButton').setAttribute('aria-pressed', String(mode === 'party'));
+        status.textContent = mode === 'map'
+          ? 'КАРТА · КАРТОЧКИ И ЧАСЫ ДОСТУПНЫ'
+          : (expanded ? 'ПАРТИЯ · 6 КАРТОЧЕК · ОБЩИЙ КОНТЕКСТ И ЧАСЫ ДОСТУПНЫ' : 'ПАРТИЯ · КОРЕШКИ ВЫБРАННОЙ СТРАНИЦЫ');
+        updateExpandLabel();
+      }
+      function updateExpandLabel() {
+        const label = document.getElementById('expandLabel');
+        const btn = document.getElementById('expandButton');
+        label.textContent = expanded ? 'ВСЕ КАРТОЧКИ · СВЕРНУТЬ' : 'ВСЕ КАРТОЧКИ · РАСКРЫТЬ';
+        btn.setAttribute('aria-pressed', String(expanded));
+      }
+      attachButton(document.getElementById('mapModeButton'), () => setMode('map'));
+      attachButton(document.getElementById('partyModeButton'), () => setMode('party'));
+      attachButton(document.getElementById('expandButton'), () => {
+        if (mode !== 'party') { expanded = true; setMode('party'); }
+        else { expanded = !expanded; setMode('party'); }
+      });
+
+      document.querySelectorAll('[data-layer-toggle]').forEach(button => {
+        attachButton(button, () => {
+          const name = button.getAttribute('data-layer-toggle');
+          const group = document.getElementById('layer-' + name);
+          const enabled = button.getAttribute('aria-pressed') !== 'true';
+          button.setAttribute('aria-pressed', String(enabled));
+          const dot = button.querySelector('text:last-of-type');
+          if (dot) dot.textContent = enabled ? '●' : '○';
+          if (group) group.classList.toggle('hidden', !enabled);
+        });
+      });
+      document.querySelectorAll('.scale-button').forEach(button => {
+        attachButton(button, () => {
+          document.querySelectorAll('.scale-button').forEach(other => {
+            const chosen = other === button;
+            other.setAttribute('aria-pressed', String(chosen));
+            const face = other.querySelector('.button-face');
+            face.setAttribute('fill', chosen ? '#614b38' : '#403239');
+            face.setAttribute('stroke', chosen ? '#d5b675' : '#735a45');
+          });
+          status.textContent = 'КАРТА · ВЫБРАН УРОВЕНЬ «' + button.getAttribute('data-scale') + '»';
+        });
+      });
+
+      function openSheet(name, source) {
+        returnFocus = source;
+        modalTitle.textContent = 'Полный лист · ' + name;
+        modal.classList.remove('hidden');
+        modal.setAttribute('aria-hidden', 'false');
+        modal.focus();
+        status.textContent = 'ПОЛНЫЙ ЛИСТ · ПАРТИЯ И ЧАСЫ ОСТАЮТСЯ ДОСТУПНЫ';
+      }
+      function closeSheet() {
+        if (modal.classList.contains('hidden')) return;
+        modal.classList.add('hidden');
+        modal.setAttribute('aria-hidden', 'true');
+        status.textContent = mode === 'map' ? 'КАРТА · КАРТОЧКИ И ЧАСЫ ДОСТУПНЫ' : 'ПАРТИЯ · ОБЩИЙ КОНТЕКСТ И ЧАСЫ ДОСТУПНЫ';
+        if (returnFocus) returnFocus.focus();
+      }
+      document.querySelectorAll('.sheet-open').forEach(button => attachButton(button, () => openSheet(button.getAttribute('data-sheet'), button)));
+      attachButton(closeButton, closeSheet);
+      modal.addEventListener('click', event => {
+        if (event.target === modal.querySelector('.modal-scrim')) closeSheet();
+      });
+      window.addEventListener('keydown', event => {
+        if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
+          event.stopPropagation();
+          closeSheet();
+        }
+      });
+      // Provide a useful initial state with one active scale; all mode/layer controls are ordinary SVG buttons.
+      svg.setAttribute('data-mode', mode);
+    })();
+  </script>
+</body>
+</html>

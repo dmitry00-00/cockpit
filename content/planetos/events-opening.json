@@ -1,0 +1,1170 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "event",
+  "entities": [
+    {
+      "ref": "event:daenerys-presented-to-drogo",
+      "kind": "event",
+      "name": "Daenerys is presented to Drogo",
+      "nameRu": "Дейенерис представляют Дрого",
+      "subtitle": "A Game of Thrones · Daenerys I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_3",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 3
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys I"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "представление и переговоры; исход не подтверждён"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Иллирио и Визерис организуют встречу ради возможного брачного союза; заключённый брак не подразумевается."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Viserys Targaryen",
+          "ref": "person:viserys-targaryen"
+        },
+        {
+          "label": "Illyrio Mopatis",
+          "ref": "person:illyrio-mopatis"
+        },
+        {
+          "label": "Drogo",
+          "ref": "person:drogo"
+        },
+        {
+          "label": "Drogo's manse",
+          "ref": "place:drogo-manse"
+        }
+      ]
+    },
+    {
+      "ref": "event:royal-party-arrives-winterfell",
+      "kind": "event",
+      "name": "Robert's royal party arrives at Winterfell",
+      "nameRu": "Королевский двор прибывает в Винтерфелл",
+      "subtitle": "A Game of Thrones · Eddard I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_4",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 4
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard I"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "событие происходит в главе"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Роберт прибывает в Винтерфелл с королевской семьёй и свитой."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robert I Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Cersei Lannister",
+          "ref": "person:cersei-lannister"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "event:robert-offers-hand-to-eddard",
+      "kind": "event",
+      "name": "Robert offers Eddard the Hand",
+      "nameRu": "Роберт предлагает Эддарду стать десницей",
+      "subtitle": "A Game of Thrones · Eddard I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_4",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 4
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard I"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "предложение; ещё не принято"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Король предлагает Эддарду должность десницы; решение принимается позднее."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robert I Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "event:sansa-joffrey-betrothal-proposed",
+      "kind": "event",
+      "name": "Betrothal between Sansa and Joffrey proposed",
+      "nameRu": "Предложена помолвка Сансы и Джоффри",
+      "subtitle": "A Game of Thrones · Eddard I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_4",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 4
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard I"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "предложение"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Роберт предлагает обручить Сансу с Джоффри; запись не означает, что свадьба состоялась."
+        }
+      ],
+      "links": [
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        },
+        {
+          "label": "Joffrey Baratheon",
+          "ref": "person:joffrey-baratheon"
+        },
+        {
+          "label": "Robert I Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        }
+      ]
+    },
+    {
+      "ref": "event:feast-for-royal-visit",
+      "kind": "event",
+      "name": "Feast for the royal visit",
+      "nameRu": "Пир в честь королевского визита",
+      "subtitle": "A Game of Thrones · Jon I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Jon I; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_5",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 5
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Jon I"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "событие происходит в главе"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "В Винтерфелле устраивают пир для прибывшего короля и его двора."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Robert I Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        },
+        {
+          "label": "Great Hall of Winterfell",
+          "ref": "place:great-hall-of-winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "event:lysa-letter-accuses-cersei",
+      "kind": "event",
+      "name": "Lysa's letter accuses Cersei",
+      "nameRu": "В письме Лиза обвиняет Серсею",
+      "subtitle": "A Game of Thrones · Catelyn II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn II; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_6",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 6
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn II"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "неподтверждённое обвинение из письма"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Лиза пишет Катлин, что Серсея и её родные причастны к смерти Джона Аррена; письмо передаёт обвинение, а не доказательство."
+        }
+      ],
+      "links": [
+        {
+          "label": "Lysa Arryn",
+          "ref": "person:lysa-arryn"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Cersei Lannister",
+          "ref": "person:cersei-lannister"
+        },
+        {
+          "label": "Jon Arryn",
+          "ref": "person:jon-arryn"
+        }
+      ]
+    },
+    {
+      "ref": "event:ned-accepts-hand",
+      "kind": "event",
+      "name": "Eddard accepts Robert's offer",
+      "nameRu": "Эддард принимает предложение Роберта",
+      "subtitle": "A Game of Thrones · Catelyn II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn II; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_6",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 6
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn II"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "решение принято; путешествие ещё не состоялось"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "После разговора с Катлин и Лювином Эддард решает ехать на юг и принять должность; сам отъезд здесь не фиксируется."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Maester Luwin",
+          "ref": "person:maester-luwin"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "event:bran-discovers-jaime-cersei",
+      "kind": "event",
+      "name": "Bran discovers Jaime and Cersei",
+      "nameRu": "Бран обнаруживает Серсею и Джейме",
+      "subtitle": "A Game of Thrones · Bran II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran II; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_8",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 8
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Bran II"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "секрет мастера; сюжетный локатор Bran II"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Бран слышит и видит Серсею и Джейме в Первой крепости; знание этой сцены раскрывается игрокам только по решению мастера."
+        }
+      ],
+      "links": [
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "Cersei Lannister",
+          "ref": "person:cersei-lannister"
+        },
+        {
+          "label": "Jaime Lannister",
+          "ref": "person:jaime-lannister"
+        },
+        {
+          "label": "First Keep",
+          "ref": "place:first-keep-of-winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "event:bran-falls-from-first-keep",
+      "kind": "event",
+      "name": "Bran falls from the First Keep",
+      "nameRu": "Бран падает из Первой крепости",
+      "subtitle": "A Game of Thrones · Bran II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran II; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_8",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 8
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Bran II"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "событие главы; исход неизвестен в этом локаторе"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Джейме сталкивает Брана из окна; последствие падения в этой сцене не указывается."
+        }
+      ],
+      "links": [
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "Jaime Lannister",
+          "ref": "person:jaime-lannister"
+        },
+        {
+          "label": "First Keep",
+          "ref": "place:first-keep-of-winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "event:night-watch-rangers-encounter-others",
+      "kind": "event",
+      "name": "Night's Watch rangers encounter the Others",
+      "nameRu": "Следопыты Ночного Дозора встречают Иных",
+      "subtitle": "A Game of Thrones · Prologue",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Prologue; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Prologue",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 0
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Prologue"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "событие пролога; пересказ по вторичному указателю"
+        },
+        {
+          "label": "Сверка",
+          "value": "текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Следопыты Ночного Дозора находят следы погибших одичалых; Веймар Ройс сталкивается с Иными, погибает и поднимается вновь, после чего Уилл подвергается нападению."
+        }
+      ],
+      "links": [
+        {
+          "label": "Will",
+          "ref": "person:will"
+        },
+        {
+          "label": "Gared",
+          "ref": "person:gared"
+        },
+        {
+          "label": "Waymar Royce",
+          "ref": "person:waymar-royce"
+        },
+        {
+          "label": "Haunted Forest",
+          "ref": "place:haunted-forest"
+        },
+        {
+          "label": "Night's Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Beyond the Wall",
+          "ref": "place:beyond-the-wall"
+        }
+      ]
+    },
+    {
+      "ref": "event:ned-allows-jon-to-join-nights-watch",
+      "kind": "event",
+      "name": "Ned allows Jon to take the black",
+      "nameRu": "Нед разрешает Джону вступить в Ночной Дозор",
+      "subtitle": "A Game of Thrones · Catelyn II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn II; A Wiki of Ice and Fire, chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_6",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 6
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn II"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "решение/разрешение; вступление в Ночной Дозор в этой главе ещё не происходит"
+        },
+        {
+          "label": "Сверка",
+          "value": "текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Нед соглашается, что Джон сможет вступить в Ночной Дозор после решения семьи отправиться на юг; до отъезда он хочет сам сообщить Джону."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Night's Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Great Keep of Winterfell",
+          "ref": "place:great-keep-of-winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "event:lady-killed-at-darry",
+      "kind": "event",
+      "name": "Lady is killed at Darry",
+      "nameRu": "Леди убита в Дэрри",
+      "subtitle": "A Game of Thrones · Eddard III",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard III; A Wiki of Ice and Fire chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_16",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 16
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard III"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "событие происходит в главе"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Эддард исполняет приговор Серсеи и убивает лютоволка Сансы после того, как Нимерия скрывается. Запись фиксирует действие в сцене, а не одобряет решение короля."
+        }
+      ],
+      "links": [
+        {
+          "label": "Lady",
+          "ref": "person:lady"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        },
+        {
+          "label": "Cersei Lannister",
+          "ref": "person:cersei-lannister"
+        },
+        {
+          "label": "Nymeria",
+          "ref": "person:nymeria-direwolf"
+        },
+        {
+          "label": "Darry",
+          "ref": "place:darry"
+        }
+      ]
+    },
+    {
+      "ref": "event:bran-wakes-and-names-summer",
+      "kind": "event",
+      "name": "Bran wakes and names Summer",
+      "nameRu": "Бран приходит в себя и называет Лето",
+      "subtitle": "A Game of Thrones · Bran III",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran III; A Wiki of Ice and Fire chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_17",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 17
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Bran III"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "событие происходит в главе"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "После долгого беспамятства Бран приходит в себя в Винтерфелле и даёт своему лютоволку имя Лето."
+        }
+      ],
+      "links": [
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "Summer",
+          "ref": "person:summer-direwolf"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "event:arya-begins-syrio-training",
+      "kind": "event",
+      "name": "Arya begins training with Syrio Forel",
+      "nameRu": "Арья начинает занятия с Сирио Форелем",
+      "subtitle": "A Game of Thrones · Arya II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Arya II; A Wiki of Ice and Fire chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_22",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 22
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Arya II"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "начало обучения; дальнейший результат не подразумевается"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Эддард поручает Сирио Форелю обучать Арью владению мечом; их первые занятия начинаются в Королевской Гавани."
+        }
+      ],
+      "links": [
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Syrio Forel",
+          "ref": "person:syrio-forel"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Small Hall of the Tower of the Hand",
+          "ref": "place:small-hall-of-tower-of-the-hand"
+        }
+      ]
+    },
+    {
+      "ref": "event:catelyn-meets-baelish-varys",
+      "kind": "event",
+      "name": "Catelyn meets Baelish and Varys",
+      "nameRu": "Кэтлин встречается с Бейлишем и Варисом",
+      "subtitle": "A Game of Thrones · Catelyn IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn IV; A Wiki of Ice and Fire chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_18",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 18
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn IV"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "встреча происходит; происхождение кинжала передано как утверждение персонажа"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Кэтлин тайно встречается с Петиром Бейлишем и Варисом. Бейлиш утверждает, что кинжал, использованный при покушении на Брана, раньше принадлежал ему и достался Тириону в пари; карточка сохраняет это именно как его заявление, а не как установленную истину."
+        }
+      ],
+      "links": [
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Petyr Baelish",
+          "ref": "person:petyr-baelish"
+        },
+        {
+          "label": "Varys",
+          "ref": "person:varys"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "event:tyrion-captured-at-crossroads",
+      "kind": "event",
+      "name": "Tyrion is taken captive at the crossroads inn",
+      "nameRu": "Тириона берут в плен на постоялом дворе",
+      "subtitle": "A Game of Thrones · Catelyn V",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn V; A Wiki of Ice and Fire chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_28",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 28
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn V"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "событие происходит в главе"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Кэтлин узнаёт Тириона на постоялом дворе и убеждает присутствующих помочь взять его под стражу, чтобы доставить к правосудию."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Inn at the crossroads",
+          "ref": "place:inn-at-crossroads"
+        }
+      ]
+    },
+    {
+      "ref": "event:viserys-dies-at-vaes-dothrak",
+      "kind": "event",
+      "name": "Viserys dies at Vaes Dothrak",
+      "nameRu": "Визерис погибает в Ваэс Дотраке",
+      "subtitle": "A Game of Thrones · Daenerys V",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys V; A Wiki of Ice and Fire chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_46",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 46
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys V"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "событие происходит в главе"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Во время приёма Визерис угрожает Дейенерис и требует от Дрого обещанную корону; Дрого убивает его. Это событие фиксируется по сцене, без последующих выводов о наследовании."
+        }
+      ],
+      "links": [
+        {
+          "label": "Viserys Targaryen",
+          "ref": "person:viserys-targaryen"
+        },
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Drogo",
+          "ref": "person:drogo"
+        },
+        {
+          "label": "Vaes Dothrak",
+          "ref": "place:vaes-dothrak"
+        }
+      ]
+    },
+    {
+      "ref": "event:eddard-executed-at-kings-landing",
+      "kind": "event",
+      "name": "Eddard is executed in King’s Landing",
+      "nameRu": "Эддард казнён в Королевской Гавани",
+      "subtitle": "A Game of Thrones · Arya V",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Arya V; A Wiki of Ice and Fire chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_65",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 65
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Arya V"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "событие происходит в главе"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "На ступенях Великой септы Бейлора Джоффри приказывает казнить Эддарда, несмотря на объявленное помилование и просьбы присутствующих."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        },
+        {
+          "label": "Joffrey Baratheon",
+          "ref": "person:joffrey-baratheon"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "event:robb-proclaimed-king-in-the-north",
+      "kind": "event",
+      "name": "Robb is proclaimed King in the North",
+      "nameRu": "Робба провозглашают Королём Севера",
+      "subtitle": "A Game of Thrones · Catelyn XI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn XI; A Wiki of Ice and Fire chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_71",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 71
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn XI"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "событие происходит в главе"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "На совете в Риверране северные и речные лорды провозглашают Робба Королём Севера после известия о казни Эддарда и обсуждения того, кому присягнуть."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Riverrun",
+          "ref": "place:riverrun"
+        }
+      ]
+    },
+    {
+      "ref": "event:daenerys-dragons-hatch",
+      "kind": "event",
+      "name": "Daenerys’s dragons hatch",
+      "nameRu": "Вылупляются драконы Дейенерис",
+      "subtitle": "A Game of Thrones · Daenerys X",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys X; A Wiki of Ice and Fire chapter locator (secondary index; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_72",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 72
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys X"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "событие происходит в главе"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "После того как Дейенерис входит в погребальный костёр Дрого, её находят невредимой среди пепла с тремя новорождёнными драконами."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Drogo",
+          "ref": "person:drogo"
+        },
+        {
+          "label": "Jorah Mormont",
+          "ref": "person:jorah-mormont"
+        },
+        {
+          "label": "Drogon",
+          "ref": "person:drogon"
+        },
+        {
+          "label": "Rhaegal",
+          "ref": "person:rhaegal"
+        },
+        {
+          "label": "Viserion",
+          "ref": "person:viserion"
+        },
+        {
+          "label": "Dothraki Sea",
+          "ref": "place:dothraki-sea"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "status": "automation_paused_by_owner",
+  "userProvidedReset": "11-02 01:07",
+  "resetAt": "2026-11-02T11:07:00+03:00",
+  "timezone": "Europe/Moscow",
+  "automationId": "cockpit-kimi",
+  "checkIntervalMinutes": 15,
+  "rule": "Observe existing live run; after quota error do not start further Kimi calls before confirmed resetAt.",
+  "existingRun": {
+    "execSessionId": 54757,
+    "pid": 7300,
+    "kimiSessionId": "session_cf057705-7a00-4302-a983-0635b4e69bd0"
+  },
+  "usagePercentReported": 31,
+  "automationStatus": "PAUSED",
+  "resetTimerAutomationId": "kimi-2-11-07"
+}

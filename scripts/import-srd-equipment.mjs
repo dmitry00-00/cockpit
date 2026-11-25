@@ -8,14 +8,10 @@
 //                владение оружием (категории и отдельные виды), заклинательная характеристика и по уровням —
 //                известные заговоры и заклинания (то, чего в таблицах компендиума нет числом: заговоры колдуна);
 //                умения 1–2-го уровня с выбором из SRD (избранный враг, исследователь природы, предок дракона).
-// Руками не править — перезапустить: `node scripts/import-srd-equipment.mjs`. Ошибка сети — ошибка импорта.
-import { mkdir, writeFile } from 'node:fs/promises';
-import { dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+// Руками не править — перезапустить: `npm run import:srd -- equipment`. Ошибка сети — ошибка импорта.
+import { getSrdImportDefinition, writeSrdImport } from './srd-import-registry.mjs';
 
-const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const OUT = resolve(ROOT, 'content/srd/equipment.json');
-const API = 'https://www.dnd5eapi.co/api/2014';
+const API = getSrdImportDefinition('equipment').apiBase;
 const CLASSES = ['barbarian', 'bard', 'cleric', 'druid', 'fighter', 'monk', 'paladin', 'ranger', 'rogue', 'sorcerer', 'warlock', 'wizard'];
 /** Категории, из которых стартовые наборы предлагают «любое …»; плюс все оружие и доспехи целиком. */
 const CATEGORIES = [
@@ -192,8 +188,6 @@ for (const [c, v] of Object.entries(classes)) {
   }
 }
 
-await mkdir(dirname(OUT), { recursive: true });
 const sorted = Object.fromEntries(Object.entries(items).sort(([a], [b]) => a.localeCompare(b)));
-const out = { source: `SRD 5.1 (CC-BY-4.0) via ${API}`, fetchedAt: new Date().toISOString().slice(0, 10), items: sorted, categories, classes, features };
-await writeFile(OUT, `${JSON.stringify(out, null, 1)}\n`);
-console.log(`${Object.keys(items).length} предметов → ${OUT}`);
+await writeSrdImport('equipment', { items: sorted, categories, classes, features });
+console.log(`${Object.keys(items).length} предметов обработано`);

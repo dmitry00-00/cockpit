@@ -3,8 +3,8 @@
 // оно уровнями 0…6, а не тумблером (CLAUDE.md «Механика»). Что с этим делать — решает страница:
 // toggleCommand / exhaustionCommand ниже переводят намерение в команду движка.
 import type { Command, ConditionSnapshot } from '../engine';
-import { Icon } from '../icons/Icon';
 import { CONDITIONS, EXHAUSTION_MAX_LEVEL, type ConditionId } from '../rules/srd';
+import { ConditionMark } from '../art/ConditionMark';
 import { CONDITION_ORDER, conditionTip } from './ConditionChip';
 
 export interface ConditionGridProps {
@@ -46,7 +46,7 @@ export function ConditionGrid({ active, onToggle, onExhaustion, className = '' }
               title={`${c.label} — ${conditionTip(id)}`}
               className={`${CELL} ${on ? ON.debuff : OFF}`}
             >
-              <Icon name="cond-exhaustion" size={24} color="currentColor" title={c.label} />
+              <ConditionMark condition="exhaustion" title={c.label} />
               <span className="truncate max-w-full">{c.label}</span>
               {/* Уровень для скринридера — живой регион: после «−»/«+» новый уровень озвучивается сам.
                   Видимое число — только глазу (aria-hidden), иначе читалось бы дважды. */}
@@ -89,7 +89,7 @@ export function ConditionGrid({ active, onToggle, onExhaustion, className = '' }
             onClick={() => onToggle(id, !on)}
             className={`${CELL} cursor-pointer hover:text-tx ${on ? ON[c.kind] : OFF} ${FOCUS}`}
           >
-            <Icon name={`cond-${id}`} size={24} color="currentColor" title={c.label} />
+            <ConditionMark condition={id} title={c.label} />
             <span className="truncate max-w-full">{c.label}</span>
           </button>
         );

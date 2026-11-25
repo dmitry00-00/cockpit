@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>3D4 · «Три фонаря» — прототип сцены</title>
+  <style>
+    :root { color-scheme: dark; --plum:#201620; --panel:#30232f; --wood:#684533; --wood-hi:#a8754b; --bronze:#b9874b; --bone:#ead9b7; --muted:#c4b7a6; --teal:#79b8ae; --line:#756257; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:radial-gradient(ellipse at 18% 3%,#493343 0,#241b25 48%,#171319 100%); color:var(--bone); font:15px/1.45 Georgia,serif; }
+    button { color:inherit; font:inherit; }
+    .shell { max-width:1240px; margin:auto; padding:24px; }
+    header { display:flex; align-items:end; justify-content:space-between; gap:20px; margin-bottom:18px; }
+    .eyebrow { color:var(--bronze); font:700 12px/1.3 system-ui,sans-serif; letter-spacing:.12em; text-transform:uppercase; }
+    h1 { font-size:clamp(26px,4vw,42px); margin:.12em 0; font-weight:500; }
+    .sub { color:var(--muted); margin:0; font:14px/1.45 system-ui,sans-serif; }
+    .mode { display:flex; gap:6px; border:1px solid var(--line); background:#211923; padding:5px; border-radius:3px; }
+    .mode button,.action { min-height:40px; border:1px solid transparent; background:#3d2c3b; padding:8px 13px; cursor:pointer; font:600 13px/1.2 system-ui,sans-serif; }
+    .mode button[aria-pressed="true"] { border-color:var(--bronze); color:#ffe2ae; box-shadow:inset 0 0 0 1px #8a623e; }
+    button:hover { filter:brightness(1.16); }
+    button:focus-visible { outline:3px solid #e7b665; outline-offset:2px; }
+    .layout { display:grid; grid-template-columns:minmax(0,1.65fr) minmax(280px,.85fr); gap:16px; align-items:start; }
+    .frame { padding:10px; border:1px solid #a17b52; background:linear-gradient(135deg,#654a3e,#281e2c 26%,#342333); box-shadow:0 18px 40px #09070bcc,inset 0 0 0 1px #e2bc7340; }
+    .stage { position:relative; min-height:520px; overflow:hidden; isolation:isolate; background:radial-gradient(ellipse at 48% 55%,#a87c4c 0,#705038 44%,#34272c 82%); }
+    .stage:before { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(165deg,#35252e 0 13%,transparent 13.2%),linear-gradient(180deg,#4a3031 0 16%,transparent 16.3%),repeating-linear-gradient(0deg,#0000 0 47px,#2e1c1c55 48px 51px),linear-gradient(174deg,#815c3f 0 16%,#674832 16.4% 100%); }
+    .beam { position:absolute; top:12%; left:6%; width:88%; height:8px; background:linear-gradient(#c08a50,#4b2f2a); transform:rotate(-2deg); box-shadow:0 8px 14px #130d10; }
+    .fireplace { position:absolute; left:7%; bottom:15%; width:21%; height:29%; background:linear-gradient(135deg,#544047,#211920); border:7px ridge #8c6745; box-shadow:inset 0 -35px 25px #fa8c2a45; }
+    .fireplace:after { content:""; position:absolute; width:32%; height:38%; left:34%; bottom:0; background:radial-gradient(ellipse,#ffd26b 0,#e66a29 45%,#632f29 70%,transparent 73%); filter:drop-shadow(0 0 15px #ed742b); }
+    .bar { position:absolute; right:5%; top:26%; width:22%; height:43%; background:linear-gradient(90deg,#4b302c,#956440 30%,#654231 72%,#321f23); border:5px ridge #a77b4e; transform:skewY(-4deg); box-shadow:10px 12px 18px #1d1117; }
+    .table { position:absolute; left:47%; top:50%; width:31%; height:25%; border-radius:50%; background:radial-gradient(ellipse at 35% 28%,#bd8955 0,#88583a 47%,#4b302c 83%); border:9px ridge #6b432e; box-shadow:0 20px 0 -8px #362328,0 30px 18px #1a1117; }
+    .table:after { content:""; position:absolute; top:35%; left:38%; width:28%; height:16%; border-radius:50%; background:#382532; box-shadow:0 1px 4px #e8c38666; }
+    .window { position:absolute; left:37%; top:17%; width:19%; height:21%; border:8px ridge #866348; background:linear-gradient(135deg,#365b69,#213044 60%,#d29c5c); box-shadow:inset 0 0 18px #9ed3d077; }
+    .window:after { content:""; position:absolute; inset:0 48%; background:#4c3129; box-shadow:0 0 0 2px #4c3129; }
+    .label { position:absolute; left:11px; bottom:8px; padding:4px 7px; color:#f0dcb9; background:#1b1417bd; font:700 11px/1.2 system-ui,sans-serif; letter-spacing:.06em; }
+    .hotspot { position:absolute; z-index:2; transform:translate(-50%,-50%); width:62px; height:62px; display:grid; place-items:center; border:2px solid #d5ac6d; border-radius:50%; background:radial-gradient(circle at 35% 25%,#886242,#342433 72%); box-shadow:0 5px 14px #120d13, inset 0 0 0 3px #2a1c23; cursor:pointer; }
+    .hotspot[aria-pressed="true"] { border-color:#ffe1a2; box-shadow:0 0 0 4px #e3b25b66,0 0 24px #efbd6a; }
+    .hotspot svg { width:42px; height:42px; overflow:visible; filter:drop-shadow(0 2px 2px #1c1017); }
+    .hotspot .tag { position:absolute; top:100%; margin-top:6px; left:50%; transform:translateX(-50%); white-space:nowrap; padding:3px 6px; background:#21181ede; border:1px solid #8e704f; font:12px/1.2 system-ui,sans-serif; }
+    aside,.script { border:1px solid #705845; background:linear-gradient(155deg,#3a2c38,#251d27 70%); box-shadow:0 12px 28px #100b12aa; }
+    aside { padding:18px; min-height:320px; }
+    h2 { margin:0 0 10px; font-size:21px; font-weight:500; }
+    .kind { color:var(--teal); font:700 11px/1.3 system-ui,sans-serif; letter-spacing:.1em; text-transform:uppercase; }
+    .detail { color:#e6d8c2; min-height:94px; }
+    .detail p { margin:.6em 0; }
+    .notice { color:var(--muted); font:12px/1.5 system-ui,sans-serif; border-left:2px solid var(--bronze); padding-left:10px; }
+    .actions { display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+    .action.primary { background:#6f4e37; border-color:#b78b59; }
+    .action:disabled { opacity:.5; cursor:not-allowed; }
+    .script { margin-top:16px; padding:14px 18px; color:var(--muted); font:13px/1.5 system-ui,sans-serif; }
+    .script strong { color:var(--bone); }
+    .status { min-height:1.5em; color:#f0d3a1; font:13px/1.4 system-ui,sans-serif; margin:12px 0 0; }
+    @media(max-width:850px) { .shell{padding:14px}.layout{grid-template-columns:1fr}.stage{min-height:440px}header{align-items:start; flex-direction:column}.mode{align-self:stretch}.mode button{flex:1} }
+    @media(max-width:480px) { .stage{min-height:350px}.hotspot{width:52px;height:52px}.hotspot svg{width:34px;height:34px}.beam{top:11%}.bar{right:3%;width:25%}.window{left:34%;width:23%} }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div>
+        <div class="eyebrow">Исследовательский прототип · авторская сцена</div>
+        <h1>Три фонаря</h1>
+        <p class="sub">Таверна без привязки к канону · дождливая ночь · сцена слухов и улик</p>
+      </div>
+      <div class="mode" role="group" aria-label="Аудитория сцены">
+        <button id="dm-mode" type="button" aria-pressed="true">Мастер</button>
+        <button id="player-mode" type="button" aria-pressed="false">Игроки</button>
+      </div>
+    </header>
+    <div class="layout">
+      <section class="frame" aria-label="Интерактивная сцена таверны">
+        <div class="stage" id="stage">
+          <div class="beam"></div><div class="window"></div><div class="fireplace"></div><div class="bar"></div><div class="table"></div>
+          <span class="label">ЗАЛ · ДОЖДЬ ПО СТЁКЛАМ</span>
+        </div>
+      </section>
+      <aside aria-label="Выбранная улика">
+        <div class="kind" id="audience-label">Вид мастера · 3 детали</div>
+        <h2 id="detail-title">Выберите предмет в зале</h2>
+        <div class="detail" id="detail"><p>Нажатие открывает заметку-прототип. Здесь нет бросков, Сл и скрытых игровых эффектов.</p></div>
+        <p class="notice" id="mapping">Действия ниже только моделируют связь с NOTE_ADDED. В прототипе они не записывают кампанию.</p>
+        <div class="actions">
+          <button class="action" id="dm-note" type="button" disabled>Заметка мастеру</button>
+          <button class="action primary" id="reveal" type="button" disabled>Раскрыть игрокам</button>
+        </div>
+        <p class="status" id="status" role="status" aria-live="polite"></p>
+      </aside>
+    </div>
+    <section class="script" aria-label="Сценарная рамка">
+      <strong>За столом.</strong> Мастер описывает зал и дождь. Игроки сами выбирают: рассмотреть следы, поговорить с человеком у окна или осмотреть стойку. Мастер открывает улики по ситуации и решает, что записать себе, а что сообщить партии. Нет обязательного порядка и придуманного броска.
+    </section>
+  </main>
+  <script src="./prototype.js"></script>
+
+</body>
+</html>

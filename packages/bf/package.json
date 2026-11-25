@@ -1,0 +1,24 @@
+{
+  "format": 1,
+  "id": "bf",
+  "kind": "rules",
+  "title": "Black Flag SRD",
+  "titleRu": "Black Flag SRD",
+  "version": "2026.10.31",
+  "layers": [
+    {
+      "id": "content-bf-monsters-json",
+      "path": "content/bf/monsters.json",
+      "kinds": [
+        "monster"
+      ],
+      "license": "CC-BY-4.0",
+      "distribution": "open",
+      "attribution": "Black Flag Reference Document by Kobold Press, Creative Commons Attribution 4.0 International.",
+      "source": {
+        "url": "https://koboldpress.com/black-flag-reference-document/"
+      }
+    }
+  ],
+  "distribution": "open"
+}

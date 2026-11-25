@@ -1,0 +1,56 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "event",
+  "entities": [
+    {
+      "ref": "event:littlefinger-plan-to-bribe-city-watch",
+      "kind": "event",
+      "name": "Littlefinger proposes bribing the City Watch",
+      "subtitle": "A Game of Thrones · Eddard XIII (ch. 47)",
+      "status": "secondary-indexed-partial",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard XIII (chapter 47); A Wiki of Ice and Fire numeric chapter index",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_47",
+        "license": "CC-BY-SA-3.0",
+        "attribution": "A Wiki of Ice and Fire (AWOIAF), chapter index contributors; CC BY-SA 3.0. Original brief formulation; primary book verification pending.",
+        "bookId": "agot",
+        "chapterNo": 47
+      },
+      "locators": [
+        {
+          "book": "A Game of Thrones",
+          "chapterNo": 47,
+          "chapterTitle": "Eddard XIII",
+          "relation": "plan-or-proposal",
+          "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_47"
+        }
+      ],
+      "facts": [
+        {
+          "label": "Статус события",
+          "value": "план / предложение; исполнение не подтверждено"
+        },
+        {
+          "label": "Локаторы",
+          "value": "Eddard XIII (глава 47)"
+        },
+        {
+          "label": "Сверка по роману",
+          "value": "не выполнена; не назначать абсолютную дату"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Краткая сводка",
+          "text": "AWOIAF описывает предложение Littlefinger привлечь поддержку Городской стражи через взятку Яносу Слинту. Карточка фиксирует только план; совершение выплаты и поведение Стражи не утверждаются."
+        }
+      ],
+      "links": [],
+      "verification": {
+        "primaryBook": "pending",
+        "note": "Первичный текст и выбранное издание не проверены."
+      }
+    }
+  ]
+}

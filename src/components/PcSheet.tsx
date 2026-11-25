@@ -3,9 +3,10 @@
 // с меткой владения и характеристикой в скобках, «Владение +N» в шапке навыков. И паспорт данных: откуда лист
 // и чего в нём нет — одной моноширинной строкой, чтобы мастер видел, можно ли верить записи, до первого скролла.
 // Тупые: числа считает campaign/sheetView.ts, страница передаёт их пропсами; клик — бросок через onRoll.
-import { useState, type ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
 import type { EntityRef } from '../entities/ref';
 import { Icon, type IconName } from '../icons/Icon';
+import { PortraitImage, resolvePortrait, type PortraitRef } from '../art/portrait';
 import { useOpenEntity } from './openEntity';
 import { abilityIcon } from './sheetIcons';
 import { ABILITIES, type AbilityId, type SkillId } from '../rules/srd/abilities';
@@ -39,7 +40,7 @@ const ROLL_HOVER = 'cursor-pointer enabled:hover:from-pl enabled:hover:to-pl foc
  * Шесть характеристик плитками: код, очко крупно (как на карточке), модификатор — в утопленной ячейке под ним,
  * спасбросок — строкой с золотой меткой владения. Клик — проверка характеристики d20 + модификатор.
  */
-export function AbilityScores({ abilities, onRoll, right }: { abilities: readonly AbilityCell[]; onRoll?: (a: AbilityCell) => void; right?: ReactNode }) {
+export function AbilityScores({ abilities, onRoll, onRollSave, right }: { abilities: readonly AbilityCell[]; onRoll?: (a: AbilityCell) => void; onRollSave?: (a: AbilityCell) => void; right?: ReactNode }) {
   return (
     <section aria-label="Характеристики" className="flex flex-col gap-2">
       <div className="flex items-center justify-between gap-2">
@@ -48,28 +49,32 @@ export function AbilityScores({ abilities, onRoll, right }: { abilities: readonl
       </div>
       <div className="grid grid-cols-6 gap-1" data-part="abilities">
         {abilities.map(a => (
-          <button
-            key={a.id}
-            type="button"
-            title={`${ABILITIES[a.id].name}: ${signedMod(a.mod)} · спасбросок ${signedMod(a.save)}${a.saveProficient ? ' (владение)' : ''}${a.hint ? `\n${a.hint}` : ''}`}
-            onClick={onRoll ? () => onRoll(a) : undefined}
-            disabled={!onRoll}
-            className={`relative flex flex-col items-center gap-0.5 pt-1.5 pb-1 bg-linear-to-b from-pl to-cd ${tileEdge(a.id, false)} ${ROLL_HOVER} disabled:cursor-default`}
-          >
-            {/* Код первым: по нему кнопку находят и читают («DEX …»), иконка — после. */}
-            <span className="flex items-center gap-1 type-num-12 uppercase text-t2">
-              {ABILITIES[a.id].code}
-              <Icon name={abilityIcon(a.id)} size={16} title={ABILITIES[a.id].name} />
-            </span>
-            <span className="type-num-24 text-tx [text-shadow:0_1px_0_var(--lo)]">{a.score}</span>
-            <span className="type-num-15 text-tx bg-wl shadow-bevel-in min-w-9 text-center" data-part="mod">{signedMod(a.mod)}</span>
-            <span className={`flex items-center gap-1 type-num-12 ${a.saveProficient ? 'text-gd' : 'text-t2'}`} data-part="save">
-              {a.saveProficient
-                ? <span role="img" aria-label="владение спасброском" title="владение спасброском" className="size-2 bg-gd" />
-                : <span aria-hidden className="size-2 bg-wl shadow-bevel-in" />}
+          <div key={a.id} className={`min-w-0 flex flex-col bg-linear-to-b from-pl to-cd ${tileEdge(a.id, false)}`}>
+            <button
+              type="button"
+              aria-label={`Проверка ${ABILITIES[a.id].code} ${signedMod(a.mod)}`}
+              title={`${ABILITIES[a.id].name}: ${signedMod(a.mod)}${a.hint ? `\n${a.hint}` : ''} · проверка d20`}
+              onClick={onRoll ? () => onRoll(a) : undefined}
+              disabled={!onRoll}
+              className={`relative flex flex-col items-center gap-0.5 pt-1.5 pb-1 ${ROLL_HOVER} disabled:cursor-default`}
+            >
+              <span className="flex items-center gap-1 type-num-12 uppercase text-t2">{ABILITIES[a.id].code}<Icon name={abilityIcon(a.id)} size={16} title={ABILITIES[a.id].name} /></span>
+              <span className="type-num-24 text-tx [text-shadow:0_1px_0_var(--lo)]">{a.score}</span>
+              <span className="type-num-15 text-tx bg-wl shadow-bevel-in min-w-9 text-center" data-part="mod">{signedMod(a.mod)}</span>
+            </button>
+            <button
+              type="button"
+              aria-label={`Спасбросок ${ABILITIES[a.id].code} ${signedMod(a.save)}`}
+              title={`Спасбросок ${ABILITIES[a.id].name}: ${signedMod(a.save)}${a.saveProficient ? ' · владение' : ''} · бросок d20`}
+              onClick={onRollSave ? () => onRollSave(a) : undefined}
+              disabled={!onRollSave}
+              className={`flex items-center justify-center gap-1 py-0.5 type-num-12 border-t border-lo ${a.saveProficient ? 'text-gd' : 'text-t2'} enabled:hover:bg-cd focus-visible:shadow-[var(--glow-gold)] disabled:cursor-default`}
+              data-part="save"
+            >
+              {a.saveProficient ? <span aria-hidden className="size-2 bg-gd" /> : <span aria-hidden className="size-2 bg-wl shadow-bevel-in" />}
               {signedMod(a.save)}
-            </span>
-          </button>
+            </button>
+          </div>
         ))}
       </div>
     </section>
@@ -149,11 +154,11 @@ export interface PassportData {
 }
 
 /** Поля паспорта, которые заполняются со слов игрока (SHEET_EDITED, Q20): подпись пробела → поле. */
-export type PassportField = 'alignment' | 'height' | 'weight' | 'age';
+export type PassportField = 'alignment' | 'height' | 'weight' | 'age' | 'homeland';
 const FILLABLE: Readonly<Record<string, readonly PassportField[]>> = {
-  'мировоззрение': ['alignment'], 'рост': ['height'], 'вес': ['weight'], 'возраст': ['age'], 'рост, вес, возраст': ['height', 'weight', 'age'],
+  'мировоззрение': ['alignment'], 'рост': ['height'], 'вес': ['weight'], 'возраст': ['age'], 'рост, вес, возраст': ['height', 'weight', 'age'], 'родом из': ['homeland'],
 };
-const FIELD_LABEL: Readonly<Record<PassportField, string>> = { alignment: 'мировоззрение', height: 'рост', weight: 'вес', age: 'возраст' };
+const FIELD_LABEL: Readonly<Record<PassportField, string>> = { alignment: 'мировоззрение', height: 'рост', weight: 'вес', age: 'возраст', homeland: 'родом из' };
 const FIELD = 'h-6 px-1 type-body-sm text-tx bg-wl shadow-bevel-in focus-visible:shadow-[var(--bevel-in),var(--glow-gold)]';
 
 /**
@@ -166,6 +171,16 @@ export function DataPassport({ passport, onFill }: { passport: PassportData; onF
   const [field, setField] = useState<PassportField | null>(null);
   const [value, setValue] = useState('');
   const [reason, setReason] = useState('со слов игрока');
+  const needsHomeland = passport.missing.includes('родом из');
+  const [kingdoms, setKingdoms] = useState<readonly { id: string; name: string }[]>([]);
+  useEffect(() => {
+    if (!needsHomeland) return;
+    let live = true;
+    void import('../world/kingdoms').then(m => m.loadKingdoms()).then(all => {
+      if (live) setKingdoms([...all.values()].sort((a, b) => a.name.localeCompare(b.name, 'en')));
+    });
+    return () => { live = false; };
+  }, [needsHomeland]);
   const fields = passport.missing.flatMap(m => FILLABLE[m] ?? []);
   const rest = passport.missing.filter(m => !FILLABLE[m]);
   const ok = value.trim() !== '' && reason.trim() !== '' && (field !== 'age' || /^\d+$/.test(value.trim()));
@@ -188,7 +203,12 @@ export function DataPassport({ passport, onFill }: { passport: PassportData; onF
       </p>
       {onFill && field ? (
         <form aria-label={`Заполнить: ${FIELD_LABEL[field]}`} className="flex flex-wrap items-center gap-1.5" onSubmit={e => { e.preventDefault(); if (ok) { onFill(field, value.trim(), reason.trim()); setField(null); } }}>
-          <input aria-label={FIELD_LABEL[field]} value={value} onChange={e => setValue(e.target.value)} placeholder={FIELD_LABEL[field]} className={`${FIELD} w-40`} />
+          {field === 'homeland' ? (
+            <select aria-label={FIELD_LABEL[field]} value={value} onChange={e => setValue(e.target.value)} className={`${FIELD} w-48`}>
+              <option value="">Выбрать державу</option>
+              {kingdoms.map(k => <option key={k.id} value={k.id}>{k.name}</option>)}
+            </select>
+          ) : <input aria-label={FIELD_LABEL[field]} value={value} onChange={e => setValue(e.target.value)} placeholder={FIELD_LABEL[field]} className={`${FIELD} w-40`} />}
           <input aria-label="Причина" value={reason} onChange={e => setReason(e.target.value)} className={`${FIELD} w-40`} />
           <button type="submit" disabled={!ok} className="type-num-12 uppercase px-2 py-0.5 bg-cd shadow-bevel text-t2 cursor-pointer enabled:hover:text-tx disabled:opacity-(--op-disabled)">Записать</button>
           <button type="button" onClick={() => setField(null)} className="type-num-12 uppercase px-2 py-0.5 bg-cd shadow-bevel text-t2 cursor-pointer hover:text-tx">Отмена</button>
@@ -214,15 +234,33 @@ function DeityLine({ deity }: { deity: NonNullable<PcHeaderData['deity']> }) {
   );
 }
 
+/** Родная держава открывается тем же общим маршрутом, что подпись страны на карте. */
+function HomelandLine({ homeland }: { homeland: NonNullable<PcHeaderData['homeland']> }) {
+  const openEntity = useOpenEntity();
+  return (
+    <span className="flex items-center gap-1 min-w-0" data-part="homeland" title="Родная держава">
+      <Icon name="ent-location" size={16} color="var(--ent-location)" title="Родом из" />
+      <span className="type-key text-t2">Родом из</span>
+      {openEntity ? (
+        <button type="button" title={`Открыть карточку державы: ${homeland.name}`} onClick={() => openEntity(homeland.ref)} className="min-w-0 truncate text-tx underline decoration-t3 cursor-pointer hover:text-gd-hi focus-visible:shadow-[var(--glow-gold)]">
+          {homeland.name}
+        </button>
+      ) : <span className="min-w-0 truncate text-tx">{homeland.name}</span>}
+    </span>
+  );
+}
+
 export interface PcHeaderData {
   level: number;
   /** «Полурослик · Легконогий · Следопыт» — раса, подраса и класс одной строкой, как «Lightfoot Halfling Ranger». */
   title: string;
+  portrait?: PortraitRef;
   /** Иконки расы и класса перед строкой; имя — в тултипе. */
   emblems?: readonly { icon: IconName; title: string }[];
   alignment?: string;
   /** Божество (E8): имя латиницей, символ — из карточки бога, когда справочник загружен. */
   deity?: { name: string; ref: EntityRef; symbol?: string };
+  homeland?: { name: string; ref: EntityRef };
   speed?: number;
   height?: string;
   weight?: string;
@@ -234,12 +272,14 @@ export interface PcHeaderData {
  * мировоззрение и скорость с иконками, справа — рост, вес, возраст столбиком. Чего нет — строки нет.
  */
 export function PcHeader({ data, name }: { data: PcHeaderData; name: string }) {
+  const portrait = resolvePortrait(data.portrait);
+  const fallbackPortrait = <Icon name="ent-pc" size={48} color="var(--gd)" title={name} />;
   const body = ([['Рост', data.height], ['Вес', data.weight], ['Возраст', data.age]] as [string, string | undefined][])
     .filter((r): r is [string, string] => Boolean(r[1]));
   return (
     <div className="flex items-stretch gap-3" data-part="pc-header">
-      <div className="relative size-16 flex-none flex items-center justify-center bg-linear-to-b from-pl to-cd shadow-[var(--bevel),var(--frame)] m-1" data-part="portrait" title="Портрет: пока иконка персонажа">
-        <Icon name="ent-pc" size={48} color="var(--gd)" title={name} />
+      <div className="relative size-16 flex-none flex items-center justify-center overflow-hidden bg-linear-to-b from-pl to-cd shadow-[var(--bevel),var(--frame)] m-1" data-part="portrait" title={portrait ? `Портрет: ${name}` : 'Портрет: заглушка персонажа'}>
+        {portrait ? <PortraitImage portrait={portrait} alt={`Портрет: ${name}`} width={64} sizes="64px" className="size-16 object-cover" fallback={fallbackPortrait} /> : fallbackPortrait}
         <span className="absolute -left-1 -bottom-1 type-num-15 text-gd-hi bg-pl shadow-bevel px-1" title="Уровень">{data.level}</span>
       </div>
       <div className="flex-1 min-w-0 flex flex-col justify-center gap-1">
@@ -261,6 +301,7 @@ export function PcHeader({ data, name }: { data: PcHeaderData; name: string }) {
               </span>
             ) : null}
             {data.deity ? <DeityLine deity={data.deity} /> : null}
+            {data.homeland ? <HomelandLine homeland={data.homeland} /> : null}
             {data.speed !== undefined ? (
               <span className="flex items-center gap-1" title="Скорость ходьбы">
                 <Icon name="move" size={16} color="var(--t2)" title="Скорость" />

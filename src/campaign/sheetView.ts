@@ -102,7 +102,7 @@ export interface Passport {
   missing: string[];
 }
 
-/** Пустые поля листа, которые видны на бумажной карточке: мировоззрение, тело, предыстория. */
+/** Пустые поля листа, которые видны на карточке: мировоззрение, тело, предыстория и родная держава. */
 export function missingFieldsOf(actor: Actor): string[] {
   const sheet = actor.sheet;
   if (!sheet) return ['лист'];
@@ -113,6 +113,7 @@ export function missingFieldsOf(actor: Actor): string[] {
   if (body.length === 3) out.push('рост, вес, возраст');
   else out.push(...body);
   if (!sheet.backgroundId) out.push('предыстория');
+  if (!sheet.homeland) out.push('родом из');
   return out;
 }
 

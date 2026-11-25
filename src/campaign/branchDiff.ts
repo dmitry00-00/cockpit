@@ -3,7 +3,7 @@
 // предложениям, припасы, где партия. Чистая функция над состояниями.
 import { GOODS, partyPlaceId, type State } from '../engine';
 import { GOODS_LABEL, RELATION_LABEL } from '../components/labels';
-import { formatHarptos } from './calendar';
+import { calendarAdapterForState } from './calendar';
 
 export type DiffGroup = 'time' | 'relation' | 'faction' | 'location' | 'thread' | 'delta' | 'party';
 
@@ -29,7 +29,7 @@ export function diffWorld(states: readonly State[]): WorldDiffRow[] {
   const union = <T>(pick: (s: State) => Record<string, T>) => [...new Set(states.flatMap(s => Object.keys(pick(s))))].sort();
   const nameOf = (pick: (s: State) => Record<string, { name: string }>, id: string) => states.map(s => pick(s)[id]?.name).find(Boolean) ?? id;
 
-  add('time', 'time', 'Дата', s => formatHarptos(s.time.sec));
+  add('time', 'time', 'Дата', s => calendarAdapterForState(s).formatDate(s.time.sec));
   add('party', 'party', 'Где партия', s => { const id = partyPlaceId(s); return id ? s.world.locations[id]?.name ?? id : '—'; });
   add('supply', 'party', 'Припасы', s => String(s.supply ?? 0));
 

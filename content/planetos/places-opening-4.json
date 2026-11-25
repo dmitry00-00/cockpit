@@ -1,0 +1,205 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "place",
+  "entities": [
+    {
+      "ref": "place:barrowlands",
+      "kind": "place",
+      "name": "Barrowlands",
+      "nameRu": "Барроуленды",
+      "subtitle": "A Game of Thrones · Eddard II · регион",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Wiki of Ice and Fire, Barrowlands place entry and A Game of Thrones, Eddard II (chapter index; secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_12",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        { "label": "Локатор", "value": "Eddard II" },
+        { "label": "Категория", "value": "равнинная область Севера между Винтерфеллом и Рвом Кайлин" },
+        { "label": "География", "value": "точные границы и координаты не заданы в карточке" },
+        { "label": "Сверка", "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся" }
+      ],
+      "sections": [
+        { "title": "Опорный срез", "text": "По пути из Винтерфелла на юг Эддард и Роберт ненадолго съезжают с Королевского тракта и едут по открытой местности Барроулендов." }
+      ],
+      "links": [
+        { "label": "The North", "ref": "place:the-north" },
+        { "label": "Kingsroad", "ref": "place:kingsroad" },
+        { "label": "Moat Cailin", "ref": "place:moat-cailin" },
+        { "label": "Eddard Stark", "ref": "person:eddard-stark" },
+        { "label": "Robert Baratheon", "ref": "person:robert-baratheon" }
+      ]
+    },
+    {
+      "ref": "place:chatayas-brothel",
+      "kind": "place",
+      "name": "Chataya's brothel",
+      "nameRu": "Бордель Чатая",
+      "subtitle": "A Game of Thrones · Eddard IX · заведение",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Wiki of Ice and Fire, Chataya's brothel place entry and A Game of Thrones, Eddard IX (chapter index; secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_35",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        { "label": "Локатор", "value": "Eddard IX" },
+        { "label": "Категория", "value": "бордель на Улице Шёлка в Королевской Гавани" },
+        { "label": "География", "value": "координаты не заданы" },
+        { "label": "Сверка", "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся" }
+      ],
+      "sections": [
+        { "title": "Опорный срез", "text": "Нед посещает заведение Чатая в ходе расследования смерти Джона Аррена; точная планировка не нужна для этой карточки." }
+      ],
+      "links": [
+        { "label": "King's Landing", "ref": "place:kings-landing" },
+        { "label": "Chataya", "ref": "person:chataya" },
+        { "label": "Barra", "ref": "person:barra" },
+        { "label": "Eddard Stark", "ref": "person:eddard-stark" },
+        { "label": "Jory Cassel", "ref": "person:jory-cassel" }
+      ]
+    },
+    {
+      "ref": "place:great-sept-of-baelor",
+      "kind": "place",
+      "name": "Great Sept of Baelor",
+      "nameRu": "Великая септа Бейлора",
+      "subtitle": "A Game of Thrones · Arya V · септа",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Wiki of Ice and Fire, Great Sept of Baelor place entry and A Game of Thrones, Arya V (chapter index; secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_65",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        { "label": "Локатор", "value": "Arya V" },
+        { "label": "Категория", "value": "главная септа Веры в Семерых в Королевской Гавани" },
+        { "label": "География", "value": "на холме Висеньи; координаты не заданы" },
+        { "label": "Сверка", "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся" }
+      ],
+      "sections": [
+        { "title": "Опорный срез", "text": "Публичная казнь Эддарда происходит на ступенях септы; это место связано с решающим переломом в Королевской Гавани." }
+      ],
+      "links": [
+        { "label": "King's Landing", "ref": "place:kings-landing" },
+        { "label": "Eddard Stark", "ref": "person:eddard-stark" },
+        { "label": "Arya Stark", "ref": "person:arya-stark" },
+        { "label": "Yoren", "ref": "person:yoren" },
+        { "label": "Execution of Eddard Stark", "ref": "event:eddard-executed-at-kings-landing" }
+      ]
+    },
+    {
+      "ref": "place:sky-cells-of-the-eyrie",
+      "kind": "place",
+      "name": "Sky Cells of the Eyrie",
+      "nameRu": "Небесные камеры Орлиного Гнезда",
+      "subtitle": "A Game of Thrones · Tyrion V · тюрьма",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Wiki of Ice and Fire, Sky cells place entry and A Game of Thrones, Tyrion V (chapter index; secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_38",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        { "label": "Локатор", "value": "Tyrion V" },
+        { "label": "Категория", "value": "тюремные камеры на нижних уровнях Орлиного Гнезда" },
+        { "label": "География", "value": "камеры открыты с одной стороны над обрывом; координаты не заданы" },
+        { "label": "Сверка", "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся" }
+      ],
+      "sections": [
+        { "title": "Опорный срез", "text": "Место заключения Тириона: необычное устройство камер делает пребывание опасным и влияет на его попытку добиться суда поединком." }
+      ],
+      "links": [
+        { "label": "The Eyrie", "ref": "place:the-eyrie" },
+        { "label": "Tyrion Lannister", "ref": "person:tyrion-lannister" },
+        { "label": "Mord", "ref": "person:mord" }
+      ]
+    },
+    {
+      "ref": "place:high-hall-of-the-eyrie",
+      "kind": "place",
+      "name": "High Hall of the Eyrie",
+      "nameRu": "Большой зал Орлиного Гнезда",
+      "subtitle": "A Game of Thrones · Tyrion V · зал",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Wiki of Ice and Fire, High Hall place entry and A Game of Thrones, Tyrion V (chapter index; secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_38",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        { "label": "Локатор", "value": "Tyrion V" },
+        { "label": "Категория", "value": "главный зал дома Арренов в Орлином Гнезде" },
+        { "label": "География", "value": "внутреннее помещение; координаты не заданы" },
+        { "label": "Сверка", "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся" }
+      ],
+      "sections": [
+        { "title": "Опорный срез", "text": "Здесь Лиза Аррен выслушивает требование Тириона о суде поединком; зал важен как пространство власти и публичного решения." }
+      ],
+      "links": [
+        { "label": "The Eyrie", "ref": "place:the-eyrie" },
+        { "label": "Tyrion Lannister", "ref": "person:tyrion-lannister" },
+        { "label": "Lysa Arryn", "ref": "person:lysa-arryn" },
+        { "label": "Bronn", "ref": "person:bronn" },
+        { "label": "Trial by combat demanded by Tyrion", "ref": "event:tyrion-requests-trial-by-combat" }
+      ]
+    },
+    {
+      "ref": "place:drogos-tent",
+      "kind": "place",
+      "name": "Drogo's tent",
+      "nameRu": "Шатёр Дрого",
+      "subtitle": "A Game of Thrones · Daenerys VIII–IX · временный лагерь",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys VIII–IX; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_64",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        { "label": "Локаторы", "value": "Daenerys VIII; Daenerys IX" },
+        { "label": "Категория", "value": "временное жилище кхала в лагере кхаласара" },
+        { "label": "География", "value": "точное место в Дотракийском море и координаты не заданы" },
+        { "label": "Сверка", "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся" }
+      ],
+      "sections": [
+        { "title": "Опорный срез", "text": "Шатёр служит местом ухода за Дрого после травмы и последующих событий вокруг обряда Мирри; это временная сцена, не постоянное поселение." }
+      ],
+      "links": [
+        { "label": "Dothraki Sea", "ref": "place:dothraki-sea" },
+        { "label": "Daenerys Targaryen", "ref": "person:daenerys-targaryen" },
+        { "label": "Drogo", "ref": "person:drogo" },
+        { "label": "Mirri Maz Duur", "ref": "person:mirri-maz-duur" },
+        { "label": "Jorah Mormont", "ref": "person:jorah-mormont" },
+        { "label": "Blood ritual to save Drogo", "ref": "event:daenerys-invokes-blood-magic-to-save-drogo" }
+      ]
+    },
+    {
+      "ref": "place:golden-tooth",
+      "kind": "place",
+      "name": "Golden Tooth",
+      "nameRu": "Золотой Зуб",
+      "subtitle": "A Game of Thrones · Catelyn VIII · замок и проход",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Wiki of Ice and Fire, Golden Tooth place entry and A Game of Thrones, Catelyn VIII (chapter index; secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_55",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        { "label": "Локатор", "value": "Catelyn VIII — место упоминается в сообщении о ранее состоявшейся битве, это не сцена в замке" },
+        { "label": "Категория", "value": "крепость дома Леффорд, контролирующая проход между Западными землями и Речными землями" },
+        { "label": "География", "value": "точные координаты не заданы" },
+        { "label": "Сверка", "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся" }
+      ],
+      "sections": [
+        { "title": "Опорный срез", "text": "В Catelyn VIII Робб сообщает о поражении сил Ванса и Пайпера у Золотого Зуба; карточка отделяет упомянутую локацию от места текущей сцены в Рву Кайлин." }
+      ],
+      "links": [
+        { "label": "Riverlands", "ref": "place:riverlands" },
+        { "label": "Riverrun", "ref": "place:riverrun" }
+      ]
+    }
+  ]
+}

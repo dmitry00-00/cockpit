@@ -12,8 +12,8 @@
 // утоплено; число — в тултипе и имени кнопки). Щелчок открывает варианты над полосой: вводный абзац и варианты блока
 // дословно, у варианта — стоимость; «Потратить» зовёт onLegendarySpend со стоимостью, «Вернуть одно» —
 // onLegendaryRestore. Попап — внутри подвала, а не в ряду: прокручиваемый ряд его срезал бы. Esc закрывает.
-// Без колбэков (стол игроков) колонки нет: на столе игроков у монстра нет блока (Q1). Слота логова полоса из
-// данных не строит — ни у одного блока в данных нет lair actions (rules/srd/legendary.ts).
+// Без колбэков (стол игроков) книжная справка не показывается: на столе игроков у монстра нет блока (Q1).
+// Действия логова — отдельные owner-source варианты у инициативы 20; выбор и последствия вручную применяет мастер.
 
 import { useRef, useState, type KeyboardEvent } from 'react';
 import type { EntityType } from './EntityCard';
@@ -28,6 +28,20 @@ export interface InitiativeLegendary {
   options: readonly { name: string; text: string; cost: number }[];
 }
 
+/** Справочные действия логова из выбранного книжного источника; сами эффекты мастер применяет вручную. */
+export interface InitiativeLairActions {
+  actorId: string;
+  source: string;
+  sourceUrl: string;
+  intro: string;
+  round: number;
+  usedThisRound?: string;
+  previousRoundOption?: string;
+  /** New encounters disable this profile slot unless the GM confirmed a lair context. */
+  unavailableOutsideLair?: boolean;
+  options: readonly { id: string; name: string; summary: string }[];
+}
+
 export interface InitiativeBarEntry {
   id: string;
   name: string;
@@ -36,8 +50,12 @@ export interface InitiativeBarEntry {
   hp?: HpTriple;
   legendary?: number;
   lair?: boolean;
+  /** The A5E Obsessed Wisdom save failed; the actor's first-round actions were skipped. */
+  lostFirstRoundActions?: boolean;
   /** Легендарные действия из блока — колонка пипок справа от токена (только с колбэками). */
   legendaryActions?: InitiativeLegendary;
+  /** Книжные варианты действий логова: справочная карточка у слота инициативы 20. */
+  lairActions?: InitiativeLairActions;
 }
 
 export interface InitiativeBarProps {
@@ -56,6 +74,10 @@ export interface InitiativeBarProps {
   onLegendarySpend?: (id: string, amount: number) => void;
   /** Возврат одного легендарного действия вручную (RESOURCE_RESTORED). */
   onLegendaryRestore?: (id: string, amount: number) => void;
+  /** Отметить выбранное действие логова; reducer enforces round and repeat limits. */
+  onLairAction?: (actorId: string, optionId: string) => void;
+  /** Книжное действие логова можно выбрать только в открытом слоте инициативы 20. */
+  lairActionWindowOpen?: boolean;
   className?: string;
 }
 
@@ -68,22 +90,39 @@ const POPOVER_W = 400;
 
 const legendaryTitle = (l: InitiativeLegendary) => `Легендарные действия: ${l.max - l.spent} из ${l.max} · варианты`;
 
-export function InitiativeBar({ round, entries, activeId, selectedId, onOpen, onNextTurn, onEnd, onLegendarySpend, onLegendaryRestore, className = '' }: InitiativeBarProps) {
+export function InitiativeBar({ round, entries, activeId, selectedId, onOpen, onNextTurn, onEnd, onLegendarySpend, onLegendaryRestore, onLairAction, lairActionWindowOpen = false, className = '' }: InitiativeBarProps) {
   const footerRef = useRef<HTMLElement>(null);
   const [legendaryOpen, setLegendaryOpen] = useState<{ id: string; left: number } | null>(null);
+  const [lairOpen, setLairOpen] = useState<{ id: string; left: number } | null>(null);
   const editable = Boolean(onLegendarySpend);
+  const canShowLairAction = Boolean(onLairAction);
   const openEntry = legendaryOpen ? entries.find(e => e.id === legendaryOpen.id && e.legendaryActions) : undefined;
+  const openLairEntry = lairOpen && lairActionWindowOpen ? entries.find(e => e.id === lairOpen.id && e.lairActions) : undefined;
   const toggle = (id: string, button: HTMLElement) => {
     if (legendaryOpen?.id === id) { setLegendaryOpen(null); return; }
     // Попап — над колонкой пипок, но в пределах полосы: позиция считается, как ширина полоски хитов у токена.
     const f = footerRef.current?.getBoundingClientRect();
     const b = button.getBoundingClientRect();
     const left = f ? Math.max(0, Math.min(b.left - f.left, f.width - POPOVER_W)) : 0;
+    setLairOpen(null);
     setLegendaryOpen({ id, left });
+  };
+  const toggleLair = (id: string, button: HTMLElement) => {
+    if (!lairActionWindowOpen) return;
+    if (lairOpen?.id === id) { setLairOpen(null); return; }
+    const f = footerRef.current?.getBoundingClientRect();
+    const b = button.getBoundingClientRect();
+    const left = f ? Math.max(0, Math.min(b.left - f.left, f.width - POPOVER_W)) : 0;
+    setLegendaryOpen(null);
+    setLairOpen({ id, left });
   };
   // Esc — на всём подвале: фокус остаётся на колонке пипок или уходит в попап; дальше стола клавиша не идёт.
   const onKey = (e: KeyboardEvent<HTMLElement>) => {
-    if (e.key === 'Escape' && legendaryOpen) { e.stopPropagation(); setLegendaryOpen(null); }
+    if (e.key === 'Escape' && (legendaryOpen || lairOpen)) {
+      e.stopPropagation();
+      setLegendaryOpen(null);
+      setLairOpen(null);
+    }
   };
   return (
     <footer
@@ -99,9 +138,23 @@ export function InitiativeBar({ round, entries, activeId, selectedId, onOpen, on
       </div>
       {/* Ряд во всю высоту внутреннего поля (60px): активный токен 60px входит без обрезки; боковые 6px — под его масштаб на краях. */}
       <ol aria-label="Порядок инициативы" className="flex h-full flex-1 min-w-0 items-center gap-2 overflow-x-auto px-1.5">
-        {entries.map(({ legendaryActions: l, ...e }) => (
+        {entries.map(({ legendaryActions: l, lairActions, lostFirstRoundActions, ...e }) => (
           <li key={e.id} className="flex flex-none items-center">
-            <InitiativeToken {...e} active={e.id === activeId} selected={e.id === selectedId} onOpen={onOpen} />
+            <InitiativeToken {...e} active={e.id === activeId || Boolean(lairActions && canShowLairAction && lairActionWindowOpen)} selected={e.id === selectedId} onOpen={lairActions ? undefined : onOpen} />
+            {lostFirstRoundActions ? <span data-part="lost-first-round-actions" aria-label={`${e.name}: потерял действия первого раунда`} title="A5E Obsessed: провал спасброска Мудрости Сл 15; действия первого раунда пропущены" className="ml-1 type-num-12 uppercase text-t2">Пропуск</span> : null}
+            {lairActions && canShowLairAction ? (
+              <button
+                type="button"
+                data-part="lair-actions-trigger"
+                data-lair={e.id}
+                aria-expanded={lairActionWindowOpen && lairOpen?.id === e.id}
+                aria-label={lairActions.unavailableOutsideLair ? `Действия логова недоступны без подтверждения логова: ${e.name}` : `Варианты действий логова: ${e.name}`}
+                title={lairActions.unavailableOutsideLair ? 'Недоступно: мастер не подтвердил, что бой проходит в логове' : lairActionWindowOpen ? `Варианты действий логова · ${lairActions.source}` : 'Откроется после всех участников с инициативой 20 или выше'}
+                disabled={!lairActionWindowOpen || lairActions.unavailableOutsideLair === true}
+                onClick={ev => toggleLair(e.id, ev.currentTarget)}
+                className={`${BTN} ml-1`}
+              >{lairActions.unavailableOutsideLair ? 'Недоступно' : 'Варианты'}</button>
+            ) : null}
             {l && editable ? (
               <button
                 type="button"
@@ -130,6 +183,14 @@ export function InitiativeBar({ round, entries, activeId, selectedId, onOpen, on
           onRestore={onLegendaryRestore ? () => onLegendaryRestore(openEntry.id, 1) : undefined}
         />
       ) : null}
+      {openLairEntry?.lairActions && lairOpen ? (
+        <LairPopover
+          name={openLairEntry.name}
+          lair={openLairEntry.lairActions}
+          left={lairOpen.left}
+          onUse={optionId => { onLairAction?.(openLairEntry.lairActions!.actorId, optionId); setLairOpen(null); }}
+        />
+      ) : null}
       {onNextTurn || onEnd ? (
         <div data-part="actions" className="flex flex-none items-center gap-1">
           {onEnd ? (
@@ -139,6 +200,55 @@ export function InitiativeBar({ round, entries, activeId, selectedId, onOpen, on
         </div>
       ) : null}
     </footer>
+  );
+}
+
+interface LairPopoverProps {
+  name: string;
+  lair: InitiativeLairActions;
+  left: number;
+  onUse: (optionId: string) => void;
+}
+
+/** Краткие книжные варианты под инициативой; выбор и последствия остаются решением мастера. */
+function LairPopover({ name, lair, left, onUse }: LairPopoverProps) {
+  const usedName = lair.options.find(option => option.id === lair.usedThisRound)?.name;
+  const previousName = lair.options.find(option => option.id === lair.previousRoundOption)?.name;
+  return (
+    <section
+      role="dialog"
+      aria-label={`Действия логова: ${name}`}
+      data-part="lair-popover"
+      style={{ left }}
+      className="absolute bottom-full mb-1 z-20 flex w-100 max-h-[60vh] flex-col gap-2 overflow-y-auto bg-pn p-3 shadow-float"
+    >
+      <header className="flex items-baseline gap-2">
+        <span className="type-h-17 text-tx flex-1 min-w-0 truncate" title={name}>{name}</span>
+        <span className="type-num-12 text-t2 flex-none">Инициатива 20</span>
+      </header>
+      <p className="type-body-sm text-t2">{lair.intro}</p>
+      {usedName ? <p className="type-body-sm text-gd">Раунд {lair.round}: уже выбрано «{usedName}».</p> : null}
+      {previousName ? <p className="type-body-sm text-t2">В прошлом раунде было «{previousName}»; этот вариант сейчас недоступен.</p> : null}
+      <ul className="flex flex-col gap-2">
+        {lair.options.map(option => (
+          <li key={option.id} className="flex flex-col gap-1 bg-cd p-2 shadow-bevel">
+            <div className="flex items-center gap-2">
+              <span className="type-body-sm text-tx flex-1">{option.name}</span>
+              <button
+                type="button"
+                disabled={lair.usedThisRound !== undefined || lair.previousRoundOption === option.id}
+                title={lair.usedThisRound !== undefined ? `Уже отмечено в раунде ${lair.round}` : lair.previousRoundOption === option.id ? 'Нельзя повторять в соседних раундах' : 'Отметить выбор; эффект разрешает ведущий'}
+                onClick={() => onUse(option.id)}
+                className={BTN}
+              >{lair.usedThisRound !== undefined ? 'Отмечено' : 'Выбрать'}</button>
+            </div>
+            <p className="type-body-sm text-t2">{option.summary}</p>
+          </li>
+        ))}
+      </ul>
+      <p className="type-body-xs text-t2">Выбор и ограничение раундов сохраняются; эффект мастер разрешает вручную.</p>
+      <a className="type-body-xs text-gd-hi underline" href={lair.sourceUrl} target="_blank" rel="noreferrer">Источник: {lair.source}</a>
+    </section>
   );
 }
 

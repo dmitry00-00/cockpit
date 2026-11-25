@@ -235,3 +235,20 @@ describe('TimeTempo', () => {
     expect(all).toHaveLength(7);
   });
 });
+
+describe('БА3: компактная полоса', () => {
+  it('редкие темпы раскрываются, выбранный редкий остаётся виден; рекомендация отдельно от текущего', () => {
+    const onChange=vi.fn(),onStep=vi.fn();
+    const {rerender}=render(<TimeTempo value="hour" recommended="day" compact onChange={onChange} onStep={onStep}/>);
+    expect(screen.queryByRole('radio',{name:'Год'})).toBeNull();
+    expect(screen.getByText('Текущий шаг: Час')).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button',{name:'Другие темпы'}));
+    expect(screen.getByRole('radio',{name:'Год'})).toBeInTheDocument();
+    fireEvent.click(screen.getByRole('button',{name:'Выбрать рекомендацию'}));
+    expect(onChange).toHaveBeenCalledWith('day');expect(onStep).not.toHaveBeenCalled();
+    rerender(<TimeTempo value="year" recommended="day" compact onChange={onChange} onStep={onStep}/>);
+    fireEvent.click(screen.getByRole('button',{name:'Другие темпы'}));
+    expect(screen.getByRole('radio',{name:'Год'})).toHaveAttribute('aria-checked','true');
+    expect(screen.queryByRole('radio',{name:'Сезон'})).toBeNull();
+  });
+});

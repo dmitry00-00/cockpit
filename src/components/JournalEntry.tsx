@@ -87,7 +87,7 @@ export function JournalEntry({
       <div className="pt-0.5">
         <Icon name={icon} size={16} color={iconColor} title={iconTitle} />
       </div>
-      <div data-part="body" className={`min-w-0 type-body ${tone}`}>
+      <div data-part="body" className={`min-w-0 [overflow-wrap:anywhere] type-body ${tone}`}>
         <span data-part="text" className={secret ? 'opacity-(--op-hidden-from-players)' : undefined}>
           {parts.map((p, i) => {
             if (p.kind === 'text') return <Fragment key={i}>{p.text}</Fragment>;

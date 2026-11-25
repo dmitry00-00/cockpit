@@ -1,0 +1,4612 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "person",
+  "entities": [
+    {
+      "ref": "person:axell-florent",
+      "kind": "person",
+      "name": "Axell Florent",
+      "nameRu": "Аксель Флорент",
+      "subtitle": "A Clash of Kings · chapter 0",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Prologue (chapter 0); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Prologue",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 0,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Локатор",
+          "value": "Prologue · chapter 0"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "появляется"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Сер Аксель входит в число лордов и рыцарей при дворе Станниса на Драконьем Камне."
+        }
+      ],
+      "links": [
+        {
+          "label": "Stannis Baratheon",
+          "ref": "person:stannis-baratheon"
+        },
+        {
+          "label": "Selyse Florent",
+          "ref": "person:selyse-florent"
+        }
+      ]
+    },
+    {
+      "ref": "person:cressen",
+      "kind": "person",
+      "name": "Cressen",
+      "nameRu": "Крессен",
+      "subtitle": "A Clash of Kings · chapter 0",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Prologue (chapter 0); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Prologue",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 0,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Локатор",
+          "value": "Prologue · chapter 0"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "появляется"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Роль",
+          "value": "мейстер Станниса на Драконьем Камне"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Старый мейстер Dragonstone пытается остановить конфликт Станниса с Мелисандрой и умирает после попытки отравить её."
+        }
+      ],
+      "links": [
+        {
+          "label": "Stannis Baratheon",
+          "ref": "person:stannis-baratheon"
+        },
+        {
+          "label": "Melisandre",
+          "ref": "person:melisandre"
+        },
+        {
+          "label": "Pylos",
+          "ref": "person:pylos"
+        }
+      ]
+    },
+    {
+      "ref": "person:guncer-sunglass",
+      "kind": "person",
+      "name": "Guncer Sunglass",
+      "nameRu": "Гунчер Саннегласс",
+      "subtitle": "A Clash of Kings · chapter 0",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Prologue (chapter 0); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Prologue",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 0,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Локатор",
+          "value": "Prologue · chapter 0"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "появляется"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Один из лордов, собравшихся на Драконьем Камне при Станнисе; глава называет его набожным."
+        }
+      ],
+      "links": [
+        {
+          "label": "Stannis Baratheon",
+          "ref": "person:stannis-baratheon"
+        }
+      ]
+    },
+    {
+      "ref": "person:monford-velaryon",
+      "kind": "person",
+      "name": "Monford Velaryon",
+      "nameRu": "Монфорд Веларион",
+      "subtitle": "A Clash of Kings · chapter 0",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Prologue (chapter 0); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Prologue",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 0,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Локатор",
+          "value": "Prologue · chapter 0"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "появляется"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Лорд, присутствующий на пиру Станниса среди его знаменосцев; дополнительных биографических выводов этот локатор не подтверждает."
+        }
+      ],
+      "links": [
+        {
+          "label": "Stannis Baratheon",
+          "ref": "person:stannis-baratheon"
+        }
+      ]
+    },
+    {
+      "ref": "person:patchface",
+      "kind": "person",
+      "name": "Patchface",
+      "nameRu": "Пятнистый",
+      "subtitle": "A Clash of Kings · chapter 0",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Prologue (chapter 0); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Prologue",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 0,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Prologue · chapter 0"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "появляется"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Шут при дворе Станниса появляется на пире и произносит загадочные строки; их смысл вторичный указатель не объясняет."
+        }
+      ],
+      "links": [
+        {
+          "label": "Stannis Baratheon",
+          "ref": "person:stannis-baratheon"
+        },
+        {
+          "label": "Cressen",
+          "ref": "person:cressen"
+        }
+      ]
+    },
+    {
+      "ref": "person:vylarr",
+      "kind": "person",
+      "name": "Vylarr",
+      "nameRu": "Виларр",
+      "subtitle": "A Clash of Kings · chapter 3",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Tyrion I (chapter 3); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_3",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 3,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Локатор",
+          "value": "Tyrion I · chapter 3"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "появляется"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Капитан домашней стражи Серсеи; сопровождает Тириона по Королевской Гавани и исполняет распоряжения о головах на пиках."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Cersei Lannister",
+          "ref": "person:cersei-lannister"
+        }
+      ]
+    },
+    {
+      "ref": "person:satin",
+      "kind": "person",
+      "name": "Satin",
+      "nameRu": "Сатин",
+      "subtitle": "A Clash of Kings · chapter 6",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Jon I (chapter 6); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_6",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 6,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Локатор",
+          "value": "Jon I · chapter 6"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "появляется"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Новый рекрут Ночного Дозора, показанный среди братьев в Чёрном Замке."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Night's Watch",
+          "ref": "organization:nights-watch"
+        }
+      ]
+    },
+    {
+      "ref": "person:thoren-smallwood",
+      "kind": "person",
+      "name": "Thoren Smallwood",
+      "nameRu": "Торен Смолвуд",
+      "subtitle": "A Clash of Kings · chapter 6, 23",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Jon I (chapter 6); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_6",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 6,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Jon II · chapter 13"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "появляется"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Локатор",
+          "value": "Jon III, глава 23"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "appears"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорные срезы",
+          "text": "Глава 13: Брат Ночного Дозора в отряде Джона; участвует в осмотре опустевшей деревни и обсуждает увиденное у чардрева.\n\nГлава 23: Командир дозорных помогает выбирать оборонительную позицию и позднее ведёт отдельную разведывательную группу."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Jeor Mormont",
+          "ref": "person:jeor-mormont"
+        },
+        {
+          "label": "Night's Watch",
+          "ref": "organization:nights-watch"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Jon I (chapter 6); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_6",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 6,
+          "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Jon III (chapter 23); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_23",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 23
+        }
+      ]
+    },
+    {
+      "ref": "person:vargo-hoat",
+      "kind": "person",
+      "name": "Vargo Hoat",
+      "nameRu": "Варго Хоут",
+      "subtitle": "A Clash of Kings · chapter 7, 47, 64",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Catelyn I (chapter 7); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_7",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 7,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Catelyn I · chapter 7"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в источнике",
+          "value": "appears ch47; mentioned ch64"
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; первичное издание не сверялось."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорные срезы",
+          "text": "Глава 7: Куоренийский наёмник, которого Бринден Талли называет среди командиров, разоряющих Речные земли.\n\nГлава 47: Командир отряда наёмников, появляющийся при смене власти в Харренхолле. Позже его имя связывают с планом Рузе оставить ему замок."
+        }
+      ],
+      "links": [
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Harrenhal",
+          "ref": "place:harrenhal"
+        },
+        {
+          "label": "Roose Bolton",
+          "ref": "person:roose-bolton"
+        },
+        {
+          "label": "House Bolton",
+          "ref": "organization:house-bolton"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Catelyn I (chapter 7); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_7",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 7,
+          "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Arya IX (Chapter 47); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_47",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 47
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Arya X (Chapter 64); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_64",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 64
+        }
+      ]
+    },
+    {
+      "ref": "person:allard-deem",
+      "kind": "person",
+      "name": "Allar Deem",
+      "nameRu": "Аллар Дим",
+      "subtitle": "A Clash of Kings · chapter 8",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Tyrion II (chapter 8); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_8",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 8,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Tyrion II · chapter 8"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Человек, которого Джанос Слинт называет надёжным исполнителем; Тирион узнаёт, что тот убил женщину и её младенца, выполняя приказ."
+        }
+      ],
+      "links": [
+        {
+          "label": "Janos Slynt",
+          "ref": "person:janos-slynt"
+        },
+        {
+          "label": "Barra",
+          "ref": "person:barra"
+        },
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        }
+      ]
+    },
+    {
+      "ref": "person:allard-seaworth",
+      "kind": "person",
+      "name": "Allard Seaworth",
+      "nameRu": "Аллард Сиворт",
+      "subtitle": "A Clash of Kings · chapter 10, 58",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Davos I (chapter 10); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_10",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 10,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Локатор",
+          "value": "Davos I · chapter 10"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "появляется"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в источнике",
+          "value": "appears"
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; первичное издание не сверялось."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорные срезы",
+          "text": "Глава 10: Сын Давоса, присутствующий при религиозной церемонии на Драконьем Камне.\n\nГлава 58: Сын Давоса и участник морского похода у Черноводного залива; его появление расширяет семейную линию Давоса в сцене битвы."
+        }
+      ],
+      "links": [
+        {
+          "label": "Davos Seaworth",
+          "ref": "person:davos-seaworth"
+        },
+        {
+          "label": "Dale Seaworth",
+          "ref": "person:dale-seaworth"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Davos I (chapter 10); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_10",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 10,
+          "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Davos III (Chapter 58); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_58",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 58
+        }
+      ]
+    },
+    {
+      "ref": "person:dale-seaworth",
+      "kind": "person",
+      "name": "Dale Seaworth",
+      "nameRu": "Дейл Сиворт",
+      "subtitle": "A Clash of Kings · chapter 10, 58",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Davos I (chapter 10); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_10",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 10,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Локатор",
+          "value": "Davos I · chapter 10"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "появляется"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в источнике",
+          "value": "appears"
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; первичное издание не сверялось."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорные срезы",
+          "text": "Глава 10: Сын Давоса, присутствующий при религиозной церемонии на Драконьем Камне.\n\nГлава 58: Сын Давоса и член его экипажа, присутствующий на борту во время морской битвы."
+        }
+      ],
+      "links": [
+        {
+          "label": "Davos Seaworth",
+          "ref": "person:davos-seaworth"
+        },
+        {
+          "label": "Allard Seaworth",
+          "ref": "person:allard-seaworth"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Davos I (chapter 10); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_10",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 10,
+          "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Davos III (Chapter 58); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_58",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 58
+        }
+      ]
+    },
+    {
+      "ref": "person:pylos",
+      "kind": "person",
+      "name": "Pylos",
+      "nameRu": "Пайлос",
+      "subtitle": "A Clash of Kings · chapter 10",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Davos I (chapter 10); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_10",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 10,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Prologue · chapter 0"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "появляется"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Мейстер, которому Станнис поручает обязанности Крессена; он занимает место у стола, прежде принадлежавшее старому мейстеру."
+        }
+      ],
+      "links": [
+        {
+          "label": "Cressen",
+          "ref": "person:cressen"
+        },
+        {
+          "label": "Stannis Baratheon",
+          "ref": "person:stannis-baratheon"
+        }
+      ]
+    },
+    {
+      "ref": "person:salladhor-saan",
+      "kind": "person",
+      "name": "Salladhor Saan",
+      "nameRu": "Салладор Саан",
+      "subtitle": "A Clash of Kings · chapter 10",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Davos I (chapter 10); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_10",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 10,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Prologue · chapter 0"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "появляется"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Лисенийский капитан среди сторонников Станниса; в следующей главе обсуждает с Давосом войну и меч, называемый Светозарным."
+        }
+      ],
+      "links": [
+        {
+          "label": "Stannis Baratheon",
+          "ref": "person:stannis-baratheon"
+        },
+        {
+          "label": "Davos Seaworth",
+          "ref": "person:davos-seaworth"
+        }
+      ]
+    },
+    {
+      "ref": "person:dagmer-cleftjaw",
+      "kind": "person",
+      "name": "Dagmer Cleftjaw",
+      "nameRu": "Дагмер Раскалывающий Челюсть",
+      "subtitle": "A Clash of Kings · chapter 11, 37",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Theon I (chapter 11); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_11",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 11,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Theon I · chapter 11"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Оговорка",
+          "value": "Роль требует сверки по тексту главы."
+        },
+        {
+          "label": "Локатор",
+          "value": "Theon III, глава 37"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "appears"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорные срезы",
+          "text": "Глава 11: Назван в указателе главы Теона I среди железнорождённых; локальный chapter index не раскрывает здесь его действия.\n\nГлава 37: Железнорождённый командир принимает Теона на корабле и выслушивает его замысел доказать свою ценность Балону."
+        }
+      ],
+      "links": [
+        {
+          "label": "Theon Greyjoy",
+          "ref": "person:theon-greyjoy"
+        },
+        {
+          "label": "Balon Greyjoy",
+          "ref": "person:balon-greyjoy"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Theon I (chapter 11); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_11",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 11,
+          "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Theon III (chapter 37); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_37",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 37
+        }
+      ]
+    },
+    {
+      "ref": "person:quaithe",
+      "kind": "person",
+      "name": "Quaithe",
+      "nameRu": "Куэйта",
+      "subtitle": "A Clash of Kings · chapter 12, 27",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Daenerys I (chapter 12); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_12",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 12,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Локатор",
+          "value": "Daenerys I · chapter 12"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "появляется"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Локатор",
+          "value": "Daenerys II, глава 27"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "appears"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорные срезы",
+          "text": "Глава 12: Одна из трёх посланников из Кварта, прибывших к Дейенерис в Ваэс Толорро; группа заявляет, что ищет драконов.\n\nГлава 27: Теневая вязальщица предупреждает Дейенерис о стремлении окружающих завладеть драконами и советует не задерживаться в Кварте. Её мотивы остаются неясными."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Xaro Xhoan Daxos",
+          "ref": "person:xaro-xhoan-daxos"
+        },
+        {
+          "label": "Pyat Pree",
+          "ref": "person:pyat-pree"
+        },
+        {
+          "label": "Jorah Mormont",
+          "ref": "person:jorah-mormont"
+        },
+        {
+          "label": "Qarth",
+          "ref": "place:qarth"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Daenerys I (chapter 12); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_12",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 12,
+          "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Daenerys II (chapter 27); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_27",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 27
+        }
+      ]
+    },
+    {
+      "ref": "person:eddison-tollett",
+      "kind": "person",
+      "name": "Eddison Tollett",
+      "nameRu": "Эддисон Толлетт",
+      "subtitle": "A Clash of Kings · chapter 13",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Jon II (chapter 13); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_13",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 13,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Jon II · chapter 13"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "появляется"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Брат Ночного Дозора, сопровождающий Джона при осмотре домов в Уайттри; известен прозвищем Долорес Эдд."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Jeor Mormont",
+          "ref": "person:jeor-mormont"
+        },
+        {
+          "label": "Night's Watch",
+          "ref": "organization:nights-watch"
+        }
+      ]
+    },
+    {
+      "ref": "person:qhorin-halfhand",
+      "kind": "person",
+      "name": "Qhorin Halfhand",
+      "nameRu": "Куорен Полурукий",
+      "subtitle": "A Clash of Kings · chapter 13, 43, 51, 53, 68",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Jon II (chapter 13); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_13",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 13,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Локатор",
+          "value": "Jon II · chapter 13"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Локатор",
+          "value": "Jon V, глава 43"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "appears"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Jon VI; Jon VII; Jon VIII"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорные срезы",
+          "text": "Глава 13: Опытный брат Ночного Дозора, чьего присоединения к отряду Джон и Джейор ожидают за Стеной.\n\nГлава 43: Опытный дозорный приводит отряд из Теневой Башни и получает задание вести разведку в горы. Он сам выбирает Джона в группу.\n\nГлава 51: Опытный разведчик Ночного Дозора, который ведёт Джона и небольшой отряд через горы. Во время отхода убеждает Джона убить его, чтобы тот мог проникнуть к одичалым."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Jeor Mormont",
+          "ref": "person:jeor-mormont"
+        },
+        {
+          "label": "Night's Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Skirling Pass",
+          "ref": "place:skirling-pass"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Jon II (chapter 13); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_13",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 13,
+          "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Jon V (chapter 43); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_43",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 43
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Jon VI (Chapter 51); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_51",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 51
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Jon VII (Chapter 53); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_53",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 53
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Jon VIII (Chapter 68); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_68",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 68
+        }
+      ]
+    },
+    {
+      "ref": "person:amory-lorch",
+      "kind": "person",
+      "name": "Amory Lorch",
+      "nameRu": "Амори Лорх",
+      "subtitle": "A Clash of Kings · chapter 14",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Arya IV (chapter 14); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_14",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 14,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Arya IV · chapter 14"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "появляется"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Рыцарь, возглавляющий отряд ланнистерцев при нападении на укрепление Йорена."
+        }
+      ],
+      "links": [
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Yoren",
+          "ref": "person:yoren"
+        },
+        {
+          "label": "Attack on Yoren’s holdfast",
+          "ref": "event:attack-on-yoren-holdfast"
+        }
+      ]
+    },
+    {
+      "ref": "person:biter",
+      "kind": "person",
+      "name": "Biter",
+      "nameRu": "Кусачий",
+      "subtitle": "A Clash of Kings · chapter 14, 47, 64",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Arya IV (chapter 14); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_14",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 14,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Arya I · chapter 1"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "появляется"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в источнике",
+          "value": "appears ch47; mentioned ch64"
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; первичное издание не сверялось."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорные срезы",
+          "text": "Глава 1: Один из заключённых в отряде Йорена; во время нападения на обоз его крики слышны из запертого фургона.\n\nГлава 47: Опасный пленник среди людей, освобождённых при захвате Харренхолла; позднее в этом диапазоне его имя только упоминается."
+        }
+      ],
+      "links": [
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Rorge",
+          "ref": "person:rorge"
+        },
+        {
+          "label": "Yoren",
+          "ref": "person:yoren"
+        },
+        {
+          "label": "Vargo Hoat",
+          "ref": "person:vargo-hoat"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Arya IV (chapter 14); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_14",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 14,
+          "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Arya IX (Chapter 47); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_47",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 47
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Arya X (Chapter 64); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_64",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 64
+        }
+      ]
+    },
+    {
+      "ref": "person:hot-pie",
+      "kind": "person",
+      "name": "Hot Pie",
+      "nameRu": "Пирожок",
+      "subtitle": "A Clash of Kings · chapter 14, 19, 47, 64",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Arya IV (chapter 14); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_14",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 14,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Arya I · chapter 1"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "появляется"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в источнике",
+          "value": "appears"
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; первичное издание не сверялось."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорные срезы",
+          "text": "Глава 1: Сирота из отряда Йорена, который едет на север вместе с Арьей и Джендри.\n\nГлава 47: Мальчик из отряда Арьи, который остаётся рядом с ней и Джендри в Харренхолле, а затем уходит с ними из замка."
+        }
+      ],
+      "links": [
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Gendry",
+          "ref": "person:gendry"
+        },
+        {
+          "label": "Lommy Greenhands",
+          "ref": "person:lommy-greenhands"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Arya IV (chapter 14); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_14",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 14,
+          "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Arya V (chapter 19); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_19",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 19,
+          "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Arya IX (Chapter 47); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_47",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 47
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Arya X (Chapter 64); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_64",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 64
+        }
+      ]
+    },
+    {
+      "ref": "person:rorge",
+      "kind": "person",
+      "name": "Rorge",
+      "nameRu": "Рордж",
+      "subtitle": "A Clash of Kings · chapter 14, 47, 64",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Arya IV (chapter 14); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_14",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 14,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Arya I · chapter 1"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "появляется"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в источнике",
+          "value": "appears ch47; mentioned ch64"
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; первичное издание не сверялось."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорные срезы",
+          "text": "Глава 1: Один из заключённых, которых Йорен везёт вместе с новобранцами; при нападении на обоз остаётся среди людей в запертом фургоне.\n\nГлава 47: Пленник из отряда наёмников, которого Арья освобождает вместе с другими; позже его имя возникает в воспоминаниях и перечне преследователей."
+        }
+      ],
+      "links": [
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Biter",
+          "ref": "person:biter"
+        },
+        {
+          "label": "Yoren",
+          "ref": "person:yoren"
+        },
+        {
+          "label": "Vargo Hoat",
+          "ref": "person:vargo-hoat"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Arya IV (chapter 14); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_14",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 14,
+          "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Arya IX (Chapter 47); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_47",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 47
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Arya X (Chapter 64); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_64",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 64
+        }
+      ]
+    },
+    {
+      "ref": "person:shella-whent",
+      "kind": "person",
+      "name": "Shella Whent",
+      "nameRu": "Шелла Уэнт",
+      "subtitle": "A Clash of Kings · chapter 14",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Arya IV (chapter 14); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_14",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 14,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Локатор",
+          "value": "Arya IV · chapter 14"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Леди Харренхолла, которая упоминается как возможный адресат группы Йорена после переправы через Божье Око."
+        }
+      ],
+      "links": [
+        {
+          "label": "Harrenhal",
+          "ref": "place:harrenhal"
+        },
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        }
+      ]
+    },
+    {
+      "ref": "person:alayaya",
+      "kind": "person",
+      "name": "Alayaya",
+      "nameRu": "Алаяя",
+      "subtitle": "A Clash of Kings · chapter 15, 54",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Tyrion III (chapter 15); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_15",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 15,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Локатор",
+          "value": "Tyrion III · chapter 15"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "появляется"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Tyrion XII"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорные срезы",
+          "text": "Глава 15: Появляется в главе Тириона III в сюжетной линии Тириона, Шаи и Chataya’s brothel.\n\nГлава 54: Союзница Тириона в Королевской Гавани, которую он отсылает из города ради безопасности после давления Серсеи."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Chataya",
+          "ref": "person:chataya"
+        },
+        {
+          "label": "Chataya’s brothel",
+          "ref": "place:chatayas-brothel"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Tyrion III (chapter 15); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_15",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 15,
+          "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Tyrion XII (Chapter 54); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_54",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 54
+        }
+      ]
+    },
+    {
+      "ref": "person:lommy-greenhands",
+      "kind": "person",
+      "name": "Lommy Greenhands",
+      "nameRu": "Ломми Зеленые Руки",
+      "subtitle": "A Clash of Kings · chapter 19",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Arya V (chapter 19); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_19",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 19,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Arya I · chapter 1"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "появляется"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Мальчик-сирота в отряде Йорена, путешествующий вместе с Арьей; позднее погибает во время нападения на обоз."
+        }
+      ],
+      "links": [
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Hot Pie",
+          "ref": "person:hot-pie"
+        },
+        {
+          "label": "Gendry",
+          "ref": "person:gendry"
+        }
+      ]
+    },
+    {
+      "ref": "person:rafford",
+      "kind": "person",
+      "name": "Rafford",
+      "nameRu": "Рэффорд",
+      "subtitle": "A Clash of Kings · chapter 19",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Arya V (chapter 19); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_19",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 19,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Локатор",
+          "value": "Arya V · chapter 19"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "появляется"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Копейщик в отряде Грегора Клигана, который убивает Ломми, отказавшись нести раненого мальчика."
+        }
+      ],
+      "links": [
+        {
+          "label": "Lommy Greenhands",
+          "ref": "person:lommy-greenhands"
+        },
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Gregor Clegane",
+          "ref": "person:gregor-clegane"
+        }
+      ]
+    },
+    {
+      "ref": "person:hallyne",
+      "kind": "person",
+      "name": "Hallyne",
+      "nameRu": "Халлин",
+      "subtitle": "A Clash of Kings · chapter 20",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Tyrion V (chapter 20); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_20",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 20,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Tyrion V · chapter 20"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "появляется"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Мудрость из Гильдии алхимиков объясняет Тириону свойства запасов дикого огня и меры предосторожности при его хранении и применении."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Jacelyn Bywater",
+          "ref": "person:jacelyn-bywater"
+        },
+        {
+          "label": "Alchemists' Guild",
+          "ref": "organization:alchemists-guild"
+        }
+      ]
+    },
+    {
+      "ref": "person:jacelyn-bywater",
+      "kind": "person",
+      "name": "Jacelyn Bywater",
+      "nameRu": "Джаселин Байуотер",
+      "subtitle": "A Clash of Kings · chapter 20, 49",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Tyrion V (chapter 20); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_20",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 20,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Tyrion II · chapter 8"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "появляется"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в источнике",
+          "value": "appears"
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; первичное издание не сверялось."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорные срезы",
+          "text": "Глава 8: Рыцарь, которого Тирион рассматривает на должность командующего Городской стражей; позднее помогает ему с набором людей и подготовкой к обороне.\n\nГлава 49: Командир городской стражи Королевской Гавани, присутствующий при подготовке обороны Тириона."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "City Watch of King's Landing",
+          "ref": "organization:kings-landing-city-watch"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Tyrion V (chapter 20); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_20",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 20,
+          "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Tyrion XI (Chapter 49); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_49",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 49
+        }
+      ]
+    },
+    {
+      "ref": "person:stafford-lannister",
+      "kind": "person",
+      "name": "Stafford Lannister",
+      "nameRu": "Стаффорд Ланнистер",
+      "subtitle": "A Clash of Kings · chapter 20",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Tyrion V (chapter 20); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_20",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 20,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Локатор",
+          "value": "Tyrion V · chapter 20"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "В планах Тириона упоминается как человек, собирающий новое войско в Утёсе Кастерли."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Tywin Lannister",
+          "ref": "person:tywin-lannister"
+        },
+        {
+          "label": "Casterly Rock",
+          "ref": "place:casterly-rock"
+        }
+      ]
+    },
+    {
+      "ref": "person:big-walder-frey",
+      "kind": "person",
+      "name": "Big Walder Frey",
+      "nameRu": "Большой Уолдер Фрей",
+      "subtitle": "A Clash of Kings · chapter 21",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Bran III (chapter 21); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_21",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 21,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Bran II · chapter 16"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "появляется"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Один из двух юных Фреев, находящихся при дворе Брана в Винтерфелле; имя отличает его от кузена Малого Уолдера."
+        }
+      ],
+      "links": [
+        {
+          "label": "Little Walder Frey",
+          "ref": "person:little-walder-frey"
+        },
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "House Frey",
+          "ref": "organization:house-frey"
+        }
+      ]
+    },
+    {
+      "ref": "person:cley-cerwyn",
+      "kind": "person",
+      "name": "Cley Cerwyn",
+      "nameRu": "Клей Сервин",
+      "subtitle": "A Clash of Kings · chapter 21",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Bran III (chapter 21); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_21",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 21,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Локатор",
+          "value": "Bran II · chapter 16"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "появляется"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Юный лорд Сервин прибывает в Винтерфелл и сообщает Брану о письмах Станниса, объявляющих Джоффри незаконнорождённым."
+        }
+      ],
+      "links": [
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "Donella Hornwood",
+          "ref": "person:donella-hornwood"
+        }
+      ]
+    },
+    {
+      "ref": "person:donella-hornwood",
+      "kind": "person",
+      "name": "Donella Hornwood",
+      "nameRu": "Донелла Хорнвуд",
+      "subtitle": "A Clash of Kings · chapter 21",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Bran III (chapter 21); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_21",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 21,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Bran II · chapter 16"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "появляется"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Овдовевшая леди Хорнвуд опасается, что Рамси Сноу присвоит её земли после гибели мужа и единственного сына."
+        }
+      ],
+      "links": [
+        {
+          "label": "Ramsay Snow",
+          "ref": "person:ramsay-snow"
+        },
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "Cley Cerwyn",
+          "ref": "person:cley-cerwyn"
+        }
+      ]
+    },
+    {
+      "ref": "person:little-walder-frey",
+      "kind": "person",
+      "name": "Little Walder Frey",
+      "nameRu": "Малый Уолдер Фрей",
+      "subtitle": "A Clash of Kings · chapter 21",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Bran III (chapter 21); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_21",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 21,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Bran II · chapter 16"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "появляется"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Один из двух юных Фреев, находящихся при дворе Брана в Винтерфелле; имя отличает его от кузена Большого Уолдера."
+        }
+      ],
+      "links": [
+        {
+          "label": "Big Walder Frey",
+          "ref": "person:big-walder-frey"
+        },
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "House Frey",
+          "ref": "organization:house-frey"
+        }
+      ]
+    },
+    {
+      "ref": "person:selwyn-tarth",
+      "kind": "person",
+      "name": "Selwyn Tarth",
+      "nameRu": "Селвин Тарт",
+      "subtitle": "A Clash of Kings · chapter 22",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Catelyn II (chapter 22); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_22",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 22,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Локатор",
+          "value": "Catelyn II · chapter 22"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Отец Бриенны; Кейтлин слышит, что Ренли считает дочь Селвина достойной рыцаркой."
+        }
+      ],
+      "links": [
+        {
+          "label": "Brienne of Tarth",
+          "ref": "person:brienne-of-tarth"
+        },
+        {
+          "label": "Bitterbridge",
+          "ref": "place:bitterbridge"
+        }
+      ]
+    },
+    {
+      "ref": "person:craster",
+      "kind": "person",
+      "name": "Craster",
+      "nameRu": "Крастер",
+      "subtitle": "A Clash of Kings · chapter 23",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Jon III (chapter 23); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_23",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 23
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Локатор",
+          "value": "Jon III, глава 23"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "appears"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Встречает отряд Ночного дозора у своего дома. Джон узнаёт от Джилли о судьбе сыновей Крастера; сведения остаются речью персонажа."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Jeor Mormont",
+          "ref": "person:jeor-mormont"
+        },
+        {
+          "label": "Gilly",
+          "ref": "person:gilly"
+        },
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        }
+      ]
+    },
+    {
+      "ref": "person:gilly",
+      "kind": "person",
+      "name": "Gilly",
+      "nameRu": "Джилли",
+      "subtitle": "A Clash of Kings · chapter 23",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Jon III (chapter 23); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_23",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 23
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Локатор",
+          "value": "Jon III, глава 23"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "appears"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Жена Крастера рассказывает Джону о младенцах и «холодных богах». Это её свидетельство, а не независимое подтверждение причин."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Craster",
+          "ref": "person:craster"
+        }
+      ]
+    },
+    {
+      "ref": "person:jarmen-buckwell",
+      "kind": "person",
+      "name": "Jarmen Buckwell",
+      "nameRu": "Джармен Баквелл",
+      "subtitle": "A Clash of Kings · chapter 23",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Jon III (chapter 23); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_23",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 23
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Jon III, глава 23"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "appears"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Разведчик Ночного дозора участвует в походе и обсуждает с командованием путь за Стену."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jeor Mormont",
+          "ref": "person:jeor-mormont"
+        },
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        }
+      ]
+    },
+    {
+      "ref": "person:ottyn-wythers",
+      "kind": "person",
+      "name": "Ottyn Wythers",
+      "nameRu": "Оттин Уайтерс",
+      "subtitle": "A Clash of Kings · chapter 23",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Jon III (chapter 23); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_23",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 23
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Локатор",
+          "value": "Jon III, глава 23"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "appears"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Старший брат Ночного дозора, которому Джон передаёт сведения о прибытии к Крастеру."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        }
+      ]
+    },
+    {
+      "ref": "person:rymolph-stormdrunk",
+      "kind": "person",
+      "name": "Rymolf Stormdrunk",
+      "nameRu": "Раймольф Буревестник",
+      "subtitle": "A Clash of Kings · chapter 24",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Theon II (chapter 24); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_24",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 24
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Локатор",
+          "value": "Theon II, глава 24"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "mentioned"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Упомянут как рулевой корабля Теона, назначенный Виктарионом; отдельной сцены в локаторе нет."
+        }
+      ],
+      "links": [
+        {
+          "label": "Theon Greyjoy",
+          "ref": "person:theon-greyjoy"
+        },
+        {
+          "label": "Victarion Greyjoy",
+          "ref": "person:victarion-greyjoy"
+        }
+      ]
+    },
+    {
+      "ref": "person:wex-pyke",
+      "kind": "person",
+      "name": "Wex Pyke",
+      "nameRu": "Уэкс Пайк",
+      "subtitle": "A Clash of Kings · chapter 24, 50, 56, 66",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Theon II (chapter 24); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_24",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 24
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Theon II, глава 24"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "appears"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в источнике",
+          "value": "appears"
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; первичное издание не сверялось."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорные срезы",
+          "text": "Глава 24: Оруженосец Теона появляется на Пайке и сопровождает его в последующих действиях на северном побережье.\n\nГлава 50: Молчаливый оруженосец Теона; остаётся с ним в Винтерфелле и переживает падение замка. Его присутствие может связывать сцены поисков, осады и последующего раскрытия личности Рика."
+        }
+      ],
+      "links": [
+        {
+          "label": "Theon Greyjoy",
+          "ref": "person:theon-greyjoy"
+        },
+        {
+          "label": "Asha Greyjoy",
+          "ref": "person:asha-greyjoy"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Theon II (chapter 24); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_24",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 24
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Theon IV (Chapter 50); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_50",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 50
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Theon V (Chapter 56); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_56",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 56
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Theon VI (Chapter 66); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_66",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 66
+        }
+      ]
+    },
+    {
+      "ref": "person:chiswyck",
+      "kind": "person",
+      "name": "Chiswyck",
+      "nameRu": "Чисвик",
+      "subtitle": "A Clash of Kings · chapter 26",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Arya VI (chapter 26); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_26",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 26
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Локатор",
+          "value": "Arya VI, глава 26"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "appears"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Помогает Щекотуну на допросах; позднее в Харренхоле рассказывает историю, после которой Арья называет его Джакену."
+        }
+      ],
+      "links": [
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Tickler",
+          "ref": "person:tickler"
+        },
+        {
+          "label": "Jaqen H’ghar",
+          "ref": "person:jaqen-hghar"
+        }
+      ]
+    },
+    {
+      "ref": "person:tickler",
+      "kind": "person",
+      "name": "Tickler",
+      "nameRu": "Щекотун",
+      "subtitle": "A Clash of Kings · chapter 26",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Arya VI (chapter 26); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_26",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 26
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Локатор",
+          "value": "Arya VI, глава 26"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "appears"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Дознаватель войска Грегора проводит допросы жителей у Божьего Ока. Сводка не устанавливает полный список пострадавших."
+        }
+      ],
+      "links": [
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Gregor Clegane",
+          "ref": "person:gregor-clegane"
+        }
+      ]
+    },
+    {
+      "ref": "person:weese",
+      "kind": "person",
+      "name": "Weese",
+      "nameRu": "Уиз",
+      "subtitle": "A Clash of Kings · chapter 26",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Arya VI (chapter 26); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_26",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 26
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Локатор",
+          "value": "Arya VI, глава 26"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "appears"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Подстewард Башни Плача получает Арью в подчинение в Харренхоле. Его смерть обнаруживается в более поздней главе."
+        }
+      ],
+      "links": [
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Tywin Lannister",
+          "ref": "person:tywin-lannister"
+        },
+        {
+          "label": "Harrenhal",
+          "ref": "place:harrenhal"
+        }
+      ]
+    },
+    {
+      "ref": "person:quhuru-mo",
+      "kind": "person",
+      "name": "Quhuru Mo",
+      "nameRu": "Кхуру Мо",
+      "subtitle": "A Clash of Kings · chapter 27",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Daenerys II (chapter 27); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_27",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 27
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Daenerys II, глава 27"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "appears"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Капитан «Корица-Ветра» прибывает к Дейенерис с сообщениями о смерти Роберта и политическом расколе в Вестеросе; версии о предателе остаются слухами."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Jorah Mormont",
+          "ref": "person:jorah-mormont"
+        },
+        {
+          "label": "Qarth",
+          "ref": "place:qarth"
+        }
+      ]
+    },
+    {
+      "ref": "person:reek",
+      "kind": "person",
+      "name": "Reek",
+      "nameRu": "Вонючка",
+      "subtitle": "A Clash of Kings · chapter 35",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Bran V (chapter 35); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_35",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 35
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Bran V, глава 35"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "appears"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Пленный под именем Вонючка доставлен Родриком Касселем в Винтерфелл. Его тождество здесь не раскрывается; не объединять с Рамси без проверки книжной границы."
+        }
+      ],
+      "links": [
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "Rodrik Cassel",
+          "ref": "person:rodrik-cassel"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "person:benfred-tallhart",
+      "kind": "person",
+      "name": "Benfred Tallhart",
+      "nameRu": "Бенфред Толхарт",
+      "subtitle": "A Clash of Kings · chapter 37",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Theon III (chapter 37); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_37",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 37
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Theon III, глава 37"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "appears"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Командует отрядом на побережье, попадает в плен к людям Теона и затем гибнет при исполнении решения о жертвоприношении."
+        }
+      ],
+      "links": [
+        {
+          "label": "Theon Greyjoy",
+          "ref": "person:theon-greyjoy"
+        },
+        {
+          "label": "Aeron Greyjoy",
+          "ref": "person:aeron-greyjoy"
+        },
+        {
+          "label": "House Tallhart",
+          "ref": "organization:house-tallhart"
+        }
+      ]
+    },
+    {
+      "ref": "person:cortnay-penrose",
+      "kind": "person",
+      "name": "Cortnay Penrose",
+      "nameRu": "Кортни Пенроуз",
+      "subtitle": "A Clash of Kings · chapter 42",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Davos II (chapter 42); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_42",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 42
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Davos II, глава 42"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "appears"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Кастелян Штормового Предела отказывается сдать замок Станнису и Эдрика Шторма, сохраняя верность прежней клятве."
+        }
+      ],
+      "links": [
+        {
+          "label": "Stannis Baratheon",
+          "ref": "person:stannis-baratheon"
+        },
+        {
+          "label": "Davos Seaworth",
+          "ref": "person:davos-seaworth"
+        },
+        {
+          "label": "Edric Storm",
+          "ref": "person:edric-storm"
+        },
+        {
+          "label": "Storm’s End",
+          "ref": "place:storms-end"
+        }
+      ]
+    },
+    {
+      "ref": "person:alfyn-crowkiller",
+      "kind": "person",
+      "name": "Alfyn Crowkiller",
+      "nameRu": "Альфин Убийца Воронов",
+      "subtitle": "A Clash of Kings · chapter 43",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Jon V (chapter 43); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_43",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 43
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Jon V, глава 43"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "mentioned"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Предводитель одичалых, чьё столкновение с отрядом Куорена и гибель сообщаются Джону; деталей в главе немного."
+        }
+      ],
+      "links": [
+        {
+          "label": "Qhorin Halfhand",
+          "ref": "person:qhorin-halfhand"
+        },
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        }
+      ]
+    },
+    {
+      "ref": "person:lollys-stokeworth",
+      "kind": "person",
+      "name": "Lollys Stokeworth",
+      "nameRu": "Лоллис Стокворт",
+      "subtitle": "A Clash of Kings · chapter 44",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Tyrion X (chapter 44); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_44",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 44
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Tyrion X, глава 44"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "mentioned"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Варис предлагает устроить Шае служанкой Лоллис в Красном Замке; в этом локаторе она лишь упоминается."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Varys",
+          "ref": "person:varys"
+        }
+      ]
+    },
+    {
+      "ref": "person:osmund-kettleblack",
+      "kind": "person",
+      "name": "Osmund Kettleblack",
+      "nameRu": "Осмунд Кеттлблэк",
+      "subtitle": "A Clash of Kings · chapter 49, 57",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Tyrion XI (Chapter 49); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_49",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 49
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в источнике",
+          "value": "appears"
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; первичное издание не сверялось."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Старший из братьев Кеттлблэк и член Королевской гвардии; присутствует при подготовке столицы к обороне и придворных сценах."
+        }
+      ],
+      "links": [
+        {
+          "label": "Cersei Lannister",
+          "ref": "person:cersei-lannister"
+        },
+        {
+          "label": "Osfryd Kettleblack",
+          "ref": "person:osfryd-kettleblack"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Tyrion XI (Chapter 49); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_49",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 49
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Sansa V (Chapter 57); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_57",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 57
+        }
+      ]
+    },
+    {
+      "ref": "person:dalbridge",
+      "kind": "person",
+      "name": "Dalbridge",
+      "nameRu": "Далбридж",
+      "subtitle": "A Clash of Kings · chapter 51, 53",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Jon VI (Chapter 51); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_51",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 51
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Jon VI; Jon VII"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Разведчик Ночного Дозора. Остаётся прикрывать отход отряда Кворена в Скирлингском перевале и погибает."
+        }
+      ],
+      "links": [
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Qhorin Halfhand",
+          "ref": "person:qhorin-halfhand"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Jon VI (Chapter 51); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_51",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 51
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Jon VII (Chapter 53); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_53",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 53
+        }
+      ]
+    },
+    {
+      "ref": "person:ygritte",
+      "kind": "person",
+      "name": "Ygritte",
+      "nameRu": "Игритт",
+      "subtitle": "A Clash of Kings · chapter 51, 53, 68",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Jon VI (Chapter 51); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_51",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 51
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Jon VI; Jon VII; Jon VIII"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Одичалая, захваченная Джоном во время вылазки за Стену; затем он позволяет ей уйти. В поздней главе снова появляется в группе одичалых."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Skirling Pass",
+          "ref": "place:skirling-pass"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Jon VI (Chapter 51); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_51",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 51
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Jon VII (Chapter 53); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_53",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 53
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Jon VIII (Chapter 68); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_68",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 68
+        }
+      ]
+    },
+    {
+      "ref": "person:osfryd-kettleblack",
+      "kind": "person",
+      "name": "Osfryd Kettleblack",
+      "nameRu": "Осфрид Кеттлблэк",
+      "subtitle": "A Clash of Kings · chapter 54, 57, 60",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Tyrion XII (Chapter 54); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_54",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 54
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в источнике",
+          "value": "appears"
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; первичное издание не сверялось."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Один из братьев Кеттлблэк, служащих при дворе. В сценах битвы докладывает Серсее о положении в замке и исполняет её распоряжения."
+        }
+      ],
+      "links": [
+        {
+          "label": "Cersei Lannister",
+          "ref": "person:cersei-lannister"
+        },
+        {
+          "label": "Osney Kettleblack",
+          "ref": "person:osney-kettleblack"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Tyrion XII (Chapter 54); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_54",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 54
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Sansa V (Chapter 57); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_57",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 57
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Sansa VI (Chapter 60); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_60",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 60
+        }
+      ]
+    },
+    {
+      "ref": "person:osney-kettleblack",
+      "kind": "person",
+      "name": "Osney Kettleblack",
+      "nameRu": "Осней Кеттлблэк",
+      "subtitle": "A Clash of Kings · chapter 54, 60",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Tyrion XII (Chapter 54); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_54",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 54
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в источнике",
+          "value": "appears"
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; первичное издание не сверялось."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Брат Кеттлблэк, служащий при дворе. Передаёт Серсее вести о ходе битвы; его роль следует отличать от Осфрида и Осмунда."
+        }
+      ],
+      "links": [
+        {
+          "label": "Cersei Lannister",
+          "ref": "person:cersei-lannister"
+        },
+        {
+          "label": "Osfryd Kettleblack",
+          "ref": "person:osfryd-kettleblack"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Tyrion XII (Chapter 54); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_54",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 54
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Sansa VI (Chapter 60); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_60",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 60
+        }
+      ]
+    },
+    {
+      "ref": "person:matthos-seaworth",
+      "kind": "person",
+      "name": "Matthos Seaworth",
+      "nameRu": "Маттос Сиворт",
+      "subtitle": "A Clash of Kings · chapter 58",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Davos III (Chapter 58); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_58",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 58
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в источнике",
+          "value": "appears"
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; первичное издание не сверялось."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Сын Давоса и его ближайший помощник на корабле; появляется в эпизоде с морским флотом Станниса."
+        }
+      ],
+      "links": [
+        {
+          "label": "Davos Seaworth",
+          "ref": "person:davos-seaworth"
+        }
+      ]
+    },
+    {
+      "ref": "person:arstan-whitebeard",
+      "kind": "person",
+      "name": "Arstan Whitebeard",
+      "nameRu": "Арстан Белобородый",
+      "subtitle": "A Clash of Kings · chapter 63",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Daenerys V (Chapter 63); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_63",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 63
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Daenerys V"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Пожилой спутник посольства Иллирио. Вместе с Белвасом спасает Дейенерис от нападения."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Illyrio Mopatis",
+          "ref": "person:illyrio-mopatis"
+        }
+      ]
+    },
+    {
+      "ref": "person:strong-belwas",
+      "kind": "person",
+      "name": "Strong Belwas",
+      "nameRu": "Сильный Белвас",
+      "subtitle": "A Clash of Kings · chapter 63",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Daenerys V (Chapter 63); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_63",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 63
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Daenerys V"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Боец, сопровождающий посольство Иллирио; вмешивается, когда на Дейенерис совершают покушение в Кварте."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Qarth",
+          "ref": "place:qarth"
+        }
+      ]
+    },
+    {
+      "ref": "person:qyburn",
+      "kind": "person",
+      "name": "Qyburn",
+      "nameRu": "Квиберн",
+      "subtitle": "A Clash of Kings · chapter 64",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Arya X (Chapter 64); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_64",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 64
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в источнике",
+          "value": "appears"
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; первичное издание не сверялось."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Бывший мейстер среди советников Рузе в Харренхолле; читает письмо и участвует в разборе приказов для северных отрядов."
+        }
+      ],
+      "links": [
+        {
+          "label": "Roose Bolton",
+          "ref": "person:roose-bolton"
+        },
+        {
+          "label": "House Bolton",
+          "ref": "organization:house-bolton"
+        },
+        {
+          "label": "Harrenhal",
+          "ref": "place:harrenhal"
+        }
+      ]
+    },
+    {
+      "ref": "person:ballabar",
+      "kind": "person",
+      "name": "Ballabar",
+      "nameRu": "Баллабар",
+      "subtitle": "A Clash of Kings · chapter 67",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Tyrion XV (Chapter 67); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_67",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 67
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Tyrion XV"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Участник послевоенного придворного круга в Королевской Гавани; кандидат вторичного индекса для вспомогательной карточки."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "person:rattleshirt",
+      "kind": "person",
+      "name": "Rattleshirt",
+      "nameRu": "Трясучка",
+      "subtitle": "A Clash of Kings · chapter 68",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Jon VIII (Chapter 68); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_68",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 68
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Jon VIII"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Одичалый предводитель, известный как Лорд Костей; участвует в приёме Джона после его поединка с Квореном. Идентификацию в карточке следует сверить по выбранному изданию."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        }
+      ]
+    },
+    {
+      "ref": "person:kyra",
+      "kind": "person",
+      "name": "Kyra",
+      "nameRu": "Кира",
+      "subtitle": "A Clash of Kings · chapter 50, 66",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Theon IV (Chapter 50); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_50",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 50
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в источнике",
+          "value": "appears in chapter 50; mentioned in chapter 66"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Именованная жительница Винтерфелла; появляется в главе 50. Глава 66 вновь упоминает её при занятии замка, но карточка не выводит из этого самостоятельную политическую роль."
+        }
+      ],
+      "links": [
+        {
+          "label": "Theon Greyjoy",
+          "ref": "person:theon-greyjoy"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Theon IV (Chapter 50); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_50",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 50
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Theon VI (Chapter 66); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_66",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 66
+        }
+      ]
+    },
+    {
+      "ref": "person:black-lorren",
+      "kind": "person",
+      "name": "Black Lorren",
+      "nameRu": "Чёрный Лоррен",
+      "subtitle": "A Clash of Kings · chapter 50, 66",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Theon IV (Chapter 50); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_50",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 50
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в источнике",
+          "value": "appears in chapters 50 and 66"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Железнорождённый воин при Теоне: участвует в сцене обнаружения убитых стражей и позднее остаётся с Теоном во время осады Винтерфелла."
+        }
+      ],
+      "links": [
+        {
+          "label": "Theon Greyjoy",
+          "ref": "person:theon-greyjoy"
+        },
+        {
+          "label": "Wex Pyke",
+          "ref": "person:wex-pyke"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Theon IV (Chapter 50); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_50",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 50
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Theon VI (Chapter 66); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_66",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 66
+        }
+      ]
+    },
+    {
+      "ref": "person:ebben",
+      "kind": "person",
+      "name": "Ebben",
+      "nameRu": "Эббен",
+      "subtitle": "A Clash of Kings · chapter 51, 53, 68",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Jon VI (Chapter 51); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_51",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 51
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в источнике",
+          "value": "appears in chapters 51, 53, and 68"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Брат Ночного Дозора из разведывательного отряда Куорена; в главе 53 высказывает предположение о связи Джона с варгами. Это предположение персонажа, а не независимое доказательство."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Qhorin Halfhand",
+          "ref": "person:qhorin-halfhand"
+        },
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Jon VI (Chapter 51); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_51",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 51
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Jon VII (Chapter 53); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_53",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 53
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Jon VIII (Chapter 68); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_68",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 68
+        }
+      ]
+    },
+    {
+      "ref": "person:stonesnake",
+      "kind": "person",
+      "name": "Stonesnake",
+      "nameRu": "Стоунснейк",
+      "subtitle": "A Clash of Kings · chapter 51, 53, 68",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Jon VI (Chapter 51); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_51",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 51
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в источнике",
+          "value": "appears in chapters 51, 53, and 68"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Разведчик Ночного Дозора в отряде Куорена; помогает Джону подняться по скале в Скирлингском проходе и выступает против того, чтобы оставить Йгритт в живых."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Qhorin Halfhand",
+          "ref": "person:qhorin-halfhand"
+        },
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Jon VI (Chapter 51); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_51",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 51
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Jon VII (Chapter 53); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_53",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 53
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Jon VIII (Chapter 68); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_68",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 68
+        }
+      ]
+    },
+    {
+      "ref": "person:bael-the-bard",
+      "kind": "person",
+      "name": "Bael the Bard",
+      "nameRu": "Бейл Бард",
+      "subtitle": "A Clash of Kings · chapter 51",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Jon VI (Chapter 51); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_51",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 51
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в источнике",
+          "value": "mentioned in a story told by Ygritte"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Фигура из песни/легенды, которую Йгритт рассказывает Джону. Карточка фиксирует персонажа именно как героя рассказа; подробности предания не считаются независимо проверенной историей."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Ygritte",
+          "ref": "person:ygritte"
+        }
+      ]
+    },
+    {
+      "ref": "person:imry-florent",
+      "kind": "person",
+      "name": "Imry Florent",
+      "nameRu": "Имри Флорент",
+      "subtitle": "A Clash of Kings · chapter 58",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Davos III (Chapter 58); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_58",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 58
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в источнике",
+          "value": "mentioned as commander in chapter 58"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Командует флотом Станниса в бою на Черноводной; в главе показан не как участник сцены на борту корабля Давоса, а как названный командир."
+        }
+      ],
+      "links": [
+        {
+          "label": "Davos Seaworth",
+          "ref": "person:davos-seaworth"
+        },
+        {
+          "label": "Stannis Baratheon",
+          "ref": "person:stannis-baratheon"
+        }
+      ]
+    },
+    {
+      "ref": "person:aenys-frey",
+      "kind": "person",
+      "name": "Aenys Frey",
+      "nameRu": "Эйнис Фрей",
+      "subtitle": "A Clash of Kings · chapter 64",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Arya X (Chapter 64); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_64",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 64
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в источнике",
+          "value": "appears in chapter 64"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Один из Фреев при Рузе Болтоне в Харренхолле; присутствует на совещании после битвы на Черноводной. Не смешивать с другими представителями дома Фреев."
+        }
+      ],
+      "links": [
+        {
+          "label": "Roose Bolton",
+          "ref": "person:roose-bolton"
+        },
+        {
+          "label": "House Frey",
+          "ref": "organization:house-frey"
+        }
+      ]
+    },
+    {
+      "ref": "person:garlan-tyrell",
+      "kind": "person",
+      "name": "Garlan Tyrell",
+      "nameRu": "Гарлан Тирелл",
+      "subtitle": "A Clash of Kings · chapter 65",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Sansa VIII (Chapter 65); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_65",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 65
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в источнике",
+          "value": "appears in chapter 65"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Представлен при дворе после битвы на Черноводной; просит Джоффри взять в жёны его сестру Маргери."
+        }
+      ],
+      "links": [
+        {
+          "label": "Joffrey Baratheon",
+          "ref": "person:joffrey-baratheon"
+        },
+        {
+          "label": "Margaery Tyrell",
+          "ref": "person:margaery-tyrell"
+        },
+        {
+          "label": "House Tyrell",
+          "ref": "organization:house-tyrell"
+        }
+      ]
+    },
+    {
+      "ref": "person:orell",
+      "kind": "person",
+      "name": "Orell",
+      "nameRu": "Орэлл (рабочая передача)",
+      "subtitle": "A Clash of Kings · chapter 68; index association chapter 51",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Jon VIII (Chapter 68); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_68",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 68
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в источнике",
+          "value": "упоминается в главе 68; chapter index связывает имя с появлением орла в главе 51"
+        },
+        {
+          "label": "Оговорка",
+          "value": "Физическое присутствие человека в сцене главы 51 не подтверждено; первичное издание не сверялось."
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Йгритт сообщает Джону, что следивший за их отрядом орёл был прежде человеком, которого Джон убил в проходах; AWOIAF называет Орэлла среди упомянутых в этой главе и связывает его с более ранней сценой. Карточка не утверждает, что сам человек физически присутствует."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Ygritte",
+          "ref": "person:ygritte"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Jon VIII (Chapter 68); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_68",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 68
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Jon VI (Chapter 51); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_51",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 51
+        }
+      ]
+    }
+  ]
+}

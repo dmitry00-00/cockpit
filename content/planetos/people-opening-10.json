@@ -1,0 +1,487 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "person",
+  "entities": [
+    {
+      "ref": "person:drogon",
+      "kind": "person",
+      "name": "Drogon",
+      "nameRu": "Дрогон",
+      "subtitle": "A Game of Thrones · Daenerys X",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Daenerys X; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_72", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Daenerys X"},
+        {"label": "Статус в главе", "value": "появляется"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Сверка", "value": "AWOIAF отмечает дракона среди появляющихся; текст выбранного издания не сверялся"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Один из трёх драконов, вылупившихся на погребальном костре Дрого. Дейенерис называет его в честь своего покойного мужа."}],
+      "links": [{"label": "Daenerys Targaryen", "ref": "person:daenerys-targaryen"}, {"label": "Drogo", "ref": "person:drogo"}]
+    },
+    {
+      "ref": "person:rhaegal",
+      "kind": "person",
+      "name": "Rhaegal",
+      "nameRu": "Рейгаль",
+      "subtitle": "A Game of Thrones · Daenerys X",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Daenerys X; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_72", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Daenerys X"},
+        {"label": "Статус в главе", "value": "появляется"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Сверка", "value": "AWOIAF отмечает дракона среди появляющихся; текст выбранного издания не сверялся"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Зелёно-бронзовый дракон, вылупившийся вместе с братьями на костре Дрого. Имя дано в честь Рейегара Таргариена."}],
+      "links": [{"label": "Daenerys Targaryen", "ref": "person:daenerys-targaryen"}, {"label": "Rhaegar Targaryen", "ref": "person:rhaegar-targaryen"}]
+    },
+    {
+      "ref": "person:viserion",
+      "kind": "person",
+      "name": "Viserion",
+      "nameRu": "Визерион",
+      "subtitle": "A Game of Thrones · Daenerys X",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Daenerys X; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_72", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Daenerys X"},
+        {"label": "Статус в главе", "value": "появляется"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Сверка", "value": "AWOIAF отмечает дракона среди появляющихся; текст выбранного издания не сверялся"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Кремово-золотой дракон, вылупившийся на костре Дрого. Его яйцо Дейенерис положила между ног мужа перед возжиганием костра."}],
+      "links": [{"label": "Daenerys Targaryen", "ref": "person:daenerys-targaryen"}, {"label": "Drogo", "ref": "person:drogo"}]
+    },
+    {
+      "ref": "person:balerion-the-cat",
+      "kind": "person",
+      "name": "Balerion (black cat)",
+      "nameRu": "Бейлерион (чёрный кот)",
+      "subtitle": "A Game of Thrones · Eddard XV",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Eddard XV; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_58", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Eddard XV; чёрный кот появляется в Arya III"},
+        {"label": "Статус в главе", "value": "упоминается по имени; кот появляется ранее"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Неопределённость", "value": "В Eddard XV Варис называет котёнка Рейнис Бейлерионом; тождество этого кота взрослому одноглазому коту Красного замка предполагается, но прямо не подтверждено."},
+        {"label": "Сверка", "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Чёрный котёнок, названный принцессой Рейнис в честь дракона Бейлериона. Позднее в Красном замке живёт похожий угольно-чёрный кот, которого связывают с котёнком лишь предположительно."}],
+      "links": [{"label": "Eddard Stark", "ref": "person:eddard-stark"}, {"label": "Red Keep", "ref": "place:red-keep"}]
+    },
+    {
+      "ref": "person:robin-flint",
+      "kind": "person",
+      "name": "Robin Flint",
+      "nameRu": "Робин Флинт",
+      "subtitle": "A Game of Thrones · Catelyn X",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Catelyn X; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_63", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Catelyn X"},
+        {"label": "Статус в главе", "value": "появляется"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Сверка", "value": "AWOIAF отмечает среди появляющихся; первичное издание не сверялось"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Северянин, присутствующий при ожидании засады Робба на войско Джейме Ланнистера в Шепчущем лесу; отдельное действие в главе не выделено."}],
+      "links": [{"label": "Robb Stark", "ref": "person:robb-stark"}, {"label": "Whispering Wood", "ref": "place:whispering-wood"}]
+    },
+    {
+      "ref": "person:eddard-karstark",
+      "kind": "person",
+      "name": "Eddard Karstark",
+      "nameRu": "Эддард Карстарк",
+      "subtitle": "A Game of Thrones · Catelyn X",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Catelyn X; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_63", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Catelyn X"},
+        {"label": "Статус в главе", "value": "появляется; погибает в бою"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Сверка", "value": "AWOIAF отмечает среди появляющихся; первичное издание не сверялось"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Сын лорда Рикарда Карстарка. Погибает в бою с Джейме Ланнистером у Шепчущего леса."}],
+      "links": [{"label": "Rickard Karstark", "ref": "person:rickard-karstark"}, {"label": "Jaime Lannister", "ref": "person:jaime-lannister"}]
+    },
+    {
+      "ref": "person:torrhen-karstark",
+      "kind": "person",
+      "name": "Torrhen Karstark",
+      "nameRu": "Торрхен Карстарк",
+      "subtitle": "A Game of Thrones · Catelyn X",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Catelyn X; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_63", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Catelyn X"},
+        {"label": "Статус в главе", "value": "появляется; погибает в бою"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Сверка", "value": "AWOIAF отмечает среди появляющихся; первичное издание не сверялось"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Сын лорда Рикарда Карстарка. Погибает вместе с братом Эддардом, защищая отряд Робба во время засады на Джейме."}],
+      "links": [{"label": "Rickard Karstark", "ref": "person:rickard-karstark"}, {"label": "Robb Stark", "ref": "person:robb-stark"}]
+    },
+    {
+      "ref": "person:jon-umber-son-of-jon",
+      "kind": "person",
+      "name": "Jon Umber (son of Jon)",
+      "nameRu": "Джон Амбер (сын Джона)",
+      "subtitle": "A Game of Thrones · Catelyn X",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Catelyn X; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_63", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Catelyn X"},
+        {"label": "Статус в главе", "value": "появляется"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Сверка", "value": "AWOIAF различает его с Джоном Амбером, прозванным Великаном; первичное издание не сверялось"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Младший одноимённый северный воин, отдельно перечисленный среди участников событий у Шепчущего леса; не следует сливать с лордом Джоном Амбером по прозвищу Великан."}],
+      "links": [{"label": "Greatjon Umber", "ref": "person:greatjon-umber"}, {"label": "Robb Stark", "ref": "person:robb-stark"}]
+    },
+    {
+      "ref": "person:cleos-frey",
+      "kind": "person",
+      "name": "Cleos Frey",
+      "nameRu": "Клеос Фрей",
+      "subtitle": "A Game of Thrones · Catelyn X",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Catelyn X; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_63", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Catelyn X"},
+        {"label": "Статус в главе", "value": "упоминается"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Сверка", "value": "AWOIAF включает в список упомянутых; первичное издание не сверялось"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Представитель дома Фреев, названный в перечне имён, связанных с кампанией в Речных землях; в сцене у Шепчущего леса не появляется."}],
+      "links": [{"label": "House Frey", "ref": "organization:house-frey"}]
+    },
+    {
+      "ref": "person:tion-frey",
+      "kind": "person",
+      "name": "Tion Frey",
+      "nameRu": "Тион Фрей",
+      "subtitle": "A Game of Thrones · Catelyn X",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Catelyn X; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_63", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Catelyn X"},
+        {"label": "Статус в главе", "value": "упоминается"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Сверка", "value": "AWOIAF включает в список упомянутых; первичное издание не сверялось"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Член многочисленного дома Фреев, упомянутый в военном контексте Речных земель; в этой сцене непосредственно не участвует."}],
+      "links": [{"label": "House Frey", "ref": "organization:house-frey"}]
+    },
+    {
+      "ref": "person:walder-frey",
+      "kind": "person",
+      "name": "Walder Frey",
+      "nameRu": "Уолдер Фрей",
+      "subtitle": "A Game of Thrones · Catelyn X",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Catelyn X; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_63", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Catelyn X"},
+        {"label": "Статус в главе", "value": "упоминается"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Сверка", "value": "AWOIAF включает в список упомянутых; первичное издание не сверялось"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Старый лорд Переправы и глава дома Фреев; его имя появляется в разговоре о военных событиях вокруг Риверрана."}],
+      "links": [{"label": "House Frey", "ref": "organization:house-frey"}]
+    },
+    {
+      "ref": "person:genna-lannister",
+      "kind": "person",
+      "name": "Genna Lannister",
+      "nameRu": "Дженна Ланнистер",
+      "subtitle": "A Game of Thrones · Catelyn X",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Catelyn X; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_63", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Catelyn X"},
+        {"label": "Статус в главе", "value": "упоминается"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Сверка", "value": "AWOIAF включает в список упомянутых; первичное издание не сверялось"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Сестра лорда Тайвина и тётя Серсеи, Джейме и Тириона; в Catelyn X названа в перечне связанных с войной имён."}],
+      "links": [{"label": "Tywin Lannister", "ref": "person:tywin-lannister"}, {"label": "House Lannister", "ref": "organization:house-lannister"}]
+    },
+    {
+      "ref": "person:willem-lannister",
+      "kind": "person",
+      "name": "Willem Lannister",
+      "nameRu": "Виллем Ланнистер",
+      "subtitle": "A Game of Thrones · Catelyn X",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Catelyn X; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_63", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Catelyn X"},
+        {"label": "Статус в главе", "value": "упоминается"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Сверка", "value": "AWOIAF включает в список упомянутых; первичное издание не сверялось"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Младший представитель дома Ланнистеров, названный среди имён, связанных с войной; в сцене пленения Джейме не появляется."}],
+      "links": [{"label": "House Lannister", "ref": "organization:house-lannister"}, {"label": "Tywin Lannister", "ref": "person:tywin-lannister"}]
+    },
+    {
+      "ref": "person:gawen-westerling",
+      "kind": "person",
+      "name": "Gawen Westerling",
+      "nameRu": "Гавен Вестерлинг",
+      "subtitle": "A Game of Thrones · Catelyn X",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Catelyn X; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_63", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Catelyn X"},
+        {"label": "Статус в главе", "value": "упоминается"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Сверка", "value": "AWOIAF включает в список упомянутых; первичное издание не сверялось"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Лорд Утёса и глава дома Вестерлингов, названный среди участников и союзников войны в Речных землях; в главе не появляется."}],
+      "links": [{"label": "Jaime Lannister", "ref": "person:jaime-lannister"}]
+    },
+    {
+      "ref": "person:quenten-banefort",
+      "kind": "person",
+      "name": "Quenten Banefort",
+      "nameRu": "Квентен Банефорт",
+      "subtitle": "A Game of Thrones · Catelyn X",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Catelyn X; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_63", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Catelyn X"},
+        {"label": "Статус в главе", "value": "упоминается"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Сверка", "value": "AWOIAF включает в список упомянутых; первичное издание не сверялось"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Лорд западных земель, названный среди имён, связанных с войском Ланнистеров; отдельного действия в Catelyn X для него не указано."}],
+      "links": [{"label": "Jaime Lannister", "ref": "person:jaime-lannister"}]
+    },
+    {
+      "ref": "person:utherydes-wayn",
+      "kind": "person",
+      "name": "Utherydes Wayn",
+      "nameRu": "Утеридес Уэйн",
+      "subtitle": "A Game of Thrones · Catelyn XI",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Catelyn XI; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_71", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Catelyn XI"},
+        {"label": "Статус в главе", "value": "появляется"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Сверка", "value": "AWOIAF включает в список появляющихся; первичное издание не сверялось"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Стюард Риверрана, встречающий прибывшую Кейтлин; в этой главе его имя отмечено среди присутствующих в замке."}],
+      "links": [{"label": "Riverrun", "ref": "place:riverrun"}, {"label": "Hoster Tully", "ref": "person:hoster-tully"}]
+    },
+    {
+      "ref": "person:harrion-karstark",
+      "kind": "person",
+      "name": "Harrion Karstark",
+      "nameRu": "Харрион Карстарк",
+      "subtitle": "A Game of Thrones · Catelyn XI",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Catelyn XI; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_71", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Catelyn XI"},
+        {"label": "Статус в главе", "value": "упоминается"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Сверка", "value": "AWOIAF включает в список упомянутых; первичное издание не сверялось"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Младший сын Рикарда Карстарка, остающийся наследником после гибели братьев; в Catelyn XI упомянут, но в Риверране не присутствует."}],
+      "links": [{"label": "Rickard Karstark", "ref": "person:rickard-karstark"}]
+    },
+    {
+      "ref": "person:kevan-lannister",
+      "kind": "person",
+      "name": "Kevan Lannister",
+      "nameRu": "Киван Ланнистер",
+      "subtitle": "A Game of Thrones · Catelyn XI",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Catelyn XI; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_71", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Catelyn XI"},
+        {"label": "Статус в главе", "value": "упоминается"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Сверка", "value": "AWOIAF включает в список упомянутых; первичное издание не сверялось"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Младший брат Тайвина Ланнистера и один из главных военных советников дома; в главе назван, но не присутствует при совете в Риверране."}],
+      "links": [{"label": "Tywin Lannister", "ref": "person:tywin-lannister"}, {"label": "House Lannister", "ref": "organization:house-lannister"}]
+    },
+    {
+      "ref": "person:bethany-redwyne",
+      "kind": "person",
+      "name": "Bethany Redwyne",
+      "nameRu": "Бетани Редвин",
+      "subtitle": "A Game of Thrones · Catelyn XI",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Catelyn XI; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_71", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Catelyn XI"},
+        {"label": "Статус в главе", "value": "упоминается"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Сверка", "value": "AWOIAF включает в список упомянутых; первичное издание не сверялось"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Когда-то была предназначена в жёны Бриндену Талли; к событиям книги уже давно замужем за лордом Маттисом Рованом."}],
+      "links": [{"label": "Brynden Tully", "ref": "person:brynden-tully"}]
+    },
+    {
+      "ref": "person:mathis-rowan",
+      "kind": "person",
+      "name": "Mathis Rowan",
+      "nameRu": "Маттис Рован",
+      "subtitle": "A Game of Thrones · Catelyn XI",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Catelyn XI; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_71", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Catelyn XI"},
+        {"label": "Статус в главе", "value": "упоминается"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Сверка", "value": "AWOIAF включает в список упомянутых; первичное издание не сверялось"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Лорд Рованов, супруг Бетани Редвин; его имя упоминается в рассказе Хостера о прежних брачных предложениях Бриндену."}],
+      "links": [{"label": "Riverrun", "ref": "place:riverrun"}]
+    },
+    {
+      "ref": "person:helman-tallhart",
+      "kind": "person",
+      "name": "Helman Tallhart",
+      "nameRu": "Хельман Таллхарт",
+      "subtitle": "A Game of Thrones · Catelyn XI",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Catelyn XI; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_71", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Catelyn XI"},
+        {"label": "Статус в главе", "value": "упоминается"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Сверка", "value": "AWOIAF включает в список упомянутых; первичное издание не сверялось"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Северный лорд и союзник Старков, упомянутый среди участников войны; в совете в Риверране не присутствует."}],
+      "links": [{"label": "Robb Stark", "ref": "person:robb-stark"}]
+    },
+    {
+      "ref": "person:vyman",
+      "kind": "person",
+      "name": "Vyman",
+      "nameRu": "Вайман",
+      "subtitle": "A Game of Thrones · Catelyn XI",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Catelyn XI; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_71", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Catelyn XI"},
+        {"label": "Статус в главе", "value": "упоминается"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Сверка", "value": "AWOIAF включает в список упомянутых; первичное издание не сверялось"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Маестер при дворе Талли, названный среди жителей и служителей Риверрана; в данной сцене непосредственно не появляется."}],
+      "links": [{"label": "Riverrun", "ref": "place:riverrun"}, {"label": "Hoster Tully", "ref": "person:hoster-tully"}]
+    },
+    {
+      "ref": "person:dontos-hollard",
+      "kind": "person",
+      "name": "Dontos Hollard",
+      "nameRu": "Донтос Холлард",
+      "subtitle": "A Game of Thrones · Sansa V",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Sansa V; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_57", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Sansa V"},
+        {"label": "Статус в главе", "value": "появляется"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Сверка", "value": "AWOIAF включает в список появляющихся; первичное издание не сверялось"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Дворовый шут при дворе Джоффри; присутствует на первом судебном заседании нового короля."}],
+      "links": [{"label": "Joffrey Baratheon", "ref": "person:joffrey-baratheon"}, {"label": "Sansa Stark", "ref": "person:sansa-stark"}]
+    },
+    {
+      "ref": "person:gyles-rosby",
+      "kind": "person",
+      "name": "Gyles Rosby",
+      "nameRu": "Джайлс Росби",
+      "subtitle": "A Game of Thrones · Sansa V",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Sansa V; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_57", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Sansa V"},
+        {"label": "Статус в главе", "value": "появляется"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Сверка", "value": "AWOIAF включает в список появляющихся; первичное издание не сверялось"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Лорд из Королевских земель, присутствующий на первом королевском суде Джоффри в Красном замке."}],
+      "links": [{"label": "King's Landing", "ref": "place:kings-landing"}, {"label": "Red Keep", "ref": "place:red-keep"}]
+    },
+    {
+      "ref": "person:mace-tyrell",
+      "kind": "person",
+      "name": "Mace Tyrell",
+      "nameRu": "Мейс Тирелл",
+      "subtitle": "A Game of Thrones · Sansa V",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Sansa V; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_57", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Sansa V"},
+        {"label": "Статус в главе", "value": "упоминается"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Сверка", "value": "AWOIAF включает в список упомянутых; первичное издание не сверялось"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Лорд Хайгардена и глава дома Тиреллов; его дом назван среди тех, кому новый король требует принести присягу."}],
+      "links": [{"label": "House Tyrell", "ref": "organization:house-tyrell"}, {"label": "Loras Tyrell", "ref": "person:loras-tyrell"}]
+    },
+    {
+      "ref": "person:ogo",
+      "kind": "person",
+      "name": "Ogo",
+      "nameRu": "Ого",
+      "subtitle": "A Game of Thrones · Daenerys VII",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Daenerys VII; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_61", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Daenerys VII"},
+        {"label": "Статус в главе", "value": "упоминается"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Сверка", "value": "AWOIAF включает в список упомянутых; первичное издание не сверялось"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Погибший соперник Дрого, чьё войско было разбито в землях Лхазарин; Дейенерис помнит его со встречи в Ваэс Дотраке."}],
+      "links": [{"label": "Drogo", "ref": "person:drogo"}, {"label": "Daenerys Targaryen", "ref": "person:daenerys-targaryen"}]
+    },
+    {
+      "ref": "person:fogo",
+      "kind": "person",
+      "name": "Fogo",
+      "nameRu": "Фого",
+      "subtitle": "A Game of Thrones · Daenerys VII",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Daenerys VII; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_61", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Daenerys VII"},
+        {"label": "Статус в главе", "value": "упоминается"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Сверка", "value": "AWOIAF включает в список упомянутых; первичное издание не сверялось"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Сын и наследник хала Ого; после гибели отца ненадолго стал халом и был убит Дрого."}],
+      "links": [{"label": "Drogo", "ref": "person:drogo"}]
+    },
+    {
+      "ref": "person:balon-greyjoy",
+      "kind": "person",
+      "name": "Balon Greyjoy",
+      "nameRu": "Бейлон Грейджой",
+      "subtitle": "A Game of Thrones · Eddard I",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Eddard I; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_4", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Eddard I"},
+        {"label": "Статус в главе", "value": "упоминается"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Сверка", "value": "AWOIAF включает в список упомянутых; первичное издание не сверялось"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Лорд Железных островов и предводитель восстания Грейджоев; его имя всплывает в разговоре о недавней войне."}],
+      "links": [{"label": "House Greyjoy", "ref": "organization:house-greyjoy"}]
+    },
+    {
+      "ref": "person:paxter-redwyne",
+      "kind": "person",
+      "name": "Paxter Redwyne",
+      "nameRu": "Пакстер Редвин",
+      "subtitle": "A Game of Thrones · Eddard X",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Eddard X; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_39", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Eddard X"},
+        {"label": "Статус в главе", "value": "упоминается"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Сверка", "value": "AWOIAF включает в список упомянутых; первичное издание не сверялось"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Лорд Арбора и глава дома Редвинов; в главе назван, но не участвует в сцене при дворе."}],
+      "links": [{"label": "House Tyrell", "ref": "organization:house-tyrell"}]
+    },
+    {
+      "ref": "person:randyll-tarly",
+      "kind": "person",
+      "name": "Randyll Tarly",
+      "nameRu": "Рендилл Тарли",
+      "subtitle": "A Game of Thrones · Jon V",
+      "source": {"kind": "wiki", "cite": "A Game of Thrones, Jon V; A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)", "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_41", "license": "CC-BY-SA-3.0"},
+      "facts": [
+        {"label": "Локатор", "value": "Jon V"},
+        {"label": "Статус в главе", "value": "упоминается"},
+        {"label": "Русское имя", "value": "рабочая передача; сверить с выбранным изданием"},
+        {"label": "Сверка", "value": "AWOIAF включает в список упомянутых; первичное издание не сверялось"}
+      ],
+      "sections": [{"title": "Опорный срез", "text": "Суровый отец Сэма Тарли; его имя вспоминают во время обсуждения назначения Сэма в распорядители Ночного дозора."}],
+      "links": [{"label": "Samwell Tarly", "ref": "person:samwell-tarly"}, {"label": "Night's Watch", "ref": "organization:nights-watch"}]
+    }
+  ]
+}

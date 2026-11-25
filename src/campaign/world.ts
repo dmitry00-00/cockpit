@@ -2,9 +2,11 @@
 // (ROADMAP 3.3, Q6, 28.10.2026): места и фракции ссылаются на справочник вики, у фракций — отношения, у мест — цены
 // товаров и веса встреч; плюс две церкви — Lathander (бог Brother Aldric) и Helm (бог места Neverwinter).
 // Сроки нитей — от времени сида, поэтому функции берут nowSec, а не константы. Имена — латиницей, как в книгах.
-import type { Fact, World, WorldDelta } from '../engine/state';
-import { ref } from '../entities/ref';
+import type { Fact, Location, World, WorldDelta } from '../engine/state';
+import { ref, type EntityKind } from '../entities/ref';
 import { SECONDS_PER_DAY } from '../engine/state';
+import { DEFAULT_SETTING_PACKAGE, settingDataFor } from '../packages/registry';
+import { parseScaleLadderProfile } from '../packages/settingData';
 
 export const LOCATION = {
   greatWheel: 'loc-great-wheel', material: 'loc-material', realmspace: 'loc-realmspace', toril: 'loc-toril', faerun: 'loc-faerun',
@@ -19,23 +21,25 @@ export const DELTA = { zhentarimTrail: 'd-zhentarim-trail', ironPrices: 'd-iron-
 export const FACT = { owlWellUndead: 'f-owl-well-undead', zhentarimAgent: 'f-zhentarim-agent' } as const;
 
 const days = (n: number) => n * SECONDS_PER_DAY;
+const FR_LADDER = parseScaleLadderProfile(settingDataFor(DEFAULT_SETTING_PACKAGE, 'ladder'), DEFAULT_SETTING_PACKAGE);
+const PACKAGE_ROOT_LOCATIONS: Record<string, Location> = Object.fromEntries(FR_LADDER.roots.map(root => [root.id, {
+  id: root.id, name: root.name, scale: root.scale, ...(root.parentId ? { parentId: root.parentId } : {}),
+  ...(root.ref ? { ref: ref(root.ref.kind as EntityKind, root.ref.id) } : {}), ...(root.geo ? { geo: root.geo } : {}),
+}]));
 
 export function seedWorld(nowSec: number): World {
   return {
     locations: {
-      // Лестница §3 вверх от партии до Великого Колеса: одно место на уровень, уровень без места на лестнице
-      // не показывается. Великое Колесо и Материальный — по-русски, как в референсе (это понятия, не имена мест);
-      // Realmspace, Toril, Faerûn — латиницей, как в книгах. Сводка «что изменилось» называет уровни отсюда же.
-      [LOCATION.greatWheel]: { id: LOCATION.greatWheel, name: 'Великое Колесо', scale: 'cosmology' },
-      [LOCATION.material]: { id: LOCATION.material, name: 'Материальный', scale: 'plane', parentId: LOCATION.greatWheel },
-      [LOCATION.realmspace]: { id: LOCATION.realmspace, name: 'Realmspace', scale: 'system', parentId: LOCATION.material },
-      [LOCATION.toril]: { id: LOCATION.toril, name: 'Toril', scale: 'planet', parentId: LOCATION.realmspace, geo: { map: 'toril', x: 15300, y: 6700, r: 15300 } },
-      // ref — место справочника карты: id Toril GIS (content/maps/toril-places.json); нет его в справочнике — ссылки нет, не угадываем.
-      [LOCATION.faerun]: { id: LOCATION.faerun, name: 'Faerûn', scale: 'continent', parentId: LOCATION.toril, ref: ref('place', '0b786ca2-0cb5-413e-9e75-a7962ca03cfe'), geo: { map: 'toril', x: 12800, y: 4200, r: 5400, ry: 2900 } },
+      // Корни сеттинга (до континента) задаются ladder-профилем пакета; campaign seed сохраняет игровые места ниже.
+      ...PACKAGE_ROOT_LOCATIONS,
       [LOCATION.swordCoastNorth]: { id: LOCATION.swordCoastNorth, name: 'Sword Coast North', scale: 'region', parentId: LOCATION.faerun, geo: { map: 'toril', x: 8750, y: 2700, r: 450 } },
       [LOCATION.neverwinter]: { id: LOCATION.neverwinter, name: 'Neverwinter', scale: 'settlement', parentId: LOCATION.swordCoastNorth, population: 23_000, danger: 'medium', pricePercent: 10, ref: ref('place', '7e243b80-8918-42fa-b60e-03cec8bdb184'), geo: { map: 'toril', x: 8522, y: 2610, r: 120 } },
-      // Здание §3 — Южные ворота Neverwinter: место на уровне здания, чтобы `]` из поселения было куда спуститься.
-      [LOCATION.southGate]: { id: LOCATION.southGate, name: 'Южные ворота', scale: 'building', parentId: LOCATION.neverwinter },
+      // Здание §3 — Южные ворота Neverwinter. Ручной якорь на локальном плане 1440×1015;
+      // источник не подписывает отдельные здания, поэтому точка не является канонической геодезией.
+      [LOCATION.southGate]: {
+        id: LOCATION.southGate, name: 'Южные ворота', scale: 'building', parentId: LOCATION.neverwinter,
+        geo: { map: 'neverwinter', x: 455, y: 905 },
+      },
       // geo — пиксели исходника карты HandsomeRob (content/maps/toril.json): по подписям на самой карте, 27.10.2026.
       // Подрегионы Sword Coast North: тот же уровень, что родитель, — лестница держит одно место на уровень,
       // и подрегион становится точкой фокуса региона, когда мастер его выбрал.

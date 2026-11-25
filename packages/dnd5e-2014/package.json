@@ -1,0 +1,274 @@
+{
+  "format": 1,
+  "id": "dnd5e-2014",
+  "kind": "rules",
+  "title": "Dungeons & Dragons 5e (2014) SRD",
+  "titleRu": "D&D 5e (2014), SRD",
+  "version": "2026.11.21",
+  "layers": [
+    {
+      "id": "content-srd-equipment-json",
+      "path": "content/srd/equipment.json",
+      "kinds": [
+        "item"
+      ],
+      "license": "CC-BY-4.0",
+      "distribution": "open",
+      "attribution": "Dungeons & Dragons SRD 5.1, Creative Commons Attribution 4.0 International.",
+      "source": {
+        "url": "https://dnd.wizards.com/resources/systems-reference-document"
+      }
+    },
+    {
+      "id": "content-srd-magic-items-json",
+      "path": "content/srd/magic-items.json",
+      "kinds": [
+        "item"
+      ],
+      "license": "CC-BY-4.0",
+      "distribution": "open",
+      "attribution": "Dungeons & Dragons SRD 5.1, Creative Commons Attribution 4.0 International.",
+      "source": {
+        "url": "https://dnd.wizards.com/resources/systems-reference-document"
+      }
+    },
+    {
+      "id": "content-srd-monsters-json",
+      "path": "content/srd/monsters.json",
+      "kinds": [
+        "monster"
+      ],
+      "license": "CC-BY-4.0",
+      "distribution": "open",
+      "attribution": "Dungeons & Dragons SRD 5.1, Creative Commons Attribution 4.0 International.",
+      "source": {
+        "url": "https://dnd.wizards.com/resources/systems-reference-document"
+      }
+    },
+    {
+      "id": "content-srd-spells-json",
+      "path": "content/srd/spells.json",
+      "kinds": [
+        "spell"
+      ],
+      "license": "CC-BY-4.0",
+      "distribution": "open",
+      "attribution": "Dungeons & Dragons SRD 5.1, Creative Commons Attribution 4.0 International.",
+      "source": {
+        "url": "https://dnd.wizards.com/resources/systems-reference-document"
+      }
+    },
+    {
+      "id": "content-srd-languages-json",
+      "path": "content/srd/languages.json",
+      "kinds": [
+        "language"
+      ],
+      "license": "CC-BY-4.0",
+      "distribution": "open",
+      "attribution": "Dungeons & Dragons SRD 5.1, Creative Commons Attribution 4.0 International.",
+      "source": {
+        "url": "https://dnd.wizards.com/resources/systems-reference-document"
+      }
+    },
+    {
+      "id": "content-srd-alignments-json",
+      "path": "content/srd/alignments.json",
+      "kinds": [
+        "rule"
+      ],
+      "license": "CC-BY-4.0",
+      "distribution": "open",
+      "attribution": "Dungeons & Dragons SRD 5.1, Creative Commons Attribution 4.0 International.",
+      "source": {
+        "url": "https://www.dnd5eapi.co/api/2014/alignments"
+      }
+    },
+    {
+      "id": "content-srd-character-advancement-json",
+      "path": "content/srd/character-advancement.json",
+      "kinds": [
+        "rule"
+      ],
+      "license": "CC-BY-4.0",
+      "distribution": "open",
+      "attribution": "Dungeons & Dragons SRD 5.1, Creative Commons Attribution 4.0 International.",
+      "source": {
+        "url": "https://dnd.wizards.com/resources/systems-reference-document"
+      }
+    },
+    {
+      "id": "content-srd-multiclassing-json",
+      "path": "content/srd/multiclassing.json",
+      "kinds": [
+        "rule"
+      ],
+      "license": "CC-BY-4.0",
+      "distribution": "open",
+      "attribution": "Dungeons & Dragons SRD 5.1, Creative Commons Attribution 4.0 International.",
+      "source": {
+        "url": "https://dnd.wizards.com/resources/systems-reference-document"
+      }
+    },
+    {
+      "id": "content-srd-monster-challenge-ratings-json",
+      "path": "content/srd/monster-challenge-ratings.json",
+      "kinds": [
+        "rule"
+      ],
+      "license": "CC-BY-4.0",
+      "distribution": "open",
+      "attribution": "Dungeons & Dragons SRD 5.1, Creative Commons Attribution 4.0 International.",
+      "source": {
+        "url": "https://dnd.wizards.com/resources/systems-reference-document"
+      }
+    },
+    {
+      "id": "content-srd-rules-json",
+      "path": "content/srd/rules.json",
+      "kinds": [
+        "rule"
+      ],
+      "license": "CC-BY-4.0",
+      "distribution": "open",
+      "attribution": "Dungeons & Dragons SRD 5.1, Creative Commons Attribution 4.0 International.",
+      "source": {
+        "url": "https://www.dnd5eapi.co/api/2014/rules"
+      }
+    },
+    {
+      "id": "content-srd-ability-scores-json",
+      "path": "content/srd/ability-scores.json",
+      "kinds": [
+        "rule"
+      ],
+      "license": "CC-BY-4.0",
+      "distribution": "open",
+      "attribution": "Dungeons & Dragons SRD 5.1, Creative Commons Attribution 4.0 International.",
+      "source": {
+        "url": "https://www.dnd5eapi.co/api/2014/ability-scores"
+      }
+    },
+    {
+      "id": "content-srd-skills-json",
+      "path": "content/srd/skills.json",
+      "kinds": [
+        "rule"
+      ],
+      "license": "CC-BY-4.0",
+      "distribution": "open",
+      "attribution": "Dungeons & Dragons SRD 5.1, Creative Commons Attribution 4.0 International.",
+      "source": {
+        "url": "https://www.dnd5eapi.co/api/2014/skills"
+      }
+    },
+    {
+      "id": "content-srd-conditions-json",
+      "path": "content/srd/conditions.json",
+      "kinds": [
+        "condition"
+      ],
+      "license": "CC-BY-4.0",
+      "distribution": "open",
+      "attribution": "Dungeons & Dragons SRD 5.1, Creative Commons Attribution 4.0 International.",
+      "source": {
+        "url": "https://www.dnd5eapi.co/api/2014/conditions"
+      }
+    },
+    {
+      "id": "content-srd-actions-json",
+      "path": "content/srd/actions.json",
+      "kinds": [
+        "action"
+      ],
+      "license": "CC-BY-4.0",
+      "distribution": "open",
+      "attribution": "Dungeons & Dragons SRD 5.1, Creative Commons Attribution 4.0 International.",
+      "source": {
+        "url": "https://www.dnd5eapi.co/api/2014/rules"
+      }
+    },
+    {
+      "id": "content-srd-backgrounds-json",
+      "path": "content/srd/backgrounds.json",
+      "kinds": ["background"],
+      "license": "CC-BY-4.0",
+      "distribution": "open",
+      "attribution": "Dungeons & Dragons SRD 5.1, Creative Commons Attribution 4.0 International.",
+      "source": { "url": "https://www.dnd5eapi.co/api/2014/backgrounds" }
+    },
+    {
+      "id": "content-srd-classes-json",
+      "path": "content/srd/classes.json",
+      "kinds": ["class"],
+      "license": "CC-BY-4.0",
+      "distribution": "open",
+      "attribution": "Dungeons & Dragons SRD 5.1, Creative Commons Attribution 4.0 International.",
+      "source": { "url": "https://www.dnd5eapi.co/api/2014/classes" }
+    },
+    {
+      "id": "content-srd-class-options-json",
+      "path": "content/srd/class-options.json",
+      "kinds": ["class-option"],
+      "license": "CC-BY-4.0",
+      "distribution": "open",
+      "attribution": "Dungeons & Dragons SRD 5.1, Creative Commons Attribution 4.0 International.",
+      "source": { "url": "https://www.dnd5eapi.co/api/2014/features" }
+    },
+    {
+      "id": "content-srd-feats-json",
+      "path": "content/srd/feats.json",
+      "kinds": ["feat"],
+      "license": "CC-BY-4.0",
+      "distribution": "open",
+      "attribution": "Dungeons & Dragons SRD 5.1, Creative Commons Attribution 4.0 International.",
+      "source": { "url": "https://www.dnd5eapi.co/api/2014/feats" }
+    },
+    {
+      "id": "content-srd-features-json",
+      "path": "content/srd/features.json",
+      "kinds": ["class-feature"],
+      "license": "CC-BY-4.0",
+      "distribution": "open",
+      "attribution": "Dungeons & Dragons SRD 5.1, Creative Commons Attribution 4.0 International.",
+      "source": { "url": "https://www.dnd5eapi.co/api/2014/features" }
+    },
+    {
+      "id": "content-srd-races-json",
+      "path": "content/srd/races.json",
+      "kinds": ["race"],
+      "license": "CC-BY-4.0",
+      "distribution": "open",
+      "attribution": "Dungeons & Dragons SRD 5.1, Creative Commons Attribution 4.0 International.",
+      "source": { "url": "https://www.dnd5eapi.co/api/2014/races" }
+    },
+    {
+      "id": "content-srd-subclasses-json",
+      "path": "content/srd/subclasses.json",
+      "kinds": ["subclass"],
+      "license": "CC-BY-4.0",
+      "distribution": "open",
+      "attribution": "Dungeons & Dragons SRD 5.1, Creative Commons Attribution 4.0 International.",
+      "source": { "url": "https://www.dnd5eapi.co/api/2014/subclasses" }
+    },
+    {
+      "id": "content-srd-subraces-json",
+      "path": "content/srd/subraces.json",
+      "kinds": ["subrace"],
+      "license": "CC-BY-4.0",
+      "distribution": "open",
+      "attribution": "Dungeons & Dragons SRD 5.1, Creative Commons Attribution 4.0 International.",
+      "source": { "url": "https://www.dnd5eapi.co/api/2014/subraces" }
+    },
+    {
+      "id": "content-srd-traits-json",
+      "path": "content/srd/traits.json",
+      "kinds": ["racial-trait"],
+      "license": "CC-BY-4.0",
+      "distribution": "open",
+      "attribution": "Dungeons & Dragons SRD 5.1, Creative Commons Attribution 4.0 International.",
+      "source": { "url": "https://www.dnd5eapi.co/api/2014/traits" }
+    }
+  ],
+  "distribution": "open"
+}

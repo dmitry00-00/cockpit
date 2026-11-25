@@ -2,6 +2,7 @@
 // ждущее рядом с нынешним, пустых секций нет; игрокам — только открытое; год сцены меняет силы и людей.
 import { describe, expect, it } from 'vitest';
 import { loadSceneCanon } from '../world/sceneCanon';
+import type { Process } from '../engine/state';
 import { LOCATION, THREAD, secOf, seedEngine } from './index';
 import { sceneOf, type Scene, type SceneSectionId } from './scene';
 
@@ -54,6 +55,45 @@ describe('сцена места (Д2)', () => {
     const scene = sceneOf(state, { location: LOCATION.neverwinter }, state.time.sec, await loadSceneCanon(NEVERWINTER, 1492), { players: true });
     expect(scene.sections.map(s => s.id)).toEqual(['now', 'market']);
     expect(rows(scene, 'market')).toEqual([{ label: 'Все товары', note: '+10%' }]);
+  });
+
+  it('показывает игрокам только принятые слухи у текущего места; скрытые и удалённые слухи не попадают в сцену', () => {
+    const state = structuredClone(seedEngine().getState().state);
+    state.facts['rumor-local'] = { id: 'rumor-local', text: 'У южных ворот видели незнакомцев', visibility: 'players', category: 'rumor', subjectId: LOCATION.southGate };
+    state.facts['rumor-secret'] = { id: 'rumor-secret', text: 'DM_ONLY_RUMOR_SENTINEL', visibility: 'dm', category: 'rumor', subjectId: LOCATION.neverwinter };
+    state.facts['rumor-elsewhere'] = { id: 'rumor-elsewhere', text: 'Вдали слышали гром', visibility: 'players', category: 'rumor', subjectId: LOCATION.oldOwlWell };
+
+    const scene = sceneOf(state, { location: LOCATION.neverwinter }, state.time.sec, undefined, { players: true });
+    expect(rows(scene, 'rumors')).toEqual([{ label: 'У южных ворот видели незнакомцев', note: 'слух, дошедший до этого места' }]);
+    expect(JSON.stringify(scene)).not.toContain('DM_ONLY_RUMOR_SENTINEL');
+    expect(JSON.stringify(scene)).not.toContain('Вдали слышали гром');
+    state.facts['rumor-city'] = { id: 'rumor-city', text: 'У кузницы ждут посыльного', visibility: 'players', category: 'rumor', subjectId: LOCATION.neverwinter };
+    const gateScene = sceneOf(state, { location: LOCATION.southGate }, state.time.sec, undefined, { players: true });
+    expect(rows(gateScene, 'rumors').map(row => row.label)).toContain('У кузницы ждут посыльного');
+  });
+
+  it('«Сейчас» наследует процесс от родителя; игрокам выдаёт только явно открытые часы', () => {
+    const state = structuredClone(seedEngine().getState().state);
+    const process: Process = {
+      id: 'secret-cosmic-front', kind: 'cosmic', name: 'Секретная война у портала', scale: 'plane', stage: 'ongoing',
+      parties: [LOCATION.material], at: LOCATION.material, startedSec: state.time.sec, nextSec: state.time.sec + 5 * 86_400,
+      vars: {}, causeId: 'private-cause', clock: { segments: 4, filled: 2, playerVisible: true, playerLabel: 'Огни вдали' },
+      data: { text: 'Тайное следствие, неизвестное игрокам.' },
+    };
+    state.world.processes = { [process.id]: process };
+
+    const gm = sceneOf(state, { location: LOCATION.neverwinter }, state.time.sec);
+    expect(rows(gm, 'processes')).toEqual([expect.objectContaining({
+      label: 'Секретная война у портала', note: expect.stringContaining('Космический процесс · идёт · следующий такт'),
+    })]);
+
+    const players = sceneOf(state, { location: LOCATION.neverwinter }, state.time.sec, undefined, { players: true });
+    expect(rows(players, 'processes')).toEqual([{ label: 'Огни вдали', note: 'Часы: 2 из 4' }]);
+    const projection = JSON.stringify(players);
+    expect(projection).not.toContain(process.id);
+    expect(projection).not.toContain(process.name);
+    expect(projection).not.toContain('ongoing');
+    expect(projection).not.toContain('Тайное следствие');
   });
 
   it('год сцены — линза: в 1372 DR в Neverwinter есть Neverwinter Nine, канона после 1372 нет; место справочника находит место кампании', async () => {

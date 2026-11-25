@@ -5,7 +5,9 @@
 // партии помечается `far` и в сводке шага уходит в свёрнутую «Сводку мира». Пока предложение процесса ждёт решения,
 // процесс стоит: мир не убегает вперёд мимо мастера.
 import { SCALE_LEVELS, TEMPO_SECONDS, type ScaleLevel } from '../engine/events';
+import { isProgressValue, type ProgressValue } from '../engine/progress';
 import { applyWorldPatch } from '../engine/reduce';
+import { partyPlaceId } from '../engine/ladder';
 import type { Location, Process, State, WorldDelta, WorldPatch } from '../engine/state';
 import { d20 } from './rng';
 
@@ -35,6 +37,8 @@ export interface TickResult {
   patches?: readonly WorldPatch[];
   /** Строка такта для причины: «битва у Arabel: 14 против 9». */
   line?: string;
+  /** Ключевое событие, которое следует сохранить в сводке даже при длинном шаге времени. */
+  summary?: string;
 }
 
 /** Вид процесса: стадии словами, такт и правила. Числа правил — у вида, подписаны «правило стола». */
@@ -43,6 +47,8 @@ export interface ProcessKind {
   /** Подпись для предложения: «Война», «Караван». */
   label: string;
   stages: Readonly<Record<string, string>>;
+  /** Optional normalized progress projection for this process type; consequence remains authored by its tick rules. */
+  progress?(p: Process): ProgressValue | undefined;
   tick(p: Process, ctx: TickContext): TickResult;
   /** Правило зарождения: какие процессы мир заводит на момент sec; уже идущий (тот же id) не заводится второй раз. */
   spawn?(state: State, sec: number): readonly Process[];
@@ -60,15 +66,19 @@ const subjectOf = (k: ProcessKind, p: Pick<Process, 'name'>) => `${k.label} · $
 const pendingSubject = (state: State, subject: string) =>
   Object.values(state.deltas).some(d => d.status === 'pending' && d.subject === subject);
 
-/** Где партия: место большинства её членов; никто не отошёл — первое поселение мира (как `placeChain`). */
-export function partyLocationId(state: State): string | undefined {
-  const count = new Map<string, number>();
-  for (const id of state.party) {
-    const loc = state.actors[id]?.removed ? undefined : state.actors[id]?.locationId;
-    if (loc) count.set(loc, (count.get(loc) ?? 0) + 1);
+/** Adds a process kind's progress projection while preserving explicitly authored player-visibility metadata. */
+function withProgress(k: ProcessKind, process: Process): Process {
+  const progress = k.progress?.(process);
+  if (!progress) return process;
+  if (!isProgressValue(progress)) {
+    throw new Error(`процесс ${process.id}: вид ${k.kind} вернул неверный прогресс часов`);
   }
-  const best = [...count].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0]?.[0];
-  return best ?? Object.values(state.world.locations).find(l => l.scale === 'settlement')?.id;
+  return { ...process, clock: { ...process.clock, segments: progress.segments, filled: progress.filled } };
+}
+
+/** Позиция процессов следует единственной общей позиции карты; при разделении общего места нет. */
+export function partyLocationId(state: State): string | undefined {
+  return partyPlaceId(state);
 }
 
 /** Цепочка мест вверх от id: само место, его родитель… */
@@ -117,9 +127,10 @@ export function simulateProcesses({ state, toSec, timeEventId }: ProcessesInput,
     for (const p of k.spawn?.(state, toSec) ?? []) {
       const subject = subjectOf(k, p);
       if (running[p.id] || pendingSubject(state, subject)) continue;
+      const created = withProgress(k, p);
       out.push({
-        id: id(`new-${p.id}`), scale: p.scale, subject, was: 'нет', now: stageLabel(k, p.stage), cause: `начало: ${k.label.toLowerCase()}`,
-        causeId: p.causeId ?? timeEventId, status: 'pending', patch: { kind: 'process', process: p }, ...(nearParty(state, p) ? {} : { far: true }),
+        id: id(`new-${p.id}`), scale: created.scale, subject, was: 'нет', now: stageLabel(k, created.stage), cause: `начало: ${k.label.toLowerCase()}`,
+        causeId: created.causeId ?? timeEventId, status: 'pending', patch: { kind: 'process', process: created }, ...(nearParty(state, created) ? {} : { far: true }),
       });
     }
   }
@@ -132,21 +143,28 @@ export function simulateProcesses({ state, toSec, timeEventId }: ProcessesInput,
     let cur = p, world = state, ticks = 0;
     const patches: WorldPatch[] = [];
     const lines: string[] = [];
+    let summary: string | undefined;
     while (!cur.ended && cur.nextSec <= toSec && ticks < MAX_TICKS_PER_STEP) {
       const sec = cur.nextSec;
       const r = k.tick(cur, { state: world, sec, roll: what => d20(cur.id, String(sec), what) });
       for (const x of r.patches ?? []) { world = applyWorldPatch(world, x); patches.push(x); }
       // Вид обязан двигать такт вперёд; не сдвинул — сдвигаем на такт масштаба, иначе цикл не кончится.
-      cur = r.process.ended || r.process.nextSec > sec ? r.process : { ...r.process, nextSec: sec + TICK_SEC[r.process.scale] };
+      const progressed = withProgress(k, r.process);
+      cur = progressed.ended || progressed.nextSec > sec ? progressed : { ...progressed, nextSec: sec + TICK_SEC[progressed.scale] };
       if (r.line) lines.push(r.line);
+      if (r.summary) summary = r.summary;
       ticks++;
     }
     const now = `${stageLabel(k, cur.stage)}${cur.ended ? ' — кончился' : ''}`;
+    const causeLines = lines.slice(-3);
+    if (summary && !causeLines.some(line => line.includes(summary!))) causeLines.push(summary);
     out.push({
       id: id(p.id), scale: p.scale, subject, was: stageLabel(k, p.stage), now,
-      cause: lines.length ? lines.slice(-3).join('; ') : `${ticks} ${ticks === 1 ? 'такт' : 'тактов'}`,
+      cause: causeLines.length ? causeLines.join('; ') : `${ticks} ${ticks === 1 ? 'такт' : 'тактов'}`,
       causeId: p.causeId ?? timeEventId, status: 'pending',
-      patch: { kind: 'batch', patches: [...patches, { kind: 'process', process: cur }] },
+      patch: { kind: 'batch', patches: [...patches, p.kind === 'epidemic'
+        ? { kind: 'epidemicState', base: p, process: cur }
+        : { kind: 'process', process: cur }] },
       ...(nearParty(state, p) ? {} : { far: true }),
     });
   }

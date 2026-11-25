@@ -1,6 +1,5 @@
 // Стол: чистые проекции и подписи — дата Харптоса, иконки записей журнала, строки нитей, напоминания, факты о
 // субъекте, шаги лестницы и корешки, кукла из листа. Состояние не трогают, тестируются без DOM.
-import { formatHarptos } from '../../campaign';
 import {
   SCALE_LABELS, placeEntityType, SKILL_LABEL, type CardStackItem, type JournalEntryProps, type ScaleStep, type SlotId, type SlotItem,
   type ThreadCardRow,
@@ -9,6 +8,8 @@ import {
   journalParts, ladderLevels, plural, type Actor, type EventType, type Faction, type JournalEntry as JournalRecord, type Ladder, type Location,
   type State, type ThreadSummary,
 } from '../../engine';
+import { ACTIVE_CALENDAR_ADAPTER, calendarAdapterForState, type CalendarAdapter } from '../../campaign/calendar';
+import { frontDangerProgress } from '../../campaign/fronts';
 import { type IconName } from '../../icons/Icon';
 import { ARMOR, CONDITIONS, SHIELD, isArmorId, type ConditionId } from '../../rules/srd';
 import { SPELLS } from '../../rules/srd/spells';
@@ -33,11 +34,7 @@ export const NARROW_QUERY = `(max-width: ${NARROW_WIDTH - 1}px)`;
 export const NEW_PC_HASH = '#/desk/new';
 export const DESK_HASH = '#/desk';
 
-/** «15 Mirtul 1492 DR, 08:00» → «15 Mirtul, 08:00»: на узкой полосе часов год не помещается, а он один на кампанию. */
-export function shortHarptos(sec: number): string {
-  return formatHarptos(sec).replace(/ \d+ DR,/, ',');
-}
-
+/** Короткая дата и время для записи журнала; календарный adapter задаёт формат. */
 /** Планшет ли сейчас — по matchMedia; без window (тесты движка) — нет. */
 export function isNarrow(): boolean {
   return typeof window !== 'undefined' && typeof window.matchMedia === 'function' && window.matchMedia(NARROW_QUERY).matches;
@@ -61,7 +58,16 @@ export const ENTRY_ICON: Readonly<Record<EventType, { icon: IconName; title: str
   TEMP_HP_GRANTED: { icon: 'hp', title: 'Временные хиты', color: 'var(--fx-temp)' },
   CONDITION_ADDED: { icon: 'pulse', title: 'Состояние' },
   CONDITION_REMOVED: { icon: 'check', title: 'Состояние снято' },
+  A5E_TRACK_SET: { icon: 'pulse', title: 'Трек A5E' },
+  A5E_STRESS_EFFECT_USED: { icon: 'pulse', title: 'Эффект стресса A5E' },
+  A5E_PRESTIGE_UPDATED: { icon: 'ent-pc', title: 'Prestige A5E' },
+  CAMPAIGN_REST_LAYER_SET: { icon: 'journal', title: 'Слой отдыха кампании' },
+  CAMPAIGN_STRESS_THEME_SET: { icon: 'journal', title: 'Тема стресса кампании' },
+  CAMPAIGN_SETTING_PACKAGE_SET: { icon: 'map', title: 'Сеттинг кампании' },
+  CAMPAIGN_CREATED: { icon: 'journal', title: 'Начальная кампания' },
   DICE_ROLLED: { icon: 'dice', title: 'Бросок' },
+  NPC_SOCIAL_UPDATED: { icon: 'ent-pc', title: 'Отношение NPC' },
+  PERSON_RELATIONSHIP_UPDATED: { icon: 'ent-pc', title: 'Связь со справочным NPC' },
   TURN_ADVANCED: { icon: 'initiative', title: 'Ход' },
   TIME_ADVANCED: { icon: 'tempo', title: 'Шаг времени' },
   WORLD_DELTA_ACCEPTED: { icon: 'src-sim', title: 'Принятое предложение', color: 'var(--src-sim)' },
@@ -69,12 +75,38 @@ export const ENTRY_ICON: Readonly<Record<EventType, { icon: IconName; title: str
   WORLD_DELTA_REROLLED: { icon: 'reroll', title: 'Переброс' },
   FACT_REVEALED: { icon: 'src-players', title: 'Открыто игрокам', color: 'var(--src-players)' },
   NOTE_ADDED: { icon: 'note', title: 'Заметка' },
+  TIMELINE_PLAN_CREATED: { icon: 'note', title: 'План хронологии' },
+  TIMELINE_PLAN_CANCELLED: { icon: 'cross', title: 'План хронологии снят' },
+  A5E_DOWNTIME_PROJECT_UPDATED: { icon: 'search', title: 'Прогресс занятия A5E' },
+  A5E_KEY_KNOWLEDGE_EARNED: { icon: 'search', title: 'Key Knowledge A5E' },
+  A5E_KEY_KNOWLEDGE_SPENT: { icon: 'search', title: 'Потрачено Key Knowledge A5E' },
+  A5E_FAVOR_EARNED: { icon: 'ent-deity', title: 'Получена милость A5E' },
+  A5E_FAVOR_SPENT: { icon: 'ent-deity', title: 'Потрачена милость A5E' },
+  A5E_WORK_RESOLVED: { icon: 'move', title: 'Результат работы A5E' },
   ENCOUNTER_STARTED: { icon: 'scale-battle', title: 'Бой' },
   ENCOUNTER_ENDED: { icon: 'scale-battle', title: 'Бой окончен' },
+  LAIR_ACTION_USED: { icon: 'scale-battle', title: 'Действие логова' },
   INITIATIVE_SET: { icon: 'initiative', title: 'Порядок инициативы' },
   CONCENTRATION_STARTED: { icon: 'cond-concentration', title: 'Концентрация' },
   CONCENTRATION_ENDED: { icon: 'cond-concentration', title: 'Концентрация снята' },
   ACTOR_SPAWNED: { icon: 'move', title: 'Появился' },
+  ITEM_GAINED: { icon: 'move', title: 'Вещь получена' },
+  INVENTORY_CONTAINER_CREATED: { icon: 'pin-camp', title: 'Хранилище партии создано' },
+  TRANSPORT_CREATED: { icon: 'move', title: 'Транспорт партии добавлен' },
+  TRANSPORT_REMOVED: { icon: 'cross', title: 'Транспорт партии удалён' },
+  INVENTORY_CONTAINER_REMOVED: { icon: 'cross', title: 'Пустое хранилище удалено' },
+  COINS_EXCHANGED: { icon: 'move', title: 'Монеты обменяны' },
+  ITEM_LOST: { icon: 'cross', title: 'Вещь потеряна' },
+  ITEM_MOVED: { icon: 'move', title: 'Вещь перемещена' },
+  ITEM_TRANSFERRED: { icon: 'move', title: 'Вещь передана' },
+  ITEM_GIFTED: { icon: 'note', title: 'Подарок NPC' },
+  PERSON_ITEM_GIFTED: { icon: 'note', title: 'Подарок справочному NPC' },
+  TRADE_OFFER_CREATED: { icon: 'note', title: 'Предложение сделки' },
+  TRADE_OFFER_WITHDRAWN: { icon: 'cross', title: 'Предложение сделки отозвано' },
+  TRADE_COMPLETED: { icon: 'move', title: 'Сделка совершена' },
+  ATTUNEMENT_CHANGED: { icon: 'check', title: 'Настройка предмета' },
+  ITEM_EQUIPPED: { icon: 'ac', title: 'Вещь надета' },
+  ITEM_UNEQUIPPED: { icon: 'ac', title: 'Вещь снята' },
   ACTOR_REMOVED: { icon: 'cross', title: 'Выбыл' },
   WORLD_DELTA_PROPOSED: { icon: 'src-sim', title: 'Предложение' },
   REST_TAKEN: { icon: 'night', title: 'Отдых' },
@@ -89,10 +121,9 @@ export const ENTRY_ICON: Readonly<Record<EventType, { icon: IconName; title: str
   TOKEN_MOVED: { icon: 'move', title: 'Ход токена' },
 };
 
-/** «15 Mirtul 1492 DR, 08:00» → дата «15 Mirtul» и время «08:00»: журналу год не нужен, он один на кампанию. */
-export function splitHarptos(sec: number): { date: string; time: string } {
-  const [date, time = ''] = formatHarptos(sec).split(', ');
-  return { date: date.replace(/ \d+ DR$/, ''), time };
+/** Короткая дата и время для записи журнала; формат определяет календарный adapter. */
+export function splitCalendarDate(sec: number, calendar: CalendarAdapter = ACTIVE_CALENDAR_ADAPTER): { date: string; time: string } {
+  return { date: calendar.formatCompactDate(sec), time: calendar.formatTime(sec) };
 }
 
 /** Реальное время записи — часы:минуты по стене; у записей сида (at = 0) его нет. */
@@ -108,7 +139,7 @@ export const REFERENCE_MENTIONS: readonly { ref: string; name: string }[] = Obje
   .filter(s => s.name.length >= 4).map(s => ({ ref: `spell:${s.id}`, name: s.name }));
 
 export function journalEntryProps(entry: JournalRecord, state: State): Omit<JournalEntryProps, 'onMention' | 'onThread' | 'className'> {
-  const { date, time } = splitHarptos(entry.worldSec);
+  const { date, time } = splitCalendarDate(entry.worldSec, calendarAdapterForState(state));
   const ic = ENTRY_ICON[entry.type];
   return {
     id: entry.id,
@@ -131,6 +162,23 @@ const DAYS: readonly [string, string, string] = ['день', 'дня', 'дней
 /** Строки карточки нити из сводки: срок, последняя запись, «без внимания», секреты, каскад. Пустого не рисуется. */
 export function threadCardRows(t: ThreadSummary, dmView = true): ThreadCardRow[] {
   const rows: ThreadCardRow[] = [{ key: 'opened', label: `${t.openedDays} ${plural(t.openedDays, DAYS)}`, text: 'открыта', tone: 't2' }];
+  if (t.clock) rows.push({
+    key: 'clock', label: 'часы', text: '', progress: t.clock, progressLabel: `Часы нити: ${t.name}`, tone: 'sim',
+  });
+  if (dmView && t.front) {
+    const summary: string[] = [];
+    const dangerRows: ThreadCardRow[] = [];
+    for (const danger of t.front.dangers) {
+      const progress = frontDangerProgress(danger);
+      summary.push(`${danger.name} ${progress ? `${progress.filled}/${progress.segments}` : 'без знаков'}${danger.resolution ? ' · беда наступила' : ''}`);
+      if (progress) dangerRows.push({
+        key: `front-progress-${danger.id}`, label: 'знаки', text: danger.name,
+        progress, progressLabel: `Мрачные знаки: ${danger.name}`, tone: 'sim',
+      });
+    }
+    rows.push({ key: 'front', label: 'фронт', text: summary.join('; '), tone: 'sim' });
+    rows.push(...dangerRows);
+  }
   if (t.last) rows.push({ key: 'last', label: 'сейчас', text: t.last.text });
   // «Без внимания» — планирование мастера, игрокам не показывается.
   if (dmView && t.idleDays >= 3) rows.push({ key: 'idle', label: `${t.idleDays} ${plural(t.idleDays, DAYS)}`, text: 'без внимания', tone: 'gd' });

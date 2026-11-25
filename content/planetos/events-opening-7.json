@@ -1,0 +1,130 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "event",
+  "entities": [
+    {
+      "ref": "event:jaime-defeats-edmures-force-under-riverrun",
+      "kind": "event",
+      "name": "Jaime defeats Edmure’s force under Riverrun",
+      "nameRu": "Джейме разбивает войско Эдмура под Риверраном",
+      "subtitle": "War of the Five Kings · Riverrun",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Wiki of Ice and Fire: “Battle under the walls of Riverrun” (secondary account; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Battle_under_the_walls_of_Riverrun",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "AWOIAF: Battle under the walls of Riverrun; отдельное более раннее событие в военной кампании, предшествующее Tyrion IX (Chapter_69)."
+        },
+        {
+          "label": "Дата",
+          "value": "абсолютная дата здесь не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "Джейме побеждает войско Эдмура под стенами Риверрана и берёт его в плен вместе со многими рыцарями; Титос Блэквуд уводит часть уцелевших в замок, после чего начинается осада."
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичная сводка AWOIAF; первичное издание не сверено"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Джейме наносит поражение силам Талли под Риверраном и захватывает Эдмура. Уцелевшая часть войска отступает внутрь замка, который Джейме затем осаждает. Это отдельное событие до захвата Джейме в Шепчущем лесу и до Битвы в лагерях."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jaime Lannister",
+          "ref": "person:jaime-lannister"
+        },
+        {
+          "label": "Edmure Tully",
+          "ref": "person:edmure-tully"
+        },
+        {
+          "label": "Tytos Blackwood",
+          "ref": "person:tytos-blackwood"
+        },
+        {
+          "label": "Riverrun",
+          "ref": "place:riverrun"
+        }
+      ]
+    },
+    {
+      "ref": "event:battle-of-the-camps-at-riverrun",
+      "kind": "event",
+      "name": "Robb relieves Riverrun in the Battle of the Camps",
+      "nameRu": "Робб снимает осаду Риверрана в Битве в лагерях",
+      "subtitle": "A Game of Thrones · prior event referenced in Tyrion IX",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Tyrion IX (AWOIAF Chapter_69); A Wiki of Ice and Fire: “Battle of the Camps” (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/Battle_of_the_Camps",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 69
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Tyrion IX (AWOIAF numeric Chapter_69) and AWOIAF: Battle of the Camps"
+        },
+        {
+          "label": "Дата",
+          "value": "абсолютная дата здесь не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "после пленения Джейме в Шепчущем лесу силы Робба и гарнизон Риверрана разбивают оставшееся войско Ланнистеров и снимают осаду; Эдмур освобождён"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичная сводка AWOIAF; первичное издание не сверено"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "В Битве в лагерях Робб и северяне атакуют лагеря осаждающего войска, а гарнизон Риверрана наносит удар из замка. Оставшиеся силы Ланнистеров разбиты или отступают; Эдмур освобождён. В Tyrion IX Тайвин получает весть об этом поражении, но само сражение произошло раньше и отдельно от сообщения."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "Jaime Lannister",
+          "ref": "person:jaime-lannister"
+        },
+        {
+          "label": "Edmure Tully",
+          "ref": "person:edmure-tully"
+        },
+        {
+          "label": "Tytos Blackwood",
+          "ref": "person:tytos-blackwood"
+        },
+        {
+          "label": "Riverrun",
+          "ref": "place:riverrun"
+        },
+        {
+          "label": "Jaime captured at Whispering Wood",
+          "ref": "event:robb-captures-jaime-at-whispering-wood"
+        },
+        {
+          "label": "Tywin receives the news",
+          "ref": "event:tywin-receives-news-of-jaimes-capture-and-riverrun-defeat"
+        }
+      ]
+    }
+  ]
+}

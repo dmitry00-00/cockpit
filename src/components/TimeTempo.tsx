@@ -7,7 +7,7 @@
 // в тултипе и aria-keyshortcuts. Пиктограмм нет: шаг — словом с иконкой tempo. Строки классов полные:
 // Tailwind ищет их в исходнике.
 
-import { useEffect, useRef, useState, type KeyboardEvent, type MouseEvent } from 'react';
+import { useEffect, useId, useRef, useState, type KeyboardEvent, type MouseEvent } from 'react';
 import { ToggleGroup } from 'radix-ui';
 import type { Tempo } from '../engine';
 import { Icon } from '../icons/Icon';
@@ -39,6 +39,11 @@ export interface TimeTempoProps {
   /** В бою темп — раунды: переключатель недоступен, шаг доступен. */
   disabled?: boolean;
   className?: string;
+  compact?: boolean;
+  recommended?: Tempo;
+  stepDisabled?: boolean;
+  /** Calendars without years omit the year step while preserving the seven-step default for existing callers. */
+  availableTempos?: readonly Tempo[];
 }
 
 /** Черновик поля → число шагов: только целое от STEPS_MIN до STEPS_MAX, иначе null и Enter ничего не делает. */
@@ -62,7 +67,9 @@ const BTN = 'type-num-12 uppercase whitespace-nowrap px-2 py-1 bg-cd shadow-beve
 /* Поле «сколько шагов» — утопленное, в рост кнопки (16 + 2×4 = 24px). */
 const INPUT = 'w-12 px-1 py-1 text-center type-num-12 text-tx bg-wl shadow-bevel-in focus-visible:shadow-[var(--bevel-in),var(--glow-gold)]';
 
-export function TimeTempo({ value, onChange, onStep, disabled = false, className = '' }: TimeTempoProps) {
+export function TimeTempo({ value, onChange, onStep, disabled = false, className = '', compact = false, recommended, stepDisabled = false, availableTempos = TEMPO_ORDER }: TimeTempoProps) {
+  const [more, setMore] = useState(false);
+  const temposId = useId();
   const [open, setOpen] = useState(false);
   const [draft, setDraft] = useState('');
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -126,7 +133,9 @@ export function TimeTempo({ value, onChange, onStep, disabled = false, className
 
   return (
     <div role="group" aria-label="Темп времени" className={`flex items-center gap-2 ${className}`}>
+      {compact ? <span className="type-body-sm text-tx" data-part="current-tempo">Текущий шаг: {TEMPO_LABELS[value]}</span> : null}
       <ToggleGroup.Root
+        id={temposId}
         type="single"
         value={value}
         onValueChange={v => {
@@ -137,7 +146,7 @@ export function TimeTempo({ value, onChange, onStep, disabled = false, className
         data-part="tempos"
         className="flex items-center gap-px p-px bg-lo"
       >
-        {TEMPO_ORDER.map(t => (
+        {availableTempos.filter(t => !compact || more || ['round', '10min', 'hour', 'day'].includes(t) || t === value).map(t => (
           <ToggleGroup.Item
             key={t}
             value={t}
@@ -149,9 +158,15 @@ export function TimeTempo({ value, onChange, onStep, disabled = false, className
           </ToggleGroup.Item>
         ))}
       </ToggleGroup.Root>
+      {compact ? <button type="button" className={BTN} aria-expanded={more} aria-controls={temposId} disabled={disabled} onClick={() => setMore(v => !v)}>Другие темпы</button> : null}
+      {recommended && availableTempos.includes(recommended) ? <span className="type-body-xs text-t2 flex items-center gap-1 flex-wrap" data-part="recommended-tempo">
+        Рекомендация масштаба: {TEMPO_LABELS[recommended]}
+        {recommended !== value && !disabled ? <button type="button" className={BTN} onClick={() => onChange(recommended)}>Выбрать рекомендацию</button> : null}
+      </span> : null}
       <button
         type="button"
         data-part="step"
+        disabled={stepDisabled}
         aria-label="Шаг"
         aria-keyshortcuts="T"
         title="Продвинуть время на один шаг · T"

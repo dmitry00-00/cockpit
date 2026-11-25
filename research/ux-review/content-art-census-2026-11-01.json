@@ -1,0 +1,95 @@
+{
+  "asOf": "2026-11-01",
+  "meaning": "Число записей в файлах проекта, не число уникальных изображений и не подтверждение каноничности каждой записи.",
+  "catalog": [
+    {
+      "file": "content/compendium/classes.json",
+      "key": "classes",
+      "records": 13
+    },
+    {
+      "file": "content/compendium/races.json",
+      "key": "races",
+      "records": 38
+    },
+    {
+      "file": "content/compendium/feats.json",
+      "key": "feats",
+      "records": 170
+    },
+    {
+      "file": "content/srd/spells.json",
+      "key": "spells",
+      "records": 319
+    },
+    {
+      "file": "content/srd/equipment.json",
+      "key": "items",
+      "records": 122
+    },
+    {
+      "file": "content/srd/magic-items.json",
+      "key": "items",
+      "records": 239
+    },
+    {
+      "file": "content/srd/monsters.json",
+      "key": "monsters",
+      "records": 334
+    },
+    {
+      "file": "content/maps/toril-places.json",
+      "key": "places",
+      "records": 863
+    },
+    {
+      "file": "content/maps/toril-cards.json",
+      "key": "places",
+      "records": 1482
+    },
+    {
+      "file": "content/world/organizations.json",
+      "key": "organizations",
+      "records": 2840
+    },
+    {
+      "file": "content/world/kingdoms.json",
+      "key": "kingdoms",
+      "records": 442
+    }
+  ],
+  "people": {
+    "pattern": "content/world/people/{0..7}.json",
+    "records": 20611
+  },
+  "newStyleSample": {
+    "manifest": "design/mockups/painterly-screen-v1/manifest.json",
+    "assets": [
+      {
+        "id": "bo-portrait",
+        "transparent": false,
+        "promptFile": "design/mockups/painterly-screen-v1/prompts.json"
+      },
+      {
+        "id": "ranger-sign",
+        "transparent": true,
+        "promptFile": "design/mockups/painterly-screen-v1/prompts.json"
+      },
+      {
+        "id": "perception-sign",
+        "transparent": true,
+        "promptFile": "design/mockups/painterly-screen-v1/prompts.json"
+      },
+      {
+        "id": "stealth-sign",
+        "transparent": true,
+        "promptFile": "design/mockups/painterly-screen-v1/prompts.json"
+      },
+      {
+        "id": "plum-leather",
+        "transparent": false,
+        "promptFile": "design/mockups/painterly-screen-v1/prompts.json"
+      }
+    ]
+  }
+}

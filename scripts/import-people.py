@@ -10,13 +10,13 @@
 # content/world/people-index.json — место → жители (id, имя, годы), чтобы карточка места показывала NPC, не загружая
 # всех; content/world/org-members.json — организация → члены.
 #
-# Запуск: .venv/bin/python -I scripts/import-people.py <dump.xml>
+# Запуск: .venv/bin/python -I scripts/import-people.py <dump.xml> [--content-root <content-dir>]
 import hashlib
+import argparse
 import importlib.util
 import json
 import os
 import re
-import sys
 import urllib.parse
 import xml.etree.ElementTree as ET
 
@@ -30,6 +30,7 @@ def _load(name, file):
     return mod
 
 
+content_paths = _load('content_paths', 'content-paths.py')
 sj = _load('spelljammer', 'import-spelljammer.py')
 dz = _load('deities', 'import-deities.py')
 NS = sj.NS
@@ -101,9 +102,9 @@ def follower(redirects):
 
 def place_resolver(follow):
     """Ссылка вики → id места справочника карты: статья карточки L3, затем имя GIS или карточки; нет — None."""
-    with open(os.path.join(ROOT, 'content', 'maps', 'toril-cards.json'), encoding='utf-8') as fh:
+    with open(content_paths.content_path(ROOT, 'maps', 'toril-cards.json'), encoding='utf-8') as fh:
         cards = json.load(fh)['places']
-    with open(os.path.join(ROOT, 'content', 'maps', 'toril-places.json'), encoding='utf-8') as fh:
+    with open(content_paths.content_path(ROOT, 'maps', 'toril-places.json'), encoding='utf-8') as fh:
         gis = json.load(fh)['places']
     place_of_title, place_of_name = {}, {}
     for c in cards:
@@ -125,19 +126,39 @@ def place_resolver(follow):
 
 def deity_resolver(follow):
     """Ссылка вики → id божества content/cosmos/deities.json; нет — None."""
-    with open(os.path.join(ROOT, 'content', 'cosmos', 'deities.json'), encoding='utf-8') as fh:
+    with open(content_paths.content_path(ROOT, 'cosmos', 'deities.json'), encoding='utf-8') as fh:
         of_title = {urllib.parse.unquote(d['url'].rsplit('/wiki/', 1)[1]).replace('_', ' '): d['id'] for d in json.load(fh)['deities']}
     return lambda link: of_title.get(follow(link)) or of_title.get(link)
 
 
+def member_category_sources(pages, follow, org_of_title, member_org_ids):
+    """Organization id → citation for the exact Members of … category on NPC pages."""
+    sources = {}
+    for text in pages.values():
+        for category_name in re.findall(r'\[\[Category:Members of ([^\]|]+)', text):
+            normalized = re.sub(r'^the ', '', category_name.strip(), flags=re.IGNORECASE)
+            org_id = org_of_title.get(follow(normalized)) or org_of_title.get(follow('The ' + normalized))
+            if org_id and org_id in member_org_ids:
+                title = f'Category:Members of {category_name.strip()}'
+                sources.setdefault(org_id, {
+                    'title': title,
+                    'url': sj.WIKI + urllib.parse.quote(title.replace(' ', '_'), safe=':/'),
+                    'license': sj.LICENSE,
+                })
+    return sources
+
+
 def main():
-    if len(sys.argv) != 2:
-        sys.exit('usage: import-people.py <dump.xml>')
-    pages, redirects = scan(sys.argv[1])
+    parser = argparse.ArgumentParser(description='Импорт NPC из FR Wiki.')
+    parser.add_argument('dump', help='XML-дамп вики')
+    parser.add_argument('--content-root', help='корень слоёв content; по умолчанию <корень проекта>/content')
+    args = parser.parse_args()
+    content_paths.set_content_root(args.content_root)
+    pages, redirects = scan(args.dump)
     follow = follower(redirects)
     place, deity_of = place_resolver(follow), deity_resolver(follow)
     # Организации (ROADMAP 3.1) — из content/world/organizations.json, если импорт организаций уже был: он идёт первым.
-    org_path = os.path.join(ROOT, 'content', 'world', 'organizations.json')
+    org_path = content_paths.content_path(ROOT, 'world', 'organizations.json')
     org_of_title = {}
     if os.path.exists(org_path):
         with open(org_path, encoding='utf-8') as fh:
@@ -165,8 +186,14 @@ def main():
         deity = next((d for d in (deity_of(l) for l in dz.links_of(deity_raw)) if d), None)
         # Организации — по категориям «Members of the Zhentarim» статьи: в {{Person}} поля для них нет. Категория не
         # различает нынешних и бывших членов — в карточке это «состоял».
-        cats = (re.sub(r'^the ', '', c.strip()) for c in re.findall(r'\[\[Category:Members of ([^\]|]+)', text))
-        orgs = list(dict.fromkeys(o for o in (org_of_title.get(follow(c)) or org_of_title.get(follow('The ' + c)) for c in cats) if o))[:6]
+        cats = [c.strip() for c in re.findall(r'\[\[Category:Members of ([^\]|]+)', text)]
+        org_categories = {}
+        for category_name in cats:
+            normalized = re.sub(r'^the ', '', category_name, flags=re.IGNORECASE)
+            org_id = org_of_title.get(follow(normalized)) or org_of_title.get(follow('The ' + normalized))
+            if org_id:
+                org_categories.setdefault(org_id, category_name)
+        orgs = list(org_categories)[:6]
         dr = (box.get('reckoning', '') or 'DR').strip().upper().startswith('DR')
         born, died = (year(box.get('dob', '')), year(box.get('death', ''))) if dr else (None, None)
         title = next((x for x in (dz.plain(s) for s in re.split(r'<br\s*/?>', dz.current(box.get('titles', '')))) if x), None)
@@ -192,7 +219,7 @@ def main():
                 rec[k] = rec[k][:119].rstrip(' ,;') + '…'
         people.append(rec)
 
-    out_dir = os.path.join(ROOT, 'content', 'world', 'people')
+    out_dir = content_paths.content_path(ROOT, 'world', 'people')
     os.makedirs(out_dir, exist_ok=True)
     chunks = [[] for _ in range(BUCKETS)]
     for p in people:
@@ -205,7 +232,7 @@ def main():
     for p in people:
         if 'place' in p:
             index.setdefault(p['place'], []).append([p['id'], p['name'], p.get('born'), p.get('died')])
-    with open(os.path.join(ROOT, 'content', 'world', 'people-index.json'), 'w', encoding='utf-8') as fh:
+    with open(content_paths.content_path(ROOT, 'world', 'people-index.json'), 'w', encoding='utf-8') as fh:
         json.dump({'attribution': sj.ATTRIBUTION, 'license': sj.LICENSE, 'buckets': BUCKETS,
                    'note': 'Место справочника карты → жители: id, имя, год рождения и смерти (DR). Записи NPC — content/world/people/<хэш id % 8>.json.',
                    'places': dict(sorted(index.items()))}, fh, ensure_ascii=False, separators=(',', ':'))
@@ -215,13 +242,14 @@ def main():
     for p in people:
         for o in p.get('orgs', []):
             members.setdefault(o, []).append([p['id'], p['name'], p.get('born'), p.get('died')])
-    with open(os.path.join(ROOT, 'content', 'world', 'org-members.json'), 'w', encoding='utf-8') as fh:
+    member_sources = member_category_sources(pages, follow, org_of_title, set(members))
+    with open(content_paths.content_path(ROOT, 'world', 'org-members.json'), 'w', encoding='utf-8') as fh:
         json.dump({'attribution': sj.ATTRIBUTION, 'license': sj.LICENSE,
                    'note': 'Организация → NPC по категориям «Members of …» вики: id, имя, год рождения и смерти (DR).',
-                   'orgs': dict(sorted(members.items()))}, fh, ensure_ascii=False, separators=(',', ':'))
+                   'orgs': dict(sorted(members.items())), 'sources': dict(sorted(member_sources.items()))}, fh, ensure_ascii=False, separators=(',', ':'))
         fh.write('\n')
     size = sum(os.path.getsize(os.path.join(out_dir, f'{i}.json')) for i in range(BUCKETS)) // 1024
-    isize = os.path.getsize(os.path.join(ROOT, 'content', 'world', 'people-index.json')) // 1024
+    isize = os.path.getsize(content_paths.content_path(ROOT, 'world', 'people-index.json')) // 1024
     print(f'{len(people)} NPC: {size} КБ в {BUCKETS} кусках; с местом — {sum(len(v) for v in index.values())} в {len(index)} местах, индекс {isize} КБ; '
           f'с богом — {sum(1 for p in people if "deity" in p)}, с организацией — {sum(1 for p in people if "orgs" in p)}')
 

@@ -52,6 +52,8 @@ export interface HpControlProps {
    */
   onConcentrationKept?: () => void;
   onConcentrationLost?: () => void;
+  /** Roll the CON concentration save; the caller logs the d20 and applies any enabled campaign effects. */
+  onConcentrationCheck?: () => number | undefined;
   /**
    * Спасбросок CON актёра (лист или блок) — промпт пишет «удержит с шансом N%» (ROADMAP 5.5). Нет — только DC.
    * Только у мастера: у монстра это число блока (Q1), а промпт — в попапе хитов мастера.
@@ -120,7 +122,7 @@ const SURFACE: Record<NonNullable<HpControlProps['surface']>, string> = {
 };
 
 export function HpControl({
-  actor, onDamage, onHeal, onTempHp, flash = null, lastDamage = null, onConcentrationKept, onConcentrationLost, onConcentrationDropped,
+  actor, onDamage, onHeal, onTempHp, flash = null, lastDamage = null, onConcentrationKept, onConcentrationLost, onConcentrationCheck, onConcentrationDropped,
   deathSaves, resist, surface = 'panel', className, conSave,
 }: HpControlProps) {
   const [draft, setDraft] = useState('');
@@ -162,6 +164,12 @@ export function HpControl({
   const answer = (fn?: () => void) => {
     if (lastDamage) setAnswered(a => [...a, lastDamage.id].slice(-ANSWERED_KEEP));
     fn?.();
+  };
+  const rollConcentrationCheck = () => {
+    if (!savePrompt || !onConcentrationCheck) return;
+    const total = onConcentrationCheck();
+    if (total === undefined) return;
+    answer(total >= savePrompt.dc ? onConcentrationKept : onConcentrationLost);
   };
 
   return (
@@ -231,6 +239,7 @@ export function HpControl({
             </div>
           </div>
           <div className="flex items-center gap-1">
+            {onConcentrationCheck && conSave !== undefined ? <button type="button" title={`Бросить CON на концентрацию: d20 ${conSave >= 0 ? '+' + conSave : conSave}, DC ${savePrompt.dc}`} onClick={rollConcentrationCheck} className={BTN_GHOST}>Бросить спасбросок</button> : null}
             <button type="button" title="Концентрация удержана" onClick={() => answer(onConcentrationKept)} className={BTN_GHOST}>Удержал</button>
             <button type="button" title="Концентрация потеряна" onClick={() => answer(onConcentrationLost)} className={BTN_GHOST}>Потерял</button>
           </div>

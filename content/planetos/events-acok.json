@@ -1,0 +1,3942 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "event",
+  "entities": [
+    {
+      "ref": "event:cressen-attempts-to-poison-melisandre-and-dies",
+      "kind": "event",
+      "name": "Cressen attempts to poison Melisandre and dies",
+      "nameRu": "Крессен пытается отравить Мелисандру и погибает",
+      "subtitle": "A Clash of Kings · chapter 0",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Prologue (chapter 0); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Prologue",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 0,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Локатор",
+          "value": "Prologue · chapter 0"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "произошло в локаторе"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Роль локатора",
+          "value": "произошло в локаторе"
+        },
+        {
+          "label": "Дата",
+          "value": "Не установлена; не выводить дату из порядка глав."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "На пире Крессен делится отравленным вином с Мелисандрой; яд не действует на неё, а Крессен умирает."
+        }
+      ],
+      "links": [
+        {
+          "label": "Cressen",
+          "ref": "person:cressen"
+        },
+        {
+          "label": "Melisandre",
+          "ref": "person:melisandre"
+        },
+        {
+          "label": "Great Hall of Dragonstone",
+          "ref": "place:great-hall-of-dragonstone"
+        }
+      ]
+    },
+    {
+      "ref": "event:sansa-saves-dontos-from-execution",
+      "kind": "event",
+      "name": "Sansa saves Dontos from execution",
+      "nameRu": "Санса спасает Донтоса от казни",
+      "subtitle": "A Clash of Kings · chapter 2",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Sansa I (chapter 2); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_2",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 2,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Sansa I · chapter 2"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "произошло в локаторе"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Роль локатора",
+          "value": "произошло в локаторе"
+        },
+        {
+          "label": "Дата",
+          "value": "Не установлена; не выводить дату из порядка глав."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Санса убеждает Джоффри заменить казнь Донтоса назначением придворным шутом после его провала на турнире."
+        }
+      ],
+      "links": [
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        },
+        {
+          "label": "Dontos Hollard",
+          "ref": "person:dontos-hollard"
+        },
+        {
+          "label": "Joffrey Baratheon",
+          "ref": "person:joffrey-baratheon"
+        }
+      ]
+    },
+    {
+      "ref": "event:barra-and-her-mother-are-killed",
+      "kind": "event",
+      "name": "Barra and her mother are killed",
+      "nameRu": "Барра и её мать погибают",
+      "subtitle": "A Clash of Kings · chapter 8",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Tyrion II (chapter 8); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_8",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 8,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Tyrion II · chapter 8"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "сообщается/упоминается; само событие раньше сцены"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Роль локатора",
+          "value": "сообщается/упоминается; само событие раньше сцены"
+        },
+        {
+          "label": "Дата",
+          "value": "Не установлена; не выводить дату из порядка глав."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "В разговоре Тириона с Джаносом Слинтом выясняется, что Аллар Дим убил молодую женщину и её младенца; событие предшествует сцене главы."
+        }
+      ],
+      "links": [
+        {
+          "label": "Barra",
+          "ref": "person:barra"
+        },
+        {
+          "label": "Allar Deem",
+          "ref": "person:allard-deem"
+        },
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        }
+      ]
+    },
+    {
+      "ref": "event:stannis-draws-lightbringer-at-dragonstone",
+      "kind": "event",
+      "name": "Stannis draws Lightbringer at Dragonstone",
+      "nameRu": "Станнис вынимает Светозарного на Драконьем Камне",
+      "subtitle": "A Clash of Kings · chapter 10",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Davos I (chapter 10); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_10",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 10,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Davos I · chapter 10"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "произошло в локаторе"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Роль локатора",
+          "value": "произошло в локаторе"
+        },
+        {
+          "label": "Дата",
+          "value": "Не установлена; не выводить дату из порядка глав."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Во время обряда у костра Станнис вынимает из пламени меч, названный Светозарным, а Мелисандра объявляет его возрождённым Азор Ахаем."
+        }
+      ],
+      "links": [
+        {
+          "label": "Stannis Baratheon",
+          "ref": "person:stannis-baratheon"
+        },
+        {
+          "label": "Melisandre",
+          "ref": "person:melisandre"
+        },
+        {
+          "label": "Dragonstone",
+          "ref": "place:dragonstone"
+        }
+      ]
+    },
+    {
+      "ref": "event:balon-rejects-robb-stark-alliance",
+      "kind": "event",
+      "name": "Balon rejects Robb Stark’s alliance",
+      "nameRu": "Бейлон отвергает союз с Роббом Старком",
+      "subtitle": "A Clash of Kings · chapter 11",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Theon I (chapter 11); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_11",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 11,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Theon I · chapter 11"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "произошло в локаторе"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Роль локатора",
+          "value": "произошло в локаторе"
+        },
+        {
+          "label": "Дата",
+          "value": "Не установлена; не выводить дату из порядка глав."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Бейлон сжигает письмо Робба и заявляет, что намерен завоевать корону силой, а не принять её в дар."
+        }
+      ],
+      "links": [
+        {
+          "label": "Balon Greyjoy",
+          "ref": "person:balon-greyjoy"
+        },
+        {
+          "label": "Theon Greyjoy",
+          "ref": "person:theon-greyjoy"
+        },
+        {
+          "label": "Pyke",
+          "ref": "place:pyke"
+        }
+      ]
+    },
+    {
+      "ref": "event:daenerys-reaches-vaes-tolorro",
+      "kind": "event",
+      "name": "Daenerys’s khalasar reaches Vaes Tolorro",
+      "nameRu": "Кхаласар Дейенерис достигает Ваэс Толорро",
+      "subtitle": "A Clash of Kings · chapter 12",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Daenerys I (chapter 12); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_12",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 12,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Daenerys I · chapter 12"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "произошло в локаторе"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Роль локатора",
+          "value": "произошло в локаторе"
+        },
+        {
+          "label": "Дата",
+          "value": "Не установлена; не выводить дату из порядка глав."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "После тяжёлого перехода по Красным пустошам люди Дейенерис находят убежище в разрушенном городе Ваэс Толорро."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Vaes Tolorro",
+          "ref": "place:vaes-tolorro"
+        },
+        {
+          "label": "Red Waste",
+          "ref": "place:red-waste"
+        }
+      ]
+    },
+    {
+      "ref": "event:night-watch-finds-whitetree-abandoned",
+      "kind": "event",
+      "name": "Night’s Watch finds Whitetree abandoned",
+      "nameRu": "Ночной Дозор находит Уайттри покинутой",
+      "subtitle": "A Clash of Kings · chapter 13",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Jon II (chapter 13); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_13",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 13,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Jon II · chapter 13"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "произошло в локаторе"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Роль локатора",
+          "value": "произошло в локаторе"
+        },
+        {
+          "label": "Дата",
+          "value": "Не установлена; не выводить дату из порядка глав."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Разведчики Ночного Дозора осматривают очередную безлюдную деревню; в Уайттри они находят следы, связанные с сожжением умерших."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Jeor Mormont",
+          "ref": "person:jeor-mormont"
+        },
+        {
+          "label": "Thoren Smallwood",
+          "ref": "person:thoren-smallwood"
+        },
+        {
+          "label": "Whitetree",
+          "ref": "place:whitetree"
+        }
+      ]
+    },
+    {
+      "ref": "event:stannis-circulates-letters-accusing-cersei",
+      "kind": "event",
+      "name": "Stannis circulates letters accusing Cersei",
+      "nameRu": "Станнис распространяет письма с обвинениями против Серсеи",
+      "subtitle": "A Clash of Kings · chapter 15",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Tyrion III (chapter 15); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_15",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 15,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Tyrion III · chapter 15"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "сообщается/обсуждается; распространение началось до сцены"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Роль локатора",
+          "value": "сообщается/обсуждается; распространение началось до сцены"
+        },
+        {
+          "label": "Дата",
+          "value": "Не установлена; не выводить дату из порядка глав."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "В Королевской Гавани обсуждают распространившееся заявление Станниса о происхождении детей Серсеи; карточка фиксирует факт обвинения, а не его доказанность."
+        }
+      ],
+      "links": [
+        {
+          "label": "Stannis Baratheon",
+          "ref": "person:stannis-baratheon"
+        },
+        {
+          "label": "Cersei Lannister",
+          "ref": "person:cersei-lannister"
+        },
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        }
+      ]
+    },
+    {
+      "ref": "event:tyrion-tests-council-with-conflicting-proposals",
+      "kind": "event",
+      "name": "Tyrion tests the council with conflicting proposals",
+      "nameRu": "Тирион проверяет малый совет разными предложениями",
+      "subtitle": "A Clash of Kings · chapter 17",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Tyrion IV (chapter 17); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_17",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 17,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Tyrion IV · chapter 17"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "произошло в локаторе"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Роль локатора",
+          "value": "произошло в локаторе"
+        },
+        {
+          "label": "Дата",
+          "value": "Не установлена; не выводить дату из порядка глав."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Тирион передаёт трём советникам разные секретные планы, чтобы выяснить, кто разглашает сведения; планы не представлены как решения, которые уже исполнены."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Pycelle",
+          "ref": "person:pycelle"
+        },
+        {
+          "label": "Petyr Baelish",
+          "ref": "person:petyr-baelish"
+        },
+        {
+          "label": "Varys",
+          "ref": "person:varys"
+        }
+      ]
+    },
+    {
+      "ref": "event:attack-on-yoren-holdfast",
+      "kind": "event",
+      "name": "Lannister raiders attack Yoren’s holdfast",
+      "nameRu": "Ланнистерские налётчики атакуют укрепление Йорена",
+      "subtitle": "A Clash of Kings · chapter 19",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Arya V (chapter 19); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_19",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 19,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Arya IV · chapter 14"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "произошло в локаторе"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Роль локатора",
+          "value": "произошло в локаторе"
+        },
+        {
+          "label": "Дата",
+          "value": "Не установлена; не выводить дату из порядка глав."
+        },
+        {
+          "label": "Оговорка",
+          "value": "Гибель Йорена подтверждается позднейшей главой 19; локатор события — глава 14."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Люди Амори Лорха требуют открыть ворота; после отказа начинается бой, а выжившие уходят через проход под горящим амбаром."
+        }
+      ],
+      "links": [
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Yoren",
+          "ref": "person:yoren"
+        },
+        {
+          "label": "Amory Lorch",
+          "ref": "person:amory-lorch"
+        },
+        {
+          "label": "Gendry",
+          "ref": "person:gendry"
+        },
+        {
+          "label": "Unnamed holdfast south of the Gods Eye",
+          "ref": "place:abandoned-holdfast-south-of-gods-eye"
+        }
+      ]
+    },
+    {
+      "ref": "event:tyrion-prepares-wildfire-for-city-defense",
+      "kind": "event",
+      "name": "Tyrion prepares wildfire defenses for King’s Landing",
+      "nameRu": "Тирион готовит оборону Королевской Гавани с использованием дикого огня",
+      "subtitle": "A Clash of Kings · chapter 20",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Tyrion V (chapter 20); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_20",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 20,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Tyrion V · chapter 20"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "произошло в локаторе"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Роль локатора",
+          "value": "произошло в локаторе"
+        },
+        {
+          "label": "Дата",
+          "value": "Не установлена; не выводить дату из порядка глав."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "После осмотра запасов дикого огня Тирион просит выдать резервные сосуды к городским воротам и поручает подготовить расчёты для их применения."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Hallyne",
+          "ref": "person:hallyne"
+        },
+        {
+          "label": "Jacelyn Bywater",
+          "ref": "person:jacelyn-bywater"
+        },
+        {
+          "label": "Alchemists’ Guild",
+          "ref": "organization:alchemists-guild"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "event:brienne-joins-rainbow-guard",
+      "kind": "event",
+      "name": "Brienne joins Renly’s Rainbow Guard",
+      "nameRu": "Бриенна вступает в Радужную гвардию Ренли",
+      "subtitle": "A Clash of Kings · chapter 22",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Catelyn II (chapter 22); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_22",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 22,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Catelyn II · chapter 22"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "произошло в локаторе"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Роль локатора",
+          "value": "произошло в локаторе"
+        },
+        {
+          "label": "Дата",
+          "value": "Не установлена; не выводить дату из порядка глав."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "После победы на турнире Бриенна просит принять её в личную гвардию Ренли; он соглашается."
+        }
+      ],
+      "links": [
+        {
+          "label": "Brienne of Tarth",
+          "ref": "person:brienne-of-tarth"
+        },
+        {
+          "label": "Renly Baratheon",
+          "ref": "person:renly-baratheon"
+        },
+        {
+          "label": "Rainbow Guard",
+          "ref": "organization:rainbow-guard"
+        }
+      ]
+    },
+    {
+      "ref": "event:brienne-wins-melee-at-bitterbridge",
+      "kind": "event",
+      "name": "Brienne wins the melee at Bitterbridge",
+      "nameRu": "Бриенна побеждает в турнире на Горьком Мосту",
+      "subtitle": "A Clash of Kings · chapter 22",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Catelyn II (chapter 22); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_22",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 22,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Catelyn II · chapter 22"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "произошло в локаторе"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Роль локатора",
+          "value": "произошло в локаторе"
+        },
+        {
+          "label": "Дата",
+          "value": "Не установлена; не выводить дату из порядка глав."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Бриенна остаётся последним всадником и побеждает Лораса Тирелла, после чего Ренли объявляет её чемпионкой."
+        }
+      ],
+      "links": [
+        {
+          "label": "Brienne of Tarth",
+          "ref": "person:brienne-of-tarth"
+        },
+        {
+          "label": "Loras Tyrell",
+          "ref": "person:loras-tyrell"
+        },
+        {
+          "label": "Renly Baratheon",
+          "ref": "person:renly-baratheon"
+        },
+        {
+          "label": "Bitterbridge",
+          "ref": "place:bitterbridge"
+        }
+      ]
+    },
+    {
+      "ref": "event:stannis-besieges-storms-end",
+      "kind": "event",
+      "name": "Stannis besieges Storm’s End",
+      "nameRu": "Станнис осаждает Штормовой Предел",
+      "subtitle": "A Clash of Kings · chapter 22",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Catelyn II (chapter 22); A Wiki of Ice and Fire chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_22",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 22,
+        "attribution": "A Wiki of Ice and Fire (awoiaf.westeros.org), CC BY-SA 3.0."
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Catelyn II · chapter 22"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "сообщение о событии; событие уже идёт к моменту главы"
+        },
+        {
+          "label": "Статус проверки",
+          "value": "secondary-indexed-partial; первичная сверка по выбранному изданию не пройдена."
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием."
+        },
+        {
+          "label": "Роль локатора",
+          "value": "сообщение о событии; событие уже идёт к моменту главы"
+        },
+        {
+          "label": "Дата",
+          "value": "Не установлена; не выводить дату из порядка глав."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "В лагерь Ренли прибывает весть, что Станнис уже осадил Штормовой Предел; глава сообщает об осаде, но не даёт её дату начала."
+        }
+      ],
+      "links": [
+        {
+          "label": "Stannis Baratheon",
+          "ref": "person:stannis-baratheon"
+        },
+        {
+          "label": "Renly Baratheon",
+          "ref": "person:renly-baratheon"
+        },
+        {
+          "label": "Storm’s End",
+          "ref": "place:storms-end"
+        }
+      ]
+    },
+    {
+      "ref": "event:mance-assembles-at-frostfangs",
+      "kind": "event",
+      "name": "Mance gathers his people in the Frostfangs",
+      "nameRu": "Манс собирает сторонников в Клыках Мороза",
+      "subtitle": "A Clash of Kings · chapter 23",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Jon III (chapter 23); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_23",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 23
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Jon III, глава 23"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "reported"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Тип сведений источника",
+          "value": "reported"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Крастер сообщает, что Манс собирает людей в Клыках Мороза. Это переданное сообщение, не показанная сцена сбора."
+        }
+      ],
+      "links": [
+        {
+          "label": "Mance Rayder",
+          "ref": "person:mance-rayder"
+        },
+        {
+          "label": "Craster",
+          "ref": "person:craster"
+        },
+        {
+          "label": "Frostfangs",
+          "ref": "place:frostfangs"
+        }
+      ]
+    },
+    {
+      "ref": "event:great-ranging-reaches-crasters-keep",
+      "kind": "event",
+      "name": "The Great Ranging reaches Craster’s Keep",
+      "nameRu": "Большой поход достигает крепости Крастера",
+      "subtitle": "A Clash of Kings · chapter 23",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Jon III (chapter 23); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_23",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 23
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Jon III, глава 23"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "occurred"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Тип сведений источника",
+          "value": "occurred"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Передовой отряд Ночного дозора обнаруживает обитаемое укрепление после прохода через оставленные деревни."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Craster",
+          "ref": "person:craster"
+        },
+        {
+          "label": "Craster’s Keep",
+          "ref": "place:crasters-keep"
+        },
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        }
+      ]
+    },
+    {
+      "ref": "event:cleos-frey-sent-to-robb-with-terms",
+      "kind": "event",
+      "name": "Cleos Frey is sent to Robb with Lannister terms",
+      "nameRu": "Клеос Фрей отправлен к Роббу с условиями Ланнистеров",
+      "subtitle": "A Clash of Kings · chapter 25",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Tyrion VI (chapter 25); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_25",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 25
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Tyrion VI, глава 25"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "order/message"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Тип сведений источника",
+          "value": "order/message"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Тирион поручает Клеосу передать Роббу условия мира. Передача поручена здесь; её принятие не подразумевается."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Cleos Frey",
+          "ref": "person:cleos-frey"
+        },
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        }
+      ]
+    },
+    {
+      "ref": "event:tyrion-poisons-cersei",
+      "kind": "event",
+      "name": "Tyrion poisons Cersei",
+      "nameRu": "Тирион отравляет Серсею",
+      "subtitle": "A Clash of Kings · chapter 25",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Tyrion VI (chapter 25); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_25",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 25
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Локатор",
+          "value": "Tyrion VI, глава 25"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "occurred"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Тип сведений источника",
+          "value": "occurred"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Тирион подмешивает средство в вино сестры, чтобы временно лишить её возможности вмешиваться в решения."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Cersei Lannister",
+          "ref": "person:cersei-lannister"
+        }
+      ]
+    },
+    {
+      "ref": "event:tickler-interrogates-gods-eye-prisoners",
+      "kind": "event",
+      "name": "The Tickler interrogates prisoners near the Gods Eye",
+      "nameRu": "Щекотун допрашивает пленников у Божьего Ока",
+      "subtitle": "A Clash of Kings · chapter 26",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Arya VI (chapter 26); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_26",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 26
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Arya VI, глава 26"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "occurred"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Тип сведений источника",
+          "value": "occurred"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Люди Грегора проводят повторяющиеся жестокие допросы жителей; полный список пострадавших не восстанавливается."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tickler",
+          "ref": "person:tickler"
+        },
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Gods Eye village",
+          "ref": "place:gods-eye-village"
+        }
+      ]
+    },
+    {
+      "ref": "event:quhuru-mo-brings-news-of-roberts-death",
+      "kind": "event",
+      "name": "Quhuru Mo brings Daenerys news of Robert’s death",
+      "nameRu": "Кхуру Мо сообщает Дейенерис о смерти Роберта",
+      "subtitle": "A Clash of Kings · chapter 27",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Daenerys II (chapter 27); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_27",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 27
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Daenerys II, глава 27"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "message received"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Тип сведений источника",
+          "value": "message received"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Капитан передаёт сведения, услышанные в нескольких городах; версии о предателе остаются слухами."
+        }
+      ],
+      "links": [
+        {
+          "label": "Quhuru Mo",
+          "ref": "person:quhuru-mo"
+        },
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Robert Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "Qarth",
+          "ref": "place:qarth"
+        }
+      ]
+    },
+    {
+      "ref": "event:jojen-dreams-of-winged-wolf-and-crow",
+      "kind": "event",
+      "name": "Jojen dreams of a chained winged wolf and a three-eyed crow",
+      "nameRu": "Жойен видит во сне крылатого волка в цепях и трёхглазого ворона",
+      "subtitle": "A Clash of Kings · chapter 28",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Bran IV (chapter 28); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_28",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 28
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Bran IV, глава 28"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "dream"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Тип сведений источника",
+          "value": "dream"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Жойен пересказывает Брану сон; это видение, а не объективное событие мира. Толкование образов не подтверждается этой записью."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jojen Reed",
+          "ref": "person:jojen-reed"
+        },
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "event:arya-names-chiswyck-to-jaqen",
+      "kind": "event",
+      "name": "Arya gives Jaqen Chiswyck’s name",
+      "nameRu": "Арья называет Джакену имя Чисвика",
+      "subtitle": "A Clash of Kings · chapter 30",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Arya VII (chapter 30); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_30",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 30
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Arya VII, глава 30"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "occurred"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Тип сведений источника",
+          "value": "occurred"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Арья передаёт Джакену имя Чисвика как цель обещанного возмездия; последующая смерть учитывается отдельно."
+        }
+      ],
+      "links": [
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Jaqen H’ghar",
+          "ref": "person:jaqen-hghar"
+        },
+        {
+          "label": "Chiswyck",
+          "ref": "person:chiswyck"
+        }
+      ]
+    },
+    {
+      "ref": "event:chiswyck-dies-at-harrenhal",
+      "kind": "event",
+      "name": "Chiswyck dies at Harrenhal",
+      "nameRu": "Чисвик погибает в Харренхоле",
+      "subtitle": "A Clash of Kings · chapter 30",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Arya VII (chapter 30); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_30",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 30
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Локатор",
+          "value": "Arya VII, глава 30"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "reported"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Тип сведений источника",
+          "value": "reported"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Страница сообщает, что спустя несколько дней Чисвик падает насмерть; это не сцена выбора имени."
+        }
+      ],
+      "links": [
+        {
+          "label": "Chiswyck",
+          "ref": "person:chiswyck"
+        },
+        {
+          "label": "Harrenhal",
+          "ref": "place:harrenhal"
+        }
+      ]
+    },
+    {
+      "ref": "event:stannis-renly-parley-fails",
+      "kind": "event",
+      "name": "Stannis and Renly fail to reach terms at Storm’s End",
+      "nameRu": "Станнис и Ренли не достигают соглашения у Штормового Предела",
+      "subtitle": "A Clash of Kings · chapter 31",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Catelyn III (chapter 31); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_31",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 31
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Catelyn III, глава 31"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "occurred"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Тип сведений источника",
+          "value": "occurred"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Переговоры братьев заканчиваются без компромисса. Обвинения Станниса о происхождении Джоффри и Томмена остаются его утверждениями."
+        }
+      ],
+      "links": [
+        {
+          "label": "Stannis Baratheon",
+          "ref": "person:stannis-baratheon"
+        },
+        {
+          "label": "Renly Baratheon",
+          "ref": "person:renly-baratheon"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Storm’s End",
+          "ref": "place:storms-end"
+        }
+      ]
+    },
+    {
+      "ref": "event:sansa-beaten-joffrey-tyrion-intervenes",
+      "kind": "event",
+      "name": "Tyrion stops Joffrey’s beating of Sansa",
+      "nameRu": "Тирион останавливает избиение Сансы Джоффри",
+      "subtitle": "A Clash of Kings · chapter 32",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Sansa III (chapter 32); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_32",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 32
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Локатор",
+          "value": "Sansa III, глава 32"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "occurred"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Тип сведений источника",
+          "value": "occurred"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Джоффри приказывает избить Сансу; Тирион вмешивается и отправляет её на лечение. Рассказ Ланселя о победе Робба — отдельное сообщение."
+        }
+      ],
+      "links": [
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        },
+        {
+          "label": "Joffrey Baratheon",
+          "ref": "person:joffrey-baratheon"
+        },
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        }
+      ]
+    },
+    {
+      "ref": "event:great-ranging-reaches-fist",
+      "kind": "event",
+      "name": "The Great Ranging reaches the Fist of the First Men",
+      "nameRu": "Большой поход достигает Кулака Первых Людей",
+      "subtitle": "A Clash of Kings · chapter 34",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Jon IV (chapter 34); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_34",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 34
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Jon IV, глава 34"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "occurred"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Тип сведений источника",
+          "value": "occurred"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Отряд Джиора занимает древнее укреплённое место и решает ждать подкрепления. Найденные предметы не определяют их автора или назначение."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Jeor Mormont",
+          "ref": "person:jeor-mormont"
+        },
+        {
+          "label": "Fist of the First Men",
+          "ref": "place:fist-of-the-first-men"
+        },
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        }
+      ]
+    },
+    {
+      "ref": "event:battle-of-oxcross",
+      "kind": "event",
+      "name": "Battle of Oxcross",
+      "nameRu": "Битва у Окс-кросса",
+      "subtitle": "A Clash of Kings · chapter 35, 39",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Bran V (chapter 35); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_35",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 35
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Локатор",
+          "value": "Bran V, глава 35"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "reported"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Тип сведений источника",
+          "value": "reported"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "В Винтерфелл приходит сообщение о победе Робба над силами Стаффорда Ланнистера. Сражение в этом локаторе не показано."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Bran V (chapter 35); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_35",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 35
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Catelyn V (chapter 39); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_39",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 39
+        }
+      ]
+    },
+    {
+      "ref": "event:jojen-dreams-winterfell-flooded",
+      "kind": "event",
+      "name": "Jojen dreams of the sea flooding Winterfell",
+      "nameRu": "Жойен видит во сне затопление Винтерфелла",
+      "subtitle": "A Clash of Kings · chapter 35",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Bran V (chapter 35); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_35",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 35
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Bran V, глава 35"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "dream"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Тип сведений источника",
+          "value": "dream"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Жойен описывает сон о море, затапливающем замок. Сон не записан как реальное наводнение."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jojen Reed",
+          "ref": "person:jojen-reed"
+        },
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "event:reek-captured-by-rodrik",
+      "kind": "event",
+      "name": "Rodrik brings Reek captive to Winterfell",
+      "nameRu": "Родрик доставляет Вонючку пленником в Винтерфелл",
+      "subtitle": "A Clash of Kings · chapter 35",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Bran V (chapter 35); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_35",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 35
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Bran V, глава 35"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "occurred"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Тип сведений источника",
+          "value": "occurred"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Бран видит пленника, названного Вонючкой. Идентичность пленника в этом локаторе не раскрыта."
+        }
+      ],
+      "links": [
+        {
+          "label": "Reek",
+          "ref": "person:reek"
+        },
+        {
+          "label": "Rodrik Cassel",
+          "ref": "person:rodrik-cassel"
+        },
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "event:tyrion-proposes-joffrey-margaery-marriage",
+      "kind": "event",
+      "name": "Tyrion proposes a marriage alliance with Margaery Tyrell",
+      "nameRu": "Тирион предлагает брачный союз с Маргери Тирелл",
+      "subtitle": "A Clash of Kings · chapter 36",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Tyrion VIII (chapter 36); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_36",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 36
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Tyrion VIII, глава 36"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "plan/proposal"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Тип сведений источника",
+          "value": "plan/proposal"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Тирион предлагает брак, чтобы привлечь Тиреллов к королевскому лагерю. Это план, не заключённый союз."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Joffrey Baratheon",
+          "ref": "person:joffrey-baratheon"
+        },
+        {
+          "label": "Margaery Tyrell",
+          "ref": "person:margaery-tyrell"
+        },
+        {
+          "label": "House Tyrell",
+          "ref": "organization:house-tyrell"
+        }
+      ]
+    },
+    {
+      "ref": "event:benfred-drowned",
+      "kind": "event",
+      "name": "Benfred Tallhart is drowned at the Stony Shore",
+      "nameRu": "Бенфред Толхарт утоплен на Каменном Берегу",
+      "subtitle": "A Clash of Kings · chapter 37",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Theon III (chapter 37); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_37",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 37
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Theon III, глава 37"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "occurred"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Тип сведений источника",
+          "value": "occurred"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "После решения Теона обряд совершается у воды; источник не утверждает, что Теон лично исполняет казнь."
+        }
+      ],
+      "links": [
+        {
+          "label": "Benfred Tallhart",
+          "ref": "person:benfred-tallhart"
+        },
+        {
+          "label": "Theon Greyjoy",
+          "ref": "person:theon-greyjoy"
+        },
+        {
+          "label": "Aeron Greyjoy",
+          "ref": "person:aeron-greyjoy"
+        }
+      ]
+    },
+    {
+      "ref": "event:theon-captures-benfred",
+      "kind": "event",
+      "name": "Theon captures Benfred Tallhart at the Stony Shore",
+      "nameRu": "Теон берёт Бенфреда Толхарта в плен на Каменном Берегу",
+      "subtitle": "A Clash of Kings · chapter 37",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Theon III (chapter 37); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_37",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 37
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Theon III, глава 37"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "occurred"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Тип сведений источника",
+          "value": "occurred"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Люди Теона разбивают отряд Бенфреда у прибрежной деревни и берут его командира живым."
+        }
+      ],
+      "links": [
+        {
+          "label": "Theon Greyjoy",
+          "ref": "person:theon-greyjoy"
+        },
+        {
+          "label": "Benfred Tallhart",
+          "ref": "person:benfred-tallhart"
+        },
+        {
+          "label": "Stony Shore village",
+          "ref": "place:stony-shore-village"
+        }
+      ]
+    },
+    {
+      "ref": "event:theon-plans-to-take-winterfell",
+      "kind": "event",
+      "name": "Theon tells Dagmer of his plan to take Winterfell",
+      "nameRu": "Теон сообщает Дагмеру план захватить Винтерфелл",
+      "subtitle": "A Clash of Kings · chapter 37",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Theon III (chapter 37); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_37",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 37
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Theon III, глава 37"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "plan"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Тип сведений источника",
+          "value": "plan"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Теон формулирует план удара по Винтерфеллу. В этой главе это замысел, а не захват."
+        }
+      ],
+      "links": [
+        {
+          "label": "Theon Greyjoy",
+          "ref": "person:theon-greyjoy"
+        },
+        {
+          "label": "Dagmer Cleftjaw",
+          "ref": "person:dagmer-cleftjaw"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "event:arya-names-weese-to-jaqen",
+      "kind": "event",
+      "name": "Arya gives Jaqen Weese’s name",
+      "nameRu": "Арья называет Джакену имя Уиза",
+      "subtitle": "A Clash of Kings · chapter 38",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Arya VIII (chapter 38); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_38",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 38
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Arya VIII, глава 38"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "occurred"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Тип сведений источника",
+          "value": "occurred"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Арья передаёт Джакену имя Уиза как следующую цель; позже она находит его тело."
+        }
+      ],
+      "links": [
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Jaqen H’ghar",
+          "ref": "person:jaqen-hghar"
+        },
+        {
+          "label": "Weese",
+          "ref": "person:weese"
+        }
+      ]
+    },
+    {
+      "ref": "event:tywin-leaves-harrenhal",
+      "kind": "event",
+      "name": "Tywin’s host leaves Harrenhal",
+      "nameRu": "Войско Тайвина покидает Харренхол",
+      "subtitle": "A Clash of Kings · chapter 38",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Arya VIII (chapter 38); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_38",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 38
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Arya VIII, глава 38"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "occurred"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Тип сведений источника",
+          "value": "occurred"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Отряд Тайвина выступает из Харренхола; дальнейший исход похода этим локатором не определяется."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tywin Lannister",
+          "ref": "person:tywin-lannister"
+        },
+        {
+          "label": "Harrenhal",
+          "ref": "place:harrenhal"
+        }
+      ]
+    },
+    {
+      "ref": "event:weese-found-dead",
+      "kind": "event",
+      "name": "Weese is found dead at Harrenhal",
+      "nameRu": "Уиз найден мёртвым в Харренхоле",
+      "subtitle": "A Clash of Kings · chapter 38",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Arya VIII (chapter 38); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_38",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 38
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Локатор",
+          "value": "Arya VIII, глава 38"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "discovered/reported"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Тип сведений источника",
+          "value": "discovered/reported"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Арья обнаруживает тело Уиза после передачи имени Джакену; непосредственная сцена смерти не описана."
+        }
+      ],
+      "links": [
+        {
+          "label": "Weese",
+          "ref": "person:weese"
+        },
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Harrenhal",
+          "ref": "place:harrenhal"
+        }
+      ]
+    },
+    {
+      "ref": "event:qarth-pureborn-refuse-daenerys-aid",
+      "kind": "event",
+      "name": "The Pureborn refuse Daenerys support",
+      "nameRu": "Чистокровные отказывают Дейенерис в поддержке",
+      "subtitle": "A Clash of Kings · chapter 40",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Daenerys III (chapter 40); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_40",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 40
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Daenerys III, глава 40"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "reported by participant"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Тип сведений источника",
+          "value": "reported by participant"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Дейенерис сообщает, что переговоры не принесли кораблей и людей; группа заинтересована в драконах, а не в её походе."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "The Pureborn",
+          "ref": "organization:the-pureborn"
+        },
+        {
+          "label": "Qarth",
+          "ref": "place:qarth"
+        }
+      ]
+    },
+    {
+      "ref": "event:myrcella-sails-for-dorne",
+      "kind": "event",
+      "name": "Myrcella sails from King’s Landing toward Dorne",
+      "nameRu": "Мирцелла отплывает из Королевской Гавани в сторону Дорна",
+      "subtitle": "A Clash of Kings · chapter 41",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Tyrion IX (chapter 41); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_41",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 41
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Tyrion IX, глава 41"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "occurred"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Тип сведений источника",
+          "value": "occurred"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Мирцелла отправляется морем с сопровождающими; путь включает пересадку в Браавосе. В локаторе показано отправление, не прибытие."
+        }
+      ],
+      "links": [
+        {
+          "label": "Myrcella Baratheon",
+          "ref": "person:myrcella-baratheon"
+        },
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Arys Oakheart",
+          "ref": "person:arys-oakheart"
+        },
+        {
+          "label": "King’s Landing harbor",
+          "ref": "place:harbor-of-kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "event:riots-break-out-in-kings-landing",
+      "kind": "event",
+      "name": "Riots break out in King’s Landing",
+      "nameRu": "В Королевской Гавани вспыхивают беспорядки",
+      "subtitle": "A Clash of Kings · chapter 41",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Tyrion IX (chapter 41); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_41",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 41
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Локатор",
+          "value": "Tyrion IX, глава 41"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "occurred"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Тип сведений источника",
+          "value": "occurred"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Голодная толпа нападает на возвращающуюся королевскую процессию; позднее сообщается о погибших и пропавшем Тиреке."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Joffrey Baratheon",
+          "ref": "person:joffrey-baratheon"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "event:melisandre-births-shadow",
+      "kind": "event",
+      "name": "Melisandre gives birth to a shadow beneath Storm’s End",
+      "nameRu": "Мелисандра рождает тень под Штормовым Пределом",
+      "subtitle": "A Clash of Kings · chapter 42",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Davos II (chapter 42); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_42",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 42
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Davos II, глава 42"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "occurred/witnessed"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Тип сведений источника",
+          "value": "occurred/witnessed"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Давос наблюдает появление тени в подземной пещере. Карточка не утверждает, кого именно она убивает."
+        }
+      ],
+      "links": [
+        {
+          "label": "Melisandre",
+          "ref": "person:melisandre"
+        },
+        {
+          "label": "Davos Seaworth",
+          "ref": "person:davos-seaworth"
+        },
+        {
+          "label": "Cavern beneath Storm’s End",
+          "ref": "place:cavern-beneath-storms-end"
+        }
+      ]
+    },
+    {
+      "ref": "event:captive-reports-mance-wall-breach-plan",
+      "kind": "event",
+      "name": "A captive reports Mance plans to breach the Wall",
+      "nameRu": "Пленный сообщает о плане Манса прорваться через Стену",
+      "subtitle": "A Clash of Kings · chapter 43",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Jon V (chapter 43); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_43",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 43
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Jon V, глава 43"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "reported/unverified"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Тип сведений источника",
+          "value": "reported/unverified"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Куорен передаёт показания пленного о предполагаемом способе пройти Стену. Это разведданные со слов пленного, не подтверждённый план Манса."
+        }
+      ],
+      "links": [
+        {
+          "label": "Qhorin Halfhand",
+          "ref": "person:qhorin-halfhand"
+        },
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Mance Rayder",
+          "ref": "person:mance-rayder"
+        }
+      ]
+    },
+    {
+      "ref": "event:storm-end-falls-to-stannis",
+      "kind": "event",
+      "name": "Storm’s End falls to Stannis",
+      "nameRu": "Штормовой Предел сдаётся Станнису",
+      "subtitle": "A Clash of Kings · chapter 44",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Tyrion X (chapter 44); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_44",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 44
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Локатор",
+          "value": "Tyrion X, глава 44"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "reported"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Тип сведений источника",
+          "value": "reported"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Варис сообщает Тириону, что Штормовой Предел пал. Событие в этой главе не показано и его причина не установлена."
+        }
+      ],
+      "links": [
+        {
+          "label": "Stannis Baratheon",
+          "ref": "person:stannis-baratheon"
+        },
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Storm’s End",
+          "ref": "place:storms-end"
+        }
+      ]
+    },
+    {
+      "ref": "event:battle-of-the-fords",
+      "kind": "event",
+      "name": "The Battle of the Fords",
+      "nameRu": "Битва у бродов",
+      "subtitle": "A Clash of Kings · chapter 45",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Catelyn VI (chapter 45); A Wiki of Ice and Fire numeric chapter index (secondary); CC BY-SA 3.0; primary-edition verification pending.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_45",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 45
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Локатор",
+          "value": "Catelyn VI, глава 45"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в индексе главы",
+          "value": "ongoing; result reported"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Тип сведений источника",
+          "value": "ongoing; result reported"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Кэтлин видит отражённые попытки переправы у Риверрана; позднее гонец приносит сводку о победе Эдмура на нескольких участках. Детали разделены в примечании."
+        }
+      ],
+      "links": [
+        {
+          "label": "Edmure Tully",
+          "ref": "person:edmure-tully"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Riverrun",
+          "ref": "place:riverrun"
+        },
+        {
+          "label": "Red Fork",
+          "ref": "place:red-fork"
+        }
+      ]
+    },
+    {
+      "ref": "event:arya-jaqen-free-harrenhal-prisoners",
+      "kind": "event",
+      "name": "Arya and Jaqen free captives at Harrenhal",
+      "nameRu": "Арья и Якен освобождают пленников в Харренхолле",
+      "subtitle": "A Clash of Kings · chapter 47",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Arya IX (Chapter 47); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_47",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 47
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Arya IX"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Арья использует оставшиеся имена, чтобы освободить северян и других пленников; освободившиеся помогают захватить замок для Рузе Болтона."
+        }
+      ],
+      "links": [
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Jaqen H’ghar",
+          "ref": "person:jaqen-hghar"
+        },
+        {
+          "label": "Harrenhal",
+          "ref": "place:harrenhal"
+        },
+        {
+          "label": "Roose Bolton",
+          "ref": "person:roose-bolton"
+        }
+      ]
+    },
+    {
+      "ref": "event:jon-captures-and-spares-ygritte",
+      "kind": "event",
+      "name": "Jon captures and spares Ygritte",
+      "nameRu": "Джон захватывает и отпускает Игритт",
+      "subtitle": "A Clash of Kings · chapter 51",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Jon VI (Chapter 51); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_51",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 51
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Jon VI"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Во время столкновения за Стеной Джон берёт Игритт в плен, но не убивает её и позднее позволяет ей скрыться."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Ygritte",
+          "ref": "person:ygritte"
+        },
+        {
+          "label": "Skirling Pass",
+          "ref": "place:skirling-pass"
+        }
+      ]
+    },
+    {
+      "ref": "event:dalbridge-sacrifices-himself",
+      "kind": "event",
+      "name": "Dalbridge sacrifices himself to cover the retreat",
+      "nameRu": "Далбридж жертвует собой, прикрывая отход",
+      "subtitle": "A Clash of Kings · chapter 53",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Jon VII (Chapter 53); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_53",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 53
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Далбридж остаётся задержать преследователей, давая отряду Ночного Дозора время отступить от Скирлингского перевала."
+        }
+      ],
+      "links": [
+        {
+          "label": "Dalbridge",
+          "ref": "person:dalbridge"
+        },
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "Skirling Pass",
+          "ref": "place:skirling-pass"
+        }
+      ]
+    },
+    {
+      "ref": "event:jon-wolf-dream-spots-wildling-host",
+      "kind": "event",
+      "name": "Jon sees the wildling host in a wolf dream",
+      "nameRu": "Джон видит войско одичалых в волчьем сне",
+      "subtitle": "A Clash of Kings · chapter 53",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Jon VII (Chapter 53); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_53",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 53
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P2"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Jon VII"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Через сон с участием Призрака Джон получает видение большой силы одичалых у перевала. Это сонное восприятие, а не отдельная сцена физического наблюдения."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Ghost",
+          "ref": "person:ghost"
+        },
+        {
+          "label": "Skirling Pass",
+          "ref": "place:skirling-pass"
+        }
+      ]
+    },
+    {
+      "ref": "event:tyrion-receives-false-report-starks-dead",
+      "kind": "event",
+      "name": "Tyrion receives a report that Bran and Rickon are dead",
+      "nameRu": "Тирион получает ложное сообщение о гибели Брана и Рикона",
+      "subtitle": "A Clash of Kings · chapter 54",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Tyrion XII (Chapter 54); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_54",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 54
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Tyrion XII"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Тирион узнаёт от прибывших, что Теон якобы убил Брана и Рикона. Карточка фиксирует сообщение/убеждение в сцене; мальчики в действительности выжили."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "Rickon Stark",
+          "ref": "person:rickon-stark"
+        },
+        {
+          "label": "Theon Greyjoy",
+          "ref": "person:theon-greyjoy"
+        }
+      ]
+    },
+    {
+      "ref": "event:jaime-confesses-bran-fall-and-children",
+      "kind": "event",
+      "name": "Jaime confesses to Bran’s fall and his children’s parentage",
+      "nameRu": "Джейме признаётся в падении Брана и происхождении детей",
+      "subtitle": "A Clash of Kings · chapter 55",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Catelyn VII (Chapter 55); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_55",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 55
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Catelyn VII"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "В разговоре с Катлин Джейме признаёт, что сбросил Брана с башни, и подтверждает происхождение детей Серсеи. Слова переданы как признание персонажа."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jaime Lannister",
+          "ref": "person:jaime-lannister"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "Riverrun",
+          "ref": "place:riverrun"
+        }
+      ]
+    },
+    {
+      "ref": "event:podrick-saves-tyrion-from-mandon",
+      "kind": "event",
+      "name": "Podrick saves Tyrion during Mandon Moore’s attack",
+      "nameRu": "Подрик спасает Тириона при нападении Мандона Мура",
+      "subtitle": "A Clash of Kings · chapter 61",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Tyrion XIV (Chapter 61); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_61",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 61
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Tyrion XIV"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Во время боя Мандон Мур атакует Тириона; Подрик вмешивается и спасает его. Причины и заказчик нападения этой карточкой не утверждаются."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Podrick Payne",
+          "ref": "person:podrick-payne"
+        },
+        {
+          "label": "Mandon Moore",
+          "ref": "person:mandon-moore"
+        },
+        {
+          "label": "Battle of the Blackwater",
+          "ref": "event:battle-of-blackwater"
+        }
+      ]
+    },
+    {
+      "ref": "event:daenerys-survives-qarth-assassination",
+      "kind": "event",
+      "name": "Daenerys survives an assassination attempt in Qarth",
+      "nameRu": "Дейенерис переживает покушение в Кварте",
+      "subtitle": "A Clash of Kings · chapter 63",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Daenerys V (Chapter 63); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_63",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 63
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Daenerys V"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "На Дейенерис нападает наёмный убийца с ядовитым мантикором; Белвас и Арстан вмешиваются, после чего прибывает посольство Иллирио."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Strong Belwas",
+          "ref": "person:strong-belwas"
+        },
+        {
+          "label": "Arstan Whitebeard",
+          "ref": "person:arstan-whitebeard"
+        },
+        {
+          "label": "Qarth",
+          "ref": "place:qarth"
+        }
+      ]
+    },
+    {
+      "ref": "event:arya-escapes-harrenhal",
+      "kind": "event",
+      "name": "Arya escapes Harrenhal",
+      "nameRu": "Арья бежит из Харренхолла",
+      "subtitle": "A Clash of Kings · chapter 64",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Arya X (Chapter 64); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_64",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 64
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в источнике",
+          "value": "appears"
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный индекс AWOIAF; первичное издание не сверялось."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Арья уходит из замка вместе с Джендри и Пирожком после того, как устраняет постового и выводит друзей через потайной выход."
+        }
+      ],
+      "links": [
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Gendry",
+          "ref": "person:gendry"
+        },
+        {
+          "label": "Hot Pie",
+          "ref": "person:hot-pie"
+        },
+        {
+          "label": "Harrenhal",
+          "ref": "place:harrenhal"
+        },
+        {
+          "label": "Arya and Jaqen free captives at Harrenhal",
+          "ref": "event:arya-jaqen-free-harrenhal-prisoners"
+        }
+      ]
+    },
+    {
+      "ref": "event:joffrey-betrothed-to-margaery",
+      "kind": "event",
+      "name": "Joffrey is betrothed to Margaery Tyrell",
+      "nameRu": "Джеффри обручают с Маргери Тирелл",
+      "subtitle": "A Clash of Kings · chapter 65",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Sansa VIII (Chapter 65); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_65",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 65
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Sansa VIII"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Двор объявляет новую помолвку Джеффри с Маргери после разрыва прежнего брачного плана с Сансой."
+        }
+      ],
+      "links": [
+        {
+          "label": "Joffrey Baratheon",
+          "ref": "person:joffrey-baratheon"
+        },
+        {
+          "label": "Margaery Tyrell",
+          "ref": "person:margaery-tyrell"
+        },
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        }
+      ]
+    },
+    {
+      "ref": "event:tywin-appointed-hand-after-blackwater",
+      "kind": "event",
+      "name": "Tywin is appointed Hand after the Blackwater",
+      "nameRu": "Тайвин назначен десницей после Черноводной",
+      "subtitle": "A Clash of Kings · chapter 65",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Sansa VIII (Chapter 65); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_65",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 65
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Sansa VIII"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "После победы при Черноводной королевский двор объявляет Тайвина десницей. Это решение политически оформляет смену власти в столице."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tywin Lannister",
+          "ref": "person:tywin-lannister"
+        },
+        {
+          "label": "Joffrey Baratheon",
+          "ref": "person:joffrey-baratheon"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "event:jon-kills-qhorin-halfhand",
+      "kind": "event",
+      "name": "Jon kills Qhorin Halfhand",
+      "nameRu": "Джон убивает Кворена Полурукого",
+      "subtitle": "A Clash of Kings · chapter 68",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Jon VIII (Chapter 68); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_68",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 68
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Jon VIII"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "По приказу Кворена Джон вступает с ним в смертельный поединок, чтобы убедить одичалых в своей лояльности; затем Джона принимают в их лагере."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Qhorin Halfhand",
+          "ref": "person:qhorin-halfhand"
+        },
+        {
+          "label": "Rattleshirt",
+          "ref": "person:rattleshirt"
+        },
+        {
+          "label": "Skirling Pass",
+          "ref": "place:skirling-pass"
+        }
+      ]
+    },
+    {
+      "ref": "event:bran-and-rickon-leave-winterfell-separately",
+      "kind": "event",
+      "name": "Bran and Rickon leave Winterfell by separate routes",
+      "nameRu": "Бран и Рикон уходят из Винтерфелла разными путями",
+      "subtitle": "A Clash of Kings · chapter 69",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Bran VII (Chapter 69); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_69",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 69
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Bran VII"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "После разрушения Винтерфелла группа Брана уходит на север с Жойеном и Мейрой, а Рикон направляется на юг с Ошой. Маестер Лювин умирает после разговора с детьми."
+        }
+      ],
+      "links": [
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "Rickon Stark",
+          "ref": "person:rickon-stark"
+        },
+        {
+          "label": "Osha",
+          "ref": "person:osha"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "event:maester-luwin-dies",
+      "kind": "event",
+      "name": "Maester Luwin dies after Winterfell falls",
+      "nameRu": "Маестер Лювин умирает после падения Винтерфелла",
+      "subtitle": "A Clash of Kings · chapter 69",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Bran VII (Chapter 69); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_69",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 69
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "После разрушения замка Лювин говорит с детьми Старков и умирает от ран; его просьба помогает разделить их дальнейшие пути."
+        }
+      ],
+      "links": [
+        {
+          "label": "Maester Luwin",
+          "ref": "person:maester-luwin"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "event:theon-orders-search-for-bran-and-rickon",
+      "kind": "event",
+      "name": "Theon orders a search for Bran and Rickon",
+      "nameRu": "Теон начинает поиски Брана и Рикона",
+      "subtitle": "A Clash of Kings · chapter 50, 50",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Theon IV (Chapter 50); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_50",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 50
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "occurs in chapter 50"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "После исчезновения мальчиков Теон организует отряд и начинает поиски в направлении Волчьего леса. Сам поиск показан, но исход не установлен в этой главе."
+        }
+      ],
+      "links": [
+        {
+          "label": "Theon Greyjoy",
+          "ref": "person:theon-greyjoy"
+        },
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "Rickon Stark",
+          "ref": "person:rickon-stark"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Theon IV (Chapter 50); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_50",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 50
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Theon IV (Chapter 50); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_50",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 50
+        }
+      ]
+    },
+    {
+      "ref": "event:sansa-dontos-escape-plan",
+      "kind": "event",
+      "name": "Sansa and Dontos plan an escape",
+      "nameRu": "План побега Сансы и Донтоса",
+      "subtitle": "A Clash of Kings · chapter 52, 65",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Sansa IV (Chapter 52); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_52",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 52
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "plan communicated in chapter 52; still a plan in chapter 65"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Донтос обещает вывезти Сансу на корабле, когда вернётся его друг; позднее назначает побег на свадьбу Джоффри. Карточка фиксирует обещание и план, а не состоявшийся побег; срок «примерно через месяц» остаётся относительным."
+        }
+      ],
+      "links": [
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        },
+        {
+          "label": "Dontos Hollard",
+          "ref": "person:dontos-hollard"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Sansa IV (Chapter 52); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_52",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 52
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Sansa VIII (Chapter 65); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_65",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 65
+        }
+      ]
+    },
+    {
+      "ref": "event:theon-sends-reek-to-find-defenders",
+      "kind": "event",
+      "name": "Theon sends Reek to seek defenders",
+      "nameRu": "Теон отправляет Рика за защитниками",
+      "subtitle": "A Clash of Kings · chapter 56, 66",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Theon V (Chapter 56); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_56",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 56
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "order and plan; outcome is reported in chapter 66"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Теон посылает Рика с монетами искать людей для обороны Винтерфелла. В главе 56 это поручение, а не состоявшееся прибытие; последующее раскрытие личности не переносится в этот локатор."
+        }
+      ],
+      "links": [
+        {
+          "label": "Theon Greyjoy",
+          "ref": "person:theon-greyjoy"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Theon V (Chapter 56); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_56",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 56
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings, Theon VI (Chapter 66); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_66",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 66
+        }
+      ]
+    },
+    {
+      "ref": "event:cersei-issues-orders-during-blackwater",
+      "kind": "event",
+      "name": "Cersei issues orders during the Battle of the Blackwater",
+      "nameRu": "Серсея отдаёт распоряжения во время битвы на Черноводной",
+      "subtitle": "A Clash of Kings · chapter 60",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Sansa VI (Chapter 60); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_60",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 60
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "orders occur in chapter 60; stated contingency is conditional"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Во время битвы Серсея приказывает казнить слуг, пытавшихся бежать, отказывает простолюдинам в убежище и говорит, что не позволит Станнису взять их живыми. Последнее — условная угроза/план на случай падения города, не свершившееся действие."
+        }
+      ],
+      "links": [
+        {
+          "label": "Cersei Lannister",
+          "ref": "person:cersei-lannister"
+        },
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        },
+        {
+          "label": "Ilyn Payne",
+          "ref": "person:ilyn-payne"
+        },
+        {
+          "label": "Red Keep",
+          "ref": "place:red-keep"
+        },
+        {
+          "label": "Battle of the Blackwater",
+          "ref": "event:battle-of-blackwater"
+        }
+      ]
+    },
+    {
+      "ref": "event:illyrio-envoys-meet-daenerys",
+      "kind": "event",
+      "name": "Illyrio’s envoys meet Daenerys in Qarth",
+      "nameRu": "Посланники Иллирио встречают Дейенерис в Кварте",
+      "subtitle": "A Clash of Kings · chapter 63",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Daenerys V (Chapter 63); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_63",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 63
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в локаторе",
+          "value": "arrival and meeting occur in chapter 63; proposal is reported by envoys"
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; выбранное первичное издание не сверялось."
+        },
+        {
+          "label": "Лицензия источника",
+          "value": "CC-BY-SA-3.0"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Белвас и Арстан появляются в гавани и сообщают, что посланы Иллирио. Они предлагают Дейенерис покинуть Кварт и возвращаться в Пентос; их слова о намерениях Иллирио остаются сообщением посланников, а не прямой сценой с магистром."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Strong Belwas",
+          "ref": "person:strong-belwas"
+        },
+        {
+          "label": "Arstan Whitebeard",
+          "ref": "person:arstan-whitebeard"
+        },
+        {
+          "label": "Jorah Mormont",
+          "ref": "person:jorah-mormont"
+        },
+        {
+          "label": "Qarth",
+          "ref": "place:qarth"
+        }
+      ]
+    }
+  ]
+}

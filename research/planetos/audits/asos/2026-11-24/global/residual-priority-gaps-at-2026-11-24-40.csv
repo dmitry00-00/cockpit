@@ -1,0 +1,7 @@
+﻿kind,priority,source_range,unique_candidate_ids,candidate_locator_rows
+person,P0,41-60,1,2
+person,P1,21-40,1,2
+person,P1,61-81,5,14
+place,P1,0-20,9,10
+place,P1,21-40,3,3
+place,P1,61-81,13,13

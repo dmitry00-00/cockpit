@@ -3,7 +3,7 @@
 // тёмное зрение, снятие ловушек — у кого есть и с какого уровня класса придёт. Как узнать возможность — правило стола
 // (ниже, поимённо): таблицы держат умения прозой. Чистые функции над листом актёра (в логе лежит лист).
 import type { Actor, CharacterSheet } from '../engine';
-import { classById, raceById, type CharacterClass } from '../rules/compendium';
+import { classById, raceById, type CharacterClass, type ClassFeature, type ClassOptionBlock, type Source, type Subclass } from '../rules/compendium';
 import { SRD_CLASSES } from '../rules/srd/classes';
 import { SPELLS } from '../rules/srd/spells';
 import { srdIdOf } from './build';
@@ -13,9 +13,9 @@ export type PathState = 'past' | 'now' | 'next' | 'later';
 export interface PathStep {
   level: number;
   proficiencyBonus: number | null;
-  features: readonly { id: string; name: string }[];
+  features: readonly ClassFeature[];
   /** Умения выбранного подкласса на этом уровне. */
-  subclass: readonly { id: string; name: string }[];
+  subclass: readonly ClassFeature[];
   /** Здесь выбирают подкласс (gainedAt), а он ещё не выбран. */
   subclassPick: boolean;
   /** Сколько других подклассов дают умения на этом уровне — «подклассы рядом». */
@@ -26,28 +26,54 @@ export interface PathStep {
   state: PathState;
 }
 
-export interface CharacterPath { className: string; subclassName?: string; level: number; steps: readonly PathStep[] }
+export interface CharacterPath {
+  classId: string; className: string; source: Source;
+  subclassId?: string; subclassName?: string;
+  level: number; steps: readonly PathStep[];
+  branches: readonly Subclass[]; options: readonly ClassOptionBlock[];
+  learned: readonly { id: string; level: number }[];
+}
+
+/** Подтверждено листом, а не предположено по одному достигнутому уровню. */
+export function pathFeatureState(path: CharacterPath, feature: ClassFeature, level: number, branchId?: string) {
+  if (branchId && branchId !== path.subclassId) return 'comparison' as const;
+  if (level > path.level) return level === path.level + 1 ? 'next' as const : 'future' as const;
+  return path.learned.some(f => f.id === feature.id && f.level === level) ? 'acquired' as const : 'unconfirmed' as const;
+}
+
+/** Текстовый выбор ещё не является машиночитаемой схемой выдачи. */
+export function pathFeatureKind(feature: ClassFeature): 'choice' | 'review' | 'level' {
+  if (feature.choice) return 'choice';
+  if (feature.name.includes('/') || /выб(?:ор|ер|ир)|одно из следующих|один из следующих/i.test(feature.text)) return 'review';
+  return 'level';
+}
 
 /** Дорога класса по листу; класса нет в компендиуме — undefined. */
 export function pathOf(sheet: CharacterSheet): CharacterPath | undefined {
   const cls = classById(sheet.classId);
   if (!cls) return undefined;
+  return classPath(cls, sheet.level, sheet.subclassId, sheet.features);
+}
+
+/** Просмотр в редакторе до появления листа; не требует придумывать характеристики или хиты. */
+export function classPath(cls: CharacterClass, level: number, subclassId?: string, learned: CharacterPath['learned'] = []): CharacterPath {
   const srd = srdIdOf(cls);
   const asiLevels: readonly number[] = srd ? SRD_CLASSES[srd].asiLevels : [];
-  const sub = cls.subclasses.find(s => s.id === sheet.subclassId);
-  const gainedAt = cls.subclasses.find(s => s.gainedAt)?.gainedAt ?? null;
+  const sub = cls.subclasses.find(s => s.id === subclassId);
   const steps = cls.levels.map((l): PathStep => ({
     level: l.level,
     proficiencyBonus: l.proficiencyBonus,
-    features: l.features.map(f => ({ id: f.id, name: f.name })),
-    subclass: (sub?.features ?? []).filter(f => f.level === l.level).map(f => ({ id: f.id, name: f.name })),
-    subclassPick: !sub && gainedAt === l.level,
+    features: l.features,
+    subclass: (sub?.features ?? []).filter(f => f.level === l.level),
+    subclassPick: !sub && cls.subclasses.some(s => s.gainedAt === l.level),
     others: cls.subclasses.filter(s => s !== sub && s.features.some(f => f.level === l.level)).length,
     asi: asiLevels.includes(l.level),
     resources: l.resources,
-    state: l.level < sheet.level ? 'past' : l.level === sheet.level ? 'now' : l.level === sheet.level + 1 ? 'next' : 'later',
+    state: l.level < level ? 'past' : l.level === level ? 'now' : l.level === level + 1 ? 'next' : 'later',
   }));
-  return { className: cls.nameRu, ...(sub ? { subclassName: sub.name } : {}), level: sheet.level, steps };
+  return { classId: cls.id, className: cls.nameRu, source: cls.source,
+    ...(sub ? { subclassId: sub.id, subclassName: sub.name } : {}), level, steps,
+    branches: cls.subclasses, options: cls.options ?? [], learned };
 }
 
 /** «Следующий уровень (5-й) даст: Дополнительная атака · бонус мастерства +3»; 20-й — дороги дальше нет. */

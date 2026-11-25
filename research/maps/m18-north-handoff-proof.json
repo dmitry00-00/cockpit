@@ -1,0 +1,75 @@
+{
+  "date": "2026-11-04",
+  "method": "CUA read-only DOM camera observations and browser controls",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "surfaceViewport": {
+    "width": 1140,
+    "height": 768
+  },
+  "dpr": 2,
+  "surfaceId": "1",
+  "sphereBefore": {
+    "view": {
+      "x": 8568,
+      "y": 1169.1275167785234,
+      "scale": 0.01660186625225873
+    },
+    "globe": {
+      "lon": 111,
+      "lat": 75,
+      "radius": 352
+    },
+    "morph": 0
+  },
+  "flatAfter": {
+    "view": {
+      "x": 8568,
+      "y": 1169.1275167785234,
+      "scale": 0.04980559875677619
+    },
+    "morph": 1
+  },
+  "reverseFirstObserved": {
+    "view": {
+      "x": 8568,
+      "y": 1169.1275167785234,
+      "scale": 0.04980524899890619
+    },
+    "globe": {
+      "lon": 111.00000000000001,
+      "lat": 75,
+      "radius": 1055.9925842812868
+    },
+    "morph": 0.9999894663086462
+  },
+  "sphereReturned": {
+    "view": {
+      "x": 8568,
+      "y": 1169.1275167785234,
+      "scale": 0.01660186625225873
+    },
+    "globe": {
+      "lon": 111.00000000000001,
+      "lat": 75,
+      "radius": 352
+    },
+    "morph": 0
+  },
+  "observations": [
+    "center retained in forward and reverse transition",
+    "same surface ID and viewport",
+    "first reverse sample is slightly after animation start, exact start covered by unit test"
+  ],
+  "steadyNorthGlobe": {
+    "samples": 300,
+    "rafFps": 59,
+    "p95FrameMs": 17.7,
+    "p95CpuMs": 0.4,
+    "p95GpuMs": 2.11,
+    "tiles": 288,
+    "estimatedMiB": 96.1
+  }
+}

@@ -22,6 +22,8 @@ export interface ChangeSummaryItem {
   onAccept?: () => void;
   /** «Отклонить» — только если передан. */
   onReject?: () => void;
+  /** Предложение устарело на текущем мире; пересчитать перед принятием. */
+  staleReason?: string;
 }
 
 export interface ChangeSummaryGroup {
@@ -31,6 +33,8 @@ export interface ChangeSummaryGroup {
   label: string;
   /** Свёрнутая — только шапка и «Принять пачкой». */
   collapsed: boolean;
+  /** Число устаревших предложений в группе; блокирует пакетное принятие. */
+  staleCount?: number;
   items: readonly ChangeSummaryItem[];
 }
 
@@ -103,10 +107,12 @@ export function ChangeSummary({ groups, onAcceptAll, emptyText, className = '' }
                 <Icon name={`scale-${g.scale}` as IconName} size={16} color="var(--t2)" title={scaleLabel} />
                 <span className="type-h-15 uppercase text-t2 truncate" title={g.label}>{g.label}</span>
                 <span data-part="count" className="type-key text-t2 ml-auto flex-none" title="Изменений в группе">{g.items.length}</span>
+                {g.staleCount ? <span role="status" aria-live="polite" data-part="freshness" className="type-body-xs text-fx-debuff-hi">Пересчёт обязателен · устаревших предложений: {g.staleCount}</span> : null}
                 {g.collapsed && onAcceptAll ? (
                   <button
                     type="button"
-                    title="Принять все изменения этого уровня одной кнопкой"
+                    title={g.staleCount ? 'Сначала пересчитайте устаревшие предложения' : 'Принять все изменения этого уровня одной кнопкой'}
+                    disabled={Boolean(g.staleCount)}
                     onClick={() => onAcceptAll(g.id)}
                     className={`${BTN_GOLD} flex-none`}
                   >
@@ -128,10 +134,11 @@ export function ChangeSummary({ groups, onAcceptAll, emptyText, className = '' }
                         <span aria-hidden="true" className="type-body-sm text-t3">→</span>
                         <span data-part="now" className="type-num-15 text-gd-hi">{it.now}</span>
                       </span>
+                      {it.staleReason ? <span role="status" aria-live="polite" data-part="freshness" className="type-body-xs text-fx-debuff-hi">Пересчёт обязателен: {it.staleReason}</span> : null}
                       {it.onAccept || it.onReject ? (
                         <span data-part="actions" className="flex flex-none items-center gap-1">
-                          {it.onAccept ? <button type="button" title="Принять" onClick={it.onAccept} className={BTN_GOLD}>Принять</button> : null}
-                          {it.onReject ? <button type="button" title="Отклонить" onClick={it.onReject} className={BTN}>Отклонить</button> : null}
+                          {it.onAccept || it.staleReason ? <button type="button" disabled={!it.onAccept || Boolean(it.staleReason)} title={it.staleReason ? 'Пересчёт обязателен' : 'Принять'} onClick={it.staleReason ? undefined : it.onAccept} className={BTN_GOLD}>Принять</button> : null}
+                          {it.onReject ? <button type="button" title={it.staleReason ? 'Отклонить устаревшее предложение' : 'Отклонить'} onClick={it.onReject} className={BTN}>{it.staleReason ? 'Отклонить устаревшее предложение' : 'Отклонить'}</button> : null}
                         </span>
                       ) : null}
                     </li>

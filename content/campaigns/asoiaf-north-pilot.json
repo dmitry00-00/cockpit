@@ -1,0 +1,378 @@
+{
+  "format": "dm-cockpit.adventure/1",
+  "id": "asoiaf-north-pilot",
+  "title": "Север: королевский визит",
+  "version": "1.0.0",
+  "distribution": "internal",
+  "setting": "planetos",
+  "rules": [],
+  "campaignYear": null,
+  "scope": "Книжная непрерывность «Песни льда и пламени»; граница исходного среза — конец Catelyn I, календарная дата неизвестна. Системно-нейтральный мастерский сценарий в Винтерфелле. Основная игровая линия о задержавшейся партии припасов полностью авторская и не является событием книг; по умолчанию она остаётся локальной и не меняет известные события. Если мастер выбирает последствия, противоречащие канону, кампанию нужно явно вести как альтернативную ветку. Материал вторично индексирован и не проверен по выбранному изданию. Не показывать общий каталог Planetos игрокам: там есть сведения позднее этой границы.",
+  "entry": "opening-at-winterfell",
+  "sources": [
+    {
+      "id": "agot-opening-index",
+      "title": "A Game of Thrones · Prologue, Bran I, Catelyn I · вторичный указатель глав; первичная сверка ожидается",
+      "origin": "setting",
+      "distribution": "internal"
+    },
+    {
+      "id": "campaign-authoring",
+      "title": "Авторская кампания «Север: королевский визит» · игровая линия неканоническая",
+      "origin": "hb",
+      "distribution": "internal"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "winterfell",
+      "kind": "location",
+      "name": "Винтерфелл",
+      "settingEntityRef": "place:winterfell",
+      "summary": "Начальная опорная точка кампании и дом Старков. Карта и точные расстояния в сценарии не заданы.",
+      "audience": "dm",
+      "evidence": [{ "source": "agot-opening-index", "pages": [] }],
+      "links": []
+    },
+    {
+      "id": "godswood",
+      "kind": "location",
+      "name": "Богороща Винтерфелла",
+      "settingEntityRef": "place:godswood-of-winterfell",
+      "summary": "Место приватного разговора Эддарда и Катлин на выбранной границе канона; присутствие героев игроков не предполагается автоматически.",
+      "audience": "dm",
+      "evidence": [{ "source": "agot-opening-index", "pages": [] }],
+      "links": [{ "relation": "within", "target": "winterfell" }]
+    },
+    {
+      "id": "road-outside-winterfell",
+      "kind": "location",
+      "name": "Дорога у Винтерфелла",
+      "summary": "Условное место для авторской сцены с обозом. Это игровая точка без канонической карты, маршрута или заданного расстояния.",
+      "audience": "dm",
+      "evidence": [{ "source": "campaign-authoring", "pages": [] }],
+      "links": [{ "relation": "associated-place", "target": "winterfell" }]
+    },
+    {
+      "id": "the-wall",
+      "kind": "location",
+      "name": "Стена",
+      "settingEntityRef": "place:the-wall",
+      "summary": "Место службы Бенджена Старка; сценарий не прокладывает к нему маршрут.",
+      "audience": "dm",
+      "evidence": [{ "source": "agot-opening-index", "pages": [] }],
+      "links": []
+    },
+    {
+      "id": "eddard-stark",
+      "kind": "npc",
+      "name": "Эддард Старк",
+      "settingEntityRef": "person:eddard-stark",
+      "summary": "Лорд Винтерфелла. На границе Catelyn I обсуждает с Катлин приближение королевского двора и положение Севера.",
+      "audience": "dm",
+      "evidence": [{ "source": "agot-opening-index", "pages": [] }],
+      "links": [{ "relation": "at", "target": "winterfell" }]
+    },
+    {
+      "id": "catelyn-stark",
+      "kind": "npc",
+      "name": "Катлин Старк",
+      "settingEntityRef": "person:catelyn-stark",
+      "summary": "Приносит Эддарду известия и семейную перспективу. Не предполагать, что герои игроков слышат их закрытый разговор.",
+      "audience": "dm",
+      "evidence": [{ "source": "agot-opening-index", "pages": [] }],
+      "links": [{ "relation": "at", "target": "winterfell" }]
+    },
+    {
+      "id": "robb-stark",
+      "kind": "npc",
+      "name": "Робб Старк",
+      "settingEntityRef": "person:robb-stark",
+      "summary": "Наследник дома Старков. Оставлен NPC, чтобы игроки могли создать собственных героев.",
+      "audience": "dm",
+      "evidence": [{ "source": "agot-opening-index", "pages": [] }],
+      "links": [{ "relation": "at", "target": "winterfell" }]
+    },
+    {
+      "id": "maester-luwin",
+      "kind": "npc",
+      "name": "Мейстер Лювин",
+      "settingEntityRef": "person:maester-luwin",
+      "summary": "Мейстер Винтерфелла; на границе знания связан с обсуждением слухов о событиях за Стеной.",
+      "audience": "dm",
+      "evidence": [{ "source": "agot-opening-index", "pages": [] }],
+      "links": [{ "relation": "at", "target": "winterfell" }]
+    },
+    {
+      "id": "benjen-stark",
+      "kind": "npc",
+      "name": "Бенджен Старк",
+      "settingEntityRef": "person:benjen-stark",
+      "summary": "Брат Эддарда и следопыт Ночного Дозора, находящийся за Стеной. Возможность отправить ему весть — тема разговора, а не уже назначенное поручение игрокам.",
+      "audience": "dm",
+      "evidence": [{ "source": "agot-opening-index", "pages": [] }],
+      "links": [{ "relation": "at", "target": "the-wall" }]
+    },
+    {
+      "id": "steward-lem",
+      "kind": "npc",
+      "name": "Лем, управляющий кладовыми · авторский NPC",
+      "summary": "Оригинальный служитель, созданный для этой кампании. Он может поручить героям сверить ведомости и не относится к канону книг.",
+      "audience": "dm",
+      "evidence": [{ "source": "campaign-authoring", "pages": [] }],
+      "links": [{ "relation": "at", "target": "winterfell" }]
+    },
+    {
+      "id": "terren-counter",
+      "kind": "npc",
+      "name": "Террен, младший счётчик · авторский NPC",
+      "summary": "Оригинальный персонаж побочной линии. Он перенаправил часть припасов, пытаясь помочь нуждающимся родичам; мотив не оправдывает и не отменяет риск для зимнего запаса.",
+      "audience": "dm",
+      "evidence": [{ "source": "campaign-authoring", "pages": [] }],
+      "links": [{ "relation": "at", "target": "winterfell" }]
+    },
+    {
+      "id": "opening-frontier",
+      "kind": "fact",
+      "name": "Граница канона: конец Catelyn I",
+      "summary": "Срез включает Prologue, Bran I и Catelyn I. Дата не выводится из порядка глав. Всё, что раскрывается позднее, запрещено считать известным в этой кампании без отдельного решения мастера.",
+      "audience": "dm",
+      "evidence": [{ "source": "agot-opening-index", "pages": [] }],
+      "links": []
+    },
+    {
+      "id": "royal-court-northbound",
+      "kind": "fact",
+      "name": "Королевский двор направляется на Север",
+      "summary": "На выбранной границе Эддард и Катлин знают, что Роберт Баратеон и его двор ожидаются в Винтерфелле. Героям игроков это известно лишь при обоснованном канале; масштаб и сроки подготовки источником не заданы.",
+      "audience": "dm",
+      "evidence": [{ "source": "agot-opening-index", "pages": [] }],
+      "links": [{ "relation": "associated-place", "target": "winterfell" }]
+    },
+    {
+      "id": "jon-arryn-died",
+      "kind": "fact",
+      "name": "Джон Аррен умер",
+      "summary": "Эддард и Катлин знают о смерти бывшего десницы. На этой границе причина не установлена; не называть её убийством и не приписывать виновника.",
+      "audience": "dm",
+      "evidence": [{ "source": "agot-opening-index", "pages": [] }],
+      "links": []
+    },
+    {
+      "id": "winterfell-supplies-concern",
+      "kind": "fact",
+      "name": "Эддард думает о припасах для двора",
+      "summary": "В разговоре обсуждается, хватит ли запасов на приём королевского двора. Книжный срез не задаёт недостачу, объёмы или недобросовестность служителей.",
+      "audience": "dm",
+      "evidence": [{ "source": "agot-opening-index", "pages": [] }],
+      "links": [{ "relation": "associated-place", "target": "winterfell" }]
+    },
+    {
+      "id": "direwolf-sign",
+      "kind": "fact",
+      "name": "Знак с лютоволчицей",
+      "summary": "Найдены мёртвая лютоволчица и волчата; в горле зверя — оленьий рог. Тревожное толкование Катлин остаётся её мнением, не доказанным предзнаменованием.",
+      "audience": "dm",
+      "evidence": [{ "source": "agot-opening-index", "pages": [] }],
+      "links": [{ "relation": "associated-place", "target": "winterfell" }]
+    },
+    {
+      "id": "watch-and-beyond-wall",
+      "kind": "fact",
+      "name": "Опасения о Ночном Дозоре и землях за Стеной",
+      "summary": "Катлин говорит об убывающих силах Дозора и тревожных рассказах. Её опасение и скепсис Лювина не подтверждают нападение Иных.",
+      "audience": "dm",
+      "evidence": [{ "source": "agot-opening-index", "pages": [] }],
+      "links": [{ "relation": "associated-place", "target": "the-wall" }]
+    },
+    {
+      "id": "prologue-patrol",
+      "kind": "fact",
+      "name": "Сведения пролога · мастерская информация",
+      "summary": "Пролог показывает патруль Ночного Дозора за Стеной. Пока в истории не появился канал передачи, это не знание жителей Винтерфелла и не информация героев игроков.",
+      "audience": "dm",
+      "evidence": [{ "source": "agot-opening-index", "pages": [] }],
+      "links": [{ "relation": "associated-place", "target": "the-wall" }]
+    },
+    {
+      "id": "missing-cart",
+      "kind": "fact",
+      "name": "Задержавшийся обоз · авторская завязка",
+      "summary": "Для игровой линии мастер вводит пропавшую телегу с частью припасов. Этого происшествия нет в источнике; оно не меняет каноническую подготовку к приезду двора.",
+      "audience": "dm",
+      "evidence": [{ "source": "campaign-authoring", "pages": [] }],
+      "links": [{ "relation": "associated-place", "target": "road-outside-winterfell" }]
+    },
+    {
+      "id": "altered-ledger",
+      "kind": "fact",
+      "name": "В ведомости изменена запись · авторский факт",
+      "summary": "Террен перенёс отметку об одной телеге в другую строку. След можно обнаружить сравнением двух экземпляров; как именно герои его находят, решает мастер.",
+      "audience": "dm",
+      "evidence": [{ "source": "campaign-authoring", "pages": [] }],
+      "links": []
+    },
+    {
+      "id": "terren-motive",
+      "kind": "fact",
+      "name": "Мотив Террена · авторский факт",
+      "summary": "Террен отдал припасы своей семье в голодающем малом поселении, опасаясь, что официальное обращение затянется. Это делает выбор трудным, но не отменяет угрозы общему запасу.",
+      "audience": "dm",
+      "evidence": [{ "source": "campaign-authoring", "pages": [] }],
+      "links": []
+    },
+    {
+      "id": "royal-arrival-thread",
+      "kind": "thread",
+      "name": "Подготовить Винтерфелл к приезду двора",
+      "summary": "Каноническая тема подготовки; мастер решает, привлекает ли к ней героев и как это влияет на их отношения с домом Старков.",
+      "audience": "dm",
+      "evidence": [{ "source": "agot-opening-index", "pages": [] }],
+      "links": [{ "relation": "discover-in", "target": "opening-at-winterfell" }]
+    },
+    {
+      "id": "missing-supplies-thread",
+      "kind": "thread",
+      "name": "Куда делась телега? · авторская линия",
+      "summary": "Разобраться с задержавшимся обозом, проверить учёт и свидетелей, затем выбрать, что сообщить лорду и как поступить с Терреном.",
+      "audience": "dm",
+      "evidence": [{ "source": "campaign-authoring", "pages": [] }],
+      "links": [
+        { "relation": "discover-in", "target": "audit-the-stores" },
+        { "relation": "discover-in", "target": "inspect-the-road" },
+        { "relation": "discover-in", "target": "question-terren" },
+        { "relation": "discover-in", "target": "report-to-winterfell" }
+      ]
+    },
+    {
+      "id": "store-ledger",
+      "kind": "item",
+      "name": "Кладовая ведомость · авторский реквизит",
+      "summary": "Игровой предмет для сцены проверки запасов; текст, числа и точная форма записи остаются за мастером.",
+      "audience": "dm",
+      "evidence": [{ "source": "campaign-authoring", "pages": [] }],
+      "links": []
+    },
+    {
+      "id": "cart-seal",
+      "kind": "item",
+      "name": "Пломба обоза · авторский реквизит",
+      "summary": "Возможный материальный след. Его наличие и способ обнаружения мастер вводит только в выбранной сцене.",
+      "audience": "dm",
+      "evidence": [{ "source": "campaign-authoring", "pages": [] }],
+      "links": []
+    },
+    {
+      "id": "opening-at-winterfell",
+      "kind": "scene",
+      "name": "Открытие: в ожидании королевского двора",
+      "summary": "Начните после Catelyn I, не назначая календарную дату. Спросите игроков, кем их герои связаны с Винтерфеллом, и решите, слышали ли они что-либо из частного разговора Старков. Если игроки берут поручение по подготовке двора, Лем предлагает сверить записи кладовых — это авторская завязка, а не событие книги. Сцена не должна принуждать канонических персонажей к неописанным решениям.",
+      "audience": "dm",
+      "evidence": [{ "source": "agot-opening-index", "pages": [] }, { "source": "campaign-authoring", "pages": [] }],
+      "links": [
+        { "relation": "at", "target": "winterfell" },
+        { "relation": "thread", "target": "royal-arrival-thread" },
+        { "relation": "thread", "target": "missing-supplies-thread" },
+        { "relation": "fact", "target": "royal-court-northbound" },
+        { "relation": "fact", "target": "winterfell-supplies-concern" }
+      ],
+      "preparation": "На Session 0 предложите героям роли при малом северном доме: гонец, следопыт, управляющий, оруженосец или личный гость. Это идеи для игроков, не готовые персонажи и не канон. Выбранные системой правила добавляются отдельно."
+    },
+    {
+      "id": "audit-the-stores",
+      "kind": "scene",
+      "name": "Сверка кладовых",
+      "summary": "Авторская сцена. Лем просит сравнить записи и фактический запас до прибытия двора. Дайте игрокам выбрать способ проверки; не задавайте проверки, числа или сроки без выбранной игровой системы.",
+      "audience": "dm",
+      "evidence": [{ "source": "campaign-authoring", "pages": [] }],
+      "links": [
+        { "relation": "at", "target": "winterfell" },
+        { "relation": "participant", "target": "steward-lem" },
+        { "relation": "participant", "target": "terren-counter" },
+        { "relation": "contains", "target": "store-ledger" },
+        { "relation": "thread", "target": "missing-supplies-thread" },
+        { "relation": "fact", "target": "missing-cart" }
+      ],
+      "preparation": "Подсказки: расходящаяся отметка между копиями ведомости и нестыковка номера пломбы. Любая найденная подсказка направляет к дороге или разговору с Терреном."
+    },
+    {
+      "id": "inspect-the-road",
+      "kind": "scene",
+      "name": "Следы у дороги",
+      "summary": "Авторская сцена. Герои ищут задержавшуюся телегу или расспрашивают сопровождавших её людей. Точное место и результат поиска зависят от решения мастера; карта и время пути не заданы.",
+      "audience": "dm",
+      "evidence": [{ "source": "campaign-authoring", "pages": [] }],
+      "links": [
+        { "relation": "at", "target": "road-outside-winterfell" },
+        { "relation": "contains", "target": "cart-seal" },
+        { "relation": "thread", "target": "missing-supplies-thread" },
+        { "relation": "fact", "target": "missing-cart" }
+      ],
+      "preparation": "Не используйте точные координаты или расстояние. Достаточно выбрать 1–2 доступные зацепки и спросить, как партия действует."
+    },
+    {
+      "id": "question-terren",
+      "kind": "scene",
+      "name": "Разговор с Терреном",
+      "summary": "Авторская сцена. Террен сначала защищает ведомость и опасается потерять место. При предъявлении надёжных улик он объясняет, что отдал часть груза нуждающимся родичам.",
+      "audience": "dm",
+      "evidence": [{ "source": "campaign-authoring", "pages": [] }],
+      "links": [
+        { "relation": "at", "target": "winterfell" },
+        { "relation": "participant", "target": "terren-counter" },
+        { "relation": "thread", "target": "missing-supplies-thread" },
+        { "relation": "fact", "target": "altered-ledger" },
+        { "relation": "fact", "target": "terren-motive" }
+      ],
+      "preparation": "Не закрывайте сцену одним броском: признание может быть обменом, добровольным признанием или следствием разговора. Игровая механика зависит от выбранных правил."
+    },
+    {
+      "id": "report-to-winterfell",
+      "kind": "scene",
+      "name": "Что доложить Старкам",
+      "summary": "Финальная авторская сцена линии. Игроки выбирают, докладывать ли о недостаче открыто, просить ли вернуть груз, защищать ли Террена или предложить иной выход. Не предписывайте Эддарду каноническую реакцию.",
+      "audience": "dm",
+      "evidence": [{ "source": "campaign-authoring", "pages": [] }],
+      "links": [
+        { "relation": "at", "target": "winterfell" },
+        { "relation": "participant", "target": "eddard-stark" },
+        { "relation": "thread", "target": "missing-supplies-thread" },
+        { "relation": "fact", "target": "terren-motive" }
+      ],
+      "preparation": "По умолчанию последствия остаются локальными и не противоречат опубликованному канону. Если мастер выбирает исход, меняющий известные книжные события, явно пометьте продолжение кампании как альтернативную ветку. Кокпит фиксирует только то, что исход был отмечен."
+    },
+    {
+      "id": "send-word-to-the-wall",
+      "kind": "scene",
+      "name": "Весть Бенджену",
+      "summary": "Дополнительная каноническая тема из Catelyn I: мастер может предложить героям помочь с отправкой вести Бенджену о приезде короля. Конкретный гонец, маршрут и происшествия в источнике не назначены.",
+      "audience": "dm",
+      "evidence": [{ "source": "agot-opening-index", "pages": [] }],
+      "links": [
+        { "relation": "at", "target": "winterfell" },
+        { "relation": "participant", "target": "benjen-stark" },
+        { "relation": "fact", "target": "royal-court-northbound" },
+        { "relation": "fact", "target": "watch-and-beyond-wall" }
+      ],
+      "preparation": "Содержимое письма, дата отправки и путь остаются выбором мастера; не запускайте автоматический переход времени или каноническое событие."
+    },
+    {
+      "id": "player-roles",
+      "kind": "handout",
+      "name": "Кем вы связаны с Винтерфеллом?",
+      "summary": "Выберите, почему ваши герои оказались рядом с домом Старков: служба, гостевой визит, поручение, родство с малым северным домом или собственный замысел. Мастер сообщит, что именно известно каждому герою.",
+      "audience": "players",
+      "evidence": [{ "source": "campaign-authoring", "pages": [] }],
+      "links": []
+    },
+    {
+      "id": "record-cart-resolution",
+      "kind": "proposal",
+      "name": "Отметить решение партии о судьбе припасов",
+      "summary": "Запись решения мастера после финальной сцены. Она не меняет запасы, положение NPC или канонические события автоматически.",
+      "audience": "dm",
+      "evidence": [{ "source": "campaign-authoring", "pages": [] }],
+      "links": [{ "relation": "after-scene", "target": "report-to-winterfell" }]
+    }
+  ]
+}

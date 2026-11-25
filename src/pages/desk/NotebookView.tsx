@@ -6,6 +6,7 @@ import { knownLine, notebookOf } from '../../campaign';
 import type { EntityRef } from '../../entities';
 import type { State } from '../../engine';
 import { HEAD } from './styles';
+import { MaterialArtwork } from '../../art/MaterialArtwork';
 
 export interface NotebookViewProps {
   mainRef: RefObject<HTMLElement | null>;
@@ -21,7 +22,10 @@ export function NotebookView({ mainRef, state, onOpen }: NotebookViewProps) {
         <article key={e.ref} aria-label={`Тетрадь: ${e.name}`} data-ref={e.ref} className="flex flex-col bg-pn shadow-bevel">
           <div className={HEAD}>
             <button type="button" onClick={() => onOpen(e.ref)} title={`Открыть карточку: ${e.name}`} className="normal-case text-tx underline decoration-t3 underline-offset-2 cursor-pointer hover:text-gd-hi focus-visible:shadow-[var(--glow-gold)]">{e.name}</button>
-            <span className="type-key text-t2 normal-case">узнано: {e.facts.length}</span>
+            <span className="inline-flex items-center gap-1 type-key text-t2 normal-case">
+              <MaterialArtwork asset="kimi-material-ornament-wax-seal-v1" width={48} className="notebook-entry__seal" style={{ position: 'static', width: 24, maxWidth: 'none', height: 24, objectFit: 'contain', pointerEvents: 'none' }} />
+              узнано: {e.facts.length}
+            </span>
           </div>
           <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 p-3 type-body-sm">
             {e.facts.map(f => (

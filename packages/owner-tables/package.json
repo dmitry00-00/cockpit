@@ -1,0 +1,61 @@
+{
+  "format": 1,
+  "id": "owner-tables",
+  "kind": "rules",
+  "title": "Владелецкие таблицы D&D",
+  "titleRu": "Владелецкие таблицы",
+  "version": "2026.10.31",
+  "layers": [
+    {
+      "id": "content-compendium-classes-json",
+      "path": "content/compendium/classes.json",
+      "kinds": [
+        "class",
+        "subclass",
+        "feature"
+      ],
+      "license": "LicenseRef-Wizards-Personal-Table",
+      "distribution": "table",
+      "attribution": "Таблицы владельца; файл содержит записи SRD, книг и хоумбрю с собственными отметками источника."
+    },
+    {
+      "id": "content-compendium-feats-json",
+      "path": "content/compendium/feats.json",
+      "kinds": [
+        "feat"
+      ],
+      "license": "LicenseRef-Wizards-Personal-Table",
+      "distribution": "table",
+      "attribution": "Таблицы владельца; файл содержит записи SRD, книг и хоумбрю с собственными отметками источника."
+    },
+    {
+      "id": "content-compendium-races-json",
+      "path": "content/compendium/races.json",
+      "kinds": [
+        "race",
+        "subrace",
+        "trait"
+      ],
+      "license": "LicenseRef-Wizards-Personal-Table",
+      "distribution": "table",
+      "attribution": "Таблицы владельца; файл содержит записи SRD, книг и хоумбрю с собственными отметками источника."
+    },
+    {
+      "id": "content-compendium-report-md",
+      "path": "content/compendium/report.md",
+      "kinds": [
+        "compendium-report"
+      ],
+      "license": "LicenseRef-Wizards-Personal-Table",
+      "distribution": "table",
+      "attribution": "Таблицы владельца; файл содержит записи SRD, книг и хоумбрю с собственными отметками источника."
+    }
+  ],
+  "distribution": "table",
+  "requires": [
+    {
+      "id": "dnd5e-2014"
+    }
+  ],
+  "canary": "dmck-owner-tables-3ecd68c80f221778"
+}

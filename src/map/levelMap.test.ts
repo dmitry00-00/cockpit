@@ -18,11 +18,11 @@ describe('карта уровня', () => {
     expect(HEX_MILES.region).toBe(6);
   });
 
-  it('партия — там же, где Neverwinter: Южные ворота своих координат не имеют и берут их у города', () => {
+  it('партия — там же, где Neverwinter; Южные ворота имеют собственные координаты плана', () => {
     const m = levelMap(state, initialLadder(state))!;
     const nw = state.world.locations[LOCATION.neverwinter].geo!;
     expect(m.party).toEqual({ x: nw.x, y: nw.y });
-    expect(geoOf(state, LOCATION.southGate)).toEqual(nw);
+    expect(geoOf(state, LOCATION.southGate)).toEqual({ map: 'neverwinter', x: 455, y: 905 });
   });
 
   it('континент: рамка Faerûn шире, чем выше; подрегионы Sword Coast North не дублируют свой регион', () => {
@@ -56,12 +56,10 @@ describe('карта уровня', () => {
     expect(m.passport.units).toBe('feet');
     expect(m.frame).toEqual({ x0: 0, y0: 0, x1: 1440, y1: 1015 });
     expect(m.plan).toBe(true);
-    // Партия стоит в Neverwinter без точки на плане — знака нет; Южные ворота без координат плана — не пин.
+    // Партия отмечена только на карте мира; Южные ворота — первое здание-пин на плане.
     expect(m.party).toBeUndefined();
-    expect(m.places).toEqual([]);
-    const gate = { ...state.world.locations[LOCATION.southGate], geo: { map: 'neverwinter', x: 455, y: 905 } };
-    const withGate = { ...state, world: { ...state.world, locations: { ...state.world.locations, [gate.id]: gate } } };
-    expect(levelMap(withGate, ladder)!.places.map(l => l.id)).toEqual([LOCATION.southGate]);
+    expect(m.places.map(l => l.id)).toEqual([LOCATION.southGate]);
+    expect(m.places[0].geo).toEqual({ map: 'neverwinter', x: 455, y: 905 });
     const world = levelMap(state, ladder, { plan: false })!;
     expect([world.passport.id, world.plan]).toEqual(['toril', false]);
     // Регион и места без плана — как раньше, без переключателя.

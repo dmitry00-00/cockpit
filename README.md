@@ -33,21 +33,23 @@ Python-инструменты (маски планет, импорт компе�
 
 ## Установка и запуск
 
-Репозиторий — https://github.com/dmitry00-00/cockpit. Установочные скрипты лежат в корне и ничего системного не трогают: свой Node.js (если в системе нет ≥ 20), `node_modules`, сборка и отпечаток `package-lock` живут внутри пакета (`.tools/` — не в git). Повторный запуск безопасен; запущенный не из пакета скрипт сам берёт его из репозитория в `~/cockpit` (или `$COCKPIT_DIR`).
+Репозиторий — https://github.com/dmitry00-00/cockpit. Установочные скрипты лежат в корне и не меняют системные настройки: свой Node.js (если в системе нет ≥ 20), `node_modules`, сборка и отпечаток `package-lock` живут внутри пакета (`.tools/` — не в git). Windows-установка добавляет ярлыки только в профиль текущего пользователя. Повторный запуск безопасен; запущенный не из пакета скрипт сам берёт его из репозитория в `~/cockpit` (или `$COCKPIT_DIR`).
 
 | | Mac | Windows |
 |---|---|---|
 | Установить и проверить | `setup.command` (двойной клик или `zsh setup.command`) | `setup.cmd` (двойной клик; зовёт `setup.ps1` через `powershell.exe -ExecutionPolicy Bypass`) |
-| Одной командой без пакета | `curl -fsSL https://raw.githubusercontent.com/dmitry00-00/cockpit/main/setup.command \| zsh` | в PowerShell: `irm https://raw.githubusercontent.com/dmitry00-00/cockpit/main/setup.ps1 -OutFile $env:TEMP\setup.ps1; powershell -ExecutionPolicy Bypass -File $env:TEMP\setup.ps1` |
+| Одной командой без пакета | `curl -fsSL https://raw.githubusercontent.com/dmitry00-00/cockpit/main/setup.command \| zsh` | Для актуальной ветки скачайте её ZIP и запустите `setup.cmd` из распакованной папки (шаги ниже). |
 | Играть | `start.command` — http://localhost:5180 в браузере, стол живёт, пока открыто окно | `start.cmd` — то же |
 | Планшет / второй экран по сети | `zsh start.command --lan` | `start.cmd -Lan` |
 | Свежий код из репозитория | `zsh setup.command --update` | `setup.cmd -Update` |
 | Полный прогон тестов | `zsh setup.command --test` | `setup.cmd -Test` |
 | Сервер разработки вместо `dist/` | `zsh start.command --dev` | `start.cmd -Dev` |
 
+Для установки актуальной версии на Windows откройте [ZIP рабочей ветки](https://github.com/dmitry00-00/cockpit/archive/refs/heads/codex/project-progress-20261124.zip), распакуйте архив и дважды щёлкните `setup.cmd`. Не нужны Git, заранее установленный Node.js, Python или права администратора. Установщик сам скачает Node.js с проверкой SHA-256, установит пакеты по `package-lock.json`, соберёт приложение и проверит его на локальном порту; затем создаст ярлыки `DM Cockpit` на рабочем столе и в меню «Пуск». Запускайте стол ярлыком либо `start.cmd`; сервер работает, пока открыто его консольное окно. Для отказа от ярлыков запустите `setup.cmd -NoShortcut`. Для сетевого режима используйте `start.cmd -Lan`; Windows один раз попросит разрешить подключение в брандмауэре.
+
 Что делает установка: находит Node.js ≥ 20 (PATH, Homebrew, nvm, volta; на Windows — Program Files, nvm-windows, volta, fnm) или скачивает закреплённый v22.23.0 с nodejs.org в `.tools/node` со сверкой SHA-256; `npm ci` ровно по `package-lock.json` (повторно — только если lock сменился); `npm run build` (тема, иконки, `tsc`, `vite build`); поднимает собранный стол на порту 5181 и проверяет, что он отдаёт страницу. Запуск собирает заново только если `dist/` старее исходников; второй двойной клик при работающем столе просто открывает браузер. Скрипты держит `scripts/setup.test.mjs`: одна версия Node.js и суммы архивов в обеих версиях, права на `.command`, BOM в `.ps1` (Windows PowerShell 5.1 без него читает кириллицу как ANSI), CRLF в `.cmd`.
 
-Mac: пакет, скачанный архивом через Safari, несёт карантин — первый запуск `.command` через правый клик → «Открыть» (или `zsh setup.command`). Windows: `--lan` попросит разрешить `node.exe` в брандмауэре — один раз.
+Mac: пакет, скачанный архивом через Safari, несёт карантин — первый запуск `.command` через правый клик → «Открыть» (или `zsh setup.command`). Windows: `--lan` попросит разрешить `node.exe` в брандмауэре — один раз. Карта известного мира ПЛиО уже включена готовыми тайлами, поэтому Python и исходные JPG на ноутбуке мастера не требуются.
 
 ## Разработка
 

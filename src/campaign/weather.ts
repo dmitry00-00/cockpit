@@ -1,18 +1,27 @@
 // Погода в полосе часов (HANDOFF §4, §13: «Облачно, +14 °C, лёгкий ветер») — проекция календаря, не состояние
 // и не событие: тот же день даёт ту же погоду на любом столе, отменять и хранить нечего. Температура — по
-// месяцу Харптоса для Sword Coast North, разброс и небо — детерминированным хешем дня. Мастер не правит её
-// руками — погода, которую предлагает симуляция, придёт предложением с патчем места, когда появится карта.
+// месяцу Харптоса для Sword Coast North, разброс, небо и направление ветра — детерминированным хешем дня.
+// Направление ветра — описательное правило стола без механического эффекта. Мастер не правит её руками.
 import { harptos, MONTHS, type MonthName } from './calendar';
 import { SECONDS_PER_DAY } from '../engine/state';
 
 export type Sky = 'clear' | 'cloudy' | 'rain' | 'storm';
 export type Wind = 'calm' | 'light' | 'strong';
+export type WindDirection = 'n' | 'ne' | 'e' | 'se' | 's' | 'sw' | 'w' | 'nw';
+
+const WIND_DIRECTIONS: readonly WindDirection[] = ['n', 'ne', 'e', 'se', 's', 'sw', 'w', 'nw'];
+export const WIND_FROM_LABELS: Readonly<Record<WindDirection, string>> = {
+  n: 'севера', ne: 'северо-востока', e: 'востока', se: 'юго-востока',
+  s: 'юга', sw: 'юго-запада', w: 'запада', nw: 'северо-запада',
+};
 
 export interface Weather {
   sky: Sky;
   /** Градусы Цельсия, целое. */
   tempC: number;
   wind: Wind;
+  /** Направление, откуда дует дневной ветер; правило стола без механического эффекта. */
+  windFrom: WindDirection;
 }
 
 export const SKY_LABELS: Readonly<Record<Sky, string>> = { clear: 'Ясно', cloudy: 'Облачно', rain: 'Дождь', storm: 'Гроза' };
@@ -48,9 +57,10 @@ export function weatherOf(sec: number): Weather {
   const h1 = hashDay(day, 1) % 9; // −4…+4
   const h2 = hashDay(day, 2) % 100;
   const h3 = hashDay(day, 3) % 10;
+  const windFrom = WIND_DIRECTIONS[hashDay(day, 4) % WIND_DIRECTIONS.length];
   const sky: Sky = h2 < 40 ? 'clear' : h2 < 75 ? 'cloudy' : h2 < 95 ? 'rain' : 'storm';
   const wind: Wind = sky === 'storm' ? 'strong' : h3 < 3 ? 'calm' : h3 < 8 ? 'light' : 'strong';
-  return { sky, tempC: base + h1 - 4, wind };
+  return { sky, tempC: base + h1 - 4, wind, windFrom };
 }
 
 /** «Облачно, +14 °C, лёгкий ветер»; минус — U+2212, как везде в числах. */

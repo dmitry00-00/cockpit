@@ -1,0 +1,272 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "organization",
+  "entities": [
+    {
+      "ref": "organization:house-stark",
+      "kind": "organization",
+      "name": "House Stark",
+      "nameRu": "Дом Старков",
+      "subtitle": "A Game of Thrones · Bran I; Catelyn I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran I; Catelyn I; A Wiki of Ice and Fire, chapter index (appearance/mention status)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_2",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Bran I; Catelyn I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Дом, правящий на Севере из Винтерфелла; пилот ограничивает сведения стартовыми главами."
+        }
+      ],
+      "links": [
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        }
+      ]
+    },
+    {
+      "ref": "organization:house-arryn",
+      "kind": "organization",
+      "name": "House Arryn",
+      "nameRu": "Дом Арренов",
+      "subtitle": "A Game of Thrones · Catelyn I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn I; A Wiki of Ice and Fire, chapter index (appearance/mention status)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_2",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Catelyn I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Дом покойного Джона Аррена; в стартовой главе упомянуты его вдова и возвращение семьи в Орлиное Гнездо."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Arryn",
+          "ref": "person:jon-arryn"
+        },
+        {
+          "label": "смерть Джона Аррена",
+          "ref": "event:jon-arryn-dead"
+        }
+      ]
+    },
+    {
+      "ref": "organization:house-baratheon",
+      "kind": "organization",
+      "name": "House Baratheon",
+      "nameRu": "Дом Баратеонов",
+      "subtitle": "A Game of Thrones · Bran I; Catelyn I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran I; Catelyn I; A Wiki of Ice and Fire, chapter index (appearance/mention status)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_2",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Bran I; Catelyn I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Король Роберт и его двор направляются в Винтерфелл; карточка не описывает последующую политику дома."
+        }
+      ],
+      "links": [
+        {
+          "label": "королевский двор едет в Винтерфелл",
+          "ref": "event:royal-party-bound-for-winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "organization:house-greyjoy",
+      "kind": "organization",
+      "name": "House Greyjoy",
+      "nameRu": "Дом Грейджоев",
+      "subtitle": "A Game of Thrones · Bran I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran I; A Wiki of Ice and Fire, chapter index (appearance/mention status)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_1",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Bran I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Дом Теона Грейджоя; в пилоте не заполняются сведения о его истории и политике."
+        }
+      ],
+      "links": [
+        {
+          "label": "Theon Greyjoy",
+          "ref": "person:theon-greyjoy"
+        }
+      ]
+    },
+    {
+      "ref": "organization:house-lannister",
+      "kind": "organization",
+      "name": "House Lannister",
+      "nameRu": "Дом Ланнистеров",
+      "subtitle": "A Game of Thrones · Catelyn I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn I; A Wiki of Ice and Fire, chapter index (appearance/mention status)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_2",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Catelyn I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Члены королевской семьи Ланнистеров и её братья едут вместе с двором; дальнейшие сведения оставлены следующим этапам."
+        }
+      ],
+      "links": [
+        {
+          "label": "королевский двор едет в Винтерфелл",
+          "ref": "event:royal-party-bound-for-winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "organization:nights-watch",
+      "kind": "organization",
+      "name": "Night's Watch",
+      "nameRu": "Ночной Дозор",
+      "subtitle": "A Game of Thrones · Prologue; Catelyn I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Prologue; Catelyn I; A Wiki of Ice and Fire, chapter index (appearance/mention status)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Prologue",
+        "license": "CC-BY-SA-3.0"
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "упоминается"
+        },
+        {
+          "label": "Опорные главы",
+          "value": "Prologue; Catelyn I"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Военный орден, чьи разведчики действуют за Стеной; в стартовой главе обсуждается сокращение его численности."
+        }
+      ],
+      "links": [
+        {
+          "label": "Стена",
+          "ref": "place:the-wall"
+        },
+        {
+          "label": "Benjen Stark",
+          "ref": "person:benjen-stark"
+        },
+        {
+          "label": "Will",
+          "ref": "person:will"
+        },
+        {
+          "label": "Gared",
+          "ref": "person:gared"
+        },
+        {
+          "label": "Waymar Royce",
+          "ref": "person:waymar-royce"
+        }
+      ]
+    }
+  ]
+}

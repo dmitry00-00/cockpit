@@ -1,32 +1,47 @@
+import { timeAction } from './testkit';
 // Лист персонажа, карточка по макетам, оверлей 720px и экран создания персонажа.
-import { cleanup, fireEvent, screen, within } from '@testing-library/react';
+import { cleanup, fireEvent, screen, waitFor, within } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { mount, rowOf, cardOf, tab, lastEvent, startCombat, storeWithSecrets } from './testkit';
+import { mount, rowOf, cardOf, tab, lastEvent, startCombat, storeWithSecrets, openTimeControls, tempoGroup } from './testkit';
 
 afterEach(() => { vi.useRealTimers(); vi.restoreAllMocks(); });
+
+const pcHeaderOf = (card: HTMLElement): HTMLElement => {
+  const header = card.querySelector<HTMLElement>('[data-part="pc-header"]');
+  expect(header).not.toBeNull();
+  if (!header) throw new Error('Не найдена шапка листа персонажа');
+  return header;
+};
 
 describe('лист персонажа: ресурсы, сроки состояний, ход (решение владельца 21.09.2026)', () => {
   const resourcesOf = (card: HTMLElement) => within(card).getByRole('region', { name: 'Ресурсы' });
   const reminders = () => screen.queryByRole('list', { name: 'Напоминания' });
 
-  it('шапка листа по карточке владельца: раса, класс, мировоззрение, скорость, тело; спасброски следопыта — STR и DEX с владением', () => {
+  it('шапка листа по карточке владельца: раса, класс, мировоззрение, скорость, тело; спасброски следопыта — STR и DEX с владением', async () => {
     mount();
     const card = cardOf('Bo Tambernack');
-    const header = card.querySelector('[data-part="pc-header"]')!;
-    expect(header).toHaveTextContent('Bo Tambernack5Раса: Полурослик · ЛегконогийКласс: СледопытПолурослик · Легконогий · СледопытМировоззрениеНейтральныйСкорость25 фтРост97 смВес17 кгВозраст26 лет');
+    const header = pcHeaderOf(card);
+    await waitFor(() => expect(within(header).getByRole('img', { name: 'Портрет: Bo Tambernack' }).tagName).toBe('IMG'));
+    const portrait = within(header).getByRole('img', { name: 'Портрет: Bo Tambernack' });
+    expect(portrait).toHaveAttribute('loading', 'lazy');
+    expect(portrait).toHaveAttribute('width', '64');
+    expect(portrait.getAttribute('srcset')).toContain('256w');
+    expect(header).toHaveTextContent('5Раса: Полурослик · ЛегконогийКласс: СледопытПолурослик · Легконогий · СледопытМировоззрениеНейтральныйСкорость25 фтРост97 смВес17 кгВозраст26 лет');
     expect([...header.querySelectorAll('[data-part="emblem"] svg title')].map(t => t.textContent)).toEqual(['Раса: Полурослик · Легконогий', 'Класс: Следопыт']);
     expect(within(card).getByTitle(/^Strength: \+1 · спасбросок \+4 \(владение\)\sспасбросок \+4 = 1 \(STR 12\) \+ 3 \(владение спасброском\)$/)).toBeInTheDocument();
     expect(within(card).getByTitle(/^Dexterity: \+3 · спасбросок \+6 \(владение\)\s/)).toBeInTheDocument();
     expect(within(card).getByTitle(/^Wisdom: \+2 · спасбросок \+2\s/)).toBeInTheDocument();
     // У Korrin на листе нет мировоззрения и тела — строк нет, пустых подписей не бывает.
     fireEvent.click(rowOf('Korrin Battlehammer'));
-    const k = cardOf('Korrin Battlehammer').querySelector('[data-part="pc-header"]')!;
+    const k = pcHeaderOf(cardOf('Korrin Battlehammer'));
     expect(k.querySelector('[title="Мировоззрение"]')).toBeNull();
     expect(k.querySelector('[data-part="bio"]')).toBeNull();
+    expect(k.querySelector('[data-part="portrait"] img')).toBeNull();
+    expect(k.querySelector('[data-part="portrait"] svg')).not.toBeNull();
     expect(k).toHaveTextContent('25 фт');
   });
 
-  it('ресурсы из таблицы класса и умений SRD: у Bo ячейки 4 и 2, у Korrin второе дыхание и всплеск; пипка тратит и возвращает — события с max, журнал «3 из 4», Ctrl+Z', () => {
+  it('ресурсы из таблицы класса и умений SRD: у Bo ячейки 4 и 2, у Korrin второе дыхание и всплеск; пипка тратит и возвращает — события с max, журнал «3 из 4», Ctrl+Z', async () => {
     const { store } = mount();
     const bo = resourcesOf(cardOf('Bo Tambernack'));
     expect(within(bo).getByRole('group', { name: 'Ячейки 1-го круга: 4 из 4' })).toBeInTheDocument();
@@ -47,17 +62,18 @@ describe('лист персонажа: ресурсы, сроки состоян
     expect(within(korrin).getByRole('group', { name: 'Всплеск действий: 1 из 1' })).toBeInTheDocument();
   });
 
-  it('короткий отдых возвращает потраченное с правилом «короткий» (форма показывает), долгий — всё; у монстра секции «Ресурсы» нет', () => {
+  it('короткий отдых возвращает потраченное с правилом «короткий» (форма показывает), долгий — всё; у монстра секции «Ресурсы» нет', async () => {
     const { store } = mount();
     fireEvent.click(rowOf('Korrin Battlehammer'));
     fireEvent.click(within(resourcesOf(cardOf('Korrin Battlehammer'))).getByRole('button', { name: 'Потратить: Второе дыхание' }));
     fireEvent.click(rowOf('Bo Tambernack'));
     fireEvent.click(within(resourcesOf(cardOf('Bo Tambernack'))).getAllByRole('button', { name: 'Потратить: Ячейки 2-го круга' })[0]);
+    openTimeControls();
     fireEvent.click(screen.getByRole('button', { name: 'Отдых' }));
     const dlg = screen.getByRole('dialog', { name: 'Отдых' });
     expect(dlg.querySelector('[data-actor="korrin"] [data-part="short-note"]')).toHaveTextContent('второе дыхание');
     expect(dlg.querySelector('[data-actor="bo"] [data-part="short-note"]')).toBeNull(); // ячейки — только долгий
-    fireEvent.click(within(dlg).getByRole('button', { name: 'Отдохнуть' }));
+    await timeAction(() => { fireEvent.click(within(dlg).getByRole('button', { name: 'Отдохнуть' })); });
     expect(lastEvent(store)).toMatchObject({ type: 'REST_TAKEN', payload: { kind: 'short', resources: [{ actorId: 'korrin', resourceId: 'second-wind' }] } });
     expect(store.getState().state.actors.korrin.resourcesSpent).toBeUndefined();
     expect(store.getState().state.actors.bo.resourcesSpent).toEqual({ 'slot-2': 1 });
@@ -65,13 +81,14 @@ describe('лист персонажа: ресурсы, сроки состоян
     const dlg2 = screen.getByRole('dialog', { name: 'Отдых' });
     fireEvent.click(within(dlg2).getByRole('radio', { name: 'Долгий · 8 ч' }));
     expect(dlg2.querySelector('[data-actor="bo"] [data-part="long-note"]')).toHaveTextContent('ячейки 2-го круга');
-    fireEvent.click(within(dlg2).getByRole('button', { name: 'Отдохнуть' }));
+    await timeAction(() => { fireEvent.click(within(dlg2).getByRole('button', { name: 'Отдохнуть' })); });
     expect(store.getState().state.actors.bo.resourcesSpent).toBeUndefined();
+    fireEvent.click(screen.getByRole('button', { name: 'Закрыть управление временем' }));
     fireEvent.click(within(screen.getByRole('group', { name: 'Противники' })).getAllByRole('button')[0]);
     expect(within(cardOf('Bandit Captain')).queryByRole('region', { name: 'Ресурсы' })).toBeNull();
   });
 
-  it('срок состояния: «10 мин» перед кликом по сетке → CONDITION_ADDED с untilSec, чип «10 мин»; через два шага — «истекло» и напоминание «Снять / Позже»', () => {
+  it('срок состояния: «10 мин» перед кликом по сетке → CONDITION_ADDED с untilSec, чип «10 мин»; через два шага — «истекло» и напоминание «Снять / Позже»', async () => {
     const { store } = mount();
     tab('Состояния');
     fireEvent.click(within(screen.getByRole('radiogroup', { name: 'Срок состояния' })).getByRole('radio', { name: '10 мин' }));
@@ -82,10 +99,12 @@ describe('лист персонажа: ресурсы, сроки состоян
     expect(screen.getByRole('list', { name: 'Записи журнала' })).toHaveTextContent('Отравлен: @Bo Tambernack на 10 мин');
     expect(reminders()).toBeNull();
     // Темп 10 минут, два шага: срок вышел — система напоминает, не снимает.
-    fireEvent.click(within(screen.getByRole('radiogroup', { name: 'Темп' })).getByRole('radio', { name: '10 мин' }));
-    fireEvent.keyDown(window, { key: 't', code: 'KeyT' });
+    openTimeControls();
+    fireEvent.click(within(tempoGroup()).getByRole('radio', { name: '10 мин' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Закрыть управление временем' }));
+    await timeAction(() => { fireEvent.keyDown(window, { key: 't', code: 'KeyT' }); });
     fireEvent.keyDown(window, { key: 'Escape', code: 'Escape' });
-    fireEvent.keyDown(window, { key: 't', code: 'KeyT' });
+    await timeAction(() => { fireEvent.keyDown(window, { key: 't', code: 'KeyT' }); });
     fireEvent.keyDown(window, { key: 'Escape', code: 'Escape' });
     expect(store.getState().state.actors.bo.conditions.poisoned).toBeDefined();
     expect(rowOf('Bo Tambernack')).toHaveTextContent('Отравленистекло');
@@ -96,7 +115,7 @@ describe('лист персонажа: ресурсы, сроки состоян
     expect(reminders()).toBeNull();
   });
 
-  it('в бою карточка следует за ходом: «Ход» → карточка Bo с ресурсами; на столе игроков пипки без кнопок', () => {
+  it('в бою карточка следует за ходом: «Ход» → карточка Bo с ресурсами; на столе игроков пипки без кнопок', async () => {
     mount();
     startCombat();
     fireEvent.click(screen.getByRole('button', { name: 'Карточка' }));
@@ -112,7 +131,7 @@ describe('лист персонажа: ресурсы, сроки состоян
 });
 
 describe('карточка по бумажному листу и поверхности из макетов 27.10.2026', () => {
-  it('навыки списком с «Владение +3», паспорт данных у мастера: сид, раса книга, класс SRD; у игроков паспорта нет', () => {
+  it('навыки списком с «Владение +3», паспорт данных у мастера: сид, раса книга, класс SRD; у игроков паспорта нет', async () => {
     mount();
     const card = cardOf('Bo Tambernack');
     const skills = within(card).getByRole('region', { name: 'Навыки' });
@@ -126,9 +145,13 @@ describe('карточка по бумажному листу и поверхн�
     mount(undefined, false);
     expect(screen.queryByLabelText('Паспорт данных')).toBeNull();
     expect(screen.queryByRole('checkbox', { name: /^Выбрать:/ })).toBeNull();
+    const playerHeader = pcHeaderOf(cardOf('Bo Tambernack'));
+    await waitFor(() => expect(within(playerHeader).getByRole('img', { name: 'Портрет: Bo Tambernack' }).tagName).toBe('IMG'));
+    expect(within(playerHeader).getByRole('img', { name: 'Портрет: Bo Tambernack' })).toBeInTheDocument();
+    expect(within(cardOf('Bo Tambernack')).queryByRole('tab', { name: 'DM' })).toBeNull();
   });
 
-  it('отметки строк партии → подвал «выбрано 2 из 4» → «Сравнить» открывает лист поверх главной зоны; бросок из ячейки; Esc возвращает, выбор цел', () => {
+  it('отметки строк партии → подвал «выбрано 2 из 4» → «Сравнить» открывает лист поверх главной зоны; бросок из ячейки; Esc возвращает, выбор цел', async () => {
     const { store } = mount();
     const compare = () => screen.getByRole('button', { name: 'Сравнить' });
     fireEvent.click(screen.getByRole('checkbox', { name: 'Выбрать: Bo Tambernack' }));
@@ -153,7 +176,7 @@ describe('карточка по бумажному листу и поверхн�
     expect(screen.getByRole('checkbox', { name: 'Выбрать: Bo Tambernack' })).toHaveAttribute('aria-checked', 'false');
   });
 
-  it('сводка партии: лучший во внимательности, запас костей хитов и ячеек; по выбору — только выбранные', () => {
+  it('сводка партии: лучший во внимательности, запас костей хитов и ячеек; по выбору — только выбранные', async () => {
     mount();
     fireEvent.click(screen.getByRole('button', { name: 'Сводка партии 4' }));
     const dock = screen.getByRole('region', { name: 'Сводка партии 4' });
@@ -167,7 +190,7 @@ describe('карточка по бумажному листу и поверхн�
 });
 
 describe('оверлей карточки 720px (F3)', () => {
-  it('«Развернуть» открывает ту же карточку в две колонки внутри главной зоны: навыки Bo — во второй колонке; вкладка общая; Esc закрывает; партия и часы не накрыты', () => {
+  it('«Развернуть» открывает ту же карточку в две колонки внутри главной зоны: навыки Bo — во второй колонке; вкладка общая; Esc закрывает; партия и часы не накрыты', async () => {
     mount();
     fireEvent.click(screen.getByRole('button', { name: 'Развернуть' }));
     const dialog = screen.getByRole('dialog', { name: 'Bo Tambernack: карточка' });
@@ -188,7 +211,7 @@ describe('оверлей карточки 720px (F3)', () => {
     expect(within(cardOf('Bo Tambernack')).getByRole('tab', { name: 'Снаряжение' })).toHaveAttribute('aria-selected', 'true');
   });
 
-  it('монстр в оверлее: действия SRD — второй колонкой; у игроков оверлей есть, вкладки DM нет', () => {
+  it('монстр в оверлее: действия SRD — второй колонкой; у игроков оверлей есть, вкладки DM нет', async () => {
     mount(storeWithSecrets());
     fireEvent.click(within(screen.getByRole('group', { name: 'Противники' })).getAllByRole('button')[0]); // Bandit Captain
     fireEvent.click(screen.getByRole('button', { name: 'Развернуть' }));
@@ -206,7 +229,7 @@ describe('оверлей карточки 720px (F3)', () => {
 });
 
 describe('экран создания персонажа: «Новый» и «Создать персонажа» в партии', () => {
-  it('«Создать персонажа» открывает редактор в главной зоне; воин-солдат 5-го уровня уходит в партию одним ACTOR_SPAWNED, карточка — на него с выборами и снаряжением, журнал «Появился … (в партии)», Ctrl+Z убирает; Esc закрывает без следа', () => {
+  it('«Создать персонажа» открывает редактор в главной зоне; воин-солдат 5-го уровня уходит в партию одним ACTOR_SPAWNED, карточка — на него с выборами и снаряжением, журнал «Появился … (в партии)», Ctrl+Z убирает; Esc закрывает без следа', async () => {
     const { store } = mount();
     const before = store.getState().events.length;
     fireEvent.click(screen.getByRole('button', { name: /^Создать персонажа/ }));
@@ -261,7 +284,7 @@ describe('экран создания персонажа: «Новый» и «С
     expect(store.getState().events.length).toBe(before + 2); // spawn + компенсирующее удаление
   });
 
-  it('#/desk/new (кнопка «Создать персонажа» на экране компендиума) открывает редактор сразу; закрытие возвращает хэш стола', () => {
+  it('#/desk/new (кнопка «Создать персонажа» на экране компендиума) открывает редактор сразу; закрытие возвращает хэш стола', async () => {
     history.replaceState(null, '', '#/desk/new');
     mount();
     expect(screen.getByRole('dialog', { name: 'Новый персонаж' })).toBeInTheDocument();
@@ -270,7 +293,7 @@ describe('экран создания персонажа: «Новый» и «С
     expect(location.hash).toBe('#/desk');
   });
 
-  it('у игроков ни «Новый», ни «Создать персонажа» нет', () => {
+  it('у игроков ни «Новый», ни «Создать персонажа» нет', async () => {
     mount(undefined, false);
     expect(screen.queryByRole('button', { name: 'Новый' })).toBeNull();
     expect(screen.queryByRole('button', { name: /^Создать персонажа/ })).toBeNull();

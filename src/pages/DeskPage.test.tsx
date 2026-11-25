@@ -8,16 +8,16 @@ import { KORRIN } from '../campaign/party';
 import { createEngineStore, memoryStore, parseLog, serializeLog } from '../engine';
 import { actorCardProps } from '../components';
 import { DeskPage } from './DeskPage';
-import { SKILL_LABEL, d20Formula, deskDollItems, dmFactsOf, isDeskHotkey, splitHarptos, wallTimeOf } from './desk/helpers';
+import { SKILL_LABEL, d20Formula, deskDollItems, dmFactsOf, isDeskHotkey, splitCalendarDate, wallTimeOf } from './desk/helpers';
 import { readText } from './desk/session';
-import { EMOJI, fixed, mount, rowOf, cardOf, hpCellOf, tab, hpOf, lastEvent, damageViaPopover } from './desk/testkit';
+import { EMOJI, fixed, mount, rowOf, cardOf, hpCellOf, tab, hpOf, lastEvent, damageViaPopover, openTimeControls } from './desk/testkit';
 
 afterEach(() => { vi.useRealTimers(); vi.restoreAllMocks(); });
 
 describe('стол на сиде', () => {
   it('часы, партия из state.party по порядку, карточка Bo по умолчанию: 41/49 в корешке и в карточке', () => {
     mount();
-    expect(screen.getByTitle('Дата и время мира')).toHaveTextContent('15 Mirtul 1492 DR, 08:00');
+    expect(screen.getByRole('button', { name: 'Управление временем' })).toHaveAttribute('title', expect.stringContaining('15 Mirtul 1492 DR, 08:00'));
 
     const list = screen.getByRole('list', { name: 'Партия' });
     const ids = within(list).getAllByRole('listitem').map(li => li.querySelector('[data-actor]')?.getAttribute('data-actor'));
@@ -35,6 +35,23 @@ describe('стол на сиде', () => {
     expect(within(card).getByTitle('Класс доспеха · щелчок — из чего')).toHaveTextContent('16');
     expect(within(card).getByTitle('Пассивная внимательность · щелчок — из чего')).toHaveTextContent('12');
     expect(within(card).getByRole('region', { name: 'Навыки' })).toHaveTextContent('Владение +3');
+  });
+
+  it('раскрытые карточки партии показывают общий профиль каждого персонажа', () => {
+    mount(undefined, undefined, 'card');
+    fireEvent.click(screen.getByRole('button', { name: /Информация о партии/ }));
+    const memberCard = within(screen.getByRole('region', { name: 'Карточки партии' }))
+      .getByRole('article', { name: 'Bo Tambernack' });
+    fireEvent.click(within(memberCard).getByRole('tab', { name: /Профиль/ }));
+    const profile = memberCard.querySelector('[data-subject-profile="character"]');
+    expect(profile).toBeInTheDocument();
+    expect(within(profile as HTMLElement).getByRole('heading', { name: 'Bo Tambernack' })).toBeInTheDocument();
+    expect(profile).toHaveTextContent('Тип: персонаж игрока');
+    expect(profile).toHaveTextContent('КД: 16');
+    expect(profile).toHaveTextContent('Пассивная Внимательность: 12');
+    expect(profile).toHaveTextContent('Ловкость: 16');
+    expect(profile).toHaveTextContent('Класс: Следопыт');
+    expect(profile).toHaveTextContent('Навыки: Скрытность');
   });
 
   it('урон 8 через попап: 33/49 в корешке, в карточке и в попапе; в State одно число, и это оно', () => {
@@ -172,6 +189,36 @@ describe('стол на сиде', () => {
     // Бросок state не меняет, но в журнале виден сразу: страница подписана на события, а не только на state.
     const journal = screen.getByRole('list', { name: 'Записи журнала' });
     expect(within(journal).getAllByRole('listitem').at(-1)).toHaveTextContent(/^15 Mirtul08:00\d\d:\d\dБросокСкрытность · @Bo Tambernack: 1d20\+6 = /);
+  });
+
+  it('включённая тема Strife даёт помеху mental checks двумя d20; без темы бросок обычный', () => {
+    const store = seedEngine({ persist: memoryStore(), ...fixed() });
+    store.getState().dispatch({ type: 'A5E_TRACK_SET', payload: { actorId: 'bo', track: 'strife', level: 1 } });
+    store.getState().dispatch({ type: 'CAMPAIGN_STRESS_THEME_SET', payload: { enabled: true } });
+    mount(store);
+
+    fireEvent.click(screen.getByRole('button', { name: /^INT/ }));
+    expect(store.getState().events.slice(-2).map(e => e.type)).toEqual(['DICE_ROLLED', 'DICE_ROLLED']);
+    expect(JSON.stringify(store.getState().events.slice(-2))).toContain('INT · Bo Tambernack · Strife: помеха 1/2');
+    expect(JSON.stringify(store.getState().events.slice(-2))).toContain('INT · Bo Tambernack · Strife: помеха 2/2');
+
+    store.getState().dispatch({ type: 'CAMPAIGN_STRESS_THEME_SET', payload: { enabled: false } });
+    fireEvent.click(screen.getByRole('button', { name: /^INT/ }));
+    expect(lastEvent(store)).toMatchObject({ type: 'DICE_ROLLED', payload: { label: 'INT · Bo Tambernack' } });
+  });
+
+  it('Strife 2+ даёт помеху спасброску концентрации; бросок журналируется и закрывает вопрос по урону', () => {
+    const store = seedEngine({ persist: memoryStore(), ...fixed() });
+    store.getState().dispatch({ type: 'A5E_TRACK_SET', payload: { actorId: 'bo', track: 'strife', level: 2 } });
+    store.getState().dispatch({ type: 'CAMPAIGN_STRESS_THEME_SET', payload: { enabled: true } });
+    mount(store);
+    const dialog = damageViaPopover(cardOf('Bo Tambernack'), 8);
+    expect(within(dialog).getByRole('group', { name: 'Проверка концентрации' })).toBeInTheDocument();
+    fireEvent.click(within(dialog).getByRole('button', { name: 'Бросить спасбросок' }));
+
+    const stressRolls = store.getState().events.filter(event => event.type === 'DICE_ROLLED' && JSON.stringify(event.payload).includes('Концентрация · Bo Tambernack · Strife: помеха'));
+    expect(stressRolls).toHaveLength(2);
+    expect(within(dialog).queryByRole('group', { name: 'Проверка концентрации' })).toBeNull();
   });
 
   it('умения класса и черты расы — иконками вида: имя в тултипе, щелчок — текст из компендиума, пустой текст — только имя; Esc закрывает', () => {
@@ -369,7 +416,7 @@ describe('стол на сиде', () => {
 
 describe('проекции стола', () => {
   it('splitHarptos и wallTimeOf: дата без года, время; у сида реального времени нет', () => {
-    expect(splitHarptos(seedState().time.sec)).toEqual({ date: '15 Mirtul', time: '08:00' });
+    expect(splitCalendarDate(seedState().time.sec)).toEqual({ date: '15 Mirtul', time: '08:00' });
     expect(wallTimeOf(0)).toBeUndefined();
     expect(wallTimeOf(new Date(2026, 8, 19, 19, 5).getTime())).toBe('19:05');
   });
@@ -433,6 +480,7 @@ describe('файл сессии', () => {
     });
     const { store } = mount();
     damageViaPopover(cardOf('Bo Tambernack'), 5);
+    fireEvent.click(screen.getByText('Кампания', { selector: 'summary span' }));
     fireEvent.click(screen.getByRole('button', { name: 'Сохранить' }));
     expect(click).toHaveBeenCalledTimes(1);
     expect(URL.revokeObjectURL).toHaveBeenCalledWith('blob:session');
@@ -448,6 +496,7 @@ describe('файл сессии', () => {
     expect(within(rowOf('Bo Tambernack')).getByText('41/49')).toBeInTheDocument();
 
     await act(async () => {
+      fireEvent.click(screen.getByText('Кампания', { selector: 'summary span' }));
       fireEvent.change(screen.getByLabelText('Файл сессии'), { target: { files: [file] } });
       await new Promise(r => setTimeout(r, 20));
     });
@@ -519,10 +568,15 @@ describe('F9: планшет — панели в полосы 40px', () => {
   it('полоса часов на узком экране: дата без года, луна без подписей, виды иконками с теми же именами; у игроков полоса — хроника и журнал без счётчика', () => {
     narrowScreen(true);
     mount();
-    expect(screen.getByTitle(/^Дата и время мира/)).toHaveTextContent('15 Mirtul, 08:00');
-    expect(screen.getByTitle(/^Дата и время мира/)).toHaveAttribute('title', 'Дата и время мира: 15 Mirtul 1492 DR, 08:00');
+    const timeTrigger = screen.getByRole('button', { name: 'Управление временем' });
+    expect(timeTrigger).toHaveTextContent('15 Mirtul');
+    expect(timeTrigger).toHaveTextContent('08:00');
+    expect(timeTrigger).toHaveAttribute('title', expect.stringContaining('15 Mirtul 1492 DR, 08:00'));
     expect(screen.queryByText('Selûne растёт', { selector: 'span' })).toBeNull(); // подпись ушла; title иконки остался
-    expect(screen.getByRole('group', { name: 'Небесные тела' })).toHaveTextContent('через 3 дня');
+    expect(screen.queryByRole('group', { name: 'Небесные тела' })).toBeNull();
+    openTimeControls();
+    expect(screen.getByRole('dialog', { name: 'Управление временем' })).toHaveTextContent('через 3 дня');
+    fireEvent.click(screen.getByRole('button', { name: 'Закрыть управление временем' }));
     const viewsGroup = screen.getByRole('group', { name: 'Вид главной зоны' });
     const desk = within(viewsGroup).getByRole('button', { name: 'Стол' });
     expect(desk.querySelector('svg')).not.toBeNull();
@@ -540,7 +594,7 @@ describe('F9: планшет — панели в полосы 40px', () => {
     mount();
     const rails = () => screen.queryAllByRole('navigation').filter(n => n.hasAttribute('data-side'));
     expect(rails()).toHaveLength(0);
-    expect(screen.getByTitle('Дата и время мира')).toHaveTextContent('15 Mirtul 1492 DR, 08:00');
+    expect(screen.getByRole('button', { name: 'Управление временем' })).toHaveAttribute('title', expect.stringContaining('15 Mirtul 1492 DR, 08:00'));
     fireEvent.click(within(screen.getByLabelText('Партия', { selector: 'aside' })).getByRole('button', { name: 'Свернуть' }));
     const rail = screen.getByRole('navigation', { name: 'Партия' });
     expect(screen.queryByLabelText('Партия', { selector: 'aside' })).toBeNull();

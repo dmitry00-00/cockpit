@@ -1,0 +1,120 @@
+{
+  "format": 1,
+  "id": "fr",
+  "rankOrder": [
+    "cosmology",
+    "plane",
+    "system",
+    "planet",
+    "continent",
+    "region",
+    "settlement",
+    "building",
+    "battle"
+  ],
+  "ranks": [
+    {
+      "id": "cosmology",
+      "labelRu": "Космология",
+      "tempo": "year",
+      "view": "wheel"
+    },
+    {
+      "id": "plane",
+      "labelRu": "План",
+      "tempo": "year",
+      "view": "flowgraph"
+    },
+    {
+      "id": "system",
+      "labelRu": "Система",
+      "tempo": "season",
+      "view": "orrery"
+    },
+    {
+      "id": "planet",
+      "labelRu": "Планета",
+      "tempo": "season",
+      "view": "globe",
+      "map": "toril"
+    },
+    {
+      "id": "continent",
+      "labelRu": "Континент",
+      "tempo": "tenday",
+      "view": "map"
+    },
+    {
+      "id": "region",
+      "labelRu": "Регион",
+      "tempo": "day",
+      "view": "map"
+    },
+    {
+      "id": "settlement",
+      "labelRu": "Поселение",
+      "tempo": "hour",
+      "view": "city-plan"
+    },
+    {
+      "id": "building",
+      "labelRu": "Здание",
+      "tempo": "10min",
+      "view": "floor-plan"
+    },
+    {
+      "id": "battle",
+      "labelRu": "Бой",
+      "tempo": "round",
+      "view": "battle-grid"
+    }
+  ],
+  "roots": [
+    {
+      "id": "loc-great-wheel",
+      "name": "Великое Колесо",
+      "scale": "cosmology"
+    },
+    {
+      "id": "loc-material",
+      "name": "Материальный",
+      "scale": "plane",
+      "parentId": "loc-great-wheel"
+    },
+    {
+      "id": "loc-realmspace",
+      "name": "Realmspace",
+      "scale": "system",
+      "parentId": "loc-material"
+    },
+    {
+      "id": "loc-toril",
+      "name": "Toril",
+      "scale": "planet",
+      "parentId": "loc-realmspace",
+      "geo": {
+        "map": "toril",
+        "x": 15300,
+        "y": 6700,
+        "r": 15300
+      }
+    },
+    {
+      "id": "loc-faerun",
+      "name": "Faerûn",
+      "scale": "continent",
+      "parentId": "loc-toril",
+      "ref": {
+        "kind": "place",
+        "id": "0b786ca2-0cb5-413e-9e75-a7962ca03cfe"
+      },
+      "geo": {
+        "map": "toril",
+        "x": 12800,
+        "y": 4200,
+        "r": 5400,
+        "ry": 2900
+      }
+    }
+  ]
+}

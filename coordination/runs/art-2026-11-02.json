@@ -1,0 +1,42 @@
+{
+  "id": "art-2026-11-02",
+  "status": "capability_blocked_no_generation_tool",
+  "ownerInstruction": "Bounded Kimi image/3D generation; general backlog and automations remain paused",
+  "workspace": "/private/tmp/cockpit-kimi-art-20261102",
+  "execSessionId": 62625,
+  "kimiSessionId": null,
+  "brief": "coordination/tasks/ART01-kimi-style-and-3d-probe.md",
+  "rasterLimit": 4,
+  "modelLimit": 1,
+  "productionBatch": "pending_capability_and_visual_acceptance",
+  "reservedForCodex": [
+    "four consistent party portraits and Bo likeness",
+    "hero astrolabe/world clock design and articulation",
+    "armillary sphere and orrery with correct movable geometry",
+    "six story scenes and source-sensitive principal NPCs",
+    "final family art direction and actual UI acceptance"
+  ],
+  "review": {
+    "styleWeights": {
+      "projectPaletteAndMaterials": 25,
+      "painterlyCraft": 20,
+      "semanticRecognitionAt32And48px": 25,
+      "familyConsistency": 15,
+      "alphaAndFraming": 15
+    },
+    "pass": "80/100 plus no semantic or provenance failure; do not auto-select without visual review"
+  },
+  "threeDRequirements": {
+    "format": "GLB/glTF2",
+    "parts": "separate meshes with named pivots; no baked UI numbers",
+    "budget": "pilot <=20k triangles, textures<=1024, target<=3MB; larger hero models separately budgeted",
+    "fallback": "transparent static render, accessible code controls; reduced-motion",
+    "physicalUse": "not print-ready until scale, thickness, clearance and manifold checks"
+  },
+  "artifactsGenerated": 0,
+  "report": "research/coordination/kimi-art-2026-11-02/coordinator-review.md",
+  "queue": "coordination/tasks/ART02-queue-proposal.md",
+  "generationPrompts": "coordination/tasks/ART03-generation-prompts.md",
+  "queueDelivery": "files_copied_to_isolated_kimi_workspace; execution blocked",
+  "processObservation": "CLI still composing final report at last poll; execSessionId retained, do not launch duplicate"
+}

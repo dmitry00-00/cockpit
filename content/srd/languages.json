@@ -1,0 +1,152 @@
+{
+  "source": "SRD 5.1 (CC-BY-4.0) via https://www.dnd5eapi.co/api/2014/languages",
+  "fetchedAt": "2026-11-20",
+  "languages": [
+    {
+      "id": "abyssal",
+      "name": "Abyssal",
+      "type": "Exotic",
+      "script": "Infernal",
+      "typicalSpeakers": [
+        "Demons"
+      ]
+    },
+    {
+      "id": "celestial",
+      "name": "Celestial",
+      "type": "Exotic",
+      "script": "Celestial",
+      "typicalSpeakers": [
+        "Celestials"
+      ]
+    },
+    {
+      "id": "common",
+      "name": "Common",
+      "type": "Standard",
+      "script": "Common",
+      "typicalSpeakers": [
+        "Humans"
+      ]
+    },
+    {
+      "id": "deep-speech",
+      "name": "Deep Speech",
+      "type": "Exotic",
+      "typicalSpeakers": [
+        "Aboleths",
+        "Cloakers"
+      ]
+    },
+    {
+      "id": "draconic",
+      "name": "Draconic",
+      "type": "Exotic",
+      "script": "Draconic",
+      "typicalSpeakers": [
+        "Dragons",
+        "Dragonborn"
+      ]
+    },
+    {
+      "id": "dwarvish",
+      "name": "Dwarvish",
+      "type": "Standard",
+      "script": "Dwarvish",
+      "typicalSpeakers": [
+        "Dwarves"
+      ]
+    },
+    {
+      "id": "elvish",
+      "name": "Elvish",
+      "type": "Standard",
+      "script": "Elvish",
+      "typicalSpeakers": [
+        "Elves"
+      ]
+    },
+    {
+      "id": "giant",
+      "name": "Giant",
+      "type": "Standard",
+      "script": "Dwarvish",
+      "typicalSpeakers": [
+        "Ogres",
+        "Giants"
+      ]
+    },
+    {
+      "id": "gnomish",
+      "name": "Gnomish",
+      "type": "Standard",
+      "script": "Dwarvish",
+      "typicalSpeakers": [
+        "Gnomes"
+      ]
+    },
+    {
+      "id": "goblin",
+      "name": "Goblin",
+      "type": "Standard",
+      "script": "Dwarvish",
+      "typicalSpeakers": [
+        "Goblinoids"
+      ]
+    },
+    {
+      "id": "halfling",
+      "name": "Halfling",
+      "type": "Standard",
+      "script": "Common",
+      "typicalSpeakers": [
+        "Halflings"
+      ]
+    },
+    {
+      "id": "infernal",
+      "name": "Infernal",
+      "type": "Exotic",
+      "script": "Infernal",
+      "typicalSpeakers": [
+        "Devils"
+      ]
+    },
+    {
+      "id": "orc",
+      "name": "Orc",
+      "type": "Standard",
+      "script": "Dwarvish",
+      "typicalSpeakers": [
+        "Orcs"
+      ]
+    },
+    {
+      "id": "primordial",
+      "name": "Primordial",
+      "type": "Exotic",
+      "script": "Dwarvish",
+      "typicalSpeakers": [
+        "Elementals"
+      ]
+    },
+    {
+      "id": "sylvan",
+      "name": "Sylvan",
+      "type": "Exotic",
+      "script": "Elvish",
+      "typicalSpeakers": [
+        "Fey creatures"
+      ]
+    },
+    {
+      "id": "undercommon",
+      "name": "Undercommon",
+      "type": "Exotic",
+      "script": "Elvish",
+      "typicalSpeakers": [
+        "Underdark traders"
+      ]
+    }
+  ]
+}

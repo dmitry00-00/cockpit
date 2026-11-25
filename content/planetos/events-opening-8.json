@@ -1,0 +1,713 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "event",
+  "entities": [
+    {
+      "ref": "event:catspaw-attempts-to-kill-bran-at-winterfell",
+      "kind": "event",
+      "name": "An unidentified attacker attempts to kill Bran at Winterfell",
+      "nameRu": "Неизвестный нападавший пытается убить Брана в Винтерфелле",
+      "subtitle": "A Game of Thrones · Catelyn III",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn III; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_14",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 14
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn III"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "попытка убийства происходит в главе; личность и заказчик в сцене не установлены; волк Брана убивает нападавшего"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Пока Кейтлин остаётся у постели Брана, неизвестный мужчина с ножом нападает на них. Кейтлин задерживает его и получает раны рук; волк Брана убивает нападавшего. После этого Кейтлин считает, что Брана столкнули с башни."
+        }
+      ],
+      "links": [
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        },
+        {
+          "label": "Bran’s sickroom",
+          "ref": "place:brans-sickroom-at-winterfell"
+        }
+      ]
+    },
+    {
+      "ref": "event:joffrey-confronts-arya-and-mycah-near-ruby-ford",
+      "kind": "event",
+      "name": "Joffrey confronts Arya and Mycah near the Ruby Ford",
+      "nameRu": "Джоффри сталкивается с Арьей и Микой у Рубинового брода",
+      "subtitle": "A Game of Thrones · Sansa I",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa I; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_15",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 15
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Sansa I"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "столкновение и ранение Джоффри происходят в главе; дальнейшая судьба Мики в этой карточке не утверждается"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "У брода через Трезубец Джоффри задирает Мику и ранит его мечом. Арья вмешивается; после короткой схватки Нимерия кусает Джоффри за руку, а Арья бросает меч принца в реку и уходит с волчицей."
+        }
+      ],
+      "links": [
+        {
+          "label": "Joffrey Baratheon",
+          "ref": "person:joffrey-baratheon"
+        },
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Mycah",
+          "ref": "person:mycah"
+        },
+        {
+          "label": "Nymeria",
+          "ref": "person:nymeria-direwolf"
+        },
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        },
+        {
+          "label": "Trident",
+          "ref": "place:trident"
+        },
+        {
+          "label": "Inn at the Crossroads",
+          "ref": "place:inn-at-crossroads"
+        },
+        {
+          "label": "Ruby Ford",
+          "ref": "place:ruby-ford"
+        }
+      ]
+    },
+    {
+      "ref": "event:daenerys-stands-up-to-viserys",
+      "kind": "event",
+      "name": "Daenerys stands up to Viserys in Drogo’s khalasar",
+      "nameRu": "Дейенерис впервые даёт отпор Визерису в кхаласаре Дрого",
+      "subtitle": "A Game of Thrones · Daenerys III",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys III; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_23",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 23
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys III"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "Визерис угрожает Дейенерис; Джого обезоруживает его, а она решает, что ему придётся идти пешком"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Когда Визерис хватает Дейенерис и собирается ударить её, Джого сбивает его плетью. Дейенерис отказывается от предложенной казни или увечья и приказывает забрать у брата коня, чтобы он шёл вместе с кхаласаром пешком."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Viserys Targaryen",
+          "ref": "person:viserys-targaryen"
+        },
+        {
+          "label": "Jhogo",
+          "ref": "person:jhogo"
+        },
+        {
+          "label": "Jorah Mormont",
+          "ref": "person:jorah-mormont"
+        },
+        {
+          "label": "Khalasar of Khal Drogo",
+          "ref": "organization:khalasar-of-drogo"
+        },
+        {
+          "label": "Dothraki Sea",
+          "ref": "place:dothraki-sea"
+        }
+      ]
+    },
+    {
+      "ref": "event:jhiqui-tells-daenerys-she-is-pregnant",
+      "kind": "event",
+      "name": "Jhiqui tells Daenerys she is pregnant",
+      "nameRu": "Джику сообщает Дейенерис о беременности",
+      "subtitle": "A Game of Thrones · Daenerys III",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Daenerys III; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_23",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 23
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys III"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "Дейенерис узнаёт о беременности в главе; не выводится точная дата зачатия"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "В конце главы Джику сообщает Дейенерис, что та беременна. Это известие становится важным для ожиданий кхаласара и замыслов Визериса; карточка фиксирует момент узнавания, а не вычисленную дату зачатия."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Jhiqui",
+          "ref": "person:jhiqui"
+        },
+        {
+          "label": "Drogo",
+          "ref": "person:drogo"
+        },
+        {
+          "label": "Viserys Targaryen",
+          "ref": "person:viserys-targaryen"
+        },
+        {
+          "label": "Khalasar of Khal Drogo",
+          "ref": "organization:khalasar-of-drogo"
+        },
+        {
+          "label": "Dothraki Sea",
+          "ref": "place:dothraki-sea"
+        }
+      ]
+    },
+    {
+      "ref": "event:ned-discovers-gendry-at-tobho-motts",
+      "kind": "event",
+      "name": "Ned finds Gendry at Tobho Mott’s forge",
+      "nameRu": "Нед встречает Джендри в кузнице Тобхо Мотта",
+      "subtitle": "A Game of Thrones · Eddard VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Eddard VI; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_27",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 27
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Eddard VI"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "Неда знакомят с подмастерьем; сходство с Робертом замечено, родство в сцене не устанавливается"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Расследуя интерес Джона Аррена к оружейнику, Нед встречает его подмастерья Джендри и замечает, насколько тот похож на молодого Роберта. Джендри рассказывает о своей матери; Нед ещё не знает, почему Аррен расспрашивал о нём."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Gendry",
+          "ref": "person:gendry"
+        },
+        {
+          "label": "Tobho Mott",
+          "ref": "person:tobho-mott"
+        },
+        {
+          "label": "Robert Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "event:arya-overhears-threat-against-eddard",
+      "kind": "event",
+      "name": "Arya overhears a threat against Eddard in the Red Keep",
+      "nameRu": "Арья подслушивает угрозу Эддарду в Красном замке",
+      "subtitle": "A Game of Thrones · Arya III",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Arya III; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_32",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 32
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Arya III"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "разговор услышан в главе; личности говорящих не установлены для Арьи, план не исполняется в этой сцене"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Заблудившись в подземельях Красного замка, Арья слышит разговор двух мужчин о том, что Десница может узнать правду и погибнуть, а волк и лев могут вступить в войну. Она не распознаёт говорящих и позже пытается передать отцу услышанное; сама угроза не исполняется в этой главе."
+        }
+      ],
+      "links": [
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Red Keep",
+          "ref": "place:red-keep"
+        },
+        {
+          "label": "House Stark",
+          "ref": "organization:house-stark"
+        },
+        {
+          "label": "House Lannister",
+          "ref": "organization:house-lannister"
+        },
+        {
+          "label": "Dragon cellar",
+          "ref": "place:dragon-cellar-of-red-keep"
+        }
+      ]
+    },
+    {
+      "ref": "event:catelyn-reaches-the-eyrie-with-tyrion",
+      "kind": "event",
+      "name": "Catelyn reaches the Eyrie with Tyrion as her prisoner",
+      "nameRu": "Кейтлин прибывает в Орлиное гнездо с Тирионом-пленником",
+      "subtitle": "A Game of Thrones · Catelyn VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Catelyn VI; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_34",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 34
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Catelyn VI"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "отряд достигает Врат Крови и Орлиного гнезда; Тирион остаётся пленником Кейтлин"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "После опасного пути через Долину Кейтлин и уцелевшие спутники достигают Врат Крови. По просьбе Лизы Кейтлин поднимается в Орлиное гнездо, чтобы встретиться с сестрой и Робертом Арреном, сохраняя Тириона под стражей."
+        }
+      ],
+      "links": [
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Lysa Arryn",
+          "ref": "person:lysa-arryn"
+        },
+        {
+          "label": "Robert Arryn",
+          "ref": "person:robert-arryn"
+        },
+        {
+          "label": "Brynden Tully",
+          "ref": "person:brynden-tully"
+        },
+        {
+          "label": "Vale of Arryn",
+          "ref": "place:vale-of-arryn"
+        },
+        {
+          "label": "The Eyrie",
+          "ref": "place:the-eyrie"
+        }
+      ]
+    },
+    {
+      "ref": "event:ned-realizes-cerseis-children-are-not-roberts",
+      "kind": "event",
+      "name": "Ned realizes Cersei’s children are not Robert’s",
+      "nameRu": "Нед понимает, что дети Серсеи не от Роберта",
+      "subtitle": "A Game of Thrones · Sansa III / Eddard XII",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa III and Eddard XII; A Wiki of Ice and Fire numeric chapter pages (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_44",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 44
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Sansa III (clue and first realization); Eddard XII (the conclusion is revisited)"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "вывод Эддарда раскрывается в главе; имена возможных отцов здесь не утверждаются"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Когда Санса описывает отцу будущих детей от Джоффри как золотокудрых, слова дочери помогают Эддарду увидеть расхождение с родословной королевского дома. В Eddard XII он сверяется с книгой великих домов и понимает, что трое детей Серсеи не дети Роберта; личность их отца здесь не называется."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        },
+        {
+          "label": "Cersei Lannister",
+          "ref": "person:cersei-lannister"
+        },
+        {
+          "label": "Joffrey Baratheon",
+          "ref": "person:joffrey-baratheon"
+        },
+        {
+          "label": "Myrcella Baratheon",
+          "ref": "person:myrcella-baratheon"
+        },
+        {
+          "label": "Tommen Baratheon",
+          "ref": "person:tommen-baratheon"
+        },
+        {
+          "label": "Robert Baratheon",
+          "ref": "person:robert-baratheon"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "event:ned-decides-to-send-arya-and-sansa-to-winterfell",
+      "kind": "event",
+      "name": "Ned decides to send Arya and Sansa back to Winterfell",
+      "nameRu": "Нед решает отправить Арью и Сансу обратно в Винтерфелл",
+      "subtitle": "A Game of Thrones · Sansa III",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Sansa III; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_44",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 44
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Sansa III"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "решение и объявление происходят в главе; отъезд девочек ещё не состоялся"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Эддард сообщает дочерям, что отправляет их в Винтерфелл ради безопасности. Санса возражает, потому что хочет выйти за Джоффри; решение принято, но дорога домой в этой главе ещё не начинается."
+        }
+      ],
+      "links": [
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "event:arya-keeps-needle-with-neds-permission",
+      "kind": "event",
+      "name": "Arya keeps Needle with Ned’s permission",
+      "nameRu": "Нед разрешает Арье оставить Иглу",
+      "subtitle": "A Game of Thrones · Arya II",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Arya II; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_22",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 22
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Arya II"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "Эддард решает не отнимать меч и возвращает его Арье; происхождение меча отдельно не меняется"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Увидев у Арьи меч, Эддард после разговора решает не отнимать его и разрешает дочери оставить Иглу. Он предупреждает, что меч — не игрушка; позже в той же главе Сирио начинает её уроки."
+        }
+      ],
+      "links": [
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Eddard Stark",
+          "ref": "person:eddard-stark"
+        },
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "King’s Landing",
+          "ref": "place:kings-landing"
+        }
+      ]
+    },
+    {
+      "ref": "event:tyrion-designs-saddle-for-bran",
+      "kind": "event",
+      "name": "Tyrion gives Bran plans for a special saddle",
+      "nameRu": "Тирион передаёт Брану чертёж особого седла",
+      "subtitle": "A Game of Thrones · Bran IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Game of Thrones, Bran IV; A Wiki of Ice and Fire numeric chapter page (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Game_of_Thrones-Chapter_24",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "agot",
+        "chapterNo": 24
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Bran IV"
+        },
+        {
+          "label": "Дата",
+          "value": "не установлена; порядок глав не используется как дата"
+        },
+        {
+          "label": "Статус",
+          "value": "чертёж передан в главе; изготовление и использование седла происходят позднее"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный указатель AWOIAF; текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Тирион передаёт мейстеру Лювину чертёж седла, с которым Бран сможет ездить верхом. Замысел поддерживает надежду Брана, но готовое седло и поездки не считаются уже состоявшимися."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "Maester Luwin",
+          "ref": "person:maester-luwin"
+        },
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ]
+    }
+  ]
+}

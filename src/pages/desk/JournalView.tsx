@@ -2,13 +2,14 @@
 // игрокам?») и записи с каскадами по causeId. Заметка и напоминания — только мастеру. Пропсы — те же имена, что на
 // странице: компонент — перенос её разметки, состояние держит страница. Хроника по дням (Д5): записи под заголовком
 // дня мира; у мастера в прошлом дне — «Стол на этот день» (реплей лога до конца дня).
-import { formatHarptos } from '../../campaign';
+import { calendarAdapterForState } from '../../campaign';
 import type { Dispatch, RefObject, SetStateAction } from 'react';
 import { JournalCascade, JournalEntry, JournalReminder, ThreadFilter, toggleIn, type JournalEntryProps } from '../../components';
 import {
-  SECONDS_PER_DAY, cascadeOf, dayOf, journalScales, type EngineStoreApi, type JournalEntry as JournalRecord, type ScaleLevel, type State, type ThreadSummary,
+  SECONDS_PER_DAY, cascadeOf, dayOf, journalInteractionGroups, journalScales, type EngineStoreApi, type JournalEntry as JournalRecord, type ScaleLevel, type State, type ThreadSummary,
 } from '../../engine';
 import { Icon } from '../../icons/Icon';
+import { MaterialArtwork } from '../../art/MaterialArtwork';
 import { BTN } from './styles';
 
 export interface JournalViewProps {
@@ -40,11 +41,14 @@ export function JournalView({
   mainRef, state, dmView, allEntries, filtered, threads, filterThreads, setFilterThreads, filterScales,
   setFilterScales, noteDraft, setNoteDraft, noteForPlayers, setNoteForPlayers, addNote, reminders, setLaterFacts, entryProps, api, onViewPast,
  }: JournalViewProps) {
+  const calendar = calendarAdapterForState(state);
   const today = dayOf(state.time.sec);
+  const groups = journalInteractionGroups(filtered);
   const perDay = new Map<number, number>();
   for (const e of filtered) perDay.set(dayOf(e.worldSec), (perDay.get(dayOf(e.worldSec)) ?? 0) + 1);
   return (
-    <section aria-label="Журнал сессии" ref={mainRef} className="relative flex-1 min-w-0 min-h-0 flex flex-col">
+    <section aria-label="Журнал сессии" ref={mainRef} className="relative isolate flex-1 min-w-0 min-h-0 flex flex-col">
+      <MaterialArtwork asset="kimi-material-material-warm-paper-v1" width={512} className="journal-view__paper" style={{ position: 'absolute', inset: 0, zIndex: -1, width: '100%', maxWidth: 'none', height: '100%', objectFit: 'cover', mixBlendMode: 'soft-light', pointerEvents: 'none' }} />
       <div className="flex flex-col gap-2 px-4 pt-3 pb-2 shadow-[inset_0_-1px_0_var(--lo)]">
         <div className="flex items-start gap-4">
           <ThreadFilter
@@ -95,24 +99,33 @@ export function JournalView({
           />
         ))}
         <ol aria-label="Записи журнала сессии" className="flex flex-col">
-          {filtered.flatMap((entry, i) => {
-            const cascade = cascadeOf(entry, allEntries, state);
+          {groups.flatMap((group, i) => {
+            const entry = group.entries[0];
             const day = dayOf(entry.worldSec);
-            const head = i === 0 || dayOf(filtered[i - 1].worldSec) !== day ? (
+            const previous = groups[i - 1]?.entries.at(-1);
+            const head = !previous || dayOf(previous.worldSec) !== day ? (
               <li key={`day-${day}`} data-day={day} className="flex items-center gap-3 pt-3 pb-1 shadow-[inset_0_-1px_0_var(--lo)]">
-                <span className="type-h-15 text-tx">{formatHarptos(day * SECONDS_PER_DAY).replace(/,.*$/, '')}</span>
+                <span className="type-h-15 text-tx">{calendar.formatDateOnly(day * SECONDS_PER_DAY)}</span>
                 <span className="type-key text-t2">записей: {perDay.get(day)}</span>
                 {onViewPast && day < today ? (
                   <button type="button" onClick={() => onViewPast((day + 1) * SECONDS_PER_DAY - 1)} className={`${BTN} ml-auto`} title="Стол, каким он был в конце этого дня: реплей журнала, только просмотр">Стол на этот день</button>
                 ) : null}
               </li>
             ) : null;
-            const row = (
-              <li key={entry.id} data-undone={entry.undone || undefined} className="flex flex-col">
-                <JournalEntry {...entryProps(entry)} />
-                {cascade.length > 0 ? <JournalCascade steps={cascade} className="mb-2" /> : null}
+            const rows = group.entries.map(current => {
+              const cascade = cascadeOf(current, allEntries, state);
+              return (
+                <li key={current.id} data-undone={current.undone || undefined} className="flex flex-col">
+                  <JournalEntry {...entryProps(current)} />
+                  {cascade.length > 0 ? <JournalCascade steps={cascade} className="mb-2" /> : null}
+                </li>
+              );
+            });
+            const row = group.entries.length > 1 ? (
+              <li key={`interaction-${i}`} role="group" aria-label="Связанные события" data-interaction-group className="flex flex-col border-l border-bd pl-2">
+                <ol className="flex flex-col">{rows}</ol>
               </li>
-            );
+            ) : rows[0];
             return head ? [head, row] : [row];
           })}
         </ol>

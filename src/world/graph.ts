@@ -59,7 +59,9 @@ const cache = new Map<string, Promise<WorldGraph | null>>();
 /** Граф карты с сервера стола, один раз на сеанс; нет файла (не собран) — null: симуляция без путей. */
 export function loadGraph(url: string): Promise<WorldGraph | null> {
   if (!cache.has(url)) {
-    cache.set(url, fetch(url).then(r => (r.ok ? r.json().then(parseGraph) : null)).catch(() => null));
+    const attempt = fetch(url).then(r => (r.ok ? r.json().then(parseGraph) : null)).catch(() => null);
+    cache.set(url, attempt);
+    void attempt.then(graph => { if (!graph && cache.get(url) === attempt) cache.delete(url); });
   }
   return cache.get(url)!;
 }

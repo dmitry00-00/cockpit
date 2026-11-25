@@ -63,9 +63,10 @@ describe('ladderStepTitle', () => {
 });
 
 describe('ScaleLadder', () => {
-  it('nav «Лестница масштабов»: h-bar-scale, подложка lo с зазором 1px, overflow-hidden; девять кнопок по порядку с data-scale и type=button', () => {
+  it('nav «Лестница масштабов»: h-bar-scale, подложка lo с зазором 1px, overflow-x-auto; девять кнопок по порядку с data-scale и type=button', () => {
     render(<ScaleLadder steps={PATH} current="region" />);
-    expect(nav()).toHaveClass('h-bar-scale', 'bg-lo', 'gap-px', 'p-px', 'overflow-hidden', 'flex', 'items-stretch');
+    expect(nav()).toHaveClass('h-bar-scale', 'bg-lo', 'gap-px', 'p-px', 'overflow-x-auto', 'flex', 'items-stretch');
+    expect(nav()).toHaveAttribute('data-orientation', 'horizontal');
     const all = steps();
     expect(all).toHaveLength(9);
     expect(all.map(b => b.getAttribute('data-scale'))).toEqual([...SCALE_ORDER]);
@@ -82,6 +83,33 @@ describe('ScaleLadder', () => {
       expect(s).toHaveClass('text-t2');
       expect(s).not.toHaveClass('text-t4');
     }
+  });
+
+  it('vertical: прокручиваемая колонка показывает имена всех уровней и сохраняет выбор/текущую ступень', () => {
+    const onSelect = vi.fn();
+    render(<ScaleLadder steps={PATH} current="region" onSelect={onSelect} orientation="vertical" />);
+    expect(nav()).toHaveAttribute('data-orientation', 'vertical');
+    expect(nav()).toHaveClass('flex-col', 'w-48', 'max-h-[70vh]', 'overflow-y-auto', 'overscroll-contain');
+    expect(nav()).not.toHaveClass('h-bar-scale', 'overflow-x-auto');
+    expect(steps().map(nameOf)).toEqual(PATH.map(s => s.label));
+    expect(seps()).toHaveLength(PATH.length - 1);
+    expect(step('region')).toHaveAttribute('aria-current', 'true');
+    fireEvent.click(step('planet'));
+    expect(onSelect).toHaveBeenCalledWith('planet');
+  });
+
+  it('vertical compact: квадратная колонка доступных иконок без дублирующей подписи места', () => {
+    render(<ScaleLadder steps={PATH} current="region" compact orientation="vertical" />);
+    expect(nav()).toHaveClass('w-14', 'overflow-y-auto');
+    expect(nav()).not.toHaveClass('w-48');
+    expect(nav().querySelectorAll('[data-named]')).toHaveLength(0);
+    for (const s of PATH) {
+      expect(step(s.id)).toHaveAttribute('aria-label', SCALE_LABELS[s.id]);
+      expect(step(s.id)).toHaveAttribute('title', ladderStepTitle(s, s.id === 'region'));
+      expect(within(step(s.id)).getByRole('img', { name: SCALE_LABELS[s.id] })).toBeInTheDocument();
+    }
+    expect(nav().querySelector('[data-part="current-scale"]')).toBeNull();
+    expect(step('region')).toHaveAttribute('aria-current', 'true');
   });
 
   it('текущая: aria-current только у неё, text-gd-hi и нижняя полоса 3px gd под фаской; остальные — t2 с фаской', () => {

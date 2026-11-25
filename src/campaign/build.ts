@@ -163,6 +163,10 @@ export interface SpellPlan {
   options: Spell[];
   /** Всегда подготовлены и не считаются (заклинания домена, клятвы). */
   always: string[];
+  /** Новые заговоры по таблице класса при переходе с предыдущего уровня. */
+  gainedCantrips: number;
+  /** Новые известные заклинания/записи книги на этом уровне; для prepared всегда 0. */
+  gainedLeveledSpells: number;
   /** Заклинания подкласса из таблицы владельца, не связанные с SRD: только имена. */
   tableOnly?: { level: number; name: string }[];
 }
@@ -214,10 +218,15 @@ export function spellcastingOf(cls: CharacterClass, level: number, subclassId: s
   }
   const ability = start.spellcasting.ability;
   const counts = start.spellsByLevel?.[String(level)] ?? {};
+  const previousCounts = start.spellsByLevel?.[String(level - 1)] ?? {};
   const maxLevel = maxSlotLevel(row);
   const leveled = kind === 'known' ? counts.known ?? 0
     : kind === 'spellbook' ? 6 + 2 * (level - 1)
       : Math.max(1, mods[ability] + (srd === 'paladin' ? Math.floor(level / 2) : level));
+  const gainedCantrips = Math.max(0, (counts.cantrips ?? 0) - (previousCounts.cantrips ?? 0));
+  const gainedLeveledSpells = kind === 'known'
+    ? Math.max(0, (counts.known ?? 0) - (previousCounts.known ?? 0))
+    : kind === 'spellbook' ? (level === 1 ? 6 : 2) : 0;
   const options = classSpellList(srd, maxLevel);
   const always: string[] = [];
   const apiSub = subclassId ? SUBCLASS_SPELL_INDEX[subclassId] : undefined;
@@ -228,7 +237,8 @@ export function spellcastingOf(cls: CharacterClass, level: number, subclassId: s
       options.sort((a, b) => a.level - b.level || a.name.localeCompare(b.name));
     } else always.push(...list.map(s => s.id));
   }
-  return { kind: 'plan', classId: srd, ability, cantrips: counts.cantrips ?? 0, leveled, leveledKind: kind, maxLevel, options, always, ...(tableOnly?.length ? { tableOnly } : {}) };
+  return { kind: 'plan', classId: srd, ability, cantrips: counts.cantrips ?? 0, leveled, leveledKind: kind, maxLevel, options, always,
+    gainedCantrips, gainedLeveledSpells, ...(tableOnly?.length ? { tableOnly } : {}) };
 }
 
 /* ---------- Снаряжение ---------- */
@@ -278,6 +288,8 @@ export function inventoryOf(kit: ClassStart['equipment'], selections: Readonly<R
 export interface Attack {
   id: string;
   name: string;
+  /** Характеристика броска атаки, выведенная по SRD из вида оружия. */
+  ability: AbilityId;
   /** Бонус к попаданию. */
   toHit: number;
   /** «1d8 + 3» или «1d8 + 3 / 1d10 + 3» у универсального. */
@@ -329,7 +341,7 @@ export function attacksOf(
     const proficient = (ctx.srdClass ? classWeaponProficient(ctx.srdClass, line.id) : false) || ctx.extraWeapons.includes(line.id);
     const toHit = mod + (proficient ? ctx.proficiencyBonus : 0) + (ctx.archery && w.range === 'ranged' ? 2 : 0);
     const damage = w.versatile ? `${dmg(w.damage, mod)} / ${dmg(w.versatile, mod)}` : dmg(w.damage, mod);
-    out.push({ id: line.id, name: item.name, toHit, damage, damageType: w.damageType ?? '', proficient, ...(w.rangeFt ? { range: `${w.rangeFt[0]}/${w.rangeFt[1]}` } : {}), ...(ctx.small && w.properties.includes('heavy') ? { disadvantage: 'тяжёлое у Маленького' } : {}) });
+    out.push({ id: line.id, name: item.name, ability: how.ability, toHit, damage, damageType: w.damageType ?? '', proficient, ...(w.rangeFt ? { range: `${w.rangeFt[0]}/${w.rangeFt[1]}` } : {}), ...(ctx.small && w.properties.includes('heavy') ? { disadvantage: 'тяжёлое у Маленького' } : {}) });
   }
   return out;
 }

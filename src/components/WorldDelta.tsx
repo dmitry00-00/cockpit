@@ -28,8 +28,10 @@ export interface WorldDeltaProps {
   /** Всего вариантов; «Переброс» только при onReroll и variants > 1. */
   variants?: number;
   /** «Принять» — золотая кнопка, title «Принять · Enter»; клавиша живёт на странице. */
-  onAccept: () => void;
+  onAccept?: () => void;
   onReject: () => void;
+  /** Reducer found stale overwritten fields or route dependencies; keep the result visible but unacceptably stale. */
+  staleReason?: string;
   onReroll?: () => void;
   onEdit?: () => void;
   className?: string;
@@ -53,7 +55,7 @@ const BTN = 'type-num-12 uppercase whitespace-nowrap px-2 py-1 bg-cd shadow-beve
 const BTN_GOLD = 'type-num-12 uppercase whitespace-nowrap px-2 py-1 bg-cd shadow-bevel text-gd-hi cursor-pointer enabled:hover:text-tx enabled:active:shadow-bevel-in focus-visible:shadow-[var(--bevel),var(--glow-gold)]';
 
 export function WorldDelta({
-  id, scale, subject, was, now, cause, chain, conflict, variants,
+  id, scale, subject, was, now, cause, chain, conflict, variants, staleReason,
   onAccept, onReject, onReroll, onEdit, className = '',
 }: WorldDeltaProps) {
   const [open, setOpen] = useState(false);
@@ -109,16 +111,21 @@ export function WorldDelta({
           <span>Канон: {conflict}</span>
         </div>
       ) : null}
+      {staleReason ? (
+        <p data-part="freshness" role="status" aria-live="polite" className="bg-wl shadow-bevel-in p-1.5 type-body-xs text-fx-debuff-hi">
+          Пересчёт обязателен: {staleReason}
+        </p>
+      ) : null}
       <div data-part="actions" className="flex flex-wrap gap-1">
-        <button type="button" title="Принять · Enter" onClick={onAccept} className={BTN_GOLD}>
+        {onAccept || staleReason ? <button type="button" disabled={!onAccept || Boolean(staleReason)} title={staleReason ? 'Пересчёт обязателен' : 'Принять · Enter'} onClick={staleReason ? undefined : onAccept} className={BTN_GOLD}>
           {conflict ? 'Принять изменение' : 'Принять'}
-        </button>
+        </button> : null}
         {onEdit ? <button type="button" title="Править" onClick={onEdit} className={BTN}>Править</button> : null}
         {canReroll ? (
           <button type="button" title={`Перебросить · вариантов: ${variants}`} onClick={onReroll} className={BTN}>Переброс</button>
         ) : null}
-        <button type="button" title={conflict ? 'Оставить канон' : 'Отклонить'} onClick={onReject} className={BTN}>
-          {conflict ? 'Оставить канон' : 'Отклонить'}
+        <button type="button" title={conflict ? 'Оставить канон' : staleReason ? 'Отклонить устаревший результат' : 'Отклонить'} onClick={onReject} className={BTN}>
+          {conflict ? 'Оставить канон' : staleReason ? 'Отклонить устаревший результат' : 'Отклонить'}
         </button>
       </div>
     </article>

@@ -45,7 +45,7 @@ function KingdomHistory({ kingdom, year }: { kingdom: Kingdom; year: number }) {
       ) : null}
       <ol className="flex flex-col gap-1">
         {shown.map(l => (
-          <li key={l.id} className="grid grid-cols-[72px_1fr] gap-2" title={l.cite}>
+          <li key={l.id} className="grid grid-cols-[72px_1fr] gap-2" title={[l.sourceTitle, ...(l.cites ?? [])].filter(Boolean).join(' · ') || undefined}>
             <span className="type-num-12 text-gd pt-0.5">{drLabel(l.year)}{l.to !== undefined && l.to !== l.year ? `–${l.to}` : ''}</span>
             <span className="type-body-sm text-t2 break-words [overflow-wrap:anywhere]">{l.when ? <span className="text-t3">{l.when} · </span> : null}{l.text}</span>
           </li>

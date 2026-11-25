@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "art01-probe-1",
+  "date": "2026-11-02",
+  "executionSessionId": "01a19292-3b82-7b13-bca6-61ac9c0cf5e7",
+  "cli": { "name": "kimi", "version": "2.4.1" },
+  "probe": {
+    "raster": {
+      "status": "blocked",
+      "nativeGeneratorInSession": false,
+      "reason": "No image-generation tool exposed in this CLI session; no image-gen skill registered; no local generator binaries. Per ART01, no SVG/procedural/download fabrication attempted.",
+      "outputsPlanned": 4,
+      "outputsProduced": 0
+    },
+    "3d": {
+      "status": "blocked",
+      "reason": "No Blender (PATH or /Applications), no glTF tooling; only node/npm/python3+numpy present. Procedural modeling requires existing tooling; installation forbidden. Hand-written GLB rejected as fabrication.",
+      "outputsProduced": 0
+    }
+  },
+  "generatedArtifacts": [],
+  "plannedRasterOutputs": [
+    {
+      "id": "stealth-hood-style-a",
+      "concept": "skill:stealth (плащ/капюшон per design/ICON_SEMANTICS.md)",
+      "styleVariant": "A — subdued painterly antique bronze/plum",
+      "filePlanned": "outputs/pilot/stealth-hood-style-a.png",
+      "spec": "1024x1024 PNG, true alpha, entire object, 12% margin, soft upper-left light",
+      "prompt": "Single hooded traveler's cloak clasped at the shoulder with an antique bronze fibula, for a fantasy game-master atlas UI icon. Subdued painterly style, muted worn bronze and deep plum enamel tones, aged patina, quiet restrained highlights. Soft light from the upper left, gentle shadow down-right. Whole object fully visible with 12% margin on transparent background. One main silhouette, readable at small size. No text, no numbers, no logos, no frames, no UI states, no pixel-art look.",
+      "provider": null,
+      "provenance": null,
+      "alpha": null,
+      "status": "not-generated: no raster tool in session"
+    },
+    {
+      "id": "stealth-hood-style-b",
+      "concept": "skill:stealth (плащ/капюшон)",
+      "styleVariant": "B — rich jewel object like owner reference, project palette",
+      "filePlanned": "outputs/pilot/stealth-hood-style-b.png",
+      "spec": "1024x1024 PNG, true alpha, entire object, 12% margin, soft upper-left light",
+      "prompt": "Single hooded cloak icon, rich jewel-like painterly game-object rendering in the spirit of the owner's reference board (references/owner-icons-reference.jpg) but in the project palette: worn bronze, plum enamel, bone, dark leather — NOT saturated royal blue/gold, NOT copying reference objects. Soft light from the upper left. Whole object, transparent background, 12% margin. No text, no logos, no frames, no UI states.",
+      "provider": null,
+      "provenance": null,
+      "alpha": null,
+      "status": "not-generated: no raster tool in session"
+    },
+    {
+      "id": "stealth-hood-style-c",
+      "concept": "skill:stealth (плащ/капюшон)",
+      "styleVariant": "C — restrained dark realistic fantasy",
+      "filePlanned": "outputs/pilot/stealth-hood-style-c.png",
+      "spec": "1024x1024 PNG, true alpha, entire object, 12% margin, soft upper-left light",
+      "prompt": "Single dark hooded cloak, restrained realistic dark-fantasy painterly rendering, deep plum-black wool with worn bronze clasp and pale bone stitching accents, subtle material texture, soft light from the upper left. Whole object on transparent background, 12% margin, no text, no logos, no frames, no UI states.",
+      "provider": null,
+      "provenance": null,
+      "alpha": null,
+      "status": "not-generated: no raster tool in session"
+    },
+    {
+      "id": "healing-potion-consistency-test",
+      "concept": "healing potion (флакон жизненных сил — interface metaphor per research/ux-review)",
+      "styleVariant": "best predicted style from A/B/C coordinator pick (default: A palette)",
+      "filePlanned": "outputs/pilot/healing-potion.png",
+      "spec": "1024x1024 PNG, true alpha, entire object, 12% margin",
+      "prompt": "Single glass healing potion flask with cork, warm glowing red liquid, bronze cage mount and small bone label plate, painterly style consistent with chosen stealth-hood variant, soft light from the upper left, whole object on transparent background, 12% margin. No text, no numbers, no logos, no frames.",
+      "provider": null,
+      "provenance": null,
+      "alpha": null,
+      "status": "not-generated: no raster tool in session"
+    }
+  ],
+  "failures": [
+    "raster: no native image generator in this CLI session (no tool, no skill, no local binary)",
+    "3d: no Blender or glTF tooling present; installation forbidden by ART01"
+  ],
+  "referencesUsed": [
+    "references/stealth-cloak-v1.png (approved painterly style anchor)",
+    "references/owner-icons-reference.jpg (quality/material reference only)"
+  ],
+  "bulkGeneration": "NOT started, per ART01 — awaiting coordinator review of pilot"
+}

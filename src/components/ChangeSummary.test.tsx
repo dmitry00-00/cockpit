@@ -185,6 +185,23 @@ describe('ChangeSummary', () => {
     expect(screen.queryByRole('button', { name: 'Принять пачкой' })).toBeNull();
   });
 
+  it('показывает устаревшую строку и блокирует пакетное принятие группы с устаревшим результатом', () => {
+    const g: ChangeSummaryGroup = {
+      id: 'planet', scale: 'planet', label: 'Сводка мира', collapsed: false,
+      items: [{ id: 'old', subject: 'Запас Neverwinter', was: '5', now: '8', staleReason: 'Устарел запас товаров', onAccept: () => {}, onReject: () => {} }],
+    };
+    const { rerender } = render(<ChangeSummary groups={[g]} onAcceptAll={() => {}} />);
+    const current = group('Сводка мира');
+    expect(within(current).getByRole('status')).toHaveTextContent('Пересчёт обязателен: Устарел запас товаров');
+    expect(within(current).getByRole('button', { name: 'Принять' })).toBeDisabled();
+    expect(within(current).getByRole('button', { name: 'Отклонить устаревшее предложение' })).toBeInTheDocument();
+
+    rerender(<ChangeSummary groups={[{ ...g, collapsed: true, staleCount: 1 }]} onAcceptAll={() => {}} />);
+    const collapsed = group('Сводка мира');
+    expect(within(collapsed).getByRole('status')).toHaveTextContent('Пересчёт обязателен · устаревших предложений: 1');
+    expect(within(collapsed).getByRole('button', { name: 'Принять пачкой' })).toBeDisabled();
+  });
+
   it('без групп — одна строка emptyText type-body-sm t2 в утопленной пунктирной рамке, групп нет; без emptyText — секция не рисуется вовсе', () => {
     const { rerender, container } = render(<ChangeSummary groups={[]} emptyText="Сводка появится после шага времени" />);
     expect(region()).toBeInTheDocument();

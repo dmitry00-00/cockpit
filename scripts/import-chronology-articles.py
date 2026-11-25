@@ -17,7 +17,8 @@
 #
 # Каждое событие несёт src (статья, раздел, откуда), ссылки — как в основном слое (ref — id справочника тем же
 # import-chronology.ref_resolver, включая kingdom:), сноски. Вида (kind) статьи-годов у таких строк нет — kind только у
-# конфликтов («conflicts»); у остальных поля нет, а не догадка.
+# конфликтов («conflicts»); reviewed редакторские рубрики остальных применяются отдельным слоем по fingerprint.
+# Для новых/изменённых строк без reviewed записи kind отсутствует, а не угадывается.
 #
 # Дубли со статьями-годами: событие того же года (не «изданное»), с которым у строки не меньше трёх общих слов и доля
 # общих слов ≥ 0,5 (или ≥ 2 общие ссылки и доля ≥ 0,3), получает same — id события основного слоя. Не удаляется: в статье-летописи
@@ -27,13 +28,13 @@
 # articles/<n>.json. Идёт после import-kingdoms.py и import-chronology.py; import-kingdoms.py — ещё раз после него
 # (годы держав по ссылкам этого слоя).
 #
-# Запуск: .venv/bin/python -I scripts/import-chronology-articles.py <dump.xml>
+# Запуск: .venv/bin/python -I scripts/import-chronology-articles.py <dump.xml> [--classification-file <json>] [--content-root <content-dir>]
+import argparse
 import glob
 import importlib.util
 import json
 import os
 import re
-import sys
 import xml.etree.ElementTree as ET
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -46,10 +47,12 @@ def _load(name, file):
     return mod
 
 
+content_paths = _load('content_paths', 'content-paths.py')
 sj = _load('spelljammer', 'import-spelljammer.py')
 pp = _load('people', 'import-people.py')
 ch = _load('chronology', 'import-chronology.py')
 kd = _load('kingdoms', 'import-kingdoms.py')
+cc = _load('chronology_classification', 'chronology_classification.py')
 NS = sj.NS
 
 YEAR = r'(?:\[\[(-?\d+) DR(?:\|[^\]]*)?\]\]|\{\{\s*Yearlink(?:Name)?\s*\|\s*(-?\d+)[^}]*\}\})'
@@ -136,12 +139,16 @@ def first_sentence(t):
 
 
 def main():
-    if len(sys.argv) != 2:
-        sys.exit('usage: import-chronology-articles.py <dump.xml>')
-    pages, redirects = scan(sys.argv[1])
+    parser = argparse.ArgumentParser(description='Импорт дополнительной хроники FR Wiki.')
+    parser.add_argument('dump', help='XML-дамп вики')
+    parser.add_argument('--classification-file', help='файл редакторских классификаций; по умолчанию профиль проекта FR')
+    parser.add_argument('--content-root', help='корень слоёв content; по умолчанию <корень проекта>/content')
+    args = parser.parse_args()
+    content_paths.set_content_root(args.content_root)
+    pages, redirects = scan(args.dump)
     follow = pp.follower(redirects)
     ref_of = ch.ref_resolver(follow)
-    with open(os.path.join(ROOT, 'content', 'chronology', 'index.json'), encoding='utf-8') as fh:
+    with open(content_paths.content_path(ROOT, 'chronology', 'index.json'), encoding='utf-8') as fh:
         year_names = {y['year']: y['name'] for y in json.load(fh)['years'] if y.get('name')}
     kingdom_titles = {t for t, (_, kinds) in pages.items() if 'kingdom' in kinds}
 
@@ -236,7 +243,7 @@ def main():
 
     # Дубли со статьями-годами.
     base = {}
-    for path in glob.glob(os.path.join(ROOT, 'content', 'chronology', 'events', '*.json')):
+    for path in glob.glob(content_paths.content_path(ROOT, 'chronology', 'events', '*.json')):
         with open(path, encoding='utf-8') as fh:
             for e in json.load(fh)['events']:
                 base.setdefault(e['year'], []).append(e)
@@ -269,7 +276,13 @@ def main():
         e.clear()
         e.update([('id', e_items[-1][1])] + [kv for kv in e_items if kv[0] != 'id'])
 
-    out = os.path.join(ROOT, 'content', 'chronology', 'articles')
+    # Editorial categories are source-bound metadata. Changed/new records stay unclassified.
+    events, classification_counts = cc.apply_classifications(
+        events, cc.load_review(args.classification_file) if args.classification_file else cc.load_review(),
+        [e for year_events in base.values() for e in year_events],
+    )
+
+    out = content_paths.content_path(ROOT, 'chronology', 'articles')
     os.makedirs(out, exist_ok=True)
     for old in glob.glob(os.path.join(out, '*.json')):
         os.remove(old)
@@ -290,7 +303,8 @@ def main():
                    'note': 'События из статей вики сверх статей-годов: летописи списком (timeline), карточки Conflict и Event с годом '
                            '(conflict, event), предложения разделов History держав с годом в начале (history). Строки по-английски, как '
                            'в вики; src — статья и раздел; same — id совпадающего события content/chronology/events.',
-                   'sources': by_how, 'same': sum(1 for e in events if 'same' in e), 'chunks': chunks},
+                   'sources': by_how, 'same': sum(1 for e in events if 'same' in e), 'chunks': chunks,
+                   'classification': {'version': cc.VERSION, **classification_counts}},
                   fh, ensure_ascii=False, separators=(',', ':'))
         fh.write('\n')
     linked = sum(1 for e in events if any('ref' in l for l in e.get('links', [])))

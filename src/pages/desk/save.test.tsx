@@ -2,11 +2,14 @@
 // мастеру и даёт сохранить файлом; место вернулось — полоса уходит. Одна вкладка стола на браузер: вторая не монтирует
 // стол, «Открыть здесь» забирает его, закрыли хозяина — ждущая открывает сама.
 import { act, fireEvent, render, screen } from '@testing-library/react';
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { seedEngine } from '../../campaign';
 import { localStorageStore } from '../../engine';
+import { DeskPage } from '../DeskPage';
 import { DeskLease } from './DeskLease';
 import { fixed, mount } from './testkit';
+
+afterEach(() => vi.unstubAllGlobals());
 
 /** Хранилище с переключаемой квотой. */
 function quotaStorage() {
@@ -37,6 +40,43 @@ describe('сохранение журнала', () => {
     act(() => { store.getState().rollDice('1d20'); });
     expect(store.getState().saveFailed).toBe(false);
     expect(screen.queryByRole('alert')).toBeNull();
+  });
+
+  it('показывает экспорт исходного повреждённого журнала и скачивает его без изменений', async () => {
+    const source = '{broken';
+    const values = new Map<string, string>([['campaign', source]]);
+    const persist = localStorageStore('campaign', {
+      getItem: key => values.get(key) ?? null,
+      setItem: (key, value) => { values.set(key, value); },
+      removeItem: key => { values.delete(key); },
+    });
+    seedEngine({ persist, ...fixed(), onRecover: () => {} }); // восстанавливает сид, сохранив исходную строку
+    expect(values.get('campaign')).not.toBe(source);
+    const createObjectURL = vi.fn((_blob: Blob) => 'blob:recovery');
+    const revokeObjectURL = vi.fn();
+    const URLShim = class extends globalThis.URL {};
+    Object.assign(URLShim, { createObjectURL, revokeObjectURL });
+    vi.stubGlobal('URL', URLShim);
+    const clicks: HTMLAnchorElement[] = [];
+    vi.spyOn(HTMLAnchorElement.prototype, 'click').mockImplementation(function (this: HTMLAnchorElement) { clicks.push(this); });
+
+    render(<DeskPage persist={persist} />);
+    expect(screen.getByRole('alert')).toHaveTextContent('Сохранённый исходный текст журнала доступен');
+    fireEvent.click(screen.getByRole('button', { name: 'Скачать исходную запись' }));
+
+    expect(createObjectURL).toHaveBeenCalledWith(expect.any(Blob));
+    const blob = createObjectURL.mock.calls[0]?.[0];
+    expect(blob).toBeInstanceOf(Blob);
+    if (!blob) throw new Error('Не создан файл исходного журнала');
+    const downloadedText = await new Promise<string>((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(String(reader.result));
+      reader.onerror = () => reject(reader.error);
+      reader.readAsText(blob);
+    });
+    expect(downloadedText).toBe(source);
+    expect(clicks[0]?.download).toBe('dm-cockpit-recovery-original.txt');
+    expect(revokeObjectURL).toHaveBeenCalledWith('blob:recovery');
   });
 });
 

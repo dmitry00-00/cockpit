@@ -12,6 +12,17 @@ describe('экран «Компендиум»', () => {
     }
   });
 
+  it('единый каталог SRD фильтрует записи по типу и показывает раздел и источник', async () => {
+    render(<CompendiumPage />);
+    fireEvent.click(screen.getByRole('tab', { name: 'Каталог SRD' }));
+    const typeFilter = await screen.findByRole('combobox', { name: 'Фильтр по типу записи' });
+    expect(screen.queryByRole('group', { name: 'Источники' })).toBeNull();
+    fireEvent.change(typeFilter, { target: { value: 'spell' } });
+    expect(await screen.findByRole('row', { name: /Acid Splash.*Заклинание.*Spells/ })).toBeInTheDocument();
+    expect(screen.getByText('content/srd/spells.json#spells[id=acid-splash]')).toBeInTheDocument();
+    expect(screen.queryByText('Commoner')).toBeNull();
+  });
+
   it('снятие источника «книга» убирает книжные подрасы и оставляет SRD', () => {
     render(<CompendiumPage />);
     expect(screen.getAllByText('Прохода').length).toBeGreaterThan(0);

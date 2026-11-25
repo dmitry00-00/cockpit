@@ -1,0 +1,4304 @@
+{
+  "format": "dm-cockpit.adventure/1",
+  "id": "lmop-ru-phantom-2015-local",
+  "title": "Фанделвер · части 1–4 · связная локальная разметка",
+  "version": "0.4.0",
+  "distribution": "table",
+  "setting": "fr",
+  "rules": [
+    "dnd5e-2014"
+  ],
+  "campaignYear": null,
+  "scope": "Связная выборка ключевых узлов частей 1–4 по одному точному русскому PDF, не полный импорт каждой сцены. Пять стартовых сцен имеют краткие DM-процедуры с книжными страницами; 4 карты имеют редакторские области, а замок и каменные комнаты шахты — частичный первый проход стен/дверей, не полный тактический меш. К четырём профилям вручную привязаны точные справочные блоки SRD. Исходы предложений фиксируют решение ведущего и не исполняют последствия в мире.",
+  "entry": "ambush",
+  "sources": [
+    {
+      "id": "book",
+      "title": "Lost Mine of Phandelver RUS · PHantom Studio (2015)",
+      "origin": "book",
+      "distribution": "table",
+      "sha256": "cbdcc0898fd78a6f7d58263e0ae03eba0d174515e4521673aa3b14dbd7f59c1e",
+      "pageCount": 64
+    },
+    {
+      "id": "hb",
+      "title": "Авторская интерфейсная разметка DM Cockpit",
+      "origin": "hb",
+      "distribution": "table"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "neverwinter",
+      "kind": "location",
+      "name": "Невервинтер",
+      "summary": "Место найма сопровождения повозки; начало пути к Фандалину.",
+      "audience": "dm",
+      "mapRef": {
+        "mapId": "toril",
+        "key": "Neverwinter",
+        "coords": [
+          8522,
+          2610
+        ],
+        "coordinateSpace": "source-pixel",
+        "source": "content/maps/toril-control.json",
+        "status": "editorial-control-point"
+      },
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            6
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "high-road",
+      "kind": "location",
+      "name": "Главный тракт",
+      "summary": "Первый участок пути из Невервинтера на юг.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            6
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "triboar-trail",
+      "kind": "location",
+      "name": "Триборская тропа",
+      "summary": "Поворот на восток по пути в Фандалин; на дороге устроена засада.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            6
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "ambush-site",
+      "kind": "location",
+      "name": "Место гоблинской засады",
+      "summary": "Участок дороги, от которого можно обнаружить тропу к убежищу.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            6,
+            7
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "on",
+          "target": "triboar-trail"
+        }
+      ]
+    },
+    {
+      "id": "cragmaw-hideout",
+      "kind": "location",
+      "name": "Убежище Каменных Пастей",
+      "summary": "Пещерное логово налётчиков; здесь удерживают Сильдара.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            7,
+            8,
+            10,
+            11
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "plan",
+          "target": "hideout-plan"
+        },
+        {
+          "relation": "contains",
+          "target": "klarg-treasure-cache"
+        },
+        {
+          "relation": "contains",
+          "target": "lionshield-stolen-goods"
+        }
+      ]
+    },
+    {
+      "id": "phandalin",
+      "kind": "location",
+      "name": "Фандалин",
+      "summary": "Поселение назначения повозки и узел дальнейших расследований.",
+      "audience": "dm",
+      "mapRef": {
+        "mapId": "toril",
+        "key": "Phandalin",
+        "coords": [
+          8673,
+          2697
+        ],
+        "coordinateSpace": "source-pixel",
+        "source": "content/maps/toril-control.json",
+        "status": "editorial-control-point"
+      },
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            14,
+            15
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "plan",
+          "target": "town-plan"
+        }
+      ]
+    },
+    {
+      "id": "barthen",
+      "kind": "location",
+      "name": "Припасы Бартена",
+      "summary": "Место сдачи припасов Гандрена.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            14,
+            16
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "within",
+          "target": "phandalin"
+        }
+      ]
+    },
+    {
+      "id": "stonehill",
+      "kind": "location",
+      "name": "Постоялый двор Стоунхилл",
+      "summary": "Ночлег и сбор городских слухов.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            15
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "within",
+          "target": "phandalin"
+        }
+      ]
+    },
+    {
+      "id": "lionshield",
+      "kind": "location",
+      "name": "Магазин Львиный Щит",
+      "summary": "Торговая лавка, которой можно вернуть похищенный груз.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            16,
+            17
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "within",
+          "target": "phandalin"
+        }
+      ]
+    },
+    {
+      "id": "alderleaf",
+      "kind": "location",
+      "name": "Ферма Олдерлиф",
+      "summary": "Семья, у которой можно узнать о скрытом проходе к поместью.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            18
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "within",
+          "target": "phandalin"
+        }
+      ]
+    },
+    {
+      "id": "sleeping-giant",
+      "kind": "location",
+      "name": "Спящий Великан",
+      "summary": "Трактир, в котором часто бывают Красноклеймённые.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            18,
+            19
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "within",
+          "target": "phandalin"
+        }
+      ]
+    },
+    {
+      "id": "tresendar",
+      "kind": "location",
+      "name": "Тресендарское поместье",
+      "summary": "Руины на востоке поселения; под ними логово банды.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            19,
+            20
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "within",
+          "target": "phandalin"
+        }
+      ]
+    },
+    {
+      "id": "redbrand-hideout",
+      "kind": "location",
+      "name": "Убежище Красноклеймённых",
+      "summary": "Подвальный комплекс с пленниками и покоями лидера банды.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            20,
+            22,
+            25,
+            26
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "within",
+          "target": "phandalin"
+        },
+        {
+          "relation": "contains",
+          "target": "iarno-healing-potion"
+        },
+        {
+          "relation": "contains",
+          "target": "iarno-invisibility-potion"
+        },
+        {
+          "relation": "contains",
+          "target": "iarno-charm-person-scroll"
+        },
+        {
+          "relation": "contains",
+          "target": "iarno-fireball-scroll"
+        }
+      ]
+    },
+    {
+      "id": "supply-route",
+      "kind": "route",
+      "name": "Доставка припасов",
+      "summary": "Невервинтер → Главный тракт → Триборская тропа → Фандалин. Численная геометрия пока не перенесена.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            6
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "from",
+          "target": "neverwinter"
+        },
+        {
+          "relation": "via",
+          "target": "high-road"
+        },
+        {
+          "relation": "via",
+          "target": "triboar-trail"
+        },
+        {
+          "relation": "to",
+          "target": "phandalin"
+        }
+      ],
+      "preparation": "Сверить существующий gazetteer и очищенную карту; не назначать пины по похожему имени."
+    },
+    {
+      "id": "goblin-route",
+      "kind": "route",
+      "name": "Тропа к пещере",
+      "summary": "От места засады к убежищу налётчиков; источник указывает пять миль на северо-запад.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            7
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "from",
+          "target": "ambush-site"
+        },
+        {
+          "relation": "to",
+          "target": "cragmaw-hideout"
+        }
+      ],
+      "preparation": "Пять миль на северо-запад сверены с PDF7; привязка к растру ещё не выполнена."
+    },
+    {
+      "id": "town-route",
+      "kind": "route",
+      "name": "Прибытие с Сильдаром",
+      "summary": "Переход от спасения пленника к ночлегу и расследованию в поселении.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            11,
+            14
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "from",
+          "target": "cragmaw-hideout"
+        },
+        {
+          "relation": "to",
+          "target": "stonehill"
+        }
+      ],
+      "preparation": "Это переход сцен, не отдельная измеренная дорога."
+    },
+    {
+      "id": "secret-route",
+      "kind": "route",
+      "name": "Скрытый вход под поместье",
+      "summary": "Карп может показать вход; туннель приводит к области 8 убежища.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            18
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "from",
+          "target": "alderleaf"
+        },
+        {
+          "relation": "to",
+          "target": "redbrand-hideout"
+        }
+      ],
+      "preparation": "Не раскрывать игрокам до получения сведений от Карпа."
+    },
+    {
+      "id": "gundren",
+      "kind": "npc",
+      "name": "Гандрен Роксикер",
+      "summary": "Наниматель сопровождения; захвачен и отправлен вместе с картой к вождю.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            6,
+            8,
+            11
+          ]
+        },
+        {
+          "source": "book",
+          "pages": [
+            35,
+            39,
+            40
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "associated-place",
+          "target": "neverwinter"
+        },
+        {
+          "relation": "associated-place",
+          "target": "cragmaw-castle"
+        }
+      ],
+      "preparation": "Книжная роль, не активный Actor; автоматического сопоставления статблока нет."
+    },
+    {
+      "id": "sildar",
+      "kind": "npc",
+      "name": "Сильдар Холлвинтер",
+      "summary": "Пленник в пещере; после спасения даёт сведения и стремится в Фандалин.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            10,
+            11
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "associated-place",
+          "target": "cragmaw-hideout"
+        }
+      ],
+      "preparation": "Книжная роль, не активный Actor; автоматического сопоставления статблока нет."
+    },
+    {
+      "id": "klarg",
+      "kind": "npc",
+      "name": "Кларг",
+      "summary": "Медвежатник, командующий пещерным логовом.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            7,
+            11,
+            12
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "associated-place",
+          "target": "cragmaw-hideout"
+        }
+      ],
+      "preparation": "Книжная роль, не активный Actor; автоматического сопоставления статблока нет."
+    },
+    {
+      "id": "yeemik",
+      "kind": "npc",
+      "name": "Йемик",
+      "summary": "Гоблин, который использует пленного Сильдара в переговорах.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            10,
+            11
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "associated-place",
+          "target": "cragmaw-hideout"
+        }
+      ],
+      "preparation": "Книжная роль, не активный Actor; автоматического сопоставления статблока нет."
+    },
+    {
+      "id": "elmar",
+      "kind": "npc",
+      "name": "Эльмар Бартен",
+      "summary": "Принимает груз и может направить отряд на поиски Гандрена.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            7,
+            15,
+            16
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "associated-place",
+          "target": "barthen"
+        }
+      ],
+      "preparation": "Книжная роль, не активный Actor; автоматического сопоставления статблока нет."
+    },
+    {
+      "id": "linene",
+      "kind": "npc",
+      "name": "Линен Грейвинд",
+      "summary": "Управляет лавкой; заинтересована в возвращении похищенного товара.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            16,
+            17
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "associated-place",
+          "target": "lionshield"
+        }
+      ],
+      "preparation": "Книжная роль, не активный Actor; автоматического сопоставления статблока нет."
+    },
+    {
+      "id": "qelline",
+      "kind": "npc",
+      "name": "Квеллин Олдерлиф",
+      "summary": "Гостеприимная фермерша; помогает связать городские и внешние зацепки.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            18
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "associated-place",
+          "target": "alderleaf"
+        }
+      ],
+      "preparation": "Книжная роль, не активный Actor; автоматического сопоставления статблока нет."
+    },
+    {
+      "id": "carp",
+      "kind": "npc",
+      "name": "Карп",
+      "summary": "Ребёнок, обнаруживший скрытый проход у поместья.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            18
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "associated-place",
+          "target": "alderleaf"
+        }
+      ],
+      "preparation": "Книжная роль, не активный Actor; автоматического сопоставления статблока нет."
+    },
+    {
+      "id": "toblen",
+      "kind": "npc",
+      "name": "Тоблен Стоунхилл",
+      "summary": "Хозяин постоялого двора, опасающийся за семью.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            15
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "associated-place",
+          "target": "stonehill"
+        }
+      ],
+      "preparation": "Книжная роль, не активный Actor; автоматического сопоставления статблока нет."
+    },
+    {
+      "id": "iarno",
+      "kind": "npc",
+      "name": "Ярно Альбрек",
+      "summary": "Пропавший связной Сильдара; личность лидера банды является секретом.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            11,
+            25,
+            26
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "associated-place",
+          "target": "redbrand-hideout"
+        },
+        {
+          "relation": "carries",
+          "target": "iarno-staff-of-defense"
+        }
+      ],
+      "preparation": "Книжная роль, не активный Actor; автоматического сопоставления статблока нет."
+    },
+    {
+      "id": "goblin",
+      "kind": "creature",
+      "name": "Гоблин",
+      "summary": "Налётчики на дороге и обитатели пещерного логова.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            6,
+            7,
+            8,
+            54,
+            55
+          ]
+        },
+        {
+          "source": "book",
+          "pages": [
+            37,
+            38
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "encountered-at",
+          "target": "ambush-site"
+        }
+      ],
+      "preparation": "Приложение Б, PDF 6, 7, 8, 54, 55: AC/HP/скорость и набор особенностей вручную совпали с goblin в dnd5e-2014@2026.10.31; ссылку применяем как профиль одного существа. Это каталожный cross-reference, а не создание актёра или автоматический импорт характеристик.",
+      "engineBinding": {
+        "packageId": "dnd5e-2014",
+        "packageVersion": "2026.10.31",
+        "kind": "monster",
+        "id": "goblin",
+        "application": "individual",
+        "match": "manual-exact-srd-block"
+      }
+    },
+    {
+      "id": "wolf",
+      "kind": "creature",
+      "name": "Волк",
+      "summary": "Животные в псарне; также спутник Кларга.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            8,
+            11,
+            54
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "encountered-at",
+          "target": "cragmaw-hideout"
+        }
+      ],
+      "preparation": "Приложение Б, PDF 8, 11, 54: AC/HP/скорость и набор особенностей вручную совпали с wolf в dnd5e-2014@2026.10.31; ссылку применяем как профиль одного существа. Это каталожный cross-reference, а не создание актёра или автоматический импорт характеристик.",
+      "engineBinding": {
+        "packageId": "dnd5e-2014",
+        "packageVersion": "2026.10.31",
+        "kind": "monster",
+        "id": "wolf",
+        "application": "individual",
+        "match": "manual-exact-srd-block"
+      }
+    },
+    {
+      "id": "bugbear",
+      "kind": "creature",
+      "name": "Медвежатник",
+      "summary": "Тип существа Кларга и охранников убежища банды.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            11,
+            24,
+            57
+          ]
+        },
+        {
+          "source": "book",
+          "pages": [
+            37,
+            38,
+            39,
+            40
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "encountered-at",
+          "target": "cragmaw-hideout"
+        },
+        {
+          "relation": "carries",
+          "target": "cave-vitality-potion"
+        },
+        {
+          "relation": "encountered-at",
+          "target": "cave-room-11"
+        }
+      ],
+      "preparation": "Приложение Б, PDF 11, 24, 57: AC/HP/скорость и набор особенностей вручную совпали с bugbear в dnd5e-2014@2026.10.31; ссылку применяем как профиль одного существа. Это каталожный cross-reference, а не создание актёра или автоматический импорт характеристик.",
+      "engineBinding": {
+        "packageId": "dnd5e-2014",
+        "packageVersion": "2026.10.31",
+        "kind": "monster",
+        "id": "bugbear",
+        "application": "individual",
+        "match": "manual-exact-srd-block"
+      }
+    },
+    {
+      "id": "redbrand",
+      "kind": "creature",
+      "name": "Красноклеймённый головорез",
+      "summary": "Противники городской сцены и подвального логова.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            19,
+            21,
+            56
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "encountered-at",
+          "target": "sleeping-giant"
+        }
+      ],
+      "preparation": "Книжный статблок указан в приложении Б, PDF 56; числовой runtime-профиль и соответствие пакету движка отдельно не приняты."
+    },
+    {
+      "id": "nothic",
+      "kind": "creature",
+      "name": "Нотик",
+      "summary": "Существо в расселине под поместьем.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            23,
+            59
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "encountered-at",
+          "target": "redbrand-hideout"
+        }
+      ],
+      "preparation": "Книжный статблок указан в приложении Б, PDF 59; числовой runtime-профиль и соответствие пакету движка отдельно не приняты."
+    },
+    {
+      "id": "skeleton",
+      "kind": "creature",
+      "name": "Скелет",
+      "summary": "Нежить в погребальной части подземелья.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            21,
+            22,
+            61
+          ]
+        },
+        {
+          "source": "book",
+          "pages": [
+            43,
+            44
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "encountered-at",
+          "target": "redbrand-hideout"
+        }
+      ],
+      "preparation": "Приложение Б, PDF 61: книжный скелет имеет уязвимость к дробящему и иммунитет к яду, но среди иммунитетов состояний указано только «отравление»; в SRD дополнительно есть «истощение». Точный runtime cross-reference не принят."
+    },
+    {
+      "id": "delivery-thread",
+      "kind": "thread",
+      "name": "Доставить груз и найти Гандрена",
+      "summary": "Доставка связывает найм, засаду, исчезновение нанимателя и торговую лавку.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            6,
+            7,
+            16
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "rescue-thread",
+      "kind": "thread",
+      "name": "Спасти Сильдара",
+      "summary": "Путь от следов на дороге к пленнику и его сведениям.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            7,
+            10,
+            11
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "redbrand-thread",
+      "kind": "thread",
+      "name": "Разобраться с Красноклеймёнными",
+      "summary": "Городские сведения ведут от трактирной конфронтации к тайному логову.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            14,
+            18,
+            19,
+            20
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "ambush",
+      "kind": "scene",
+      "name": "Засада на дороге",
+      "summary": "Начальная встреча не должна требовать обязательной победы: источник даёт обходной путь через поселение.",
+      "preparation": "Перед началом согласуйте походный порядок и кто ведёт повозку (PDF 6). Когда отряд подходит к лошадям, используйте четыре скрывающихся гоблина: один общий бросок Скрытности +6 против пассивной Внимательности персонажей; гоблины сами не бывают застигнуты врасплох. В MapTool задайте инициативу; двое сближаются, двое стреляют с дистанции, а после потери трёх налётчиков последний уходит к тропе. Поражение не блокирует приключение: можно дойти до Фандалина и вернуться к зацепке позже. Это памятка мастеру по PDF 6–7, не автоматический бой или награда.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            6,
+            7
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "at",
+          "target": "ambush-site"
+        },
+        {
+          "relation": "participant",
+          "target": "goblin"
+        },
+        {
+          "relation": "thread",
+          "target": "delivery-thread"
+        }
+      ]
+    },
+    {
+      "id": "trail",
+      "kind": "scene",
+      "name": "По следам похитителей",
+      "summary": "После засады отряд может отыскать тропу к убежищу; провал или отказ идти по ней оставляет путь в Фандалин открытым.",
+      "preparation": "Если герои осматривают место боя, проверка Выживания со Сл 10 обнаруживает тропу. Примерно через 10 минут на ней — силок: пассивная Внимательность 12 или проверка Внимательности со Сл 12; провал обнаружения активирует силок, спасбросок Ловкости со Сл 10 удерживает от подвешивания. Пойманный висит в 10 футах и опутан; верёвку можно перерезать, причинив ей не менее 1 рубящего урона, а падение без страховки наносит 1к6 дробящего урона. Ещё примерно через 10 минут — яма: пассивная Внимательность 15 или проверка со Сл 15, затем спасбросок Ловкости со Сл 10; падение причиняет 1к6 дробящего урона. Подняться из ямы можно без проверки. Источник: PDF 7–8; не запускайте таймеры и проверки автоматически.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            7,
+            8
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "at",
+          "target": "ambush-site"
+        },
+        {
+          "relation": "thread",
+          "target": "rescue-thread"
+        }
+      ]
+    },
+    {
+      "id": "cave-entry",
+      "kind": "scene",
+      "name": "Вход и псарня",
+      "summary": "Разведка входа и взаимодействие с волками; бой не является единственным решением.",
+      "preparation": "Сверьте вход, ручей, мост и номера областей с планом PDF 9. Без тёмного зрения персонажам нужен источник света; дозорный на мосту расположен на высоте 20 футов. Подъём по скользкой стене требует Атлетики со Сл 15; мост имеет КД 5 и 10 хитов, при разрушении существа на нём спасаются Ловкостью со Сл 10 или падают на 2к6 дробящего урона и сбиваются с ног (PDF 10). Если дозорный замечает отряд, он предупреждает охрану в области 7 о потопе. Проверку скрытности/внимательности и инициативу проводите по сцене через MapTool; мост, вода и естественные уступы в runtime-плане пока не являются препятствиями или триггерами. Источник: PDF 8–10.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            8,
+            9,
+            10
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "at",
+          "target": "cragmaw-hideout"
+        },
+        {
+          "relation": "participant",
+          "target": "goblin"
+        },
+        {
+          "relation": "participant",
+          "target": "wolf"
+        },
+        {
+          "relation": "thread",
+          "target": "rescue-thread"
+        }
+      ]
+    },
+    {
+      "id": "prisoner",
+      "kind": "scene",
+      "name": "Переговоры о пленнике",
+      "summary": "Йемик удерживает Сильдара и предлагает сделку; результат определяет, какие сведения станут доступны.",
+      "preparation": "Сильдар связан на уступе и ослаблен до 1 хита. Если Йемик видит, что его сторона проигрывает, он использует пленника для торга: ему нужен путь к лидерству, и он предлагает убить Кларга. При согласии Йемик может потребовать выкуп и после выполнения сделки; при отказе он сбрасывает Сильдара с уступа, падение опускает его до 0 хитов — быстрая стабилизация может спасти его. После освобождения Сильдар сообщает связанные ниже факты и может сопровождать отряд в Фандалин. Сверьте последствия и проверки по PDF 10–11; выбор игроков и состояние Сильдара остаются решением мастера.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            10,
+            11
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "at",
+          "target": "cragmaw-hideout"
+        },
+        {
+          "relation": "participant",
+          "target": "yeemik"
+        },
+        {
+          "relation": "participant",
+          "target": "sildar"
+        },
+        {
+          "relation": "thread",
+          "target": "rescue-thread"
+        }
+      ]
+    },
+    {
+      "id": "klarg-cave",
+      "kind": "scene",
+      "name": "Логово Кларга",
+      "summary": "Лидер, его спутники и похищенный груз связывают пещеру с торговцами.",
+      "preparation": "Если гоблины успели предупредить Кларга, он и волк занимают укрытия; гоблины укрываются за припасами. Без предупреждения вход через расщелину даёт героям шанс застать защитников врасплох. Угли костровища наносят 1 урон огнём вошедшему в пространство и 1к6 существу, которое падает туда ничком; груды припасов дают половинное укрытие (PDF 12). Если волк погибает, Кларг пытается уйти по расщелине. В сундуке лежит перечисленная ниже добыча; за возвращение припасов Львиному Щиту источник обещает 50 зм и дружбу компании. Источник также задаёт 275 XP за очищение убежища; награды и последствия мастер применяет вручную, не через эту заметку.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            11,
+            12
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "at",
+          "target": "cragmaw-hideout"
+        },
+        {
+          "relation": "participant",
+          "target": "klarg"
+        },
+        {
+          "relation": "participant",
+          "target": "wolf"
+        },
+        {
+          "relation": "participant",
+          "target": "goblin"
+        },
+        {
+          "relation": "thread",
+          "target": "delivery-thread"
+        },
+        {
+          "relation": "refers-to-item",
+          "target": "klarg-treasure-cache"
+        },
+        {
+          "relation": "refers-to-item",
+          "target": "lionshield-stolen-goods"
+        }
+      ]
+    },
+    {
+      "id": "arrival",
+      "kind": "scene",
+      "name": "Сдача припасов",
+      "summary": "Доставка в лавку и проверка сведений о пропавшем нанимателе.",
+    "preparation": "После прибытия спросите, передаёт ли отряд припасы Бартену. Используйте разговор с Эльмаром, чтобы связать сдачу груза с поиском Гандрена; записи места, NPC и нити уже соединены. Любую награду или изменение отношений фиксируйте только по отдельному решению ведущего.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            14,
+            16
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "at",
+          "target": "barthen"
+        },
+        {
+          "relation": "participant",
+          "target": "elmar"
+        },
+        {
+          "relation": "thread",
+          "target": "delivery-thread"
+        }
+      ]
+    },
+    {
+      "id": "lionshield-return",
+      "kind": "scene",
+      "name": "Возврат похищенного груза",
+      "summary": "Отряд может доставить припасы Львиного Щита из убежища в магазин Линен и получить указанную источником награду.",
+      "preparation": "Если герои возвращают захваченные припасы в магазин, PDF 12 указывает награду 50 зм и дружбу Линен и её компании; описание магазина — PDF 16. Зафиксируйте передачу груза и выплату вручную. Предложение исхода ниже только помечает решение и не меняет монеты или отношения автоматически.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            12,
+            16
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "at",
+          "target": "lionshield"
+        },
+        {
+          "relation": "participant",
+          "target": "linene"
+        },
+        {
+          "relation": "refers-to-item",
+          "target": "lionshield-stolen-goods"
+        },
+        {
+          "relation": "thread",
+          "target": "delivery-thread"
+        }
+      ]
+    },
+    {
+      "id": "rumours",
+      "kind": "scene",
+      "name": "Разговоры на постоялом дворе",
+      "summary": "Отдых и выбор дальнейших зацепок, без автоматического открытия всех городских секретов.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            15
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "at",
+          "target": "stonehill"
+        },
+        {
+          "relation": "participant",
+          "target": "toblen"
+        },
+        {
+          "relation": "thread",
+          "target": "redbrand-thread"
+        }
+      ]
+    },
+    {
+      "id": "confrontation",
+      "kind": "scene",
+      "name": "Конфликт у Спящего Великана",
+      "summary": "Противостояние с городской бандой и возможность получить сведения о её логове.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            18,
+            19
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "at",
+          "target": "sleeping-giant"
+        },
+        {
+          "relation": "participant",
+          "target": "redbrand"
+        },
+        {
+          "relation": "thread",
+          "target": "redbrand-thread"
+        }
+      ]
+    },
+    {
+      "id": "tunnel",
+      "kind": "scene",
+      "name": "Узнать о скрытом входе",
+      "summary": "Разговор с семьёй Олдерлиф даёт альтернативный подход к подземелью.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            18
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "at",
+          "target": "alderleaf"
+        },
+        {
+          "relation": "participant",
+          "target": "qelline"
+        },
+        {
+          "relation": "participant",
+          "target": "carp"
+        },
+        {
+          "relation": "thread",
+          "target": "redbrand-thread"
+        }
+      ]
+    },
+    {
+      "id": "under-manor",
+      "kind": "scene",
+      "name": "Под поместьем",
+      "summary": "Переход к исследованию убежища: пленники, охрана, расселина и лидер. Подробная разметка комнат впереди.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "at",
+          "target": "redbrand-hideout"
+        },
+        {
+          "relation": "participant",
+          "target": "redbrand"
+        },
+        {
+          "relation": "participant",
+          "target": "nothic"
+        },
+        {
+          "relation": "participant",
+          "target": "skeleton"
+        },
+        {
+          "relation": "participant",
+          "target": "iarno"
+        },
+        {
+          "relation": "thread",
+          "target": "redbrand-thread"
+        }
+      ]
+    },
+    {
+      "id": "job",
+      "kind": "fact",
+      "name": "Условие доставки",
+      "summary": "Груз предназначен для лавки Бартена в Фандалине.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            6
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "thread",
+          "target": "delivery-thread"
+        },
+        {
+          "relation": "discover-in",
+          "target": "arrival"
+        }
+      ]
+    },
+    {
+      "id": "missing",
+      "kind": "fact",
+      "name": "Наниматель не прибыл",
+      "summary": "Отсутствие Гандрена можно выяснить в лавке, даже если отряд миновал пещеру.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            7
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "thread",
+          "target": "delivery-thread"
+        },
+        {
+          "relation": "discover-in",
+          "target": "arrival"
+        }
+      ]
+    },
+    {
+      "id": "drag-marks",
+      "kind": "fact",
+      "name": "Следы пленников",
+      "summary": "На тропе можно обнаружить признаки того, что от дороги волокли двух пленников.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            7
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "thread",
+          "target": "rescue-thread"
+        },
+        {
+          "relation": "discover-in",
+          "target": "trail"
+        }
+      ]
+    },
+    {
+      "id": "sildar-prison",
+      "kind": "fact",
+      "name": "Где удерживают Сильдара",
+      "summary": "Человеческий спутник дварфа находится в пещере для еды.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            8,
+            10
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "thread",
+          "target": "rescue-thread"
+        },
+        {
+          "relation": "discover-in",
+          "target": "prisoner"
+        }
+      ]
+    },
+    {
+      "id": "gundren-map",
+      "kind": "fact",
+      "name": "Дварф и карта отправлены дальше",
+      "summary": "Из пещеры Гандрена вместе с картой отправили к вождю Каменных Пастей.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            8,
+            11,
+            40
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "thread",
+          "target": "delivery-thread"
+        },
+        {
+          "relation": "discover-in",
+          "target": "prisoner"
+        },
+        {
+          "relation": "thread",
+          "target": "gundren-thread"
+        },
+        {
+          "relation": "refers-to-item",
+          "target": "gundren-wave-echo-map"
+        }
+      ]
+    },
+    {
+      "id": "mine",
+      "kind": "fact",
+      "name": "Открытие братьев",
+      "summary": "Братья Роксикеры нашли вход в потерянную Пещеру Морского Эха.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            3,
+            11
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "thread",
+          "target": "delivery-thread"
+        },
+        {
+          "relation": "discover-in",
+          "target": "prisoner"
+        }
+      ]
+    },
+    {
+      "id": "stolen-goods",
+      "kind": "fact",
+      "name": "Происхождение груза",
+      "summary": "Часть добычи в пещере принадлежит Львиным Щитам.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            12,
+            17
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "thread",
+          "target": "delivery-thread"
+        },
+        {
+          "relation": "discover-in",
+          "target": "klarg-cave"
+        }
+      ]
+    },
+    {
+      "id": "bandit-base",
+      "kind": "fact",
+      "name": "Главное логово банды",
+      "summary": "Красноклеймённые используют комплекс под поместьем.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            16,
+            18,
+            19
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "thread",
+          "target": "redbrand-thread"
+        },
+        {
+          "relation": "discover-in",
+          "target": "rumours"
+        }
+      ]
+    },
+    {
+      "id": "carp-tunnel",
+      "kind": "fact",
+      "name": "Знание Карпа",
+      "summary": "Карп знает скрытый туннель и может показать путь.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            18
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "thread",
+          "target": "redbrand-thread"
+        },
+        {
+          "relation": "discover-in",
+          "target": "tunnel"
+        }
+      ]
+    },
+    {
+      "id": "iarno-identity",
+      "kind": "fact",
+      "name": "Личность Стеклянного Посоха",
+      "summary": "Ярно Альбрек скрывается за именем лидера Красноклеймённых.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            25,
+            26
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "thread",
+          "target": "redbrand-thread"
+        },
+        {
+          "relation": "discover-in",
+          "target": "under-manor"
+        }
+      ]
+    },
+    {
+      "id": "prisoners",
+      "kind": "fact",
+      "name": "Пленники банды",
+      "summary": "В комплексе содержится семья Дендрар; сведения об исчезновении ведут к её поиску.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            15,
+            22
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "thread",
+          "target": "redbrand-thread"
+        },
+        {
+          "relation": "discover-in",
+          "target": "under-manor"
+        }
+      ]
+    },
+    {
+      "id": "spider-order",
+      "kind": "fact",
+      "name": "Связь с Чёрным Пауком",
+      "summary": "Приказ, найденный у лидера, связывает банду с более широкой угрозой.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            26
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "thread",
+          "target": "redbrand-thread"
+        },
+        {
+          "relation": "discover-in",
+          "target": "under-manor"
+        },
+        {
+          "relation": "thread",
+          "target": "spider-web-thread"
+        }
+      ]
+    },
+    {
+      "id": "hideout-plan",
+      "kind": "plan",
+      "name": "План убежища Каменных Пастей",
+      "summary": "Источник содержит нумерованный план восьми областей.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            9
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "depicts",
+          "target": "cragmaw-hideout"
+        }
+      ],
+      "preparation": "Источник визуально проверен: 1 клетка = 5 футов. Добавлена редакторская runtime-геометрия областей для навигации по плану; точные стены, поле видимости и движение токенов не заданы. Исходный растр не импортирован.",
+      "planGeometry": {
+        "source": "book",
+        "pdfPage": 9,
+        "calibration": {
+          "kind": "grid",
+          "feetPerCell": 5
+        },
+        "status": "source-scale-verified",
+        "runtimeMapImported": false,
+        "runtimeGeometry": {
+          "id": "phandelver-hideout-v1",
+          "status": "editorial-area-geometry",
+          "sourceArtworkImported": false
+        }
+      }
+    },
+    {
+      "id": "town-plan",
+      "kind": "plan",
+      "name": "План Фандалина",
+      "summary": "Поселение и подписанные места показаны на книжном плане.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            17
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "depicts",
+          "target": "phandalin"
+        }
+      ],
+      "preparation": "Источник визуально проверен: карта поселения имеет графический масштаб до 500 футов. Добавлена редакторская runtime-геометрия основных дорог и связанных объектов; исходный растр не импортирован.",
+      "planGeometry": {
+        "source": "book",
+        "pdfPage": 17,
+        "calibration": {
+          "kind": "scale-bar",
+          "feetMarks": [
+            0,
+            20,
+            50,
+            100,
+            200,
+            500
+          ]
+        },
+        "status": "source-scale-verified",
+        "runtimeMapImported": false,
+        "runtimeGeometry": {
+          "id": "phandelver-town-v1",
+          "status": "editorial-area-geometry",
+          "sourceArtworkImported": false
+        }
+      }
+    },
+    {
+      "id": "delivery-note",
+      "kind": "handout",
+      "name": "Памятка о доставке",
+      "summary": "Припасы нужно довезти из Невервинтера в лавку Бартена в Фандалине; распорядитель встречи — Гандрен Роксикер.",
+      "audience": "players",
+      "evidence": [
+        {
+          "source": "hb",
+          "pages": []
+        }
+      ],
+      "links": [
+        {
+          "relation": "route",
+          "target": "supply-route"
+        },
+        {
+          "relation": "fact",
+          "target": "job"
+        }
+      ]
+    },
+    {
+      "id": "town-leads",
+      "kind": "handout",
+      "name": "Лист полученных зацепок",
+      "summary": "Игроковый лист городских зацепок. Показывает только факты, которые мастер явно раскрыл игрокам.",
+      "audience": "players",
+      "evidence": [
+        {
+          "source": "hb",
+          "pages": []
+        }
+      ],
+      "links": [
+        {
+          "relation": "at",
+          "target": "phandalin"
+        },
+        {
+          "relation": "fact",
+          "target": "missing"
+        },
+        {
+          "relation": "fact",
+          "target": "bandit-base"
+        },
+        {
+          "relation": "fact",
+          "target": "carp-tunnel"
+        }
+      ]
+    },
+    {
+      "id": "delivery-resolution",
+      "kind": "proposal",
+      "name": "Отметить доставку",
+      "summary": "После фактической сдачи груза предложить мастеру отметить этап нити. Награда не начисляется автоматически.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "hb",
+          "pages": []
+        }
+      ],
+      "links": [
+        {
+          "relation": "after-scene",
+          "target": "arrival"
+        }
+      ],
+      "preparation": "Авторское предложение рабочего процесса, ещё не исполняемый WorldPatch."
+    },
+    {
+      "id": "lionshield-return-resolution",
+      "kind": "proposal",
+      "name": "Отметить возврат груза Львиному Щиту",
+      "summary": "После фактической передачи припасов предложить мастеру отметить этот исход; награда и отношения применяются отдельно вручную.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "hb",
+          "pages": []
+        }
+      ],
+      "links": [
+        {
+          "relation": "after-scene",
+          "target": "lionshield-return"
+        }
+      ],
+      "preparation": "Авторское предложение рабочего процесса, не книжное правило и не автоматическое изменение состояния мира."
+    },
+    {
+      "id": "rescue-resolution",
+      "kind": "proposal",
+      "name": "Отметить спасение",
+      "summary": "После решения сцены предложить обновить этап спасения. Сильдар не добавляется в партию автоматически.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "hb",
+          "pages": []
+        }
+      ],
+      "links": [
+        {
+          "relation": "after-scene",
+          "target": "prisoner"
+        }
+      ],
+      "preparation": "Авторское предложение рабочего процесса, ещё не исполняемый WorldPatch."
+    },
+    {
+      "id": "redbrand-resolution",
+      "kind": "proposal",
+      "name": "Отметить исход конфликта",
+      "summary": "Предложить отметить установленный мастером исход. Не выдумывать изменение цен, населения или влияния.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "hb",
+          "pages": []
+        }
+      ],
+      "links": [
+        {
+          "relation": "after-scene",
+          "target": "under-manor"
+        }
+      ],
+      "preparation": "Авторское предложение рабочего процесса, ещё не исполняемый WorldPatch."
+    },
+    {
+      "id": "conyberry",
+      "kind": "location",
+      "name": "Кроличья Ягода",
+      "summary": "Заброшенное поселение на Триборской тропе; отдельная редакторская точка на карте не задаёт координаты приключения.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            28
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "on",
+          "target": "triboar-trail"
+        }
+      ],
+      "aliases": [
+        "Conyberry"
+      ],
+      "mapRef": {
+        "mapId": "toril",
+        "key": "Conyberry",
+        "coords": [
+          8673,
+          2616
+        ],
+        "coordinateSpace": "source-pixel",
+        "source": "content/maps/toril-control.json",
+        "status": "editorial-control-point"
+      }
+    },
+    {
+      "id": "agathas-lair",
+      "kind": "location",
+      "name": "Логово Агаты",
+      "summary": "Лесное логово банши в окрестностях Кроличья Ягода; точное место на карте источником не закреплено.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            28
+          ]
+        }
+      ],
+      "links": [],
+      "aliases": [
+        "Agatha's Lair"
+      ]
+    },
+    {
+      "id": "old-owl-well",
+      "kind": "location",
+      "name": "Старый Колодец Старой Совы",
+      "summary": "Руины и лагерь, исследуемые Красным магом; положение не привязано к подтверждённой контрольной точке.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            29
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "contains",
+          "target": "hamun-healing-potion"
+        },
+        {
+          "relation": "contains",
+          "target": "hamun-darkness-scroll"
+        },
+        {
+          "relation": "contains",
+          "target": "hamun-protection-ring"
+        }
+      ],
+      "aliases": [
+        "Old Owl Well"
+      ]
+    },
+    {
+      "id": "thundertree",
+      "kind": "location",
+      "name": "Громодеревье",
+      "summary": "Заброшенное поселение с несколькими независимыми зацепками и опасностями; точка карты остаётся редакторской.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            29,
+            30,
+            31,
+            32,
+            33,
+            34
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "contains",
+          "target": "thundertree-healing-potion"
+        },
+        {
+          "relation": "contains",
+          "target": "venomfang-misty-step-scroll"
+        },
+        {
+          "relation": "contains",
+          "target": "venomfang-lightning-scroll"
+        },
+        {
+          "relation": "contains",
+          "target": "cleaver-battleaxe"
+        },
+        {
+          "relation": "contains",
+          "target": "mirna-necklace"
+        }
+      ],
+      "aliases": [
+        "Thundertree"
+      ],
+      "mapRef": {
+        "mapId": "toril",
+        "key": "Thundertree",
+        "coords": [
+          8584,
+          2605
+        ],
+        "coordinateSpace": "source-pixel",
+        "source": "content/maps/toril-control.json",
+        "status": "editorial-control-point"
+      }
+    },
+    {
+      "id": "wyvern-tor",
+      "kind": "location",
+      "name": "Вершина Виверны",
+      "summary": "Стоянка орочьей группы на скальном выступе; источник описывает её как отдельное ответвление поисков.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            34,
+            35
+          ]
+        }
+      ],
+      "links": [],
+      "aliases": [
+        "Wyvern Tor"
+      ]
+    },
+    {
+      "id": "cragmaw-castle",
+      "kind": "location",
+      "name": "Замок Каменной Пасти",
+      "summary": "Укреплённое логово банды, где пересекаются поиски Гандрена и охота на Чёрного Паука; геометрия карты источника не перенесена.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            35,
+            36,
+            37,
+            38,
+            39,
+            40
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "contains",
+          "target": "cragmaw-healing-potion"
+        },
+        {
+          "relation": "contains",
+          "target": "cragmaw-silence-scroll"
+        },
+        {
+          "relation": "contains",
+          "target": "cragmaw-revivify-scroll"
+        }
+      ],
+      "aliases": [
+        "Cragmaw Castle"
+      ]
+    },
+    {
+      "id": "wave-echo-cave",
+      "kind": "location",
+      "name": "Пещера Морского Эха",
+      "summary": "Заброшенная шахта с 20 ключевыми помещениями; точное положение в контрольном растре не установлено.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49
+          ]
+        }
+      ],
+      "links": [],
+      "aliases": [
+        "Wave Echo Cave"
+      ]
+    },
+    {
+      "id": "cave-room-01",
+      "kind": "location",
+      "name": "Вход в пещеру",
+      "summary": "Пороговый проход в шахту; связывает внешний подход с внутренними туннелями.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            43
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "within",
+          "target": "wave-echo-cave"
+        }
+      ]
+    },
+    {
+      "id": "cave-room-02",
+      "kind": "location",
+      "name": "Горные туннели",
+      "summary": "Сеть проходов с риском обрушения и скрытой ямой.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            43
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "within",
+          "target": "wave-echo-cave"
+        }
+      ]
+    },
+    {
+      "id": "cave-room-03",
+      "kind": "location",
+      "name": "Старый вход",
+      "summary": "Заброшенный естественный вход в шахтные выработки.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            43
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "within",
+          "target": "wave-echo-cave"
+        }
+      ]
+    },
+    {
+      "id": "cave-room-04",
+      "kind": "location",
+      "name": "Старое караульное помещение",
+      "summary": "Остатки поста, где присутствуют скелеты прежней охраны.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            43
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "within",
+          "target": "wave-echo-cave"
+        }
+      ]
+    },
+    {
+      "id": "cave-room-05",
+      "kind": "location",
+      "name": "Канцелярия оценщиков",
+      "summary": "Рабочее помещение с документами и следами горных исследований.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            43
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "within",
+          "target": "wave-echo-cave"
+        }
+      ]
+    },
+    {
+      "id": "cave-room-06",
+      "kind": "location",
+      "name": "Южные бараки",
+      "summary": "Бывшее жилое помещение горняков.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            44
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "within",
+          "target": "wave-echo-cave"
+        }
+      ]
+    },
+    {
+      "id": "cave-room-07",
+      "kind": "location",
+      "name": "Разрушенная кладовая",
+      "summary": "Повреждённое складское помещение со старым имуществом.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            44
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "within",
+          "target": "wave-echo-cave"
+        }
+      ]
+    },
+    {
+      "id": "cave-room-08",
+      "kind": "location",
+      "name": "Пещера с грибами",
+      "summary": "Заросшая грибами полость; часть грибов опасна при контакте.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            44
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "within",
+          "target": "wave-echo-cave"
+        }
+      ]
+    },
+    {
+      "id": "cave-room-09",
+      "kind": "location",
+      "name": "Огромная пещера",
+      "summary": "Обширный природный зал, связанный с внутренним маршрутом шахты.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            44
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "within",
+          "target": "wave-echo-cave"
+        }
+      ]
+    },
+    {
+      "id": "cave-room-10",
+      "kind": "location",
+      "name": "Тёмный омут",
+      "summary": "Подземный водоём и примыкающее пространство с отдельной опасностью.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            44,
+            45
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "within",
+          "target": "wave-echo-cave"
+        },
+        {
+          "relation": "contains",
+          "target": "cave-magic-missile-wand"
+        }
+      ]
+    },
+    {
+      "id": "cave-room-11",
+      "kind": "location",
+      "name": "Северные бараки",
+      "summary": "Жилой сектор шахты, отделённый от центральных залов.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            45
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "within",
+          "target": "wave-echo-cave"
+        }
+      ]
+    },
+    {
+      "id": "cave-room-12",
+      "kind": "location",
+      "name": "Пещера с плавильной печью",
+      "summary": "Выработки у старого литейного участка.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            45
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "within",
+          "target": "wave-echo-cave"
+        }
+      ]
+    },
+    {
+      "id": "cave-room-13",
+      "kind": "location",
+      "name": "Звёздная пещера",
+      "summary": "Зал с необычными кристаллами и характерным рисунком потолка.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            45
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "within",
+          "target": "wave-echo-cave"
+        }
+      ]
+    },
+    {
+      "id": "cave-room-14",
+      "kind": "location",
+      "name": "Покои магов",
+      "summary": "Кабинет и лабораторная зона прежнего мага шахты.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            45,
+            46
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "within",
+          "target": "wave-echo-cave"
+        },
+        {
+          "relation": "contains",
+          "target": "mormesk-next-dungeon-map"
+        }
+      ]
+    },
+    {
+      "id": "cave-room-15",
+      "kind": "location",
+      "name": "Кузница заклинаний",
+      "summary": "Магическая кузня, ради которой важные силы стремятся овладеть шахтой.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            46,
+            47
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "within",
+          "target": "wave-echo-cave"
+        },
+        {
+          "relation": "contains",
+          "target": "lightbringer"
+        },
+        {
+          "relation": "contains",
+          "target": "dragonguard"
+        }
+      ]
+    },
+    {
+      "id": "cave-room-16",
+      "kind": "location",
+      "name": "Рокочущая пещера",
+      "summary": "Большой зал с шумным потоком и несколькими переходами.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            47
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "within",
+          "target": "wave-echo-cave"
+        }
+      ]
+    },
+    {
+      "id": "cave-room-17",
+      "kind": "location",
+      "name": "Старое русло",
+      "summary": "Естественный коридор, сформированный прежним водным руслом.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            47
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "within",
+          "target": "wave-echo-cave"
+        }
+      ]
+    },
+    {
+      "id": "cave-room-18",
+      "kind": "location",
+      "name": "Обрушившаяся пещера",
+      "summary": "Заваленная часть выработок; проходы и обзор здесь ограничены.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            47,
+            48
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "within",
+          "target": "wave-echo-cave"
+        },
+        {
+          "relation": "contains",
+          "target": "gauntlets-ogre-power"
+        }
+      ]
+    },
+    {
+      "id": "cave-room-19",
+      "kind": "location",
+      "name": "Храм Думатоина",
+      "summary": "Подземное святилище, связанное с историей шахтёрского поселения.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            48
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "within",
+          "target": "wave-echo-cave"
+        }
+      ]
+    },
+    {
+      "id": "cave-room-20",
+      "kind": "location",
+      "name": "Жилище священника",
+      "summary": "Последнее ключевое помещение комплекса; здесь разворачивается финальное противостояние.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            48,
+            49
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "within",
+          "target": "wave-echo-cave"
+        }
+      ]
+    },
+    {
+      "id": "agatha",
+      "kind": "npc",
+      "name": "Агата",
+      "summary": "Банши, у которой герои могут получить ответ на заранее определённый вопрос; характер сделки и исход выбирает ведущий.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            28
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "associated-place",
+          "target": "agathas-lair"
+        }
+      ],
+      "preparation": "Сюжетная роль из источника; это не созданный Actor. Реплики, отношение и состояние не симулируются автоматически."
+    },
+    {
+      "id": "hamun-kost",
+      "kind": "npc",
+      "name": "Хаман Кост",
+      "summary": "Красный маг, занятый руинами и их прежними обитателями; мотивы не превращены в автоматический конфликт.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            29
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "associated-place",
+          "target": "old-owl-well"
+        }
+      ],
+      "preparation": "Сюжетная роль из источника; это не созданный Actor. Реплики, отношение и состояние не симулируются автоматически."
+    },
+    {
+      "id": "reidoth",
+      "kind": "npc",
+      "name": "Рейдот",
+      "summary": "Друид, исследующий Громодеревье и располагающий важной дорожной информацией.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            29,
+            30,
+            34
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "associated-place",
+          "target": "thundertree"
+        }
+      ],
+      "preparation": "Сюжетная роль из источника; это не созданный Actor. Реплики, отношение и состояние не симулируются автоматически."
+    },
+    {
+      "id": "venomfang",
+      "kind": "npc",
+      "name": "Веномфанг",
+      "summary": "Молодой зелёный дракон, обосновавшийся в руинах; его разговорная и боевая ветви остаются выбором ведущего.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            31,
+            32,
+            33
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "associated-place",
+          "target": "thundertree"
+        }
+      ],
+      "preparation": "Сюжетная роль из источника; это не созданный Actor. Реплики, отношение и состояние не симулируются автоматически."
+    },
+    {
+      "id": "brughor-axe-biter",
+      "kind": "npc",
+      "name": "Брагхор Топорогрыз",
+      "summary": "Предводитель орочьей группы у Вивернова Тора.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            34,
+            35
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "associated-place",
+          "target": "wyvern-tor"
+        }
+      ],
+      "preparation": "Сюжетная роль из источника; это не созданный Actor. Реплики, отношение и состояние не симулируются автоматически."
+    },
+    {
+      "id": "king-grol",
+      "kind": "npc",
+      "name": "Король Грол",
+      "summary": "Вожак Каменных Пастей в замке; его решение по пленнику остаётся сценовым состоянием.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            35,
+            39,
+            40
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "associated-place",
+          "target": "cragmaw-castle"
+        },
+        {
+          "relation": "associated-place",
+          "target": "cragmaw-grols-chamber"
+        }
+      ],
+      "preparation": "Сюжетная роль из источника; это не созданный Actor. Реплики, отношение и состояние не симулируются автоматически."
+    },
+    {
+      "id": "vyerith",
+      "kind": "npc",
+      "name": "Вайерит",
+      "summary": "Доппельгангер, действующий в замке под обликом дроу.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            39,
+            40
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "associated-place",
+          "target": "cragmaw-castle"
+        }
+      ],
+      "preparation": "Сюжетная роль из источника; это не созданный Actor. Реплики, отношение и состояние не симулируются автоматически."
+    },
+    {
+      "id": "nezznar",
+      "kind": "npc",
+      "name": "Неззнар Чёрный Паук",
+      "summary": "Дроу, который стремится овладеть Пещерой Морского Эха и кузней.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            47,
+            48
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "associated-place",
+          "target": "wave-echo-cave"
+        },
+        {
+          "relation": "associated-place",
+          "target": "cave-room-19"
+        },
+        {
+          "relation": "carries",
+          "target": "nezznar-healing-potion"
+        },
+        {
+          "relation": "carries",
+          "target": "spider-staff"
+        },
+        {
+          "relation": "carries",
+          "target": "nezznar-priest-quarters-key"
+        }
+      ],
+      "preparation": "Сюжетная роль из источника; это не созданный Actor. Реплики, отношение и состояние не симулируются автоматически."
+    },
+    {
+      "id": "nundro-rockseeker",
+      "kind": "npc",
+      "name": "Нандро Роксикер",
+      "summary": "Брат Гандрена, связанный с судьбой шахты и её финальной развязкой.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            41,
+            49
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "associated-place",
+          "target": "wave-echo-cave"
+        },
+        {
+          "relation": "associated-place",
+          "target": "cave-room-20"
+        }
+      ],
+      "preparation": "Сюжетная роль из источника; это не созданный Actor. Реплики, отношение и состояние не симулируются автоматически."
+    },
+    {
+      "id": "mormesk",
+      "kind": "npc",
+      "name": "Мормеск",
+      "summary": "Прежний маг шахты, оставшийся в покоях в виде нежити.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            45
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "associated-place",
+          "target": "cave-room-14"
+        }
+      ],
+      "preparation": "Сюжетная роль из источника; это не созданный Actor. Реплики, отношение и состояние не симулируются автоматически."
+    },
+    {
+      "id": "orc-warband",
+      "kind": "creature",
+      "name": "Орки у Вивернова Тора",
+      "summary": "Группа орков, упомянутая в сцене Вивернова Тора.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            34,
+            35,
+            60
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "encountered-at",
+          "target": "wyvern-tor"
+        }
+      ],
+      "preparation": "Приложение Б, PDF 34, 35, 60: AC/HP/скорость и набор особенностей вручную совпали с orc в dnd5e-2014@2026.10.31; ссылку применяем для каждого орка в группе. Это каталожный cross-reference, а не создание актёра или автоматический импорт характеристик.",
+      "engineBinding": {
+        "packageId": "dnd5e-2014",
+        "packageVersion": "2026.10.31",
+        "kind": "monster",
+        "id": "orc",
+        "application": "per-member",
+        "match": "manual-exact-srd-block"
+      }
+    },
+    {
+      "id": "young-green-dragon",
+      "kind": "creature",
+      "name": "Молодой зелёный дракон",
+      "summary": "Категория противника для сцены с Веномфангом; точный блок этого файла не содержит.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            31,
+            32,
+            33,
+            57,
+            58
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "encountered-at",
+          "target": "thundertree"
+        }
+      ],
+      "preparation": "Книжный статблок указан в приложении Б, PDF 57, 58; числовой runtime-профиль и соответствие пакету движка отдельно не приняты."
+    },
+    {
+      "id": "doppelganger-profile",
+      "kind": "creature",
+      "name": "Доппельгангер",
+      "summary": "Тип существа, которым в замке пользуется Вайерит.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            39,
+            40,
+            55
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "encountered-at",
+          "target": "cragmaw-castle"
+        }
+      ],
+      "preparation": "Приложение Б, PDF 55: книжный блок содержит «Перевёртыш» и чтение мыслей, но не содержит черт Ambusher и Surprise Attack из SRD. Точный runtime cross-reference не принят."
+    },
+    {
+      "id": "spectator",
+      "kind": "creature",
+      "name": "Наблюдатель",
+      "summary": "Страж кузни, упомянутый в ключевом помещении 15.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            46,
+            58,
+            59
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "encountered-at",
+          "target": "cave-room-15"
+        }
+      ],
+      "preparation": "Книжный статблок указан в приложении Б, PDF 58, 59; числовой runtime-профиль и соответствие пакету движка отдельно не приняты."
+    },
+    {
+      "id": "wraith",
+      "kind": "creature",
+      "name": "Призрак Мормеска",
+      "summary": "Нежить из покоев мага; кандидат профиля, числовой блок не включён.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            45,
+            60,
+            61
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "encountered-at",
+          "target": "cave-room-14"
+        }
+      ],
+      "preparation": "Книжный статблок указан в приложении Б, PDF 60, 61; числовой runtime-профиль и соответствие пакету движка отдельно не приняты."
+    },
+    {
+      "id": "trail-quests-thread",
+      "kind": "thread",
+      "name": "Ответвления Триборской тропы",
+      "summary": "Побочные зацепки Кроличья Ягода, Старого Колодца Совы, Громодеревье и Вивернова Тора; порядок и выбор этих сцен не предписаны.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            27,
+            28,
+            29,
+            34,
+            35
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "gundren-thread",
+      "kind": "thread",
+      "name": "Найти Гандрена и добраться до шахты",
+      "summary": "Поиск пленённого Гандрена ведёт к замку, карте шахты и экспедиции в Пещеру Морского Эха.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            35,
+            39,
+            41,
+            42
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "spider-web-thread",
+      "kind": "thread",
+      "name": "Раскрыть замысел Чёрного Паука",
+      "summary": "От ранней зацепки в Фандалине до противостояния в шахте; переходы между площадками не считаются автоматически завершёнными.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            27,
+            29,
+            35,
+            41,
+            46,
+            47,
+            48,
+            49
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "agatha-visit",
+      "kind": "scene",
+      "name": "Встреча с Агатой",
+      "summary": "Сцена переговоров у логова; требуемый предмет/вопрос и цена успеха разыгрываются ведущим.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            28
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "at",
+          "target": "agathas-lair"
+        },
+        {
+          "relation": "participant",
+          "target": "agatha"
+        },
+        {
+          "relation": "thread",
+          "target": "trail-quests-thread"
+        }
+      ]
+    },
+    {
+      "id": "hamun-investigation",
+      "kind": "scene",
+      "name": "Лагерь у Старого Колодца Совы",
+      "summary": "Исследование лагеря и древних руин; персонажи решают, помогать ли Хамуну Косту.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            29
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "at",
+          "target": "old-owl-well"
+        },
+        {
+          "relation": "participant",
+          "target": "hamun-kost"
+        },
+        {
+          "relation": "thread",
+          "target": "trail-quests-thread"
+        }
+      ]
+    },
+    {
+      "id": "thundertree-investigation",
+      "kind": "scene",
+      "name": "Исследование Громодеревье",
+      "summary": "Разветвлённая сцена с друидом, культистами и логовом дракона; карта местности не превращена в encounter-grid.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            29,
+            30,
+            31,
+            32,
+            33,
+            34
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "at",
+          "target": "thundertree"
+        },
+        {
+          "relation": "participant",
+          "target": "reidoth"
+        },
+        {
+          "relation": "participant",
+          "target": "venomfang"
+        },
+        {
+          "relation": "participant",
+          "target": "young-green-dragon"
+        },
+        {
+          "relation": "thread",
+          "target": "trail-quests-thread"
+        },
+        {
+          "relation": "thread",
+          "target": "spider-web-thread"
+        },
+        {
+          "relation": "participant",
+          "target": "favrik"
+        }
+      ]
+    },
+    {
+      "id": "wyvern-tor-raid",
+      "kind": "scene",
+      "name": "Лагерь орков у Вивернова Тора",
+      "summary": "Ответвление с орочьей группой; число и тактика противников не пересчитываются по этому описанию.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            34,
+            35
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "at",
+          "target": "wyvern-tor"
+        },
+        {
+          "relation": "participant",
+          "target": "brughor-axe-biter"
+        },
+        {
+          "relation": "participant",
+          "target": "orc-warband"
+        },
+        {
+          "relation": "thread",
+          "target": "trail-quests-thread"
+        }
+      ]
+    },
+    {
+      "id": "cragmaw-castle-assault",
+      "kind": "scene",
+      "name": "Замок Каменной Пасти",
+      "summary": "Разведка/проникновение и освобождение Гандрена; исход переговоров с обитателями не фиксируется как событие мира.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            35,
+            36,
+            37,
+            38,
+            39,
+            40
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "at",
+          "target": "cragmaw-castle"
+        },
+        {
+          "relation": "participant",
+          "target": "gundren"
+        },
+        {
+          "relation": "participant",
+          "target": "king-grol"
+        },
+        {
+          "relation": "participant",
+          "target": "vyerith"
+        },
+        {
+          "relation": "participant",
+          "target": "goblin"
+        },
+        {
+          "relation": "participant",
+          "target": "bugbear"
+        },
+        {
+          "relation": "thread",
+          "target": "gundren-thread"
+        },
+        {
+          "relation": "thread",
+          "target": "spider-web-thread"
+        },
+        {
+          "relation": "at",
+          "target": "cragmaw-grols-chamber"
+        }
+      ]
+    },
+    {
+      "id": "wave-echo-expedition",
+      "kind": "scene",
+      "name": "Вход в Пещеру Морского Эха",
+      "summary": "Начало исследования шахты по карте Гандрена; случайные встречи и ключевые залы остаются подсказками мастеру.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            41,
+            42,
+            43
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "at",
+          "target": "wave-echo-cave"
+        },
+        {
+          "relation": "participant",
+          "target": "nundro-rockseeker"
+        },
+        {
+          "relation": "thread",
+          "target": "gundren-thread"
+        },
+        {
+          "relation": "thread",
+          "target": "spider-web-thread"
+        }
+      ]
+    },
+    {
+      "id": "forge-confrontation",
+      "kind": "scene",
+      "name": "Противостояние у покоев короля",
+      "summary": "Финальная сцена с Чёрным Пауком в глубине шахты; состояние пленников, кузни и противников требует решения ведущего.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            46,
+            47,
+            48
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "participant",
+          "target": "nezznar"
+        },
+        {
+          "relation": "participant",
+          "target": "bugbear"
+        },
+        {
+          "relation": "thread",
+          "target": "spider-web-thread"
+        },
+        {
+          "relation": "at",
+          "target": "cave-room-19"
+        }
+      ]
+    },
+    {
+      "id": "mine-conclusion",
+      "kind": "scene",
+      "name": "Развязка Пещеры Морского Эха",
+      "summary": "Источник завершает приключение итогом освобождения шахты и возвращения к Фандалину; награды/мировые изменения здесь не исполняются.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            49
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "at",
+          "target": "wave-echo-cave"
+        },
+        {
+          "relation": "thread",
+          "target": "gundren-thread"
+        },
+        {
+          "relation": "thread",
+          "target": "spider-web-thread"
+        }
+      ]
+    },
+    {
+      "id": "castle-lead",
+      "kind": "fact",
+      "name": "Зацепка на замок Каменных Пастей",
+      "summary": "В главе 3 появляются пути узнать направление к замку; конкретный источник знания зависит от выбранной побочной сцены.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            28,
+            29,
+            34
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "thread",
+          "target": "gundren-thread"
+        },
+        {
+          "relation": "discover-in",
+          "target": "agatha-visit"
+        },
+        {
+          "relation": "discover-in",
+          "target": "thundertree-investigation"
+        }
+      ]
+    },
+    {
+      "id": "gundren-captive",
+      "kind": "fact",
+      "name": "Где удерживают Гандрена",
+      "summary": "Гандрен находится в замке; карта указывает дальнейший путь к шахте.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            39,
+            40
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "thread",
+          "target": "gundren-thread"
+        },
+        {
+          "relation": "discover-in",
+          "target": "cragmaw-castle-assault"
+        }
+      ]
+    },
+    {
+      "id": "mine-history",
+      "kind": "fact",
+      "name": "История шахты и её обрушения",
+      "summary": "Вступление к Пещере Морского Эха объясняет, почему рудник был потерян и почему его ищут разные стороны.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            41,
+            42
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "thread",
+          "target": "spider-web-thread"
+        },
+        {
+          "relation": "discover-in",
+          "target": "wave-echo-expedition"
+        }
+      ]
+    },
+    {
+      "id": "forge-purpose",
+      "kind": "fact",
+      "name": "Значение Кузни Заклинаний",
+      "summary": "Кузня — важная цель экспедиции и причина борьбы за шахту; её эффекты не переносились из отсутствующего приложения.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            46
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "thread",
+          "target": "spider-web-thread"
+        },
+        {
+          "relation": "discover-in",
+          "target": "forge-confrontation"
+        }
+      ]
+    },
+    {
+      "id": "nezznar-goal",
+      "kind": "fact",
+      "name": "Цель Чёрного Паука",
+      "summary": "Неззнар пытается подчинить себе шахту и её магическое наследие.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            47,
+            48
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "thread",
+          "target": "spider-web-thread"
+        },
+        {
+          "relation": "discover-in",
+          "target": "forge-confrontation"
+        }
+      ]
+    },
+    {
+      "id": "cragmaw-castle-plan",
+      "kind": "plan",
+      "name": "План замка Каменных Пастей",
+      "summary": "Страница-источник содержит план замка; это ссылка для ведущего, а не импортированная сетка.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            37
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "depicts",
+          "target": "cragmaw-castle"
+        }
+      ],
+      "preparation": "Исправлена пагинация: план замка расположен на PDF 37 (PDF 36 — текст). На плане указано 1 клетка = 5 футов. Добавлена редакторская runtime-геометрия областей для навигации; точные стены, поле видимости и движение токенов не заданы.",
+      "planGeometry": {
+        "source": "book",
+        "pdfPage": 37,
+        "calibration": {
+          "kind": "grid",
+          "feetPerCell": 5
+        },
+        "status": "source-scale-verified",
+        "runtimeMapImported": false,
+        "runtimeGeometry": {
+          "id": "phandelver-cragmaw-castle-v1",
+          "status": "editorial-area-geometry",
+          "sourceArtworkImported": false
+        }
+      }
+    },
+    {
+      "id": "wave-echo-cave-plan",
+      "kind": "plan",
+      "name": "План Пещеры Морского Эха",
+      "summary": "Страница-источник содержит план двадцати ключевых залов.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            42
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "depicts",
+          "target": "wave-echo-cave"
+        }
+      ],
+      "preparation": "Источник визуально проверен: на плане указано 1 клетка = 10 футов. Добавлена runtime-геометрия всех 20 ключевых областей; точные стены, поле видимости и движение токенов не заданы. Исходный растр не импортирован.",
+      "planGeometry": {
+        "source": "book",
+        "pdfPage": 42,
+        "calibration": {
+          "kind": "grid",
+          "feetPerCell": 10
+        },
+        "status": "source-scale-verified",
+        "runtimeMapImported": false,
+        "runtimeGeometry": {
+          "id": "phandelver-wave-echo-cave-v1",
+          "status": "editorial-area-geometry",
+          "sourceArtworkImported": false
+        }
+      }
+    },
+    {
+      "id": "favrik",
+      "kind": "npc",
+      "name": "Фаврик",
+      "summary": "Предводитель группы культистов в Громодеревье; носит зелье полёта.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            34
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "associated-place",
+          "target": "thundertree"
+        },
+        {
+          "relation": "carries",
+          "target": "favrik-potion-of-flying"
+        }
+      ]
+    },
+    {
+      "id": "tarden",
+      "kind": "npc",
+      "name": "Тарден",
+      "summary": "Погибший дварф, брат Гандрена; найден у входа в Пещеру Морского Эха.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            43
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "associated-place",
+          "target": "cave-room-01"
+        },
+        {
+          "relation": "carries",
+          "target": "tarden-boots"
+        }
+      ]
+    },
+    {
+      "id": "cragmaw-grols-chamber",
+      "kind": "location",
+      "name": "Покои короля Грола",
+      "summary": "Комната короля в Замке Каменной Пасти; под постелью находятся зелья лечения и карта шахты.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            40
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "within",
+          "target": "cragmaw-castle"
+        },
+        {
+          "relation": "contains",
+          "target": "grol-healing-potions"
+        },
+        {
+          "relation": "contains",
+          "target": "gundren-wave-echo-map"
+        }
+      ]
+    },
+    {
+      "id": "iarno-healing-potion",
+      "kind": "item",
+      "name": "Зелье лечения · тайник Ярно",
+      "summary": "Экземпляр в аварийном тайнике; при использовании восстанавливает 2к4+2 хита.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            20
+          ]
+        },
+        {
+          "source": "book",
+          "pages": [
+            50
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "iarno-invisibility-potion",
+      "kind": "item",
+      "name": "Зелье невидимости · тайник Ярно",
+      "summary": "Экземпляр в аварийном тайнике; эффект невидимости прекращается при атаке или наложении заклинания.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            20
+          ]
+        },
+        {
+          "source": "book",
+          "pages": [
+            50
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "iarno-charm-person-scroll",
+      "kind": "item",
+      "name": "Свиток «Очарование личности»",
+      "summary": "Свиток заклинания в сундуке покоев Ярно.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            26
+          ]
+        },
+        {
+          "source": "book",
+          "pages": [
+            51
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "iarno-fireball-scroll",
+      "kind": "item",
+      "name": "Свиток «Огненный шар»",
+      "summary": "Свиток заклинания в сундуке покоев Ярно.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            26
+          ]
+        },
+        {
+          "source": "book",
+          "pages": [
+            51
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "iarno-staff-of-defense",
+      "kind": "item",
+      "name": "Посох защиты Ярно",
+      "summary": "Ярно носит посох; он даёт +1 к КД и позволяет тратить заряды на «Доспехи мага» или «Щит».",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            26
+          ]
+        },
+        {
+          "source": "book",
+          "pages": [
+            51
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "hamun-healing-potion",
+      "kind": "item",
+      "name": "Зелье лечения · лагерь Хамана",
+      "summary": "Экземпляр в сумке с сокровищами лагеря у Колодца Старой Совы; восстанавливает 2к4+2 хита.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            29
+          ]
+        },
+        {
+          "source": "book",
+          "pages": [
+            50
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "hamun-darkness-scroll",
+      "kind": "item",
+      "name": "Свиток «Тьма»",
+      "summary": "Свиток заклинания в сумке с сокровищами лагеря Хамана Коста.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            29
+          ]
+        },
+        {
+          "source": "book",
+          "pages": [
+            51
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "hamun-protection-ring",
+      "kind": "item",
+      "name": "Кольцо защиты",
+      "summary": "Кольцо в коробочке с сокровищами; даёт +1 к КД и спасброскам при настройке.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            29
+          ]
+        },
+        {
+          "source": "book",
+          "pages": [
+            50
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "thundertree-healing-potion",
+      "kind": "item",
+      "name": "Зелье лечения · кокон искателя",
+      "summary": "Найдено при обыске тела в паучьем коконе в Громодеревье; восстанавливает 2к4+2 хита.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            32
+          ]
+        },
+        {
+          "source": "book",
+          "pages": [
+            50
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "venomfang-misty-step-scroll",
+      "kind": "item",
+      "name": "Свиток «Туманный шаг»",
+      "summary": "Свиток в сундуке старой башни, среди сокровищ погибшего волшебника.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            32
+          ]
+        },
+        {
+          "source": "book",
+          "pages": [
+            51
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "venomfang-lightning-scroll",
+      "kind": "item",
+      "name": "Свиток «Молния»",
+      "summary": "Свиток в сундуке старой башни, среди сокровищ погибшего волшебника.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            32
+          ]
+        },
+        {
+          "source": "book",
+          "pages": [
+            51
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "cleaver-battleaxe",
+      "kind": "item",
+      "name": "Рассекатель",
+      "summary": "Дварфский боевой топор +1; наносит максимальный урон растениям и деревянным предметам, а в лесу его носитель чувствует тревогу.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            32
+          ]
+        },
+        {
+          "source": "book",
+          "pages": [
+            50
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "mirna-necklace",
+      "kind": "item",
+      "name": "Золотое ожерелье Мирны",
+      "summary": "Ожерелье с изумрудным кулоном; награда за возвращение Мирне из Громодеревья.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            33
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "thread",
+          "target": "trail-quests-thread"
+        },
+        {
+          "relation": "requested-by",
+          "target": "mirna"
+        }
+      ]
+    },
+    {
+      "id": "favrik-potion-of-flying",
+      "kind": "item",
+      "name": "Зелье полёта Фаврика",
+      "summary": "Фаврик носит зелье полёта в закупоренном флаконе.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            34
+          ]
+        },
+        {
+          "source": "book",
+          "pages": [
+            50
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "grol-healing-potions",
+      "kind": "item",
+      "name": "Три зелья лечения · покои Грола",
+      "summary": "Три экземпляра в кожаном мешке под тюфяком короля Грола; каждое восстанавливает 2к4+2 хита.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            40
+          ]
+        },
+        {
+          "source": "book",
+          "pages": [
+            50
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "gundren-wave-echo-map",
+      "kind": "item",
+      "name": "Карта Пещеры Морского Эха Гандрена",
+      "summary": "Физическая карта шахты, спрятанная под тюфяком в покоях Грола.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            40
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "thread",
+          "target": "gundren-thread"
+        }
+      ]
+    },
+    {
+      "id": "cragmaw-healing-potion",
+      "kind": "item",
+      "name": "Зелье лечения · сундук замка",
+      "summary": "Экземпляр в сундуке на втором этаже башни Замка Каменной Пасти; восстанавливает 2к4+2 хита.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            39
+          ]
+        },
+        {
+          "source": "book",
+          "pages": [
+            50
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "klarg-treasure-cache",
+      "kind": "item",
+      "name": "Сундук сокровищ Кларга",
+      "summary": "Найден в припасах логова: 600 мм, 110 см, два зелья лечения и нефритовая статуэтка лягушки стоимостью 40 зм.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            12,
+            50
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "thread",
+          "target": "delivery-thread"
+        }
+      ]
+    },
+    {
+      "id": "lionshield-stolen-goods",
+      "kind": "item",
+      "name": "Похищенные припасы Львиного Щита",
+      "summary": "Часть провизии в логове помечена синим львом; её можно вернуть в магазин Львиного Щита. Источник называет награду 50 зм и дружбу компании.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            12,
+            16
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "thread",
+          "target": "delivery-thread"
+        }
+      ]
+    },
+    {
+      "id": "cragmaw-silence-scroll",
+      "kind": "item",
+      "name": "Свиток «Тишина»",
+      "summary": "Свиток заклинания в сундуке на втором этаже башни Замка Каменной Пасти.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            39
+          ]
+        },
+        {
+          "source": "book",
+          "pages": [
+            51
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "cragmaw-revivify-scroll",
+      "kind": "item",
+      "name": "Свиток «Возрождение»",
+      "summary": "Свиток заклинания в сундуке на втором этаже башни Замка Каменной Пасти.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            39
+          ]
+        },
+        {
+          "source": "book",
+          "pages": [
+            51
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "tarden-boots",
+      "kind": "item",
+      "name": "Сапоги ходьбы и прыжков Тардена",
+      "summary": "Сапоги погибшего дварфа; задают скорость не ниже 30 футов и усиливают дальность прыжка.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            43
+          ]
+        },
+        {
+          "source": "book",
+          "pages": [
+            51
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "cave-magic-missile-wand",
+      "kind": "item",
+      "name": "Палочка волшебных стрел · зал 10",
+      "summary": "Сокровище в зале «Тёмный омут»; палочка имеет 7 зарядов и запускает заклинание «Волшебная стрела».",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            45
+          ]
+        },
+        {
+          "source": "book",
+          "pages": [
+            51
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "cave-vitality-potion",
+      "kind": "item",
+      "name": "Зелье жизненной силы",
+      "summary": "Носит с собой самый крупный медвежатник в северных бараках.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            45
+          ]
+        },
+        {
+          "source": "book",
+          "pages": [
+            50
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "mormesk-next-dungeon-map",
+      "kind": "item",
+      "name": "Карта следующего подземелья Мормеска",
+      "summary": "Карта в одной из книг призрака; конкретное подземелье создаёт мастер, поэтому это зацепка, а не готовое место мира.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            46
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "lightbringer",
+      "kind": "item",
+      "name": "Светоносная",
+      "summary": "Булава +1; по желанию владельца светится и причиняет нежити дополнительный урон излучением.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            47
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "dragonguard",
+      "kind": "item",
+      "name": "Драконий Страж",
+      "summary": "Нагрудник +1; владелец совершает с преимуществом спасброски против оружия дыхания драконов.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            47
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "gauntlets-ogre-power",
+      "kind": "item",
+      "name": "Рукавицы силы огра",
+      "summary": "Спрятаны под завалами в обрушившейся пещере; задают Силу владельца равной 19.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            47
+          ]
+        },
+        {
+          "source": "book",
+          "pages": [
+            51
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "nezznar-healing-potion",
+      "kind": "item",
+      "name": "Зелье лечения Неззнара",
+      "summary": "Неззнар носит с собой зелье лечения; оно восстанавливает 2к4+2 хита.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            48
+          ]
+        },
+        {
+          "source": "book",
+          "pages": [
+            50
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "spider-staff",
+      "kind": "item",
+      "name": "Посох паука Неззнара",
+      "summary": "Неззнар носит посох паука; он служит магическим оружием и позволяет тратить заряды на «Паук» или «Паутина».",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            48
+          ]
+        },
+        {
+          "source": "book",
+          "pages": [
+            51
+          ]
+        }
+      ],
+      "links": []
+    },
+    {
+      "id": "nezznar-priest-quarters-key",
+      "kind": "item",
+      "name": "Железный ключ Неззнара",
+      "summary": "Ключ в форме наковальни из области 19; открывает дверь в Жилище священника (область 20).",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            48
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "unlocks",
+          "target": "cave-room-20"
+        }
+      ]
+    },
+    {
+      "id": "mirna",
+      "kind": "npc",
+      "name": "Мирна",
+      "summary": "Жительница Фандалина; просит вернуть семейное ожерелье, найденное в Громодеревье.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            17,
+            33
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "associated-place",
+          "target": "phandalin"
+        }
+      ]
+    },
+    {
+      "id": "mirna-necklace-return",
+      "kind": "scene",
+      "name": "Возврат ожерелья Мирне",
+      "summary": "Если персонажи принесут ожерелье из Громодеревья в Фандалин, Мирна вознаградит их опытом; получение опыта остаётся книжным исходом, не применённой игровой транзакцией.",
+      "audience": "dm",
+      "evidence": [
+        {
+          "source": "book",
+          "pages": [
+            17,
+            33
+          ]
+        }
+      ],
+      "links": [
+        {
+          "relation": "at",
+          "target": "phandalin"
+        },
+        {
+          "relation": "participant",
+          "target": "mirna"
+        },
+        {
+          "relation": "thread",
+          "target": "trail-quests-thread"
+        },
+        {
+          "relation": "refers-to-item",
+          "target": "mirna-necklace"
+        }
+      ]
+    }
+  ]
+}

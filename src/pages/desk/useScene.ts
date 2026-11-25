@@ -1,11 +1,12 @@
 // Сцена места для вкладки «Сейчас» (Д2, ROADMAP 6.2): справочник места (вики, хронология, поход A5E) грузится куском
 // только мастеру; до загрузки сцена уже есть — из состояния кампании (календарь, рынок, округа, нити).
 import { useEffect, useMemo, useState } from 'react';
-import { harptos, sceneOf, type Scene, type SceneAt, type SceneCanon, type Tension } from '../../campaign';
+import { calendarAdapterForState, sceneOf, type Scene, type SceneAt, type SceneCanon, type Tension } from '../../campaign';
 import type { State } from '../../engine/state';
 import { parseRef } from '../../entities';
 import { loadSceneCanon } from '../../world/sceneCanon';
 import { useWikiPlace } from '../../world/useWikiPlace';
+import { DEFAULT_SETTING_PACKAGE } from '../../packages/registry';
 
 const NO_LOCATION = { name: '' };
 
@@ -15,11 +16,12 @@ export function useScene(state: State, at: SceneAt | null, sec: number, dm: bool
   // Место кампании без ссылки на справочник — по имени, как обзор места.
   const wiki = useWikiPlace(location ?? NO_LOCATION, dm && !!location);
   const placeId = at?.place ?? (wiki ? parseRef(wiki)?.id : undefined);
-  const year = harptos(sec).year;
-  const key = placeId ? `${placeId}|${year}` : '';
+  const settingPackageId = state.settingPackageId ?? DEFAULT_SETTING_PACKAGE;
+  const year = settingPackageId === DEFAULT_SETTING_PACKAGE ? calendarAdapterForState(state).yearAt(sec) : null;
+  const key = placeId && year !== null ? `${placeId}|${year}` : '';
   const [canon, setCanon] = useState<{ key: string; canon: SceneCanon } | null>(null);
   useEffect(() => {
-    if (!dm || !key) return;
+    if (!dm || !key || year === null) return;
     let live = true;
     void loadSceneCanon(placeId!, year).then(c => { if (live) setCanon({ key, canon: c }); });
     return () => { live = false; };

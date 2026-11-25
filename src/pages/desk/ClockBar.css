@@ -1,0 +1,118 @@
+/* Compact world clock: time controls live in a modal; only a small readout and table actions stay on the desk. */
+.desk-clockbar.desk-clockbar-compact {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-2, 8px);
+  padding: var(--spacing-2, 8px);
+}
+
+.desk-clockbar.desk-clockbar-compact .desk-clockbar-summary {
+  flex: 1 1 auto;
+  flex-wrap: nowrap;
+  gap: var(--spacing-2, 8px);
+}
+
+.desk-time-trigger {
+  width: 68px;
+  height: 68px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  background: var(--cd);
+  box-shadow: var(--bevel);
+}
+
+.desk-clockbar.desk-clockbar-compact .desk-clockbar-quick-actions {
+  flex: 0 1 auto;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--spacing-1, 4px);
+}
+
+.desk-clockbar.desk-clockbar-compact .desk-clockbar-quick-actions > [aria-label="Темп времени"] {
+  display: none;
+}
+
+.desk-time-dialog { box-sizing: border-box; }
+.desk-time-dialog > section[aria-label="Календарь Харптоса"] { min-width: 0; }
+.desk-time-dialog .desk-time-controls > [aria-label="Темп времени"] { flex-wrap: wrap; min-width: 0; }
+.desk-time-dialog [data-part="tempos"] { flex-wrap: wrap; }
+
+@media (max-width: 700px) {
+  .desk-clockbar.desk-clockbar-compact { align-items: flex-start; }
+  .desk-clockbar.desk-clockbar-compact .desk-clockbar-summary { flex: 1 1 auto; min-width: 0; }
+  .desk-clockbar.desk-clockbar-compact .desk-clockbar-summary > time { display: none; }
+  .desk-clockbar.desk-clockbar-compact .desk-clockbar-summary > [role="group"] { display: none; }
+  .desk-clockbar.desk-clockbar-compact .desk-clockbar-quick-actions { justify-content: flex-start; }
+
+  /* The full month/year calendar and the instrument must fit inside the phone dialog. */
+  .desk-time-dialog-context { flex-direction: column; align-items: flex-start; min-width: 0; }
+  .desk-time-dialog-context > * { min-width: 0; max-width: 100%; white-space: normal; }
+  .desk-time-dialog-context > div { flex-wrap: wrap; white-space: normal; }
+  .desk-time-dialog-context [data-part="next"] { flex: 1 1 auto; min-width: 0; white-space: normal; }
+  .desk-time-dialog-context > [data-part="weather"] { flex: 1 1 auto; }
+  .desk-time-dialog [data-part="month"] > div:first-child { flex-wrap: wrap; min-width: 0; }
+  .desk-time-dialog [data-part="month"] > div:first-child > [role="group"] {
+    flex-wrap: wrap;
+    margin-left: 0;
+    max-width: 100%;
+  }
+  .desk-time-dialog [aria-label="Календарь Харптоса"] > div:first-child {
+    flex-wrap: wrap;
+    height: auto;
+    min-height: 28px;
+    white-space: normal;
+  }
+  .desk-time-dialog [data-part="month"] table td {
+    width: 18px;
+    min-width: 18px;
+    max-width: 18px;
+    height: 28px;
+    padding-inline: 0;
+  }
+  .desk-time-dialog [data-part="year"] { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .desk-time-dialog .desk-astrolabe-layout,
+  .desk-time-dialog .desk-astrolabe-instrument { width: 100%; max-width: 100%; min-width: 0; }
+  .desk-time-dialog .desk-astrolabe-instrument [data-part="astrolabe"] {
+    width: 100% !important;
+    max-width: 100%;
+    min-width: 0;
+  }
+  .desk-time-dialog .desk-astrolabe-instrument [data-part="astrolabe"] > div:not([data-part="live"]) {
+    width: 100% !important;
+    max-width: 100%;
+  }
+  .desk-time-dialog .desk-astrolabe-instrument [data-part="astrolabe"] > div:first-child {
+    height: auto !important;
+    aspect-ratio: 1;
+    overflow: hidden;
+  }
+  .desk-time-dialog .desk-astrolabe-instrument [data-part="astrolabe"] svg {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+  }
+  .desk-time-dialog .desk-astrolabe-controls { flex: 1 1 100%; width: 100%; min-width: 0; }
+}
+
+/* A real footer slot reserves space: the clock never floats over cards, map or initiative. */
+.desk-world-clock-dock {
+  display: flex;
+  flex: none;
+  justify-content: flex-end;
+  padding: var(--spacing-2, 8px);
+}
+.desk-world-clock-dock[hidden] { display: none; }
+
+/* Reclaim a little vertical room at browser zoom and on short laptop windows. */
+@media (max-height: 700px) and (min-width: 701px) {
+  .desk-clockbar.desk-clockbar-compact { gap: 4px; padding-block: 4px; }
+  .desk-clock-context, .desk-clock-actions { gap: 4px; }
+  .desk-time-trigger { width: 56px; height: 56px; }
+  .desk-world-clock-dock { padding-block: 2px; }
+}

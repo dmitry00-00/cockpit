@@ -1,0 +1,2182 @@
+{
+  "format": "cockpit.entity-layer/1",
+  "kind": "person",
+  "entities": [
+    {
+      "ref": "person:aeron-greyjoy",
+      "kind": "person",
+      "name": "Aeron Greyjoy",
+      "nameRu": "Аэрон Грейджой",
+      "subtitle": "A Feast for Crows · The Prophet (Chapter 1)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Feast for Crows, The Prophet (Chapter 1); A Wiki of Ice and Fire (AWOIAF) numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Feast_for_Crows-Chapter_1",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "affc",
+        "chapterNo": 1
+      },
+      "facts": [
+        {
+          "label": "Локаторы",
+          "value": "A Feast for Crows, The Prophet (Chapter 1)"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "appears"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным русским изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный индекс AWOIAF; первичный текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Жрец островов и религиозный авторитет, вовлечённый в спор о преемнике Балона."
+        }
+      ],
+      "links": [
+        {
+          "label": "Balon Greyjoy",
+          "ref": "person:balon-greyjoy"
+        },
+        {
+          "label": "House Greyjoy",
+          "ref": "organization:house-greyjoy"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Feast for Crows, The Prophet (Chapter 1)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Feast_for_Crows-Chapter_1",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "affc",
+          "chapterNo": 1
+        }
+      ]
+    },
+    {
+      "ref": "person:areo-hotah",
+      "kind": "person",
+      "name": "Areo Hotah",
+      "nameRu": "Арео Хотах",
+      "subtitle": "A Feast for Crows · The Captain of Guards (Chapter 2)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Feast for Crows, The Captain of Guards (Chapter 2); A Wiki of Ice and Fire (AWOIAF) numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Feast_for_Crows-Chapter_2",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "affc",
+        "chapterNo": 2
+      },
+      "facts": [
+        {
+          "label": "Локаторы",
+          "value": "A Feast for Crows, The Captain of Guards (Chapter 2)"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "appears"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным русским изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный индекс AWOIAF; первичный текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Капитан дворцовой охраны Дорна; через его наблюдения раскрываются решения двора и угроза заговора."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Martell",
+          "ref": "organization:house-martell"
+        },
+        {
+          "label": "Myrcella Baratheon",
+          "ref": "person:myrcella-baratheon"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Feast for Crows, The Captain of Guards (Chapter 2)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Feast_for_Crows-Chapter_2",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "affc",
+          "chapterNo": 2
+        }
+      ]
+    },
+    {
+      "ref": "person:arianne-martell",
+      "kind": "person",
+      "name": "Arianne Martell",
+      "nameRu": "Арианна Мартелл",
+      "subtitle": "A Feast for Crows · The Queenmaker (Chapter 21)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Feast for Crows, The Queenmaker (Chapter 21); A Wiki of Ice and Fire (AWOIAF) numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Feast_for_Crows-Chapter_21",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "affc",
+        "chapterNo": 21
+      },
+      "facts": [
+        {
+          "label": "Локаторы",
+          "value": "A Feast for Crows, The Queenmaker (Chapter 21)"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "appears"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным русским изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный индекс AWOIAF; первичный текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Организует попытку провозгласить Мирцеллу королевой; план и его дальнейший исход следует различать."
+        }
+      ],
+      "links": [
+        {
+          "label": "Myrcella Baratheon",
+          "ref": "person:myrcella-baratheon"
+        },
+        {
+          "label": "House Martell",
+          "ref": "organization:house-martell"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Feast for Crows, The Queenmaker (Chapter 21)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Feast_for_Crows-Chapter_21",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "affc",
+          "chapterNo": 21
+        }
+      ]
+    },
+    {
+      "ref": "person:asha-greyjoy",
+      "kind": "person",
+      "name": "Asha Greyjoy",
+      "nameRu": "Аша Грейджой",
+      "subtitle": "Ключевой указатель · 2 романа",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Wiki of Ice and Fire (AWOIAF): вторичные указатели глав; первичная сверка по изданию ожидается.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Dance_with_Dragons-Chapter_62",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "adwd",
+        "chapterNo": 62
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Русское имя",
+          "value": "Рабочая передача для передачи в пакет; сверить с выбранным изданием владельца."
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "appears"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным русским изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный индекс AWOIAF; первичный текст выбранного издания не сверялся"
+        },
+        {
+          "label": "Локаторы по книгам и главам",
+          "value": "A Clash of Kings · Theon II (гл. 24); A Feast for Crows · The Kraken’s Daughter (гл. 11); A Dance with Dragons · The Wayward Bride (гл. 26); A Dance with Dragons · The King’s Prize (гл. 42); A Dance with Dragons · The Sacrifice (гл. 62)"
+        }
+      ],
+      "sections": [
+        {
+          "title": "A Clash of Kings · A Clash of Kings · Theon II — Опорный срез",
+          "text": "Аша встречает Теона на Пайке под именем Эсгред, а затем раскрывает себя. Балон распределяет между детьми военные задачи для похода на Север."
+        },
+        {
+          "title": "A Feast for Crows · A Feast for Crows · The Kraken’s Daughter (Chapter 11) — Опорный срез",
+          "text": "Претендует на власть после смерти отца и собирает поддержку среди островных капитанов."
+        }
+      ],
+      "links": [
+        {
+          "label": "Theon Greyjoy",
+          "ref": "person:theon-greyjoy"
+        },
+        {
+          "label": "Balon Greyjoy",
+          "ref": "person:balon-greyjoy"
+        },
+        {
+          "label": "House Greyjoy",
+          "ref": "organization:house-greyjoy"
+        },
+        {
+          "label": "Pyke",
+          "ref": "place:pyke"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings · Theon II (гл. 24)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_24",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 24
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Feast for Crows · The Kraken’s Daughter (гл. 11)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Feast_for_Crows-Chapter_11",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "affc",
+          "chapterNo": 11
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Dance with Dragons · The Wayward Bride (гл. 26)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Dance_with_Dragons-Chapter_26",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "adwd",
+          "chapterNo": 26
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Dance with Dragons · The King’s Prize (гл. 42)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Dance_with_Dragons-Chapter_42",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "adwd",
+          "chapterNo": 42
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Dance with Dragons · The Sacrifice (гл. 62)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Dance_with_Dragons-Chapter_62",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "adwd",
+          "chapterNo": 62
+        }
+      ]
+    },
+    {
+      "ref": "person:brienne-of-tarth",
+      "kind": "person",
+      "name": "Brienne of Tarth",
+      "nameRu": "Бриенна Тарт",
+      "subtitle": "Ключевой указатель · 3 романа",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Wiki of Ice and Fire (AWOIAF): вторичные указатели глав; первичная сверка по изданию ожидается.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Feast_for_Crows-Chapter_4",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "affc",
+        "chapterNo": 4
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Русское имя",
+          "value": "Рабочая передача для передачи в пакет; сверить с выбранным изданием владельца."
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Роль в сцене",
+          "value": "сопровождает Джейме из Риверрана и продолжает путь после перехвата галерой"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; сверка по выбранному изданию и русскому переводу не проведена"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "appears"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным русским изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный индекс AWOIAF; первичный текст выбранного издания не сверялся"
+        },
+        {
+          "label": "Локаторы по книгам и главам",
+          "value": "A Clash of Kings · Catelyn II (гл. 22); A Storm of Swords · Jaime I (гл. 1); A Feast for Crows · Brienne I (гл. 4)"
+        }
+      ],
+      "sections": [
+        {
+          "title": "A Clash of Kings · A Clash of Kings · Catelyn II — Опорный срез",
+          "text": "На турнире в Биттербридже Бриенна просит принять её в стражу Ренли. Позднее её назначают в Радужную гвардию."
+        },
+        {
+          "title": "A Storm of Swords · A Storm of Swords · Jaime I (Chapter 1) — Опорный срез",
+          "text": "Сопровождает Джейме и настаивает на выполнении данного Кейтилин слова."
+        },
+        {
+          "title": "A Feast for Crows · A Feast for Crows · Brienne I (Chapter 4) — Опорный срез",
+          "text": "Ищет Сансу по поручению Джейме; её путь связывает персонажей и поселения после войны."
+        }
+      ],
+      "links": [
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Renly Baratheon",
+          "ref": "person:renly-baratheon"
+        },
+        {
+          "label": "Storms End",
+          "ref": "place:storms-end"
+        },
+        {
+          "label": "Renly Killed At Storms End",
+          "ref": "event:renly-killed-at-storms-end"
+        },
+        {
+          "label": "Jaime Lannister",
+          "ref": "person:jaime-lannister"
+        },
+        {
+          "label": "Cleos Frey",
+          "ref": "person:cleos-frey"
+        },
+        {
+          "label": "Riverrun",
+          "ref": "place:riverrun"
+        },
+        {
+          "label": "Sansa Stark",
+          "ref": "person:sansa-stark"
+        },
+        {
+          "label": "House Tarth",
+          "ref": "organization:house-tarth"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings · Catelyn II (гл. 22)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_22",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 22
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Storm of Swords · Jaime I (гл. 1)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_1",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "asos",
+          "chapterNo": 1
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Feast for Crows · Brienne I (гл. 4)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Feast_for_Crows-Chapter_4",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "affc",
+          "chapterNo": 4
+        }
+      ]
+    },
+    {
+      "ref": "person:daario-naharis",
+      "kind": "person",
+      "name": "Daario Naharis",
+      "nameRu": "Даарио Нахарис",
+      "subtitle": "A Storm of Swords · Daenerys IV (Chapter 42)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Daenerys IV (Chapter 42); later action in Daenerys V (Chapter 57); A Wiki of Ice and Fire (AWOIAF) secondary chapter index; primary-edition verification pending",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_42",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 42
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "A Storm of Swords · Daenerys IV (Chapter 42)"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Роль в сцене",
+          "value": "капитан Штормовых Воронов, участник переговоров у Юнкая"
+        },
+        {
+          "label": "Позднее действие",
+          "value": "в Daenerys V (Chapter 57) его отряд переходит на сторону Дейенерис"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; сверка по выбранному изданию и русскому переводу не проведена"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Капитан наёмного отряда; переговоры и последующий бой следует учитывать отдельно."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Jorah Mormont",
+          "ref": "person:jorah-mormont"
+        },
+        {
+          "label": "Yunkai",
+          "ref": "place:yunkai"
+        },
+        {
+          "label": "Battle near Yunkai",
+          "ref": "event:battle-near-yunkai"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Storm of Swords · Daenerys IV (Chapter 42)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_42",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "asos",
+          "chapterNo": 42
+        }
+      ]
+    },
+    {
+      "ref": "person:davos-seaworth",
+      "kind": "person",
+      "name": "Davos Seaworth",
+      "nameRu": "Давос Сиворт",
+      "subtitle": "Ключевой указатель · 2 романа",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Wiki of Ice and Fire (AWOIAF): вторичные указатели глав; первичная сверка по изданию ожидается.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Dance_with_Dragons-Chapter_9",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "adwd",
+        "chapterNo": 9
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Русское имя",
+          "value": "Рабочая передача для передачи в пакет; сверить с выбранным изданием владельца."
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "appears"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным русским изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный индекс AWOIAF; первичный текст выбранного издания не сверялся"
+        },
+        {
+          "label": "Локаторы по книгам и главам",
+          "value": "A Clash of Kings · Davos I (гл. 10); A Dance with Dragons · Davos I (гл. 9)"
+        }
+      ],
+      "sections": [
+        {
+          "title": "A Clash of Kings · A Clash of Kings · Davos I — Опорный срез",
+          "text": "В этой главе Станнис поручает Давосу распространять письмо о своей претензии на престол. Давос сомневается в доказательствах и предупреждает о неприятии новой веры."
+        },
+        {
+          "title": "A Dance with Dragons · A Dance with Dragons · Davos I (Chapter 9) — Опорный срез",
+          "text": "Его путь к Белой Гавани связывает решения Станниса с северной политикой."
+        }
+      ],
+      "links": [
+        {
+          "label": "Stannis Baratheon",
+          "ref": "person:stannis-baratheon"
+        },
+        {
+          "label": "Stannis Claims Iron Throne",
+          "ref": "event:stannis-claims-iron-throne"
+        },
+        {
+          "label": "Dragonstone",
+          "ref": "place:dragonstone"
+        },
+        {
+          "label": "House Baratheon",
+          "ref": "organization:house-baratheon"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings · Davos I (гл. 10)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_10",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 10
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Dance with Dragons · Davos I (гл. 9)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Dance_with_Dragons-Chapter_9",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "adwd",
+          "chapterNo": 9
+        }
+      ]
+    },
+    {
+      "ref": "person:doran-martell",
+      "kind": "person",
+      "name": "Doran Martell",
+      "nameRu": "Доран Мартелл",
+      "subtitle": "A Feast for Crows · The Captain of Guards (Chapter 2)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Feast for Crows, The Captain of Guards (Chapter 2); A Wiki of Ice and Fire (AWOIAF) numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Feast_for_Crows-Chapter_2",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "affc",
+        "chapterNo": 2
+      },
+      "facts": [
+        {
+          "label": "Локаторы",
+          "value": "A Feast for Crows, The Captain of Guards (Chapter 2)"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "appears"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным русским изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный индекс AWOIAF; первичный текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Правитель Дорна пытается удержать политическое равновесие, несмотря на давление сторонников мести."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Martell",
+          "ref": "organization:house-martell"
+        },
+        {
+          "label": "Myrcella Baratheon",
+          "ref": "person:myrcella-baratheon"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Feast for Crows, The Captain of Guards (Chapter 2)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Feast_for_Crows-Chapter_2",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "affc",
+          "chapterNo": 2
+        }
+      ]
+    },
+    {
+      "ref": "person:euron-greyjoy",
+      "kind": "person",
+      "name": "Euron Greyjoy",
+      "nameRu": "Эурон Грейджой",
+      "subtitle": "A Feast for Crows · The Drowned Man (Chapter 19)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Feast for Crows, The Drowned Man (Chapter 19); A Wiki of Ice and Fire (AWOIAF) numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Feast_for_Crows-Chapter_19",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "affc",
+        "chapterNo": 19
+      },
+      "facts": [
+        {
+          "label": "Локаторы",
+          "value": "A Feast for Crows, The Drowned Man (Chapter 19)"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "appears"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным русским изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный индекс AWOIAF; первичный текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Его возвращение меняет исход спора о наследовании; на собрании он предлагает кампанию за пределами островов."
+        }
+      ],
+      "links": [
+        {
+          "label": "Balon Greyjoy",
+          "ref": "person:balon-greyjoy"
+        },
+        {
+          "label": "House Greyjoy",
+          "ref": "organization:house-greyjoy"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Feast for Crows, The Drowned Man (Chapter 19)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Feast_for_Crows-Chapter_19",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "affc",
+          "chapterNo": 19
+        }
+      ]
+    },
+    {
+      "ref": "person:grey-worm",
+      "kind": "person",
+      "name": "Grey Worm",
+      "nameRu": "Серый Червь",
+      "subtitle": "A Storm of Swords · Daenerys IV (Chapter 42)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Daenerys IV (Chapter 42); later appearance in Daenerys VI (Chapter 71); A Wiki of Ice and Fire (AWOIAF) secondary chapter index; primary-edition verification pending",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_42",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 42
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "A Storm of Swords · Daenerys IV (Chapter 42)"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Роль в сцене",
+          "value": "военачальник Безупречных; участвует в обсуждении тактики у Юнкая"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; сверка по выбранному изданию и русскому переводу не проведена"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Командир Безупречных и участник военных решений Дейенерис."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Jorah Mormont",
+          "ref": "person:jorah-mormont"
+        },
+        {
+          "label": "Battle near Yunkai",
+          "ref": "event:battle-near-yunkai"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Storm of Swords · Daenerys IV (Chapter 42)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_42",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "asos",
+          "chapterNo": 42
+        }
+      ]
+    },
+    {
+      "ref": "person:hizdahr-zo-loraq",
+      "kind": "person",
+      "name": "Hizdahr zo Loraq",
+      "nameRu": "Хиздар зо Лорак",
+      "subtitle": "A Dance with Dragons · Daenerys II (Chapter 11)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Dance with Dragons, Daenerys II (Chapter 11); A Wiki of Ice and Fire (AWOIAF) numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Dance_with_Dragons-Chapter_11",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "adwd",
+        "chapterNo": 11
+      },
+      "facts": [
+        {
+          "label": "Локаторы",
+          "value": "A Dance with Dragons, Daenerys II (Chapter 11)"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "appears"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным русским изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный индекс AWOIAF; первичный текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Представляет знать Миэрина в переговорах о мире и бойцовских ямах."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Barristan Selmy",
+          "ref": "person:barristan-selmy"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Dance with Dragons, Daenerys II (Chapter 11)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Dance_with_Dragons-Chapter_11",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "adwd",
+          "chapterNo": 11
+        }
+      ]
+    },
+    {
+      "ref": "person:jaqen-hghar",
+      "kind": "person",
+      "name": "Jaqen H'ghar",
+      "nameRu": "Якен Хгар",
+      "subtitle": "A Clash of Kings · Arya IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Arya IV (chapter 14); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_14",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 14
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Arya IV, глава 14"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Русское имя",
+          "value": "Рабочая передача для передачи в пакет; сверить с выбранным изданием владельца."
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Якен — один из заключённых, которых Йорен везёт на Стену. Во время нападения на укрепление его повозка оказывается под угрозой огня, и он зовёт Арью на помощь."
+        }
+      ],
+      "links": [
+        {
+          "label": "Arya Stark",
+          "ref": "person:arya-stark"
+        },
+        {
+          "label": "Yoren",
+          "ref": "person:yoren"
+        },
+        {
+          "label": "Gendry",
+          "ref": "person:gendry"
+        },
+        {
+          "label": "Harrenhal",
+          "ref": "place:harrenhal"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "Arya IV, глава 14",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_14",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 14
+        }
+      ]
+    },
+    {
+      "ref": "person:jeyne-westerling",
+      "kind": "person",
+      "name": "Jeyne Westerling",
+      "nameRu": "Джейни Вестерлинг",
+      "subtitle": "A Storm of Swords · Catelyn II (Chapter 14)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Catelyn II (Chapter 14); A Wiki of Ice and Fire (AWOIAF) secondary chapter index; primary-edition verification pending",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_14",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 14
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "A Storm of Swords · Catelyn II (Chapter 14)"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Роль в сцене",
+          "value": "Робб представляет её Кейтилин как свою жену; брак нарушает прежнее соглашение со Фреями"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; сверка по выбранному изданию и русскому переводу не проведена"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Жена Робба Старка; сведения о ранении, знакомстве и причинах брака требуют отдельных главовых опор."
+        }
+      ],
+      "links": [
+        {
+          "label": "Robb Stark",
+          "ref": "person:robb-stark"
+        },
+        {
+          "label": "Catelyn Stark",
+          "ref": "person:catelyn-stark"
+        },
+        {
+          "label": "Riverrun",
+          "ref": "place:riverrun"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Storm of Swords · Catelyn II (Chapter 14)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_14",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "asos",
+          "chapterNo": 14
+        }
+      ]
+    },
+    {
+      "ref": "person:jojen-reed",
+      "kind": "person",
+      "name": "Jojen Reed",
+      "nameRu": "Жойен Рид",
+      "subtitle": "A Clash of Kings · Bran IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Bran IV (chapter 28); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_28",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 28
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Bran IV, глава 28"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Русское имя",
+          "value": "Рабочая передача для передачи в пакет; сверить с выбранным изданием владельца."
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Жойен рассказывает Брану о зелёных снах и сопоставляет их с видениями Брана. Разговор задаёт направление северной линии сюжета."
+        }
+      ],
+      "links": [
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "Meera Reed",
+          "ref": "person:meera-reed"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        },
+        {
+          "label": "Theon Captures Winterfell",
+          "ref": "event:theon-captures-winterfell"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "Bran IV, глава 28",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_28",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 28
+        }
+      ]
+    },
+    {
+      "ref": "person:jon-connington",
+      "kind": "person",
+      "name": "Jon Connington",
+      "nameRu": "Джон Коннингтон",
+      "subtitle": "A Dance with Dragons · The Griffin Reborn (Chapter 61)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Dance with Dragons, The Griffin Reborn (Chapter 61); A Wiki of Ice and Fire (AWOIAF) numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Dance_with_Dragons-Chapter_61",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "adwd",
+        "chapterNo": 61
+      },
+      "facts": [
+        {
+          "label": "Локаторы",
+          "value": "A Dance with Dragons, The Griffin Reborn (Chapter 61)"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "appears"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным русским изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный индекс AWOIAF; первичный текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Бывший лорд возвращается в Вестерос с Золотой Компанией и занимает Грифоний Насест."
+        }
+      ],
+      "links": [
+        {
+          "label": "Rhaegar Targaryen",
+          "ref": "person:rhaegar-targaryen"
+        },
+        {
+          "label": "Aerys II Targaryen",
+          "ref": "person:aerys-ii-targaryen"
+        },
+        {
+          "label": "Tywin Lannister",
+          "ref": "person:tywin-lannister"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Dance with Dragons, The Griffin Reborn (Chapter 61)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Dance_with_Dragons-Chapter_61",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "adwd",
+          "chapterNo": 61
+        }
+      ]
+    },
+    {
+      "ref": "person:meera-reed",
+      "kind": "person",
+      "name": "Meera Reed",
+      "nameRu": "Мира Рид",
+      "subtitle": "A Clash of Kings · Bran IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Bran IV (chapter 28); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_28",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 28
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Bran IV, глава 28"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Русское имя",
+          "value": "Рабочая передача для передачи в пакет; сверить с выбранным изданием владельца."
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Мира объясняет Брану способности брата и защищает Жойена, когда разговор обостряется. Она становится практичной опорой Ридов в Винтерфелле."
+        }
+      ],
+      "links": [
+        {
+          "label": "Bran Stark",
+          "ref": "person:bran-stark"
+        },
+        {
+          "label": "Jojen Reed",
+          "ref": "person:jojen-reed"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        },
+        {
+          "label": "Theon Captures Winterfell",
+          "ref": "event:theon-captures-winterfell"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "Bran IV, глава 28",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_28",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 28
+        }
+      ]
+    },
+    {
+      "ref": "person:melisandre",
+      "kind": "person",
+      "name": "Melisandre",
+      "nameRu": "Мелисандра",
+      "subtitle": "Ключевой указатель · 2 романа",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Wiki of Ice and Fire (AWOIAF): вторичные указатели глав; первичная сверка по изданию ожидается.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Dance_with_Dragons-Chapter_31",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "adwd",
+        "chapterNo": 31
+      },
+      "facts": [
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Русское имя",
+          "value": "Рабочая передача для передачи в пакет; сверить с выбранным изданием владельца."
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; текст выбранного издания не сверялся."
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "appears"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным русским изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный индекс AWOIAF; первичный текст выбранного издания не сверялся"
+        },
+        {
+          "label": "Локаторы по книгам и главам",
+          "value": "A Clash of Kings · Davos I (гл. 10); A Dance with Dragons · Melisandre (гл. 31)"
+        }
+      ],
+      "sections": [
+        {
+          "title": "A Clash of Kings · A Clash of Kings · Davos I — Опорный срез",
+          "text": "Жрица Рглора при Станнисе участвует в обряде на Драконьем Камне и становится частью политического курса короля. Давос воспринимает её как действенный, но тревожащий людей ресурс."
+        },
+        {
+          "title": "A Dance with Dragons · A Dance with Dragons · Melisandre (Chapter 31) — Опорный срез",
+          "text": "Её точка зрения раскрывает работу с видениями и влияние на решения у Стены."
+        }
+      ],
+      "links": [
+        {
+          "label": "Stannis Baratheon",
+          "ref": "person:stannis-baratheon"
+        },
+        {
+          "label": "Davos Seaworth",
+          "ref": "person:davos-seaworth"
+        },
+        {
+          "label": "Dragonstone",
+          "ref": "place:dragonstone"
+        },
+        {
+          "label": "Stannis Claims Iron Throne",
+          "ref": "event:stannis-claims-iron-throne"
+        },
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Clash of Kings · Davos I (гл. 10)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_10",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 10
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Dance with Dragons · Melisandre (гл. 31)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Dance_with_Dragons-Chapter_31",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "adwd",
+          "chapterNo": 31
+        }
+      ]
+    },
+    {
+      "ref": "person:missandei",
+      "kind": "person",
+      "name": "Missandei",
+      "nameRu": "Миссандея",
+      "subtitle": "A Storm of Swords · Daenerys III (Chapter 27)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Daenerys III (Chapter 27); A Wiki of Ice and Fire (AWOIAF) secondary chapter index; primary-edition verification pending",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_27",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 27
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "A Storm of Swords · Daenerys III (Chapter 27)"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Роль в сцене",
+          "value": "переводчица при сделке в Астапоре; Дейенерис освобождает её и берёт к себе"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; сверка по выбранному изданию и русскому переводу не проведена"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Переводчица и участница окружения Дейенерис."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Astapor",
+          "ref": "place:astapor"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Storm of Swords · Daenerys III (Chapter 27)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_27",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "asos",
+          "chapterNo": 27
+        }
+      ]
+    },
+    {
+      "ref": "person:oberyn-martell",
+      "kind": "person",
+      "name": "Oberyn Martell",
+      "nameRu": "Оберин Мартелл",
+      "subtitle": "A Storm of Swords · Tyrion V (Chapter 38)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Tyrion V (Chapter 38); A Wiki of Ice and Fire (AWOIAF) secondary chapter index; primary-edition verification pending",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_38",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 38
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "A Storm of Swords · Tyrion V (Chapter 38)"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Роль в сцене",
+          "value": "принц Дорна прибывает в Королевскую Гавань с делегацией и требует справедливости за смерть Элии"
+        },
+        {
+          "label": "Дополнительный локатор",
+          "value": "Tyrion X (Chapter 70), суд поединком"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; сверка по выбранному изданию и русскому переводу не проведена"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Принц Дорна, чья линия позднее пересекается с судом Тириона."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Tywin Lannister",
+          "ref": "person:tywin-lannister"
+        },
+        {
+          "label": "King's Landing",
+          "ref": "place:kings-landing"
+        },
+        {
+          "label": "Trial by combat",
+          "ref": "event:oberyn-dies-in-trial-by-combat"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Storm of Swords · Tyrion V (Chapter 38)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_38",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "asos",
+          "chapterNo": 38
+        }
+      ]
+    },
+    {
+      "ref": "person:pyat-pree",
+      "kind": "person",
+      "name": "Pyat Pree",
+      "nameRu": "Пиат Прей",
+      "subtitle": "A Clash of Kings · Daenerys IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Daenerys IV (chapter 48); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_48",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 48
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys IV, глава 48"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Русское имя",
+          "value": "Рабочая передача для передачи в пакет; сверить с выбранным изданием владельца."
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Пиат объясняет правила входа в Дом Бессмертных, а после выхода Дейенерис пытается напасть на неё."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Xaro Xhoan Daxos",
+          "ref": "person:xaro-xhoan-daxos"
+        },
+        {
+          "label": "Qarth",
+          "ref": "place:qarth"
+        },
+        {
+          "label": "Daenerys Enters The House Of The Undying",
+          "ref": "event:daenerys-enters-the-house-of-the-undying"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "Daenerys IV, глава 48",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_48",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 48
+        }
+      ]
+    },
+    {
+      "ref": "person:quentyn-martell",
+      "kind": "person",
+      "name": "Quentyn Martell",
+      "nameRu": "Квентин Мартелл",
+      "subtitle": "A Dance with Dragons · The Merchant’s Man (Chapter 6)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Dance with Dragons, The Merchant’s Man (Chapter 6); A Wiki of Ice and Fire (AWOIAF) numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Dance_with_Dragons-Chapter_6",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "adwd",
+        "chapterNo": 6
+      },
+      "facts": [
+        {
+          "label": "Локаторы",
+          "value": "A Dance with Dragons, The Merchant’s Man (Chapter 6)"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "appears"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным русским изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный индекс AWOIAF; первичный текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Принц Дорна отправляется к Дейенерис с династической миссией; его путь связывает Волантис и Миэрин."
+        }
+      ],
+      "links": [
+        {
+          "label": "House Martell",
+          "ref": "organization:house-martell"
+        },
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Dance with Dragons, The Merchant’s Man (Chapter 6)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Dance_with_Dragons-Chapter_6",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "adwd",
+          "chapterNo": 6
+        }
+      ]
+    },
+    {
+      "ref": "person:ramsay-snow",
+      "kind": "person",
+      "name": "Ramsay Snow",
+      "nameRu": "Рамси Сноу",
+      "subtitle": "A Clash of Kings · Theon VI",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Theon VI (chapter 66); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_66",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 66
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Theon VI, глава 66"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Русское имя",
+          "value": "Рабочая передача для передачи в пакет; сверить с выбранным изданием владельца."
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Во время осады Винтерфелла человек, известный Теону как Рик, раскрывает имя Рамси Сноу. После победы войск Дредфорта он приказывает сжечь замок."
+        }
+      ],
+      "links": [
+        {
+          "label": "Theon Greyjoy",
+          "ref": "person:theon-greyjoy"
+        },
+        {
+          "label": "Roose Bolton",
+          "ref": "person:roose-bolton"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        },
+        {
+          "label": "Sack Of Winterfell",
+          "ref": "event:sack-of-winterfell"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "Theon VI, глава 66",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_66",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 66
+        }
+      ]
+    },
+    {
+      "ref": "person:roslin-frey",
+      "kind": "person",
+      "name": "Roslin Frey",
+      "nameRu": "Розлин Фрей",
+      "subtitle": "A Storm of Swords · Catelyn VII (Chapter 51)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Storm of Swords, Catelyn VII (Chapter 51); A Wiki of Ice and Fire (AWOIAF) secondary chapter index; primary-edition verification pending",
+        "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_51",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "asos",
+        "chapterNo": 51
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "A Storm of Swords · Catelyn VII (Chapter 51)"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Роль в сцене",
+          "value": "невеста Эдмура на пиру в Близнецах; свадьба становится местом резни"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; сверка по выбранному изданию и русскому переводу не проведена"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Невеста Эдмура; не приписывать ей знание плана без отдельной поздней главы."
+        }
+      ],
+      "links": [
+        {
+          "label": "Edmure Tully",
+          "ref": "person:edmure-tully"
+        },
+        {
+          "label": "Walder Frey",
+          "ref": "person:walder-frey"
+        },
+        {
+          "label": "The Twins",
+          "ref": "place:the-twins"
+        },
+        {
+          "label": "Red Wedding",
+          "ref": "event:red-wedding"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Storm of Swords · Catelyn VII (Chapter 51)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_51",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "asos",
+          "chapterNo": 51
+        }
+      ]
+    },
+    {
+      "ref": "person:tormund-giantsbane",
+      "kind": "person",
+      "name": "Tormund Giantsbane",
+      "nameRu": "Тормунд Великанья Смерть",
+      "subtitle": "Ключевой указатель · 2 романа",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Wiki of Ice and Fire (AWOIAF): вторичные указатели глав; первичная сверка по изданию ожидается.",
+        "url": "https://awoiaf.westeros.org/index.php/A_Dance_with_Dragons-Chapter_69",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "adwd",
+        "chapterNo": 69
+      },
+      "facts": [
+        {
+          "label": "Статус в главе",
+          "value": "появляется"
+        },
+        {
+          "label": "Роль в сцене",
+          "value": "один из вождей свободного народа при Мансe; принимает участие в разговоре с Джоном"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "AWOIAF — вторичный указатель; сверка по выбранному изданию и русскому переводу не проведена"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "appears"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным русским изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный индекс AWOIAF; первичный текст выбранного издания не сверялся"
+        },
+        {
+          "label": "Локаторы по книгам и главам",
+          "value": "A Storm of Swords · Jon I (гл. 7); A Dance with Dragons · Jon XIII (гл. 69)"
+        }
+      ],
+      "sections": [
+        {
+          "title": "A Storm of Swords · A Storm of Swords · Jon I (Chapter 7) — Опорный срез",
+          "text": "Вождь свободного народа и важная фигура переговоров за Стеной."
+        },
+        {
+          "title": "A Dance with Dragons · A Dance with Dragons · Jon XIII (Chapter 69) — Опорный срез",
+          "text": "Участвует в плане спасения у Твердоместа и становится действующим союзником Джона."
+        }
+      ],
+      "links": [
+        {
+          "label": "Jon Snow",
+          "ref": "person:jon-snow"
+        },
+        {
+          "label": "Mance Rayder",
+          "ref": "person:mance-rayder"
+        },
+        {
+          "label": "Night’s Watch",
+          "ref": "organization:nights-watch"
+        },
+        {
+          "label": "The Wall",
+          "ref": "place:the-wall"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Storm of Swords · Jon I (гл. 7)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Storm_of_Swords-Chapter_7",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "asos",
+          "chapterNo": 7
+        },
+        {
+          "kind": "wiki",
+          "cite": "A Dance with Dragons · Jon XIII (гл. 69)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Dance_with_Dragons-Chapter_69",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "adwd",
+          "chapterNo": 69
+        }
+      ]
+    },
+    {
+      "ref": "person:victarion-greyjoy",
+      "kind": "person",
+      "name": "Victarion Greyjoy",
+      "nameRu": "Виктарион Грейджой",
+      "subtitle": "A Feast for Crows · The Iron Captain (Chapter 18)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Feast for Crows, The Iron Captain (Chapter 18); A Wiki of Ice and Fire (AWOIAF) numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Feast_for_Crows-Chapter_18",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "affc",
+        "chapterNo": 18
+      },
+      "facts": [
+        {
+          "label": "Локаторы",
+          "value": "A Feast for Crows, The Iron Captain (Chapter 18)"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "appears"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным русским изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный индекс AWOIAF; первичный текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Вступает в борьбу за власть на Железных островах и получает опасное поручение за морем."
+        }
+      ],
+      "links": [
+        {
+          "label": "Balon Greyjoy",
+          "ref": "person:balon-greyjoy"
+        },
+        {
+          "label": "Theon Greyjoy",
+          "ref": "person:theon-greyjoy"
+        },
+        {
+          "label": "House Greyjoy",
+          "ref": "organization:house-greyjoy"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Feast for Crows, The Iron Captain (Chapter 18)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Feast_for_Crows-Chapter_18",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "affc",
+          "chapterNo": 18
+        }
+      ]
+    },
+    {
+      "ref": "person:wyman-manderly",
+      "kind": "person",
+      "name": "Wyman Manderly",
+      "nameRu": "Уиман Мандерли",
+      "subtitle": "A Dance with Dragons · The Turncloak (Chapter 41)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Dance with Dragons, The Turncloak (Chapter 41); A Wiki of Ice and Fire (AWOIAF) numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Dance_with_Dragons-Chapter_41",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "adwd",
+        "chapterNo": 41
+      },
+      "facts": [
+        {
+          "label": "Локаторы",
+          "value": "A Dance with Dragons, The Turncloak (Chapter 41)"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "appears"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным русским изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный индекс AWOIAF; первичный текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "В Винтерфелле его публичные действия и скрытые интересы образуют важную линию северной политики."
+        }
+      ],
+      "links": [
+        {
+          "label": "Roose Bolton",
+          "ref": "person:roose-bolton"
+        },
+        {
+          "label": "Theon Greyjoy",
+          "ref": "person:theon-greyjoy"
+        },
+        {
+          "label": "Winterfell",
+          "ref": "place:winterfell"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Dance with Dragons, The Turncloak (Chapter 41)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Dance_with_Dragons-Chapter_41",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "adwd",
+          "chapterNo": 41
+        }
+      ]
+    },
+    {
+      "ref": "person:xaro-xhoan-daxos",
+      "kind": "person",
+      "name": "Xaro Xhoan Daxos",
+      "nameRu": "Ксаро Ксоан Даксос",
+      "subtitle": "A Clash of Kings · Daenerys IV",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Clash of Kings, Daenerys IV (chapter 48); A Wiki of Ice and Fire numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_48",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "acok",
+        "chapterNo": 48
+      },
+      "facts": [
+        {
+          "label": "Локатор",
+          "value": "Daenerys IV, глава 48"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P1"
+        },
+        {
+          "label": "Статус",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Русское имя",
+          "value": "Рабочая передача для передачи в пакет; сверить с выбранным изданием владельца."
+        },
+        {
+          "label": "Сверка",
+          "value": "Вторичный указатель AWOIAF; текст выбранного издания не сверялся."
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Ксаро сопровождает Дейенерис к Дому Бессмертных и убеждает её отказаться от входа. Позднее он оказывается рядом, когда она выходит из здания."
+        }
+      ],
+      "links": [
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "Jorah Mormont",
+          "ref": "person:jorah-mormont"
+        },
+        {
+          "label": "Pyat Pree",
+          "ref": "person:pyat-pree"
+        },
+        {
+          "label": "Qarth",
+          "ref": "place:qarth"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "Daenerys IV, глава 48",
+          "url": "https://awoiaf.westeros.org/index.php/A_Clash_of_Kings-Chapter_48",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "acok",
+          "chapterNo": 48
+        }
+      ]
+    },
+    {
+      "ref": "person:young-griff",
+      "kind": "person",
+      "name": "Young Griff",
+      "nameRu": "«Молодой Гриф»",
+      "subtitle": "A Dance with Dragons · Tyrion VI (Chapter 22)",
+      "source": {
+        "kind": "wiki",
+        "cite": "A Dance with Dragons, Tyrion VI (Chapter 22); A Wiki of Ice and Fire (AWOIAF) numeric chapter index (secondary; primary-edition verification pending)",
+        "url": "https://awoiaf.westeros.org/index.php/A_Dance_with_Dragons-Chapter_22",
+        "license": "CC-BY-SA-3.0",
+        "bookId": "adwd",
+        "chapterNo": 22
+      },
+      "facts": [
+        {
+          "label": "Локаторы",
+          "value": "A Dance with Dragons, Tyrion VI (Chapter 22)"
+        },
+        {
+          "label": "Статус карточки",
+          "value": "secondary-indexed-partial"
+        },
+        {
+          "label": "Приоритет",
+          "value": "P0"
+        },
+        {
+          "label": "Статус в главе",
+          "value": "заявленная персонажами идентичность; требует первичной сверки"
+        },
+        {
+          "label": "Русское имя",
+          "value": "рабочая передача; сверить с выбранным русским изданием"
+        },
+        {
+          "label": "Сверка",
+          "value": "вторичный индекс AWOIAF; первичный текст выбранного издания не сверялся"
+        }
+      ],
+      "sections": [
+        {
+          "title": "Опорный срез",
+          "text": "Тирион узнаёт о заявленном происхождении юноши и его притязании на Железный трон. Личность не объединять автоматически с имеющейся карточкой Эйгона."
+        }
+      ],
+      "links": [
+        {
+          "label": "Tyrion Lannister",
+          "ref": "person:tyrion-lannister"
+        },
+        {
+          "label": "Daenerys Targaryen",
+          "ref": "person:daenerys-targaryen"
+        },
+        {
+          "label": "House Targaryen",
+          "ref": "organization:house-targaryen"
+        }
+      ],
+      "sources": [
+        {
+          "kind": "wiki",
+          "cite": "A Dance with Dragons, Tyrion VI (Chapter 22)",
+          "url": "https://awoiaf.westeros.org/index.php/A_Dance_with_Dragons-Chapter_22",
+          "license": "CC-BY-SA-3.0",
+          "bookId": "adwd",
+          "chapterNo": 22
+        }
+      ]
+    }
+  ]
+}

@@ -1,16 +1,28 @@
-// Паспорта карт мира: content/maps/<id>.json — размер исходника, пирамида тайлов, калибровка миль.
-// Сами тайлы на диске (maps/tiles/<id>/), их отдаёт сервер стола; нарезает scripts/tile-map.py.
-import neverwinter from '../../content/maps/neverwinter.json';
-import toril from '../../content/maps/toril.json';
+// Паспорта карт приходят из поля maps манифестов setting-пакетов. Тайлы остаются на диске
+// (maps/tiles/<id>/), их отдаёт сервер стола; нарезает scripts/tile-map.py.
 import type { MapPassport } from './projection';
+import { mapsFromRegistry, settingPackageForMap } from '../packages/registry';
+import { DEFAULT_SETTING_PACKAGE } from '../packages/settings';
 
-export const MAPS: Readonly<Record<string, MapPassport>> = { toril, neverwinter: neverwinter as MapPassport };
+export const MAPS: Readonly<Record<string, MapPassport>> = mapsFromRegistry();
 
-/** План места (M10): паспорт, у которого plan.place — эта ссылка места справочника. */
-export const planOf = (placeRef: string | undefined): MapPassport | undefined =>
-  placeRef ? Object.values(MAPS).find(m => m.plan?.place === placeRef) : undefined;
+/** План места (M10) только из пакета активной кампании. */
+export const planOf = (
+  placeRef: string | undefined,
+  settingPackageId = DEFAULT_SETTING_PACKAGE,
+): MapPassport | undefined => placeRef
+  ? Object.values(MAPS).find(m => m.plan?.place === placeRef && settingPackageForMap(m.id)?.id === settingPackageId)
+  : undefined;
 
-export const mapById = (id: string | undefined): MapPassport | undefined => (id ? MAPS[id] : undefined);
+/** Карта доступна кампании только если её манифест принадлежит выбранному пакету. */
+export const mapById = (
+  id: string | undefined,
+  settingPackageId = DEFAULT_SETTING_PACKAGE,
+): MapPassport | undefined => {
+  if (!id) return undefined;
+  const passport = MAPS[id];
+  return passport && settingPackageForMap(id)?.id === settingPackageId ? passport : undefined;
+};
 
 /** Карты, у которых есть маска планеты (design/masks/<id>.json, src/map/planet.ts): уровень планеты — глобусом. Сама
  *  маска — в куске глобуса; список держит planet.test.ts. */
