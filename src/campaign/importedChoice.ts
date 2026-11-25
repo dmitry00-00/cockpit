@@ -219,7 +219,10 @@ export function importedChoicesOf(
       text: feature.text, options: availableOptions, allOptions,
       ...(!adapter.mixedOptionSources ? { source: adapter.source, ...(adapter.ruleset ? { ruleset: adapter.ruleset } : {}) } : {}),
       adapter,
-      sourceCells: sourceOptions.map(option => ({ id: option.id, ...('cell' in option && option.cell ? { cell: option.cell } : {}) })),
+      sourceCells: sourceOptions.map(option => ({
+        id: option.id,
+        ...('cell' in option && option.cell != null ? { cell: String(option.cell) } : {}),
+      })),
       ...(adapter.notes ? { notes: adapter.notes } : {}),
       ...(replacement ? { replacement } : {}),
       ...(selectionGroups ? { selectionGroups } : {}),

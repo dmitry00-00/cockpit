@@ -1,8 +1,9 @@
 ﻿# Ставит и преднастраивает DM Cockpit на этом компьютере с Windows. Ничего системного не трогает: всё — внутри
-# пакета (.tools\node — свой Node.js, если в системе нет >= 20; node_modules; dist; *.generated.*).
+# пакета: Node.js, зависимости и сборка лежат рядом с приложением; ярлыки — только в профиле пользователя.
 #   setup.cmd            Node.js → пакеты по package-lock (npm ci) → тема, иконки, dist\ → проверка, что стол отдаётся по http
 #   setup.cmd -Test      то же плюс полный прогон npm test (около минуты)
 #   setup.cmd -Update    сначала подтянуть свежий код из репозитория (git pull или архив с GitHub)
+#   setup.cmd -NoShortcut не создавать ярлыки на рабочем столе и в меню «Пуск»
 #   start.cmd            играть: доустановить, что изменилось, и открыть http://localhost:5180 в браузере
 #     -Lan               отдать стол и в локальную сеть — планшет мастера (F9) или экран игроков на другом устройстве
 #     -Dev               сервер разработки с горячей заменой вместо собранного dist\
@@ -16,11 +17,13 @@
 # Mac) тоже — scripts/setup.test.mjs сверяет обе.
 [CmdletBinding()]
 param(
+  [string]$Branch = '',
   [switch]$Start,
   [switch]$Lan,
   [switch]$Dev,
   [switch]$Test,
-  [switch]$Update
+  [switch]$Update,
+  [switch]$NoShortcut
 )
 
 $ErrorActionPreference = 'Continue'
@@ -35,6 +38,12 @@ $NodeSha256 = @{
   'win-arm64' = '8d540a7a1eeb3ff6681f516c47d786964b874acdaa4fd83338d6898bbb4f68a4'
 }
 $Repo = 'https://github.com/dmitry00-00/cockpit'
+$RepoBranch = if ($Branch.Trim()) { $Branch.Trim() } else { 'main' }
+$branchMarker = Join-Path $PSScriptRoot '.cockpit-branch'
+if (-not $Branch.Trim() -and (Test-Path $branchMarker)) {
+  $markerValue = (Get-Content -Path $branchMarker -Raw -ErrorAction SilentlyContinue).Trim()
+  if ($markerValue) { $RepoBranch = $markerValue }
+}
 $Port = 5180
 $SmokePort = 5181
 $Vite = 'node_modules/vite/bin/vite.js'
@@ -71,9 +80,10 @@ function Unzip([string]$zip, [string]$to) {
   Remove-Item -Recurse -Force $tmp
   return $true
 }
-function Fetch-Zip([string]$to) {
+function Fetch-Zip([string]$to, [string]$branch) {
   $zip = Join-Path ([IO.Path]::GetTempPath()) 'cockpit-main.zip'
-  if (-not (Fetch "$Repo/archive/refs/heads/main.zip" $zip)) { Remove-Item -Force $zip -ErrorAction SilentlyContinue; Fail "архив $Repo не скачался (нет сети?)" }
+  $archive = "$Repo/archive/refs/heads/$branch.zip"
+  if (-not (Fetch $archive $zip)) { Remove-Item -Force $zip -ErrorAction SilentlyContinue; Fail "архив $archive не скачался (нет сети?)" }
   if (-not (Unzip $zip $to)) { Remove-Item -Force $zip -ErrorAction SilentlyContinue; Fail 'архив не распаковался' }
   Remove-Item -Force $zip
 }
@@ -83,6 +93,34 @@ function Table-Up([int]$port) {
     return ($r.Content -like '*<title>DM Cockpit</title>*')
   } catch { return $false }
 }
+function Add-LaunchShortcuts {
+  if ($NoShortcut) { return }
+  $shell = $null
+  try {
+    $shell = New-Object -ComObject WScript.Shell -ErrorAction Stop
+  } catch {
+    Write-Host "ярлыки не созданы; запускайте start.cmd из $Root" -ForegroundColor Yellow
+    return
+  }
+  $desktop = [Environment]::GetFolderPath([System.Environment+SpecialFolder]::DesktopDirectory)
+  $programs = Join-Path $env:APPDATA 'Microsoft\Windows\Start Menu\Programs'
+  foreach ($directory in @($desktop, $programs)) {
+    if (-not $directory) { continue }
+    $path = Join-Path $directory 'DM Cockpit.lnk'
+    try {
+      New-Item -ItemType Directory -Force -Path $directory -ErrorAction Stop | Out-Null
+      $shortcut = $shell.CreateShortcut($path)
+      $shortcut.TargetPath = Join-Path $Root 'start.cmd'
+      $shortcut.WorkingDirectory = $Root
+      $shortcut.Description = 'Запустить DM Cockpit'
+      $shortcut.Save()
+      Write-Host "ярлык создан: $path"
+    } catch {
+      Write-Host "не удалось создать ярлык $path — запускайте start.cmd из $Root" -ForegroundColor Yellow
+    }
+  }
+  try { [Runtime.InteropServices.Marshal]::ReleaseComObject($shell) | Out-Null } catch { }
+}
 
 # 0. Пакет: запущен не из него — взять из репозитория и продолжить там (git — если есть, иначе архив).
 $Here = $PSScriptRoot
@@ -90,17 +128,20 @@ if (-not (In-Package $Here)) {
   $dest = if ($env:COCKPIT_DIR) { $env:COCKPIT_DIR } else { Join-Path $HOME 'cockpit' }
   if (-not (In-Package $dest)) {
     Step 'Пакет'
-    Write-Host "стола рядом нет — беру из $Repo в $dest"
+    Write-Host "стола рядом нет — беру ветку $RepoBranch из $Repo в $dest"
     $git = Get-Command git -ErrorAction SilentlyContinue
     if ($git) {
-      & $git.Source clone --quiet "$Repo.git" $dest
+      & $git.Source clone --quiet --single-branch --branch $RepoBranch "$Repo.git" $dest
       if ($LASTEXITCODE -ne 0) { Fail 'git clone не отработал (нет сети?)' }
     } else {
-      Fetch-Zip $dest
+      Fetch-Zip $dest $RepoBranch
     }
   }
   $forward = @()
-  foreach ($k in $PSBoundParameters.Keys) { $forward += "-$k" }
+  foreach ($k in $PSBoundParameters.Keys) {
+    if ($k -eq 'Branch') { $forward += @('-Branch', $Branch) }
+    else { $forward += "-$k" }
+  }
   & (Join-Path $dest 'setup.ps1') @forward
   exit $LASTEXITCODE
 }
@@ -110,6 +151,7 @@ $Tools = Join-Path $Root '.tools'
 
 # Быстрый путь: стол уже поднят — только браузер. Второй двойной клик не плодит второй сервер.
 if ($Start -and (Table-Up $Port)) {
+  Add-LaunchShortcuts
   Write-Host "стол уже работает на http://localhost:$Port/ — открываю браузер"
   Start-Process "http://localhost:$Port/"
   exit 0
@@ -123,7 +165,7 @@ if ($Update) {
     if ($LASTEXITCODE -ne 0) { Fail 'git pull не отработал (нет сети или локальные правки?)' }
   } else {
     $tmp = Join-Path ([IO.Path]::GetTempPath()) ('cockpit-update-' + [Guid]::NewGuid().ToString('N'))
-    Fetch-Zip $tmp
+    Fetch-Zip $tmp $RepoBranch
     Copy-Item -Path (Join-Path $tmp '*') -Destination $Root -Recurse -Force
     Remove-Item -Recurse -Force $tmp
     Write-Host "код обновлён из архива $Repo"
@@ -274,6 +316,7 @@ if ((Test-Path $roadsPng) -and (Test-Path $terrainPng) -and (Test-Path $pyT) -an
 }
 
 if ($Start) {
+  Add-LaunchShortcuts
   $hostArgs = @()
   if ($Lan) { $hostArgs = @('--host') }
   Write-Host ''
@@ -304,6 +347,7 @@ if (-not $ok) {
   Fail "стол не ответил на http://localhost:$SmokePort/ (порт занят? см. выше)"
 }
 Write-Host 'стол отдаётся по http — ок'
+Add-LaunchShortcuts
 
 if ($Test) {
   Step 'Тесты'
@@ -315,7 +359,8 @@ Write-Host @"
 
 Готово: Node.js, пакеты, сборка и проверка. Стол готов к игре — $Root
 
-  start.cmd            открыть стол: http://localhost:$Port — работает, пока открыто окно
+  ярлык DM Cockpit     открыть стол: http://localhost:$Port — работает, пока открыто окно
+  start.cmd            тоже запускает стол
   start.cmd -Lan       то же плюс доступ из локальной сети (планшет, второй экран); адрес покажет сервер
   setup.cmd -Update    подтянуть свежий код из $Repo
   setup.cmd -Test      полный прогон тестов (npm test)

@@ -486,7 +486,7 @@ export function gapsForRoute(
   return sortByPriority(candidates, scores, axis);
 }
 
-function distancePointToSegment(point: MapRouteStop, a: MapRouteStop, b: MapRouteStop): number {
+function distancePointToSegment(point: Pick<MapRouteStop, 'x' | 'y'>, a: MapRouteStop, b: MapRouteStop): number {
   const dx = b.x - a.x; const dy = b.y - a.y;
   const lengthSquared = dx * dx + dy * dy;
   if (lengthSquared === 0) return Math.hypot(point.x - a.x, point.y - a.y);

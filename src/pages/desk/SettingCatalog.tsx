@@ -1,15 +1,15 @@
 import { useEffect, useMemo, useState } from 'react';
-import { loadKind, refsOf, resolve, REFERENCE_KINDS, type EntityRef, type EntityView, type ReferenceKind } from '../../entities';
+import { KIND_LABEL, loadKind, refsOf, resolve, REFERENCE_KINDS, type EntityKind, type EntityRef, type EntityView, type ReferenceKind } from '../../entities';
 import { PACKAGE_REGISTRY, packageKindLabel } from '../../packages/registry';
 
 const INPUT = 'min-w-0 bg-wl px-2 py-1 type-body-sm text-tx shadow-bevel-in focus-visible:shadow-[var(--bevel-in),var(--glow-gold)]';
 const BTN = 'px-2 py-1 type-body-sm text-tx bg-linear-to-b from-pl to-cd shadow-bevel hover:text-gd-hi focus-visible:shadow-[var(--bevel),var(--glow-gold)]';
-const KIND_LABELS: Readonly<Partial<Record<ReferenceKind, string>>> = {
+const KIND_LABELS: Readonly<Partial<Record<EntityKind, string>>> = {
   person: 'Персонаж', place: 'Место', organization: 'Дом / организация', event: 'Событие', kingdom: 'Держава',
 };
 
-const kindLabel = (packageId: string, kind: ReferenceKind): string =>
-  packageKindLabel(packageId, kind) ?? KIND_LABELS[kind] ?? kind;
+const kindLabel = (packageId: string, kind: EntityKind): string =>
+  packageKindLabel(packageId, kind) ?? KIND_LABELS[kind] ?? KIND_LABEL[kind] ?? kind;
 
 function kindsFor(packageId: string): ReferenceKind[] {
   const manifest = PACKAGE_REGISTRY.find(item => item.id === packageId && item.kind === 'setting');

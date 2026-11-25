@@ -186,6 +186,7 @@ export function a5eLanguageTrainingStep(
   period: A5eDowntimePeriod,
   project: Pick<A5eLanguageTrainingProject['training'], 'requiredMonths' | 'completedMonths'>,
 ): A5eLanguageTrainingStep {
+  if (period === 'tenday') throw new RangeError('A5E Train language progress requires a full month, season, or year');
   const periodMonths = a5eTrainingPeriodMonths(period);
   if (!Number.isSafeInteger(project.requiredMonths) || project.requiredMonths < 1
     || !Number.isSafeInteger(project.completedMonths) || project.completedMonths < 0
@@ -298,7 +299,7 @@ export function a5eInformationCheckOutcome(total: number, dc: number): A5eInform
  */
 export function a5eDowntimeProjectStep(
   period: A5eDowntimePeriod,
-  project: Pick<A5eDowntimeProject, 'requiredWeeks' | 'completedWeeks'>,
+  project: Pick<A5eInformationProject, 'requiredWeeks' | 'completedWeeks'>,
   checkTotal?: number,
   dc?: number,
 ): A5eDowntimeProjectStep {
@@ -431,7 +432,7 @@ export function prepareA5eLanguageTrainingProject(
   }
   const projectId = training.projectId?.trim();
   if (!projectId) throw new RangeError('A5E language training needs a stable project id');
-  const base: A5eLanguageTrainingProject = existing ?? {
+  const base: Omit<A5eLanguageTrainingProject, 'lastStep'> = existing ?? {
     id: projectId,
     actorId: record.actorId,
     actorName: record.actorName,
